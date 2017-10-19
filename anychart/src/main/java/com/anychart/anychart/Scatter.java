@@ -28,8 +28,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args != null) ? var_args.generateJs() : "null"));
             js.setLength(0);
@@ -45,8 +43,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args1 != null) ? var_args1.generateJs() : "null"));
             js.setLength(0);
@@ -61,8 +57,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
-
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", Arrays.toString(var_args2)));
@@ -89,8 +83,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
-
-//        js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
@@ -127,8 +119,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -158,8 +148,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -191,8 +179,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble2" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -222,8 +208,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble3" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -255,8 +239,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble4" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -286,8 +268,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble5" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -319,8 +299,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble6" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -350,8 +328,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble7" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), csvSettings1));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), csvSettings1));
@@ -383,8 +359,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble8" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -414,8 +388,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble9" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -447,8 +419,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble10" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, csvSettings1));
             js.setLength(0);
@@ -478,8 +448,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble11" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -521,8 +489,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
 
-//        js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", crosshair));
             js.setLength(0);
@@ -549,8 +515,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
-
-//        js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
@@ -589,8 +553,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".crossing(%s)", crossing));
 
-//        js.append(String.format(Locale.US, ".crossing(%s)", crossing));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crossing(%s)", crossing));
             js.setLength(0);
@@ -618,8 +580,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
-
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
@@ -693,8 +653,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
             js.setLength(0);
@@ -722,8 +680,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
             js.setLength(0);
@@ -750,8 +706,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
@@ -789,8 +743,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hovered(%s)", hovered));
-
-//        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
@@ -830,8 +782,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".labels(%s)", labels));
 
-//        js.append(String.format(Locale.US, ".labels(%s)", labels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
             js.setLength(0);
@@ -858,8 +808,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
-//        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
@@ -896,8 +844,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
@@ -927,8 +873,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
@@ -960,8 +904,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
@@ -991,8 +933,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine3" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
@@ -1024,8 +964,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
             js.setLength(0);
@@ -1055,8 +993,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
@@ -1088,8 +1024,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
@@ -1119,8 +1053,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), csvSettings4));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data6), csvSettings4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), csvSettings4));
@@ -1152,8 +1084,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine8" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
@@ -1183,8 +1113,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine9" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
@@ -1216,8 +1144,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine10" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data7, csvSettings4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, csvSettings4));
             js.setLength(0);
@@ -1247,8 +1173,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine11" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
@@ -1298,8 +1222,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
 
-//        js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
             js.setLength(0);
@@ -1326,8 +1248,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
-
-//        js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
@@ -1360,8 +1280,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
 
-//        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
             js.setLength(0);
@@ -1389,8 +1307,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
-
-//        js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
@@ -1427,8 +1343,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
@@ -1458,8 +1372,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
@@ -1491,8 +1403,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
@@ -1522,8 +1432,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
@@ -1555,8 +1463,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
             js.setLength(0);
@@ -1586,8 +1492,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
@@ -1619,8 +1523,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
@@ -1650,8 +1552,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), csvSettings7));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data10), csvSettings7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), csvSettings7));
@@ -1683,8 +1583,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker8" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
@@ -1714,8 +1612,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker9" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
@@ -1747,8 +1643,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker10" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data11, csvSettings7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, csvSettings7));
             js.setLength(0);
@@ -1778,8 +1672,6 @@ public class Scatter extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker11" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
@@ -1823,8 +1715,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
             js.setLength(0);
@@ -1851,8 +1741,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
@@ -1881,8 +1769,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
             js.setLength(0);
@@ -1909,8 +1795,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
@@ -1941,8 +1825,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
 
-//        js.append(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
             js.setLength(0);
@@ -1969,8 +1851,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
-
-//        js.append(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
@@ -2001,8 +1881,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
 
-//        js.append(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
             js.setLength(0);
@@ -2029,8 +1907,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
-
-//        js.append(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
@@ -2068,8 +1944,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".normal(%s)", normal));
-
-//        js.append(String.format(Locale.US, ".normal(%s)", normal));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
@@ -2111,8 +1985,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
             js.setLength(0);
@@ -2139,8 +2011,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
@@ -2169,8 +2039,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", palette2));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", palette2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
             js.setLength(0);
@@ -2197,8 +2065,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
@@ -2236,8 +2102,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".quarters(%s)", quarters));
-
-//        js.append(String.format(Locale.US, ".quarters(%s)", quarters));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".quarters(%s)", quarters));
@@ -2285,8 +2149,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
 
-//        js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
             js.setLength(0);
@@ -2313,8 +2175,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
-
-//        js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
@@ -2347,8 +2207,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
 
-//        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
             js.setLength(0);
@@ -2376,8 +2234,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
-
-//        js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
@@ -2408,8 +2264,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
 
-//        js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id2));
             js.setLength(0);
@@ -2436,8 +2290,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
-
-//        js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id3));
@@ -2466,8 +2318,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
-
-//        js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
@@ -2505,8 +2355,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selected(%s)", selected));
-
-//        js.append(String.format(Locale.US, ".selected(%s)", selected));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
@@ -2554,8 +2402,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
 
-//        js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", textMarker));
             js.setLength(0);
@@ -2582,8 +2428,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
-
-//        js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b)", textMarker1));
@@ -2616,8 +2460,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
 
-//        js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
             js.setLength(0);
@@ -2645,8 +2487,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
-
-//        js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
@@ -2694,8 +2534,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
 
-//        js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", xAxis));
             js.setLength(0);
@@ -2722,8 +2560,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
-
-//        js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
@@ -2756,8 +2592,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
 
-//        js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
             js.setLength(0);
@@ -2785,8 +2619,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
-
-//        js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
@@ -2834,8 +2666,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
 
-//        js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", xGrid));
             js.setLength(0);
@@ -2862,8 +2692,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
-
-//        js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b)", xGrid1));
@@ -2896,8 +2724,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
 
-//        js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
             js.setLength(0);
@@ -2925,8 +2751,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
-
-//        js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
@@ -2974,8 +2798,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
 
-//        js.append(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
             js.setLength(0);
@@ -3002,8 +2824,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
-
-//        js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
@@ -3036,8 +2856,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
 
-//        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
             js.setLength(0);
@@ -3065,8 +2883,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
-
-//        js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
@@ -3108,8 +2924,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", xScale));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
             js.setLength(0);
@@ -3137,8 +2951,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
             js.setLength(0);
@@ -3165,8 +2977,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
@@ -3214,8 +3024,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
 
-//        js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", yAxis));
             js.setLength(0);
@@ -3242,8 +3050,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
-
-//        js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b)", yAxis1));
@@ -3276,8 +3082,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
 
-//        js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
             js.setLength(0);
@@ -3305,8 +3109,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
-
-//        js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
@@ -3354,8 +3156,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
 
-//        js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", yGrid));
             js.setLength(0);
@@ -3382,8 +3182,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
-
-//        js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b)", yGrid1));
@@ -3416,8 +3214,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
 
-//        js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
             js.setLength(0);
@@ -3445,8 +3241,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
-
-//        js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
@@ -3494,8 +3288,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
 
-//        js.append(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
             js.setLength(0);
@@ -3522,8 +3314,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
-
-//        js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
@@ -3556,8 +3346,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
 
-//        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
             js.setLength(0);
@@ -3585,8 +3373,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
-
-//        js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
@@ -3628,8 +3414,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", yScale));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", yScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale));
             js.setLength(0);
@@ -3657,8 +3441,6 @@ public class Scatter extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
             js.setLength(0);
@@ -3685,8 +3467,6 @@ public class Scatter extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
@@ -4161,6 +3941,7 @@ public class Scatter extends SeparateChart {
         js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

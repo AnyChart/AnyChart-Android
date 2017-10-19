@@ -27,8 +27,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".angles(%s)", Arrays.toString(angles)));
 
-//        js.append(String.format(Locale.US, ".angles(%s)", Arrays.toString(angles)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".angles(%s)", Arrays.toString(angles)));
             js.setLength(0);
@@ -56,8 +54,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".anglesCount(%f)", anglesCount));
-
-//        js.append(String.format(Locale.US, ".anglesCount(%f)", anglesCount));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".anglesCount(%f)", anglesCount));
@@ -97,8 +93,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".colorRange(%s)", colorRange));
 
-//        js.append(String.format(Locale.US, ".colorRange(%s)", colorRange));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorRange(%s)", colorRange));
             js.setLength(0);
@@ -125,8 +119,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".colorRange(%b)", colorRange1));
-
-//        js.append(String.format(Locale.US, ".colorRange(%b)", colorRange1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorRange(%b)", colorRange1));
@@ -169,8 +161,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale != null) ? colorScale.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale != null) ? colorScale.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", (colorScale != null) ? colorScale.generateJs() : "null"));
             js.setLength(0);
@@ -197,8 +187,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale1 != null) ? colorScale1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale1 != null) ? colorScale1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", (colorScale1 != null) ? colorScale1.generateJs() : "null"));
@@ -227,8 +215,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".colorScale(%s)", colorScale2));
 
-//        js.append(String.format(Locale.US, ".colorScale(%s)", colorScale2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", colorScale2));
             js.setLength(0);
@@ -255,8 +241,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale3 != null) ? colorScale3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale3 != null) ? colorScale3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", (colorScale3 != null) ? colorScale3.generateJs() : "null"));
@@ -303,8 +287,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings != null) ? settings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings != null) ? settings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings != null) ? settings.generateJs() : "null"));
             js.setLength(0);
@@ -332,8 +314,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", settings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", settings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", settings1));
@@ -363,8 +343,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
             js.setLength(0);
@@ -392,8 +370,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings != null) ? settings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings != null) ? settings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings != null) ? settings.generateJs() : "null"));
@@ -423,8 +399,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", settings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", settings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", settings1));
             js.setLength(0);
@@ -452,8 +426,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
@@ -483,8 +455,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings != null) ? settings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings != null) ? settings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings != null) ? settings.generateJs() : "null"));
             js.setLength(0);
@@ -512,8 +482,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), settings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), settings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), settings1));
@@ -543,8 +511,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings2 != null) ? settings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings2 != null) ? settings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings2 != null) ? settings2.generateJs() : "null"));
             js.setLength(0);
@@ -572,8 +538,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings != null) ? settings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings != null) ? settings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings != null) ? settings.generateJs() : "null"));
@@ -603,8 +567,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", settings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", settings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", settings1));
             js.setLength(0);
@@ -632,8 +594,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
@@ -663,8 +623,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data4, (settings != null) ? settings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (settings != null) ? settings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (settings != null) ? settings.generateJs() : "null"));
             js.setLength(0);
@@ -692,8 +650,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data4, settings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, settings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, settings1));
@@ -723,8 +679,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data4, (settings2 != null) ? settings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (settings2 != null) ? settings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (settings2 != null) ? settings2.generateJs() : "null"));
             js.setLength(0);
@@ -752,8 +706,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fromAngle(%f)", fromAngle));
-
-//        js.append(String.format(Locale.US, ".fromAngle(%f)", fromAngle));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fromAngle(%f)", fromAngle));
@@ -792,8 +744,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hover(%f)", index1));
 
-//        js.append(String.format(Locale.US, ".hover(%f)", index1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hover(%f)", index1));
             js.setLength(0);
@@ -820,8 +770,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hover(%s)", Arrays.toString(index2)));
-
-//        js.append(String.format(Locale.US, ".hover(%s)", Arrays.toString(index2)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hover(%s)", Arrays.toString(index2)));
@@ -860,8 +808,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hovered(%s)", hovered));
 
-//        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
             js.setLength(0);
@@ -891,8 +837,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
             js.setLength(0);
@@ -919,8 +863,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".mode(%s)", mode1));
-
-//        js.append(String.format(Locale.US, ".mode(%s)", mode1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", mode1));
@@ -958,8 +900,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".normal(%s)", normal));
-
-//        js.append(String.format(Locale.US, ".normal(%s)", normal));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
@@ -1001,8 +941,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
             js.setLength(0);
@@ -1029,8 +967,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
@@ -1059,8 +995,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", palette2));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", palette2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
             js.setLength(0);
@@ -1087,8 +1021,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
@@ -1130,8 +1062,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
             js.setLength(0);
@@ -1159,8 +1089,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".scale(%s)", scale1));
 
-//        js.append(String.format(Locale.US, ".scale(%s)", scale1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale1));
             js.setLength(0);
@@ -1187,8 +1115,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
@@ -1218,8 +1144,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".select(%f)", index3));
 
-//        js.append(String.format(Locale.US, ".select(%f)", index3));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".select(%f)", index3));
             js.setLength(0);
@@ -1247,8 +1171,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes)));
-
-//        js.append(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes)));
@@ -1287,8 +1209,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".selected(%s)", selected));
 
-//        js.append(String.format(Locale.US, ".selected(%s)", selected));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
             js.setLength(0);
@@ -1316,8 +1236,6 @@ public class TagCloud extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".textSpacing(%f)", textSpacing));
-
-//        js.append(String.format(Locale.US, ".textSpacing(%f)", textSpacing));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textSpacing(%f)", textSpacing));
@@ -1347,8 +1265,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".toAngle(%f)", toAngle));
 
-//        js.append(String.format(Locale.US, ".toAngle(%f)", toAngle));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".toAngle(%f)", toAngle));
             js.setLength(0);
@@ -1377,8 +1293,6 @@ public class TagCloud extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unselect(%f);", indexOrIndexes));
 
-//        js.append(String.format(Locale.US, jsBase + ".unselect(%f);", indexOrIndexes));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%f)", indexOrIndexes));
             js.setLength(0);
@@ -1393,8 +1307,6 @@ public class TagCloud extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unselect(%s);", Arrays.toString(indexOrIndexes1)));
-
-//        js.append(String.format(Locale.US, jsBase + ".unselect(%s);", Arrays.toString(indexOrIndexes1)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%s)", Arrays.toString(indexOrIndexes1)));
@@ -1530,6 +1442,7 @@ public class TagCloud extends SeparateChart {
         js.append(generateJSsetToAngle());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

@@ -28,8 +28,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args != null) ? var_args.generateJs() : "null"));
             js.setLength(0);
@@ -45,8 +43,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args1 != null) ? var_args1.generateJs() : "null"));
             js.setLength(0);
@@ -61,8 +57,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
-
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", Arrays.toString(var_args2)));
@@ -89,8 +83,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
-
-//        js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
@@ -126,8 +118,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -157,8 +147,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -190,8 +178,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setArea2" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -221,8 +207,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setArea3" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -254,8 +238,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setArea4" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -285,8 +267,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setArea5" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -318,8 +298,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setArea6" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -350,8 +328,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setArea7" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), csvSettings1));
             js.setLength(0);
@@ -381,8 +357,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setArea8" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -421,8 +395,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBar" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
@@ -452,8 +424,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBar1" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
-
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
@@ -485,8 +455,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBar2" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
@@ -516,8 +484,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBar3" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
@@ -549,8 +515,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBar4" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
             js.setLength(0);
@@ -580,8 +544,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBar5" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
@@ -613,8 +575,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBar6" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
@@ -644,8 +604,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBar7" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", Arrays.toString(data5), csvSettings4));
-
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", Arrays.toString(data5), csvSettings4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", Arrays.toString(data5), csvSettings4));
@@ -677,8 +635,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBar8" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
@@ -708,8 +664,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBar9" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
@@ -741,8 +695,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBar10" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", data6, csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", data6, csvSettings4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", data6, csvSettings4));
             js.setLength(0);
@@ -772,8 +724,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBar11" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
@@ -805,8 +755,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".barGroupsPadding(%f)", barGroupsPadding));
 
-//        js.append(String.format(Locale.US, ".barGroupsPadding(%f)", barGroupsPadding));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".barGroupsPadding(%f)", barGroupsPadding));
             js.setLength(0);
@@ -834,8 +782,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".barsPadding(%f)", barsPadding));
-
-//        js.append(String.format(Locale.US, ".barsPadding(%f)", barsPadding));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".barsPadding(%f)", barsPadding));
@@ -872,8 +818,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBox" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
@@ -903,8 +847,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBox1" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
-
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
@@ -936,8 +878,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBox2" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
@@ -967,8 +907,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBox3" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
@@ -1000,8 +938,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBox4" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
             js.setLength(0);
@@ -1031,8 +967,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBox5" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
@@ -1064,8 +998,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBox6" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
@@ -1095,8 +1027,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBox7" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", Arrays.toString(data9), csvSettings7));
-
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", Arrays.toString(data9), csvSettings7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", Arrays.toString(data9), csvSettings7));
@@ -1128,8 +1058,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBox8" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
@@ -1159,8 +1087,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBox9" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
@@ -1192,8 +1118,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBox10" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", data10, csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", data10, csvSettings7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", data10, csvSettings7));
             js.setLength(0);
@@ -1223,8 +1147,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBox11" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
@@ -1263,8 +1185,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data11 != null) ? data11.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
@@ -1294,8 +1214,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", csvSettings10));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", csvSettings10));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data11 != null) ? data11.generateJs() : "null", csvSettings10));
@@ -1327,8 +1245,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble2" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data11 != null) ? data11.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
@@ -1358,8 +1274,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble3" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data12 != null) ? data12.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
@@ -1391,8 +1305,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble4" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", csvSettings10));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data12 != null) ? data12.generateJs() : "null", csvSettings10));
             js.setLength(0);
@@ -1422,8 +1334,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble5" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data12 != null) ? data12.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
@@ -1455,8 +1365,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble6" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data13), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
@@ -1486,8 +1394,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble7" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data13), csvSettings10));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data13), csvSettings10));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data13), csvSettings10));
@@ -1519,8 +1425,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble8" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data13), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
@@ -1550,8 +1454,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble9" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data14, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data14, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data14, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
@@ -1583,8 +1485,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble10" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data14, csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data14, csvSettings10));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data14, csvSettings10));
             js.setLength(0);
@@ -1614,8 +1514,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble11" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data14, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data14, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data14, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
@@ -1654,8 +1552,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setCandlestick" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
             js.setLength(0);
@@ -1685,8 +1581,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setCandlestick1" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", csvSettings13));
-
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", csvSettings13));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data15 != null) ? data15.generateJs() : "null", csvSettings13));
@@ -1718,8 +1612,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setCandlestick2" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
             js.setLength(0);
@@ -1749,8 +1641,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setCandlestick3" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data16 != null) ? data16.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
@@ -1782,8 +1672,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setCandlestick4" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", csvSettings13));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", csvSettings13));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data16 != null) ? data16.generateJs() : "null", csvSettings13));
             js.setLength(0);
@@ -1813,8 +1701,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setCandlestick5" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data16 != null) ? data16.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
@@ -1846,8 +1732,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setCandlestick6" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", Arrays.toString(data17), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
             js.setLength(0);
@@ -1877,8 +1761,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setCandlestick7" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), csvSettings13));
-
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), csvSettings13));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", Arrays.toString(data17), csvSettings13));
@@ -1910,8 +1792,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setCandlestick8" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", Arrays.toString(data17), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
             js.setLength(0);
@@ -1941,8 +1821,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setCandlestick9" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", data18, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", data18, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", data18, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
@@ -1974,8 +1852,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setCandlestick10" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", data18, csvSettings13));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", data18, csvSettings13));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", data18, csvSettings13));
             js.setLength(0);
@@ -2005,8 +1881,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setCandlestick11" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", data18, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", data18, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", data18, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
@@ -2045,8 +1919,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data19 != null) ? data19.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
             js.setLength(0);
@@ -2076,8 +1948,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", csvSettings16));
-
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", csvSettings16));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data19 != null) ? data19.generateJs() : "null", csvSettings16));
@@ -2109,8 +1979,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setColumn2" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data19 != null) ? data19.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
             js.setLength(0);
@@ -2140,8 +2008,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setColumn3" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data20 != null) ? data20.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
@@ -2173,8 +2039,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setColumn4" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", csvSettings16));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", csvSettings16));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data20 != null) ? data20.generateJs() : "null", csvSettings16));
             js.setLength(0);
@@ -2204,8 +2068,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setColumn5" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data20 != null) ? data20.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
@@ -2237,8 +2099,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setColumn6" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data21), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
             js.setLength(0);
@@ -2268,8 +2128,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setColumn7" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data21), csvSettings16));
-
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data21), csvSettings16));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data21), csvSettings16));
@@ -2301,8 +2159,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setColumn8" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data21), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
             js.setLength(0);
@@ -2332,8 +2188,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setColumn9" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data22, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data22, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data22, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
@@ -2365,8 +2219,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setColumn10" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data22, csvSettings16));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data22, csvSettings16));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data22, csvSettings16));
             js.setLength(0);
@@ -2396,8 +2248,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setColumn11" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data22, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data22, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data22, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
@@ -2439,8 +2289,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
 
-//        js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", crosshair));
             js.setLength(0);
@@ -2467,8 +2315,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
-
-//        js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
@@ -2509,8 +2355,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s)", (data23 != null) ? data23.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s)", (data23 != null) ? data23.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s)", (data23 != null) ? data23.generateJs() : "null"));
             js.setLength(0);
@@ -2538,8 +2382,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s)", (data24 != null) ? data24.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s)", (data24 != null) ? data24.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s)", (data24 != null) ? data24.generateJs() : "null"));
             js.setLength(0);
@@ -2566,8 +2408,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s)", Arrays.toString(data25)));
-
-//        js.append(String.format(Locale.US, ".data(%s)", Arrays.toString(data25)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s)", Arrays.toString(data25)));
@@ -2598,8 +2438,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
             js.setLength(0);
@@ -2626,8 +2464,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
-
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
@@ -2701,8 +2537,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
             js.setLength(0);
@@ -2730,8 +2564,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
             js.setLength(0);
@@ -2758,8 +2590,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
@@ -2796,8 +2626,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data26 != null) ? data26.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
             js.setLength(0);
@@ -2827,8 +2655,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setHilo1" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", csvSettings19));
-
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", csvSettings19));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data26 != null) ? data26.generateJs() : "null", csvSettings19));
@@ -2860,8 +2686,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setHilo2" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data26 != null) ? data26.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
             js.setLength(0);
@@ -2891,8 +2715,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setHilo3" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data27 != null) ? data27.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
@@ -2924,8 +2746,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setHilo4" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", csvSettings19));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", csvSettings19));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data27 != null) ? data27.generateJs() : "null", csvSettings19));
             js.setLength(0);
@@ -2955,8 +2775,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setHilo5" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data27 != null) ? data27.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
@@ -2988,8 +2806,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setHilo6" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", Arrays.toString(data28), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
             js.setLength(0);
@@ -3019,8 +2835,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setHilo7" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", Arrays.toString(data28), csvSettings19));
-
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", Arrays.toString(data28), csvSettings19));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", Arrays.toString(data28), csvSettings19));
@@ -3052,8 +2866,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setHilo8" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", Arrays.toString(data28), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
             js.setLength(0);
@@ -3083,8 +2895,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setHilo9" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", data29, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", data29, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", data29, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
@@ -3116,8 +2926,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setHilo10" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", data29, csvSettings19));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", data29, csvSettings19));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", data29, csvSettings19));
             js.setLength(0);
@@ -3147,8 +2955,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setHilo11" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", data29, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", data29, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", data29, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
@@ -3189,8 +2995,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hovered(%s)", hovered));
 
-//        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
             js.setLength(0);
@@ -3218,8 +3022,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".isVertical(%b)", isVertical));
-
-//        js.append(String.format(Locale.US, ".isVertical(%b)", isVertical));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".isVertical(%b)", isVertical));
@@ -3256,8 +3058,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setJumpLine" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data30 != null) ? data30.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
             js.setLength(0);
@@ -3287,8 +3087,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setJumpLine1" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", csvSettings22));
-
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", csvSettings22));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data30 != null) ? data30.generateJs() : "null", csvSettings22));
@@ -3320,8 +3118,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setJumpLine2" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data30 != null) ? data30.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
             js.setLength(0);
@@ -3351,8 +3147,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setJumpLine3" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data31 != null) ? data31.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
@@ -3384,8 +3178,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setJumpLine4" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", csvSettings22));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", csvSettings22));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data31 != null) ? data31.generateJs() : "null", csvSettings22));
             js.setLength(0);
@@ -3415,8 +3207,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setJumpLine5" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data31 != null) ? data31.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
@@ -3448,8 +3238,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setJumpLine6" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", Arrays.toString(data32), (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
             js.setLength(0);
@@ -3479,8 +3267,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setJumpLine7" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), csvSettings22));
-
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), csvSettings22));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", Arrays.toString(data32), csvSettings22));
@@ -3512,8 +3298,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setJumpLine8" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", Arrays.toString(data32), (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
             js.setLength(0);
@@ -3543,8 +3327,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setJumpLine9" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", data33, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", data33, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", data33, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
@@ -3576,8 +3358,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setJumpLine10" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", data33, csvSettings22));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", data33, csvSettings22));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", data33, csvSettings22));
             js.setLength(0);
@@ -3607,8 +3387,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setJumpLine11" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", data33, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", data33, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", data33, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
@@ -3650,8 +3428,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".labels(%s)", labels));
 
-//        js.append(String.format(Locale.US, ".labels(%s)", labels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
             js.setLength(0);
@@ -3678,8 +3454,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
-//        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
@@ -3716,8 +3490,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data34 != null) ? data34.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
             js.setLength(0);
@@ -3747,8 +3519,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", csvSettings25));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", csvSettings25));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data34 != null) ? data34.generateJs() : "null", csvSettings25));
@@ -3780,8 +3550,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data34 != null) ? data34.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
             js.setLength(0);
@@ -3811,8 +3579,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine3" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data35 != null) ? data35.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
@@ -3844,8 +3610,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", csvSettings25));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", csvSettings25));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data35 != null) ? data35.generateJs() : "null", csvSettings25));
             js.setLength(0);
@@ -3875,8 +3639,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data35 != null) ? data35.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
@@ -3908,8 +3670,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data36), (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
             js.setLength(0);
@@ -3939,8 +3699,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data36), csvSettings25));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data36), csvSettings25));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data36), csvSettings25));
@@ -3972,8 +3730,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine8" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data36), (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
             js.setLength(0);
@@ -4003,8 +3759,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine9" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data37, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data37, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data37, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
@@ -4036,8 +3790,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLine10" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data37, csvSettings25));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data37, csvSettings25));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data37, csvSettings25));
             js.setLength(0);
@@ -4067,8 +3819,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine11" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data37, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data37, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data37, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
@@ -4118,8 +3868,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
 
-//        js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
             js.setLength(0);
@@ -4146,8 +3894,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
-
-//        js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
@@ -4180,8 +3926,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
 
-//        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
             js.setLength(0);
@@ -4209,8 +3953,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
-
-//        js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
@@ -4247,8 +3989,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data38 != null) ? data38.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
             js.setLength(0);
@@ -4278,8 +4018,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", csvSettings28));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", csvSettings28));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data38 != null) ? data38.generateJs() : "null", csvSettings28));
@@ -4311,8 +4049,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data38 != null) ? data38.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
             js.setLength(0);
@@ -4342,8 +4078,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data39 != null) ? data39.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
@@ -4375,8 +4109,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", csvSettings28));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", csvSettings28));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data39 != null) ? data39.generateJs() : "null", csvSettings28));
             js.setLength(0);
@@ -4406,8 +4138,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data39 != null) ? data39.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
@@ -4439,8 +4169,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data40), (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
             js.setLength(0);
@@ -4470,8 +4198,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data40), csvSettings28));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data40), csvSettings28));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data40), csvSettings28));
@@ -4503,8 +4229,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker8" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data40), (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
             js.setLength(0);
@@ -4534,8 +4258,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker9" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data41, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data41, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data41, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
@@ -4567,8 +4289,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker10" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data41, csvSettings28));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data41, csvSettings28));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data41, csvSettings28));
             js.setLength(0);
@@ -4598,8 +4318,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker11" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data41, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data41, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data41, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
@@ -4643,8 +4361,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
             js.setLength(0);
@@ -4671,8 +4387,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
@@ -4701,8 +4415,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
             js.setLength(0);
@@ -4729,8 +4441,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
@@ -4761,8 +4471,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
 
-//        js.append(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
             js.setLength(0);
@@ -4789,8 +4497,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
-
-//        js.append(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
@@ -4821,8 +4527,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
 
-//        js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
             js.setLength(0);
@@ -4849,8 +4553,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
-
-//        js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
@@ -4881,8 +4583,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
 
-//        js.append(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
             js.setLength(0);
@@ -4909,8 +4609,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
-
-//        js.append(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
@@ -4941,8 +4639,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
 
-//        js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
             js.setLength(0);
@@ -4969,8 +4665,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
-
-//        js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
@@ -5009,8 +4703,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".normal(%s)", normal));
 
-//        js.append(String.format(Locale.US, ".normal(%s)", normal));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
             js.setLength(0);
@@ -5046,8 +4738,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setOhlc" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data42 != null) ? data42.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
             js.setLength(0);
@@ -5077,8 +4767,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setOhlc1" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", csvSettings31));
-
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", csvSettings31));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data42 != null) ? data42.generateJs() : "null", csvSettings31));
@@ -5110,8 +4798,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setOhlc2" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data42 != null) ? data42.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
             js.setLength(0);
@@ -5141,8 +4827,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setOhlc3" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data43 != null) ? data43.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
@@ -5174,8 +4858,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setOhlc4" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", csvSettings31));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", csvSettings31));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data43 != null) ? data43.generateJs() : "null", csvSettings31));
             js.setLength(0);
@@ -5205,8 +4887,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setOhlc5" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data43 != null) ? data43.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
@@ -5238,8 +4918,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setOhlc6" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", Arrays.toString(data44), (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
             js.setLength(0);
@@ -5269,8 +4947,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setOhlc7" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), csvSettings31));
-
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), csvSettings31));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", Arrays.toString(data44), csvSettings31));
@@ -5302,8 +4978,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setOhlc8" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", Arrays.toString(data44), (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
             js.setLength(0);
@@ -5333,8 +5007,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setOhlc9" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", data45, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", data45, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", data45, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
@@ -5366,8 +5038,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setOhlc10" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", data45, csvSettings31));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", data45, csvSettings31));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", data45, csvSettings31));
             js.setLength(0);
@@ -5397,8 +5067,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setOhlc11" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", data45, (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", data45, (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", data45, (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
@@ -5442,8 +5110,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
             js.setLength(0);
@@ -5470,8 +5136,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
@@ -5500,8 +5164,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", palette2));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", palette2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
             js.setLength(0);
@@ -5528,8 +5190,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
@@ -5560,8 +5220,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
-//        js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
             js.setLength(0);
@@ -5588,8 +5246,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
-
-//        js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
@@ -5626,8 +5282,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeArea" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data46 != null) ? data46.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
             js.setLength(0);
@@ -5657,8 +5311,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeArea1" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", csvSettings34));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", csvSettings34));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data46 != null) ? data46.generateJs() : "null", csvSettings34));
@@ -5690,8 +5342,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeArea2" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data46 != null) ? data46.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
             js.setLength(0);
@@ -5721,8 +5371,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeArea3" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data47 != null) ? data47.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
@@ -5754,8 +5402,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeArea4" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", csvSettings34));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", csvSettings34));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data47 != null) ? data47.generateJs() : "null", csvSettings34));
             js.setLength(0);
@@ -5785,8 +5431,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeArea5" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data47 != null) ? data47.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
@@ -5818,8 +5462,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeArea6" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", Arrays.toString(data48), (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
             js.setLength(0);
@@ -5849,8 +5491,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeArea7" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), csvSettings34));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), csvSettings34));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", Arrays.toString(data48), csvSettings34));
@@ -5882,8 +5522,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeArea8" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", Arrays.toString(data48), (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
             js.setLength(0);
@@ -5913,8 +5551,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeArea9" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", data49, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", data49, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", data49, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
@@ -5946,8 +5582,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeArea10" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", data49, csvSettings34));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", data49, csvSettings34));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", data49, csvSettings34));
             js.setLength(0);
@@ -5977,8 +5611,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeArea11" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", data49, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", data49, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", data49, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
@@ -6017,8 +5649,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeBar" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data50 != null) ? data50.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
             js.setLength(0);
@@ -6048,8 +5678,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeBar1" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", csvSettings37));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", csvSettings37));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data50 != null) ? data50.generateJs() : "null", csvSettings37));
@@ -6081,8 +5709,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeBar2" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data50 != null) ? data50.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
             js.setLength(0);
@@ -6112,8 +5738,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeBar3" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data51 != null) ? data51.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
@@ -6145,8 +5769,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeBar4" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", csvSettings37));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", csvSettings37));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data51 != null) ? data51.generateJs() : "null", csvSettings37));
             js.setLength(0);
@@ -6176,8 +5798,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeBar5" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data51 != null) ? data51.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
@@ -6209,8 +5829,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeBar6" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", Arrays.toString(data52), (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
             js.setLength(0);
@@ -6240,8 +5858,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeBar7" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), csvSettings37));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), csvSettings37));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", Arrays.toString(data52), csvSettings37));
@@ -6273,8 +5889,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeBar8" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", Arrays.toString(data52), (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
             js.setLength(0);
@@ -6304,8 +5918,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeBar9" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", data53, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", data53, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", data53, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
@@ -6337,8 +5949,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeBar10" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", data53, csvSettings37));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", data53, csvSettings37));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", data53, csvSettings37));
             js.setLength(0);
@@ -6368,8 +5978,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeBar11" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", data53, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", data53, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", data53, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
@@ -6408,8 +6016,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data54 != null) ? data54.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
             js.setLength(0);
@@ -6439,8 +6045,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeColumn1" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", csvSettings40));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", csvSettings40));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data54 != null) ? data54.generateJs() : "null", csvSettings40));
@@ -6472,8 +6076,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeColumn2" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data54 != null) ? data54.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
             js.setLength(0);
@@ -6503,8 +6105,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeColumn3" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data55 != null) ? data55.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
@@ -6536,8 +6136,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeColumn4" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", csvSettings40));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", csvSettings40));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data55 != null) ? data55.generateJs() : "null", csvSettings40));
             js.setLength(0);
@@ -6567,8 +6165,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeColumn5" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data55 != null) ? data55.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
@@ -6600,8 +6196,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeColumn6" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data56), (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
             js.setLength(0);
@@ -6631,8 +6225,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeColumn7" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), csvSettings40));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), csvSettings40));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data56), csvSettings40));
@@ -6664,8 +6256,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeColumn8" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data56), (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
             js.setLength(0);
@@ -6695,8 +6285,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeColumn9" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data57, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
@@ -6728,8 +6316,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeColumn10" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data57, csvSettings40));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data57, csvSettings40));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data57, csvSettings40));
             js.setLength(0);
@@ -6759,8 +6345,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeColumn11" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data57, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
@@ -6810,8 +6394,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
 
-//        js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
             js.setLength(0);
@@ -6838,8 +6420,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
-
-//        js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
@@ -6872,8 +6452,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
 
-//        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
             js.setLength(0);
@@ -6901,8 +6479,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
-
-//        js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
@@ -6939,8 +6515,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data58 != null) ? data58.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
             js.setLength(0);
@@ -6970,8 +6544,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea1" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", csvSettings43));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", csvSettings43));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data58 != null) ? data58.generateJs() : "null", csvSettings43));
@@ -7003,8 +6575,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea2" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data58 != null) ? data58.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
             js.setLength(0);
@@ -7034,8 +6604,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea3" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data59 != null) ? data59.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
@@ -7067,8 +6635,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea4" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", csvSettings43));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", csvSettings43));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data59 != null) ? data59.generateJs() : "null", csvSettings43));
             js.setLength(0);
@@ -7098,8 +6664,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea5" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data59 != null) ? data59.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
@@ -7131,8 +6695,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea6" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", Arrays.toString(data60), (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
             js.setLength(0);
@@ -7162,8 +6724,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea7" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), csvSettings43));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), csvSettings43));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", Arrays.toString(data60), csvSettings43));
@@ -7195,8 +6755,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea8" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", Arrays.toString(data60), (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
             js.setLength(0);
@@ -7226,8 +6784,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea9" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", data61, (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
@@ -7259,8 +6815,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea10" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", data61, csvSettings43));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", data61, csvSettings43));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", data61, csvSettings43));
             js.setLength(0);
@@ -7290,8 +6844,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeSplineArea11" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", data61, (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
@@ -7330,8 +6882,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeStepArea" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data62 != null) ? data62.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
             js.setLength(0);
@@ -7361,8 +6911,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeStepArea1" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", csvSettings46));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", csvSettings46));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data62 != null) ? data62.generateJs() : "null", csvSettings46));
@@ -7394,8 +6942,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeStepArea2" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data62 != null) ? data62.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
             js.setLength(0);
@@ -7425,8 +6971,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeStepArea3" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data63 != null) ? data63.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
@@ -7458,8 +7002,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeStepArea4" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", csvSettings46));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", csvSettings46));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data63 != null) ? data63.generateJs() : "null", csvSettings46));
             js.setLength(0);
@@ -7489,8 +7031,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeStepArea5" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data63 != null) ? data63.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
@@ -7522,8 +7062,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeStepArea6" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", Arrays.toString(data64), (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
             js.setLength(0);
@@ -7553,8 +7091,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeStepArea7" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), csvSettings46));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), csvSettings46));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", Arrays.toString(data64), csvSettings46));
@@ -7586,8 +7122,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeStepArea8" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", Arrays.toString(data64), (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
             js.setLength(0);
@@ -7617,8 +7151,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeStepArea9" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", data65, (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
@@ -7650,8 +7182,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setRangeStepArea10" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", data65, csvSettings46));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", data65, csvSettings46));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", data65, csvSettings46));
             js.setLength(0);
@@ -7681,8 +7211,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setRangeStepArea11" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", data65, (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
@@ -7715,8 +7243,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
 
-//        js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id2));
             js.setLength(0);
@@ -7743,8 +7269,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
-
-//        js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id3));
@@ -7773,8 +7297,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
-
-//        js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
@@ -7813,8 +7335,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".selected(%s)", selected));
 
-//        js.append(String.format(Locale.US, ".selected(%s)", selected));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
             js.setLength(0);
@@ -7850,8 +7370,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSpline" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data66 != null) ? data66.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
             js.setLength(0);
@@ -7881,8 +7399,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSpline1" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", csvSettings49));
-
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", csvSettings49));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data66 != null) ? data66.generateJs() : "null", csvSettings49));
@@ -7914,8 +7430,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSpline2" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data66 != null) ? data66.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
             js.setLength(0);
@@ -7945,8 +7459,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSpline3" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data67 != null) ? data67.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
@@ -7978,8 +7490,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSpline4" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", csvSettings49));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", csvSettings49));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data67 != null) ? data67.generateJs() : "null", csvSettings49));
             js.setLength(0);
@@ -8009,8 +7519,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSpline5" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data67 != null) ? data67.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
@@ -8042,8 +7550,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSpline6" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", Arrays.toString(data68), (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
             js.setLength(0);
@@ -8073,8 +7579,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSpline7" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", Arrays.toString(data68), csvSettings49));
-
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", Arrays.toString(data68), csvSettings49));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", Arrays.toString(data68), csvSettings49));
@@ -8106,8 +7610,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSpline8" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", Arrays.toString(data68), (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
             js.setLength(0);
@@ -8137,8 +7639,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSpline9" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", data69, (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", data69, (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", data69, (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
@@ -8170,8 +7670,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSpline10" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", data69, csvSettings49));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", data69, csvSettings49));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", data69, csvSettings49));
             js.setLength(0);
@@ -8201,8 +7699,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSpline11" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", data69, (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", data69, (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", data69, (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
@@ -8241,8 +7737,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSplineArea" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data70 != null) ? data70.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
             js.setLength(0);
@@ -8272,8 +7766,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSplineArea1" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", csvSettings52));
-
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", csvSettings52));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data70 != null) ? data70.generateJs() : "null", csvSettings52));
@@ -8305,8 +7797,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSplineArea2" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data70 != null) ? data70.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
             js.setLength(0);
@@ -8336,8 +7826,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSplineArea3" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data71 != null) ? data71.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
@@ -8369,8 +7857,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSplineArea4" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", csvSettings52));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", csvSettings52));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data71 != null) ? data71.generateJs() : "null", csvSettings52));
             js.setLength(0);
@@ -8400,8 +7886,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSplineArea5" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data71 != null) ? data71.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
@@ -8433,8 +7917,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSplineArea6" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", Arrays.toString(data72), (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
             js.setLength(0);
@@ -8464,8 +7946,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSplineArea7" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), csvSettings52));
-
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), csvSettings52));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", Arrays.toString(data72), csvSettings52));
@@ -8497,8 +7977,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSplineArea8" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", Arrays.toString(data72), (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
             js.setLength(0);
@@ -8528,8 +8006,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSplineArea9" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", data73, (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", data73, (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", data73, (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
@@ -8561,8 +8037,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setSplineArea10" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", data73, csvSettings52));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", data73, csvSettings52));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", data73, csvSettings52));
             js.setLength(0);
@@ -8592,8 +8066,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setSplineArea11" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", data73, (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", data73, (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", data73, (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
@@ -8632,8 +8104,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepArea" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data74 != null) ? data74.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
             js.setLength(0);
@@ -8663,8 +8133,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepArea1" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", csvSettings55));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", csvSettings55));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data74 != null) ? data74.generateJs() : "null", csvSettings55));
@@ -8696,8 +8164,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepArea2" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data74 != null) ? data74.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
             js.setLength(0);
@@ -8727,8 +8193,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepArea3" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data75 != null) ? data75.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
@@ -8760,8 +8224,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepArea4" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", csvSettings55));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", csvSettings55));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data75 != null) ? data75.generateJs() : "null", csvSettings55));
             js.setLength(0);
@@ -8791,8 +8253,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepArea5" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data75 != null) ? data75.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
@@ -8824,8 +8284,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepArea6" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", Arrays.toString(data76), (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
             js.setLength(0);
@@ -8855,8 +8313,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepArea7" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), csvSettings55));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), csvSettings55));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", Arrays.toString(data76), csvSettings55));
@@ -8888,8 +8344,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepArea8" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", Arrays.toString(data76), (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
             js.setLength(0);
@@ -8919,8 +8373,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepArea9" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", data77, (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", data77, (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", data77, (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
@@ -8952,8 +8404,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepArea10" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", data77, csvSettings55));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", data77, csvSettings55));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", data77, csvSettings55));
             js.setLength(0);
@@ -8983,8 +8433,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepArea11" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", data77, (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", data77, (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", data77, (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
@@ -9023,8 +8471,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepLine" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data78 != null) ? data78.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
             js.setLength(0);
@@ -9054,8 +8500,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepLine1" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", csvSettings58));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", csvSettings58));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data78 != null) ? data78.generateJs() : "null", csvSettings58));
@@ -9087,8 +8531,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepLine2" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data78 != null) ? data78.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
             js.setLength(0);
@@ -9118,8 +8560,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepLine3" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data79 != null) ? data79.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
@@ -9151,8 +8591,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepLine4" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", csvSettings58));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", csvSettings58));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data79 != null) ? data79.generateJs() : "null", csvSettings58));
             js.setLength(0);
@@ -9182,8 +8620,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepLine5" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data79 != null) ? data79.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
@@ -9215,8 +8651,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepLine6" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", Arrays.toString(data80), (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
             js.setLength(0);
@@ -9246,8 +8680,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepLine7" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), csvSettings58));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), csvSettings58));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", Arrays.toString(data80), csvSettings58));
@@ -9279,8 +8711,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepLine8" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", Arrays.toString(data80), (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
             js.setLength(0);
@@ -9310,8 +8740,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepLine9" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", data81, (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", data81, (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", data81, (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
@@ -9343,8 +8771,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStepLine10" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", data81, csvSettings58));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", data81, csvSettings58));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", data81, csvSettings58));
             js.setLength(0);
@@ -9374,8 +8800,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStepLine11" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", data81, (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", data81, (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", data81, (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
@@ -9414,8 +8838,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStick" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data82 != null) ? data82.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
             js.setLength(0);
@@ -9445,8 +8867,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStick1" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", csvSettings61));
-
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", csvSettings61));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data82 != null) ? data82.generateJs() : "null", csvSettings61));
@@ -9478,8 +8898,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStick2" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data82 != null) ? data82.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
             js.setLength(0);
@@ -9509,8 +8927,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStick3" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data83 != null) ? data83.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
@@ -9542,8 +8958,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStick4" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", csvSettings61));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", csvSettings61));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data83 != null) ? data83.generateJs() : "null", csvSettings61));
             js.setLength(0);
@@ -9573,8 +8987,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStick5" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data83 != null) ? data83.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
@@ -9606,8 +9018,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStick6" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", Arrays.toString(data84), (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
             js.setLength(0);
@@ -9637,8 +9047,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStick7" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", Arrays.toString(data84), csvSettings61));
-
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", Arrays.toString(data84), csvSettings61));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", Arrays.toString(data84), csvSettings61));
@@ -9670,8 +9078,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStick8" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", Arrays.toString(data84), (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
             js.setLength(0);
@@ -9701,8 +9107,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStick9" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", data85, (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", data85, (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", data85, (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
@@ -9734,8 +9138,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setStick10" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", data85, csvSettings61));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", data85, csvSettings61));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", data85, csvSettings61));
             js.setLength(0);
@@ -9765,8 +9167,6 @@ public class Cartesian extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setStick11" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", data85, (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", data85, (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", data85, (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
@@ -9816,8 +9216,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
 
-//        js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", textMarker));
             js.setLength(0);
@@ -9844,8 +9242,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
-
-//        js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b)", textMarker1));
@@ -9878,8 +9274,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
 
-//        js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
             js.setLength(0);
@@ -9907,8 +9301,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
-
-//        js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
@@ -9956,8 +9348,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
 
-//        js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", xAxis));
             js.setLength(0);
@@ -9984,8 +9374,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
-
-//        js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
@@ -10018,8 +9406,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
 
-//        js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
             js.setLength(0);
@@ -10047,8 +9433,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
-
-//        js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
@@ -10096,8 +9480,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
 
-//        js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", xGrid));
             js.setLength(0);
@@ -10124,8 +9506,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
-
-//        js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b)", xGrid1));
@@ -10158,8 +9538,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
 
-//        js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
             js.setLength(0);
@@ -10187,8 +9565,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
-
-//        js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
@@ -10236,8 +9612,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
 
-//        js.append(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
             js.setLength(0);
@@ -10264,8 +9638,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
-
-//        js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
@@ -10298,8 +9670,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
 
-//        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
             js.setLength(0);
@@ -10327,8 +9697,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
-
-//        js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
@@ -10370,8 +9738,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", xScale));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
             js.setLength(0);
@@ -10399,8 +9765,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
             js.setLength(0);
@@ -10427,8 +9791,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
@@ -10468,8 +9830,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScroller(%s)", xScroller));
 
-//        js.append(String.format(Locale.US, ".xScroller(%s)", xScroller));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScroller(%s)", xScroller));
             js.setLength(0);
@@ -10496,8 +9856,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xScroller(%b)", xScroller1));
-
-//        js.append(String.format(Locale.US, ".xScroller(%b)", xScroller1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScroller(%b)", xScroller1));
@@ -10538,8 +9896,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xZoom(%f)", xZoom));
 
-//        js.append(String.format(Locale.US, ".xZoom(%f)", xZoom));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xZoom(%f)", xZoom));
             js.setLength(0);
@@ -10567,8 +9923,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xZoom(%b)", xZoom1));
 
-//        js.append(String.format(Locale.US, ".xZoom(%b)", xZoom1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xZoom(%b)", xZoom1));
             js.setLength(0);
@@ -10595,8 +9949,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xZoom(%s)", xZoom2));
-
-//        js.append(String.format(Locale.US, ".xZoom(%s)", xZoom2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xZoom(%s)", xZoom2));
@@ -10644,8 +9996,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
 
-//        js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", yAxis));
             js.setLength(0);
@@ -10672,8 +10022,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
-
-//        js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b)", yAxis1));
@@ -10706,8 +10054,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
 
-//        js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
             js.setLength(0);
@@ -10735,8 +10081,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
-
-//        js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
@@ -10784,8 +10128,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
 
-//        js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", yGrid));
             js.setLength(0);
@@ -10812,8 +10154,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
-
-//        js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b)", yGrid1));
@@ -10846,8 +10186,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
 
-//        js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
             js.setLength(0);
@@ -10875,8 +10213,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
-
-//        js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
@@ -10924,8 +10260,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
 
-//        js.append(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
             js.setLength(0);
@@ -10952,8 +10286,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
-
-//        js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
@@ -10986,8 +10318,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
 
-//        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
             js.setLength(0);
@@ -11015,8 +10345,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
-
-//        js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
@@ -11058,8 +10386,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", yScale));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", yScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale));
             js.setLength(0);
@@ -11087,8 +10413,6 @@ public class Cartesian extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
             js.setLength(0);
@@ -11115,8 +10439,6 @@ public class Cartesian extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
@@ -11828,6 +11150,7 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

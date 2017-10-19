@@ -1,9 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 // chart class
 public class Pert extends SeparateChart {
@@ -35,8 +34,6 @@ public class Pert extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".criticalPath(%s)", criticalPath));
-
-//        js.append(String.format(Locale.US, ".criticalPath(%s)", criticalPath));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".criticalPath(%s)", criticalPath));
@@ -82,8 +79,6 @@ public class Pert extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
             js.setLength(0);
@@ -112,8 +107,6 @@ public class Pert extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1, arrayToString(deps)));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1, arrayToString(deps)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1, arrayToString(deps)));
@@ -144,8 +137,6 @@ public class Pert extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
             js.setLength(0);
@@ -174,8 +165,6 @@ public class Pert extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1, arrayToString(deps)));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1, arrayToString(deps)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1, arrayToString(deps)));
@@ -206,8 +195,6 @@ public class Pert extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
             js.setLength(0);
@@ -236,8 +223,6 @@ public class Pert extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s, %s)", data2, fillMethod1, arrayToString(deps)));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s, %s)", data2, fillMethod1, arrayToString(deps)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", data2, fillMethod1, arrayToString(deps)));
@@ -268,8 +253,6 @@ public class Pert extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".horizontalSpacing(%f)", horizontalSpacing));
 
-//        js.append(String.format(Locale.US, ".horizontalSpacing(%f)", horizontalSpacing));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".horizontalSpacing(%f)", horizontalSpacing));
             js.setLength(0);
@@ -296,8 +279,6 @@ public class Pert extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".horizontalSpacing(%s)", horizontalSpacing1));
-
-//        js.append(String.format(Locale.US, ".horizontalSpacing(%s)", horizontalSpacing1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".horizontalSpacing(%s)", horizontalSpacing1));
@@ -336,8 +317,6 @@ public class Pert extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".milestones(%s)", milestones));
 
-//        js.append(String.format(Locale.US, ".milestones(%s)", milestones));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".milestones(%s)", milestones));
             js.setLength(0);
@@ -375,8 +354,6 @@ public class Pert extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".tasks(%s)", tasks));
 
-//        js.append(String.format(Locale.US, ".tasks(%s)", tasks));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".tasks(%s)", tasks));
             js.setLength(0);
@@ -406,8 +383,6 @@ public class Pert extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".verticalSpacing(%f)", verticalSpacing));
 
-//        js.append(String.format(Locale.US, ".verticalSpacing(%f)", verticalSpacing));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".verticalSpacing(%f)", verticalSpacing));
             js.setLength(0);
@@ -434,8 +409,6 @@ public class Pert extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".verticalSpacing(%s)", verticalSpacing1));
-
-//        js.append(String.format(Locale.US, ".verticalSpacing(%s)", verticalSpacing1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".verticalSpacing(%s)", verticalSpacing1));
@@ -508,6 +481,7 @@ public class Pert extends SeparateChart {
         js.append(generateJSsetVerticalSpacing1());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

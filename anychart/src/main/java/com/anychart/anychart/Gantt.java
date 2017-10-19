@@ -27,8 +27,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".collapseTask(%s)", taskId));
 
-//        js.append(String.format(Locale.US, ".collapseTask(%s)", taskId));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".collapseTask(%s)", taskId));
             js.setLength(0);
@@ -58,8 +56,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".columnStroke(%s)", (columnStroke != null) ? columnStroke.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".columnStroke(%s)", (columnStroke != null) ? columnStroke.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", (columnStroke != null) ? columnStroke.generateJs() : "null"));
             js.setLength(0);
@@ -86,8 +82,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".columnStroke(%s)", columnStroke1));
-
-//        js.append(String.format(Locale.US, ".columnStroke(%s)", columnStroke1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", columnStroke1));
@@ -131,8 +125,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
             js.setLength(0);
@@ -160,8 +152,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1));
@@ -191,8 +181,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
             js.setLength(0);
@@ -220,8 +208,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1));
@@ -251,8 +237,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null"));
             js.setLength(0);
@@ -280,8 +264,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data2, fillMethod1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data2, fillMethod1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data2, fillMethod1));
@@ -320,8 +302,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".dataGrid(%b)", enabled));
 
-//        js.append(String.format(Locale.US, ".dataGrid(%b)", enabled));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".dataGrid(%b)", enabled));
             js.setLength(0);
@@ -349,8 +329,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
-
-//        js.append(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
@@ -380,8 +358,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".editing(%b)", editing));
 
-//        js.append(String.format(Locale.US, ".editing(%b)", editing));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".editing(%b)", editing));
             js.setLength(0);
@@ -410,8 +386,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".expandTask(%s)", taskId1));
 
-//        js.append(String.format(Locale.US, ".expandTask(%s)", taskId1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".expandTask(%s)", taskId1));
             js.setLength(0);
@@ -439,8 +413,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fitToTask(%s)", taskId2));
-
-//        js.append(String.format(Locale.US, ".fitToTask(%s)", taskId2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fitToTask(%s)", taskId2));
@@ -480,8 +452,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".headerHeight(%f)", headerHeight));
 
-//        js.append(String.format(Locale.US, ".headerHeight(%f)", headerHeight));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".headerHeight(%f)", headerHeight));
             js.setLength(0);
@@ -508,8 +478,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".headerHeight(%s)", headerHeight1));
-
-//        js.append(String.format(Locale.US, ".headerHeight(%s)", headerHeight1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".headerHeight(%s)", headerHeight1));
@@ -538,8 +506,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowHoverFill(%s)", (rowHoverFill != null) ? rowHoverFill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".rowHoverFill(%s)", (rowHoverFill != null) ? rowHoverFill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s)", (rowHoverFill != null) ? rowHoverFill.generateJs() : "null"));
@@ -570,8 +536,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", color, opacity));
-
-//        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", color, opacity));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f)", color, opacity));
@@ -610,8 +574,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
@@ -641,8 +603,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
@@ -674,8 +634,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
@@ -705,8 +663,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
@@ -738,8 +694,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
             js.setLength(0);
@@ -769,8 +723,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
@@ -813,8 +765,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -848,8 +798,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -877,8 +825,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowSelectedFill(%s)", (rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".rowSelectedFill(%s)", (rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s)", (rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null"));
@@ -909,8 +855,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", color1, opacity3));
-
-//        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", color1, opacity3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f)", color1, opacity3));
@@ -949,8 +893,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
 
-//        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
             js.setLength(0);
@@ -980,8 +922,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
-
-//        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
@@ -1013,8 +953,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
 
-//        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
             js.setLength(0);
@@ -1044,8 +982,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
-
-//        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
@@ -1077,8 +1013,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
-//        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
             js.setLength(0);
@@ -1108,8 +1042,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
-
-//        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
@@ -1152,8 +1084,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
-//        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
             js.setLength(0);
@@ -1187,8 +1117,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
-//        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
             js.setLength(0);
@@ -1218,8 +1146,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rowStroke(%s)", (rowStroke != null) ? rowStroke.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".rowStroke(%s)", (rowStroke != null) ? rowStroke.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowStroke(%s)", (rowStroke != null) ? rowStroke.generateJs() : "null"));
             js.setLength(0);
@@ -1246,8 +1172,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rowStroke(%s)", rowStroke1));
-
-//        js.append(String.format(Locale.US, ".rowStroke(%s)", rowStroke1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rowStroke(%s)", rowStroke1));
@@ -1277,8 +1201,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".scrollTo(%f)", pxOffset));
 
-//        js.append(String.format(Locale.US, ".scrollTo(%f)", pxOffset));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scrollTo(%f)", pxOffset));
             js.setLength(0);
@@ -1307,8 +1229,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".scrollToEnd(%f)", index));
 
-//        js.append(String.format(Locale.US, ".scrollToEnd(%f)", index));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scrollToEnd(%f)", index));
             js.setLength(0);
@@ -1336,8 +1256,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".scrollToRow(%f)", rowIndex));
-
-//        js.append(String.format(Locale.US, ".scrollToRow(%f)", rowIndex));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scrollToRow(%f)", rowIndex));
@@ -1368,8 +1286,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".splitterPosition(%s)", splitterPosition));
 
-//        js.append(String.format(Locale.US, ".splitterPosition(%s)", splitterPosition));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".splitterPosition(%s)", splitterPosition));
             js.setLength(0);
@@ -1396,8 +1312,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".splitterPosition(%f)", splitterPosition1));
-
-//        js.append(String.format(Locale.US, ".splitterPosition(%f)", splitterPosition1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".splitterPosition(%f)", splitterPosition1));
@@ -1436,8 +1350,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", xScale));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
             js.setLength(0);
@@ -1466,8 +1378,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".zoomIn(%f)", zoomFactor));
 
-//        js.append(String.format(Locale.US, ".zoomIn(%f)", zoomFactor));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomIn(%f)", zoomFactor));
             js.setLength(0);
@@ -1495,8 +1405,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomOut(%f)", zoomFactor1));
-
-//        js.append(String.format(Locale.US, ".zoomOut(%f)", zoomFactor1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomOut(%f)", zoomFactor1));
@@ -1527,8 +1435,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomTo(%f, %f)", startDate, endDate));
-
-//        js.append(String.format(Locale.US, ".zoomTo(%f, %f)", startDate, endDate));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%f, %f)", startDate, endDate));
@@ -1564,8 +1470,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", (anchor != null) ? anchor.generateJs() : "null", count));
 
-//        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", (anchor != null) ? anchor.generateJs() : "null", count));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", (anchor != null) ? anchor.generateJs() : "null", count));
             js.setLength(0);
@@ -1594,8 +1498,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", anchor1, count));
-
-//        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", anchor1, count));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", anchor1, count));
@@ -1626,8 +1528,6 @@ public class Gantt extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, (anchor != null) ? anchor.generateJs() : "null", count));
 
-//        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, (anchor != null) ? anchor.generateJs() : "null", count));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, (anchor != null) ? anchor.generateJs() : "null", count));
             js.setLength(0);
@@ -1656,8 +1556,6 @@ public class Gantt extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, anchor1, count));
-
-//        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, anchor1, count));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, anchor1, count));
@@ -1768,6 +1666,7 @@ public class Gantt extends SeparateChart {
         js.append(generateJSsetZoomTo4());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

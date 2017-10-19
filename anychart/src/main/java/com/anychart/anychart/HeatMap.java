@@ -39,8 +39,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale != null) ? colorScale.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale != null) ? colorScale.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", (colorScale != null) ? colorScale.generateJs() : "null"));
             js.setLength(0);
@@ -68,8 +66,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".colorScale(%s)", colorScale1));
 
-//        js.append(String.format(Locale.US, ".colorScale(%s)", colorScale1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", colorScale1));
             js.setLength(0);
@@ -96,8 +92,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale2 != null) ? colorScale2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale2 != null) ? colorScale2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", (colorScale2 != null) ? colorScale2.generateJs() : "null"));
@@ -144,8 +138,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -173,8 +165,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -204,8 +194,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -233,8 +221,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -264,8 +250,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -293,8 +277,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -324,8 +306,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -353,8 +333,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
@@ -384,8 +362,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -413,8 +389,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -444,8 +418,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
             js.setLength(0);
@@ -473,8 +445,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -504,8 +474,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -533,8 +501,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings1));
@@ -564,8 +530,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -593,8 +557,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
@@ -625,8 +587,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
@@ -665,8 +625,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
@@ -696,8 +654,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
@@ -729,8 +685,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
@@ -760,8 +714,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
@@ -793,8 +745,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
             js.setLength(0);
@@ -824,8 +774,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
@@ -868,8 +816,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -902,8 +848,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
@@ -953,8 +897,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness, size));
             js.setLength(0);
@@ -984,8 +926,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness, size));
-
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness, size));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness, size));
@@ -1017,8 +957,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness, size));
             js.setLength(0);
@@ -1048,8 +986,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness, size));
-
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness, size));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness, size));
@@ -1081,8 +1017,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness, size));
             js.setLength(0);
@@ -1112,8 +1046,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hover(%f)", indexOrIndexes));
 
-//        js.append(String.format(Locale.US, ".hover(%f)", indexOrIndexes));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hover(%f)", indexOrIndexes));
             js.setLength(0);
@@ -1140,8 +1072,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hover(%s)", Arrays.toString(indexOrIndexes1)));
-
-//        js.append(String.format(Locale.US, ".hover(%s)", Arrays.toString(indexOrIndexes1)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hover(%s)", Arrays.toString(indexOrIndexes1)));
@@ -1179,8 +1109,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hovered(%s)", hovered));
-
-//        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
@@ -1220,8 +1148,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".labels(%s)", labels));
 
-//        js.append(String.format(Locale.US, ".labels(%s)", labels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
             js.setLength(0);
@@ -1248,8 +1174,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
-//        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
@@ -1280,8 +1204,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", (labelsDisplayMode != null) ? labelsDisplayMode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", (labelsDisplayMode != null) ? labelsDisplayMode.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labelsDisplayMode(%s)", (labelsDisplayMode != null) ? labelsDisplayMode.generateJs() : "null"));
             js.setLength(0);
@@ -1308,8 +1230,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", labelsDisplayMode1));
-
-//        js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", labelsDisplayMode1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labelsDisplayMode(%s)", labelsDisplayMode1));
@@ -1350,8 +1270,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markers(%s)", markers));
 
-//        js.append(String.format(Locale.US, ".markers(%s)", markers));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
             js.setLength(0);
@@ -1378,8 +1296,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markers(%b)", markers1));
-
-//        js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
@@ -1418,8 +1334,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".normal(%s)", normal));
 
-//        js.append(String.format(Locale.US, ".normal(%s)", normal));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
             js.setLength(0);
@@ -1449,8 +1363,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".select(%f)", indexOrIndexes2));
 
-//        js.append(String.format(Locale.US, ".select(%f)", indexOrIndexes2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".select(%f)", indexOrIndexes2));
             js.setLength(0);
@@ -1477,8 +1389,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".select(%s)", Arrays.toString(indexOrIndexes3)));
-
-//        js.append(String.format(Locale.US, ".select(%s)", Arrays.toString(indexOrIndexes3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".select(%s)", Arrays.toString(indexOrIndexes3)));
@@ -1516,8 +1426,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selected(%s)", selected));
-
-//        js.append(String.format(Locale.US, ".selected(%s)", selected));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
@@ -1557,8 +1465,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -1590,8 +1496,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -1622,8 +1526,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
@@ -1671,8 +1573,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
 
-//        js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", xAxis));
             js.setLength(0);
@@ -1699,8 +1599,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
-
-//        js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
@@ -1733,8 +1631,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index1));
 
-//        js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index1));
             js.setLength(0);
@@ -1762,8 +1658,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index1));
-
-//        js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index1));
@@ -1811,8 +1705,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
 
-//        js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", xGrid));
             js.setLength(0);
@@ -1839,8 +1731,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
-
-//        js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b)", xGrid1));
@@ -1873,8 +1763,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index3));
 
-//        js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index3));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index3));
             js.setLength(0);
@@ -1902,8 +1790,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index3));
-
-//        js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index3));
@@ -1944,8 +1830,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
             js.setLength(0);
@@ -1973,8 +1857,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", xScale1));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", xScale1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale1));
             js.setLength(0);
@@ -2001,8 +1883,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
@@ -2042,8 +1922,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScroller(%s)", xScroller));
 
-//        js.append(String.format(Locale.US, ".xScroller(%s)", xScroller));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScroller(%s)", xScroller));
             js.setLength(0);
@@ -2070,8 +1948,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xScroller(%b)", xScroller1));
-
-//        js.append(String.format(Locale.US, ".xScroller(%b)", xScroller1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScroller(%b)", xScroller1));
@@ -2112,8 +1988,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xZoom(%f)", xZoom));
 
-//        js.append(String.format(Locale.US, ".xZoom(%f)", xZoom));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xZoom(%f)", xZoom));
             js.setLength(0);
@@ -2141,8 +2015,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xZoom(%b)", xZoom1));
 
-//        js.append(String.format(Locale.US, ".xZoom(%b)", xZoom1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xZoom(%b)", xZoom1));
             js.setLength(0);
@@ -2169,8 +2041,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xZoom(%s)", xZoom2));
-
-//        js.append(String.format(Locale.US, ".xZoom(%s)", xZoom2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xZoom(%s)", xZoom2));
@@ -2218,8 +2088,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
 
-//        js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", yAxis));
             js.setLength(0);
@@ -2246,8 +2114,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
-
-//        js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b)", yAxis1));
@@ -2280,8 +2146,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index5));
 
-//        js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index5));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index5));
             js.setLength(0);
@@ -2309,8 +2173,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index5));
-
-//        js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index5));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index5));
@@ -2358,8 +2220,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
 
-//        js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", yGrid));
             js.setLength(0);
@@ -2386,8 +2246,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
-
-//        js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b)", yGrid1));
@@ -2420,8 +2278,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index7));
 
-//        js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index7));
             js.setLength(0);
@@ -2449,8 +2305,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index7));
-
-//        js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index7));
@@ -2491,8 +2345,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
             js.setLength(0);
@@ -2520,8 +2372,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
             js.setLength(0);
@@ -2548,8 +2398,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
@@ -2589,8 +2437,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScroller(%s)", yScroller));
 
-//        js.append(String.format(Locale.US, ".yScroller(%s)", yScroller));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScroller(%s)", yScroller));
             js.setLength(0);
@@ -2617,8 +2463,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yScroller(%b)", yScroller1));
-
-//        js.append(String.format(Locale.US, ".yScroller(%b)", yScroller1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScroller(%b)", yScroller1));
@@ -2659,8 +2503,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yZoom(%f)", yZoom));
 
-//        js.append(String.format(Locale.US, ".yZoom(%f)", yZoom));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yZoom(%f)", yZoom));
             js.setLength(0);
@@ -2688,8 +2530,6 @@ public class HeatMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yZoom(%b)", yZoom1));
 
-//        js.append(String.format(Locale.US, ".yZoom(%b)", yZoom1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yZoom(%b)", yZoom1));
             js.setLength(0);
@@ -2716,8 +2556,6 @@ public class HeatMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yZoom(%s)", yZoom2));
-
-//        js.append(String.format(Locale.US, ".yZoom(%s)", yZoom2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yZoom(%s)", yZoom2));
@@ -3022,6 +2860,7 @@ public class HeatMap extends SeparateChart {
         js.append(generateJSsetYZoom2());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

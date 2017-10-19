@@ -36,8 +36,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".activities(%s)", activities));
 
-//        js.append(String.format(Locale.US, ".activities(%s)", activities));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".activities(%s)", activities));
             js.setLength(0);
@@ -74,8 +72,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".calendar(%s)", calendar));
-
-//        js.append(String.format(Locale.US, ".calendar(%s)", calendar));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".calendar(%s)", calendar));
@@ -116,8 +112,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding)));
 
-//        js.append(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding)));
             js.setLength(0);
@@ -145,8 +139,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding1)));
 
-//        js.append(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding1)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding1)));
             js.setLength(0);
@@ -173,8 +165,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
@@ -214,8 +204,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", value, value2, value4, value6));
 
-//        js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", value, value2, value4, value6));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", value, value2, value4, value6));
             js.setLength(0);
@@ -245,8 +233,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
@@ -285,8 +271,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".conflicts(%s)", conflicts));
 
-//        js.append(String.format(Locale.US, ".conflicts(%s)", conflicts));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".conflicts(%s)", conflicts));
             js.setLength(0);
@@ -316,8 +300,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".currentStartDate(%f)", currentStartDate));
 
-//        js.append(String.format(Locale.US, ".currentStartDate(%f)", currentStartDate));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".currentStartDate(%f)", currentStartDate));
             js.setLength(0);
@@ -344,8 +326,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".currentStartDate(%s)", currentStartDate1));
-
-//        js.append(String.format(Locale.US, ".currentStartDate(%s)", currentStartDate1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".currentStartDate(%s)", currentStartDate1));
@@ -391,8 +371,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -420,8 +398,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -451,8 +427,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -480,8 +454,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -511,8 +483,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -540,8 +510,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -571,8 +539,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -600,8 +566,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
@@ -631,8 +595,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -660,8 +622,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -691,8 +651,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
             js.setLength(0);
@@ -721,8 +679,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -750,8 +706,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".defaultMinutesPerDay(%f)", defaultMinutesPerDay));
-
-//        js.append(String.format(Locale.US, ".defaultMinutesPerDay(%f)", defaultMinutesPerDay));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".defaultMinutesPerDay(%f)", defaultMinutesPerDay));
@@ -791,8 +745,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".grid(%s)", grid));
 
-//        js.append(String.format(Locale.US, ".grid(%s)", grid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".grid(%s)", grid));
             js.setLength(0);
@@ -819,8 +771,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".grid(%b)", grid1));
-
-//        js.append(String.format(Locale.US, ".grid(%b)", grid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".grid(%b)", grid1));
@@ -860,8 +810,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", horizontalScrollBar));
 
-//        js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", horizontalScrollBar));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".horizontalScrollBar(%s)", horizontalScrollBar));
             js.setLength(0);
@@ -888,8 +836,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".horizontalScrollBar(%b)", horizontalScrollBar1));
-
-//        js.append(String.format(Locale.US, ".horizontalScrollBar(%b)", horizontalScrollBar1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".horizontalScrollBar(%b)", horizontalScrollBar1));
@@ -921,8 +867,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".hover(%f, %f)", resourceIndex, activityIndex));
 
-//        js.append(String.format(Locale.US, ".hover(%f, %f)", resourceIndex, activityIndex));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hover(%f, %f)", resourceIndex, activityIndex));
             js.setLength(0);
@@ -950,8 +894,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hoverPoint(%f)", globalIndex));
-
-//        js.append(String.format(Locale.US, ".hoverPoint(%f)", globalIndex));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hoverPoint(%f)", globalIndex));
@@ -990,8 +932,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".logo(%s)", logo));
 
-//        js.append(String.format(Locale.US, ".logo(%s)", logo));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".logo(%s)", logo));
             js.setLength(0);
@@ -1019,8 +959,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minRowHeight(%f)", minRowHeight));
-
-//        js.append(String.format(Locale.US, ".minRowHeight(%f)", minRowHeight));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minRowHeight(%f)", minRowHeight));
@@ -1060,8 +998,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".overlay(%s)", overlay));
 
-//        js.append(String.format(Locale.US, ".overlay(%s)", overlay));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlay(%s)", overlay));
             js.setLength(0);
@@ -1088,8 +1024,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".overlay(%b)", overlay1));
-
-//        js.append(String.format(Locale.US, ".overlay(%b)", overlay1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlay(%b)", overlay1));
@@ -1118,8 +1052,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".pixPerHour(%f)", pixPerHour));
-
-//        js.append(String.format(Locale.US, ".pixPerHour(%f)", pixPerHour));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".pixPerHour(%f)", pixPerHour));
@@ -1150,8 +1082,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".resourceListWidth(%f)", resourceListWidth));
 
-//        js.append(String.format(Locale.US, ".resourceListWidth(%f)", resourceListWidth));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".resourceListWidth(%f)", resourceListWidth));
             js.setLength(0);
@@ -1178,8 +1108,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".resourceListWidth(%s)", resourceListWidth1));
-
-//        js.append(String.format(Locale.US, ".resourceListWidth(%s)", resourceListWidth1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".resourceListWidth(%s)", resourceListWidth1));
@@ -1211,8 +1139,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".select(%f, %f)", resourceIndex1, activityIndex1));
 
-//        js.append(String.format(Locale.US, ".select(%f, %f)", resourceIndex1, activityIndex1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f)", resourceIndex1, activityIndex1));
             js.setLength(0);
@@ -1240,8 +1166,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectPoint(%f)", globalIndex1));
-
-//        js.append(String.format(Locale.US, ".selectPoint(%f)", globalIndex1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectPoint(%f)", globalIndex1));
@@ -1281,8 +1205,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -1314,8 +1236,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -1346,8 +1266,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
@@ -1387,8 +1305,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".timeLine(%s)", timeLine));
 
-//        js.append(String.format(Locale.US, ".timeLine(%s)", timeLine));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".timeLine(%s)", timeLine));
             js.setLength(0);
@@ -1415,8 +1331,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".timeLine(%b)", timeLine1));
-
-//        js.append(String.format(Locale.US, ".timeLine(%b)", timeLine1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".timeLine(%b)", timeLine1));
@@ -1447,8 +1361,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".timeLineHeight(%f)", timeLineHeight));
 
-//        js.append(String.format(Locale.US, ".timeLineHeight(%f)", timeLineHeight));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".timeLineHeight(%f)", timeLineHeight));
             js.setLength(0);
@@ -1475,8 +1387,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".timeLineHeight(%s)", timeLineHeight1));
-
-//        js.append(String.format(Locale.US, ".timeLineHeight(%s)", timeLineHeight1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".timeLineHeight(%s)", timeLineHeight1));
@@ -1507,8 +1417,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".timeTrackingMode(%s)", (timeTrackingMode != null) ? timeTrackingMode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".timeTrackingMode(%s)", (timeTrackingMode != null) ? timeTrackingMode.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".timeTrackingMode(%s)", (timeTrackingMode != null) ? timeTrackingMode.generateJs() : "null"));
             js.setLength(0);
@@ -1535,8 +1443,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".timeTrackingMode(%s)", timeTrackingMode1));
-
-//        js.append(String.format(Locale.US, ".timeTrackingMode(%s)", timeTrackingMode1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".timeTrackingMode(%s)", timeTrackingMode1));
@@ -1569,8 +1475,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".unhover(%f, %f)", resourceIndex2, activityIndex2));
 
-//        js.append(String.format(Locale.US, ".unhover(%f, %f)", resourceIndex2, activityIndex2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".unhover(%f, %f)", resourceIndex2, activityIndex2));
             js.setLength(0);
@@ -1598,8 +1502,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".unhover(%s, %f)", Arrays.toString(resourceIndex3), activityIndex2));
-
-//        js.append(String.format(Locale.US, ".unhover(%s, %f)", Arrays.toString(resourceIndex3), activityIndex2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".unhover(%s, %f)", Arrays.toString(resourceIndex3), activityIndex2));
@@ -1631,8 +1533,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unselect(%f, %f);", resourceIndex4, activityIndex3));
 
-//        js.append(String.format(Locale.US, jsBase + ".unselect(%f, %f);", resourceIndex4, activityIndex3));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%f, %f)", resourceIndex4, activityIndex3));
             js.setLength(0);
@@ -1648,8 +1548,6 @@ public class Resource extends Chart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unselect(%s, %f);", Arrays.toString(resourceIndex5), activityIndex3));
-
-//        js.append(String.format(Locale.US, jsBase + ".unselect(%s, %f);", Arrays.toString(resourceIndex5), activityIndex3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%s, %f)", Arrays.toString(resourceIndex5), activityIndex3));
@@ -1678,8 +1576,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".verticalScrollBar(%s)", verticalScrollBar));
 
-//        js.append(String.format(Locale.US, ".verticalScrollBar(%s)", verticalScrollBar));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".verticalScrollBar(%s)", verticalScrollBar));
             js.setLength(0);
@@ -1706,8 +1602,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".verticalScrollBar(%b)", verticalScrollBar1));
-
-//        js.append(String.format(Locale.US, ".verticalScrollBar(%b)", verticalScrollBar1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".verticalScrollBar(%b)", verticalScrollBar1));
@@ -1746,8 +1640,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", xScale));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
             js.setLength(0);
@@ -1777,8 +1669,6 @@ public class Resource extends Chart {
         }
         js.append(String.format(Locale.US, ".zoomLevel(%f)", indexOrId));
 
-//        js.append(String.format(Locale.US, ".zoomLevel(%f)", indexOrId));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomLevel(%f)", indexOrId));
             js.setLength(0);
@@ -1805,8 +1695,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomLevel(%s)", indexOrId1));
-
-//        js.append(String.format(Locale.US, ".zoomLevel(%s)", indexOrId1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomLevel(%s)", indexOrId1));
@@ -1835,8 +1723,6 @@ public class Resource extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomLevels(%s)", arrayToString(zoomLevels)));
-
-//        js.append(String.format(Locale.US, ".zoomLevels(%s)", arrayToString(zoomLevels)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomLevels(%s)", arrayToString(zoomLevels)));
@@ -2015,6 +1901,7 @@ public class Resource extends Chart {
         js.append(generateJSsetZoomLevels());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

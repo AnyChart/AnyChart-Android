@@ -28,8 +28,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args != null) ? var_args.generateJs() : "null"));
             js.setLength(0);
@@ -45,8 +43,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args1 != null) ? var_args1.generateJs() : "null"));
             js.setLength(0);
@@ -61,8 +57,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
-
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", Arrays.toString(var_args2)));
@@ -89,8 +83,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
-
-//        js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
@@ -130,8 +122,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -163,8 +153,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -195,8 +183,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
@@ -236,8 +222,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
 
-//        js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", crosshair));
             js.setLength(0);
@@ -264,8 +248,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
-
-//        js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
@@ -306,8 +288,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s)", (data != null) ? data.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s)", (data != null) ? data.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s)", (data != null) ? data.generateJs() : "null"));
             js.setLength(0);
@@ -335,8 +315,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s)", (data1 != null) ? data1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s)", (data1 != null) ? data1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s)", (data1 != null) ? data1.generateJs() : "null"));
             js.setLength(0);
@@ -363,8 +341,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s)", Arrays.toString(data2)));
-
-//        js.append(String.format(Locale.US, ".data(%s)", Arrays.toString(data2)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s)", Arrays.toString(data2)));
@@ -395,8 +371,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".dataMode(%s)", (dataMode != null) ? dataMode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".dataMode(%s)", (dataMode != null) ? dataMode.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".dataMode(%s)", (dataMode != null) ? dataMode.generateJs() : "null"));
             js.setLength(0);
@@ -423,8 +397,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".dataMode(%s)", dataMode1));
-
-//        js.append(String.format(Locale.US, ".dataMode(%s)", dataMode1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".dataMode(%s)", dataMode1));
@@ -498,8 +470,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
             js.setLength(0);
@@ -527,8 +497,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
             js.setLength(0);
@@ -555,8 +523,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
@@ -596,8 +562,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".labels(%s)", labels));
 
-//        js.append(String.format(Locale.US, ".labels(%s)", labels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
             js.setLength(0);
@@ -624,8 +588,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
-//        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
@@ -673,8 +635,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
 
-//        js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
             js.setLength(0);
@@ -701,8 +661,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
-
-//        js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
@@ -735,8 +693,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
 
-//        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
             js.setLength(0);
@@ -764,8 +720,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
-
-//        js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
@@ -807,8 +761,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
             js.setLength(0);
@@ -835,8 +787,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
@@ -865,8 +815,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
             js.setLength(0);
@@ -893,8 +841,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
@@ -925,8 +871,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
 
-//        js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
             js.setLength(0);
@@ -953,8 +897,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
-
-//        js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
@@ -985,8 +927,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
 
-//        js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
             js.setLength(0);
@@ -1013,8 +953,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
-
-//        js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
@@ -1056,8 +994,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
             js.setLength(0);
@@ -1084,8 +1020,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
@@ -1114,8 +1048,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", palette2));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", palette2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
             js.setLength(0);
@@ -1142,8 +1074,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
@@ -1174,8 +1104,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
-//        js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
             js.setLength(0);
@@ -1202,8 +1130,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
-
-//        js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
@@ -1251,8 +1177,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
 
-//        js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
             js.setLength(0);
@@ -1279,8 +1203,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
-
-//        js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
@@ -1313,8 +1235,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
 
-//        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
             js.setLength(0);
@@ -1342,8 +1262,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
-
-//        js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
@@ -1374,8 +1292,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
 
-//        js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id2));
             js.setLength(0);
@@ -1402,8 +1318,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
-
-//        js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id3));
@@ -1432,8 +1346,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
-
-//        js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
@@ -1481,8 +1393,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
 
-//        js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", textMarker));
             js.setLength(0);
@@ -1509,8 +1419,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
-
-//        js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b)", textMarker1));
@@ -1543,8 +1451,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
 
-//        js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
             js.setLength(0);
@@ -1572,8 +1478,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
-
-//        js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
@@ -1621,8 +1525,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
 
-//        js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", xAxis));
             js.setLength(0);
@@ -1649,8 +1551,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
-
-//        js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
@@ -1683,8 +1583,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
 
-//        js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
             js.setLength(0);
@@ -1712,8 +1610,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
-
-//        js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
@@ -1761,8 +1657,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
 
-//        js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", xGrid));
             js.setLength(0);
@@ -1789,8 +1683,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
-
-//        js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b)", xGrid1));
@@ -1823,8 +1715,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
 
-//        js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
             js.setLength(0);
@@ -1852,8 +1742,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
-
-//        js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
@@ -1901,8 +1789,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
 
-//        js.append(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
             js.setLength(0);
@@ -1929,8 +1815,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
-
-//        js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
@@ -1963,8 +1847,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
 
-//        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
             js.setLength(0);
@@ -1992,8 +1874,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
-
-//        js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
@@ -2035,8 +1915,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", xScale));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
             js.setLength(0);
@@ -2064,8 +1942,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
             js.setLength(0);
@@ -2092,8 +1968,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
@@ -2133,8 +2007,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScroller(%s)", xScroller));
 
-//        js.append(String.format(Locale.US, ".xScroller(%s)", xScroller));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScroller(%s)", xScroller));
             js.setLength(0);
@@ -2161,8 +2033,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xScroller(%b)", xScroller1));
-
-//        js.append(String.format(Locale.US, ".xScroller(%b)", xScroller1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScroller(%b)", xScroller1));
@@ -2203,8 +2073,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xZoom(%f)", xZoom));
 
-//        js.append(String.format(Locale.US, ".xZoom(%f)", xZoom));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xZoom(%f)", xZoom));
             js.setLength(0);
@@ -2232,8 +2100,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xZoom(%b)", xZoom1));
 
-//        js.append(String.format(Locale.US, ".xZoom(%b)", xZoom1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xZoom(%b)", xZoom1));
             js.setLength(0);
@@ -2260,8 +2126,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xZoom(%s)", xZoom2));
-
-//        js.append(String.format(Locale.US, ".xZoom(%s)", xZoom2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xZoom(%s)", xZoom2));
@@ -2309,8 +2173,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
 
-//        js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", yAxis));
             js.setLength(0);
@@ -2337,8 +2199,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
-
-//        js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b)", yAxis1));
@@ -2371,8 +2231,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
 
-//        js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
             js.setLength(0);
@@ -2400,8 +2258,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
-
-//        js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
@@ -2449,8 +2305,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
 
-//        js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", yGrid));
             js.setLength(0);
@@ -2477,8 +2331,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
-
-//        js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b)", yGrid1));
@@ -2511,8 +2363,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
 
-//        js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
             js.setLength(0);
@@ -2540,8 +2390,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
-
-//        js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
@@ -2589,8 +2437,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
 
-//        js.append(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
             js.setLength(0);
@@ -2617,8 +2463,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
-
-//        js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
@@ -2651,8 +2495,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
 
-//        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
             js.setLength(0);
@@ -2680,8 +2522,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
-
-//        js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
@@ -2723,8 +2563,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", yScale));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", yScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale));
             js.setLength(0);
@@ -2752,8 +2590,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
             js.setLength(0);
@@ -2780,8 +2616,6 @@ public class ChartsWaterfall extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
@@ -3213,6 +3047,7 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

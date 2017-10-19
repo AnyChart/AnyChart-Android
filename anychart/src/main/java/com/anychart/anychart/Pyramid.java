@@ -28,8 +28,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".baseWidth(%s)", baseWidth));
 
-//        js.append(String.format(Locale.US, ".baseWidth(%s)", baseWidth));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".baseWidth(%s)", baseWidth));
             js.setLength(0);
@@ -56,8 +54,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".baseWidth(%f)", baseWidth1));
-
-//        js.append(String.format(Locale.US, ".baseWidth(%f)", baseWidth1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".baseWidth(%f)", baseWidth1));
@@ -88,8 +84,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".connectorLength(%f)", connectorLength));
 
-//        js.append(String.format(Locale.US, ".connectorLength(%f)", connectorLength));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorLength(%f)", connectorLength));
             js.setLength(0);
@@ -116,8 +110,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".connectorLength(%s)", connectorLength1));
-
-//        js.append(String.format(Locale.US, ".connectorLength(%s)", connectorLength1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorLength(%s)", connectorLength1));
@@ -157,8 +149,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -190,8 +180,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -222,8 +210,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
@@ -271,8 +257,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -300,8 +284,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -331,8 +313,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -360,8 +340,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -391,8 +369,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -420,8 +396,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -451,8 +425,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -480,8 +452,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
@@ -511,8 +481,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -540,8 +508,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -571,8 +537,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
             js.setLength(0);
@@ -600,8 +564,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -631,8 +593,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -660,8 +620,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
@@ -691,8 +649,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -720,8 +676,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -751,8 +705,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -781,8 +733,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -810,8 +760,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
@@ -843,8 +791,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
@@ -883,8 +829,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
@@ -914,8 +858,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
@@ -947,8 +889,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
@@ -978,8 +918,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
@@ -1011,8 +949,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
             js.setLength(0);
@@ -1042,8 +978,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
@@ -1086,8 +1020,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -1120,8 +1052,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
@@ -1171,8 +1101,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
             js.setLength(0);
@@ -1202,8 +1130,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
-
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
@@ -1235,8 +1161,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
             js.setLength(0);
@@ -1267,8 +1191,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness1, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness1, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness1, size));
             js.setLength(0);
@@ -1298,8 +1220,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness1, size));
-
-//        js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness1, size));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness1, size));
@@ -1340,8 +1260,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
             js.setLength(0);
@@ -1368,8 +1286,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
-
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
@@ -1398,8 +1314,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
             js.setLength(0);
@@ -1427,8 +1341,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hover(%f)", index));
-
-//        js.append(String.format(Locale.US, ".hover(%f)", index));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hover(%f)", index));
@@ -1466,8 +1378,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hovered(%s)", hovered));
-
-//        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
@@ -1507,8 +1417,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".labels(%s)", labels));
 
-//        js.append(String.format(Locale.US, ".labels(%s)", labels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
             js.setLength(0);
@@ -1535,8 +1443,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
-//        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
@@ -1578,8 +1484,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
             js.setLength(0);
@@ -1606,8 +1510,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
@@ -1636,8 +1538,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
             js.setLength(0);
@@ -1664,8 +1564,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
@@ -1706,8 +1604,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markers(%s)", markers));
 
-//        js.append(String.format(Locale.US, ".markers(%s)", markers));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
             js.setLength(0);
@@ -1734,8 +1630,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markers(%b)", markers1));
-
-//        js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
@@ -1774,8 +1668,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".normal(%s)", normal));
 
-//        js.append(String.format(Locale.US, ".normal(%s)", normal));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
             js.setLength(0);
@@ -1806,8 +1698,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
             js.setLength(0);
@@ -1835,8 +1725,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
 
-//        js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
             js.setLength(0);
@@ -1863,8 +1751,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
-
-//        js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
@@ -1906,8 +1792,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
             js.setLength(0);
@@ -1934,8 +1818,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
@@ -1964,8 +1846,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", palette2));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", palette2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
             js.setLength(0);
@@ -1992,8 +1872,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
@@ -2024,8 +1902,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".pointsPadding(%s)", pointsPadding));
 
-//        js.append(String.format(Locale.US, ".pointsPadding(%s)", pointsPadding));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".pointsPadding(%s)", pointsPadding));
             js.setLength(0);
@@ -2052,8 +1928,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".pointsPadding(%f)", pointsPadding1));
-
-//        js.append(String.format(Locale.US, ".pointsPadding(%f)", pointsPadding1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".pointsPadding(%f)", pointsPadding1));
@@ -2083,8 +1957,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".reversed(%b)", reversed));
 
-//        js.append(String.format(Locale.US, ".reversed(%b)", reversed));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".reversed(%b)", reversed));
             js.setLength(0);
@@ -2113,8 +1985,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".select(%f)", index1));
 
-//        js.append(String.format(Locale.US, ".select(%f)", index1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".select(%f)", index1));
             js.setLength(0);
@@ -2142,8 +2012,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes)));
-
-//        js.append(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes)));
@@ -2182,8 +2050,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".selected(%s)", selected));
 
-//        js.append(String.format(Locale.US, ".selected(%s)", selected));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
             js.setLength(0);
@@ -2211,8 +2077,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".stroke(%s)", (stroke != null) ? stroke.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".stroke(%s)", (stroke != null) ? stroke.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", (stroke != null) ? stroke.generateJs() : "null"));
@@ -2252,8 +2116,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
             js.setLength(0);
@@ -2285,8 +2147,6 @@ public class Pyramid extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
             js.setLength(0);
@@ -2317,8 +2177,6 @@ public class Pyramid extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
@@ -2497,6 +2355,7 @@ public class Pyramid extends SeparateChart {
         js.append(generateJSsetStroke3());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

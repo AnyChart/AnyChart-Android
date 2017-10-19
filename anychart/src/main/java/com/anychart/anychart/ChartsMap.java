@@ -28,8 +28,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args != null) ? var_args.generateJs() : "null"));
             js.setLength(0);
@@ -45,8 +43,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args1 != null) ? var_args1.generateJs() : "null"));
             js.setLength(0);
@@ -61,8 +57,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
-
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", Arrays.toString(var_args2)));
@@ -91,8 +85,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".axes(%s)", axes));
 
-//        js.append(String.format(Locale.US, ".axes(%s)", axes));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".axes(%s)", axes));
             js.setLength(0);
@@ -119,8 +111,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".axes(%b)", axes1));
-
-//        js.append(String.format(Locale.US, ".axes(%b)", axes1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".axes(%b)", axes1));
@@ -157,8 +147,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -188,8 +176,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -221,8 +207,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble2" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -252,8 +236,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble3" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -285,8 +267,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble4" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -316,8 +296,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble5" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -349,8 +327,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble6" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -380,8 +356,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble7" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), csvSettings1));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), csvSettings1));
@@ -413,8 +387,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble8" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -444,8 +416,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble9" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -477,8 +447,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setBubble10" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, csvSettings1));
             js.setLength(0);
@@ -508,8 +476,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setBubble11" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -559,8 +525,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".callout(%s)", callout));
 
-//        js.append(String.format(Locale.US, ".callout(%s)", callout));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".callout(%s)", callout));
             js.setLength(0);
@@ -587,8 +551,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".callout(%b)", callout1));
-
-//        js.append(String.format(Locale.US, ".callout(%b)", callout1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".callout(%b)", callout1));
@@ -621,8 +583,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".callout(%s, %f)", callout2, index1));
 
-//        js.append(String.format(Locale.US, ".callout(%s, %f)", callout2, index1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".callout(%s, %f)", callout2, index1));
             js.setLength(0);
@@ -650,8 +610,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".callout(%b, %f)", callout3, index1));
-
-//        js.append(String.format(Locale.US, ".callout(%b, %f)", callout3, index1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".callout(%b, %f)", callout3, index1));
@@ -688,8 +646,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setChoropleth" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
@@ -719,8 +675,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setChoropleth1" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
-
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
@@ -752,8 +706,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setChoropleth2" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
@@ -783,8 +735,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setChoropleth3" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
@@ -816,8 +766,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setChoropleth4" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
             js.setLength(0);
@@ -847,8 +795,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setChoropleth5" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
@@ -880,8 +826,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setChoropleth6" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
@@ -911,8 +855,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setChoropleth7" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), csvSettings4));
-
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), csvSettings4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", Arrays.toString(data6), csvSettings4));
@@ -944,8 +886,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setChoropleth8" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
@@ -975,8 +915,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setChoropleth9" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
@@ -1008,8 +946,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setChoropleth10" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", data7, csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", data7, csvSettings4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", data7, csvSettings4));
             js.setLength(0);
@@ -1039,8 +975,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setChoropleth11" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
@@ -1081,8 +1015,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".colorRange(%s)", colorRange));
 
-//        js.append(String.format(Locale.US, ".colorRange(%s)", colorRange));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorRange(%s)", colorRange));
             js.setLength(0);
@@ -1118,8 +1050,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setConnector" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
@@ -1149,8 +1079,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setConnector1" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
-
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
@@ -1182,8 +1110,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setConnector2" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
@@ -1213,8 +1139,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setConnector3" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
@@ -1246,8 +1170,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setConnector4" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
             js.setLength(0);
@@ -1277,8 +1199,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setConnector5" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
@@ -1310,8 +1230,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setConnector6" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
@@ -1341,8 +1259,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setConnector7" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", Arrays.toString(data10), csvSettings7));
-
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", Arrays.toString(data10), csvSettings7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", Arrays.toString(data10), csvSettings7));
@@ -1374,8 +1290,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setConnector8" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
@@ -1405,8 +1319,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setConnector9" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
@@ -1438,8 +1350,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setConnector10" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", data11, csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", data11, csvSettings7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", data11, csvSettings7));
             js.setLength(0);
@@ -1469,8 +1379,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setConnector11" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
@@ -1512,8 +1420,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
 
-//        js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", crosshair));
             js.setLength(0);
@@ -1540,8 +1446,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
-
-//        js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
@@ -1572,8 +1476,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".crs(%s);", crs));
 
-//        js.append(String.format(Locale.US, jsBase + ".crs(%s);", crs));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".crs(%s)", crs));
             js.setLength(0);
@@ -1588,8 +1490,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".crs(%s);", (crs1 != null) ? crs1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".crs(%s);", (crs1 != null) ? crs1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".crs(%s)", (crs1 != null) ? crs1.generateJs() : "null"));
@@ -1620,8 +1520,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".crsAnimation(%b, %f)", crsAnimation, duration));
 
-//        js.append(String.format(Locale.US, ".crsAnimation(%b, %f)", crsAnimation, duration));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crsAnimation(%b, %f)", crsAnimation, duration));
             js.setLength(0);
@@ -1649,8 +1547,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".crsAnimation(%s, %f)", crsAnimation1, duration));
-
-//        js.append(String.format(Locale.US, ".crsAnimation(%s, %f)", crsAnimation1, duration));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crsAnimation(%s, %f)", crsAnimation1, duration));
@@ -1681,8 +1577,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
             js.setLength(0);
@@ -1709,8 +1603,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
-
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
@@ -1739,8 +1631,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".drillDownMap(%s);", drillDownMap));
 
-//        js.append(String.format(Locale.US, jsBase + ".drillDownMap(%s);", drillDownMap));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".drillDownMap(%s)", drillDownMap));
             js.setLength(0);
@@ -1759,8 +1649,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".drillTo(%s, %s)", id, (map != null) ? map.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".drillTo(%s, %s)", id, (map != null) ? map.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".drillTo(%s, %s)", id, (map != null) ? map.generateJs() : "null"));
@@ -1792,8 +1680,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".featureCrs(%s, %s)", id2, crs3));
 
-//        js.append(String.format(Locale.US, ".featureCrs(%s, %s)", id2, crs3));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".featureCrs(%s, %s)", id2, crs3));
             js.setLength(0);
@@ -1823,8 +1709,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".featureScaleFactor(%s, %f)", id4, ratio));
-
-//        js.append(String.format(Locale.US, ".featureScaleFactor(%s, %f)", id4, ratio));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".featureScaleFactor(%s, %f)", id4, ratio));
@@ -1858,8 +1742,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".featureTranslation(%s, %f, %f)", id6, dx, dy));
 
-//        js.append(String.format(Locale.US, ".featureTranslation(%s, %f, %f)", id6, dx, dy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".featureTranslation(%s, %f, %f)", id6, dx, dy));
             js.setLength(0);
@@ -1889,8 +1771,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".geoData(%s, %s);", data12, data13));
 
-//        js.append(String.format(Locale.US, jsBase + ".geoData(%s, %s);", data12, data13));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".geoData(%s, %s)", data12, data13));
             js.setLength(0);
@@ -1907,8 +1787,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".geoIdField(%s)", geoIdField));
-
-//        js.append(String.format(Locale.US, ".geoIdField(%s)", geoIdField));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".geoIdField(%s)", geoIdField));
@@ -1981,8 +1859,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".grids(%s)", grids));
 
-//        js.append(String.format(Locale.US, ".grids(%s)", grids));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".grids(%s)", grids));
             js.setLength(0);
@@ -2009,8 +1885,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".grids(%b)", grids1));
-
-//        js.append(String.format(Locale.US, ".grids(%b)", grids1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".grids(%b)", grids1));
@@ -2051,8 +1925,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
             js.setLength(0);
@@ -2080,8 +1952,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
             js.setLength(0);
@@ -2108,8 +1978,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
@@ -2148,8 +2016,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hovered(%s)", hovered));
 
-//        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
             js.setLength(0);
@@ -2179,8 +2045,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%f, %f);", x, y));
 
-//        js.append(String.format(Locale.US, jsBase + ".inverseTransform(%f, %f);", x, y));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f, %f)", x, y));
             js.setLength(0);
@@ -2208,8 +2072,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".labels(%s)", labels));
 
-//        js.append(String.format(Locale.US, ".labels(%s)", labels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
             js.setLength(0);
@@ -2236,8 +2098,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
-//        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
@@ -2274,8 +2134,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data14 != null) ? data14.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
@@ -2305,8 +2163,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", csvSettings10));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", csvSettings10));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data14 != null) ? data14.generateJs() : "null", csvSettings10));
@@ -2338,8 +2194,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data14 != null) ? data14.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
@@ -2369,8 +2223,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
@@ -2402,8 +2254,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", csvSettings10));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data15 != null) ? data15.generateJs() : "null", csvSettings10));
             js.setLength(0);
@@ -2433,8 +2283,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
@@ -2466,8 +2314,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data16), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
@@ -2497,8 +2343,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data16), csvSettings10));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data16), csvSettings10));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data16), csvSettings10));
@@ -2530,8 +2374,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker8" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data16), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
@@ -2561,8 +2403,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker9" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data17, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data17, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data17, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
@@ -2594,8 +2434,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMarker10" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data17, csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data17, csvSettings10));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data17, csvSettings10));
             js.setLength(0);
@@ -2625,8 +2463,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMarker11" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data17, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data17, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data17, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
@@ -2670,8 +2506,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
             js.setLength(0);
@@ -2698,8 +2532,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
@@ -2728,8 +2560,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
             js.setLength(0);
@@ -2756,8 +2586,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
@@ -2788,8 +2616,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
 
-//        js.append(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
             js.setLength(0);
@@ -2816,8 +2642,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
-
-//        js.append(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
@@ -2846,8 +2670,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxZoomLevel(%f)", maxZoomLevel));
-
-//        js.append(String.format(Locale.US, ".maxZoomLevel(%f)", maxZoomLevel));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxZoomLevel(%f)", maxZoomLevel));
@@ -2878,8 +2700,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
 
-//        js.append(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
             js.setLength(0);
@@ -2906,8 +2726,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
-
-//        js.append(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
@@ -2938,8 +2756,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".move(%f, %f)", dx1, dy1));
-
-//        js.append(String.format(Locale.US, ".move(%f, %f)", dx1, dy1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".move(%f, %f)", dx1, dy1));
@@ -2978,8 +2794,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".normal(%s)", normal));
 
-//        js.append(String.format(Locale.US, ".normal(%s)", normal));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
             js.setLength(0);
@@ -3010,8 +2824,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
             js.setLength(0);
@@ -3039,8 +2851,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
 
-//        js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
             js.setLength(0);
@@ -3067,8 +2877,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
-
-//        js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
@@ -3110,8 +2918,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
             js.setLength(0);
@@ -3138,8 +2944,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
@@ -3168,8 +2972,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", palette2));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", palette2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
             js.setLength(0);
@@ -3196,8 +2998,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
@@ -3228,8 +3028,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".removeSeries(%f)", id9));
 
-//        js.append(String.format(Locale.US, ".removeSeries(%f)", id9));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id9));
             js.setLength(0);
@@ -3256,8 +3054,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".removeSeries(%s)", id10));
-
-//        js.append(String.format(Locale.US, ".removeSeries(%s)", id10));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id10));
@@ -3286,8 +3082,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index3));
-
-//        js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index3));
@@ -3327,8 +3121,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setScale" + ++variableIndex + " = " + jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
             js.setLength(0);
@@ -3357,8 +3149,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setScale1" + ++variableIndex + " = " + jsBase + ".scale(%s);", scale1));
-
-//        js.append(String.format(Locale.US, jsBase + ".scale(%s);", scale1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", scale1));
@@ -3399,8 +3189,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".selected(%s)", selected));
 
-//        js.append(String.format(Locale.US, ".selected(%s)", selected));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
             js.setLength(0);
@@ -3430,8 +3218,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transform(%f, %f);", xLong, yLat));
 
-//        js.append(String.format(Locale.US, jsBase + ".transform(%f, %f);", xLong, yLat));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f, %f)", xLong, yLat));
             js.setLength(0);
@@ -3452,8 +3238,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".translateFeature(%s, %f, %f)", id11, dx2, dy2));
-
-//        js.append(String.format(Locale.US, ".translateFeature(%s, %f, %f)", id11, dx2, dy2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".translateFeature(%s, %f, %f)", id11, dx2, dy2));
@@ -3495,8 +3279,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".unboundRegions(%s)", unboundRegions));
 
-//        js.append(String.format(Locale.US, ".unboundRegions(%s)", unboundRegions));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".unboundRegions(%s)", unboundRegions));
             js.setLength(0);
@@ -3524,8 +3306,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".unboundRegions(%s)", (unboundRegions1 != null) ? unboundRegions1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".unboundRegions(%s)", (unboundRegions1 != null) ? unboundRegions1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".unboundRegions(%s)", (unboundRegions1 != null) ? unboundRegions1.generateJs() : "null"));
             js.setLength(0);
@@ -3552,8 +3332,6 @@ public class ChartsMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".unboundRegions(%b)", unboundRegions3));
-
-//        js.append(String.format(Locale.US, ".unboundRegions(%b)", unboundRegions3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".unboundRegions(%b)", unboundRegions3));
@@ -3589,8 +3367,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".zoom(%f, %f, %f, %f)", zoom, cx, cy, duration1));
 
-//        js.append(String.format(Locale.US, ".zoom(%f, %f, %f, %f)", zoom, cx, cy, duration1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoom(%f, %f, %f, %f)", zoom, cx, cy, duration1));
             js.setLength(0);
@@ -3623,8 +3399,6 @@ public class ChartsMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".zoomTo(%f, %f, %f)", zoomTo, cx1, cy1));
 
-//        js.append(String.format(Locale.US, ".zoomTo(%f, %f, %f)", zoomTo, cx1, cy1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%f, %f, %f)", zoomTo, cx1, cy1));
             js.setLength(0);
@@ -3651,8 +3425,6 @@ public class ChartsMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".zoomToFeature(%s);", id12));
-
-//        js.append(String.format(Locale.US, jsBase + ".zoomToFeature(%s);", id12));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomToFeature(%s)", id12));
@@ -3953,6 +3725,7 @@ public class ChartsMap extends SeparateChart {
         js.append(generateJSsetZoomTo());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

@@ -36,8 +36,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".colorRange(%s)", colorRange));
 
-//        js.append(String.format(Locale.US, ".colorRange(%s)", colorRange));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".colorRange(%s)", colorRange));
             js.setLength(0);
@@ -79,8 +77,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setColorScale" + ++variableIndex + " = " + jsBase + ".colorScale(%s);", (colorScale != null) ? colorScale.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".colorScale(%s);", (colorScale != null) ? colorScale.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", (colorScale != null) ? colorScale.generateJs() : "null"));
             js.setLength(0);
@@ -109,8 +105,6 @@ public class TreeMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setColorScale1" + ++variableIndex + " = " + jsBase + ".colorScale(%s);", (colorScale1 != null) ? colorScale1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".colorScale(%s);", (colorScale1 != null) ? colorScale1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", (colorScale1 != null) ? colorScale1.generateJs() : "null"));
@@ -141,8 +135,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setColorScale2" + ++variableIndex + " = " + jsBase + ".colorScale(%s);", colorScale2));
 
-//        js.append(String.format(Locale.US, jsBase + ".colorScale(%s);", colorScale2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", colorScale2));
             js.setLength(0);
@@ -171,8 +163,6 @@ public class TreeMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setColorScale3" + ++variableIndex + " = " + jsBase + ".colorScale(%s);", (colorScale3 != null) ? colorScale3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".colorScale(%s);", (colorScale3 != null) ? colorScale3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", (colorScale3 != null) ? colorScale3.generateJs() : "null"));
@@ -218,8 +208,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
             js.setLength(0);
@@ -247,8 +235,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1));
@@ -278,8 +264,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
             js.setLength(0);
@@ -307,8 +291,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1));
@@ -338,8 +320,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null"));
             js.setLength(0);
@@ -367,8 +347,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data2, fillMethod1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data2, fillMethod1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data2, fillMethod1));
@@ -399,8 +377,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".drillTo(%s);", (target != null) ? target.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".drillTo(%s);", (target != null) ? target.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".drillTo(%s)", (target != null) ? target.generateJs() : "null"));
             js.setLength(0);
@@ -416,8 +392,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".drillTo(%s);", Arrays.toString(target1)));
 
-//        js.append(String.format(Locale.US, jsBase + ".drillTo(%s);", Arrays.toString(target1)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".drillTo(%s)", Arrays.toString(target1)));
             js.setLength(0);
@@ -432,8 +406,6 @@ public class TreeMap extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".drillTo(%s);", target2));
-
-//        js.append(String.format(Locale.US, jsBase + ".drillTo(%s);", target2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".drillTo(%s)", target2));
@@ -451,8 +423,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
@@ -483,8 +453,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
@@ -523,8 +491,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
@@ -554,8 +520,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
@@ -587,8 +551,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
@@ -618,8 +580,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
@@ -651,8 +611,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
             js.setLength(0);
@@ -682,8 +640,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
@@ -726,8 +682,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -760,8 +714,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
@@ -811,8 +763,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness, size));
             js.setLength(0);
@@ -842,8 +792,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness, size));
-
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness, size));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness, size));
@@ -875,8 +823,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness, size));
             js.setLength(0);
@@ -907,8 +853,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness, size));
             js.setLength(0);
@@ -938,8 +882,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness, size));
-
-//        js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness, size));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness, size));
@@ -979,8 +921,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".headers(%s)", headers));
 
-//        js.append(String.format(Locale.US, ".headers(%s)", headers));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".headers(%s)", headers));
             js.setLength(0);
@@ -1007,8 +947,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".headers(%b)", headers1));
-
-//        js.append(String.format(Locale.US, ".headers(%b)", headers1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".headers(%b)", headers1));
@@ -1039,8 +977,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".headersDisplayMode(%s)", (headersDisplayMode != null) ? headersDisplayMode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".headersDisplayMode(%s)", (headersDisplayMode != null) ? headersDisplayMode.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".headersDisplayMode(%s)", (headersDisplayMode != null) ? headersDisplayMode.generateJs() : "null"));
             js.setLength(0);
@@ -1067,8 +1003,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".headersDisplayMode(%s)", headersDisplayMode1));
-
-//        js.append(String.format(Locale.US, ".headersDisplayMode(%s)", headersDisplayMode1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".headersDisplayMode(%s)", headersDisplayMode1));
@@ -1098,8 +1032,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hintDepth(%f)", hintDepth));
 
-//        js.append(String.format(Locale.US, ".hintDepth(%f)", hintDepth));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hintDepth(%f)", hintDepth));
             js.setLength(0);
@@ -1127,8 +1059,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hintOpacity(%f)", hintOpacity));
-
-//        js.append(String.format(Locale.US, ".hintOpacity(%f)", hintOpacity));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hintOpacity(%f)", hintOpacity));
@@ -1166,8 +1096,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hovered(%s)", hovered));
-
-//        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
@@ -1207,8 +1135,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".labels(%s)", labels));
 
-//        js.append(String.format(Locale.US, ".labels(%s)", labels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
             js.setLength(0);
@@ -1235,8 +1161,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
-//        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
@@ -1277,8 +1201,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".markers(%s)", markers));
 
-//        js.append(String.format(Locale.US, ".markers(%s)", markers));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
             js.setLength(0);
@@ -1305,8 +1227,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markers(%b)", markers1));
-
-//        js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
@@ -1335,8 +1255,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxDepth(%f)", maxDepth));
-
-//        js.append(String.format(Locale.US, ".maxDepth(%f)", maxDepth));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxDepth(%f)", maxDepth));
@@ -1367,8 +1285,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".maxHeadersHeight(%f)", maxHeadersHeight));
 
-//        js.append(String.format(Locale.US, ".maxHeadersHeight(%f)", maxHeadersHeight));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxHeadersHeight(%f)", maxHeadersHeight));
             js.setLength(0);
@@ -1395,8 +1311,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxHeadersHeight(%s)", maxHeadersHeight1));
-
-//        js.append(String.format(Locale.US, ".maxHeadersHeight(%s)", maxHeadersHeight1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxHeadersHeight(%s)", maxHeadersHeight1));
@@ -1435,8 +1349,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".normal(%s)", normal));
 
-//        js.append(String.format(Locale.US, ".normal(%s)", normal));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
             js.setLength(0);
@@ -1474,8 +1386,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".selected(%s)", selected));
 
-//        js.append(String.format(Locale.US, ".selected(%s)", selected));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
             js.setLength(0);
@@ -1505,8 +1415,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".selectionMode(%s)", (selectionMode != null) ? selectionMode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".selectionMode(%s)", (selectionMode != null) ? selectionMode.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", (selectionMode != null) ? selectionMode.generateJs() : "null"));
             js.setLength(0);
@@ -1533,8 +1441,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectionMode(%s)", selectionMode1));
-
-//        js.append(String.format(Locale.US, ".selectionMode(%s)", selectionMode1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", selectionMode1));
@@ -1565,8 +1471,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".sort(%s)", (sort != null) ? sort.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".sort(%s)", (sort != null) ? sort.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", (sort != null) ? sort.generateJs() : "null"));
             js.setLength(0);
@@ -1593,8 +1497,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".sort(%s)", sort1));
-
-//        js.append(String.format(Locale.US, ".sort(%s)", sort1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", sort1));
@@ -1634,8 +1536,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -1667,8 +1567,6 @@ public class TreeMap extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -1699,8 +1597,6 @@ public class TreeMap extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
@@ -1857,6 +1753,7 @@ public class TreeMap extends SeparateChart {
         js.append(generateJSsetStroke2());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

@@ -28,8 +28,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args != null) ? var_args.generateJs() : "null"));
             js.setLength(0);
@@ -45,8 +43,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args1 != null) ? var_args1.generateJs() : "null"));
             js.setLength(0);
@@ -61,8 +57,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
-
-//        js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", Arrays.toString(var_args2)));
@@ -89,8 +83,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
-
-//        js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
@@ -130,8 +122,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
 
-//        js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", crosshair));
             js.setLength(0);
@@ -158,8 +148,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
-
-//        js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
@@ -200,8 +188,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s)", (data != null) ? data.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s)", (data != null) ? data.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s)", (data != null) ? data.generateJs() : "null"));
             js.setLength(0);
@@ -229,8 +215,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s)", (data1 != null) ? data1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s)", (data1 != null) ? data1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s)", (data1 != null) ? data1.generateJs() : "null"));
             js.setLength(0);
@@ -257,8 +241,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s)", Arrays.toString(data2)));
-
-//        js.append(String.format(Locale.US, ".data(%s)", Arrays.toString(data2)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s)", Arrays.toString(data2)));
@@ -332,8 +314,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
             js.setLength(0);
@@ -361,8 +341,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
             js.setLength(0);
@@ -389,8 +367,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
@@ -430,8 +406,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setLabels" + ++variableIndex + " = " + jsBase + ".labels(%s);", labels));
 
-//        js.append(String.format(Locale.US, jsBase + ".labels(%s);", labels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s)", labels));
             js.setLength(0);
@@ -460,8 +434,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLabels1" + ++variableIndex + " = " + jsBase + ".labels(%b);", labels1));
-
-//        js.append(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b)", labels1));
@@ -497,8 +469,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMekko" + ++variableIndex + " = " + jsBase + ".mekko(%s, %s);", (data3 != null) ? data3.generateJs() : "null", csvSettings));
 
-//        js.append(String.format(Locale.US, jsBase + ".mekko(%s, %s);", (data3 != null) ? data3.generateJs() : "null", csvSettings));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".mekko(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings));
             js.setLength(0);
@@ -529,8 +499,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, "var setMekko1" + ++variableIndex + " = " + jsBase + ".mekko(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings));
 
-//        js.append(String.format(Locale.US, jsBase + ".mekko(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".mekko(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings));
             js.setLength(0);
@@ -560,8 +528,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setMekko2" + ++variableIndex + " = " + jsBase + ".mekko(%s, %s);", Arrays.toString(data5), csvSettings));
-
-//        js.append(String.format(Locale.US, jsBase + ".mekko(%s, %s);", Arrays.toString(data5), csvSettings));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".mekko(%s, %s)", Arrays.toString(data5), csvSettings));
@@ -605,8 +571,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
             js.setLength(0);
@@ -633,8 +597,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
@@ -663,8 +625,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", palette2));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", palette2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
             js.setLength(0);
@@ -691,8 +651,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
@@ -721,8 +679,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".pointsPadding(%f)", pointsPadding));
-
-//        js.append(String.format(Locale.US, ".pointsPadding(%f)", pointsPadding));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".pointsPadding(%f)", pointsPadding));
@@ -753,8 +709,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
 
-//        js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id2));
             js.setLength(0);
@@ -781,8 +735,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
-
-//        js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id3));
@@ -811,8 +763,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
-
-//        js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
@@ -860,8 +810,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
 
-//        js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", xAxis));
             js.setLength(0);
@@ -888,8 +836,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
-
-//        js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
@@ -922,8 +868,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index3));
 
-//        js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index3));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index3));
             js.setLength(0);
@@ -951,8 +895,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index3));
-
-//        js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index3));
@@ -994,8 +936,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", xScale));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
             js.setLength(0);
@@ -1023,8 +963,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
             js.setLength(0);
@@ -1051,8 +989,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
@@ -1100,8 +1036,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
 
-//        js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", yAxis));
             js.setLength(0);
@@ -1128,8 +1062,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
-
-//        js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b)", yAxis1));
@@ -1162,8 +1094,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index5));
 
-//        js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index5));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index5));
             js.setLength(0);
@@ -1191,8 +1121,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index5));
-
-//        js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index5));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index5));
@@ -1234,8 +1162,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", yScale));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", yScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale));
             js.setLength(0);
@@ -1263,8 +1189,6 @@ public class ChartsMekko extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
             js.setLength(0);
@@ -1291,8 +1215,6 @@ public class ChartsMekko extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
@@ -1509,6 +1431,7 @@ public class ChartsMekko extends SeparateChart {
         js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

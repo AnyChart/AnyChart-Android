@@ -37,8 +37,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".axis(%s)", axis));
 
-//        js.append(String.format(Locale.US, ".axis(%s)", axis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", axis));
             js.setLength(0);
@@ -65,8 +63,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".axis(%b)", axis1));
-
-//        js.append(String.format(Locale.US, ".axis(%b)", axis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".axis(%b)", axis1));
@@ -112,8 +108,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -141,8 +135,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -172,8 +164,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -201,8 +191,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -232,8 +220,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -261,8 +247,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -292,8 +276,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -321,8 +303,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
@@ -352,8 +332,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -381,8 +359,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -412,8 +388,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
             js.setLength(0);
@@ -441,8 +415,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -473,8 +445,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
             js.setLength(0);
@@ -501,8 +471,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".layout(%s)", layout1));
-
-//        js.append(String.format(Locale.US, ".layout(%s)", layout1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", layout1));
@@ -544,8 +512,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette)));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette)));
             js.setLength(0);
@@ -572,8 +538,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette1)));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette1)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette1)));
@@ -602,8 +566,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette2));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette2));
             js.setLength(0);
@@ -630,8 +592,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette3 != null) ? markerPalette3.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette3 != null) ? markerPalette3.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette3 != null) ? markerPalette3.generateJs() : "null"));
@@ -679,8 +639,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".range(%s)", range));
 
-//        js.append(String.format(Locale.US, ".range(%s)", range));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".range(%s)", range));
             js.setLength(0);
@@ -707,8 +665,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".range(%b)", range1));
-
-//        js.append(String.format(Locale.US, ".range(%b)", range1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".range(%b)", range1));
@@ -741,8 +697,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".range(%s, %f)", range2, index1));
 
-//        js.append(String.format(Locale.US, ".range(%s, %f)", range2, index1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".range(%s, %f)", range2, index1));
             js.setLength(0);
@@ -770,8 +724,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".range(%b, %f)", range3, index1));
-
-//        js.append(String.format(Locale.US, ".range(%b, %f)", range3, index1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".range(%b, %f)", range3, index1));
@@ -812,8 +764,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".rangePalette(%s)", (rangePalette != null) ? rangePalette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".rangePalette(%s)", (rangePalette != null) ? rangePalette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangePalette(%s)", (rangePalette != null) ? rangePalette.generateJs() : "null"));
             js.setLength(0);
@@ -841,8 +791,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".rangePalette(%s)", rangePalette1));
 
-//        js.append(String.format(Locale.US, ".rangePalette(%s)", rangePalette1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangePalette(%s)", rangePalette1));
             js.setLength(0);
@@ -869,8 +817,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rangePalette(%s)", Arrays.toString(rangePalette2)));
-
-//        js.append(String.format(Locale.US, ".rangePalette(%s)", Arrays.toString(rangePalette2)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangePalette(%s)", Arrays.toString(rangePalette2)));
@@ -912,8 +858,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
             js.setLength(0);
@@ -941,8 +885,6 @@ public class Bullet extends Chart {
         }
         js.append(String.format(Locale.US, ".scale(%s)", scale1));
 
-//        js.append(String.format(Locale.US, ".scale(%s)", scale1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale1));
             js.setLength(0);
@@ -969,8 +911,6 @@ public class Bullet extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
@@ -1089,6 +1029,7 @@ public class Bullet extends Chart {
         js.append(generateJSsetScale2());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

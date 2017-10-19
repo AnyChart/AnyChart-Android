@@ -37,8 +37,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
 
-//        js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", crosshair));
             js.setLength(0);
@@ -65,8 +63,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
-
-//        js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
@@ -107,8 +103,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".grouping(%b)", grouping));
 
-//        js.append(String.format(Locale.US, ".grouping(%b)", grouping));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".grouping(%b)", grouping));
             js.setLength(0);
@@ -136,8 +130,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".grouping(%s)", Arrays.toString(grouping1)));
 
-//        js.append(String.format(Locale.US, ".grouping(%s)", Arrays.toString(grouping1)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".grouping(%s)", Arrays.toString(grouping1)));
             js.setLength(0);
@@ -164,8 +156,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".grouping(%s)", grouping2));
-
-//        js.append(String.format(Locale.US, ".grouping(%s)", grouping2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".grouping(%s)", grouping2));
@@ -206,8 +196,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, "var setInteractivity" + ++variableIndex + " = " + jsBase + ".interactivity(%s);", interactivity));
 
-//        js.append(String.format(Locale.US, jsBase + ".interactivity(%s);", interactivity));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".interactivity(%s)", interactivity));
             js.setLength(0);
@@ -236,8 +224,6 @@ public class ChartsStock extends Chart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setInteractivity1" + ++variableIndex + " = " + jsBase + ".interactivity(%s);", (interactivity1 != null) ? interactivity1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".interactivity(%s);", (interactivity1 != null) ? interactivity1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".interactivity(%s)", (interactivity1 != null) ? interactivity1.generateJs() : "null"));
@@ -287,8 +273,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".plot(%s)", plot));
 
-//        js.append(String.format(Locale.US, ".plot(%s)", plot));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".plot(%s)", plot));
             js.setLength(0);
@@ -315,8 +299,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".plot(%b)", plot1));
-
-//        js.append(String.format(Locale.US, ".plot(%b)", plot1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".plot(%b)", plot1));
@@ -349,8 +331,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".plot(%s, %f)", plot2, index1));
 
-//        js.append(String.format(Locale.US, ".plot(%s, %f)", plot2, index1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".plot(%s, %f)", plot2, index1));
             js.setLength(0);
@@ -379,8 +359,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".plot(%b, %f)", plot3, index1));
 
-//        js.append(String.format(Locale.US, ".plot(%b, %f)", plot3, index1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".plot(%b, %f)", plot3, index1));
             js.setLength(0);
@@ -408,8 +386,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".preserveSelectedRangeOnDataUpdate(%b)", preserveSelectedRangeOnDataUpdate));
-
-//        js.append(String.format(Locale.US, ".preserveSelectedRangeOnDataUpdate(%b)", preserveSelectedRangeOnDataUpdate));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".preserveSelectedRangeOnDataUpdate(%b)", preserveSelectedRangeOnDataUpdate));
@@ -449,8 +425,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".scroller(%s)", scroller));
 
-//        js.append(String.format(Locale.US, ".scroller(%s)", scroller));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scroller(%s)", scroller));
             js.setLength(0);
@@ -477,8 +451,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".scroller(%b)", scroller1));
-
-//        js.append(String.format(Locale.US, ".scroller(%b)", scroller1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scroller(%b)", scroller1));
@@ -519,8 +491,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".scrollerGrouping(%b)", scrollerGrouping));
 
-//        js.append(String.format(Locale.US, ".scrollerGrouping(%b)", scrollerGrouping));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scrollerGrouping(%b)", scrollerGrouping));
             js.setLength(0);
@@ -548,8 +518,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".scrollerGrouping(%s)", Arrays.toString(scrollerGrouping1)));
 
-//        js.append(String.format(Locale.US, ".scrollerGrouping(%s)", Arrays.toString(scrollerGrouping1)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scrollerGrouping(%s)", Arrays.toString(scrollerGrouping1)));
             js.setLength(0);
@@ -576,8 +544,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".scrollerGrouping(%s)", scrollerGrouping2));
-
-//        js.append(String.format(Locale.US, ".scrollerGrouping(%s)", scrollerGrouping2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".scrollerGrouping(%s)", scrollerGrouping2));
@@ -621,8 +587,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
             js.setLength(0);
@@ -652,8 +616,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
@@ -685,8 +647,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
@@ -716,8 +676,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
@@ -749,8 +707,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
@@ -780,8 +736,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
@@ -813,8 +767,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
             js.setLength(0);
@@ -844,8 +796,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
@@ -877,8 +827,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
@@ -908,8 +856,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
@@ -941,8 +887,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
@@ -972,8 +916,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
@@ -1005,8 +947,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
             js.setLength(0);
@@ -1036,8 +976,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
@@ -1069,8 +1007,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
@@ -1100,8 +1036,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
@@ -1133,8 +1067,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
@@ -1164,8 +1096,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
@@ -1197,8 +1127,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
             js.setLength(0);
@@ -1228,8 +1156,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
@@ -1261,8 +1187,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
@@ -1292,8 +1216,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
@@ -1325,8 +1247,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
@@ -1356,8 +1276,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
@@ -1389,8 +1307,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
             js.setLength(0);
@@ -1420,8 +1336,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
@@ -1453,8 +1367,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
@@ -1484,8 +1396,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
@@ -1517,8 +1427,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
@@ -1548,8 +1456,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
@@ -1581,8 +1487,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
             js.setLength(0);
@@ -1612,8 +1516,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
@@ -1645,8 +1547,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
@@ -1676,8 +1576,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
@@ -1709,8 +1607,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
@@ -1741,8 +1637,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
@@ -1772,8 +1666,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".startZoomMarquee(%b, %b)", repeat, asRect));
-
-//        js.append(String.format(Locale.US, ".startZoomMarquee(%b, %b)", repeat, asRect));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".startZoomMarquee(%b, %b)", repeat, asRect));
@@ -1813,8 +1705,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", xScale));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
             js.setLength(0);
@@ -1842,8 +1732,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomMarqueeFill(%s)", (zoomMarqueeFill != null) ? zoomMarqueeFill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s)", (zoomMarqueeFill != null) ? zoomMarqueeFill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s)", (zoomMarqueeFill != null) ? zoomMarqueeFill.generateJs() : "null"));
@@ -1874,8 +1762,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %f)", color, opacity));
-
-//        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %f)", color, opacity));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %f)", color, opacity));
@@ -1914,8 +1800,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
@@ -1945,8 +1829,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
@@ -1978,8 +1860,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
@@ -2009,8 +1889,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
@@ -2042,8 +1920,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
             js.setLength(0);
@@ -2073,8 +1949,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
@@ -2117,8 +1991,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -2151,8 +2023,6 @@ public class ChartsStock extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
-//        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
@@ -2193,8 +2063,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, "var setZoomMarqueeStroke" + ++variableIndex + " = " + jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -2228,8 +2096,6 @@ public class ChartsStock extends Chart {
         }
         js.append(String.format(Locale.US, "var setZoomMarqueeStroke1" + ++variableIndex + " = " + jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -2262,8 +2128,6 @@ public class ChartsStock extends Chart {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setZoomMarqueeStroke2" + ++variableIndex + " = " + jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
@@ -2430,6 +2294,7 @@ public class ChartsStock extends Chart {
         js.append(generateJSsetZoomMarqueeStroke2());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

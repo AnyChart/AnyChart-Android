@@ -34,8 +34,6 @@ public class Cartesian3d extends Cartesian {
         }
         js.append(String.format(Locale.US, "var setLine2d" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -65,8 +63,6 @@ public class Cartesian3d extends Cartesian {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine2d1" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -98,8 +94,6 @@ public class Cartesian3d extends Cartesian {
         }
         js.append(String.format(Locale.US, "var setLine2d2" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -129,8 +123,6 @@ public class Cartesian3d extends Cartesian {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine2d3" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -162,8 +154,6 @@ public class Cartesian3d extends Cartesian {
         }
         js.append(String.format(Locale.US, "var setLine2d4" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -193,8 +183,6 @@ public class Cartesian3d extends Cartesian {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine2d5" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -226,8 +214,6 @@ public class Cartesian3d extends Cartesian {
         }
         js.append(String.format(Locale.US, "var setLine2d6" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -257,8 +243,6 @@ public class Cartesian3d extends Cartesian {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine2d7" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", Arrays.toString(data2), csvSettings1));
-
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", Arrays.toString(data2), csvSettings1));
@@ -290,8 +274,6 @@ public class Cartesian3d extends Cartesian {
         }
         js.append(String.format(Locale.US, "var setLine2d8" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -321,8 +303,6 @@ public class Cartesian3d extends Cartesian {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine2d9" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -354,8 +334,6 @@ public class Cartesian3d extends Cartesian {
         }
         js.append(String.format(Locale.US, "var setLine2d10" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", data3, csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", data3, csvSettings1));
             js.setLength(0);
@@ -385,8 +363,6 @@ public class Cartesian3d extends Cartesian {
             isChain = false;
         }
         js.append(String.format(Locale.US, "var setLine2d11" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, jsBase + ".line2d(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -418,8 +394,6 @@ public class Cartesian3d extends Cartesian {
         }
         js.append(String.format(Locale.US, ".zAngle(%f)", zAngle));
 
-//        js.append(String.format(Locale.US, ".zAngle(%f)", zAngle));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zAngle(%f)", zAngle));
             js.setLength(0);
@@ -449,8 +423,6 @@ public class Cartesian3d extends Cartesian {
         }
         js.append(String.format(Locale.US, ".zAspect(%f)", zAspect));
 
-//        js.append(String.format(Locale.US, ".zAspect(%f)", zAspect));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zAspect(%f)", zAspect));
             js.setLength(0);
@@ -477,8 +449,6 @@ public class Cartesian3d extends Cartesian {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zAspect(%s)", zAspect1));
-
-//        js.append(String.format(Locale.US, ".zAspect(%s)", zAspect1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zAspect(%s)", zAspect1));
@@ -508,8 +478,6 @@ public class Cartesian3d extends Cartesian {
         }
         js.append(String.format(Locale.US, ".zDistribution(%b)", zDistribution));
 
-//        js.append(String.format(Locale.US, ".zDistribution(%b)", zDistribution));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zDistribution(%b)", zDistribution));
             js.setLength(0);
@@ -537,8 +505,6 @@ public class Cartesian3d extends Cartesian {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".zPadding(%f)", zPadding));
-
-//        js.append(String.format(Locale.US, ".zPadding(%f)", zPadding));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".zPadding(%f)", zPadding));
@@ -583,6 +549,7 @@ public class Cartesian3d extends Cartesian {
         js.append(generateJSsetZPadding());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

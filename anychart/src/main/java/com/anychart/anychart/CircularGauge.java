@@ -37,8 +37,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".axis(%s)", axis));
 
-//        js.append(String.format(Locale.US, ".axis(%s)", axis));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", axis));
             js.setLength(0);
@@ -65,8 +63,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".axis(%b)", axis1));
-
-//        js.append(String.format(Locale.US, ".axis(%b)", axis1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".axis(%b)", axis1));
@@ -99,8 +95,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".axis(%s, %f)", axis2, index));
 
-//        js.append(String.format(Locale.US, ".axis(%s, %f)", axis2, index));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".axis(%s, %f)", axis2, index));
             js.setLength(0);
@@ -128,8 +122,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".axis(%b, %f)", axis3, index));
-
-//        js.append(String.format(Locale.US, ".axis(%b, %f)", axis3, index));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".axis(%b, %f)", axis3, index));
@@ -177,8 +169,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".bar(%s)", bar));
 
-//        js.append(String.format(Locale.US, ".bar(%s)", bar));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".bar(%s)", bar));
             js.setLength(0);
@@ -205,8 +195,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".bar(%b)", bar1));
-
-//        js.append(String.format(Locale.US, ".bar(%b)", bar1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".bar(%b)", bar1));
@@ -239,8 +227,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".bar(%s, %f)", bar2, index2));
 
-//        js.append(String.format(Locale.US, ".bar(%s, %f)", bar2, index2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".bar(%s, %f)", bar2, index2));
             js.setLength(0);
@@ -268,8 +254,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".bar(%b, %f)", bar3, index2));
-
-//        js.append(String.format(Locale.US, ".bar(%b, %f)", bar3, index2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".bar(%b, %f)", bar3, index2));
@@ -309,8 +293,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".cap(%s)", cap));
 
-//        js.append(String.format(Locale.US, ".cap(%s)", cap));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".cap(%s)", cap));
             js.setLength(0);
@@ -337,8 +319,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".cap(%b)", cap1));
-
-//        js.append(String.format(Locale.US, ".cap(%b)", cap1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".cap(%b)", cap1));
@@ -369,8 +349,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".circularPadding(%f)", circularPadding));
 
-//        js.append(String.format(Locale.US, ".circularPadding(%f)", circularPadding));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".circularPadding(%f)", circularPadding));
             js.setLength(0);
@@ -397,8 +375,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".circularPadding(%s)", circularPadding1));
-
-//        js.append(String.format(Locale.US, ".circularPadding(%s)", circularPadding1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".circularPadding(%s)", circularPadding1));
@@ -444,8 +420,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -473,8 +447,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -504,8 +476,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -533,8 +503,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -564,8 +532,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -593,8 +559,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -624,8 +588,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -653,8 +615,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
@@ -684,8 +644,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -713,8 +671,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -744,8 +700,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
             js.setLength(0);
@@ -774,8 +728,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -803,8 +755,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".encloseWithStraightLine(%b)", encloseWithStraightLine));
-
-//        js.append(String.format(Locale.US, ".encloseWithStraightLine(%b)", encloseWithStraightLine));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".encloseWithStraightLine(%b)", encloseWithStraightLine));
@@ -835,8 +785,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
             js.setLength(0);
@@ -863,8 +811,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s)", fill1));
-
-//        js.append(String.format(Locale.US, ".fill(%s)", fill1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", fill1));
@@ -895,8 +841,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
@@ -935,8 +879,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
@@ -966,8 +908,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
@@ -999,8 +939,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
@@ -1030,8 +968,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
@@ -1063,8 +999,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
             js.setLength(0);
@@ -1094,8 +1028,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
@@ -1138,8 +1070,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -1172,8 +1102,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
@@ -1222,8 +1150,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".knob(%s)", knob));
 
-//        js.append(String.format(Locale.US, ".knob(%s)", knob));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".knob(%s)", knob));
             js.setLength(0);
@@ -1250,8 +1176,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".knob(%b)", knob1));
-
-//        js.append(String.format(Locale.US, ".knob(%b)", knob1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".knob(%b)", knob1));
@@ -1284,8 +1208,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".knob(%s, %f)", knob2, index4));
 
-//        js.append(String.format(Locale.US, ".knob(%s, %f)", knob2, index4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".knob(%s, %f)", knob2, index4));
             js.setLength(0);
@@ -1313,8 +1235,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".knob(%b, %f)", knob3, index4));
-
-//        js.append(String.format(Locale.US, ".knob(%b, %f)", knob3, index4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".knob(%b, %f)", knob3, index4));
@@ -1362,8 +1282,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".marker(%s)", marker));
 
-//        js.append(String.format(Locale.US, ".marker(%s)", marker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".marker(%s)", marker));
             js.setLength(0);
@@ -1390,8 +1308,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".marker(%b)", marker1));
-
-//        js.append(String.format(Locale.US, ".marker(%b)", marker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".marker(%b)", marker1));
@@ -1424,8 +1340,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".marker(%s, %f)", marker2, index6));
 
-//        js.append(String.format(Locale.US, ".marker(%s, %f)", marker2, index6));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".marker(%s, %f)", marker2, index6));
             js.setLength(0);
@@ -1453,8 +1367,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".marker(%b, %f)", marker3, index6));
-
-//        js.append(String.format(Locale.US, ".marker(%b, %f)", marker3, index6));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".marker(%b, %f)", marker3, index6));
@@ -1502,8 +1414,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".needle(%s)", needle));
 
-//        js.append(String.format(Locale.US, ".needle(%s)", needle));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".needle(%s)", needle));
             js.setLength(0);
@@ -1530,8 +1440,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".needle(%b)", needle1));
-
-//        js.append(String.format(Locale.US, ".needle(%b)", needle1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".needle(%b)", needle1));
@@ -1564,8 +1472,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".needle(%s, %f)", needle2, index8));
 
-//        js.append(String.format(Locale.US, ".needle(%s, %f)", needle2, index8));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".needle(%s, %f)", needle2, index8));
             js.setLength(0);
@@ -1593,8 +1499,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".needle(%b, %f)", needle3, index8));
-
-//        js.append(String.format(Locale.US, ".needle(%b, %f)", needle3, index8));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".needle(%b, %f)", needle3, index8));
@@ -1642,8 +1546,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".range(%s)", range));
 
-//        js.append(String.format(Locale.US, ".range(%s)", range));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".range(%s)", range));
             js.setLength(0);
@@ -1670,8 +1572,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".range(%b)", range1));
-
-//        js.append(String.format(Locale.US, ".range(%b)", range1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".range(%b)", range1));
@@ -1704,8 +1604,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".range(%s, %f)", range2, index10));
 
-//        js.append(String.format(Locale.US, ".range(%s, %f)", range2, index10));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".range(%s, %f)", range2, index10));
             js.setLength(0);
@@ -1733,8 +1631,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".range(%b, %f)", range3, index10));
-
-//        js.append(String.format(Locale.US, ".range(%b, %f)", range3, index10));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".range(%b, %f)", range3, index10));
@@ -1765,8 +1661,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".startAngle(%s)", startAngle));
 
-//        js.append(String.format(Locale.US, ".startAngle(%s)", startAngle));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", startAngle));
             js.setLength(0);
@@ -1793,8 +1687,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
-
-//        js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".startAngle(%f)", startAngle1));
@@ -1834,8 +1726,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -1866,8 +1756,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
@@ -1900,8 +1788,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -1931,8 +1817,6 @@ public class CircularGauge extends Chart {
         }
         js.append(String.format(Locale.US, ".sweepAngle(%s)", sweepAngle));
 
-//        js.append(String.format(Locale.US, ".sweepAngle(%s)", sweepAngle));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%s)", sweepAngle));
             js.setLength(0);
@@ -1959,8 +1843,6 @@ public class CircularGauge extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
-
-//        js.append(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
@@ -2176,6 +2058,7 @@ public class CircularGauge extends Chart {
         js.append(generateJSsetSweepAngle1());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

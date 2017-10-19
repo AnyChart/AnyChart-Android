@@ -28,8 +28,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".connectorLength(%f)", connectorLength));
 
-//        js.append(String.format(Locale.US, ".connectorLength(%f)", connectorLength));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorLength(%f)", connectorLength));
             js.setLength(0);
@@ -56,8 +54,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".connectorLength(%s)", connectorLength1));
-
-//        js.append(String.format(Locale.US, ".connectorLength(%s)", connectorLength1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorLength(%s)", connectorLength1));
@@ -97,8 +93,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -130,8 +124,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -162,8 +154,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
@@ -210,8 +200,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -239,8 +227,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -270,8 +256,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -299,8 +283,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -330,8 +312,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -359,8 +339,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -390,8 +368,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -419,8 +395,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
@@ -450,8 +424,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -479,8 +451,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -510,8 +480,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -539,8 +507,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -570,8 +536,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -600,8 +564,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), csvSettings1));
             js.setLength(0);
@@ -629,8 +591,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -661,8 +621,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".explode(%s)", explode));
 
-//        js.append(String.format(Locale.US, ".explode(%s)", explode));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".explode(%s)", explode));
             js.setLength(0);
@@ -689,8 +647,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".explode(%f)", explode1));
-
-//        js.append(String.format(Locale.US, ".explode(%f)", explode1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".explode(%f)", explode1));
@@ -722,8 +678,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".explodeSlice(%f, %b)", index, explode2));
 
-//        js.append(String.format(Locale.US, ".explodeSlice(%f, %b)", index, explode2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".explodeSlice(%f, %b)", index, explode2));
             js.setLength(0);
@@ -752,8 +706,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".explodeSlices(%b)", explodeSlices));
 
-//        js.append(String.format(Locale.US, ".explodeSlices(%b)", explodeSlices));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".explodeSlices(%b)", explodeSlices));
             js.setLength(0);
@@ -781,8 +733,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
@@ -813,8 +763,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
@@ -853,8 +801,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
@@ -884,8 +830,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
@@ -917,8 +861,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
@@ -948,8 +890,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
@@ -981,8 +921,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
             js.setLength(0);
@@ -1012,8 +950,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
@@ -1056,8 +992,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -1091,8 +1025,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -1121,8 +1053,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".forceHoverLabels(%b)", forceHoverLabels));
-
-//        js.append(String.format(Locale.US, ".forceHoverLabels(%b)", forceHoverLabels));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".forceHoverLabels(%b)", forceHoverLabels));
@@ -1160,8 +1090,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".group(%s)", group));
-
-//        js.append(String.format(Locale.US, ".group(%s)", group));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".group(%s)", group));
@@ -1210,8 +1138,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
             js.setLength(0);
@@ -1241,8 +1167,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
-
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
@@ -1274,8 +1198,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
             js.setLength(0);
@@ -1306,8 +1228,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness1, size));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness1, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness1, size));
             js.setLength(0);
@@ -1337,8 +1257,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness1, size));
-
-//        js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness1, size));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness1, size));
@@ -1379,8 +1297,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
             js.setLength(0);
@@ -1407,8 +1323,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
-
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
@@ -1437,8 +1351,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
             js.setLength(0);
@@ -1466,8 +1378,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hover(%f)", index1));
-
-//        js.append(String.format(Locale.US, ".hover(%f)", index1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hover(%f)", index1));
@@ -1506,8 +1416,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".hovered(%s)", hovered));
 
-//        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
             js.setLength(0);
@@ -1537,8 +1445,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".innerRadius(%s)", innerRadius));
 
-//        js.append(String.format(Locale.US, ".innerRadius(%s)", innerRadius));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%s)", innerRadius));
             js.setLength(0);
@@ -1565,8 +1471,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".innerRadius(%f)", innerRadius1));
-
-//        js.append(String.format(Locale.US, ".innerRadius(%f)", innerRadius1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%f)", innerRadius1));
@@ -1597,8 +1501,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".insideLabelsOffset(%f)", insideLabelsOffset));
 
-//        js.append(String.format(Locale.US, ".insideLabelsOffset(%f)", insideLabelsOffset));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".insideLabelsOffset(%f)", insideLabelsOffset));
             js.setLength(0);
@@ -1625,8 +1527,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".insideLabelsOffset(%s)", insideLabelsOffset1));
-
-//        js.append(String.format(Locale.US, ".insideLabelsOffset(%s)", insideLabelsOffset1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".insideLabelsOffset(%s)", insideLabelsOffset1));
@@ -1666,8 +1566,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".labels(%s)", labels));
 
-//        js.append(String.format(Locale.US, ".labels(%s)", labels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
             js.setLength(0);
@@ -1694,8 +1592,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
-//        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
@@ -1734,8 +1630,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".normal(%s)", normal));
 
-//        js.append(String.format(Locale.US, ".normal(%s)", normal));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
             js.setLength(0);
@@ -1765,8 +1659,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".outsideLabelsCriticalAngle(%f)", outsideLabelsCriticalAngle));
 
-//        js.append(String.format(Locale.US, ".outsideLabelsCriticalAngle(%f)", outsideLabelsCriticalAngle));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsCriticalAngle(%f)", outsideLabelsCriticalAngle));
             js.setLength(0);
@@ -1793,8 +1685,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".outsideLabelsCriticalAngle(%s)", outsideLabelsCriticalAngle1));
-
-//        js.append(String.format(Locale.US, ".outsideLabelsCriticalAngle(%s)", outsideLabelsCriticalAngle1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsCriticalAngle(%s)", outsideLabelsCriticalAngle1));
@@ -1825,8 +1715,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".outsideLabelsSpace(%f)", outsideLabelsSpace));
 
-//        js.append(String.format(Locale.US, ".outsideLabelsSpace(%f)", outsideLabelsSpace));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsSpace(%f)", outsideLabelsSpace));
             js.setLength(0);
@@ -1853,8 +1741,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".outsideLabelsSpace(%s)", outsideLabelsSpace1));
-
-//        js.append(String.format(Locale.US, ".outsideLabelsSpace(%s)", outsideLabelsSpace1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsSpace(%s)", outsideLabelsSpace1));
@@ -1886,8 +1772,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
             js.setLength(0);
@@ -1915,8 +1799,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
 
-//        js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
             js.setLength(0);
@@ -1943,8 +1825,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
-
-//        js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
@@ -1986,8 +1866,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
             js.setLength(0);
@@ -2014,8 +1892,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
@@ -2044,8 +1920,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".palette(%s)", palette2));
 
-//        js.append(String.format(Locale.US, ".palette(%s)", palette2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
             js.setLength(0);
@@ -2072,8 +1946,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
-
-//        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
@@ -2104,8 +1976,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".radius(%s)", radius));
 
-//        js.append(String.format(Locale.US, ".radius(%s)", radius));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", radius));
             js.setLength(0);
@@ -2132,8 +2002,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".radius(%f)", radius1));
-
-//        js.append(String.format(Locale.US, ".radius(%f)", radius1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius1));
@@ -2164,8 +2032,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".sort(%s)", (sort != null) ? sort.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".sort(%s)", (sort != null) ? sort.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", (sort != null) ? sort.generateJs() : "null"));
             js.setLength(0);
@@ -2192,8 +2058,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".sort(%s)", sort1));
-
-//        js.append(String.format(Locale.US, ".sort(%s)", sort1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", sort1));
@@ -2224,8 +2088,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".startAngle(%s)", startAngle));
 
-//        js.append(String.format(Locale.US, ".startAngle(%s)", startAngle));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", startAngle));
             js.setLength(0);
@@ -2252,8 +2114,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
-
-//        js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".startAngle(%f)", startAngle1));
@@ -2293,8 +2153,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
             js.setLength(0);
@@ -2326,8 +2184,6 @@ public class Pie extends SeparateChart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
             js.setLength(0);
@@ -2358,8 +2214,6 @@ public class Pie extends SeparateChart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
@@ -2524,6 +2378,7 @@ public class Pie extends SeparateChart {
         js.append(generateJSsetStroke2());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);

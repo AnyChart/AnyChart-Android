@@ -36,8 +36,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".clip(%s)", (clip != null) ? clip.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".clip(%s)", (clip != null) ? clip.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", (clip != null) ? clip.generateJs() : "null"));
             js.setLength(0);
@@ -65,8 +63,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
-
-//        js.append(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
@@ -112,8 +108,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -141,8 +135,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
@@ -172,8 +164,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -201,8 +191,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -232,8 +220,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
@@ -261,8 +247,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
@@ -292,8 +276,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
@@ -321,8 +303,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
@@ -352,8 +332,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -381,8 +359,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
@@ -412,8 +388,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
             js.setLength(0);
@@ -442,8 +416,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
@@ -471,8 +443,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
@@ -503,8 +473,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
@@ -543,8 +511,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
@@ -574,8 +540,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
@@ -607,8 +571,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
@@ -638,8 +600,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
@@ -671,8 +631,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
             js.setLength(0);
@@ -702,8 +660,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
-
-//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
@@ -746,8 +702,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -781,8 +735,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
@@ -811,8 +763,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".firstFill(%s)", (firstFill != null) ? firstFill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".firstFill(%s)", (firstFill != null) ? firstFill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s)", (firstFill != null) ? firstFill.generateJs() : "null"));
@@ -843,8 +793,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".firstFill(%s, %f)", color1, opacity3));
-
-//        js.append(String.format(Locale.US, ".firstFill(%s, %f)", color1, opacity3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %f)", color1, opacity3));
@@ -883,8 +831,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
 
-//        js.append(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
             js.setLength(0);
@@ -914,8 +860,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
-
-//        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
@@ -947,8 +891,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
 
-//        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
             js.setLength(0);
@@ -978,8 +920,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
-
-//        js.append(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
@@ -1011,8 +951,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
-//        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
             js.setLength(0);
@@ -1042,8 +980,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
-
-//        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
@@ -1086,8 +1022,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
-//        js.append(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
             js.setLength(0);
@@ -1120,8 +1054,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-
-//        js.append(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
@@ -1170,8 +1102,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
 
-//        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
             js.setLength(0);
@@ -1201,8 +1131,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
-
-//        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
@@ -1234,8 +1162,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
 
-//        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
             js.setLength(0);
@@ -1265,8 +1191,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", patternFillOrType3, color2, thickness, size));
-
-//        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", patternFillOrType3, color2, thickness, size));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", patternFillOrType3, color2, thickness, size));
@@ -1306,8 +1230,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".firstLabels(%s)", firstLabels));
 
-//        js.append(String.format(Locale.US, ".firstLabels(%s)", firstLabels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstLabels(%s)", firstLabels));
             js.setLength(0);
@@ -1334,8 +1256,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".firstLabels(%b)", firstLabels1));
-
-//        js.append(String.format(Locale.US, ".firstLabels(%b)", firstLabels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstLabels(%b)", firstLabels1));
@@ -1375,8 +1295,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".firstMarkers(%s)", firstMarkers));
 
-//        js.append(String.format(Locale.US, ".firstMarkers(%s)", firstMarkers));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstMarkers(%s)", firstMarkers));
             js.setLength(0);
@@ -1403,8 +1321,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".firstMarkers(%b)", firstMarkers1));
-
-//        js.append(String.format(Locale.US, ".firstMarkers(%b)", firstMarkers1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".firstMarkers(%b)", firstMarkers1));
@@ -1452,8 +1368,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null", color3, thickness1, size1));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null", color3, thickness1, size1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null", color3, thickness1, size1));
             js.setLength(0);
@@ -1483,8 +1397,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness1, size1));
-
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness1, size1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness1, size1));
@@ -1516,8 +1428,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness1, size1));
 
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness1, size1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness1, size1));
             js.setLength(0);
@@ -1547,8 +1457,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType7, color3, thickness1, size1));
-
-//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType7, color3, thickness1, size1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType7, color3, thickness1, size1));
@@ -1588,8 +1496,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".labels(%s)", labels));
 
-//        js.append(String.format(Locale.US, ".labels(%s)", labels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
             js.setLength(0);
@@ -1616,8 +1522,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
-//        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
@@ -1646,8 +1550,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lastFill(%s)", (lastFill != null) ? lastFill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".lastFill(%s)", (lastFill != null) ? lastFill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s)", (lastFill != null) ? lastFill.generateJs() : "null"));
@@ -1678,8 +1580,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lastFill(%s, %f)", color4, opacity6));
-
-//        js.append(String.format(Locale.US, ".lastFill(%s, %f)", color4, opacity6));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %f)", color4, opacity6));
@@ -1718,8 +1618,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
 
-//        js.append(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
             js.setLength(0);
@@ -1749,8 +1647,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
-
-//        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
@@ -1782,8 +1678,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), mode10, angle2, opacity7));
 
-//        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), mode10, angle2, opacity7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), mode10, angle2, opacity7));
             js.setLength(0);
@@ -1813,8 +1707,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", Arrays.toString(keys9), mode8, angle2, opacity7));
-
-//        js.append(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", Arrays.toString(keys9), mode8, angle2, opacity7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", Arrays.toString(keys9), mode8, angle2, opacity7));
@@ -1846,8 +1738,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
 
-//        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
             js.setLength(0);
@@ -1877,8 +1767,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), mode10, angle2, opacity7));
-
-//        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), mode10, angle2, opacity7));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), mode10, angle2, opacity7));
@@ -1921,8 +1809,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
 
-//        js.append(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
             js.setLength(0);
@@ -1955,8 +1841,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
-
-//        js.append(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
@@ -2005,8 +1889,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null", color5, thickness2, size2));
 
-//        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null", color5, thickness2, size2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null", color5, thickness2, size2));
             js.setLength(0);
@@ -2036,8 +1918,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null", color5, thickness2, size2));
-
-//        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null", color5, thickness2, size2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null", color5, thickness2, size2));
@@ -2069,8 +1949,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null", color5, thickness2, size2));
 
-//        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null", color5, thickness2, size2));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null", color5, thickness2, size2));
             js.setLength(0);
@@ -2100,8 +1978,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", patternFillOrType11, color5, thickness2, size2));
-
-//        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", patternFillOrType11, color5, thickness2, size2));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", patternFillOrType11, color5, thickness2, size2));
@@ -2141,8 +2017,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".lastLabels(%s)", lastLabels));
 
-//        js.append(String.format(Locale.US, ".lastLabels(%s)", lastLabels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastLabels(%s)", lastLabels));
             js.setLength(0);
@@ -2169,8 +2043,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lastLabels(%b)", lastLabels1));
-
-//        js.append(String.format(Locale.US, ".lastLabels(%b)", lastLabels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastLabels(%b)", lastLabels1));
@@ -2210,8 +2082,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".lastMarkers(%s)", lastMarkers));
 
-//        js.append(String.format(Locale.US, ".lastMarkers(%s)", lastMarkers));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastMarkers(%s)", lastMarkers));
             js.setLength(0);
@@ -2238,8 +2108,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lastMarkers(%b)", lastMarkers1));
-
-//        js.append(String.format(Locale.US, ".lastMarkers(%b)", lastMarkers1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lastMarkers(%b)", lastMarkers1));
@@ -2287,8 +2155,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
 
-//        js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
             js.setLength(0);
@@ -2315,8 +2181,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
-
-//        js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
@@ -2349,8 +2213,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index1));
 
-//        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index1));
             js.setLength(0);
@@ -2378,8 +2240,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index1));
-
-//        js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index1));
@@ -2419,8 +2279,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".markers(%s)", markers));
 
-//        js.append(String.format(Locale.US, ".markers(%s)", markers));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
             js.setLength(0);
@@ -2447,8 +2305,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".markers(%b)", markers1));
-
-//        js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
@@ -2477,8 +2333,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxFill(%s)", (maxFill != null) ? maxFill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".maxFill(%s)", (maxFill != null) ? maxFill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s)", (maxFill != null) ? maxFill.generateJs() : "null"));
@@ -2509,8 +2363,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxFill(%s, %f)", color6, opacity9));
-
-//        js.append(String.format(Locale.US, ".maxFill(%s, %f)", color6, opacity9));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %f)", color6, opacity9));
@@ -2549,8 +2401,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
 
-//        js.append(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
             js.setLength(0);
@@ -2580,8 +2430,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
-
-//        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
@@ -2613,8 +2461,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), mode14, angle3, opacity10));
 
-//        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), mode14, angle3, opacity10));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), mode14, angle3, opacity10));
             js.setLength(0);
@@ -2644,8 +2490,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", Arrays.toString(keys13), mode12, angle3, opacity10));
-
-//        js.append(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", Arrays.toString(keys13), mode12, angle3, opacity10));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", Arrays.toString(keys13), mode12, angle3, opacity10));
@@ -2677,8 +2521,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
 
-//        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
             js.setLength(0);
@@ -2708,8 +2550,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), mode14, angle3, opacity10));
-
-//        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), mode14, angle3, opacity10));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), mode14, angle3, opacity10));
@@ -2752,8 +2592,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
 
-//        js.append(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
             js.setLength(0);
@@ -2786,8 +2624,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
-
-//        js.append(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
@@ -2836,8 +2672,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null", color7, thickness3, size3));
 
-//        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null", color7, thickness3, size3));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null", color7, thickness3, size3));
             js.setLength(0);
@@ -2867,8 +2701,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null", color7, thickness3, size3));
-
-//        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null", color7, thickness3, size3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null", color7, thickness3, size3));
@@ -2900,8 +2732,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null", color7, thickness3, size3));
 
-//        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null", color7, thickness3, size3));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null", color7, thickness3, size3));
             js.setLength(0);
@@ -2931,8 +2761,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", patternFillOrType15, color7, thickness3, size3));
-
-//        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", patternFillOrType15, color7, thickness3, size3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", patternFillOrType15, color7, thickness3, size3));
@@ -2972,8 +2800,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".maxLabels(%s)", maxLabels));
 
-//        js.append(String.format(Locale.US, ".maxLabels(%s)", maxLabels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%s)", maxLabels));
             js.setLength(0);
@@ -3000,8 +2826,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxLabels(%b)", maxLabels1));
-
-//        js.append(String.format(Locale.US, ".maxLabels(%b)", maxLabels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%b)", maxLabels1));
@@ -3041,8 +2865,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".maxMarkers(%s)", maxMarkers));
 
-//        js.append(String.format(Locale.US, ".maxMarkers(%s)", maxMarkers));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxMarkers(%s)", maxMarkers));
             js.setLength(0);
@@ -3069,8 +2891,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".maxMarkers(%b)", maxMarkers1));
-
-//        js.append(String.format(Locale.US, ".maxMarkers(%b)", maxMarkers1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxMarkers(%b)", maxMarkers1));
@@ -3099,8 +2919,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minFill(%s)", (minFill != null) ? minFill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".minFill(%s)", (minFill != null) ? minFill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minFill(%s)", (minFill != null) ? minFill.generateJs() : "null"));
@@ -3131,8 +2949,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minFill(%s, %f)", color8, opacity12));
-
-//        js.append(String.format(Locale.US, ".minFill(%s, %f)", color8, opacity12));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %f)", color8, opacity12));
@@ -3171,8 +2987,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
 
-//        js.append(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
             js.setLength(0);
@@ -3202,8 +3016,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
-
-//        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
@@ -3235,8 +3047,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), mode18, angle4, opacity13));
 
-//        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), mode18, angle4, opacity13));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), mode18, angle4, opacity13));
             js.setLength(0);
@@ -3266,8 +3076,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", Arrays.toString(keys17), mode16, angle4, opacity13));
-
-//        js.append(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", Arrays.toString(keys17), mode16, angle4, opacity13));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", Arrays.toString(keys17), mode16, angle4, opacity13));
@@ -3299,8 +3107,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
 
-//        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
             js.setLength(0);
@@ -3330,8 +3136,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), mode18, angle4, opacity13));
-
-//        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), mode18, angle4, opacity13));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), mode18, angle4, opacity13));
@@ -3374,8 +3178,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
 
-//        js.append(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
             js.setLength(0);
@@ -3408,8 +3210,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
-
-//        js.append(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
@@ -3458,8 +3258,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null", color9, thickness4, size4));
 
-//        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null", color9, thickness4, size4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null", color9, thickness4, size4));
             js.setLength(0);
@@ -3489,8 +3287,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null", color9, thickness4, size4));
-
-//        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null", color9, thickness4, size4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null", color9, thickness4, size4));
@@ -3522,8 +3318,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null", color9, thickness4, size4));
 
-//        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null", color9, thickness4, size4));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null", color9, thickness4, size4));
             js.setLength(0);
@@ -3553,8 +3347,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", patternFillOrType19, color9, thickness4, size4));
-
-//        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", patternFillOrType19, color9, thickness4, size4));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", patternFillOrType19, color9, thickness4, size4));
@@ -3594,8 +3386,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".minLabels(%s)", minLabels));
 
-//        js.append(String.format(Locale.US, ".minLabels(%s)", minLabels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minLabels(%s)", minLabels));
             js.setLength(0);
@@ -3622,8 +3412,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minLabels(%b)", minLabels1));
-
-//        js.append(String.format(Locale.US, ".minLabels(%b)", minLabels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minLabels(%b)", minLabels1));
@@ -3663,8 +3451,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".minMarkers(%s)", minMarkers));
 
-//        js.append(String.format(Locale.US, ".minMarkers(%s)", minMarkers));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minMarkers(%s)", minMarkers));
             js.setLength(0);
@@ -3691,8 +3477,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".minMarkers(%b)", minMarkers1));
-
-//        js.append(String.format(Locale.US, ".minMarkers(%b)", minMarkers1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minMarkers(%b)", minMarkers1));
@@ -3721,8 +3505,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".negativeFill(%s)", (negativeFill != null) ? negativeFill.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".negativeFill(%s)", (negativeFill != null) ? negativeFill.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s)", (negativeFill != null) ? negativeFill.generateJs() : "null"));
@@ -3753,8 +3535,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".negativeFill(%s, %f)", color10, opacity15));
-
-//        js.append(String.format(Locale.US, ".negativeFill(%s, %f)", color10, opacity15));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f)", color10, opacity15));
@@ -3793,8 +3573,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
 
-//        js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
             js.setLength(0);
@@ -3824,8 +3602,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
-
-//        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
@@ -3857,8 +3633,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), mode22, angle5, opacity16));
 
-//        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), mode22, angle5, opacity16));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), mode22, angle5, opacity16));
             js.setLength(0);
@@ -3888,8 +3662,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", Arrays.toString(keys21), mode20, angle5, opacity16));
-
-//        js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", Arrays.toString(keys21), mode20, angle5, opacity16));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", Arrays.toString(keys21), mode20, angle5, opacity16));
@@ -3921,8 +3693,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
 
-//        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
             js.setLength(0);
@@ -3952,8 +3722,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), mode22, angle5, opacity16));
-
-//        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), mode22, angle5, opacity16));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), mode22, angle5, opacity16));
@@ -3996,8 +3764,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
 
-//        js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
             js.setLength(0);
@@ -4030,8 +3796,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
-
-//        js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
@@ -4080,8 +3844,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null", color11, thickness5, size5));
 
-//        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null", color11, thickness5, size5));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null", color11, thickness5, size5));
             js.setLength(0);
@@ -4111,8 +3873,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null", color11, thickness5, size5));
-
-//        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null", color11, thickness5, size5));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null", color11, thickness5, size5));
@@ -4144,8 +3904,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null", color11, thickness5, size5));
 
-//        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null", color11, thickness5, size5));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null", color11, thickness5, size5));
             js.setLength(0);
@@ -4175,8 +3933,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", patternFillOrType23, color11, thickness5, size5));
-
-//        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", patternFillOrType23, color11, thickness5, size5));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", patternFillOrType23, color11, thickness5, size5));
@@ -4216,8 +3972,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".negativeLabels(%s)", negativeLabels));
 
-//        js.append(String.format(Locale.US, ".negativeLabels(%s)", negativeLabels));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeLabels(%s)", negativeLabels));
             js.setLength(0);
@@ -4244,8 +3998,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".negativeLabels(%b)", negativeLabels1));
-
-//        js.append(String.format(Locale.US, ".negativeLabels(%b)", negativeLabels1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeLabels(%b)", negativeLabels1));
@@ -4285,8 +4037,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".negativeMarkers(%s)", negativeMarkers));
 
-//        js.append(String.format(Locale.US, ".negativeMarkers(%s)", negativeMarkers));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeMarkers(%s)", negativeMarkers));
             js.setLength(0);
@@ -4313,8 +4063,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".negativeMarkers(%b)", negativeMarkers1));
-
-//        js.append(String.format(Locale.US, ".negativeMarkers(%b)", negativeMarkers1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".negativeMarkers(%b)", negativeMarkers1));
@@ -4345,8 +4093,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
-//        js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
             js.setLength(0);
@@ -4373,8 +4119,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
-
-//        js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
@@ -4422,8 +4166,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
 
-//        js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
             js.setLength(0);
@@ -4450,8 +4192,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
-
-//        js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
@@ -4484,8 +4224,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index3));
 
-//        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index3));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index3));
             js.setLength(0);
@@ -4513,8 +4251,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index3));
-
-//        js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index3));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index3));
@@ -4545,8 +4281,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".seriesType(%s)", (type != null) ? type.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".seriesType(%s)", (type != null) ? type.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", (type != null) ? type.generateJs() : "null"));
             js.setLength(0);
@@ -4573,8 +4307,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".seriesType(%s)", type1));
-
-//        js.append(String.format(Locale.US, ".seriesType(%s)", type1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", type1));
@@ -4614,8 +4346,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color12 != null) ? color12.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color12 != null) ? color12.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color12 != null) ? color12.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -4647,8 +4377,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
@@ -4679,8 +4407,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color14, thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color14, thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color14, thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
@@ -4728,8 +4454,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
 
-//        js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", textMarker));
             js.setLength(0);
@@ -4756,8 +4480,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
-
-//        js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b)", textMarker1));
@@ -4790,8 +4512,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index5));
 
-//        js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index5));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index5));
             js.setLength(0);
@@ -4819,8 +4539,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index5));
-
-//        js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index5));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index5));
@@ -4862,8 +4580,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
             js.setLength(0);
@@ -4891,8 +4607,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".xScale(%s)", xScale1));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", xScale1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale1));
             js.setLength(0);
@@ -4919,8 +4633,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
@@ -4962,8 +4674,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
             js.setLength(0);
@@ -4991,8 +4701,6 @@ public class Sparkline extends Chart {
         }
         js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
-
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
             js.setLength(0);
@@ -5019,8 +4727,6 @@ public class Sparkline extends Chart {
             isChain = true;
         }
         js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
@@ -5434,6 +5140,7 @@ public class Sparkline extends Chart {
         js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
+        js.append(super.generateJs());
 
         String result = js.toString();
         js.setLength(0);
