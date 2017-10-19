@@ -28,4 +28,6 @@
     <string name="mosaic_chart">Mosaic Chart</string>
     <string name="mekko_chart">Mekko Chart</string>
     <string name="bar3d_chart">3D Bar Chart</string>
+    <string name="column3d_chart">3D Column Chart</string>
+    <string name="area3d_chart">3D Area Chart</string>
 </resources>

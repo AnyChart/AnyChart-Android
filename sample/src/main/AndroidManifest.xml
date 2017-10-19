@@ -74,6 +74,10 @@
         </activity>
         <activity android:name=".charts.MekkoChartActivity">
         </activity>
+        <activity android:name=".charts.Column3DChartActivity">
+        </activity>
+        <activity android:name=".charts.Area3DChartActivity">
+        </activity>
     </application>
 
 </manifest>
