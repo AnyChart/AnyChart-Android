@@ -93,7 +93,7 @@ Create a new project and select appropriate API level (AnyChart library for Andr
     </tr>
 </table>
 
-Add the repository in your root build.gradle at the end of repositories (**WARNING:** Ensure you add it under **allprojects** instead of buildscript). Then add the dependency in your project build.gradle and synchronize project with Gradle.
+Add the repository in your **root build.gradle** at the end of repositories (**WARNING:** Ensure you add it under **allprojects** instead of buildscript). Then add the dependency in your **project build.gradle** and synchronize project with Gradle.
 <table>
     <tr>
         <td>
