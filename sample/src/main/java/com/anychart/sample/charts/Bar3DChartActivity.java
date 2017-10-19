@@ -39,7 +39,6 @@ public class Bar3DChartActivity extends AppCompatActivity {
 
         bar3d.getYAxis().setTitle("'Revenue in Dollars'");
 
-        // TODO no name
         bar3d.bar(new String[] {
                 "{ 'x': 'Nail polish', 'value': 6229 }",
                 "{ 'x': 'Eyebrow pencil', 'value': 9332 }",
