@@ -93,11 +93,27 @@ Create a new project and select appropriate API level (AnyChart library for Andr
     </tr>
 </table>
 
-Add the repository in your **root build.gradle** at the end of repositories (**WARNING:** Ensure you add it under **allprojects** instead of buildscript). Then add the dependency in your **project build.gradle** and synchronize project with Gradle.
+Add the repository in your **root build.gradle** at the end of repositories (**WARNING:** Ensure you add it under **allprojects** instead of buildscript). 
+```groovy
+allprojects {
+        repositories {
+                ...
+                maven { url 'https://jitpack.io' }
+        }
+}
+```
+
+Then add the dependency in your **project build.gradle** and synchronize project with Gradle.
+```Groovy
+dependencies {
+        compile 'com.github.AnyChart:AnyChart-Android:0.0.1'
+}
+```
+
 <table>
     <tr>
         <td>
-            <h3 align="center">Add the repository in your root build.gradle</h3>
+            <h3 align="center">Add the repository</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_3.png" alt="Add repository in your root build.gradle">
         </td>
@@ -137,10 +153,15 @@ import com.anychart.anychart.Pie;
 Build and run your app.
 <table>
     <tr>
+        <td valign="top">
+            <h3 align="center">Build and run</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_6.png" alt="Build and run">
+        </td>
         <td>
             <h3 align="center">Running app</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_5.png" width="320px" alt="Running app">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_5.png" alt="Running app">
         </td>
     </tr>
 </table>
