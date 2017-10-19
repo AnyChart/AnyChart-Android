@@ -46,7 +46,7 @@ Add the dependency:
 ```
 
 ### Gradle
-Add it in your root build.gradle at the end of repositories:
+Add it in your root build.gradle at the end of repositories (**WARNING:** Ensure you add it under **allprojects** instead of buildscript):
 ```groovy
 allprojects {
         repositories {
@@ -55,7 +55,6 @@ allprojects {
         }
 }
 ```
-**WARNING:** Ensure you add it under **allprojects** instead of buildscript.
 
 Add the dependency in your project build.gradle:
 ```Groovy
@@ -94,23 +93,23 @@ Create a new project and select appropriate API level (AnyChart library for Andr
     </tr>
 </table>
 
-Add repository in your root build.gradle at the end of repositories (**WARNING:** Ensure you add it under **allprojects** instead of buildscript). Then add the dependency in your project build.gradle and synchronize project with Gradle.
+Add the repository in your root build.gradle at the end of repositories (**WARNING:** Ensure you add it under **allprojects** instead of buildscript). Then add the dependency in your project build.gradle and synchronize project with Gradle.
 <table>
     <tr>
         <td>
-            <h3 align="center">Add repository in your root build.gradle</h3>
+            <h3 align="center">Add the repository in your root build.gradle</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" alt="Add repository in your root build.gradle">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_3.png" alt="Add repository in your root build.gradle">
         </td>
         <td>
-            <h3 align="center">Add the dependency in your project build.gradle and sync project</h3>
+            <h3 align="center">Add the dependency and sync the project</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" alt="Add the dependency in your project build.gradle and sync project">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_4.png" alt="Add the dependency in your project build.gradle and sync project">
         </td>
     </tr>
 </table>
 
-Add view to your Activity layout.
+Add AnyChart view to your Activity layout.
 ```xml
 <com.anychart.anychart.AnyChartView
         android:id="@+id/any_chart_view"
@@ -118,60 +117,33 @@ Add view to your Activity layout.
         android:layout_height="match_parent"
         />
 ```
-<table>
-    <tr>
-        <td>
-            <h3 align="center">Create new project</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" width="320px" height="400px" alt="Pie Chart - AnyChart">
-        </td>
-    </tr>
-</table>
 
-Make sure you have these package imports at the top of your Activity file:
+Add Java code in your Activity (for example, if you want to create pie chart).
+```java
+Pie pie = AnyChart.pie();
+pie.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18000]"}, TextParsingMode.CSV);
+
+AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
+anyChartView.setChart(pie);
+```
+
+Make sure you have these package imports at the top of your Activity file.
 ```java
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Pie;
 ```
 
-Add Java code in your Activity. For example, if you want to create pie chart:
-```java
-Pie pie = AnyChart.pie();
-pie.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18000]"}, TextParsingMode.CSV);
-
-AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
-anyChartView.setChart(pie);
-```
-
-Run.
+Build and run your app.
 <table>
     <tr>
         <td>
-            <h3 align="center">Create new project</h3>
+            <h3 align="center">Running app</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" width="320px" height="400px" alt="Pie Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_5.png" width="320px" alt="Running app">
         </td>
     </tr>
 </table>
-
-### Add declaration to a view
-```xml
-<com.anychart.anychart.AnyChartView
-        android:id="@+id/any_chart_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-```
-
-### Add Java code (for example, if you want to create pie chart)
-```java
-Pie pie = AnyChart.pie();
-pie.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18000]"}, TextParsingMode.CSV);
-
-AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
-anyChartView.setChart(pie);
-```
 
 ## Chart Types
 AnyChart product family includes more than 60 different chart types and we're constantly adding new ones.
