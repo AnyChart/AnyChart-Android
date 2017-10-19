@@ -2,12 +2,14 @@ package com.anychart.sample;
 
 import android.content.res.Resources;
 
+import com.anychart.sample.charts.Area3DChartActivity;
 import com.anychart.sample.charts.AreaChartActivity;
 import com.anychart.sample.charts.Bar3DChartActivity;
 import com.anychart.sample.charts.BarChartActivity;
 import com.anychart.sample.charts.BoxChartActivity;
 import com.anychart.sample.charts.BubbleChartActivity;
 import com.anychart.sample.charts.CircularGaugeActivity;
+import com.anychart.sample.charts.Column3DChartActivity;
 import com.anychart.sample.charts.ColumnChartActivity;
 import com.anychart.sample.charts.FunnelChartActivity;
 import com.anychart.sample.charts.HeatMapChartActivity;
@@ -83,6 +85,8 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.mosaic_chart), MosaicChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.mekko_chart), MekkoChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.bar3d_chart), Bar3DChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.column3d_chart), Column3DChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.area3d_chart), Area3DChartActivity.class));
 //        chartList.add(new Chart(resources.getString(R.string.gantt_chart), GanttChartActivity.class));
 
         return chartList;
