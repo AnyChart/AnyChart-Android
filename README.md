@@ -417,6 +417,38 @@ AnyChart product family includes more than 60 different chart types and we're co
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
+        <td>
+            <h3 align="center">3D Bar Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/bar3dchart.png" width="320px" height="400px" alt="3D Bar Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Bar3DChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3 align="center">3D Column Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/column3dchart.png" width="320px" height="400px" alt="3D Column Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Column3DChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">3D Area Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/area3dchart.png" width="320px" height="400px" alt="3D Area Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Area3DChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
     </tr>
 </table>  
 
