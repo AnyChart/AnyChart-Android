@@ -93,7 +93,23 @@ Create a new project and select appropriate API level (AnyChart library for Andr
     </tr>
 </table>
 
-Add the repository in your **root build.gradle** at the end of repositories (**WARNING:** Ensure you add it under **allprojects** instead of buildscript). 
+Add an empty Activity and write layout and Activity name.
+<table>
+    <tr>
+        <td>
+            <h3 align="center">Add Activity</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_6.png" alt="Create new project">
+        </td>
+        <td>
+            <h3 align="center">Customize Activity</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_7.png" alt="Select API level">
+        </td>
+    </tr>
+</table>
+
+Add the repository in your **project build.gradle** at the end of repositories (**WARNING:** Ensure you add it under **allprojects** instead of buildscript). 
 ```groovy
 allprojects {
         repositories {
@@ -103,7 +119,7 @@ allprojects {
 }
 ```
 
-Then add the dependency in your **project build.gradle** and synchronize project with Gradle.
+Then add the dependency in your **module build.gradle** and synchronize project with Gradle.
 ```Groovy
 dependencies {
         compile 'com.github.AnyChart:AnyChart-Android:0.0.1'
@@ -134,6 +150,16 @@ Add AnyChart view to your Activity layout.
         />
 ```
 
+<table>
+    <tr>
+        <td>
+            <h3 align="center">Add view to layout</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_8.png" alt="Add repository in your root build.gradle">
+        </td>
+    </tr>
+</table>
+
 Add Java code in your Activity (for example, if you want to create pie chart).
 ```java
 Pie pie = AnyChart.pie();
@@ -142,12 +168,22 @@ pie.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18
 AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 anyChartView.setChart(pie);
 ```
+<table>
+    <tr>
+        <td>
+            <h3 align="center">Add Java code</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_9.png" alt="Add repository in your root build.gradle">
+        </td>
+    </tr>
+</table>
 
 Make sure you have these package imports at the top of your Activity file.
 ```java
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Pie;
+import com.anychart.anychart.TextParsingMode;
 ```
 
 Build and run your app.
@@ -156,7 +192,7 @@ Build and run your app.
         <td valign="top">
             <h3 align="center">Build and run</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_6.png" alt="Build and run">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_10.png" alt="Build and run">
         </td>
         <td>
             <h3 align="center">Running app</h3>
@@ -414,6 +450,38 @@ AnyChart product family includes more than 60 different chart types and we're co
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/MekkoChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">3D Bar Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/bar3dchart.png" width="320px" height="400px" alt="3D Bar Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Bar3DChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3 align="center">3D Column Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/column3dchart.png" width="320px" height="400px" alt="3D Column Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Column3DChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">3D Area Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/area3dchart.png" width="320px" height="400px" alt="3D Area Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Area3DChartActivity.java">Code Snippet</a> /
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
