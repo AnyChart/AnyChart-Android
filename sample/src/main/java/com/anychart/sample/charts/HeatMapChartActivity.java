@@ -5,12 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.DataEntry;
+import com.anychart.anychart.HeatDataEntry;
 import com.anychart.anychart.HeatMap;
 import com.anychart.anychart.SelectionMode;
 import com.anychart.anychart.SolidFill;
 import com.anychart.anychart.Stroke;
-import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HeatMapChartActivity extends AppCompatActivity {
 
@@ -23,17 +27,17 @@ public class HeatMapChartActivity extends AppCompatActivity {
 
         HeatMap riskMap = AnyChart.heatMap();
 
-        riskMap.setStroke("'#fff'", 1d, null, null, null);
+        riskMap.setStroke("#fff", 1d, null, null, null);
         riskMap.getHovered()
-                .setStroke("'#fff'", 6d, null, null, null)
-                .setFill(new SolidFill("'#545f69'", 1d))
-                .setLabels("{'fontColor': '#fff'}");
+                .setStroke("#fff", 6d, null, null, null)
+                .setFill(new SolidFill("#545f69", 1d))
+                .setLabels("{ fontColor: '#fff' }");
 
         riskMap.getInteractivity().setSelectionMode(SelectionMode.NONE);
 
         riskMap.getTitle().setEnabled(true);
         riskMap.getTitle()
-                .setText("'Risk Matrix in Project Server'")
+                .setText("Risk Matrix in Project Server")
                 .setPadding(0d, 0d, 20d, 0d);
 
         riskMap.getLabels().setEnabled(true);
@@ -62,34 +66,45 @@ public class HeatMapChartActivity extends AppCompatActivity {
 //                        "           '<span style=\"color: #CECECE\">Consequence: </span>' + this.y;\n" +
 //                        "   }");
 
-        riskMap.setData(new String[] {
-                "{x: 'Rare', y: 'Insignificant', heat: 0, fill: '#90caf9'}",
-                "{x: 'Rare', y: 'Minor', heat: 0, fill: '#90caf9'}",
-                "{x: 'Rare', y: 'Moderate', heat: 0, fill: '#90caf9'}",
-                "{x: 'Rare', y: 'Major', heat: 0, fill: '#90caf9'}",
-                "{x: 'Rare', y: 'Extreme', heat: 0, fill: '#90caf9'}",
-                "{x: 'Unlikely', y: 'Insignificant', heat: 0, fill: '#90caf9'}",
-                "{x: 'Unlikely', y: 'Minor', heat: 0, fill: '#90caf9'}",
-                "{x: 'Unlikely', y: 'Moderate', heat: 0, fill: '#90caf9'}",
-                "{x: 'Unlikely', y: 'Major', heat: 1, fill: '#ffb74d'}",
-                "{x: 'Unlikely', y: 'Extreme', heat: 1, fill: '#ffb74d'}",
-                "{x: 'Possible', y: 'Insignificant', heat: 0, fill: '#90caf9'}",
-                "{x: 'Possible', y: 'Minor', heat: 0, fill: '#90caf9'}",
-                "{x: 'Possible', y: 'Moderate', heat: 1, fill: '#ffb74d'}",
-                "{x: 'Possible', y: 'Major', heat: 1, fill: '#ffb74d'}",
-                "{x: 'Possible', y: 'Extreme', heat: 1, fill: '#ffb74d'}",
-                "{x: 'Likely', y: 'Insignificant', heat: 0, fill: '#90caf9'}",
-                "{x: 'Likely', y: 'Minor', heat: 1, fill: '#ffb74d'}",
-                "{x: 'Likely', y: 'Moderate', heat: 1, fill: '#ffb74d'}",
-                "{x: 'Likely', y: 'Major', heat: 2, fill: '#ef6c00'}",
-                "{x: 'Likely', y: 'Extreme', heat: 2, fill: '#ef6c00'}",
-                "{x: 'Almost\\nCertain', y: 'Insignificant', heat: 0, fill: '#90caf9'}",
-                "{x: 'Almost\\nCertain', y: 'Minor', heat: 1, fill: '#ffb74d'}",
-                "{x: 'Almost\\nCertain', y: 'Moderate', heat: 1, fill: '#ffb74d'}",
-                "{x: 'Almost\\nCertain', y: 'Major', heat: 2, fill: '#ef6c00'}",
-                "{x: 'Almost\\nCertain', y: 'Extreme', heat: 3, fill: '#d84315'}"
-        }, TextParsingMode.CSV);
+        List<DataEntry> data = new ArrayList<>();
+
+        data.add(new CustomHeatDataEntry("Rare", "Insignificant", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Rare", "Minor", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Rare", "Moderate", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Rare", "Major", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Rare", "Extreme", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Unlikely", "Insignificant", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Unlikely", "Minor", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Unlikely", "Moderate", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Unlikely", "Major", 1, "#ffb74d"));
+        data.add(new CustomHeatDataEntry("Unlikely", "Extreme", 1, "#ffb74d"));
+        data.add(new CustomHeatDataEntry("Possible", "Insignificant", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Possible", "Minor", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Possible", "Moderate", 1, "#ffb74d"));
+        data.add(new CustomHeatDataEntry("Possible", "Major", 1, "#ffb74d"));
+        data.add(new CustomHeatDataEntry("Possible", "Extreme", 1, "#ffb74d"));
+        data.add(new CustomHeatDataEntry("Likely", "Insignificant", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Likely", "Minor", 1, "#ffb74d"));
+        data.add(new CustomHeatDataEntry("Likely", "Moderate", 1, "#ffb74d"));
+        data.add(new CustomHeatDataEntry("Likely", "Major", 2, "#ef6c00"));
+        data.add(new CustomHeatDataEntry("Likely", "Extreme", 2, "#ef6c00"));
+        data.add(new CustomHeatDataEntry("Almost\\nCertain", "Insignificant", 0, "#90caf9"));
+        data.add(new CustomHeatDataEntry("Almost\\nCertain", "Minor", 1, "#ffb74d"));
+        data.add(new CustomHeatDataEntry("Almost\\nCertain", "Moderate", 1, "#ffb74d"));
+        data.add(new CustomHeatDataEntry("Almost\\nCertain", "Major", 2, "#ef6c00"));
+        data.add(new CustomHeatDataEntry("Almost\\nCertain", "Extreme", 3, "#d84315"));
+
+        riskMap.setData(data);
+
 
         anyChartView.setChart(riskMap);
     }
+
+    private class CustomHeatDataEntry extends HeatDataEntry {
+        CustomHeatDataEntry(String x, String y, Integer heat, String fill) {
+            super(x, y, heat);
+            setValue("fill", fill);
+        }
+    }
+
 }

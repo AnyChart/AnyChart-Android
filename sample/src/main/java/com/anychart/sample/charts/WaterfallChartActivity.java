@@ -6,7 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsWaterfall;
+import com.anychart.anychart.DataEntry;
+import com.anychart.anychart.SingleValueDataEntry;
 import com.anychart.sample.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WaterfallChartActivity extends AppCompatActivity {
 
@@ -19,12 +24,11 @@ public class WaterfallChartActivity extends AppCompatActivity {
 
         ChartsWaterfall waterfall = AnyChart.waterfall();
 
-        waterfall.setTitle("'ACME corp. Revenue Flow 2017'");
+        waterfall.setTitle("ACME corp. Revenue Flow 2017");
 
         waterfall.getYScale().setMinimum(0d);
 
-        waterfall.getYAxis().getLabels().setFormat("'${%Value}{scale:(1000000)(1)|(mln)}'");
-
+        waterfall.getYAxis().getLabels().setFormat("${%Value}{scale:(1000000)(1)|(mln)}");
         waterfall.getLabels().setEnabled(true);
         waterfall.getLabels().setFormat(
                 "function() {\n" +
@@ -39,22 +43,27 @@ public class WaterfallChartActivity extends AppCompatActivity {
                 "      })\n" +
                 "    }");
 
-        waterfall.setData(new String[] {
-                "{x: 'Start', value: 23000000}",
-                "{x: 'Jan', value: 2200000}",
-                "{x: 'Feb', value: -4600000}",
-                "{x: 'Mar', value: -9100000}",
-                "{x: 'Apr', value: 3700000}",
-                "{x: 'May', value: -2100000}",
-                "{x: 'Jun', value: 5300000}",
-                "{x: 'Jul', value: 3100000}",
-                "{x: 'Aug', value: -1500000}",
-                "{x: 'Sep', value: 4200000}",
-                "{x: 'Oct', value: 5300000}",
-                "{x: 'Nov', value: -1500000}",
-                "{x: 'Dec', value: 5100000}",
-                "{x: 'End', isTotal: true}"
-        });
+        List<DataEntry> data = new ArrayList<>();
+
+        data.add(new SingleValueDataEntry("Start", 23000000));
+        data.add(new SingleValueDataEntry("Jan", 2200000));
+        data.add(new SingleValueDataEntry("Feb", -4600000));
+        data.add(new SingleValueDataEntry("Mar", -9100000));
+        data.add(new SingleValueDataEntry("Apr", 3700000));
+        data.add(new SingleValueDataEntry("May", -2100000));
+        data.add(new SingleValueDataEntry("Jun", 5300000));
+        data.add(new SingleValueDataEntry("Jul", 3100000));
+        data.add(new SingleValueDataEntry("Aug", -1500000));
+        data.add(new SingleValueDataEntry("Sep", 4200000));
+        data.add(new SingleValueDataEntry("Oct", 5300000));
+        data.add(new SingleValueDataEntry("Nov", -1500000));
+        data.add(new SingleValueDataEntry("Dec", 5100000));
+        DataEntry end = new DataEntry();
+        end.setValue("x", "End");
+        end.setValue("isTotal", true);
+        data.add(end);
+
+        waterfall.setData(data);
 
         anyChartView.setChart(waterfall);
     }

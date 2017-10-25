@@ -7,12 +7,16 @@ import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.CartesianSeriesJumpLine;
+import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.HoverMode;
 import com.anychart.anychart.SeriesBar;
-import com.anychart.anychart.TextParsingMode;
+import com.anychart.anychart.SingleValueDataEntry;
 import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.anychart.TooltipPositionMode;
 import com.anychart.sample.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class VerticalChartActivity extends AppCompatActivity {
 
@@ -26,40 +30,43 @@ public class VerticalChartActivity extends AppCompatActivity {
         Cartesian vertical = AnyChart.vertical();
 
         vertical.setAnimation(true)
-                .setTitle("'Vertical Combination of Bar and Jump Line Chart'");
+                .setTitle("Vertical Combination of Bar and Jump Line Chart");
 
-        SeriesBar bar = vertical.bar(new String[] {
-                "['Jan', 11.5]",
-                "['Feb', 12]",
-                "['Mar', 11.7]",
-                "['Apr', 12.4]",
-                "['May', 13.5]",
-                "['Jun', 11.9]",
-                "['Jul', 14.6]",
-                "['Aug', 17.2]",
-                "['Sep', 16.9]",
-                "['Oct', 15.4]",
-                "['Nov', 16.9]",
-                "['Dec', 17.2]"
-        }, TextParsingMode.CSV);
-        bar.getLabels().setFormat("'${%Value} mln'");
+        List<DataEntry> data = new ArrayList<>();
 
-        CartesianSeriesJumpLine jumpLine = vertical.jumpLine(new String[] {
-                "['Jan', 9.3]",
-                "['Feb', 10.5]",
-                "['Mar', 11.2]",
-                "['Apr', 11.2]",
-                "['May', 12.7]",
-                "['Jun', 13.1]",
-                "['Jul', 12.2]",
-                "['Aug', 12.2]",
-                "['Sep', 10.1]",
-                "['Oct', 14.5]",
-                "['Nov', 14.5]",
-                "['Dec', 15.5]"
-        }, TextParsingMode.CSV);
-        jumpLine.setStroke("'#60727B'", 2d, null, null, null);
-//        jumpLine.setIsVertical(true);
+        data.add(new SingleValueDataEntry("Jan", 11.5));
+        data.add(new SingleValueDataEntry("Feb", 12));
+        data.add(new SingleValueDataEntry("Mar", 11.7));
+        data.add(new SingleValueDataEntry("Apr", 12.4));
+        data.add(new SingleValueDataEntry("May", 13.5));
+        data.add(new SingleValueDataEntry("Jun", 11.9));
+        data.add(new SingleValueDataEntry("Jul", 14.6));
+        data.add(new SingleValueDataEntry("Aug", 17.2));
+        data.add(new SingleValueDataEntry("Sep", 16.9));
+        data.add(new SingleValueDataEntry("Oct", 15.4));
+        data.add(new SingleValueDataEntry("Nov", 16.9));
+        data.add(new SingleValueDataEntry("Dec", 17.2));
+
+        SeriesBar bar = vertical.bar(data);
+        bar.getLabels().setFormat("${%Value} mln");
+
+        List<DataEntry> jumpLineData = new ArrayList<>();
+
+        jumpLineData.add(new SingleValueDataEntry("Jan", 9.3));
+        jumpLineData.add(new SingleValueDataEntry("Feb", 10.5));
+        jumpLineData.add(new SingleValueDataEntry("Mar", 11.2));
+        jumpLineData.add(new SingleValueDataEntry("Apr", 11.2));
+        jumpLineData.add(new SingleValueDataEntry("May", 12.7));
+        jumpLineData.add(new SingleValueDataEntry("Jun", 13.1));
+        jumpLineData.add(new SingleValueDataEntry("Jul", 12.2));
+        jumpLineData.add(new SingleValueDataEntry("Aug", 12.2));
+        jumpLineData.add(new SingleValueDataEntry("Sep", 10.1));
+        jumpLineData.add(new SingleValueDataEntry("Oct", 14.5));
+        jumpLineData.add(new SingleValueDataEntry("Nov", 14.5));
+        jumpLineData.add(new SingleValueDataEntry("Dec", 15.5));
+
+        CartesianSeriesJumpLine jumpLine = vertical.jumpLine(jumpLineData);
+        jumpLine.setStroke("#60727B", 2d, null, null, null);
         jumpLine.getLabels().setEnabled(false);
 
         vertical.getYScale().setMinimum(0d);
@@ -79,8 +86,7 @@ public class VerticalChartActivity extends AppCompatActivity {
 
         vertical.setXAxis(true);
         vertical.setYAxis(true);
-        vertical.getYAxis().getLabels().setFormat("'${%Value} mln'");
-//        cartesian.setIsVertical(true);
+        vertical.getYAxis().getLabels().setFormat("${%Value} mln");
 
         anyChartView.setChart(vertical);
     }

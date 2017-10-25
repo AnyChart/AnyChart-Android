@@ -6,12 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.CartesianSeriesBase;
+import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAnchor;
 import com.anychart.anychart.Pareto;
+import com.anychart.anychart.SingleValueDataEntry;
 import com.anychart.anychart.StrokeLineCap;
 import com.anychart.anychart.StrokeLineJoin;
-import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ParetoChartActivity extends AppCompatActivity {
 
@@ -23,24 +27,40 @@ public class ParetoChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         Pareto pareto = AnyChart.pareto();
-        pareto.setData(new String[] {
-                "{ x: 'Food is tasteless', value: 65 }",
-                "{ x: 'Wait time', value: 109 }",
-                "{ x: 'Unfriendly staff', value: 12.5 }",
-                "{ x: 'Not clean', value: 45 }",
-                "{ x: 'Overpriced', value: 250 }",
-                "{ x: 'To noisy', value: 27 }",
-                "{ x: 'Food not fresh', value: 35 }",
-                "{ x: 'Small portions', value: 170 }",
-                "{ x: 'Not atmosphere', value: 35 }",
-                "{ x: 'Food is to salty', value: 35 }"
-        }, TextParsingMode.CSV);
 
-        pareto.setTitle("'Pareto Chart of Restaurant Complaints'");
+        List<DataEntry> data = new ArrayList<>();
 
-        pareto.getYAxis(0d).setTitle("'Defect frequency'");
+        data.add(new SingleValueDataEntry("Food is tasteless", 65));
+        data.add(new SingleValueDataEntry("Wait time", 109));
+        data.add(new SingleValueDataEntry("Unfriendly staff", 12.5));
+        data.add(new SingleValueDataEntry("Not clean", 45));
+        data.add(new SingleValueDataEntry("Overpriced", 250));
+        data.add(new SingleValueDataEntry("To noisy", 27));
+        data.add(new SingleValueDataEntry("Food not fresh", 35));
+        data.add(new SingleValueDataEntry("Small portions", 170));
+        data.add(new SingleValueDataEntry("Not atmosphere", 35));
+        data.add(new SingleValueDataEntry("Food is to salty", 35));
 
-        pareto.getYAxis(1d).setTitle("'Cumulative Percentage'");
+        pareto.setData(data);
+
+//        pareto.setData(new String[] {
+//                "{ x: 'Food is tasteless', value: 65 }",
+//                "{ x: 'Wait time', value: 109 }",
+//                "{ x: 'Unfriendly staff', value: 12.5 }",
+//                "{ x: 'Not clean', value: 45 }",
+//                "{ x: 'Overpriced', value: 250 }",
+//                "{ x: 'To noisy', value: 27 }",
+//                "{ x: 'Food not fresh', value: 35 }",
+//                "{ x: 'Small portions', value: 170 }",
+//                "{ x: 'Not atmosphere', value: 35 }",
+//                "{ x: 'Food is to salty', value: 35 }"
+//        }, TextParsingMode.CSV);
+
+        pareto.setTitle("Pareto Chart of Restaurant Complaints");
+
+        pareto.getYAxis(0d).setTitle("Defect frequency");
+
+        pareto.getYAxis(1d).setTitle("Cumulative Percentage");
 
         pareto.setAnimation(true);
 
@@ -48,20 +68,20 @@ public class ParetoChartActivity extends AppCompatActivity {
                 .setValue(80d)
                 // TODO axis
 //                .setAxis(pareto.getXAxis(1d))
-                .setStroke("'#A5B3B3'", 1d, "'5 2'", StrokeLineJoin.ROUND, StrokeLineCap.ROUND);
+                .setStroke("#A5B3B3", 1d, "5 2", StrokeLineJoin.ROUND, StrokeLineCap.ROUND);
 
-        pareto.getGetSeries(0d).getTooltip().setFormat("'Value: {%Value}'");
+        pareto.getGetSeries(0d).getTooltip().setFormat("Value: {%Value}");
 
         CartesianSeriesBase line = pareto.getGetSeries(1d);
-        line.setSeriesType("'spline'")
+        line.setSeriesType("spline")
                 .setMarkers(true);
         // TODO ticks
 //        line.getYScale().setTicks();
         line.getLabels().setEnabled(true);
         line.getLabels()
                 .setAnchor(EnumsAnchor.RIGHT_BOTTOM)
-                .setFormat("'{%CF}%'");
-        line.getTooltip().setFormat("'Cumulative Frequency: {%CF}% \\n Relative Frequency: {%RF}%'");
+                .setFormat("{%CF}%");
+        line.getTooltip().setFormat("Cumulative Frequency: {%CF}% \\n Relative Frequency: {%RF}%");
 
         pareto.getCrosshair().setEnabled(true);
         pareto.getCrosshair().setXLabel(true);

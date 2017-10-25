@@ -5,11 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAlign;
 import com.anychart.anychart.LegendLayout;
 import com.anychart.anychart.Pie;
-import com.anychart.anychart.TextParsingMode;
+import com.anychart.anychart.SingleValueDataEntry;
 import com.anychart.sample.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PieChartActivity extends AppCompatActivity {
 
@@ -21,25 +25,28 @@ public class PieChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         Pie pie = AnyChart.pie();
-        pie.setData(new String[] {
-                "['Apples', 6371664]",
-                "['Pears', 789622]",
-                "['Bananas' , 7216301]",
-                "['Grapes' , 1486621]",
-                "['Oranges' , 1200000]"
-        }, TextParsingMode.CSV);
 
-        pie.setTitle("'Fruits imported in 2015 (in kg)'");
+        List<DataEntry> data = new ArrayList<>();
 
-        pie.getLabels().setPosition("'outside'");
+        data.add(new SingleValueDataEntry("Apples", 6371664));
+        data.add(new SingleValueDataEntry("Pears", 789622));
+        data.add(new SingleValueDataEntry("Bananas", 7216301));
+        data.add(new SingleValueDataEntry("Grapes", 1486621));
+        data.add(new SingleValueDataEntry("Oranges", 1200000));
+
+        pie.setData(data);
+
+        pie.setTitle("Fruits imported in 2015 (in kg)");
+
+        pie.getLabels().setPosition("outside");
 
         pie.getLegend().getTitle().setEnabled(true);
         pie.getLegend().getTitle()
-                .setText("'Retail channels'")
+                .setText("Retail channels")
                 .setPadding(0d, 0d, 10d, 0d);
 
         pie.getLegend()
-                .setPosition("'center-bottom'")
+                .setPosition("center-bottom")
                 .setItemsLayout(LegendLayout.HORIZONTAL)
                 .setAlign(EnumsAlign.CENTER);
 

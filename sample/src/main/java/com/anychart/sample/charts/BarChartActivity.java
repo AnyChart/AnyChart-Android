@@ -1,22 +1,26 @@
 package com.anychart.sample.charts;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.CoreAxesLinear;
+import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAnchor;
 import com.anychart.anychart.HoverMode;
 import com.anychart.anychart.LabelsOverlapMode;
 import com.anychart.anychart.Orientation;
 import com.anychart.anychart.ScaleStackMode;
 import com.anychart.anychart.SeriesBar;
-import com.anychart.anychart.TextParsingMode;
+import com.anychart.anychart.SingleValueDataEntry;
 import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.anychart.TooltipPositionMode;
 import com.anychart.sample.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BarChartActivity extends AppCompatActivity {
 
@@ -40,7 +44,7 @@ public class BarChartActivity extends AppCompatActivity {
                 "    return Math.abs(this.value).toLocaleString();\n" +
                 "  }");
 
-        barChart.getYAxis(0d).setTitle("'Revenue in Dollars'");
+        barChart.getYAxis(0d).setTitle("Revenue in Dollars");
 
         barChart.getXAxis(0d).setOverlapMode(LabelsOverlapMode.ALLOW_OVERLAP);
 
@@ -49,7 +53,7 @@ public class BarChartActivity extends AppCompatActivity {
         xAxis1.setOrientation(Orientation.RIGHT);
         xAxis1.setOverlapMode(LabelsOverlapMode.ALLOW_OVERLAP);
 
-        barChart.setTitle("'Cosmetic Sales by Gender'");
+        barChart.setTitle("Cosmetic Sales by Gender");
 
         barChart.getInteractivity().setHoverMode(HoverMode.BY_X);
 
@@ -67,61 +71,65 @@ public class BarChartActivity extends AppCompatActivity {
                         "      return '<span style=\"color: #D9D9D9\">$</span>' + Math.abs(this.value).toLocaleString();\n" +
                         "    }");
 
-        SeriesBar series1 = barChart.bar(new String[] {
-                "['Nail polish', 5376]",
-                "['Eyebrow pencil', 10987]",
-                "['Rouge', 7624]",
-                "['Lipstick', 8814]",
-                "['Eyeshadows', 8998]",
-                "['Eyeliner', 9321]",
-                "['Foundation', 8342]",
-                "['Lip gloss', 6998]",
-                "['Mascara', 9261]",
-                "['Shampoo', 5376]",
-                "['Hair conditioner', 10987]",
-                "['Body lotion', 7624]",
-                "['Shower gel', 8814]",
-                "['Soap', 8998]",
-                "['Eye fresher', 9321]",
-                "['Deodorant', 8342]",
-                "['Hand cream', 7598]",
-                "['Foot cream', 6098]",
-                "['Night cream', 6998]",
-                "['Day cream', 5304]",
-                "['Vanila cream', 9261]"
-        }, TextParsingMode.CSV);
-        series1.setName("'Females'")
-                .setColor("'HotPink'");
+        List<DataEntry> series1Data = new ArrayList<>();
+
+        series1Data.add(new SingleValueDataEntry("Nail polish", 5376));
+        series1Data.add(new SingleValueDataEntry("Eyebrow pencil", 10987));
+        series1Data.add(new SingleValueDataEntry("Rouge", 7624));
+        series1Data.add(new SingleValueDataEntry("Lipstick", 8814));
+        series1Data.add(new SingleValueDataEntry("Eyeshadows", 8998));
+        series1Data.add(new SingleValueDataEntry("Eyeliner", 9321));
+        series1Data.add(new SingleValueDataEntry("Foundation", 8342));
+        series1Data.add(new SingleValueDataEntry("Lip gloss", 6998));
+        series1Data.add(new SingleValueDataEntry("Mascara", 9261));
+        series1Data.add(new SingleValueDataEntry("Shampoo", 5376));
+        series1Data.add(new SingleValueDataEntry("Hair conditioner", 10987));
+        series1Data.add(new SingleValueDataEntry("Body lotion", 7624));
+        series1Data.add(new SingleValueDataEntry("Shower gel", 8814));
+        series1Data.add(new SingleValueDataEntry("Soap", 8998));
+        series1Data.add(new SingleValueDataEntry("Eye fresher", 9321));
+        series1Data.add(new SingleValueDataEntry("Deodorant", 8342));
+        series1Data.add(new SingleValueDataEntry("Hand cream", 7598));
+        series1Data.add(new SingleValueDataEntry("Foot cream", 6098));
+        series1Data.add(new SingleValueDataEntry("Night cream", 6998));
+        series1Data.add(new SingleValueDataEntry("Day cream", 5304));
+        series1Data.add(new SingleValueDataEntry("Vanila cream", 9261));
+
+        SeriesBar series1 = barChart.bar(series1Data);
+        series1.setName("Females")
+                .setColor("HotPink");
         series1.getTooltip()
-                .setPosition("'right'")
+                .setPosition("right")
                 .setAnchor(EnumsAnchor.LEFT_CENTER);
 
-        SeriesBar series2 = barChart.bar(new String[] {
-                "['Nail polish', -229]",
-                "['Eyebrow pencil', -932]",
-                "['Rouge', -5221]",
-                "['Lipstick', -256]",
-                "['Eyeshadows', -308]",
-                "['Eyeliner', -432]",
-                "['Foundation', -701]",
-                "['Lip gloss', -908]",
-                "['Mascara', -712]",
-                "['Shampoo', -9229]",
-                "['Hair conditioner', -13932]",
-                "['Body lotion', -10221]",
-                "['Shower gel', -12256]",
-                "['Soap', -5308]",
-                "['Eye fresher', -432]",
-                "['Deodorant', -11701]",
-                "['Hand cream', -5808]",
-                "['Foot cream', -3987]",
-                "['Night cream', -847]",
-                "['Day cream', -4008]",
-                "['Vanila cream', -712]"
-        }, TextParsingMode.CSV);
-        series2.setName("'Males'");
+        List<DataEntry> series2Data = new ArrayList<>();
+
+        series2Data.add(new SingleValueDataEntry("Nail polish", -229));
+        series2Data.add(new SingleValueDataEntry("Eyebrow pencil", -932));
+        series2Data.add(new SingleValueDataEntry("Rouge", -5221));
+        series2Data.add(new SingleValueDataEntry("Lipstick", -256));
+        series2Data.add(new SingleValueDataEntry("Eyeshadows", -308));
+        series2Data.add(new SingleValueDataEntry("Eyeliner", -432));
+        series2Data.add(new SingleValueDataEntry("Foundation", -701));
+        series2Data.add(new SingleValueDataEntry("Lip gloss", -908));
+        series2Data.add(new SingleValueDataEntry("Mascara", -712));
+        series2Data.add(new SingleValueDataEntry("Shampoo", -9229));
+        series2Data.add(new SingleValueDataEntry("Hair conditioner", -13932));
+        series2Data.add(new SingleValueDataEntry("Body lotion", -10221));
+        series2Data.add(new SingleValueDataEntry("Shower gel", -12256));
+        series2Data.add(new SingleValueDataEntry("Soap", -5308));
+        series2Data.add(new SingleValueDataEntry("Eye fresher", -432));
+        series2Data.add(new SingleValueDataEntry("Deodorant", -11701));
+        series2Data.add(new SingleValueDataEntry("Hand cream", -5808));
+        series2Data.add(new SingleValueDataEntry("Foot cream", -3987));
+        series2Data.add(new SingleValueDataEntry("Night cream", -847));
+        series2Data.add(new SingleValueDataEntry("Day cream", -4008));
+        series2Data.add(new SingleValueDataEntry("Vanila cream", -712));
+
+        SeriesBar series2 = barChart.bar(series2Data);
+        series2.setName("Males");
         series2.getTooltip()
-                .setPosition("'left'")
+                .setPosition("left")
                 .setAnchor(EnumsAnchor.RIGHT_CENTER);
 
         barChart.getLegend().setEnabled(true);

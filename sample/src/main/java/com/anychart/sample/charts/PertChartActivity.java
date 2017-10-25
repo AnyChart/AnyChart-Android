@@ -24,7 +24,7 @@ public class PertChartActivity extends AppCompatActivity {
         Pert pert = AnyChart.pert();
 
         pert.setData(getData(), TreeFillingMethod.AS_TABLE, null)
-                .setHorizontalSpacing("'18.7%'")
+                .setHorizontalSpacing("18.7%")
                 .setPadding(new Double[] { 25d, 50d, 0d, 50d });
 
         // TODO problems with stat
@@ -34,7 +34,7 @@ public class PertChartActivity extends AppCompatActivity {
         pert.getTitle().setUseHtml(true);
         pert.getTitle()
                 .setPadding(new Double[]{ 0d, 0d, 35d, 0d })
-                .setText("'Airplane Design Process with PERT Chart'");
+                .setText("Airplane Design Process with PERT Chart");
 
         Tasks tasks = pert.getTasks();
         tasks.getUpperLabels().setFormat(
@@ -42,7 +42,7 @@ public class PertChartActivity extends AppCompatActivity {
                 "    return this.item.get('fullName');\n" +
                 "  }");
 
-        tasks.getLowerLabels().setFormat("'{%duration} days'");
+        tasks.getLowerLabels().setFormat("{%duration} days");
 
         Tooltip tooltip = tasks.getTooltip();
         tooltip.setSeparator(true)
@@ -53,9 +53,9 @@ public class PertChartActivity extends AppCompatActivity {
         tooltip.getTitle().setUseHtml(true);
 
         Milestones milestones = pert.getMilestones();
-        milestones.setColor("'#2C81D5'")
-                .setSize("'6.5%'");
-        milestones.getHovered().setFill("'#2C81D5'", 0.75d);
+        milestones.setColor("#2C81D5")
+                .setSize("6.5%");
+        milestones.getHovered().setFill("#2C81D5", 0.75d);
         milestones.getTooltip().setFormat("" +
                 "function() {\n" +
                 "  var result = '';\n" +
@@ -82,7 +82,7 @@ public class PertChartActivity extends AppCompatActivity {
                 "function() {\n" +
                 "    return this['creator'] ? this['creator'].get('name') : this['isStart'] ? 'Start' : 'Finish';\n" +
                 "  }");
-        critMilestones.setColor("'#E24B26'");
+        critMilestones.setColor("#E24B26");
 
         // TODO stoke as function
 //        critMilestones.getHovered().setStroke();

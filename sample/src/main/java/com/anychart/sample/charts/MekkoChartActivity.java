@@ -6,8 +6,13 @@ import android.os.Bundle;
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsMekko;
+import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.Orientation;
+import com.anychart.anychart.SingleValueDataEntry;
 import com.anychart.sample.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MekkoChartActivity extends AppCompatActivity {
 
@@ -18,26 +23,64 @@ public class MekkoChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(com.anychart.sample.R.id.any_chart_view);
 
-        ChartsMekko mekko = AnyChart.mekko();
+        ChartsMekko mekkoChart = AnyChart.mekko();
 
-        mekko.setData(new String[] {
-                "['Acer', 2254, 1274, 635, 253]",
-                "['Dell', 1010, 950, 675, 250]",
-                "['HP', 417, 631, 405, 251]",
-                "['Lenovo', 210, 307, 450, 257]"
-        });
+        List<DataEntry> data = new ArrayList<>();
 
-        mekko.getGetSeriesAt(0d).setName("'Phone'");
-        mekko.getGetSeriesAt(1d).setName("'Tablet'");
-        mekko.getGetSeriesAt(2d).setName("'Desktop'");
-        mekko.getGetSeriesAt(3d).setName("'Laptop'");
+        data.add(new SingleValueDataEntry("Acer", 2254));
+        data.add(new SingleValueDataEntry("Data Creative", 1010));
+        data.add(new SingleValueDataEntry("Data Developer", 417));
+        data.add(new SingleValueDataEntry("Data Researcher", 210));
 
-        mekko.getXAxis().setOrientation(Orientation.TOP);
+        mekkoChart.mekko(data)
+                .setName("Phone");
 
-        mekko.getLabels().setFormat("'${%Value}k'");
+        data.clear();
+        data.add(new SingleValueDataEntry("Acer", 1274));
+        data.add(new SingleValueDataEntry("Data Creative", 950));
+        data.add(new SingleValueDataEntry("Data Developer", 631));
+        data.add(new SingleValueDataEntry("Data Researcher", 307));
 
-        mekko.getTooltip().setFormat("'{%seriesName}: ${%Value}k'");
+        mekkoChart.mekko(data)
+                .setName("Tablet");
 
-        anyChartView.setChart(mekko);
+        data.clear();
+        data.add(new SingleValueDataEntry("Acer", 635));
+        data.add(new SingleValueDataEntry("Data Creative", 675));
+        data.add(new SingleValueDataEntry("Data Developer", 405));
+        data.add(new SingleValueDataEntry("Data Researcher", 450));
+
+        mekkoChart.mekko(data)
+                .setName("Desktop");
+
+        data.clear();
+        data.add(new SingleValueDataEntry("Acer", 253));
+        data.add(new SingleValueDataEntry("Data Creative", 250));
+        data.add(new SingleValueDataEntry("Data Developer", 251));
+        data.add(new SingleValueDataEntry("Data Researcher", 257));
+
+        mekkoChart.mekko(data)
+                .setName("Laptop");
+
+//        mekko.setData(data);
+//        mekko.setData(new String[] {
+//                "['Acer', 2254, 1274, 635, 253]",
+//                "['Dell', 1010, 950, 675, 250]",
+//                "['HP', 417, 631, 405, 251]",
+//                "['Lenovo', 210, 307, 450, 257]"
+//        });
+
+//        mekkoChart.getGetSeriesAt(0d).setName("Phone");
+//        mekkoChart.getGetSeriesAt(1d).setName("Tablet");
+//        mekkoChart.getGetSeriesAt(2d).setName("Desktop");
+//        mekkoChart.getGetSeriesAt(3d).setName("Laptop");
+
+        mekkoChart.getXAxis().setOrientation(Orientation.TOP);
+
+        mekkoChart.getLabels().setFormat("${%Value}k");
+
+        mekkoChart.getTooltip().setFormat("{%seriesName}: ${%Value}k");
+
+        anyChartView.setChart(mekkoChart);
     }
 }

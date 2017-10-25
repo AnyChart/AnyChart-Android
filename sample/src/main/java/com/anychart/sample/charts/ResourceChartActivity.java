@@ -9,7 +9,6 @@ import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Availability;
 import com.anychart.anychart.AvailabilityPeriod;
 import com.anychart.anychart.Resource;
-import com.anychart.anychart.TextParsingMode;
 import com.anychart.anychart.TimeTrackingMode;
 import com.anychart.sample.R;
 
@@ -28,7 +27,7 @@ public class ResourceChartActivity extends AppCompatActivity {
 
         resource.setZoomLevel(1d)
                 .setTimeTrackingMode(TimeTrackingMode.ACTIVITY_PER_CHART)
-                .setCurrentStartDate("'2016-09-30'");
+                .setCurrentStartDate("2016-09-30");
 
         resource.getCalendar().setAvailabilities(new Availability[] {
                 new Availability(AvailabilityPeriod.DAY, (Double) null, 10d, (Double) null, (Double) null, 18d, true),
@@ -37,7 +36,7 @@ public class ResourceChartActivity extends AppCompatActivity {
                 new Availability(AvailabilityPeriod.WEEK, (Double) null, (Double) null, 6d, (Double) null, 18d, false)
         });
 
-        resource.setData(getData(), TextParsingMode.CSV);
+//        resource.setData(getData(), TextParsingMode.CSV);
 
         anyChartView.setChart(resource);
     }
