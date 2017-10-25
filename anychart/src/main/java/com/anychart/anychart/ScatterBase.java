@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -110,34 +112,8 @@ public class ScatterBase extends ScalesBase {
         return this;
     }
 
-    private String generateJSratio() {
-        if (ratio != null) {
-            return String.format(Locale.US, "ratio: %f,", ratio);
-        }
-        return "";
-    }
 
-    private String generateJSmaxTicksCount() {
-        if (maxTicksCount != null) {
-            return String.format(Locale.US, "maxTicksCount: %f,", maxTicksCount);
-        }
-        return "";
-    }
-
-    private String generateJSmaximum() {
-        if (maximum != null) {
-            return String.format(Locale.US, "maximum: %f,", maximum);
-        }
-        return "";
-    }
-
-    private String generateJSminimum() {
-        if (minimum != null) {
-            return String.format(Locale.US, "minimum: %f,", minimum);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -156,14 +132,19 @@ public class ScatterBase extends ScalesBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSratio());
-            js.append(generateJSmaxTicksCount());
-            js.append(generateJSmaximum());
-            js.append(generateJSminimum());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSratio());
+////        
+//            js.append(generateJSmaxTicksCount());
+////        
+//            js.append(generateJSmaximum());
+////        
+//            js.append(generateJSminimum());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

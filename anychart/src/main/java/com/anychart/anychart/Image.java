@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Image extends Element {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".align(%s)", (align != null) ? align.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", (align != null) ? align.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -61,10 +63,10 @@ public class Image extends Element {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fittingMode(%s)", (fittingMode != null) ? fittingMode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode != null) ? fittingMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", (fittingMode != null) ? fittingMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode != null) ? fittingMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -85,10 +87,10 @@ public class Image extends Element {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fittingMode(%s)", fittingMode1));
+            js.append(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", fittingMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode1)));
                 js.setLength(0);
             }
         }
@@ -129,10 +131,10 @@ public class Image extends Element {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".src(%s)", src));
+            js.append(String.format(Locale.US, ".src(%s)", wrapQuotes(src)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".src(%s)", src));
+                onChangeListener.onChange(String.format(Locale.US, ".src(%s)", wrapQuotes(src)));
                 js.setLength(0);
             }
         }
@@ -205,62 +207,8 @@ public class Image extends Element {
         return this;
     }
 
-    private String generateJSalign() {
-        if (align != null) {
-            return String.format(Locale.US, "align: %s,", (align != null) ? align.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSfittingMode() {
-        if (fittingMode != null) {
-            return String.format(Locale.US, "fittingMode: %s,", (fittingMode != null) ? fittingMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSfittingMode1() {
-        if (fittingMode1 != null) {
-            return String.format(Locale.US, "fittingMode: %s,", fittingMode1);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSsrc() {
-        if (src != null) {
-            return String.format(Locale.US, "src: %s,", src);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSx() {
-        if (x != null) {
-            return String.format(Locale.US, "x: %f,", x);
-        }
-        return "";
-    }
-
-    private String generateJSy() {
-        if (y != null) {
-            return String.format(Locale.US, "y: %f,", y);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -279,18 +227,27 @@ public class Image extends Element {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSalign());
-            js.append(generateJSfittingMode());
-            js.append(generateJSfittingMode1());
-            js.append(generateJSheight());
-            js.append(generateJSsrc());
-            js.append(generateJSwidth());
-            js.append(generateJSx());
-            js.append(generateJSy());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSalign());
+////        
+//            js.append(generateJSfittingMode());
+////        
+//            js.append(generateJSfittingMode1());
+////        
+//            js.append(generateJSheight());
+////        
+//            js.append(generateJSsrc());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSx());
+////        
+//            js.append(generateJSy());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

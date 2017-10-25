@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -45,10 +47,10 @@ public class RenderingsettingsContext extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", (state != null) ? state.generateJs() : "null", baseZIndex, restrictShapes));
+            js.append(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", (state != null) ? state.generateJs() : "null", baseZIndex, restrictShapes));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
                 js.setLength(0);
             }
         }
@@ -72,10 +74,10 @@ public class RenderingsettingsContext extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", state1, baseZIndex, restrictShapes));
+            js.append(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", state1, baseZIndex, restrictShapes));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
                 js.setLength(0);
             }
         }
@@ -93,50 +95,17 @@ public class RenderingsettingsContext extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", key));
+            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", wrapQuotes(key)));
                 js.setLength(0);
             }
         }
     }
 
-    private String generateJSstate() {
-        if (state != null) {
-            return String.format(Locale.US, "state: %s,", (state != null) ? state.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSstate1() {
-        if (state1 != null) {
-            return String.format(Locale.US, "state: %s,", state1);
-        }
-        return "";
-    }
-
-    private String generateJSbaseZIndex() {
-        if (baseZIndex != null) {
-            return String.format(Locale.US, "baseZIndex: %f,", baseZIndex);
-        }
-        return "";
-    }
-
-    private String generateJSrestrictShapes() {
-        if (restrictShapes != null) {
-            return String.format(Locale.US, "restrictShapes: %s,", restrictShapes);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -155,15 +124,21 @@ public class RenderingsettingsContext extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSstate());
-            js.append(generateJSstate1());
-            js.append(generateJSbaseZIndex());
-            js.append(generateJSrestrictShapes());
-            js.append(generateJSkey());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSstate());
+////        
+//            js.append(generateJSstate1());
+////        
+//            js.append(generateJSbaseZIndex());
+////        
+//            js.append(generateJSrestrictShapes());
+////        
+//            js.append(generateJSkey());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

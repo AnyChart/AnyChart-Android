@@ -16,7 +16,7 @@ public class MmaContext extends JsObject  {
         this.prevResult = prevResult;
         this.queue = queue;
 
-        js.append(String.format(Locale.US, "{period: %f,prevResult: %f,queue: %s}",  period, prevResult, (queue != null) ? queue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{period: %f,prevResult: %f,queue: %s}",  period, prevResult, ((queue != null) ? queue.generateJs() : "null")));
     }
 
     @Override

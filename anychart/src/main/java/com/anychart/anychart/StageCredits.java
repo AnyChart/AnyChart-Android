@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class StageCredits extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".alt(%s)", alt));
+            js.append(String.format(Locale.US, ".alt(%s)", wrapQuotes(alt)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".alt(%s)", alt));
+                onChangeListener.onChange(String.format(Locale.US, ".alt(%s)", wrapQuotes(alt)));
                 js.setLength(0);
             }
         }
@@ -79,10 +81,10 @@ public class StageCredits extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".imgAlt(%s)", imgAlt));
+            js.append(String.format(Locale.US, ".imgAlt(%s)", wrapQuotes(imgAlt)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".imgAlt(%s)", imgAlt));
+                onChangeListener.onChange(String.format(Locale.US, ".imgAlt(%s)", wrapQuotes(imgAlt)));
                 js.setLength(0);
             }
         }
@@ -101,10 +103,10 @@ public class StageCredits extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".logoSrc(%s)", logoSrc));
+            js.append(String.format(Locale.US, ".logoSrc(%s)", wrapQuotes(logoSrc)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".logoSrc(%s)", logoSrc));
+                onChangeListener.onChange(String.format(Locale.US, ".logoSrc(%s)", wrapQuotes(logoSrc)));
                 js.setLength(0);
             }
         }
@@ -123,10 +125,10 @@ public class StageCredits extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".text(%s)", text));
+            js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".text(%s)", text));
+                onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
                 js.setLength(0);
             }
         }
@@ -145,58 +147,18 @@ public class StageCredits extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".url(%s)", url));
+            js.append(String.format(Locale.US, ".url(%s)", wrapQuotes(url)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".url(%s)", url));
+                onChangeListener.onChange(String.format(Locale.US, ".url(%s)", wrapQuotes(url)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSalt() {
-        if (alt != null) {
-            return String.format(Locale.US, "alt: %s,", alt);
-        }
-        return "";
-    }
 
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
-
-    private String generateJSimgAlt() {
-        if (imgAlt != null) {
-            return String.format(Locale.US, "imgAlt: %s,", imgAlt);
-        }
-        return "";
-    }
-
-    private String generateJSlogoSrc() {
-        if (logoSrc != null) {
-            return String.format(Locale.US, "logoSrc: %s,", logoSrc);
-        }
-        return "";
-    }
-
-    private String generateJStext() {
-        if (text != null) {
-            return String.format(Locale.US, "text: %s,", text);
-        }
-        return "";
-    }
-
-    private String generateJSurl() {
-        if (url != null) {
-            return String.format(Locale.US, "url: %s,", url);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -215,16 +177,23 @@ public class StageCredits extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSalt());
-            js.append(generateJSenabled());
-            js.append(generateJSimgAlt());
-            js.append(generateJSlogoSrc());
-            js.append(generateJStext());
-            js.append(generateJSurl());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSalt());
+////        
+//            js.append(generateJSenabled());
+////        
+//            js.append(generateJSimgAlt());
+////        
+//            js.append(generateJSlogoSrc());
+////        
+//            js.append(generateJStext());
+////        
+//            js.append(generateJSurl());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

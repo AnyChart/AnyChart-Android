@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -45,13 +47,8 @@ public class Logarithmic extends ScalesLinear {
         return this;
     }
 
-    private String generateJSlogBase() {
-        if (logBase != null) {
-            return String.format(Locale.US, "logBase: %f,", logBase);
-        }
-        return "";
-    }
 
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -70,11 +67,13 @@ public class Logarithmic extends ScalesLinear {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSlogBase());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSlogBase());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

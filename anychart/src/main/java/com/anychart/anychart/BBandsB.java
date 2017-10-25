@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -45,13 +47,12 @@ public class BBandsB extends JsObject {
         return this;
     }
 
-    private BBandsB getPeriod;
+    private List<BBandsB> getPeriod = new ArrayList<>();
 
-    public BBandsB getPeriod() {
-        if (getPeriod == null)
-            getPeriod = new BBandsB(jsBase + ".period()");
-
-        return getPeriod;
+    public BBandsB getPeriod(Double period) {
+        BBandsB item = new BBandsB(jsBase + ".period(" + period + ")");
+        getPeriod.add(item);
+        return item;
     }
 
     private StockSeriesBase getSeries;
@@ -79,10 +80,10 @@ public class BBandsB extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -103,47 +104,48 @@ public class BBandsB extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".series(%s)", type1));
+            js.append(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", type1));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSBBandsB getPeriod() {
+//        if (BBandsB getPeriod != null) {
+//            return BBandsB getPeriod.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockSeriesBase getSeries() {
+//        if (StockSeriesBase getSeries != null) {
+//            return StockSeriesBase getSeries.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetPeriod() {
-        if (getPeriod != null) {
-            return getPeriod.generateJs();
+        if (!getPeriod.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsB item : getPeriod) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetSeries() {
         if (getSeries != null) {
             return getSeries.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSdeviation() {
-        if (deviation != null) {
-            return String.format(Locale.US, "deviation: %f,", deviation);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
+            //return String.format(Locale.US, "getSeries: %s,", ((getSeries != null) ? getSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -168,13 +170,17 @@ public class BBandsB extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSdeviation());
-            js.append(generateJStype());
-            js.append(generateJStype1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSdeviation());
+////        
+//            js.append(generateJStype());
+////        
+//            js.append(generateJStype1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -31,7 +31,7 @@ public class TextParsingSettings extends JsObject  {
         this.minLength = minLength;
         this.rowsSeparator = rowsSeparator;
 
-        js.append(String.format(Locale.US, "{mode: %s,columnsSeparator: %s,cutLength: %f,ignoreFirstRow: %b,ignoreItems: %s,ignoreTrailingSpaces: %b,maxItems: %f,maxLength: %f,minLength: %f,rowsSeparator: %s}",  (mode != null) ? mode.generateJs() : "null", columnsSeparator, cutLength, ignoreFirstRow, Arrays.toString(ignoreItems), ignoreTrailingSpaces, maxItems, maxLength, minLength, rowsSeparator));
+        js.append(String.format(Locale.US, "{mode: %s,columnsSeparator: %s,cutLength: %f,ignoreFirstRow: %b,ignoreItems: %s,ignoreTrailingSpaces: %b,maxItems: %f,maxLength: %f,minLength: %f,rowsSeparator: %s}",  ((mode != null) ? mode.generateJs() : "null"), wrapQuotes(columnsSeparator), cutLength, ignoreFirstRow, arrayToStringWrapQuotes(ignoreItems), ignoreTrailingSpaces, maxItems, maxLength, minLength, wrapQuotes(rowsSeparator)));
     }
     public TextParsingSettings(String mode1, String columnsSeparator, Double cutLength, Boolean ignoreFirstRow, String[] ignoreItems, Boolean ignoreTrailingSpaces, Double maxItems, Double maxLength, Double minLength, String rowsSeparator) {
         this.mode1 = mode1;
@@ -45,7 +45,7 @@ public class TextParsingSettings extends JsObject  {
         this.minLength = minLength;
         this.rowsSeparator = rowsSeparator;
 
-        js.append(String.format(Locale.US, "{mode: %s,columnsSeparator: %s,cutLength: %f,ignoreFirstRow: %b,ignoreItems: %s,ignoreTrailingSpaces: %b,maxItems: %f,maxLength: %f,minLength: %f,rowsSeparator: %s}",  mode1, columnsSeparator, cutLength, ignoreFirstRow, Arrays.toString(ignoreItems), ignoreTrailingSpaces, maxItems, maxLength, minLength, rowsSeparator));
+        js.append(String.format(Locale.US, "{mode: %s,columnsSeparator: %s,cutLength: %f,ignoreFirstRow: %b,ignoreItems: %s,ignoreTrailingSpaces: %b,maxItems: %f,maxLength: %f,minLength: %f,rowsSeparator: %s}",  wrapQuotes(mode1), wrapQuotes(columnsSeparator), cutLength, ignoreFirstRow, arrayToStringWrapQuotes(ignoreItems), ignoreTrailingSpaces, maxItems, maxLength, minLength, wrapQuotes(rowsSeparator)));
     }
 
     @Override

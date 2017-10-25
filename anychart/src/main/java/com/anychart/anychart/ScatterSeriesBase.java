@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -72,10 +74,10 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".clip(%s)", (clip1 != null) ? clip1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".clip(%s)", ((clip1 != null) ? clip1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", (clip1 != null) ? clip1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", ((clip1 != null) ? clip1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -111,10 +113,10 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".error(%s)", error));
+            js.append(String.format(Locale.US, ".error(%s)", wrapQuotes(error)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".error(%s)", error));
+                onChangeListener.onChange(String.format(Locale.US, ".error(%s)", wrapQuotes(error)));
                 js.setLength(0);
             }
         }
@@ -350,10 +352,10 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -389,10 +391,10 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -415,10 +417,10 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
+            js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
             }
         }
@@ -441,19 +443,50 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSAnychartMathRect getClip() {
+//        if (AnychartMathRect getClip != null) {
+//            return AnychartMathRect getClip.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSError getError() {
+//        if (Error getError != null) {
+//            return Error getError.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScatterBase getXScale() {
+//        if (ScatterBase getXScale != null) {
+//            return ScatterBase getXScale.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScatterBase getYScale() {
+//        if (ScatterBase getYScale != null) {
+//            return ScatterBase getYScale.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetClip() {
         if (getClip != null) {
             return getClip.generateJs();
+            //return String.format(Locale.US, "getClip: %s,", ((getClip != null) ? getClip.generateJs() : "null"));
         }
         return "";
     }
@@ -461,6 +494,7 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private String generateJSgetError() {
         if (getError != null) {
             return getError.generateJs();
+            //return String.format(Locale.US, "getError: %s,", ((getError != null) ? getError.generateJs() : "null"));
         }
         return "";
     }
@@ -468,6 +502,7 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private String generateJSgetXScale() {
         if (getXScale != null) {
             return getXScale.generateJs();
+            //return String.format(Locale.US, "getXScale: %s,", ((getXScale != null) ? getXScale.generateJs() : "null"));
         }
         return "";
     }
@@ -475,125 +510,7 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSclip() {
-        if (clip != null) {
-            return String.format(Locale.US, "clip: %b,", clip);
-        }
-        return "";
-    }
-
-    private String generateJSclip1() {
-        if (clip1 != null) {
-            return String.format(Locale.US, "clip: %s,", (clip1 != null) ? clip1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSerror() {
-        if (error != null) {
-            return String.format(Locale.US, "error: %s,", error);
-        }
-        return "";
-    }
-
-    private String generateJSerror1() {
-        if (error1 != null) {
-            return String.format(Locale.US, "error: %b,", error1);
-        }
-        return "";
-    }
-
-    private String generateJSerror2() {
-        if (error2 != null) {
-            return String.format(Locale.US, "error: %s,", error2);
-        }
-        return "";
-    }
-
-    private String generateJSerror3() {
-        if (error3 != null) {
-            return String.format(Locale.US, "error: %f,", error3);
-        }
-        return "";
-    }
-
-    private String generateJSindexes() {
-        if (indexes != null) {
-            return String.format(Locale.US, "indexes: %f,", indexes);
-        }
-        return "";
-    }
-
-    private String generateJSindexes1() {
-        if (indexes1 != null) {
-            return String.format(Locale.US, "indexes: %s,", Arrays.toString(indexes1));
-        }
-        return "";
-    }
-
-    private String generateJSindexes2() {
-        if (indexes2 != null) {
-            return String.format(Locale.US, "indexes: %f,", indexes2);
-        }
-        return "";
-    }
-
-    private String generateJSindexes3() {
-        if (indexes3 != null) {
-            return String.format(Locale.US, "indexes: %s,", Arrays.toString(indexes3));
-        }
-        return "";
-    }
-
-    private String generateJSindexes4() {
-        if (indexes4 != null) {
-            return String.format(Locale.US, "indexes: %f,", indexes4);
-        }
-        return "";
-    }
-
-    private String generateJSindexes5() {
-        if (indexes5 != null) {
-            return String.format(Locale.US, "indexes: %s,", Arrays.toString(indexes5));
-        }
-        return "";
-    }
-
-    private String generateJSxScale() {
-        if (xScale != null) {
-            return String.format(Locale.US, "xScale: %s,", (xScale != null) ? xScale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale() {
-        if (yScale != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale != null) ? yScale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale1() {
-        if (yScale1 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale1);
-        }
-        return "";
-    }
-
-    private String generateJSyScale2() {
-        if (yScale2 != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale2 != null) ? yScale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale3() {
-        if (yScale3 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale3);
+            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -620,27 +537,45 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSclip());
-            js.append(generateJSclip1());
-            js.append(generateJSerror());
-            js.append(generateJSerror1());
-            js.append(generateJSerror2());
-            js.append(generateJSerror3());
-            js.append(generateJSindexes());
-            js.append(generateJSindexes1());
-            js.append(generateJSindexes2());
-            js.append(generateJSindexes3());
-            js.append(generateJSindexes4());
-            js.append(generateJSindexes5());
-            js.append(generateJSxScale());
-            js.append(generateJSyScale());
-            js.append(generateJSyScale1());
-            js.append(generateJSyScale2());
-            js.append(generateJSyScale3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSclip());
+////        
+//            js.append(generateJSclip1());
+////        
+//            js.append(generateJSerror());
+////        
+//            js.append(generateJSerror1());
+////        
+//            js.append(generateJSerror2());
+////        
+//            js.append(generateJSerror3());
+////        
+//            js.append(generateJSindexes());
+////        
+//            js.append(generateJSindexes1());
+////        
+//            js.append(generateJSindexes2());
+////        
+//            js.append(generateJSindexes3());
+////        
+//            js.append(generateJSindexes4());
+////        
+//            js.append(generateJSindexes5());
+////        
+//            js.append(generateJSxScale());
+////        
+//            js.append(generateJSyScale());
+////        
+//            js.append(generateJSyScale1());
+////        
+//            js.append(generateJSyScale2());
+////        
+//            js.append(generateJSyScale3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -45,13 +47,8 @@ public class Circle extends VectorEllipse {
         return this;
     }
 
-    private String generateJSradius() {
-        if (radius != null) {
-            return String.format(Locale.US, "radius: %f,", radius);
-        }
-        return "";
-    }
 
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -70,11 +67,13 @@ public class Circle extends VectorEllipse {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSradius());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSradius());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

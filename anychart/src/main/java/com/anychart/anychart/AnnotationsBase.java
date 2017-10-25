@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".color(%s)", color));
+            js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".color(%s)", color));
+                onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
             }
         }
@@ -66,10 +68,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hovered(%s)", hovered));
+            js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
+                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
             }
         }
@@ -103,10 +105,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".markers(%s)", markers));
+            js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
+                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
             }
         }
@@ -159,10 +161,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".normal(%s)", normal));
+            js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
             }
         }
@@ -190,10 +192,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selected(%s)", selected));
+            js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
+                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
             }
         }
@@ -231,10 +233,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -258,10 +260,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -285,10 +287,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xScale(%s)", xScale2));
+            js.append(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale2));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale2)));
                 js.setLength(0);
             }
         }
@@ -312,10 +314,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -351,10 +353,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -377,10 +379,10 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
+            js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
             }
         }
@@ -403,19 +405,64 @@ public class AnnotationsBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSStateSettings getHovered() {
+//        if (StateSettings getHovered != null) {
+//            return StateSettings getHovered.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiMarkersFactory getMarkers() {
+//        if (UiMarkersFactory getMarkers != null) {
+//            return UiMarkersFactory getMarkers.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getNormal() {
+//        if (StateSettings getNormal != null) {
+//            return StateSettings getNormal.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getSelected() {
+//        if (StateSettings getSelected != null) {
+//            return StateSettings getSelected.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSOrdinal getXScale() {
+//        if (Ordinal getXScale != null) {
+//            return Ordinal getXScale.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScalesBase getYScale() {
+//        if (ScalesBase getYScale != null) {
+//            return ScalesBase getYScale.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
+            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -423,6 +470,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
+            //return String.format(Locale.US, "getMarkers: %s,", ((getMarkers != null) ? getMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -430,6 +478,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
+            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -437,6 +486,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
+            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -444,6 +494,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSgetXScale() {
         if (getXScale != null) {
             return getXScale.generateJs();
+            //return String.format(Locale.US, "getXScale: %s,", ((getXScale != null) ? getXScale.generateJs() : "null"));
         }
         return "";
     }
@@ -451,118 +502,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJShovered() {
-        if (hovered != null) {
-            return String.format(Locale.US, "hovered: %s,", hovered);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers() {
-        if (markers != null) {
-            return String.format(Locale.US, "markers: %s,", markers);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers1() {
-        if (markers1 != null) {
-            return String.format(Locale.US, "markers: %b,", markers1);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers2() {
-        if (markers2 != null) {
-            return String.format(Locale.US, "markers: %s,", markers2);
-        }
-        return "";
-    }
-
-    private String generateJSnormal() {
-        if (normal != null) {
-            return String.format(Locale.US, "normal: %s,", normal);
-        }
-        return "";
-    }
-
-    private String generateJSselected() {
-        if (selected != null) {
-            return String.format(Locale.US, "selected: %s,", selected);
-        }
-        return "";
-    }
-
-    private String generateJSxScale() {
-        if (xScale != null) {
-            return String.format(Locale.US, "xScale: %s,", (xScale != null) ? xScale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSxScale1() {
-        if (xScale1 != null) {
-            return String.format(Locale.US, "xScale: %s,", (xScale1 != null) ? xScale1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSxScale2() {
-        if (xScale2 != null) {
-            return String.format(Locale.US, "xScale: %s,", xScale2);
-        }
-        return "";
-    }
-
-    private String generateJSxScale3() {
-        if (xScale3 != null) {
-            return String.format(Locale.US, "xScale: %s,", (xScale3 != null) ? xScale3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSxScale4() {
-        if (xScale4 != null) {
-            return String.format(Locale.US, "xScale: %s,", xScale4);
-        }
-        return "";
-    }
-
-    private String generateJSyScale() {
-        if (yScale != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale != null) ? yScale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale1() {
-        if (yScale1 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale1);
-        }
-        return "";
-    }
-
-    private String generateJSyScale2() {
-        if (yScale2 != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale2 != null) ? yScale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale3() {
-        if (yScale3 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale3);
+            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -591,26 +531,43 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScolor());
-            js.append(generateJShovered());
-            js.append(generateJSmarkers());
-            js.append(generateJSmarkers1());
-            js.append(generateJSmarkers2());
-            js.append(generateJSnormal());
-            js.append(generateJSselected());
-            js.append(generateJSxScale());
-            js.append(generateJSxScale1());
-            js.append(generateJSxScale2());
-            js.append(generateJSxScale3());
-            js.append(generateJSxScale4());
-            js.append(generateJSyScale());
-            js.append(generateJSyScale1());
-            js.append(generateJSyScale2());
-            js.append(generateJSyScale3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJShovered());
+////        
+//            js.append(generateJSmarkers());
+////        
+//            js.append(generateJSmarkers1());
+////        
+//            js.append(generateJSmarkers2());
+////        
+//            js.append(generateJSnormal());
+////        
+//            js.append(generateJSselected());
+////        
+//            js.append(generateJSxScale());
+////        
+//            js.append(generateJSxScale1());
+////        
+//            js.append(generateJSxScale2());
+////        
+//            js.append(generateJSxScale3());
+////        
+//            js.append(generateJSxScale4());
+////        
+//            js.append(generateJSyScale());
+////        
+//            js.append(generateJSyScale1());
+////        
+//            js.append(generateJSyScale2());
+////        
+//            js.append(generateJSyScale3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

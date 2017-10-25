@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -44,10 +46,10 @@ public class CriticalPath extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestones(%s)", milestones));
+            js.append(String.format(Locale.US, ".milestones(%s)", wrapQuotes(milestones)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestones(%s)", milestones));
+                onChangeListener.onChange(String.format(Locale.US, ".milestones(%s)", wrapQuotes(milestones)));
                 js.setLength(0);
             }
         }
@@ -75,19 +77,36 @@ public class CriticalPath extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".tasks(%s)", tasks));
+            js.append(String.format(Locale.US, ".tasks(%s)", wrapQuotes(tasks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tasks(%s)", tasks));
+                onChangeListener.onChange(String.format(Locale.US, ".tasks(%s)", wrapQuotes(tasks)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSMilestones getMilestones() {
+//        if (Milestones getMilestones != null) {
+//            return Milestones getMilestones.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSTasks getTasks() {
+//        if (Tasks getTasks != null) {
+//            return Tasks getTasks.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetMilestones() {
         if (getMilestones != null) {
             return getMilestones.generateJs();
+            //return String.format(Locale.US, "getMilestones: %s,", ((getMilestones != null) ? getMilestones.generateJs() : "null"));
         }
         return "";
     }
@@ -95,20 +114,7 @@ public class CriticalPath extends CoreBase {
     private String generateJSgetTasks() {
         if (getTasks != null) {
             return getTasks.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSmilestones() {
-        if (milestones != null) {
-            return String.format(Locale.US, "milestones: %s,", milestones);
-        }
-        return "";
-    }
-
-    private String generateJStasks() {
-        if (tasks != null) {
-            return String.format(Locale.US, "tasks: %s,", tasks);
+            //return String.format(Locale.US, "getTasks: %s,", ((getTasks != null) ? getTasks.generateJs() : "null"));
         }
         return "";
     }
@@ -133,12 +139,15 @@ public class CriticalPath extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSmilestones());
-            js.append(generateJStasks());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSmilestones());
+////        
+//            js.append(generateJStasks());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

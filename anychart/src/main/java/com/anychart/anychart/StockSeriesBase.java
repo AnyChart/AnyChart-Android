@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -58,10 +60,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", mappingSettings, csvSettings));
+            js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -88,10 +90,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", mappingSettings, csvSettings));
+            js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -118,10 +120,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s, %s)", data2, mappingSettings, csvSettings));
+            js.append(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", data2, mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -149,10 +151,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hovered(%s)", hovered));
+            js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
+                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
             }
         }
@@ -180,10 +182,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".legendItem(%s)", legendItem));
+            js.append(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".legendItem(%s)", legendItem));
+                onChangeListener.onChange(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
                 js.setLength(0);
             }
         }
@@ -217,10 +219,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".markers(%s)", markers));
+            js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
+                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
             }
         }
@@ -292,10 +294,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+            js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
             }
         }
@@ -342,10 +344,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
+            js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
+                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
                 js.setLength(0);
             }
         }
@@ -364,10 +366,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".name(%s)", name));
+            js.append(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".name(%s)", name));
+                onChangeListener.onChange(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
                 js.setLength(0);
             }
         }
@@ -395,10 +397,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".normal(%s)", normal));
+            js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
             }
         }
@@ -445,10 +447,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+            js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
                 js.setLength(0);
             }
         }
@@ -476,10 +478,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rendering(%s)", rendering));
+            js.append(String.format(Locale.US, ".rendering(%s)", wrapQuotes(rendering)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rendering(%s)", rendering));
+                onChangeListener.onChange(String.format(Locale.US, ".rendering(%s)", wrapQuotes(rendering)));
                 js.setLength(0);
             }
         }
@@ -498,10 +500,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".seriesType(%s)", seriesType));
+            js.append(String.format(Locale.US, ".seriesType(%s)", wrapQuotes(seriesType)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", seriesType));
+                onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", wrapQuotes(seriesType)));
                 js.setLength(0);
             }
         }
@@ -533,10 +535,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".tooltip(%s)", tooltip));
+            js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", tooltip));
+                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
             }
         }
@@ -596,10 +598,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -622,10 +624,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
+            js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
             }
         }
@@ -648,19 +650,78 @@ public class StockSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSTableMapping getData() {
+//        if (TableMapping getData != null) {
+//            return TableMapping getData.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getHovered() {
+//        if (StateSettings getHovered != null) {
+//            return StateSettings getHovered.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItemSettings getLegendItem() {
+//        if (LegendItemSettings getLegendItem != null) {
+//            return LegendItemSettings getLegendItem.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiMarkersFactory getMarkers() {
+//        if (UiMarkersFactory getMarkers != null) {
+//            return UiMarkersFactory getMarkers.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getNormal() {
+//        if (StateSettings getNormal != null) {
+//            return StateSettings getNormal.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSRenderingSettings getRendering() {
+//        if (RenderingSettings getRendering != null) {
+//            return RenderingSettings getRendering.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSTooltip getTooltip() {
+//        if (Tooltip getTooltip != null) {
+//            return Tooltip getTooltip.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScatterBase getYScale() {
+//        if (ScatterBase getYScale != null) {
+//            return ScatterBase getYScale.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetData() {
         if (getData != null) {
             return getData.generateJs();
+            //return String.format(Locale.US, "getData: %s,", ((getData != null) ? getData.generateJs() : "null"));
         }
         return "";
     }
@@ -668,6 +729,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
+            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -675,6 +737,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetLegendItem() {
         if (getLegendItem != null) {
             return getLegendItem.generateJs();
+            //return String.format(Locale.US, "getLegendItem: %s,", ((getLegendItem != null) ? getLegendItem.generateJs() : "null"));
         }
         return "";
     }
@@ -682,6 +745,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
+            //return String.format(Locale.US, "getMarkers: %s,", ((getMarkers != null) ? getMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -689,6 +753,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
+            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -696,6 +761,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetRendering() {
         if (getRendering != null) {
             return getRendering.generateJs();
+            //return String.format(Locale.US, "getRendering: %s,", ((getRendering != null) ? getRendering.generateJs() : "null"));
         }
         return "";
     }
@@ -703,6 +769,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
+            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -710,195 +777,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSdata() {
-        if (data != null) {
-            return String.format(Locale.US, "data: %s,", (data != null) ? data.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata1() {
-        if (data1 != null) {
-            return String.format(Locale.US, "data: %s,", (data1 != null) ? data1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata2() {
-        if (data2 != null) {
-            return String.format(Locale.US, "data: %s,", data2);
-        }
-        return "";
-    }
-
-    private String generateJSdata3() {
-        if (data3 != null) {
-            return String.format(Locale.US, "data: %s,", data3);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings() {
-        if (mappingSettings != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings() {
-        if (csvSettings != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings);
-        }
-        return "";
-    }
-
-    private String generateJShovered() {
-        if (hovered != null) {
-            return String.format(Locale.US, "hovered: %s,", hovered);
-        }
-        return "";
-    }
-
-    private String generateJSlegendItem() {
-        if (legendItem != null) {
-            return String.format(Locale.US, "legendItem: %s,", legendItem);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers() {
-        if (markers != null) {
-            return String.format(Locale.US, "markers: %s,", markers);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers1() {
-        if (markers1 != null) {
-            return String.format(Locale.US, "markers: %b,", markers1);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers2() {
-        if (markers2 != null) {
-            return String.format(Locale.US, "markers: %s,", markers2);
-        }
-        return "";
-    }
-
-    private String generateJSmaxPointWidth() {
-        if (maxPointWidth != null) {
-            return String.format(Locale.US, "maxPointWidth: %f,", maxPointWidth);
-        }
-        return "";
-    }
-
-    private String generateJSmaxPointWidth1() {
-        if (maxPointWidth1 != null) {
-            return String.format(Locale.US, "maxPointWidth: %s,", maxPointWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSminPointLength() {
-        if (minPointLength != null) {
-            return String.format(Locale.US, "minPointLength: %f,", minPointLength);
-        }
-        return "";
-    }
-
-    private String generateJSminPointLength1() {
-        if (minPointLength1 != null) {
-            return String.format(Locale.US, "minPointLength: %s,", minPointLength1);
-        }
-        return "";
-    }
-
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
-
-    private String generateJSnormal() {
-        if (normal != null) {
-            return String.format(Locale.US, "normal: %s,", normal);
-        }
-        return "";
-    }
-
-    private String generateJSpointWidth() {
-        if (pointWidth != null) {
-            return String.format(Locale.US, "pointWidth: %f,", pointWidth);
-        }
-        return "";
-    }
-
-    private String generateJSpointWidth1() {
-        if (pointWidth1 != null) {
-            return String.format(Locale.US, "pointWidth: %s,", pointWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSrendering() {
-        if (rendering != null) {
-            return String.format(Locale.US, "rendering: %s,", rendering);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType() {
-        if (seriesType != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType);
-        }
-        return "";
-    }
-
-    private String generateJStooltip() {
-        if (tooltip != null) {
-            return String.format(Locale.US, "tooltip: %s,", tooltip);
-        }
-        return "";
-    }
-
-    private String generateJStooltip1() {
-        if (tooltip1 != null) {
-            return String.format(Locale.US, "tooltip: %b,", tooltip1);
-        }
-        return "";
-    }
-
-    private String generateJSyScale() {
-        if (yScale != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale != null) ? yScale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale1() {
-        if (yScale1 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale1);
-        }
-        return "";
-    }
-
-    private String generateJSyScale2() {
-        if (yScale2 != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale2 != null) ? yScale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale3() {
-        if (yScale3 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale3);
+            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -929,37 +808,65 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSdata());
-            js.append(generateJSdata1());
-            js.append(generateJSdata2());
-            js.append(generateJSdata3());
-            js.append(generateJSmappingSettings());
-            js.append(generateJScsvSettings());
-            js.append(generateJShovered());
-            js.append(generateJSlegendItem());
-            js.append(generateJSmarkers());
-            js.append(generateJSmarkers1());
-            js.append(generateJSmarkers2());
-            js.append(generateJSmaxPointWidth());
-            js.append(generateJSmaxPointWidth1());
-            js.append(generateJSminPointLength());
-            js.append(generateJSminPointLength1());
-            js.append(generateJSname());
-            js.append(generateJSnormal());
-            js.append(generateJSpointWidth());
-            js.append(generateJSpointWidth1());
-            js.append(generateJSrendering());
-            js.append(generateJSseriesType());
-            js.append(generateJStooltip());
-            js.append(generateJStooltip1());
-            js.append(generateJSyScale());
-            js.append(generateJSyScale1());
-            js.append(generateJSyScale2());
-            js.append(generateJSyScale3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSdata());
+////        
+//            js.append(generateJSdata1());
+////        
+//            js.append(generateJSdata2());
+////        
+//            js.append(generateJSdata3());
+////        
+//            js.append(generateJSmappingSettings());
+////        
+//            js.append(generateJScsvSettings());
+////        
+//            js.append(generateJShovered());
+////        
+//            js.append(generateJSlegendItem());
+////        
+//            js.append(generateJSmarkers());
+////        
+//            js.append(generateJSmarkers1());
+////        
+//            js.append(generateJSmarkers2());
+////        
+//            js.append(generateJSmaxPointWidth());
+////        
+//            js.append(generateJSmaxPointWidth1());
+////        
+//            js.append(generateJSminPointLength());
+////        
+//            js.append(generateJSminPointLength1());
+////        
+//            js.append(generateJSname());
+////        
+//            js.append(generateJSnormal());
+////        
+//            js.append(generateJSpointWidth());
+////        
+//            js.append(generateJSpointWidth1());
+////        
+//            js.append(generateJSrendering());
+////        
+//            js.append(generateJSseriesType());
+////        
+//            js.append(generateJStooltip());
+////        
+//            js.append(generateJStooltip1());
+////        
+//            js.append(generateJSyScale());
+////        
+//            js.append(generateJSyScale1());
+////        
+//            js.append(generateJSyScale2());
+////        
+//            js.append(generateJSyScale3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

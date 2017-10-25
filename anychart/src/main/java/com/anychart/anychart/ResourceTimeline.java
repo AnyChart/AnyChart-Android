@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -45,13 +47,8 @@ public class ResourceTimeline extends Timeline {
         return this;
     }
 
-    private String generateJSdefaultRowHeight() {
-        if (defaultRowHeight != null) {
-            return String.format(Locale.US, "defaultRowHeight: %f,", defaultRowHeight);
-        }
-        return "";
-    }
 
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -70,11 +67,13 @@ public class ResourceTimeline extends Timeline {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSdefaultRowHeight());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSdefaultRowHeight());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

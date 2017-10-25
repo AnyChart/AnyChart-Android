@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -61,10 +63,10 @@ public class MapSeriesMarker extends MapSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".type(%s)", (type != null) ? type.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -85,37 +87,18 @@ public class MapSeriesMarker extends MapSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".type(%s)", type1));
+            js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", type1));
+                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSsize() {
-        if (size != null) {
-            return String.format(Locale.US, "size: %f,", size);
-        }
-        return "";
-    }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -134,13 +117,17 @@ public class MapSeriesMarker extends MapSeriesBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSsize());
-            js.append(generateJStype());
-            js.append(generateJStype1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSsize());
+////        
+//            js.append(generateJStype());
+////        
+//            js.append(generateJStype1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

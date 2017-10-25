@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -63,10 +65,10 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+            js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
             }
         }
@@ -113,10 +115,10 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
+            js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
+                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
                 js.setLength(0);
             }
         }
@@ -163,58 +165,18 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+            js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSmaxPointWidth() {
-        if (maxPointWidth != null) {
-            return String.format(Locale.US, "maxPointWidth: %f,", maxPointWidth);
-        }
-        return "";
-    }
 
-    private String generateJSmaxPointWidth1() {
-        if (maxPointWidth1 != null) {
-            return String.format(Locale.US, "maxPointWidth: %s,", maxPointWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSminPointLength() {
-        if (minPointLength != null) {
-            return String.format(Locale.US, "minPointLength: %f,", minPointLength);
-        }
-        return "";
-    }
-
-    private String generateJSminPointLength1() {
-        if (minPointLength1 != null) {
-            return String.format(Locale.US, "minPointLength: %s,", minPointLength1);
-        }
-        return "";
-    }
-
-    private String generateJSpointWidth() {
-        if (pointWidth != null) {
-            return String.format(Locale.US, "pointWidth: %f,", pointWidth);
-        }
-        return "";
-    }
-
-    private String generateJSpointWidth1() {
-        if (pointWidth1 != null) {
-            return String.format(Locale.US, "pointWidth: %s,", pointWidth1);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -233,16 +195,23 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSmaxPointWidth());
-            js.append(generateJSmaxPointWidth1());
-            js.append(generateJSminPointLength());
-            js.append(generateJSminPointLength1());
-            js.append(generateJSpointWidth());
-            js.append(generateJSpointWidth1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSmaxPointWidth());
+////        
+//            js.append(generateJSmaxPointWidth1());
+////        
+//            js.append(generateJSminPointLength());
+////        
+//            js.append(generateJSminPointLength1());
+////        
+//            js.append(generateJSpointWidth());
+////        
+//            js.append(generateJSpointWidth1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

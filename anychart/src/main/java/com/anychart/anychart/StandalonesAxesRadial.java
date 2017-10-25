@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -52,10 +54,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", (container != null) ? container.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (container != null) ? container.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -78,10 +80,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", (container1 != null) ? container1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (container1 != null) ? container1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -104,10 +106,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", container2));
+            js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", container2));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
                 js.setLength(0);
             }
         }
@@ -130,10 +132,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", (container3 != null) ? container3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (container3 != null) ? container3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -156,10 +158,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".innerRadius(%s)", innerRadius));
+            js.append(String.format(Locale.US, ".innerRadius(%s)", wrapQuotes(innerRadius)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%s)", innerRadius));
+                onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%s)", wrapQuotes(innerRadius)));
                 js.setLength(0);
             }
         }
@@ -215,10 +217,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", (parentBounds != null) ? parentBounds.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", (parentBounds != null) ? parentBounds.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -239,10 +241,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", parentBounds1));
+            js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", parentBounds1));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
             }
         }
@@ -296,10 +298,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".startAngle(%s)", startAngle));
+            js.append(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", startAngle));
+                onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
                 js.setLength(0);
             }
         }
@@ -330,9 +332,26 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         return this;
     }
 
+
+//
+//    private String generateJSLayer getContainer() {
+//        if (Layer getContainer != null) {
+//            return Layer getContainer.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSAnychartMathRect getParentBounds() {
+//        if (AnychartMathRect getParentBounds != null) {
+//            return AnychartMathRect getParentBounds.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
+            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -340,104 +359,7 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     private String generateJSgetParentBounds() {
         if (getParentBounds != null) {
             return getParentBounds.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScontainer() {
-        if (container != null) {
-            return String.format(Locale.US, "container: %s,", (container != null) ? container.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScontainer1() {
-        if (container1 != null) {
-            return String.format(Locale.US, "container: %s,", (container1 != null) ? container1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScontainer2() {
-        if (container2 != null) {
-            return String.format(Locale.US, "container: %s,", container2);
-        }
-        return "";
-    }
-
-    private String generateJScontainer3() {
-        if (container3 != null) {
-            return String.format(Locale.US, "container: %s,", (container3 != null) ? container3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSinnerRadius() {
-        if (innerRadius != null) {
-            return String.format(Locale.US, "innerRadius: %s,", innerRadius);
-        }
-        return "";
-    }
-
-    private String generateJSinnerRadius1() {
-        if (innerRadius1 != null) {
-            return String.format(Locale.US, "innerRadius: %f,", innerRadius1);
-        }
-        return "";
-    }
-
-    private String generateJSparentBounds() {
-        if (parentBounds != null) {
-            return String.format(Locale.US, "parentBounds: %s,", (parentBounds != null) ? parentBounds.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSparentBounds1() {
-        if (parentBounds1 != null) {
-            return String.format(Locale.US, "parentBounds: %s,", parentBounds1);
-        }
-        return "";
-    }
-
-    private String generateJSleft() {
-        if (left != null) {
-            return String.format(Locale.US, "left: %f,", left);
-        }
-        return "";
-    }
-
-    private String generateJStop() {
-        if (top != null) {
-            return String.format(Locale.US, "top: %f,", top);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSstartAngle() {
-        if (startAngle != null) {
-            return String.format(Locale.US, "startAngle: %s,", startAngle);
-        }
-        return "";
-    }
-
-    private String generateJSstartAngle1() {
-        if (startAngle1 != null) {
-            return String.format(Locale.US, "startAngle: %f,", startAngle1);
+            //return String.format(Locale.US, "getParentBounds: %s,", ((getParentBounds != null) ? getParentBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -462,24 +384,39 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScontainer());
-            js.append(generateJScontainer1());
-            js.append(generateJScontainer2());
-            js.append(generateJScontainer3());
-            js.append(generateJSinnerRadius());
-            js.append(generateJSinnerRadius1());
-            js.append(generateJSparentBounds());
-            js.append(generateJSparentBounds1());
-            js.append(generateJSleft());
-            js.append(generateJStop());
-            js.append(generateJSwidth());
-            js.append(generateJSheight());
-            js.append(generateJSstartAngle());
-            js.append(generateJSstartAngle1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScontainer());
+////        
+//            js.append(generateJScontainer1());
+////        
+//            js.append(generateJScontainer2());
+////        
+//            js.append(generateJScontainer3());
+////        
+//            js.append(generateJSinnerRadius());
+////        
+//            js.append(generateJSinnerRadius1());
+////        
+//            js.append(generateJSparentBounds());
+////        
+//            js.append(generateJSparentBounds1());
+////        
+//            js.append(generateJSleft());
+////        
+//            js.append(generateJStop());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSheight());
+////        
+//            js.append(generateJSstartAngle());
+////        
+//            js.append(generateJSstartAngle1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

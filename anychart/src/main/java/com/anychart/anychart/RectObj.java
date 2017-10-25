@@ -38,7 +38,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %f,top: %f,width: %s}",  bottom, height, left, right, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %f,top: %f,width: %s}",  bottom, height, left, right, top, wrapQuotes(width1)));
     }
     public RectObj(Double bottom, Double height, Double left, Double right, String top1, Double width) {
         this.bottom = bottom;
@@ -48,7 +48,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %f,top: %s,width: %f}",  bottom, height, left, right, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %f,top: %s,width: %f}",  bottom, height, left, right, wrapQuotes(top1), width));
     }
     public RectObj(Double bottom, Double height, Double left, Double right, String top1, String width1) {
         this.bottom = bottom;
@@ -58,7 +58,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %f,top: %s,width: %s}",  bottom, height, left, right, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %f,top: %s,width: %s}",  bottom, height, left, right, wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(Double bottom, Double height, Double left, String right1, Double top, Double width) {
         this.bottom = bottom;
@@ -68,7 +68,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %s,top: %f,width: %f}",  bottom, height, left, right1, top, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %s,top: %f,width: %f}",  bottom, height, left, wrapQuotes(right1), top, width));
     }
     public RectObj(Double bottom, Double height, Double left, String right1, Double top, String width1) {
         this.bottom = bottom;
@@ -78,7 +78,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %s,top: %f,width: %s}",  bottom, height, left, right1, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %s,top: %f,width: %s}",  bottom, height, left, wrapQuotes(right1), top, wrapQuotes(width1)));
     }
     public RectObj(Double bottom, Double height, Double left, String right1, String top1, Double width) {
         this.bottom = bottom;
@@ -88,7 +88,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %s,top: %s,width: %f}",  bottom, height, left, right1, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %s,top: %s,width: %f}",  bottom, height, left, wrapQuotes(right1), wrapQuotes(top1), width));
     }
     public RectObj(Double bottom, Double height, Double left, String right1, String top1, String width1) {
         this.bottom = bottom;
@@ -98,7 +98,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %s,top: %s,width: %s}",  bottom, height, left, right1, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %f,right: %s,top: %s,width: %s}",  bottom, height, left, wrapQuotes(right1), wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(Double bottom, Double height, String left1, Double right, Double top, Double width) {
         this.bottom = bottom;
@@ -108,7 +108,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %f,top: %f,width: %f}",  bottom, height, left1, right, top, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %f,top: %f,width: %f}",  bottom, height, wrapQuotes(left1), right, top, width));
     }
     public RectObj(Double bottom, Double height, String left1, Double right, Double top, String width1) {
         this.bottom = bottom;
@@ -118,7 +118,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %f,top: %f,width: %s}",  bottom, height, left1, right, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %f,top: %f,width: %s}",  bottom, height, wrapQuotes(left1), right, top, wrapQuotes(width1)));
     }
     public RectObj(Double bottom, Double height, String left1, Double right, String top1, Double width) {
         this.bottom = bottom;
@@ -128,7 +128,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %f,top: %s,width: %f}",  bottom, height, left1, right, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %f,top: %s,width: %f}",  bottom, height, wrapQuotes(left1), right, wrapQuotes(top1), width));
     }
     public RectObj(Double bottom, Double height, String left1, Double right, String top1, String width1) {
         this.bottom = bottom;
@@ -138,7 +138,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %f,top: %s,width: %s}",  bottom, height, left1, right, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %f,top: %s,width: %s}",  bottom, height, wrapQuotes(left1), right, wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(Double bottom, Double height, String left1, String right1, Double top, Double width) {
         this.bottom = bottom;
@@ -148,7 +148,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %s,top: %f,width: %f}",  bottom, height, left1, right1, top, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %s,top: %f,width: %f}",  bottom, height, wrapQuotes(left1), wrapQuotes(right1), top, width));
     }
     public RectObj(Double bottom, Double height, String left1, String right1, Double top, String width1) {
         this.bottom = bottom;
@@ -158,7 +158,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %s,top: %f,width: %s}",  bottom, height, left1, right1, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %s,top: %f,width: %s}",  bottom, height, wrapQuotes(left1), wrapQuotes(right1), top, wrapQuotes(width1)));
     }
     public RectObj(Double bottom, Double height, String left1, String right1, String top1, Double width) {
         this.bottom = bottom;
@@ -168,7 +168,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %s,top: %s,width: %f}",  bottom, height, left1, right1, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %s,top: %s,width: %f}",  bottom, height, wrapQuotes(left1), wrapQuotes(right1), wrapQuotes(top1), width));
     }
     public RectObj(Double bottom, Double height, String left1, String right1, String top1, String width1) {
         this.bottom = bottom;
@@ -178,7 +178,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %s,top: %s,width: %s}",  bottom, height, left1, right1, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %f,left: %s,right: %s,top: %s,width: %s}",  bottom, height, wrapQuotes(left1), wrapQuotes(right1), wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(Double bottom, String height1, Double left, Double right, Double top, Double width) {
         this.bottom = bottom;
@@ -188,7 +188,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %f,top: %f,width: %f}",  bottom, height1, left, right, top, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %f,top: %f,width: %f}",  bottom, wrapQuotes(height1), left, right, top, width));
     }
     public RectObj(Double bottom, String height1, Double left, Double right, Double top, String width1) {
         this.bottom = bottom;
@@ -198,7 +198,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %f,top: %f,width: %s}",  bottom, height1, left, right, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %f,top: %f,width: %s}",  bottom, wrapQuotes(height1), left, right, top, wrapQuotes(width1)));
     }
     public RectObj(Double bottom, String height1, Double left, Double right, String top1, Double width) {
         this.bottom = bottom;
@@ -208,7 +208,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %f,top: %s,width: %f}",  bottom, height1, left, right, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %f,top: %s,width: %f}",  bottom, wrapQuotes(height1), left, right, wrapQuotes(top1), width));
     }
     public RectObj(Double bottom, String height1, Double left, Double right, String top1, String width1) {
         this.bottom = bottom;
@@ -218,7 +218,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %f,top: %s,width: %s}",  bottom, height1, left, right, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %f,top: %s,width: %s}",  bottom, wrapQuotes(height1), left, right, wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(Double bottom, String height1, Double left, String right1, Double top, Double width) {
         this.bottom = bottom;
@@ -228,7 +228,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %s,top: %f,width: %f}",  bottom, height1, left, right1, top, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %s,top: %f,width: %f}",  bottom, wrapQuotes(height1), left, wrapQuotes(right1), top, width));
     }
     public RectObj(Double bottom, String height1, Double left, String right1, Double top, String width1) {
         this.bottom = bottom;
@@ -238,7 +238,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %s,top: %f,width: %s}",  bottom, height1, left, right1, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %s,top: %f,width: %s}",  bottom, wrapQuotes(height1), left, wrapQuotes(right1), top, wrapQuotes(width1)));
     }
     public RectObj(Double bottom, String height1, Double left, String right1, String top1, Double width) {
         this.bottom = bottom;
@@ -248,7 +248,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %s,top: %s,width: %f}",  bottom, height1, left, right1, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %s,top: %s,width: %f}",  bottom, wrapQuotes(height1), left, wrapQuotes(right1), wrapQuotes(top1), width));
     }
     public RectObj(Double bottom, String height1, Double left, String right1, String top1, String width1) {
         this.bottom = bottom;
@@ -258,7 +258,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %s,top: %s,width: %s}",  bottom, height1, left, right1, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %f,right: %s,top: %s,width: %s}",  bottom, wrapQuotes(height1), left, wrapQuotes(right1), wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(Double bottom, String height1, String left1, Double right, Double top, Double width) {
         this.bottom = bottom;
@@ -268,7 +268,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %f,top: %f,width: %f}",  bottom, height1, left1, right, top, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %f,top: %f,width: %f}",  bottom, wrapQuotes(height1), wrapQuotes(left1), right, top, width));
     }
     public RectObj(Double bottom, String height1, String left1, Double right, Double top, String width1) {
         this.bottom = bottom;
@@ -278,7 +278,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %f,top: %f,width: %s}",  bottom, height1, left1, right, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %f,top: %f,width: %s}",  bottom, wrapQuotes(height1), wrapQuotes(left1), right, top, wrapQuotes(width1)));
     }
     public RectObj(Double bottom, String height1, String left1, Double right, String top1, Double width) {
         this.bottom = bottom;
@@ -288,7 +288,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %f,top: %s,width: %f}",  bottom, height1, left1, right, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %f,top: %s,width: %f}",  bottom, wrapQuotes(height1), wrapQuotes(left1), right, wrapQuotes(top1), width));
     }
     public RectObj(Double bottom, String height1, String left1, Double right, String top1, String width1) {
         this.bottom = bottom;
@@ -298,7 +298,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %f,top: %s,width: %s}",  bottom, height1, left1, right, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %f,top: %s,width: %s}",  bottom, wrapQuotes(height1), wrapQuotes(left1), right, wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(Double bottom, String height1, String left1, String right1, Double top, Double width) {
         this.bottom = bottom;
@@ -308,7 +308,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %s,top: %f,width: %f}",  bottom, height1, left1, right1, top, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %s,top: %f,width: %f}",  bottom, wrapQuotes(height1), wrapQuotes(left1), wrapQuotes(right1), top, width));
     }
     public RectObj(Double bottom, String height1, String left1, String right1, Double top, String width1) {
         this.bottom = bottom;
@@ -318,7 +318,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %s,top: %f,width: %s}",  bottom, height1, left1, right1, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %s,top: %f,width: %s}",  bottom, wrapQuotes(height1), wrapQuotes(left1), wrapQuotes(right1), top, wrapQuotes(width1)));
     }
     public RectObj(Double bottom, String height1, String left1, String right1, String top1, Double width) {
         this.bottom = bottom;
@@ -328,7 +328,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %s,top: %s,width: %f}",  bottom, height1, left1, right1, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %s,top: %s,width: %f}",  bottom, wrapQuotes(height1), wrapQuotes(left1), wrapQuotes(right1), wrapQuotes(top1), width));
     }
     public RectObj(Double bottom, String height1, String left1, String right1, String top1, String width1) {
         this.bottom = bottom;
@@ -338,7 +338,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %s,top: %s,width: %s}",  bottom, height1, left1, right1, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %f,height: %s,left: %s,right: %s,top: %s,width: %s}",  bottom, wrapQuotes(height1), wrapQuotes(left1), wrapQuotes(right1), wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(String bottom1, Double height, Double left, Double right, Double top, Double width) {
         this.bottom1 = bottom1;
@@ -348,7 +348,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %f,top: %f,width: %f}",  bottom1, height, left, right, top, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %f,top: %f,width: %f}",  wrapQuotes(bottom1), height, left, right, top, width));
     }
     public RectObj(String bottom1, Double height, Double left, Double right, Double top, String width1) {
         this.bottom1 = bottom1;
@@ -358,7 +358,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %f,top: %f,width: %s}",  bottom1, height, left, right, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %f,top: %f,width: %s}",  wrapQuotes(bottom1), height, left, right, top, wrapQuotes(width1)));
     }
     public RectObj(String bottom1, Double height, Double left, Double right, String top1, Double width) {
         this.bottom1 = bottom1;
@@ -368,7 +368,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %f,top: %s,width: %f}",  bottom1, height, left, right, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %f,top: %s,width: %f}",  wrapQuotes(bottom1), height, left, right, wrapQuotes(top1), width));
     }
     public RectObj(String bottom1, Double height, Double left, Double right, String top1, String width1) {
         this.bottom1 = bottom1;
@@ -378,7 +378,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %f,top: %s,width: %s}",  bottom1, height, left, right, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %f,top: %s,width: %s}",  wrapQuotes(bottom1), height, left, right, wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(String bottom1, Double height, Double left, String right1, Double top, Double width) {
         this.bottom1 = bottom1;
@@ -388,7 +388,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %s,top: %f,width: %f}",  bottom1, height, left, right1, top, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %s,top: %f,width: %f}",  wrapQuotes(bottom1), height, left, wrapQuotes(right1), top, width));
     }
     public RectObj(String bottom1, Double height, Double left, String right1, Double top, String width1) {
         this.bottom1 = bottom1;
@@ -398,7 +398,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %s,top: %f,width: %s}",  bottom1, height, left, right1, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %s,top: %f,width: %s}",  wrapQuotes(bottom1), height, left, wrapQuotes(right1), top, wrapQuotes(width1)));
     }
     public RectObj(String bottom1, Double height, Double left, String right1, String top1, Double width) {
         this.bottom1 = bottom1;
@@ -408,7 +408,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %s,top: %s,width: %f}",  bottom1, height, left, right1, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %s,top: %s,width: %f}",  wrapQuotes(bottom1), height, left, wrapQuotes(right1), wrapQuotes(top1), width));
     }
     public RectObj(String bottom1, Double height, Double left, String right1, String top1, String width1) {
         this.bottom1 = bottom1;
@@ -418,7 +418,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %s,top: %s,width: %s}",  bottom1, height, left, right1, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %f,right: %s,top: %s,width: %s}",  wrapQuotes(bottom1), height, left, wrapQuotes(right1), wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(String bottom1, Double height, String left1, Double right, Double top, Double width) {
         this.bottom1 = bottom1;
@@ -428,7 +428,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %f,top: %f,width: %f}",  bottom1, height, left1, right, top, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %f,top: %f,width: %f}",  wrapQuotes(bottom1), height, wrapQuotes(left1), right, top, width));
     }
     public RectObj(String bottom1, Double height, String left1, Double right, Double top, String width1) {
         this.bottom1 = bottom1;
@@ -438,7 +438,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %f,top: %f,width: %s}",  bottom1, height, left1, right, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %f,top: %f,width: %s}",  wrapQuotes(bottom1), height, wrapQuotes(left1), right, top, wrapQuotes(width1)));
     }
     public RectObj(String bottom1, Double height, String left1, Double right, String top1, Double width) {
         this.bottom1 = bottom1;
@@ -448,7 +448,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %f,top: %s,width: %f}",  bottom1, height, left1, right, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %f,top: %s,width: %f}",  wrapQuotes(bottom1), height, wrapQuotes(left1), right, wrapQuotes(top1), width));
     }
     public RectObj(String bottom1, Double height, String left1, Double right, String top1, String width1) {
         this.bottom1 = bottom1;
@@ -458,7 +458,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %f,top: %s,width: %s}",  bottom1, height, left1, right, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %f,top: %s,width: %s}",  wrapQuotes(bottom1), height, wrapQuotes(left1), right, wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(String bottom1, Double height, String left1, String right1, Double top, Double width) {
         this.bottom1 = bottom1;
@@ -468,7 +468,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %s,top: %f,width: %f}",  bottom1, height, left1, right1, top, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %s,top: %f,width: %f}",  wrapQuotes(bottom1), height, wrapQuotes(left1), wrapQuotes(right1), top, width));
     }
     public RectObj(String bottom1, Double height, String left1, String right1, Double top, String width1) {
         this.bottom1 = bottom1;
@@ -478,7 +478,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %s,top: %f,width: %s}",  bottom1, height, left1, right1, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %s,top: %f,width: %s}",  wrapQuotes(bottom1), height, wrapQuotes(left1), wrapQuotes(right1), top, wrapQuotes(width1)));
     }
     public RectObj(String bottom1, Double height, String left1, String right1, String top1, Double width) {
         this.bottom1 = bottom1;
@@ -488,7 +488,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %s,top: %s,width: %f}",  bottom1, height, left1, right1, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %s,top: %s,width: %f}",  wrapQuotes(bottom1), height, wrapQuotes(left1), wrapQuotes(right1), wrapQuotes(top1), width));
     }
     public RectObj(String bottom1, Double height, String left1, String right1, String top1, String width1) {
         this.bottom1 = bottom1;
@@ -498,7 +498,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %s,top: %s,width: %s}",  bottom1, height, left1, right1, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %f,left: %s,right: %s,top: %s,width: %s}",  wrapQuotes(bottom1), height, wrapQuotes(left1), wrapQuotes(right1), wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(String bottom1, String height1, Double left, Double right, Double top, Double width) {
         this.bottom1 = bottom1;
@@ -508,7 +508,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %f,top: %f,width: %f}",  bottom1, height1, left, right, top, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %f,top: %f,width: %f}",  wrapQuotes(bottom1), wrapQuotes(height1), left, right, top, width));
     }
     public RectObj(String bottom1, String height1, Double left, Double right, Double top, String width1) {
         this.bottom1 = bottom1;
@@ -518,7 +518,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %f,top: %f,width: %s}",  bottom1, height1, left, right, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %f,top: %f,width: %s}",  wrapQuotes(bottom1), wrapQuotes(height1), left, right, top, wrapQuotes(width1)));
     }
     public RectObj(String bottom1, String height1, Double left, Double right, String top1, Double width) {
         this.bottom1 = bottom1;
@@ -528,7 +528,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %f,top: %s,width: %f}",  bottom1, height1, left, right, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %f,top: %s,width: %f}",  wrapQuotes(bottom1), wrapQuotes(height1), left, right, wrapQuotes(top1), width));
     }
     public RectObj(String bottom1, String height1, Double left, Double right, String top1, String width1) {
         this.bottom1 = bottom1;
@@ -538,7 +538,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %f,top: %s,width: %s}",  bottom1, height1, left, right, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %f,top: %s,width: %s}",  wrapQuotes(bottom1), wrapQuotes(height1), left, right, wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(String bottom1, String height1, Double left, String right1, Double top, Double width) {
         this.bottom1 = bottom1;
@@ -548,7 +548,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %s,top: %f,width: %f}",  bottom1, height1, left, right1, top, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %s,top: %f,width: %f}",  wrapQuotes(bottom1), wrapQuotes(height1), left, wrapQuotes(right1), top, width));
     }
     public RectObj(String bottom1, String height1, Double left, String right1, Double top, String width1) {
         this.bottom1 = bottom1;
@@ -558,7 +558,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %s,top: %f,width: %s}",  bottom1, height1, left, right1, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %s,top: %f,width: %s}",  wrapQuotes(bottom1), wrapQuotes(height1), left, wrapQuotes(right1), top, wrapQuotes(width1)));
     }
     public RectObj(String bottom1, String height1, Double left, String right1, String top1, Double width) {
         this.bottom1 = bottom1;
@@ -568,7 +568,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %s,top: %s,width: %f}",  bottom1, height1, left, right1, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %s,top: %s,width: %f}",  wrapQuotes(bottom1), wrapQuotes(height1), left, wrapQuotes(right1), wrapQuotes(top1), width));
     }
     public RectObj(String bottom1, String height1, Double left, String right1, String top1, String width1) {
         this.bottom1 = bottom1;
@@ -578,7 +578,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %s,top: %s,width: %s}",  bottom1, height1, left, right1, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %f,right: %s,top: %s,width: %s}",  wrapQuotes(bottom1), wrapQuotes(height1), left, wrapQuotes(right1), wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(String bottom1, String height1, String left1, Double right, Double top, Double width) {
         this.bottom1 = bottom1;
@@ -588,7 +588,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %f,top: %f,width: %f}",  bottom1, height1, left1, right, top, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %f,top: %f,width: %f}",  wrapQuotes(bottom1), wrapQuotes(height1), wrapQuotes(left1), right, top, width));
     }
     public RectObj(String bottom1, String height1, String left1, Double right, Double top, String width1) {
         this.bottom1 = bottom1;
@@ -598,7 +598,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %f,top: %f,width: %s}",  bottom1, height1, left1, right, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %f,top: %f,width: %s}",  wrapQuotes(bottom1), wrapQuotes(height1), wrapQuotes(left1), right, top, wrapQuotes(width1)));
     }
     public RectObj(String bottom1, String height1, String left1, Double right, String top1, Double width) {
         this.bottom1 = bottom1;
@@ -608,7 +608,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %f,top: %s,width: %f}",  bottom1, height1, left1, right, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %f,top: %s,width: %f}",  wrapQuotes(bottom1), wrapQuotes(height1), wrapQuotes(left1), right, wrapQuotes(top1), width));
     }
     public RectObj(String bottom1, String height1, String left1, Double right, String top1, String width1) {
         this.bottom1 = bottom1;
@@ -618,7 +618,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %f,top: %s,width: %s}",  bottom1, height1, left1, right, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %f,top: %s,width: %s}",  wrapQuotes(bottom1), wrapQuotes(height1), wrapQuotes(left1), right, wrapQuotes(top1), wrapQuotes(width1)));
     }
     public RectObj(String bottom1, String height1, String left1, String right1, Double top, Double width) {
         this.bottom1 = bottom1;
@@ -628,7 +628,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %s,top: %f,width: %f}",  bottom1, height1, left1, right1, top, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %s,top: %f,width: %f}",  wrapQuotes(bottom1), wrapQuotes(height1), wrapQuotes(left1), wrapQuotes(right1), top, width));
     }
     public RectObj(String bottom1, String height1, String left1, String right1, Double top, String width1) {
         this.bottom1 = bottom1;
@@ -638,7 +638,7 @@ public class RectObj extends JsObject  {
         this.top = top;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %s,top: %f,width: %s}",  bottom1, height1, left1, right1, top, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %s,top: %f,width: %s}",  wrapQuotes(bottom1), wrapQuotes(height1), wrapQuotes(left1), wrapQuotes(right1), top, wrapQuotes(width1)));
     }
     public RectObj(String bottom1, String height1, String left1, String right1, String top1, Double width) {
         this.bottom1 = bottom1;
@@ -648,7 +648,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width = width;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %s,top: %s,width: %f}",  bottom1, height1, left1, right1, top1, width));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %s,top: %s,width: %f}",  wrapQuotes(bottom1), wrapQuotes(height1), wrapQuotes(left1), wrapQuotes(right1), wrapQuotes(top1), width));
     }
     public RectObj(String bottom1, String height1, String left1, String right1, String top1, String width1) {
         this.bottom1 = bottom1;
@@ -658,7 +658,7 @@ public class RectObj extends JsObject  {
         this.top1 = top1;
         this.width1 = width1;
 
-        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %s,top: %s,width: %s}",  bottom1, height1, left1, right1, top1, width1));
+        js.append(String.format(Locale.US, "{bottom: %s,height: %s,left: %s,right: %s,top: %s,width: %s}",  wrapQuotes(bottom1), wrapQuotes(height1), wrapQuotes(left1), wrapQuotes(right1), wrapQuotes(top1), wrapQuotes(width1)));
     }
 
     @Override

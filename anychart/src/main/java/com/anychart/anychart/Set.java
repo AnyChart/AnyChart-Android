@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -48,10 +50,10 @@ public class Set extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), (settings != null) ? settings.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings != null) ? settings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), (settings != null) ? settings.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings != null) ? settings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -78,10 +80,10 @@ public class Set extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), settings1));
+            js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), wrapQuotes(settings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), settings1));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), wrapQuotes(settings1)));
                 js.setLength(0);
             }
         }
@@ -108,10 +110,10 @@ public class Set extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), (settings2 != null) ? settings2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings2 != null) ? settings2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), (settings2 != null) ? settings2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings2 != null) ? settings2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -138,10 +140,10 @@ public class Set extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", data1, (settings != null) ? settings.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings != null) ? settings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data1, (settings != null) ? settings.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings != null) ? settings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -168,10 +170,10 @@ public class Set extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", data1, settings1));
+            js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), wrapQuotes(settings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data1, settings1));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), wrapQuotes(settings1)));
                 js.setLength(0);
             }
         }
@@ -198,10 +200,10 @@ public class Set extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", data1, (settings2 != null) ? settings2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings2 != null) ? settings2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data1, (settings2 != null) ? settings2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings2 != null) ? settings2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -242,10 +244,10 @@ public class Set extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", mapping));
+            js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", wrapQuotes(mapping)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", mapping));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(mapping)));
                 js.setLength(0);
             }
         }
@@ -298,69 +300,8 @@ public class Set extends CoreBase {
         }
     }
 
-    private String generateJSdata() {
-        if (data != null) {
-            return String.format(Locale.US, "data: %s,", Arrays.toString(data));
-        }
-        return "";
-    }
 
-    private String generateJSdata1() {
-        if (data1 != null) {
-            return String.format(Locale.US, "data: %s,", data1);
-        }
-        return "";
-    }
-
-    private String generateJSsettings() {
-        if (settings != null) {
-            return String.format(Locale.US, "settings: %s,", (settings != null) ? settings.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSsettings1() {
-        if (settings1 != null) {
-            return String.format(Locale.US, "settings: %s,", settings1);
-        }
-        return "";
-    }
-
-    private String generateJSsettings2() {
-        if (settings2 != null) {
-            return String.format(Locale.US, "settings: %s,", (settings2 != null) ? settings2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJSmapping() {
-        if (mapping != null) {
-            return String.format(Locale.US, "mapping: %s,", mapping);
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSrowIndex() {
-        if (rowIndex != null) {
-            return String.format(Locale.US, "rowIndex: %f,", rowIndex);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -379,19 +320,29 @@ public class Set extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSdata());
-            js.append(generateJSdata1());
-            js.append(generateJSsettings());
-            js.append(generateJSsettings1());
-            js.append(generateJSsettings2());
-            js.append(generateJSindex());
-            js.append(generateJSmapping());
-            js.append(generateJSindex1());
-            js.append(generateJSrowIndex());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSdata());
+////        
+//            js.append(generateJSdata1());
+////        
+//            js.append(generateJSsettings());
+////        
+//            js.append(generateJSsettings1());
+////        
+//            js.append(generateJSsettings2());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSmapping());
+////        
+//            js.append(generateJSindex1());
+////        
+//            js.append(generateJSrowIndex());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

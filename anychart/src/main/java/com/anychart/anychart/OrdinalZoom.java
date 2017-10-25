@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -88,10 +90,10 @@ public class OrdinalZoom extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".setToPointsCount(%f, %b, %s)", pointsCount, fromEnd, (scale != null) ? scale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".setToPointsCount(%f, %b, %s)", pointsCount, fromEnd, ((scale != null) ? scale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setToPointsCount(%f, %b, %s)", pointsCount, fromEnd, (scale != null) ? scale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".setToPointsCount(%f, %b, %s)", pointsCount, fromEnd, ((scale != null) ? scale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -113,65 +115,18 @@ public class OrdinalZoom extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".setToValues(%s)", (scale1 != null) ? scale1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".setToValues(%s)", ((scale1 != null) ? scale1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setToValues(%s)", (scale1 != null) ? scale1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".setToValues(%s)", ((scale1 != null) ? scale1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJScontinuous() {
-        if (continuous != null) {
-            return String.format(Locale.US, "continuous: %b,", continuous);
-        }
-        return "";
-    }
 
-    private String generateJSstartRatio() {
-        if (startRatio != null) {
-            return String.format(Locale.US, "startRatio: %f,", startRatio);
-        }
-        return "";
-    }
-
-    private String generateJSendRatio() {
-        if (endRatio != null) {
-            return String.format(Locale.US, "endRatio: %f,", endRatio);
-        }
-        return "";
-    }
-
-    private String generateJSpointsCount() {
-        if (pointsCount != null) {
-            return String.format(Locale.US, "pointsCount: %f,", pointsCount);
-        }
-        return "";
-    }
-
-    private String generateJSfromEnd() {
-        if (fromEnd != null) {
-            return String.format(Locale.US, "fromEnd: %b,", fromEnd);
-        }
-        return "";
-    }
-
-    private String generateJSscale() {
-        if (scale != null) {
-            return String.format(Locale.US, "scale: %s,", (scale != null) ? scale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSscale1() {
-        if (scale1 != null) {
-            return String.format(Locale.US, "scale: %s,", (scale1 != null) ? scale1.generateJs() : "null");
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -190,17 +145,25 @@ public class OrdinalZoom extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScontinuous());
-            js.append(generateJSstartRatio());
-            js.append(generateJSendRatio());
-            js.append(generateJSpointsCount());
-            js.append(generateJSfromEnd());
-            js.append(generateJSscale());
-            js.append(generateJSscale1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScontinuous());
+////        
+//            js.append(generateJSstartRatio());
+////        
+//            js.append(generateJSendRatio());
+////        
+//            js.append(generateJSpointsCount());
+////        
+//            js.append(generateJSfromEnd());
+////        
+//            js.append(generateJSscale());
+////        
+//            js.append(generateJSscale1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

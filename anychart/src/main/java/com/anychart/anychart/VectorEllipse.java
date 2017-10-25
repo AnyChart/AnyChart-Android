@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -44,10 +46,10 @@ public class VectorEllipse extends Shape {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".center(%s)", (center != null) ? center.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".center(%s)", ((center != null) ? center.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".center(%s)", (center != null) ? center.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".center(%s)", ((center != null) ? center.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -167,58 +169,19 @@ public class VectorEllipse extends Shape {
         return this;
     }
 
+
+//
+//    private String generateJSCoordinate getCenter() {
+//        if (Coordinate getCenter != null) {
+//            return Coordinate getCenter.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetCenter() {
         if (getCenter != null) {
             return getCenter.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScenter() {
-        if (center != null) {
-            return String.format(Locale.US, "center: %s,", (center != null) ? center.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScenterX() {
-        if (centerX != null) {
-            return String.format(Locale.US, "centerX: %f,", centerX);
-        }
-        return "";
-    }
-
-    private String generateJScenterY() {
-        if (centerY != null) {
-            return String.format(Locale.US, "centerY: %f,", centerY);
-        }
-        return "";
-    }
-
-    private String generateJSradiusX() {
-        if (radiusX != null) {
-            return String.format(Locale.US, "radiusX: %f,", radiusX);
-        }
-        return "";
-    }
-
-    private String generateJSradiusY() {
-        if (radiusY != null) {
-            return String.format(Locale.US, "radiusY: %f,", radiusY);
-        }
-        return "";
-    }
-
-    private String generateJSrx() {
-        if (rx != null) {
-            return String.format(Locale.US, "rx: %f,", rx);
-        }
-        return "";
-    }
-
-    private String generateJSry() {
-        if (ry != null) {
-            return String.format(Locale.US, "ry: %f,", ry);
+            //return String.format(Locale.US, "getCenter: %s,", ((getCenter != null) ? getCenter.generateJs() : "null"));
         }
         return "";
     }
@@ -242,17 +205,25 @@ public class VectorEllipse extends Shape {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScenter());
-            js.append(generateJScenterX());
-            js.append(generateJScenterY());
-            js.append(generateJSradiusX());
-            js.append(generateJSradiusY());
-            js.append(generateJSrx());
-            js.append(generateJSry());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScenter());
+////        
+//            js.append(generateJScenterX());
+////        
+//            js.append(generateJScenterY());
+////        
+//            js.append(generateJSradiusX());
+////        
+//            js.append(generateJSradiusY());
+////        
+//            js.append(generateJSrx());
+////        
+//            js.append(generateJSry());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

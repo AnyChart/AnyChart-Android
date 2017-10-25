@@ -15,20 +15,38 @@ public class Gantt extends SeparateChart {
         jsBase = "chart";
     }
 
+    public Gantt setData(List<DataEntry> data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("]);");
+        }
+
+        return this;
+    }
+
     
     private String taskId;
     private List<Gantt> setCollapseTask = new ArrayList<>();
-
     public Gantt collapseTask(String taskId) {
-        this.taskId = taskId;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".collapseTask(%s)", taskId));
+        js.append(String.format(Locale.US, ".collapseTask(%s)", wrapQuotes(taskId)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".collapseTask(%s)", taskId));
+            onChangeListener.onChange(String.format(Locale.US, ".collapseTask(%s)", wrapQuotes(taskId)));
             js.setLength(0);
         }
         return this;
@@ -47,17 +65,15 @@ public class Gantt extends SeparateChart {
     private Stroke columnStroke;
     private String columnStroke1;
     private List<Gantt> setColumnStroke = new ArrayList<>();
-
     public Gantt setColumnStroke(Stroke columnStroke) {
-        this.columnStroke = columnStroke;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".columnStroke(%s)", (columnStroke != null) ? columnStroke.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", (columnStroke != null) ? columnStroke.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -74,17 +90,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setColumnStroke1 = new ArrayList<>();
-
     public Gantt setColumnStroke(String columnStroke1) {
-        this.columnStroke1 = columnStroke1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".columnStroke(%s)", columnStroke1));
+        js.append(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", columnStroke1));
+            onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
             js.setLength(0);
         }
         return this;
@@ -115,18 +129,15 @@ public class Gantt extends SeparateChart {
     private TreeFillingMethod fillMethod;
     private String fillMethod1;
     private List<Gantt> setData = new ArrayList<>();
-
     public Gantt setData(Tree data, TreeFillingMethod fillMethod) {
-        this.data = data;
-        this.fillMethod = fillMethod;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -143,18 +154,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setData1 = new ArrayList<>();
-
     public Gantt setData(Tree data, String fillMethod1) {
-        this.data = data;
-        this.fillMethod1 = fillMethod1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1));
+        js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(fillMethod1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(fillMethod1)));
             js.setLength(0);
         }
         return this;
@@ -171,18 +179,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setData2 = new ArrayList<>();
-
     public Gantt setData(TreeView data1, TreeFillingMethod fillMethod) {
-        this.data1 = data1;
-        this.fillMethod = fillMethod;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -199,18 +204,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setData3 = new ArrayList<>();
-
     public Gantt setData(TreeView data1, String fillMethod1) {
-        this.data1 = data1;
-        this.fillMethod1 = fillMethod1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1));
+        js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(fillMethod1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(fillMethod1)));
             js.setLength(0);
         }
         return this;
@@ -227,18 +229,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setData4 = new ArrayList<>();
-
     public Gantt setData(String data2, TreeFillingMethod fillMethod) {
-        this.data2 = data2;
-        this.fillMethod = fillMethod;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -255,18 +254,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setData5 = new ArrayList<>();
-
     public Gantt setData(String data2, String fillMethod1) {
-        this.data2 = data2;
-        this.fillMethod1 = fillMethod1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data2, fillMethod1));
+        js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), wrapQuotes(fillMethod1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data2, fillMethod1));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), wrapQuotes(fillMethod1)));
             js.setLength(0);
         }
         return this;
@@ -293,9 +289,7 @@ public class Gantt extends SeparateChart {
     }
     private Boolean enabled;
     private List<Gantt> setDataGrid = new ArrayList<>();
-
     public Gantt setDataGrid(Boolean enabled) {
-        this.enabled = enabled;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -321,9 +315,7 @@ public class Gantt extends SeparateChart {
 
     private Double defaultRowHeight;
     private List<Gantt> setDefaultRowHeight = new ArrayList<>();
-
     public Gantt setDefaultRowHeight(Double defaultRowHeight) {
-        this.defaultRowHeight = defaultRowHeight;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -349,9 +341,7 @@ public class Gantt extends SeparateChart {
 
     private Boolean editing;
     private List<Gantt> setEditing = new ArrayList<>();
-
     public Gantt editing(Boolean editing) {
-        this.editing = editing;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -377,17 +367,15 @@ public class Gantt extends SeparateChart {
 
     private String taskId1;
     private List<Gantt> setExpandTask = new ArrayList<>();
-
     public Gantt expandTask(String taskId1) {
-        this.taskId1 = taskId1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".expandTask(%s)", taskId1));
+        js.append(String.format(Locale.US, ".expandTask(%s)", wrapQuotes(taskId1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".expandTask(%s)", taskId1));
+            onChangeListener.onChange(String.format(Locale.US, ".expandTask(%s)", wrapQuotes(taskId1)));
             js.setLength(0);
         }
         return this;
@@ -405,17 +393,15 @@ public class Gantt extends SeparateChart {
 
     private String taskId2;
     private List<Gantt> setFitToTask = new ArrayList<>();
-
     public Gantt fitToTask(String taskId2) {
-        this.taskId2 = taskId2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fitToTask(%s)", taskId2));
+        js.append(String.format(Locale.US, ".fitToTask(%s)", wrapQuotes(taskId2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fitToTask(%s)", taskId2));
+            onChangeListener.onChange(String.format(Locale.US, ".fitToTask(%s)", wrapQuotes(taskId2)));
             js.setLength(0);
         }
         return this;
@@ -443,9 +429,7 @@ public class Gantt extends SeparateChart {
     private Double headerHeight;
     private String headerHeight1;
     private List<Gantt> setHeaderHeight = new ArrayList<>();
-
     public Gantt setHeaderHeight(Double headerHeight) {
-        this.headerHeight = headerHeight;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -470,17 +454,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setHeaderHeight1 = new ArrayList<>();
-
     public Gantt setHeaderHeight(String headerHeight1) {
-        this.headerHeight1 = headerHeight1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".headerHeight(%s)", headerHeight1));
+        js.append(String.format(Locale.US, ".headerHeight(%s)", wrapQuotes(headerHeight1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".headerHeight(%s)", headerHeight1));
+            onChangeListener.onChange(String.format(Locale.US, ".headerHeight(%s)", wrapQuotes(headerHeight1)));
             js.setLength(0);
         }
         return this;
@@ -498,17 +480,15 @@ public class Gantt extends SeparateChart {
 
     private Fill rowHoverFill;
     private List<Gantt> setRowHoverFill = new ArrayList<>();
-
     public Gantt setRowHoverFill(Fill rowHoverFill) {
-        this.rowHoverFill = rowHoverFill;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s)", (rowHoverFill != null) ? rowHoverFill.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s)", (rowHoverFill != null) ? rowHoverFill.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -527,18 +507,15 @@ public class Gantt extends SeparateChart {
     private String color;
     private Double opacity;
     private List<Gantt> setRowHoverFill1 = new ArrayList<>();
-
     public Gantt rowHoverFill(String color, Double opacity) {
-        this.color = color;
-        this.opacity = opacity;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", color, opacity));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color), opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f)", color, opacity));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color), opacity));
             js.setLength(0);
         }
         return this;
@@ -562,12 +539,7 @@ public class Gantt extends SeparateChart {
     private String mode2;
     private Double opacity1;
     private List<Gantt> setRowHoverFill2 = new ArrayList<>();
-
     public Gantt rowHoverFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
-        this.keys = keys;
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -592,20 +564,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill3 = new ArrayList<>();
-
     public Gantt rowHoverFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys = keys;
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -622,20 +589,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill4 = new ArrayList<>();
-
     public Gantt rowHoverFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
-        this.keys = keys;
-        this.mode2 = mode2;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -652,20 +614,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill5 = new ArrayList<>();
-
     public Gantt rowHoverFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
-        this.keys1 = keys1;
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -682,20 +639,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill6 = new ArrayList<>();
-
     public Gantt rowHoverFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys1 = keys1;
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -712,20 +664,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill7 = new ArrayList<>();
-
     public Gantt rowHoverFill(String[] keys1, String mode2, Double angle, Double opacity1) {
-        this.keys1 = keys1;
-        this.mode2 = mode2;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -750,23 +697,15 @@ public class Gantt extends SeparateChart {
     private Double fx;
     private Double fy;
     private List<Gantt> setRowHoverFill8 = new ArrayList<>();
-
     public Gantt rowHoverFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
-        this.keys2 = keys2;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode3 = mode3;
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -783,23 +722,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill9 = new ArrayList<>();
-
     public Gantt rowHoverFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
-        this.keys3 = keys3;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode3 = mode3;
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -817,17 +748,15 @@ public class Gantt extends SeparateChart {
 
     private Fill rowSelectedFill;
     private List<Gantt> setRowSelectedFill = new ArrayList<>();
-
     public Gantt setRowSelectedFill(Fill rowSelectedFill) {
-        this.rowSelectedFill = rowSelectedFill;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s)", (rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s)", (rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -846,18 +775,15 @@ public class Gantt extends SeparateChart {
     private String color1;
     private Double opacity3;
     private List<Gantt> setRowSelectedFill1 = new ArrayList<>();
-
     public Gantt rowSelectedFill(String color1, Double opacity3) {
-        this.color1 = color1;
-        this.opacity3 = opacity3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", color1, opacity3));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color1), opacity3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f)", color1, opacity3));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color1), opacity3));
             js.setLength(0);
         }
         return this;
@@ -881,12 +807,7 @@ public class Gantt extends SeparateChart {
     private String mode6;
     private Double opacity4;
     private List<Gantt> setRowSelectedFill2 = new ArrayList<>();
-
     public Gantt rowSelectedFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
-        this.keys4 = keys4;
-        this.mode4 = mode4;
-        this.angle1 = angle1;
-        this.opacity4 = opacity4;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -911,20 +832,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill3 = new ArrayList<>();
-
     public Gantt rowSelectedFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
-        this.keys4 = keys4;
-        this.mode5 = mode5;
-        this.angle1 = angle1;
-        this.opacity4 = opacity4;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -941,20 +857,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill4 = new ArrayList<>();
-
     public Gantt rowSelectedFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
-        this.keys4 = keys4;
-        this.mode6 = mode6;
-        this.angle1 = angle1;
-        this.opacity4 = opacity4;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -971,20 +882,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill5 = new ArrayList<>();
-
     public Gantt rowSelectedFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
-        this.keys5 = keys5;
-        this.mode4 = mode4;
-        this.angle1 = angle1;
-        this.opacity4 = opacity4;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -1001,20 +907,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill6 = new ArrayList<>();
-
     public Gantt rowSelectedFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
-        this.keys5 = keys5;
-        this.mode5 = mode5;
-        this.angle1 = angle1;
-        this.opacity4 = opacity4;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -1031,20 +932,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill7 = new ArrayList<>();
-
     public Gantt rowSelectedFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
-        this.keys5 = keys5;
-        this.mode6 = mode6;
-        this.angle1 = angle1;
-        this.opacity4 = opacity4;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -1069,23 +965,15 @@ public class Gantt extends SeparateChart {
     private Double fx1;
     private Double fy1;
     private List<Gantt> setRowSelectedFill8 = new ArrayList<>();
-
     public Gantt rowSelectedFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
-        this.keys6 = keys6;
-        this.cx1 = cx1;
-        this.cy1 = cy1;
-        this.mode7 = mode7;
-        this.opacity5 = opacity5;
-        this.fx1 = fx1;
-        this.fy1 = fy1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
             js.setLength(0);
         }
         return this;
@@ -1102,23 +990,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill9 = new ArrayList<>();
-
     public Gantt rowSelectedFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
-        this.keys7 = keys7;
-        this.cx1 = cx1;
-        this.cy1 = cy1;
-        this.mode7 = mode7;
-        this.opacity5 = opacity5;
-        this.fx1 = fx1;
-        this.fy1 = fy1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
             js.setLength(0);
         }
         return this;
@@ -1137,17 +1017,15 @@ public class Gantt extends SeparateChart {
     private Stroke rowStroke;
     private String rowStroke1;
     private List<Gantt> setRowStroke = new ArrayList<>();
-
     public Gantt setRowStroke(Stroke rowStroke) {
-        this.rowStroke = rowStroke;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowStroke(%s)", (rowStroke != null) ? rowStroke.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".rowStroke(%s)", ((rowStroke != null) ? rowStroke.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowStroke(%s)", (rowStroke != null) ? rowStroke.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".rowStroke(%s)", ((rowStroke != null) ? rowStroke.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1164,17 +1042,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowStroke1 = new ArrayList<>();
-
     public Gantt setRowStroke(String rowStroke1) {
-        this.rowStroke1 = rowStroke1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowStroke(%s)", rowStroke1));
+        js.append(String.format(Locale.US, ".rowStroke(%s)", wrapQuotes(rowStroke1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowStroke(%s)", rowStroke1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowStroke(%s)", wrapQuotes(rowStroke1)));
             js.setLength(0);
         }
         return this;
@@ -1192,9 +1068,7 @@ public class Gantt extends SeparateChart {
 
     private Double pxOffset;
     private List<Gantt> setScrollTo = new ArrayList<>();
-
     public Gantt scrollTo(Double pxOffset) {
-        this.pxOffset = pxOffset;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1220,9 +1094,7 @@ public class Gantt extends SeparateChart {
 
     private Double index;
     private List<Gantt> setScrollToEnd = new ArrayList<>();
-
     public Gantt scrollToEnd(Double index) {
-        this.index = index;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1248,9 +1120,7 @@ public class Gantt extends SeparateChart {
 
     private Double rowIndex;
     private List<Gantt> setScrollToRow = new ArrayList<>();
-
     public Gantt scrollToRow(Double rowIndex) {
-        this.rowIndex = rowIndex;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1277,17 +1147,15 @@ public class Gantt extends SeparateChart {
     private String splitterPosition;
     private Double splitterPosition1;
     private List<Gantt> setSplitterPosition = new ArrayList<>();
-
     public Gantt setSplitterPosition(String splitterPosition) {
-        this.splitterPosition = splitterPosition;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".splitterPosition(%s)", splitterPosition));
+        js.append(String.format(Locale.US, ".splitterPosition(%s)", wrapQuotes(splitterPosition)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".splitterPosition(%s)", splitterPosition));
+            onChangeListener.onChange(String.format(Locale.US, ".splitterPosition(%s)", wrapQuotes(splitterPosition)));
             js.setLength(0);
         }
         return this;
@@ -1304,9 +1172,7 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setSplitterPosition1 = new ArrayList<>();
-
     public Gantt setSplitterPosition(Double splitterPosition1) {
-        this.splitterPosition1 = splitterPosition1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1341,17 +1207,15 @@ public class Gantt extends SeparateChart {
     }
     private String xScale;
     private List<Gantt> setXScale = new ArrayList<>();
-
     public Gantt setXScale(String xScale) {
-        this.xScale = xScale;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
+        js.append(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale)));
             js.setLength(0);
         }
         return this;
@@ -1369,9 +1233,7 @@ public class Gantt extends SeparateChart {
 
     private Double zoomFactor;
     private List<Gantt> setZoomIn = new ArrayList<>();
-
     public Gantt zoomIn(Double zoomFactor) {
-        this.zoomFactor = zoomFactor;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1397,9 +1259,7 @@ public class Gantt extends SeparateChart {
 
     private Double zoomFactor1;
     private List<Gantt> setZoomOut = new ArrayList<>();
-
     public Gantt zoomOut(Double zoomFactor1) {
-        this.zoomFactor1 = zoomFactor1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1426,10 +1286,7 @@ public class Gantt extends SeparateChart {
     private Double startDate;
     private Double endDate;
     private List<Gantt> setZoomTo = new ArrayList<>();
-
     public Gantt setZoomTo(Double startDate, Double endDate) {
-        this.startDate = startDate;
-        this.endDate = endDate;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1459,19 +1316,15 @@ public class Gantt extends SeparateChart {
     private GanttRangeAnchor anchor;
     private String anchor1;
     private List<Gantt> setZoomTo1 = new ArrayList<>();
-
     public Gantt setZoomTo(Interval unit, GanttRangeAnchor anchor, Double count) {
-        this.unit = unit;
-        this.anchor = anchor;
-        this.count = count;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", (anchor != null) ? anchor.generateJs() : "null", count));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", ((unit != null) ? unit.generateJs() : "null"), ((anchor != null) ? anchor.generateJs() : "null"), count));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", (anchor != null) ? anchor.generateJs() : "null", count));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", ((unit != null) ? unit.generateJs() : "null"), ((anchor != null) ? anchor.generateJs() : "null"), count));
             js.setLength(0);
         }
         return this;
@@ -1488,19 +1341,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setZoomTo2 = new ArrayList<>();
-
     public Gantt setZoomTo(Interval unit, String anchor1, Double count) {
-        this.unit = unit;
-        this.anchor1 = anchor1;
-        this.count = count;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", anchor1, count));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", ((unit != null) ? unit.generateJs() : "null"), wrapQuotes(anchor1), count));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", anchor1, count));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", ((unit != null) ? unit.generateJs() : "null"), wrapQuotes(anchor1), count));
             js.setLength(0);
         }
         return this;
@@ -1517,19 +1366,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setZoomTo3 = new ArrayList<>();
-
     public Gantt setZoomTo(String unit1, GanttRangeAnchor anchor, Double count) {
-        this.unit1 = unit1;
-        this.anchor = anchor;
-        this.count = count;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, (anchor != null) ? anchor.generateJs() : "null", count));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", wrapQuotes(unit1), ((anchor != null) ? anchor.generateJs() : "null"), count));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, (anchor != null) ? anchor.generateJs() : "null", count));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", wrapQuotes(unit1), ((anchor != null) ? anchor.generateJs() : "null"), count));
             js.setLength(0);
         }
         return this;
@@ -1546,19 +1391,15 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setZoomTo4 = new ArrayList<>();
-
     public Gantt setZoomTo(String unit1, String anchor1, Double count) {
-        this.unit1 = unit1;
-        this.anchor1 = anchor1;
-        this.count = count;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, anchor1, count));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", wrapQuotes(unit1), wrapQuotes(anchor1), count));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, anchor1, count));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", wrapQuotes(unit1), wrapQuotes(anchor1), count));
             js.setLength(0);
         }
         return this;

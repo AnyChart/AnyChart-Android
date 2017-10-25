@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -65,20 +67,8 @@ public class CycledQueue extends JsObject {
         }
     }
 
-    private String generateJSnewLengthLimit() {
-        if (newLengthLimit != null) {
-            return String.format(Locale.US, "newLengthLimit: %f,", newLengthLimit);
-        }
-        return "";
-    }
 
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -97,12 +87,15 @@ public class CycledQueue extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSnewLengthLimit());
-            js.append(generateJSindex());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSnewLengthLimit());
+////        
+//            js.append(generateJSindex());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

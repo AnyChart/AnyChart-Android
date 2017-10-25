@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -44,10 +46,10 @@ public class QuarterSettings extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".leftBottom(%s)", leftBottom));
+            js.append(String.format(Locale.US, ".leftBottom(%s)", wrapQuotes(leftBottom)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".leftBottom(%s)", leftBottom));
+                onChangeListener.onChange(String.format(Locale.US, ".leftBottom(%s)", wrapQuotes(leftBottom)));
                 js.setLength(0);
             }
         }
@@ -75,10 +77,10 @@ public class QuarterSettings extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".leftTop(%s)", leftTop));
+            js.append(String.format(Locale.US, ".leftTop(%s)", wrapQuotes(leftTop)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".leftTop(%s)", leftTop));
+                onChangeListener.onChange(String.format(Locale.US, ".leftTop(%s)", wrapQuotes(leftTop)));
                 js.setLength(0);
             }
         }
@@ -106,10 +108,10 @@ public class QuarterSettings extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rightBottom(%s)", rightBottom));
+            js.append(String.format(Locale.US, ".rightBottom(%s)", wrapQuotes(rightBottom)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rightBottom(%s)", rightBottom));
+                onChangeListener.onChange(String.format(Locale.US, ".rightBottom(%s)", wrapQuotes(rightBottom)));
                 js.setLength(0);
             }
         }
@@ -137,19 +139,50 @@ public class QuarterSettings extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rightTop(%s)", rightTop));
+            js.append(String.format(Locale.US, ".rightTop(%s)", wrapQuotes(rightTop)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rightTop(%s)", rightTop));
+                onChangeListener.onChange(String.format(Locale.US, ".rightTop(%s)", wrapQuotes(rightTop)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSQuarter getLeftBottom() {
+//        if (Quarter getLeftBottom != null) {
+//            return Quarter getLeftBottom.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSQuarter getLeftTop() {
+//        if (Quarter getLeftTop != null) {
+//            return Quarter getLeftTop.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSQuarter getRightBottom() {
+//        if (Quarter getRightBottom != null) {
+//            return Quarter getRightBottom.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSQuarter getRightTop() {
+//        if (Quarter getRightTop != null) {
+//            return Quarter getRightTop.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetLeftBottom() {
         if (getLeftBottom != null) {
             return getLeftBottom.generateJs();
+            //return String.format(Locale.US, "getLeftBottom: %s,", ((getLeftBottom != null) ? getLeftBottom.generateJs() : "null"));
         }
         return "";
     }
@@ -157,6 +190,7 @@ public class QuarterSettings extends CoreBase {
     private String generateJSgetLeftTop() {
         if (getLeftTop != null) {
             return getLeftTop.generateJs();
+            //return String.format(Locale.US, "getLeftTop: %s,", ((getLeftTop != null) ? getLeftTop.generateJs() : "null"));
         }
         return "";
     }
@@ -164,6 +198,7 @@ public class QuarterSettings extends CoreBase {
     private String generateJSgetRightBottom() {
         if (getRightBottom != null) {
             return getRightBottom.generateJs();
+            //return String.format(Locale.US, "getRightBottom: %s,", ((getRightBottom != null) ? getRightBottom.generateJs() : "null"));
         }
         return "";
     }
@@ -171,34 +206,7 @@ public class QuarterSettings extends CoreBase {
     private String generateJSgetRightTop() {
         if (getRightTop != null) {
             return getRightTop.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSleftBottom() {
-        if (leftBottom != null) {
-            return String.format(Locale.US, "leftBottom: %s,", leftBottom);
-        }
-        return "";
-    }
-
-    private String generateJSleftTop() {
-        if (leftTop != null) {
-            return String.format(Locale.US, "leftTop: %s,", leftTop);
-        }
-        return "";
-    }
-
-    private String generateJSrightBottom() {
-        if (rightBottom != null) {
-            return String.format(Locale.US, "rightBottom: %s,", rightBottom);
-        }
-        return "";
-    }
-
-    private String generateJSrightTop() {
-        if (rightTop != null) {
-            return String.format(Locale.US, "rightTop: %s,", rightTop);
+            //return String.format(Locale.US, "getRightTop: %s,", ((getRightTop != null) ? getRightTop.generateJs() : "null"));
         }
         return "";
     }
@@ -225,14 +233,19 @@ public class QuarterSettings extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSleftBottom());
-            js.append(generateJSleftTop());
-            js.append(generateJSrightBottom());
-            js.append(generateJSrightTop());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSleftBottom());
+////        
+//            js.append(generateJSleftTop());
+////        
+//            js.append(generateJSrightBottom());
+////        
+//            js.append(generateJSrightTop());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

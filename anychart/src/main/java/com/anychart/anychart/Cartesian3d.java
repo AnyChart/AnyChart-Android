@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
-public class Cartesian3d extends Cartesian {
+public class Cartesian3d extends SeparateChart {
 
     protected Cartesian3d(String name) {
         super(name);
@@ -15,28 +15,312 @@ public class Cartesian3d extends Cartesian {
         jsBase = "chart";
     }
 
-    
-    private View data;
-    private Set data1;
-    private String[] data2;
-    private String data3;
-    private TextParsingMode csvSettings;
-    private String csvSettings1;
-    private TextParsingSettings csvSettings2;
-    private List<CartesianSeriesLine> setLine2d = new ArrayList<>();
+    public Cartesian3d setData(List<DataEntry> data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
-    public CartesianSeriesLine line2d(View data, TextParsingMode csvSettings) {
-        this.data = data;
-        this.csvSettings = csvSettings;
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("]);");
+        }
+
+        return this;
+    }
+
+    
+    private List<Area3d> setArea = new ArrayList<>();
+    public Area3d area(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine2d" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s);", resultData.toString()));
+        }
+        Area3d item = new Area3d("setArea" + variableIndex);
+        setArea.add(item);
+        return item;
+    }
+    private String generateJSsetArea() {
+        if (!setArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Area3d item : setArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Bar3d> setBar = new ArrayList<>();
+    public Bar3d bar(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setBar" + ++variableIndex + " = " + jsBase + ".bar(%s);", resultData.toString()));
+        }
+        Bar3d item = new Bar3d("setBar" + variableIndex);
+        setBar.add(item);
+        return item;
+    }
+    private String generateJSsetBar() {
+        if (!setBar.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Bar3d item : setBar) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Column3d> setColumn = new ArrayList<>();
+    public Column3d column(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s);", resultData.toString()));
+        }
+        Column3d item = new Column3d("setColumn" + variableIndex);
+        setColumn.add(item);
+        return item;
+    }
+    private String generateJSsetColumn() {
+        if (!setColumn.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Column3d item : setColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private View getData;
+
+    public View getData() {
+        if (getData == null)
+            getData = new View(jsBase + ".data()");
+
+        return getData;
+    }
+    private List<Cartesian3d> setData = new ArrayList<>();
+    public Cartesian3d data(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
+        }
+        return this;
+    }
+    private String generateJSsetData() {
+        if (!setData.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private StateSettings getHovered;
+
+    public StateSettings getHovered() {
+        if (getHovered == null)
+            getHovered = new StateSettings(jsBase + ".hovered()");
+
+        return getHovered;
+    }
+    private String hovered;
+    private List<Cartesian3d> setHovered = new ArrayList<>();
+    public Cartesian3d setHovered(String hovered) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
             js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetHovered() {
+        if (!setHovered.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setHovered) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private UiLabelsFactory getLabels;
+
+    public UiLabelsFactory getLabels() {
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
+
+        return getLabels;
+    }
+    private String labels;
+    private Boolean labels1;
+    private List<Cartesian3d> setLabels = new ArrayList<>();
+    public Cartesian3d setLabels(String labels) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetLabels() {
+        if (!setLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setLabels1 = new ArrayList<>();
+    public Cartesian3d setLabels(Boolean labels1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".labels(%b)", labels1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetLabels1() {
+        if (!setLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Line3d> setLine = new ArrayList<>();
+    public Line3d line(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
+        }
+        Line3d item = new Line3d("setLine" + variableIndex);
+        setLine.add(item);
+        return item;
+    }
+    private String generateJSsetLine() {
+        if (!setLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Line3d item : setLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesLine> setLine2d = new ArrayList<>();
+    public CartesianSeriesLine line2d(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setLine2d" + ++variableIndex + " = " + jsBase + ".line2d(%s);", resultData.toString()));
         }
         CartesianSeriesLine item = new CartesianSeriesLine("setLine2d" + variableIndex);
         setLine2d.add(item);
@@ -53,29 +337,26 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d1 = new ArrayList<>();
-
-    public CartesianSeriesLine line2d(View data, String csvSettings1) {
-        this.data = data;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    private Double maxPointWidth;
+    private String maxPointWidth1;
+    private List<Cartesian3d> setMaxPointWidth = new ArrayList<>();
+    public Cartesian3d setMaxPointWidth(Double maxPointWidth) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLine2d1" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
+        js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
+            onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
             js.setLength(0);
         }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d1" + variableIndex);
-        setLine2d1.add(item);
-        return item;
+        return this;
     }
-    private String generateJSsetLine2d1() {
-        if (!setLine2d1.isEmpty()) {
+    private String generateJSsetMaxPointWidth() {
+        if (!setMaxPointWidth.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d1) {
+            for (Cartesian3d item : setMaxPointWidth) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -83,29 +364,24 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d2 = new ArrayList<>();
-
-    public CartesianSeriesLine line2d(View data, TextParsingSettings csvSettings2) {
-        this.data = data;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    private List<Cartesian3d> setMaxPointWidth1 = new ArrayList<>();
+    public Cartesian3d setMaxPointWidth(String maxPointWidth1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLine2d2" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
             js.setLength(0);
         }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d2" + variableIndex);
-        setLine2d2.add(item);
-        return item;
+        return this;
     }
-    private String generateJSsetLine2d2() {
-        if (!setLine2d2.isEmpty()) {
+    private String generateJSsetMaxPointWidth1() {
+        if (!setMaxPointWidth1.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d2) {
+            for (Cartesian3d item : setMaxPointWidth1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -113,29 +389,26 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d3 = new ArrayList<>();
-
-    public CartesianSeriesLine line2d(Set data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    private Double minPointLength;
+    private String minPointLength1;
+    private List<Cartesian3d> setMinPointLength = new ArrayList<>();
+    public Cartesian3d setMinPointLength(Double minPointLength) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLine2d3" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
             js.setLength(0);
         }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d3" + variableIndex);
-        setLine2d3.add(item);
-        return item;
+        return this;
     }
-    private String generateJSsetLine2d3() {
-        if (!setLine2d3.isEmpty()) {
+    private String generateJSsetMinPointLength() {
+        if (!setMinPointLength.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d3) {
+            for (Cartesian3d item : setMinPointLength) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -143,29 +416,24 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d4 = new ArrayList<>();
-
-    public CartesianSeriesLine line2d(Set data1, String csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    private List<Cartesian3d> setMinPointLength1 = new ArrayList<>();
+    public Cartesian3d setMinPointLength(String minPointLength1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLine2d4" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+        js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+            onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
             js.setLength(0);
         }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d4" + variableIndex);
-        setLine2d4.add(item);
-        return item;
+        return this;
     }
-    private String generateJSsetLine2d4() {
-        if (!setLine2d4.isEmpty()) {
+    private String generateJSsetMinPointLength1() {
+        if (!setMinPointLength1.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d4) {
+            for (Cartesian3d item : setMinPointLength1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -173,29 +441,34 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d5 = new ArrayList<>();
 
-    public CartesianSeriesLine line2d(Set data1, TextParsingSettings csvSettings2) {
-        this.data1 = data1;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    private StateSettings getNormal;
+
+    public StateSettings getNormal() {
+        if (getNormal == null)
+            getNormal = new StateSettings(jsBase + ".normal()");
+
+        return getNormal;
+    }
+    private String normal;
+    private List<Cartesian3d> setNormal = new ArrayList<>();
+    public Cartesian3d setNormal(String normal) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLine2d5" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
             js.setLength(0);
         }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d5" + variableIndex);
-        setLine2d5.add(item);
-        return item;
+        return this;
     }
-    private String generateJSsetLine2d5() {
-        if (!setLine2d5.isEmpty()) {
+    private String generateJSsetNormal() {
+        if (!setNormal.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d5) {
+            for (Cartesian3d item : setNormal) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -203,29 +476,26 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d6 = new ArrayList<>();
-
-    public CartesianSeriesLine line2d(String[] data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    private Double pointWidth;
+    private String pointWidth1;
+    private List<Cartesian3d> setPointWidth = new ArrayList<>();
+    public Cartesian3d setPointWidth(Double pointWidth) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLine2d6" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
             js.setLength(0);
         }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d6" + variableIndex);
-        setLine2d6.add(item);
-        return item;
+        return this;
     }
-    private String generateJSsetLine2d6() {
-        if (!setLine2d6.isEmpty()) {
+    private String generateJSsetPointWidth() {
+        if (!setPointWidth.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d6) {
+            for (Cartesian3d item : setPointWidth) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -233,29 +503,24 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d7 = new ArrayList<>();
-
-    public CartesianSeriesLine line2d(String[] data2, String csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    private List<Cartesian3d> setPointWidth1 = new ArrayList<>();
+    public Cartesian3d setPointWidth(String pointWidth1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLine2d7" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", Arrays.toString(data2), csvSettings1));
+        js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", Arrays.toString(data2), csvSettings1));
+            onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
             js.setLength(0);
         }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d7" + variableIndex);
-        setLine2d7.add(item);
-        return item;
+        return this;
     }
-    private String generateJSsetLine2d7() {
-        if (!setLine2d7.isEmpty()) {
+    private String generateJSsetPointWidth1() {
+        if (!setPointWidth1.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d7) {
+            for (Cartesian3d item : setPointWidth1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -263,29 +528,34 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d8 = new ArrayList<>();
 
-    public CartesianSeriesLine line2d(String[] data2, TextParsingSettings csvSettings2) {
-        this.data2 = data2;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    private StateSettings getSelected;
+
+    public StateSettings getSelected() {
+        if (getSelected == null)
+            getSelected = new StateSettings(jsBase + ".selected()");
+
+        return getSelected;
+    }
+    private String selected;
+    private List<Cartesian3d> setSelected = new ArrayList<>();
+    public Cartesian3d setSelected(String selected) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLine2d8" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
             js.setLength(0);
         }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d8" + variableIndex);
-        setLine2d8.add(item);
-        return item;
+        return this;
     }
-    private String generateJSsetLine2d8() {
-        if (!setLine2d8.isEmpty()) {
+    private String generateJSsetSelected() {
+        if (!setSelected.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d8) {
+            for (Cartesian3d item : setSelected) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -293,29 +563,43 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d9 = new ArrayList<>();
 
-    public CartesianSeriesLine line2d(String data3, TextParsingMode csvSettings) {
-        this.data3 = data3;
-        this.csvSettings = csvSettings;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine2d9" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+    private CoreAxesLinear getXAxis;
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d9" + variableIndex);
-        setLine2d9.add(item);
+    public CoreAxesLinear getXAxis() {
+        if (getXAxis == null)
+            getXAxis = new CoreAxesLinear(jsBase + ".xAxis()");
+
+        return getXAxis;
+    }
+
+    private List<CoreAxesLinear> getXAxis1 = new ArrayList<>();
+
+    public CoreAxesLinear getXAxis(Double index) {
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index+")");
+        getXAxis1.add(item);
         return item;
     }
-    private String generateJSsetLine2d9() {
-        if (!setLine2d9.isEmpty()) {
+    private String xAxis;
+    private Boolean xAxis1;
+    private List<Cartesian3d> setXAxis = new ArrayList<>();
+    public Cartesian3d setXAxis(String xAxis) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXAxis() {
+        if (!setXAxis.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d9) {
+            for (Cartesian3d item : setXAxis) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -323,29 +607,24 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d10 = new ArrayList<>();
-
-    public CartesianSeriesLine line2d(String data3, String csvSettings1) {
-        this.data3 = data3;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    private List<Cartesian3d> setXAxis1 = new ArrayList<>();
+    public Cartesian3d setXAxis(Boolean xAxis1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLine2d10" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", data3, csvSettings1));
+        js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", data3, csvSettings1));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
             js.setLength(0);
         }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d10" + variableIndex);
-        setLine2d10.add(item);
-        return item;
+        return this;
     }
-    private String generateJSsetLine2d10() {
-        if (!setLine2d10.isEmpty()) {
+    private String generateJSsetXAxis1() {
+        if (!setXAxis1.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d10) {
+            for (Cartesian3d item : setXAxis1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -353,29 +632,838 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
-    private List<CartesianSeriesLine> setLine2d11 = new ArrayList<>();
-
-    public CartesianSeriesLine line2d(String data3, TextParsingSettings csvSettings2) {
-        this.data3 = data3;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    private Double index1;
+    private String xAxis2;
+    private Boolean xAxis3;
+    private List<Cartesian3d> setXAxis2 = new ArrayList<>();
+    public Cartesian3d setXAxis(String xAxis2, Double index1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLine2d11" + ++variableIndex + " = " + jsBase + ".line2d(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line2d(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index1));
             js.setLength(0);
         }
-        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d11" + variableIndex);
-        setLine2d11.add(item);
+        return this;
+    }
+    private String generateJSsetXAxis2() {
+        if (!setXAxis2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXAxis2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setXAxis3 = new ArrayList<>();
+    public Cartesian3d setXAxis(Boolean xAxis3, Double index1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXAxis3() {
+        if (!setXAxis3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXAxis3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private CoreGridsLinear getXGrid;
+
+    public CoreGridsLinear getXGrid() {
+        if (getXGrid == null)
+            getXGrid = new CoreGridsLinear(jsBase + ".xGrid()");
+
+        return getXGrid;
+    }
+
+    private List<CoreGridsLinear> getXGrid1 = new ArrayList<>();
+
+    public CoreGridsLinear getXGrid(Double index2) {
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index2+")");
+        getXGrid1.add(item);
         return item;
     }
-    private String generateJSsetLine2d11() {
-        if (!setLine2d11.isEmpty()) {
+    private String xGrid;
+    private Boolean xGrid1;
+    private List<Cartesian3d> setXGrid = new ArrayList<>();
+    public Cartesian3d setXGrid(String xGrid) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXGrid() {
+        if (!setXGrid.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesLine item : setLine2d11) {
+            for (Cartesian3d item : setXGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setXGrid1 = new ArrayList<>();
+    public Cartesian3d setXGrid(Boolean xGrid1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b)", xGrid1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXGrid1() {
+        if (!setXGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private Double index3;
+    private String xGrid2;
+    private Boolean xGrid3;
+    private List<Cartesian3d> setXGrid2 = new ArrayList<>();
+    public Cartesian3d setXGrid(String xGrid2, Double index3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index3));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index3));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXGrid2() {
+        if (!setXGrid2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXGrid2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setXGrid3 = new ArrayList<>();
+    public Cartesian3d setXGrid(Boolean xGrid3, Double index3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index3));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index3));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXGrid3() {
+        if (!setXGrid3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXGrid3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private CoreGridsLinear getXMinorGrid;
+
+    public CoreGridsLinear getXMinorGrid() {
+        if (getXMinorGrid == null)
+            getXMinorGrid = new CoreGridsLinear(jsBase + ".xMinorGrid()");
+
+        return getXMinorGrid;
+    }
+
+    private List<CoreGridsLinear> getXMinorGrid1 = new ArrayList<>();
+
+    public CoreGridsLinear getXMinorGrid(Double index4) {
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index4+")");
+        getXMinorGrid1.add(item);
+        return item;
+    }
+    private String xMinorGrid;
+    private Boolean xMinorGrid1;
+    private List<Cartesian3d> setXMinorGrid = new ArrayList<>();
+    public Cartesian3d setXMinorGrid(String xMinorGrid) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXMinorGrid() {
+        if (!setXMinorGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXMinorGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setXMinorGrid1 = new ArrayList<>();
+    public Cartesian3d setXMinorGrid(Boolean xMinorGrid1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXMinorGrid1() {
+        if (!setXMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private Double index5;
+    private String xMinorGrid2;
+    private Boolean xMinorGrid3;
+    private List<Cartesian3d> setXMinorGrid2 = new ArrayList<>();
+    public Cartesian3d setXMinorGrid(String xMinorGrid2, Double index5) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index5));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index5));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXMinorGrid2() {
+        if (!setXMinorGrid2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXMinorGrid2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setXMinorGrid3 = new ArrayList<>();
+    public Cartesian3d setXMinorGrid(Boolean xMinorGrid3, Double index5) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index5));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index5));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXMinorGrid3() {
+        if (!setXMinorGrid3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXMinorGrid3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private Ordinal getXScale;
+
+    public Ordinal getXScale() {
+        if (getXScale == null)
+            getXScale = new Ordinal(jsBase + ".xScale()");
+
+        return getXScale;
+    }
+    private String xScale;
+    private ScaleTypes xScale1;
+    private String xScale2;
+    private ScalesBase xScale3;
+    private List<Cartesian3d> setXScale = new ArrayList<>();
+    public Cartesian3d setXScale(String xScale) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXScale() {
+        if (!setXScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setXScale1 = new ArrayList<>();
+    public Cartesian3d setXScale(ScaleTypes xScale1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.generateJs() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.generateJs() : "null")));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXScale1() {
+        if (!setXScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setXScale2 = new ArrayList<>();
+    public Cartesian3d setXScale(ScalesBase xScale3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXScale2() {
+        if (!setXScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setXScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private CoreAxesLinear getYAxis;
+
+    public CoreAxesLinear getYAxis() {
+        if (getYAxis == null)
+            getYAxis = new CoreAxesLinear(jsBase + ".yAxis()");
+
+        return getYAxis;
+    }
+
+    private List<CoreAxesLinear> getYAxis1 = new ArrayList<>();
+
+    public CoreAxesLinear getYAxis(Double index6) {
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index6+")");
+        getYAxis1.add(item);
+        return item;
+    }
+    private String yAxis;
+    private Boolean yAxis1;
+    private List<Cartesian3d> setYAxis = new ArrayList<>();
+    public Cartesian3d setYAxis(String yAxis) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYAxis() {
+        if (!setYAxis.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYAxis) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setYAxis1 = new ArrayList<>();
+    public Cartesian3d setYAxis(Boolean yAxis1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b)", yAxis1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYAxis1() {
+        if (!setYAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private Double index7;
+    private String yAxis2;
+    private Boolean yAxis3;
+    private List<Cartesian3d> setYAxis2 = new ArrayList<>();
+    public Cartesian3d setYAxis(String yAxis2, Double index7) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index7));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYAxis2() {
+        if (!setYAxis2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYAxis2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setYAxis3 = new ArrayList<>();
+    public Cartesian3d setYAxis(Boolean yAxis3, Double index7) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index7));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYAxis3() {
+        if (!setYAxis3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYAxis3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private CoreGridsLinear getYGrid;
+
+    public CoreGridsLinear getYGrid() {
+        if (getYGrid == null)
+            getYGrid = new CoreGridsLinear(jsBase + ".yGrid()");
+
+        return getYGrid;
+    }
+
+    private List<CoreGridsLinear> getYGrid1 = new ArrayList<>();
+
+    public CoreGridsLinear getYGrid(Double index8) {
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index8+")");
+        getYGrid1.add(item);
+        return item;
+    }
+    private String yGrid;
+    private Boolean yGrid1;
+    private List<Cartesian3d> setYGrid = new ArrayList<>();
+    public Cartesian3d setYGrid(String yGrid) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYGrid() {
+        if (!setYGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setYGrid1 = new ArrayList<>();
+    public Cartesian3d setYGrid(Boolean yGrid1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b)", yGrid1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYGrid1() {
+        if (!setYGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private Double index9;
+    private String yGrid2;
+    private Boolean yGrid3;
+    private List<Cartesian3d> setYGrid2 = new ArrayList<>();
+    public Cartesian3d setYGrid(String yGrid2, Double index9) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index9));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index9));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYGrid2() {
+        if (!setYGrid2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYGrid2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setYGrid3 = new ArrayList<>();
+    public Cartesian3d setYGrid(Boolean yGrid3, Double index9) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index9));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index9));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYGrid3() {
+        if (!setYGrid3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYGrid3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private CoreGridsLinear getYMinorGrid;
+
+    public CoreGridsLinear getYMinorGrid() {
+        if (getYMinorGrid == null)
+            getYMinorGrid = new CoreGridsLinear(jsBase + ".yMinorGrid()");
+
+        return getYMinorGrid;
+    }
+
+    private List<CoreGridsLinear> getYMinorGrid1 = new ArrayList<>();
+
+    public CoreGridsLinear getYMinorGrid(Double index10) {
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index10+")");
+        getYMinorGrid1.add(item);
+        return item;
+    }
+    private String yMinorGrid;
+    private Boolean yMinorGrid1;
+    private List<Cartesian3d> setYMinorGrid = new ArrayList<>();
+    public Cartesian3d setYMinorGrid(String yMinorGrid) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYMinorGrid() {
+        if (!setYMinorGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYMinorGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setYMinorGrid1 = new ArrayList<>();
+    public Cartesian3d setYMinorGrid(Boolean yMinorGrid1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYMinorGrid1() {
+        if (!setYMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private Double index11;
+    private String yMinorGrid2;
+    private Boolean yMinorGrid3;
+    private List<Cartesian3d> setYMinorGrid2 = new ArrayList<>();
+    public Cartesian3d setYMinorGrid(String yMinorGrid2, Double index11) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index11));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index11));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYMinorGrid2() {
+        if (!setYMinorGrid2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYMinorGrid2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setYMinorGrid3 = new ArrayList<>();
+    public Cartesian3d setYMinorGrid(Boolean yMinorGrid3, Double index11) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index11));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index11));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYMinorGrid3() {
+        if (!setYMinorGrid3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYMinorGrid3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private ScalesLinear getYScale;
+
+    public ScalesLinear getYScale() {
+        if (getYScale == null)
+            getYScale = new ScalesLinear(jsBase + ".yScale()");
+
+        return getYScale;
+    }
+    private String yScale;
+    private ScaleTypes yScale1;
+    private String yScale2;
+    private ScalesBase yScale3;
+    private List<Cartesian3d> setYScale = new ArrayList<>();
+    public Cartesian3d setYScale(String yScale) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYScale() {
+        if (!setYScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setYScale1 = new ArrayList<>();
+    public Cartesian3d setYScale(ScaleTypes yScale1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale1 != null) ? yScale1.generateJs() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale1 != null) ? yScale1.generateJs() : "null")));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYScale1() {
+        if (!setYScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setYScale2 = new ArrayList<>();
+    public Cartesian3d setYScale(ScalesBase yScale3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYScale2() {
+        if (!setYScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setYScale2) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -385,9 +1473,7 @@ public class Cartesian3d extends Cartesian {
 
     private Double zAngle;
     private List<Cartesian3d> setZAngle = new ArrayList<>();
-
     public Cartesian3d setZAngle(Double zAngle) {
-        this.zAngle = zAngle;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -414,9 +1500,7 @@ public class Cartesian3d extends Cartesian {
     private Double zAspect;
     private String zAspect1;
     private List<Cartesian3d> setZAspect = new ArrayList<>();
-
     public Cartesian3d setZAspect(Double zAspect) {
-        this.zAspect = zAspect;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -441,17 +1525,15 @@ public class Cartesian3d extends Cartesian {
     }
 
     private List<Cartesian3d> setZAspect1 = new ArrayList<>();
-
     public Cartesian3d setZAspect(String zAspect1) {
-        this.zAspect1 = zAspect1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zAspect(%s)", zAspect1));
+        js.append(String.format(Locale.US, ".zAspect(%s)", wrapQuotes(zAspect1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zAspect(%s)", zAspect1));
+            onChangeListener.onChange(String.format(Locale.US, ".zAspect(%s)", wrapQuotes(zAspect1)));
             js.setLength(0);
         }
         return this;
@@ -469,9 +1551,7 @@ public class Cartesian3d extends Cartesian {
 
     private Boolean zDistribution;
     private List<Cartesian3d> setZDistribution = new ArrayList<>();
-
     public Cartesian3d setZDistribution(Boolean zDistribution) {
-        this.zDistribution = zDistribution;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -497,9 +1577,7 @@ public class Cartesian3d extends Cartesian {
 
     private Double zPadding;
     private List<Cartesian3d> setZPadding = new ArrayList<>();
-
     public Cartesian3d setZPadding(Double zPadding) {
-        this.zPadding = zPadding;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -523,6 +1601,169 @@ public class Cartesian3d extends Cartesian {
         return "";
     }
 
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetHovered() {
+        if (getHovered != null) {
+            return getHovered.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetNormal() {
+        if (getNormal != null) {
+            return getNormal.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetSelected() {
+        if (getSelected != null) {
+            return getSelected.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetXAxis() {
+        if (getXAxis != null) {
+            return getXAxis.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetXAxis1() {
+        if (!getXAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getXAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetXGrid() {
+        if (getXGrid != null) {
+            return getXGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetXGrid1() {
+        if (!getXGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getXGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetXMinorGrid() {
+        if (getXMinorGrid != null) {
+            return getXMinorGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetXMinorGrid1() {
+        if (!getXMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getXMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetXScale() {
+        if (getXScale != null) {
+            return getXScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYAxis() {
+        if (getYAxis != null) {
+            return getYAxis.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYAxis1() {
+        if (!getYAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getYAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetYGrid() {
+        if (getYGrid != null) {
+            return getYGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYGrid1() {
+        if (!getYGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getYGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetYMinorGrid() {
+        if (getYMinorGrid != null) {
+            return getYMinorGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYMinorGrid1() {
+        if (!getYMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getYMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
+        }
+        return "";
+    }
+
 
     @Override
     protected String generateJs() {
@@ -530,18 +1771,72 @@ public class Cartesian3d extends Cartesian {
             js.append(";");
             isChain = false;
         }
+        js.append(generateJSgetData());
+        js.append(generateJSgetHovered());
+        js.append(generateJSgetLabels());
+        js.append(generateJSgetNormal());
+        js.append(generateJSgetSelected());
+        js.append(generateJSgetXAxis());
+        js.append(generateJSgetXAxis1());
+        js.append(generateJSgetXGrid());
+        js.append(generateJSgetXGrid1());
+        js.append(generateJSgetXMinorGrid());
+        js.append(generateJSgetXMinorGrid1());
+        js.append(generateJSgetXScale());
+        js.append(generateJSgetYAxis());
+        js.append(generateJSgetYAxis1());
+        js.append(generateJSgetYGrid());
+        js.append(generateJSgetYGrid1());
+        js.append(generateJSgetYMinorGrid());
+        js.append(generateJSgetYMinorGrid1());
+        js.append(generateJSgetYScale());
+        js.append(generateJSsetArea());
+        js.append(generateJSsetBar());
+        js.append(generateJSsetColumn());
+        js.append(generateJSsetData());
+        js.append(generateJSsetHovered());
+        js.append(generateJSsetLabels());
+        js.append(generateJSsetLabels1());
+        js.append(generateJSsetLine());
         js.append(generateJSsetLine2d());
-        js.append(generateJSsetLine2d1());
-        js.append(generateJSsetLine2d2());
-        js.append(generateJSsetLine2d3());
-        js.append(generateJSsetLine2d4());
-        js.append(generateJSsetLine2d5());
-        js.append(generateJSsetLine2d6());
-        js.append(generateJSsetLine2d7());
-        js.append(generateJSsetLine2d8());
-        js.append(generateJSsetLine2d9());
-        js.append(generateJSsetLine2d10());
-        js.append(generateJSsetLine2d11());
+        js.append(generateJSsetMaxPointWidth());
+        js.append(generateJSsetMaxPointWidth1());
+        js.append(generateJSsetMinPointLength());
+        js.append(generateJSsetMinPointLength1());
+        js.append(generateJSsetNormal());
+        js.append(generateJSsetPointWidth());
+        js.append(generateJSsetPointWidth1());
+        js.append(generateJSsetSelected());
+        js.append(generateJSsetXAxis());
+        js.append(generateJSsetXAxis1());
+        js.append(generateJSsetXAxis2());
+        js.append(generateJSsetXAxis3());
+        js.append(generateJSsetXGrid());
+        js.append(generateJSsetXGrid1());
+        js.append(generateJSsetXGrid2());
+        js.append(generateJSsetXGrid3());
+        js.append(generateJSsetXMinorGrid());
+        js.append(generateJSsetXMinorGrid1());
+        js.append(generateJSsetXMinorGrid2());
+        js.append(generateJSsetXMinorGrid3());
+        js.append(generateJSsetXScale());
+        js.append(generateJSsetXScale1());
+        js.append(generateJSsetXScale2());
+        js.append(generateJSsetYAxis());
+        js.append(generateJSsetYAxis1());
+        js.append(generateJSsetYAxis2());
+        js.append(generateJSsetYAxis3());
+        js.append(generateJSsetYGrid());
+        js.append(generateJSsetYGrid1());
+        js.append(generateJSsetYGrid2());
+        js.append(generateJSsetYGrid3());
+        js.append(generateJSsetYMinorGrid());
+        js.append(generateJSsetYMinorGrid1());
+        js.append(generateJSsetYMinorGrid2());
+        js.append(generateJSsetYMinorGrid3());
+        js.append(generateJSsetYScale());
+        js.append(generateJSsetYScale1());
+        js.append(generateJSsetYScale2());
         js.append(generateJSsetZAngle());
         js.append(generateJSsetZAspect());
         js.append(generateJSsetZAspect1());

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Overlay extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".className(%s)", className));
+            js.append(String.format(Locale.US, ".className(%s)", wrapQuotes(className)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".className(%s)", className));
+                onChangeListener.onChange(String.format(Locale.US, ".className(%s)", wrapQuotes(className)));
                 js.setLength(0);
             }
         }
@@ -88,40 +90,29 @@ public class Overlay extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".id(%s)", id));
+            js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".id(%s)", id));
+                onChangeListener.onChange(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSElement getGetElement() {
+//        if (Element getGetElement != null) {
+//            return Element getGetElement.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetGetElement() {
         if (getGetElement != null) {
             return getGetElement.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSclassName() {
-        if (className != null) {
-            return String.format(Locale.US, "className: %s,", className);
-        }
-        return "";
-    }
-
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
-
-    private String generateJSid() {
-        if (id != null) {
-            return String.format(Locale.US, "id: %s,", id);
+            //return String.format(Locale.US, "getGetElement: %s,", ((getGetElement != null) ? getGetElement.generateJs() : "null"));
         }
         return "";
     }
@@ -145,13 +136,17 @@ public class Overlay extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSclassName());
-            js.append(generateJSenabled());
-            js.append(generateJSid());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSclassName());
+////        
+//            js.append(generateJSenabled());
+////        
+//            js.append(generateJSid());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

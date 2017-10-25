@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -39,10 +41,10 @@ public class Tank extends LineargaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".emptyFill(%s)", (emptyFill != null) ? emptyFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".emptyFill(%s)", ((emptyFill != null) ? emptyFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s)", (emptyFill != null) ? emptyFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s)", ((emptyFill != null) ? emptyFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class Tank extends LineargaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".emptyFill(%s)", emptyFill1));
+            js.append(String.format(Locale.US, ".emptyFill(%s)", wrapQuotes(emptyFill1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s)", emptyFill1));
+                onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s)", wrapQuotes(emptyFill1)));
                 js.setLength(0);
             }
         }
@@ -88,10 +90,10 @@ public class Tank extends LineargaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".emptyFill(%s, %f)", color, opacity));
+            js.append(String.format(Locale.US, ".emptyFill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s, %f)", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -141,10 +143,10 @@ public class Tank extends LineargaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness, size));
+            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -177,10 +179,10 @@ public class Tank extends LineargaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness, size));
+            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -213,10 +215,10 @@ public class Tank extends LineargaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness, size));
+            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -249,10 +251,10 @@ public class Tank extends LineargaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness, size));
+            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -285,103 +287,29 @@ public class Tank extends LineargaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness, size));
+            js.append(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSPatternFill getEmptyHatchFill() {
+//        if (PatternFill getEmptyHatchFill != null) {
+//            return PatternFill getEmptyHatchFill.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetEmptyHatchFill() {
         if (getEmptyHatchFill != null) {
             return getEmptyHatchFill.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSemptyFill() {
-        if (emptyFill != null) {
-            return String.format(Locale.US, "emptyFill: %s,", (emptyFill != null) ? emptyFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSemptyFill1() {
-        if (emptyFill1 != null) {
-            return String.format(Locale.US, "emptyFill: %s,", emptyFill1);
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSopacity() {
-        if (opacity != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity);
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType() {
-        if (patternFillOrType != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType1() {
-        if (patternFillOrType1 != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType2() {
-        if (patternFillOrType2 != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType3() {
-        if (patternFillOrType3 != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType3);
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType4() {
-        if (patternFillOrType4 != null) {
-            return String.format(Locale.US, "patternFillOrType: %b,", patternFillOrType4);
-        }
-        return "";
-    }
-
-    private String generateJScolor1() {
-        if (color1 != null) {
-            return String.format(Locale.US, "color: %s,", color1);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSsize() {
-        if (size != null) {
-            return String.format(Locale.US, "size: %f,", size);
+            //return String.format(Locale.US, "getEmptyHatchFill: %s,", ((getEmptyHatchFill != null) ? getEmptyHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -405,22 +333,35 @@ public class Tank extends LineargaugePointersBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSemptyFill());
-            js.append(generateJSemptyFill1());
-            js.append(generateJScolor());
-            js.append(generateJSopacity());
-            js.append(generateJSpatternFillOrType());
-            js.append(generateJSpatternFillOrType1());
-            js.append(generateJSpatternFillOrType2());
-            js.append(generateJSpatternFillOrType3());
-            js.append(generateJSpatternFillOrType4());
-            js.append(generateJScolor1());
-            js.append(generateJSthickness());
-            js.append(generateJSsize());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSemptyFill());
+////        
+//            js.append(generateJSemptyFill1());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSopacity());
+////        
+//            js.append(generateJSpatternFillOrType());
+////        
+//            js.append(generateJSpatternFillOrType1());
+////        
+//            js.append(generateJSpatternFillOrType2());
+////        
+//            js.append(generateJSpatternFillOrType3());
+////        
+//            js.append(generateJSpatternFillOrType4());
+////        
+//            js.append(generateJScolor1());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSsize());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

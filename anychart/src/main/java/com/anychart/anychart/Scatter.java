@@ -15,52 +15,43 @@ public class Scatter extends SeparateChart {
         jsBase = "chart";
     }
 
+    public Scatter setData(List<DataEntry> data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("]);");
+        }
+
+        return this;
+    }
+
     
-    private View var_args;
-    private Set var_args1;
-    private String[] var_args2;
-
-    public void addSeries(View var_args) {
-        this.var_args = var_args;
+    public void addSeries(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args != null) ? var_args.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
 
-
-    public void addSeries(Set var_args1) {
-        this.var_args1 = var_args1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args1 != null) ? var_args1.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void addSeries(String[] var_args2) {
-        this.var_args2 = var_args2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", Arrays.toString(var_args2)));
-            js.setLength(0);
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
         }
     }
 
@@ -75,17 +66,15 @@ public class Scatter extends SeparateChart {
     }
     private String[] annotationsList;
     private List<Scatter> setAnnotations = new ArrayList<>();
-
     public Scatter setAnnotations(String[] annotationsList) {
-        this.annotationsList = annotationsList;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
+        js.append(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
+            onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
             js.setLength(0);
         }
         return this;
@@ -101,27 +90,23 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
-    private View data;
-    private Set data1;
-    private String[] data2;
-    private String data3;
-    private TextParsingMode csvSettings;
-    private String csvSettings1;
-    private TextParsingSettings csvSettings2;
     private List<ScatterSeriesBubble> setBubble = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(View data, TextParsingMode csvSettings) {
-        this.data = data;
-        this.csvSettings = csvSettings;
+    public ScatterSeriesBubble bubble(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s);", resultData.toString()));
         }
         ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble" + variableIndex);
         setBubble.add(item);
@@ -131,336 +116,6 @@ public class Scatter extends SeparateChart {
         if (!setBubble.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (ScatterSeriesBubble item : setBubble) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble1 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(View data, String csvSettings1) {
-        this.data = data;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble1" + variableIndex);
-        setBubble1.add(item);
-        return item;
-    }
-    private String generateJSsetBubble1() {
-        if (!setBubble1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble2 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(View data, TextParsingSettings csvSettings2) {
-        this.data = data;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble2" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble2" + variableIndex);
-        setBubble2.add(item);
-        return item;
-    }
-    private String generateJSsetBubble2() {
-        if (!setBubble2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble3 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(Set data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble3" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble3" + variableIndex);
-        setBubble3.add(item);
-        return item;
-    }
-    private String generateJSsetBubble3() {
-        if (!setBubble3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble4 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(Set data1, String csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble4" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble4" + variableIndex);
-        setBubble4.add(item);
-        return item;
-    }
-    private String generateJSsetBubble4() {
-        if (!setBubble4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble5 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(Set data1, TextParsingSettings csvSettings2) {
-        this.data1 = data1;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble5" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble5" + variableIndex);
-        setBubble5.add(item);
-        return item;
-    }
-    private String generateJSsetBubble5() {
-        if (!setBubble5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble6 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(String[] data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble6" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble6" + variableIndex);
-        setBubble6.add(item);
-        return item;
-    }
-    private String generateJSsetBubble6() {
-        if (!setBubble6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble7 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(String[] data2, String csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble7" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), csvSettings1));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble7" + variableIndex);
-        setBubble7.add(item);
-        return item;
-    }
-    private String generateJSsetBubble7() {
-        if (!setBubble7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble8 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(String[] data2, TextParsingSettings csvSettings2) {
-        this.data2 = data2;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble8" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble8" + variableIndex);
-        setBubble8.add(item);
-        return item;
-    }
-    private String generateJSsetBubble8() {
-        if (!setBubble8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble9 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(String data3, TextParsingMode csvSettings) {
-        this.data3 = data3;
-        this.csvSettings = csvSettings;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble9" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble9" + variableIndex);
-        setBubble9.add(item);
-        return item;
-    }
-    private String generateJSsetBubble9() {
-        if (!setBubble9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble10 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(String data3, String csvSettings1) {
-        this.data3 = data3;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble10" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, csvSettings1));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble10" + variableIndex);
-        setBubble10.add(item);
-        return item;
-    }
-    private String generateJSsetBubble10() {
-        if (!setBubble10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesBubble> setBubble11 = new ArrayList<>();
-
-    public ScatterSeriesBubble bubble(String data3, TextParsingSettings csvSettings2) {
-        this.data3 = data3;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setBubble11" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble11" + variableIndex);
-        setBubble11.add(item);
-        return item;
-    }
-    private String generateJSsetBubble11() {
-        if (!setBubble11.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setBubble11) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -480,17 +135,15 @@ public class Scatter extends SeparateChart {
     private String crosshair;
     private Boolean crosshair1;
     private List<Scatter> setCrosshair = new ArrayList<>();
-
     public Scatter setCrosshair(String crosshair) {
-        this.crosshair = crosshair;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
+        js.append(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", crosshair));
+            onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
             js.setLength(0);
         }
         return this;
@@ -507,9 +160,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setCrosshair1 = new ArrayList<>();
-
     public Scatter setCrosshair(Boolean crosshair1) {
-        this.crosshair1 = crosshair1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -544,17 +195,15 @@ public class Scatter extends SeparateChart {
     }
     private String crossing;
     private List<Scatter> setCrossing = new ArrayList<>();
-
     public Scatter setCrossing(String crossing) {
-        this.crossing = crossing;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".crossing(%s)", crossing));
+        js.append(String.format(Locale.US, ".crossing(%s)", wrapQuotes(crossing)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".crossing(%s)", crossing));
+            onChangeListener.onChange(String.format(Locale.US, ".crossing(%s)", wrapQuotes(crossing)));
             js.setLength(0);
         }
         return this;
@@ -572,17 +221,15 @@ public class Scatter extends SeparateChart {
 
     private String defaultSeriesType;
     private List<Scatter> setDefaultSeriesType = new ArrayList<>();
-
     public Scatter setDefaultSeriesType(String defaultSeriesType) {
-        this.defaultSeriesType = defaultSeriesType;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType)));
             js.setLength(0);
         }
         return this;
@@ -619,7 +266,7 @@ public class Scatter extends SeparateChart {
     private List<ScatterSeriesBase> getGetSeries1 = new ArrayList<>();
 
     public ScatterSeriesBase getGetSeries(String id1) {
-        ScatterSeriesBase item = new ScatterSeriesBase(jsBase + ".getSeries("+ id1+")");
+        ScatterSeriesBase item = new ScatterSeriesBase(jsBase + ".getSeries("+ wrapQuotes(id1)+")");
         getGetSeries1.add(item);
         return item;
     }
@@ -644,9 +291,7 @@ public class Scatter extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<Scatter> setHatchFillPalette = new ArrayList<>();
-
     public Scatter setHatchFillPalette(HatchFillType[] hatchFillPalette) {
-        this.hatchFillPalette = hatchFillPalette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -671,17 +316,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setHatchFillPalette1 = new ArrayList<>();
-
     public Scatter setHatchFillPalette(String hatchFillPalette1) {
-        this.hatchFillPalette1 = hatchFillPalette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
             js.setLength(0);
         }
         return this;
@@ -698,17 +341,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setHatchFillPalette2 = new ArrayList<>();
-
     public Scatter setHatchFillPalette(HatchFills hatchFillPalette2) {
-        this.hatchFillPalette2 = hatchFillPalette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -735,17 +376,15 @@ public class Scatter extends SeparateChart {
     }
     private String hovered;
     private List<Scatter> setHovered = new ArrayList<>();
-
     public Scatter setHovered(String hovered) {
-        this.hovered = hovered;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
+        js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
+            onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
             js.setLength(0);
         }
         return this;
@@ -773,17 +412,15 @@ public class Scatter extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Scatter> setLabels = new ArrayList<>();
-
     public Scatter setLabels(String labels) {
-        this.labels = labels;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".labels(%s)", labels));
+        js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
+            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
             js.setLength(0);
         }
         return this;
@@ -800,9 +437,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setLabels1 = new ArrayList<>();
-
     public Scatter setLabels(Boolean labels1) {
-        this.labels1 = labels1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -826,27 +461,23 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
-    private View data4;
-    private Set data5;
-    private String[] data6;
-    private String data7;
-    private TextParsingMode csvSettings3;
-    private String csvSettings4;
-    private TextParsingSettings csvSettings5;
     private List<ScatterSeriesLine> setLine = new ArrayList<>();
-
-    public ScatterSeriesLine line(View data4, TextParsingMode csvSettings3) {
-        this.data4 = data4;
-        this.csvSettings3 = csvSettings3;
+    public ScatterSeriesLine line(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-            js.setLength(0);
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
         }
         ScatterSeriesLine item = new ScatterSeriesLine("setLine" + variableIndex);
         setLine.add(item);
@@ -856,336 +487,6 @@ public class Scatter extends SeparateChart {
         if (!setLine.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (ScatterSeriesLine item : setLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine1 = new ArrayList<>();
-
-    public ScatterSeriesLine line(View data4, String csvSettings4) {
-        this.data4 = data4;
-        this.csvSettings4 = csvSettings4;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine1" + variableIndex);
-        setLine1.add(item);
-        return item;
-    }
-    private String generateJSsetLine1() {
-        if (!setLine1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine2 = new ArrayList<>();
-
-    public ScatterSeriesLine line(View data4, TextParsingSettings csvSettings5) {
-        this.data4 = data4;
-        this.csvSettings5 = csvSettings5;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine2" + variableIndex);
-        setLine2.add(item);
-        return item;
-    }
-    private String generateJSsetLine2() {
-        if (!setLine2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine3 = new ArrayList<>();
-
-    public ScatterSeriesLine line(Set data5, TextParsingMode csvSettings3) {
-        this.data5 = data5;
-        this.csvSettings3 = csvSettings3;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine3" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine3" + variableIndex);
-        setLine3.add(item);
-        return item;
-    }
-    private String generateJSsetLine3() {
-        if (!setLine3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine4 = new ArrayList<>();
-
-    public ScatterSeriesLine line(Set data5, String csvSettings4) {
-        this.data5 = data5;
-        this.csvSettings4 = csvSettings4;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine4" + variableIndex);
-        setLine4.add(item);
-        return item;
-    }
-    private String generateJSsetLine4() {
-        if (!setLine4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine5 = new ArrayList<>();
-
-    public ScatterSeriesLine line(Set data5, TextParsingSettings csvSettings5) {
-        this.data5 = data5;
-        this.csvSettings5 = csvSettings5;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine5" + variableIndex);
-        setLine5.add(item);
-        return item;
-    }
-    private String generateJSsetLine5() {
-        if (!setLine5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine6 = new ArrayList<>();
-
-    public ScatterSeriesLine line(String[] data6, TextParsingMode csvSettings3) {
-        this.data6 = data6;
-        this.csvSettings3 = csvSettings3;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine6" + variableIndex);
-        setLine6.add(item);
-        return item;
-    }
-    private String generateJSsetLine6() {
-        if (!setLine6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine7 = new ArrayList<>();
-
-    public ScatterSeriesLine line(String[] data6, String csvSettings4) {
-        this.data6 = data6;
-        this.csvSettings4 = csvSettings4;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), csvSettings4));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), csvSettings4));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine7" + variableIndex);
-        setLine7.add(item);
-        return item;
-    }
-    private String generateJSsetLine7() {
-        if (!setLine7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine8 = new ArrayList<>();
-
-    public ScatterSeriesLine line(String[] data6, TextParsingSettings csvSettings5) {
-        this.data6 = data6;
-        this.csvSettings5 = csvSettings5;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine8" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine8" + variableIndex);
-        setLine8.add(item);
-        return item;
-    }
-    private String generateJSsetLine8() {
-        if (!setLine8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine9 = new ArrayList<>();
-
-    public ScatterSeriesLine line(String data7, TextParsingMode csvSettings3) {
-        this.data7 = data7;
-        this.csvSettings3 = csvSettings3;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine9" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine9" + variableIndex);
-        setLine9.add(item);
-        return item;
-    }
-    private String generateJSsetLine9() {
-        if (!setLine9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine10 = new ArrayList<>();
-
-    public ScatterSeriesLine line(String data7, String csvSettings4) {
-        this.data7 = data7;
-        this.csvSettings4 = csvSettings4;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine10" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, csvSettings4));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, csvSettings4));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine10" + variableIndex);
-        setLine10.add(item);
-        return item;
-    }
-    private String generateJSsetLine10() {
-        if (!setLine10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesLine> setLine11 = new ArrayList<>();
-
-    public ScatterSeriesLine line(String data7, TextParsingSettings csvSettings5) {
-        this.data7 = data7;
-        this.csvSettings5 = csvSettings5;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setLine11" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesLine item = new ScatterSeriesLine("setLine11" + variableIndex);
-        setLine11.add(item);
-        return item;
-    }
-    private String generateJSsetLine11() {
-        if (!setLine11.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesLine item : setLine11) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1213,17 +514,15 @@ public class Scatter extends SeparateChart {
     private String lineMarker;
     private Boolean lineMarker1;
     private List<Scatter> setLineMarker = new ArrayList<>();
-
     public Scatter setLineMarker(String lineMarker) {
-        this.lineMarker = lineMarker;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
+        js.append(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
             js.setLength(0);
         }
         return this;
@@ -1240,9 +539,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setLineMarker1 = new ArrayList<>();
-
     public Scatter setLineMarker(Boolean lineMarker1) {
-        this.lineMarker1 = lineMarker1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1270,18 +567,15 @@ public class Scatter extends SeparateChart {
     private String lineMarker2;
     private Boolean lineMarker3;
     private List<Scatter> setLineMarker2 = new ArrayList<>();
-
     public Scatter setLineMarker(String lineMarker2, Double index2) {
-        this.lineMarker2 = lineMarker2;
-        this.index2 = index2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
+        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index2));
             js.setLength(0);
         }
         return this;
@@ -1298,10 +592,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setLineMarker3 = new ArrayList<>();
-
     public Scatter setLineMarker(Boolean lineMarker3, Double index2) {
-        this.lineMarker3 = lineMarker3;
-        this.index2 = index2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1325,27 +616,23 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
-    private View data8;
-    private Set data9;
-    private String[] data10;
-    private String data11;
-    private TextParsingMode csvSettings6;
-    private String csvSettings7;
-    private TextParsingSettings csvSettings8;
     private List<ScatterSeriesMarker> setMarker = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(View data8, TextParsingMode csvSettings6) {
-        this.data8 = data8;
-        this.csvSettings6 = csvSettings6;
+    public ScatterSeriesMarker marker(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-            js.setLength(0);
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
         }
         ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker" + variableIndex);
         setMarker.add(item);
@@ -1355,336 +642,6 @@ public class Scatter extends SeparateChart {
         if (!setMarker.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (ScatterSeriesMarker item : setMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker1 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(View data8, String csvSettings7) {
-        this.data8 = data8;
-        this.csvSettings7 = csvSettings7;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker1" + variableIndex);
-        setMarker1.add(item);
-        return item;
-    }
-    private String generateJSsetMarker1() {
-        if (!setMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker2 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(View data8, TextParsingSettings csvSettings8) {
-        this.data8 = data8;
-        this.csvSettings8 = csvSettings8;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker2" + variableIndex);
-        setMarker2.add(item);
-        return item;
-    }
-    private String generateJSsetMarker2() {
-        if (!setMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker3 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(Set data9, TextParsingMode csvSettings6) {
-        this.data9 = data9;
-        this.csvSettings6 = csvSettings6;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker3" + variableIndex);
-        setMarker3.add(item);
-        return item;
-    }
-    private String generateJSsetMarker3() {
-        if (!setMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker4 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(Set data9, String csvSettings7) {
-        this.data9 = data9;
-        this.csvSettings7 = csvSettings7;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker4" + variableIndex);
-        setMarker4.add(item);
-        return item;
-    }
-    private String generateJSsetMarker4() {
-        if (!setMarker4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker5 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(Set data9, TextParsingSettings csvSettings8) {
-        this.data9 = data9;
-        this.csvSettings8 = csvSettings8;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker5" + variableIndex);
-        setMarker5.add(item);
-        return item;
-    }
-    private String generateJSsetMarker5() {
-        if (!setMarker5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker6 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(String[] data10, TextParsingMode csvSettings6) {
-        this.data10 = data10;
-        this.csvSettings6 = csvSettings6;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker6" + variableIndex);
-        setMarker6.add(item);
-        return item;
-    }
-    private String generateJSsetMarker6() {
-        if (!setMarker6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker7 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(String[] data10, String csvSettings7) {
-        this.data10 = data10;
-        this.csvSettings7 = csvSettings7;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), csvSettings7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), csvSettings7));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker7" + variableIndex);
-        setMarker7.add(item);
-        return item;
-    }
-    private String generateJSsetMarker7() {
-        if (!setMarker7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker8 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(String[] data10, TextParsingSettings csvSettings8) {
-        this.data10 = data10;
-        this.csvSettings8 = csvSettings8;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker8" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker8" + variableIndex);
-        setMarker8.add(item);
-        return item;
-    }
-    private String generateJSsetMarker8() {
-        if (!setMarker8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker9 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(String data11, TextParsingMode csvSettings6) {
-        this.data11 = data11;
-        this.csvSettings6 = csvSettings6;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker9" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker9" + variableIndex);
-        setMarker9.add(item);
-        return item;
-    }
-    private String generateJSsetMarker9() {
-        if (!setMarker9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker10 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(String data11, String csvSettings7) {
-        this.data11 = data11;
-        this.csvSettings7 = csvSettings7;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker10" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, csvSettings7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, csvSettings7));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker10" + variableIndex);
-        setMarker10.add(item);
-        return item;
-    }
-    private String generateJSsetMarker10() {
-        if (!setMarker10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ScatterSeriesMarker> setMarker11 = new ArrayList<>();
-
-    public ScatterSeriesMarker marker(String data11, TextParsingSettings csvSettings8) {
-        this.data11 = data11;
-        this.csvSettings8 = csvSettings8;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var setMarker11" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
-            js.setLength(0);
-        }
-        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker11" + variableIndex);
-        setMarker11.add(item);
-        return item;
-    }
-    private String generateJSsetMarker11() {
-        if (!setMarker11.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesMarker item : setMarker11) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1706,17 +663,15 @@ public class Scatter extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<Scatter> setMarkerPalette = new ArrayList<>();
-
     public Scatter setMarkerPalette(Markers markerPalette) {
-        this.markerPalette = markerPalette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1733,17 +688,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setMarkerPalette1 = new ArrayList<>();
-
     public Scatter setMarkerPalette(String markerPalette1) {
-        this.markerPalette1 = markerPalette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
             js.setLength(0);
         }
         return this;
@@ -1760,9 +713,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setMarkerPalette2 = new ArrayList<>();
-
     public Scatter setMarkerPalette(MarkerType[] markerPalette2) {
-        this.markerPalette2 = markerPalette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1787,17 +738,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setMarkerPalette3 = new ArrayList<>();
-
     public Scatter setMarkerPalette(String[] markerPalette3) {
-        this.markerPalette3 = markerPalette3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
             js.setLength(0);
         }
         return this;
@@ -1816,9 +765,7 @@ public class Scatter extends SeparateChart {
     private Double maxBubbleSize;
     private String maxBubbleSize1;
     private List<Scatter> setMaxBubbleSize = new ArrayList<>();
-
     public Scatter setMaxBubbleSize(Double maxBubbleSize) {
-        this.maxBubbleSize = maxBubbleSize;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1843,17 +790,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setMaxBubbleSize1 = new ArrayList<>();
-
     public Scatter setMaxBubbleSize(String maxBubbleSize1) {
-        this.maxBubbleSize1 = maxBubbleSize1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
+        js.append(String.format(Locale.US, ".maxBubbleSize(%s)", wrapQuotes(maxBubbleSize1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
+            onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%s)", wrapQuotes(maxBubbleSize1)));
             js.setLength(0);
         }
         return this;
@@ -1872,9 +817,7 @@ public class Scatter extends SeparateChart {
     private Double minBubbleSize;
     private String minBubbleSize1;
     private List<Scatter> setMinBubbleSize = new ArrayList<>();
-
     public Scatter setMinBubbleSize(Double minBubbleSize) {
-        this.minBubbleSize = minBubbleSize;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1899,17 +842,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setMinBubbleSize1 = new ArrayList<>();
-
     public Scatter setMinBubbleSize(String minBubbleSize1) {
-        this.minBubbleSize1 = minBubbleSize1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
+        js.append(String.format(Locale.US, ".minBubbleSize(%s)", wrapQuotes(minBubbleSize1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
+            onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", wrapQuotes(minBubbleSize1)));
             js.setLength(0);
         }
         return this;
@@ -1936,17 +877,15 @@ public class Scatter extends SeparateChart {
     }
     private String normal;
     private List<Scatter> setNormal = new ArrayList<>();
-
     public Scatter setNormal(String normal) {
-        this.normal = normal;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".normal(%s)", normal));
+        js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+            onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
             js.setLength(0);
         }
         return this;
@@ -1976,17 +915,15 @@ public class Scatter extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<Scatter> setPalette = new ArrayList<>();
-
     public Scatter setPalette(RangeColors palette) {
-        this.palette = palette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2003,17 +940,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setPalette1 = new ArrayList<>();
-
     public Scatter setPalette(DistinctColors palette1) {
-        this.palette1 = palette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2030,17 +965,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setPalette2 = new ArrayList<>();
-
     public Scatter setPalette(String palette2) {
-        this.palette2 = palette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", palette2));
+        js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
             js.setLength(0);
         }
         return this;
@@ -2057,17 +990,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setPalette3 = new ArrayList<>();
-
     public Scatter setPalette(String[] palette3) {
-        this.palette3 = palette3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
+        js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
             js.setLength(0);
         }
         return this;
@@ -2094,17 +1025,15 @@ public class Scatter extends SeparateChart {
     }
     private String quarters;
     private List<Scatter> setQuarters = new ArrayList<>();
-
     public Scatter setQuarters(String quarters) {
-        this.quarters = quarters;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".quarters(%s)", quarters));
+        js.append(String.format(Locale.US, ".quarters(%s)", wrapQuotes(quarters)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".quarters(%s)", quarters));
+            onChangeListener.onChange(String.format(Locale.US, ".quarters(%s)", wrapQuotes(quarters)));
             js.setLength(0);
         }
         return this;
@@ -2140,17 +1069,15 @@ public class Scatter extends SeparateChart {
     private String rangeMarker;
     private Boolean rangeMarker1;
     private List<Scatter> setRangeMarker = new ArrayList<>();
-
     public Scatter setRangeMarker(String rangeMarker) {
-        this.rangeMarker = rangeMarker;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
+        js.append(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
             js.setLength(0);
         }
         return this;
@@ -2167,9 +1094,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setRangeMarker1 = new ArrayList<>();
-
     public Scatter setRangeMarker(Boolean rangeMarker1) {
-        this.rangeMarker1 = rangeMarker1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2197,18 +1122,15 @@ public class Scatter extends SeparateChart {
     private String rangeMarker2;
     private Boolean rangeMarker3;
     private List<Scatter> setRangeMarker2 = new ArrayList<>();
-
     public Scatter setRangeMarker(String rangeMarker2, Double index4) {
-        this.rangeMarker2 = rangeMarker2;
-        this.index4 = index4;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
+        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index4));
             js.setLength(0);
         }
         return this;
@@ -2225,10 +1147,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setRangeMarker3 = new ArrayList<>();
-
     public Scatter setRangeMarker(Boolean rangeMarker3, Double index4) {
-        this.rangeMarker3 = rangeMarker3;
-        this.index4 = index4;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2255,9 +1174,7 @@ public class Scatter extends SeparateChart {
     private Double id2;
     private String id3;
     private List<Scatter> setRemoveSeries = new ArrayList<>();
-
     public Scatter removeSeries(Double id2) {
-        this.id2 = id2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2282,17 +1199,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setRemoveSeries1 = new ArrayList<>();
-
     public Scatter removeSeries(String id3) {
-        this.id3 = id3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
+        js.append(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id3));
+            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id3)));
             js.setLength(0);
         }
         return this;
@@ -2310,9 +1225,7 @@ public class Scatter extends SeparateChart {
 
     private Double index5;
     private List<Scatter> setRemoveSeriesAt = new ArrayList<>();
-
     public Scatter removeSeriesAt(Double index5) {
-        this.index5 = index5;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2347,17 +1260,15 @@ public class Scatter extends SeparateChart {
     }
     private String selected;
     private List<Scatter> setSelected = new ArrayList<>();
-
     public Scatter setSelected(String selected) {
-        this.selected = selected;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selected(%s)", selected));
+        js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
+            onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
             js.setLength(0);
         }
         return this;
@@ -2393,17 +1304,15 @@ public class Scatter extends SeparateChart {
     private String textMarker;
     private Boolean textMarker1;
     private List<Scatter> setTextMarker = new ArrayList<>();
-
     public Scatter setTextMarker(String textMarker) {
-        this.textMarker = textMarker;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
+        js.append(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", textMarker));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
             js.setLength(0);
         }
         return this;
@@ -2420,9 +1329,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setTextMarker1 = new ArrayList<>();
-
     public Scatter setTextMarker(Boolean textMarker1) {
-        this.textMarker1 = textMarker1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2450,18 +1357,15 @@ public class Scatter extends SeparateChart {
     private String textMarker2;
     private Boolean textMarker3;
     private List<Scatter> setTextMarker2 = new ArrayList<>();
-
     public Scatter setTextMarker(String textMarker2, Double index7) {
-        this.textMarker2 = textMarker2;
-        this.index7 = index7;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
+        js.append(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index7));
             js.setLength(0);
         }
         return this;
@@ -2478,10 +1382,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setTextMarker3 = new ArrayList<>();
-
     public Scatter setTextMarker(Boolean textMarker3, Double index7) {
-        this.textMarker3 = textMarker3;
-        this.index7 = index7;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2525,17 +1426,15 @@ public class Scatter extends SeparateChart {
     private String xAxis;
     private Boolean xAxis1;
     private List<Scatter> setXAxis = new ArrayList<>();
-
     public Scatter setXAxis(String xAxis) {
-        this.xAxis = xAxis;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
+        js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", xAxis));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
             js.setLength(0);
         }
         return this;
@@ -2552,9 +1451,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setXAxis1 = new ArrayList<>();
-
     public Scatter setXAxis(Boolean xAxis1) {
-        this.xAxis1 = xAxis1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2582,18 +1479,15 @@ public class Scatter extends SeparateChart {
     private String xAxis2;
     private Boolean xAxis3;
     private List<Scatter> setXAxis2 = new ArrayList<>();
-
     public Scatter setXAxis(String xAxis2, Double index9) {
-        this.xAxis2 = xAxis2;
-        this.index9 = index9;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
+        js.append(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index9));
             js.setLength(0);
         }
         return this;
@@ -2610,10 +1504,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setXAxis3 = new ArrayList<>();
-
     public Scatter setXAxis(Boolean xAxis3, Double index9) {
-        this.xAxis3 = xAxis3;
-        this.index9 = index9;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2657,17 +1548,15 @@ public class Scatter extends SeparateChart {
     private String xGrid;
     private Boolean xGrid1;
     private List<Scatter> setXGrid = new ArrayList<>();
-
     public Scatter setXGrid(String xGrid) {
-        this.xGrid = xGrid;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
+        js.append(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", xGrid));
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
             js.setLength(0);
         }
         return this;
@@ -2684,9 +1573,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setXGrid1 = new ArrayList<>();
-
     public Scatter setXGrid(Boolean xGrid1) {
-        this.xGrid1 = xGrid1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2714,18 +1601,15 @@ public class Scatter extends SeparateChart {
     private String xGrid2;
     private Boolean xGrid3;
     private List<Scatter> setXGrid2 = new ArrayList<>();
-
     public Scatter setXGrid(String xGrid2, Double index11) {
-        this.xGrid2 = xGrid2;
-        this.index11 = index11;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
+        js.append(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index11));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index11));
             js.setLength(0);
         }
         return this;
@@ -2742,10 +1626,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setXGrid3 = new ArrayList<>();
-
     public Scatter setXGrid(Boolean xGrid3, Double index11) {
-        this.xGrid3 = xGrid3;
-        this.index11 = index11;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2789,17 +1670,15 @@ public class Scatter extends SeparateChart {
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<Scatter> setXMinorGrid = new ArrayList<>();
-
     public Scatter setXMinorGrid(String xMinorGrid) {
-        this.xMinorGrid = xMinorGrid;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
+        js.append(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
             js.setLength(0);
         }
         return this;
@@ -2816,9 +1695,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setXMinorGrid1 = new ArrayList<>();
-
     public Scatter setXMinorGrid(Boolean xMinorGrid1) {
-        this.xMinorGrid1 = xMinorGrid1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2846,18 +1723,15 @@ public class Scatter extends SeparateChart {
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
     private List<Scatter> setXMinorGrid2 = new ArrayList<>();
-
     public Scatter setXMinorGrid(String xMinorGrid2, Double index13) {
-        this.xMinorGrid2 = xMinorGrid2;
-        this.index13 = index13;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
+        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index13));
             js.setLength(0);
         }
         return this;
@@ -2874,10 +1748,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setXMinorGrid3 = new ArrayList<>();
-
     public Scatter setXMinorGrid(Boolean xMinorGrid3, Double index13) {
-        this.xMinorGrid3 = xMinorGrid3;
-        this.index13 = index13;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2915,17 +1786,15 @@ public class Scatter extends SeparateChart {
     private String xScale2;
     private ScatterBase xScale3;
     private List<Scatter> setXScale = new ArrayList<>();
-
     public Scatter setXScale(String xScale) {
-        this.xScale = xScale;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
+        js.append(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale)));
             js.setLength(0);
         }
         return this;
@@ -2942,17 +1811,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setXScale1 = new ArrayList<>();
-
     public Scatter setXScale(ScatterScaleTypes xScale1) {
-        this.xScale1 = xScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2969,17 +1836,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setXScale2 = new ArrayList<>();
-
     public Scatter setXScale(ScatterBase xScale3) {
-        this.xScale3 = xScale3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -3015,17 +1880,15 @@ public class Scatter extends SeparateChart {
     private String yAxis;
     private Boolean yAxis1;
     private List<Scatter> setYAxis = new ArrayList<>();
-
     public Scatter setYAxis(String yAxis) {
-        this.yAxis = yAxis;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
+        js.append(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", yAxis));
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
             js.setLength(0);
         }
         return this;
@@ -3042,9 +1905,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setYAxis1 = new ArrayList<>();
-
     public Scatter setYAxis(Boolean yAxis1) {
-        this.yAxis1 = yAxis1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -3072,18 +1933,15 @@ public class Scatter extends SeparateChart {
     private String yAxis2;
     private Boolean yAxis3;
     private List<Scatter> setYAxis2 = new ArrayList<>();
-
     public Scatter setYAxis(String yAxis2, Double index15) {
-        this.yAxis2 = yAxis2;
-        this.index15 = index15;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
+        js.append(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index15));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index15));
             js.setLength(0);
         }
         return this;
@@ -3100,10 +1958,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setYAxis3 = new ArrayList<>();
-
     public Scatter setYAxis(Boolean yAxis3, Double index15) {
-        this.yAxis3 = yAxis3;
-        this.index15 = index15;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -3147,17 +2002,15 @@ public class Scatter extends SeparateChart {
     private String yGrid;
     private Boolean yGrid1;
     private List<Scatter> setYGrid = new ArrayList<>();
-
     public Scatter setYGrid(String yGrid) {
-        this.yGrid = yGrid;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
+        js.append(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", yGrid));
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
             js.setLength(0);
         }
         return this;
@@ -3174,9 +2027,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setYGrid1 = new ArrayList<>();
-
     public Scatter setYGrid(Boolean yGrid1) {
-        this.yGrid1 = yGrid1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -3204,18 +2055,15 @@ public class Scatter extends SeparateChart {
     private String yGrid2;
     private Boolean yGrid3;
     private List<Scatter> setYGrid2 = new ArrayList<>();
-
     public Scatter setYGrid(String yGrid2, Double index17) {
-        this.yGrid2 = yGrid2;
-        this.index17 = index17;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
+        js.append(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index17));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index17));
             js.setLength(0);
         }
         return this;
@@ -3232,10 +2080,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setYGrid3 = new ArrayList<>();
-
     public Scatter setYGrid(Boolean yGrid3, Double index17) {
-        this.yGrid3 = yGrid3;
-        this.index17 = index17;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -3279,17 +2124,15 @@ public class Scatter extends SeparateChart {
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<Scatter> setYMinorGrid = new ArrayList<>();
-
     public Scatter setYMinorGrid(String yMinorGrid) {
-        this.yMinorGrid = yMinorGrid;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
+        js.append(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
             js.setLength(0);
         }
         return this;
@@ -3306,9 +2149,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setYMinorGrid1 = new ArrayList<>();
-
     public Scatter setYMinorGrid(Boolean yMinorGrid1) {
-        this.yMinorGrid1 = yMinorGrid1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -3336,18 +2177,15 @@ public class Scatter extends SeparateChart {
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
     private List<Scatter> setYMinorGrid2 = new ArrayList<>();
-
     public Scatter setYMinorGrid(String yMinorGrid2, Double index19) {
-        this.yMinorGrid2 = yMinorGrid2;
-        this.index19 = index19;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
+        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index19));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index19));
             js.setLength(0);
         }
         return this;
@@ -3364,10 +2202,7 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setYMinorGrid3 = new ArrayList<>();
-
     public Scatter setYMinorGrid(Boolean yMinorGrid3, Double index19) {
-        this.yMinorGrid3 = yMinorGrid3;
-        this.index19 = index19;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -3405,17 +2240,15 @@ public class Scatter extends SeparateChart {
     private String yScale2;
     private ScatterBase yScale3;
     private List<Scatter> setYScale = new ArrayList<>();
-
     public Scatter setYScale(String yScale) {
-        this.yScale = yScale;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", yScale));
+        js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale)));
             js.setLength(0);
         }
         return this;
@@ -3432,17 +2265,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setYScale1 = new ArrayList<>();
-
     public Scatter setYScale(ScatterScaleTypes yScale1) {
-        this.yScale1 = yScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale1 != null) ? yScale1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale1 != null) ? yScale1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -3459,17 +2290,15 @@ public class Scatter extends SeparateChart {
     }
 
     private List<Scatter> setYScale2 = new ArrayList<>();
-
     public Scatter setYScale(ScatterBase yScale3) {
-        this.yScale3 = yScale3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -3834,17 +2663,6 @@ public class Scatter extends SeparateChart {
         js.append(generateJSgetYScale());
         js.append(generateJSsetAnnotations());
         js.append(generateJSsetBubble());
-        js.append(generateJSsetBubble1());
-        js.append(generateJSsetBubble2());
-        js.append(generateJSsetBubble3());
-        js.append(generateJSsetBubble4());
-        js.append(generateJSsetBubble5());
-        js.append(generateJSsetBubble6());
-        js.append(generateJSsetBubble7());
-        js.append(generateJSsetBubble8());
-        js.append(generateJSsetBubble9());
-        js.append(generateJSsetBubble10());
-        js.append(generateJSsetBubble11());
         js.append(generateJSsetCrosshair());
         js.append(generateJSsetCrosshair1());
         js.append(generateJSsetCrossing());
@@ -3856,33 +2674,11 @@ public class Scatter extends SeparateChart {
         js.append(generateJSsetLabels());
         js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
-        js.append(generateJSsetLine1());
-        js.append(generateJSsetLine2());
-        js.append(generateJSsetLine3());
-        js.append(generateJSsetLine4());
-        js.append(generateJSsetLine5());
-        js.append(generateJSsetLine6());
-        js.append(generateJSsetLine7());
-        js.append(generateJSsetLine8());
-        js.append(generateJSsetLine9());
-        js.append(generateJSsetLine10());
-        js.append(generateJSsetLine11());
         js.append(generateJSsetLineMarker());
         js.append(generateJSsetLineMarker1());
         js.append(generateJSsetLineMarker2());
         js.append(generateJSsetLineMarker3());
         js.append(generateJSsetMarker());
-        js.append(generateJSsetMarker1());
-        js.append(generateJSsetMarker2());
-        js.append(generateJSsetMarker3());
-        js.append(generateJSsetMarker4());
-        js.append(generateJSsetMarker5());
-        js.append(generateJSsetMarker6());
-        js.append(generateJSsetMarker7());
-        js.append(generateJSsetMarker8());
-        js.append(generateJSsetMarker9());
-        js.append(generateJSsetMarker10());
-        js.append(generateJSsetMarker11());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());

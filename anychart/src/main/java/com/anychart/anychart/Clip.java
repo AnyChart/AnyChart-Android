@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -78,10 +80,10 @@ public class Clip extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".shape(%s)", (shape1 != null) ? shape1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".shape(%s)", ((shape1 != null) ? shape1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", (shape1 != null) ? shape1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", ((shape1 != null) ? shape1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -104,10 +106,10 @@ public class Clip extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".shape(%s)", (shape2 != null) ? shape2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".shape(%s)", ((shape2 != null) ? shape2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", (shape2 != null) ? shape2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", ((shape2 != null) ? shape2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -130,10 +132,10 @@ public class Clip extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".shape(%s)", shape3));
+            js.append(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", shape3));
+                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape3)));
                 js.setLength(0);
             }
         }
@@ -171,65 +173,19 @@ public class Clip extends JsObject {
         return this;
     }
 
+
+//
+//    private String generateJSShape getShape() {
+//        if (Shape getShape != null) {
+//            return Shape getShape.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetShape() {
         if (getShape != null) {
             return getShape.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSshape() {
-        if (shape != null) {
-            return String.format(Locale.US, "shape: %s,", Arrays.toString(shape));
-        }
-        return "";
-    }
-
-    private String generateJSshape1() {
-        if (shape1 != null) {
-            return String.format(Locale.US, "shape: %s,", (shape1 != null) ? shape1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSshape2() {
-        if (shape2 != null) {
-            return String.format(Locale.US, "shape: %s,", (shape2 != null) ? shape2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSshape3() {
-        if (shape3 != null) {
-            return String.format(Locale.US, "shape: %s,", shape3);
-        }
-        return "";
-    }
-
-    private String generateJSleft() {
-        if (left != null) {
-            return String.format(Locale.US, "left: %f,", left);
-        }
-        return "";
-    }
-
-    private String generateJStop() {
-        if (top != null) {
-            return String.format(Locale.US, "top: %f,", top);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
+            //return String.format(Locale.US, "getShape: %s,", ((getShape != null) ? getShape.generateJs() : "null"));
         }
         return "";
     }
@@ -253,18 +209,27 @@ public class Clip extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSshape());
-            js.append(generateJSshape1());
-            js.append(generateJSshape2());
-            js.append(generateJSshape3());
-            js.append(generateJSleft());
-            js.append(generateJStop());
-            js.append(generateJSwidth());
-            js.append(generateJSheight());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSshape());
+////        
+//            js.append(generateJSshape1());
+////        
+//            js.append(generateJSshape2());
+////        
+//            js.append(generateJSshape3());
+////        
+//            js.append(generateJSleft());
+////        
+//            js.append(generateJStop());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSheight());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

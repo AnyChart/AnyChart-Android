@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -38,10 +40,10 @@ public class StandalonesTable extends UiTable {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s);", csvSettings, filename));
+            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s);", wrapQuotes(csvSettings), wrapQuotes(filename)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s)", csvSettings, filename));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s)", wrapQuotes(csvSettings), wrapQuotes(filename)));
                 js.setLength(0);
             }
         }
@@ -62,10 +64,10 @@ public class StandalonesTable extends UiTable {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s);", filename1));
+            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s);", wrapQuotes(filename1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s)", filename1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s)", wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -86,43 +88,17 @@ public class StandalonesTable extends UiTable {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toCsv(%s);", csvSettings1));
+            js.append(String.format(Locale.US, jsBase + ".toCsv(%s);", wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s)", csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s)", wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
     }
 
-    private String generateJScsvSettings() {
-        if (csvSettings != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings);
-        }
-        return "";
-    }
 
-    private String generateJSfilename() {
-        if (filename != null) {
-            return String.format(Locale.US, "filename: %s,", filename);
-        }
-        return "";
-    }
-
-    private String generateJSfilename1() {
-        if (filename1 != null) {
-            return String.format(Locale.US, "filename: %s,", filename1);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings1() {
-        if (csvSettings1 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings1);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -141,14 +117,19 @@ public class StandalonesTable extends UiTable {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScsvSettings());
-            js.append(generateJSfilename());
-            js.append(generateJSfilename1());
-            js.append(generateJScsvSettings1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScsvSettings());
+////        
+//            js.append(generateJSfilename());
+////        
+//            js.append(generateJSfilename1());
+////        
+//            js.append(generateJScsvSettings1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

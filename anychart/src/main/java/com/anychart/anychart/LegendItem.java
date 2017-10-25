@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -23,13 +25,12 @@ public class LegendItem extends CoreText {
     }
 
     
-    private LegendItem getIconFill;
+    private List<LegendItem> getIconFill = new ArrayList<>();
 
-    public LegendItem getIconFill() {
-        if (getIconFill == null)
-            getIconFill = new LegendItem(jsBase + ".iconFill()");
-
-        return getIconFill;
+    public LegendItem getIconFill(Fill iconFill) {
+        LegendItem item = new LegendItem(jsBase + ".iconFill(" + ((iconFill != null) ? iconFill.generateJs() : "null") + ")");
+        getIconFill.add(item);
+        return item;
     }
 
     private PatternFill getIconHatchFill;
@@ -70,10 +71,10 @@ public class LegendItem extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color, thickness, size));
+            js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -102,10 +103,10 @@ public class LegendItem extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color, thickness, size));
+            js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -134,10 +135,10 @@ public class LegendItem extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color, thickness, size));
+            js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -166,41 +167,38 @@ public class LegendItem extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", patternFillOrType3, color, thickness, size));
+            js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", patternFillOrType3, color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private LegendItem getIconStroke;
+    private List<LegendItem> getIconStroke = new ArrayList<>();
 
-    public LegendItem getIconStroke() {
-        if (getIconStroke == null)
-            getIconStroke = new LegendItem(jsBase + ".iconStroke()");
-
-        return getIconStroke;
+    public LegendItem getIconStroke(Stroke iconStroke) {
+        LegendItem item = new LegendItem(jsBase + ".iconStroke(" + ((iconStroke != null) ? iconStroke.generateJs() : "null") + ")");
+        getIconStroke.add(item);
+        return item;
     }
 
-    private LegendItem getIconTextSpacing;
+    private List<LegendItem> getIconTextSpacing = new ArrayList<>();
 
-    public LegendItem getIconTextSpacing() {
-        if (getIconTextSpacing == null)
-            getIconTextSpacing = new LegendItem(jsBase + ".iconTextSpacing()");
-
-        return getIconTextSpacing;
+    public LegendItem getIconTextSpacing(Double iconTextSpacing) {
+        LegendItem item = new LegendItem(jsBase + ".iconTextSpacing(" + iconTextSpacing + ")");
+        getIconTextSpacing.add(item);
+        return item;
     }
 
-    private LegendItem getIconType;
+    private List<LegendItem> getIconType = new ArrayList<>();
 
-    public LegendItem getIconType() {
-        if (getIconType == null)
-            getIconType = new LegendItem(jsBase + ".iconType()");
-
-        return getIconType;
+    public LegendItem getIconType(String iconType) {
+        LegendItem item = new LegendItem(jsBase + ".iconType(" + wrapQuotes(iconType) + ")");
+        getIconType.add(item);
+        return item;
     }
 
     private Double maxHeight;
@@ -243,10 +241,10 @@ public class LegendItem extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxHeight(%s)", maxHeight1));
+            js.append(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", maxHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
                 js.setLength(0);
             }
         }
@@ -293,175 +291,243 @@ public class LegendItem extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxWidth(%s)", maxWidth1));
+            js.append(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", maxWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private LegendItem getText;
+    private List<LegendItem> getText = new ArrayList<>();
 
-    public LegendItem getText() {
-        if (getText == null)
-            getText = new LegendItem(jsBase + ".text()");
-
-        return getText;
+    public LegendItem getText(String text) {
+        LegendItem item = new LegendItem(jsBase + ".text(" + wrapQuotes(text) + ")");
+        getText.add(item);
+        return item;
     }
 
-    private LegendItem getX;
+    private List<LegendItem> getX = new ArrayList<>();
 
-    public LegendItem getX() {
-        if (getX == null)
-            getX = new LegendItem(jsBase + ".x()");
-
-        return getX;
+    public LegendItem getX(Double x) {
+        LegendItem item = new LegendItem(jsBase + ".x(" + x + ")");
+        getX.add(item);
+        return item;
     }
 
-    private LegendItem getY;
+    private List<LegendItem> getX1 = new ArrayList<>();
 
-    public LegendItem getY() {
-        if (getY == null)
-            getY = new LegendItem(jsBase + ".y()");
-
-        return getY;
+    public LegendItem getX(String x) {
+        LegendItem item = new LegendItem(jsBase + ".x(" + wrapQuotes(x) + ")");
+        getX1.add(item);
+        return item;
     }
 
+    private List<LegendItem> getY = new ArrayList<>();
+
+    public LegendItem getY(Double y) {
+        LegendItem item = new LegendItem(jsBase + ".y(" + y + ")");
+        getY.add(item);
+        return item;
+    }
+
+    private List<LegendItem> getY1 = new ArrayList<>();
+
+    public LegendItem getY(String y) {
+        LegendItem item = new LegendItem(jsBase + ".y(" + wrapQuotes(y) + ")");
+        getY1.add(item);
+        return item;
+    }
+
+
+//
+//    private String generateJSLegendItem getIconFill() {
+//        if (LegendItem getIconFill != null) {
+//            return LegendItem getIconFill.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSPatternFill getIconHatchFill() {
+//        if (PatternFill getIconHatchFill != null) {
+//            return PatternFill getIconHatchFill.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItem getIconStroke() {
+//        if (LegendItem getIconStroke != null) {
+//            return LegendItem getIconStroke.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItem getIconTextSpacing() {
+//        if (LegendItem getIconTextSpacing != null) {
+//            return LegendItem getIconTextSpacing.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItem getIconType() {
+//        if (LegendItem getIconType != null) {
+//            return LegendItem getIconType.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItem getText() {
+//        if (LegendItem getText != null) {
+//            return LegendItem getText.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItem getX() {
+//        if (LegendItem getX != null) {
+//            return LegendItem getX.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItem getX1() {
+//        if (LegendItem getX1 != null) {
+//            return LegendItem getX1.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItem getY() {
+//        if (LegendItem getY != null) {
+//            return LegendItem getY.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItem getY1() {
+//        if (LegendItem getY1 != null) {
+//            return LegendItem getY1.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetIconFill() {
-        if (getIconFill != null) {
-            return getIconFill.generateJs();
+        if (!getIconFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LegendItem item : getIconFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetIconHatchFill() {
         if (getIconHatchFill != null) {
             return getIconHatchFill.generateJs();
+            //return String.format(Locale.US, "getIconHatchFill: %s,", ((getIconHatchFill != null) ? getIconHatchFill.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetIconStroke() {
-        if (getIconStroke != null) {
-            return getIconStroke.generateJs();
+        if (!getIconStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LegendItem item : getIconStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetIconTextSpacing() {
-        if (getIconTextSpacing != null) {
-            return getIconTextSpacing.generateJs();
+        if (!getIconTextSpacing.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LegendItem item : getIconTextSpacing) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetIconType() {
-        if (getIconType != null) {
-            return getIconType.generateJs();
+        if (!getIconType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LegendItem item : getIconType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetText() {
-        if (getText != null) {
-            return getText.generateJs();
+        if (!getText.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LegendItem item : getText) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetX() {
-        if (getX != null) {
-            return getX.generateJs();
+        if (!getX.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LegendItem item : getX) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
+
+    private String generateJSgetX1() {
+        if (!getX1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LegendItem item : getX1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
 
     private String generateJSgetY() {
-        if (getY != null) {
-            return getY.generateJs();
+        if (!getY.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LegendItem item : getY) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSpatternFillOrType() {
-        if (patternFillOrType != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null");
+
+    private String generateJSgetY1() {
+        if (!getY1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LegendItem item : getY1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSpatternFillOrType1() {
-        if (patternFillOrType1 != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType2() {
-        if (patternFillOrType2 != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType3() {
-        if (patternFillOrType3 != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType3);
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSsize() {
-        if (size != null) {
-            return String.format(Locale.US, "size: %f,", size);
-        }
-        return "";
-    }
-
-    private String generateJSmaxHeight() {
-        if (maxHeight != null) {
-            return String.format(Locale.US, "maxHeight: %f,", maxHeight);
-        }
-        return "";
-    }
-
-    private String generateJSmaxHeight1() {
-        if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
-        }
-        return "";
-    }
-
-    private String generateJSmaxWidth() {
-        if (maxWidth != null) {
-            return String.format(Locale.US, "maxWidth: %f,", maxWidth);
-        }
-        return "";
-    }
-
-    private String generateJSmaxWidth1() {
-        if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -477,7 +543,9 @@ public class LegendItem extends CoreText {
         jsGetters.append(generateJSgetIconType());
         jsGetters.append(generateJSgetText());
         jsGetters.append(generateJSgetX());
+        jsGetters.append(generateJSgetX1());
         jsGetters.append(generateJSgetY());
+        jsGetters.append(generateJSgetY1());
 
         return jsGetters.toString();
     }
@@ -489,21 +557,33 @@ public class LegendItem extends CoreText {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSpatternFillOrType());
-            js.append(generateJSpatternFillOrType1());
-            js.append(generateJSpatternFillOrType2());
-            js.append(generateJSpatternFillOrType3());
-            js.append(generateJScolor());
-            js.append(generateJSthickness());
-            js.append(generateJSsize());
-            js.append(generateJSmaxHeight());
-            js.append(generateJSmaxHeight1());
-            js.append(generateJSmaxWidth());
-            js.append(generateJSmaxWidth1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSpatternFillOrType());
+////        
+//            js.append(generateJSpatternFillOrType1());
+////        
+//            js.append(generateJSpatternFillOrType2());
+////        
+//            js.append(generateJSpatternFillOrType3());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSsize());
+////        
+//            js.append(generateJSmaxHeight());
+////        
+//            js.append(generateJSmaxHeight1());
+////        
+//            js.append(generateJSmaxWidth());
+////        
+//            js.append(generateJSmaxWidth1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

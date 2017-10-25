@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class StockTicks extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s);", (stroke != null) ? stroke.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s);", ((stroke != null) ? stroke.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s)", (stroke != null) ? stroke.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -69,58 +71,18 @@ public class StockTicks extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSstroke() {
-        if (stroke != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke != null) ? stroke.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -139,16 +101,23 @@ public class StockTicks extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSstroke());
-            js.append(generateJScolor());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSstroke());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

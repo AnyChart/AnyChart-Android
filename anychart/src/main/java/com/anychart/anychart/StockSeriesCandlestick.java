@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s);", (fallingFill != null) ? fallingFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s);", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s)", (fallingFill != null) ? fallingFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -85,10 +87,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null", color, thickness, size));
+            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null", color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -118,10 +120,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null", color, thickness, size));
+            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", (patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null", color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -151,10 +153,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null", color, thickness, size));
+            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", (patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null", color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -184,10 +186,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", patternFillOrTypeOrState3, color, thickness, size));
+            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", patternFillOrTypeOrState3, color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -217,10 +219,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, color, thickness, size));
+            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -239,10 +241,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s);", (risingFill != null) ? risingFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".risingFill(%s);", ((risingFill != null) ? risingFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s)", (risingFill != null) ? risingFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -303,10 +305,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null", color1, thickness1, size1));
+            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", (patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null", color1, thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -350,10 +352,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null", color1, thickness1, size1));
+            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", (patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null", color1, thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -397,10 +399,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null", color1, thickness1, size1));
+            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", (patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null", color1, thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -444,10 +446,10 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", patternFillOrTypeOrState8, color1, thickness1, size1));
+            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color1), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", patternFillOrTypeOrState8, color1, thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -491,19 +493,36 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState9, color1, thickness1, size1));
+            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState9, wrapQuotes(color1), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, color1, thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
         return new StockSeriesBase(jsBase);
     }
 
+
+//
+//    private String generateJSPatternFill getFallingHatchFill() {
+//        if (PatternFill getFallingHatchFill != null) {
+//            return PatternFill getFallingHatchFill.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSPatternFill getRisingHatchFill() {
+//        if (PatternFill getRisingHatchFill != null) {
+//            return PatternFill getRisingHatchFill.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetFallingHatchFill() {
         if (getFallingHatchFill != null) {
             return getFallingHatchFill.generateJs();
+            //return String.format(Locale.US, "getFallingHatchFill: %s,", ((getFallingHatchFill != null) ? getFallingHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -511,132 +530,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
     private String generateJSgetRisingHatchFill() {
         if (getRisingHatchFill != null) {
             return getRisingHatchFill.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSfallingFill() {
-        if (fallingFill != null) {
-            return String.format(Locale.US, "fallingFill: %s,", (fallingFill != null) ? fallingFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrTypeOrState() {
-        if (patternFillOrTypeOrState != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrTypeOrState1() {
-        if (patternFillOrTypeOrState1 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", (patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrTypeOrState2() {
-        if (patternFillOrTypeOrState2 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", (patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrTypeOrState3() {
-        if (patternFillOrTypeOrState3 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", patternFillOrTypeOrState3);
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrTypeOrState4() {
-        if (patternFillOrTypeOrState4 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: %b,", patternFillOrTypeOrState4);
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSsize() {
-        if (size != null) {
-            return String.format(Locale.US, "size: %f,", size);
-        }
-        return "";
-    }
-
-    private String generateJSrisingFill() {
-        if (risingFill != null) {
-            return String.format(Locale.US, "risingFill: %s,", (risingFill != null) ? risingFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrTypeOrState5() {
-        if (patternFillOrTypeOrState5 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", (patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrTypeOrState6() {
-        if (patternFillOrTypeOrState6 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", (patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrTypeOrState7() {
-        if (patternFillOrTypeOrState7 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", (patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrTypeOrState8() {
-        if (patternFillOrTypeOrState8 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", patternFillOrTypeOrState8);
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrTypeOrState9() {
-        if (patternFillOrTypeOrState9 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: %b,", patternFillOrTypeOrState9);
-        }
-        return "";
-    }
-
-    private String generateJScolor1() {
-        if (color1 != null) {
-            return String.format(Locale.US, "color: %s,", color1);
-        }
-        return "";
-    }
-
-    private String generateJSthickness1() {
-        if (thickness1 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness1);
-        }
-        return "";
-    }
-
-    private String generateJSsize1() {
-        if (size1 != null) {
-            return String.format(Locale.US, "size: %f,", size1);
+            //return String.format(Locale.US, "getRisingHatchFill: %s,", ((getRisingHatchFill != null) ? getRisingHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -661,28 +555,47 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSfallingFill());
-            js.append(generateJSpatternFillOrTypeOrState());
-            js.append(generateJSpatternFillOrTypeOrState1());
-            js.append(generateJSpatternFillOrTypeOrState2());
-            js.append(generateJSpatternFillOrTypeOrState3());
-            js.append(generateJSpatternFillOrTypeOrState4());
-            js.append(generateJScolor());
-            js.append(generateJSthickness());
-            js.append(generateJSsize());
-            js.append(generateJSrisingFill());
-            js.append(generateJSpatternFillOrTypeOrState5());
-            js.append(generateJSpatternFillOrTypeOrState6());
-            js.append(generateJSpatternFillOrTypeOrState7());
-            js.append(generateJSpatternFillOrTypeOrState8());
-            js.append(generateJSpatternFillOrTypeOrState9());
-            js.append(generateJScolor1());
-            js.append(generateJSthickness1());
-            js.append(generateJSsize1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSfallingFill());
+////        
+//            js.append(generateJSpatternFillOrTypeOrState());
+////        
+//            js.append(generateJSpatternFillOrTypeOrState1());
+////        
+//            js.append(generateJSpatternFillOrTypeOrState2());
+////        
+//            js.append(generateJSpatternFillOrTypeOrState3());
+////        
+//            js.append(generateJSpatternFillOrTypeOrState4());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSsize());
+////        
+//            js.append(generateJSrisingFill());
+////        
+//            js.append(generateJSpatternFillOrTypeOrState5());
+////        
+//            js.append(generateJSpatternFillOrTypeOrState6());
+////        
+//            js.append(generateJSpatternFillOrTypeOrState7());
+////        
+//            js.append(generateJSpatternFillOrTypeOrState8());
+////        
+//            js.append(generateJSpatternFillOrTypeOrState9());
+////        
+//            js.append(generateJScolor1());
+////        
+//            js.append(generateJSthickness1());
+////        
+//            js.append(generateJSsize1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

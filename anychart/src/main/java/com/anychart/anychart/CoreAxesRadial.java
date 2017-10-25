@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -92,10 +94,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".labels(%s)", labels));
+            js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
             }
         }
@@ -151,10 +153,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minorLabels(%s)", minorLabels));
+            js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", minorLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
                 js.setLength(0);
             }
         }
@@ -210,10 +212,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
+            js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -260,10 +262,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -284,10 +286,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+            js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
                 js.setLength(0);
             }
         }
@@ -323,10 +325,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -349,10 +351,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", scale1));
+            js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale1));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
             }
         }
@@ -375,10 +377,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -415,10 +417,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -448,10 +450,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -481,10 +483,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -516,10 +518,10 @@ public class CoreAxesRadial extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".ticks(%s)", ticks));
+            js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", ticks));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -550,9 +552,47 @@ public class CoreAxesRadial extends VisualBase {
         return this;
     }
 
+
+//
+//    private String generateJSUiLabelsFactory getLabels() {
+//        if (UiLabelsFactory getLabels != null) {
+//            return UiLabelsFactory getLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getMinorLabels() {
+//        if (UiLabelsFactory getMinorLabels != null) {
+//            return UiLabelsFactory getMinorLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSRadialTicks getMinorTicks() {
+//        if (RadialTicks getMinorTicks != null) {
+//            return RadialTicks getMinorTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScalesBase getScale() {
+//        if (ScalesBase getScale != null) {
+//            return ScalesBase getScale.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSRadialTicks getTicks() {
+//        if (RadialTicks getTicks != null) {
+//            return RadialTicks getTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
+            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -560,6 +600,7 @@ public class CoreAxesRadial extends VisualBase {
     private String generateJSgetMinorLabels() {
         if (getMinorLabels != null) {
             return getMinorLabels.generateJs();
+            //return String.format(Locale.US, "getMinorLabels: %s,", ((getMinorLabels != null) ? getMinorLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -567,6 +608,7 @@ public class CoreAxesRadial extends VisualBase {
     private String generateJSgetMinorTicks() {
         if (getMinorTicks != null) {
             return getMinorTicks.generateJs();
+            //return String.format(Locale.US, "getMinorTicks: %s,", ((getMinorTicks != null) ? getMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -574,6 +616,7 @@ public class CoreAxesRadial extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
+            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -581,167 +624,7 @@ public class CoreAxesRadial extends VisualBase {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSdrawFirstLabel() {
-        if (drawFirstLabel != null) {
-            return String.format(Locale.US, "drawFirstLabel: %b,", drawFirstLabel);
-        }
-        return "";
-    }
-
-    private String generateJSdrawLastLabel() {
-        if (drawLastLabel != null) {
-            return String.format(Locale.US, "drawLastLabel: %b,", drawLastLabel);
-        }
-        return "";
-    }
-
-    private String generateJSlabels() {
-        if (labels != null) {
-            return String.format(Locale.US, "labels: %s,", labels);
-        }
-        return "";
-    }
-
-    private String generateJSlabels1() {
-        if (labels1 != null) {
-            return String.format(Locale.US, "labels: %b,", labels1);
-        }
-        return "";
-    }
-
-    private String generateJSminorLabels() {
-        if (minorLabels != null) {
-            return String.format(Locale.US, "minorLabels: %s,", minorLabels);
-        }
-        return "";
-    }
-
-    private String generateJSminorLabels1() {
-        if (minorLabels1 != null) {
-            return String.format(Locale.US, "minorLabels: %b,", minorLabels1);
-        }
-        return "";
-    }
-
-    private String generateJSminorTicks() {
-        if (minorTicks != null) {
-            return String.format(Locale.US, "minorTicks: %s,", minorTicks);
-        }
-        return "";
-    }
-
-    private String generateJSminorTicks1() {
-        if (minorTicks1 != null) {
-            return String.format(Locale.US, "minorTicks: %b,", minorTicks1);
-        }
-        return "";
-    }
-
-    private String generateJSoverlapMode() {
-        if (overlapMode != null) {
-            return String.format(Locale.US, "overlapMode: %s,", (overlapMode != null) ? overlapMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSoverlapMode1() {
-        if (overlapMode1 != null) {
-            return String.format(Locale.US, "overlapMode: %s,", overlapMode1);
-        }
-        return "";
-    }
-
-    private String generateJSscale() {
-        if (scale != null) {
-            return String.format(Locale.US, "scale: %s,", (scale != null) ? scale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSscale1() {
-        if (scale1 != null) {
-            return String.format(Locale.US, "scale: %s,", scale1);
-        }
-        return "";
-    }
-
-    private String generateJSscale2() {
-        if (scale2 != null) {
-            return String.format(Locale.US, "scale: %s,", (scale2 != null) ? scale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSscale3() {
-        if (scale3 != null) {
-            return String.format(Locale.US, "scale: %s,", scale3);
-        }
-        return "";
-    }
-
-    private String generateJSstroke() {
-        if (stroke != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke != null) ? stroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke1() {
-        if (stroke1 != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke1 != null) ? stroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke2() {
-        if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: %s,", stroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSticks() {
-        if (ticks != null) {
-            return String.format(Locale.US, "ticks: %s,", ticks);
-        }
-        return "";
-    }
-
-    private String generateJSticks1() {
-        if (ticks1 != null) {
-            return String.format(Locale.US, "ticks: %b,", ticks1);
+            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -769,33 +652,57 @@ public class CoreAxesRadial extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSdrawFirstLabel());
-            js.append(generateJSdrawLastLabel());
-            js.append(generateJSlabels());
-            js.append(generateJSlabels1());
-            js.append(generateJSminorLabels());
-            js.append(generateJSminorLabels1());
-            js.append(generateJSminorTicks());
-            js.append(generateJSminorTicks1());
-            js.append(generateJSoverlapMode());
-            js.append(generateJSoverlapMode1());
-            js.append(generateJSscale());
-            js.append(generateJSscale1());
-            js.append(generateJSscale2());
-            js.append(generateJSscale3());
-            js.append(generateJSstroke());
-            js.append(generateJSstroke1());
-            js.append(generateJSstroke2());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJSticks());
-            js.append(generateJSticks1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSdrawFirstLabel());
+////        
+//            js.append(generateJSdrawLastLabel());
+////        
+//            js.append(generateJSlabels());
+////        
+//            js.append(generateJSlabels1());
+////        
+//            js.append(generateJSminorLabels());
+////        
+//            js.append(generateJSminorLabels1());
+////        
+//            js.append(generateJSminorTicks());
+////        
+//            js.append(generateJSminorTicks1());
+////        
+//            js.append(generateJSoverlapMode());
+////        
+//            js.append(generateJSoverlapMode1());
+////        
+//            js.append(generateJSscale());
+////        
+//            js.append(generateJSscale1());
+////        
+//            js.append(generateJSscale2());
+////        
+//            js.append(generateJSscale3());
+////        
+//            js.append(generateJSstroke());
+////        
+//            js.append(generateJSstroke1());
+////        
+//            js.append(generateJSstroke2());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJSticks());
+////        
+//            js.append(generateJSticks1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

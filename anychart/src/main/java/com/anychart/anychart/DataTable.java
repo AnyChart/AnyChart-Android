@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -49,10 +51,10 @@ public class DataTable extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addData(%s, %b, %s)", Arrays.toString(rawData), removeFromStart, csvSettings));
+            js.append(String.format(Locale.US, ".addData(%s, %b, %s)", arrayToStringWrapQuotes(rawData), removeFromStart, wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %b, %s)", Arrays.toString(rawData), removeFromStart, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %b, %s)", arrayToStringWrapQuotes(rawData), removeFromStart, wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -80,10 +82,10 @@ public class DataTable extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addData(%s, %f, %s)", Arrays.toString(rawData), removeFromStart1, csvSettings));
+            js.append(String.format(Locale.US, ".addData(%s, %f, %s)", arrayToStringWrapQuotes(rawData), removeFromStart1, wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %f, %s)", Arrays.toString(rawData), removeFromStart1, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %f, %s)", arrayToStringWrapQuotes(rawData), removeFromStart1, wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -111,10 +113,10 @@ public class DataTable extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addData(%s, %b, %s)", rawData1, removeFromStart, csvSettings));
+            js.append(String.format(Locale.US, ".addData(%s, %b, %s)", wrapQuotes(rawData1), removeFromStart, wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %b, %s)", rawData1, removeFromStart, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %b, %s)", wrapQuotes(rawData1), removeFromStart, wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -142,10 +144,10 @@ public class DataTable extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addData(%s, %f, %s)", rawData1, removeFromStart1, csvSettings));
+            js.append(String.format(Locale.US, ".addData(%s, %f, %s)", wrapQuotes(rawData1), removeFromStart1, wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %f, %s)", rawData1, removeFromStart1, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %f, %s)", wrapQuotes(rawData1), removeFromStart1, wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -164,10 +166,10 @@ public class DataTable extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", fields));
+            js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", wrapQuotes(fields)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", fields));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(fields)));
                 js.setLength(0);
             }
         }
@@ -226,10 +228,10 @@ public class DataTable extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".remove(%f, %s)", startKey, endKey1));
+            js.append(String.format(Locale.US, ".remove(%f, %s)", startKey, wrapQuotes(endKey1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".remove(%f, %s)", startKey, endKey1));
+                onChangeListener.onChange(String.format(Locale.US, ".remove(%f, %s)", startKey, wrapQuotes(endKey1)));
                 js.setLength(0);
             }
         }
@@ -255,10 +257,10 @@ public class DataTable extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".remove(%s, %f)", startKey1, endKey));
+            js.append(String.format(Locale.US, ".remove(%s, %f)", wrapQuotes(startKey1), endKey));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".remove(%s, %f)", startKey1, endKey));
+                onChangeListener.onChange(String.format(Locale.US, ".remove(%s, %f)", wrapQuotes(startKey1), endKey));
                 js.setLength(0);
             }
         }
@@ -284,10 +286,10 @@ public class DataTable extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".remove(%s, %s)", startKey1, endKey1));
+            js.append(String.format(Locale.US, ".remove(%s, %s)", wrapQuotes(startKey1), wrapQuotes(endKey1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".remove(%s, %s)", startKey1, endKey1));
+                onChangeListener.onChange(String.format(Locale.US, ".remove(%s, %s)", wrapQuotes(startKey1), wrapQuotes(endKey1)));
                 js.setLength(0);
             }
         }
@@ -316,83 +318,8 @@ public class DataTable extends CoreBase {
         return this;
     }
 
-    private String generateJSrawData() {
-        if (rawData != null) {
-            return String.format(Locale.US, "rawData: %s,", Arrays.toString(rawData));
-        }
-        return "";
-    }
 
-    private String generateJSrawData1() {
-        if (rawData1 != null) {
-            return String.format(Locale.US, "rawData: %s,", rawData1);
-        }
-        return "";
-    }
-
-    private String generateJSremoveFromStart() {
-        if (removeFromStart != null) {
-            return String.format(Locale.US, "removeFromStart: %b,", removeFromStart);
-        }
-        return "";
-    }
-
-    private String generateJSremoveFromStart1() {
-        if (removeFromStart1 != null) {
-            return String.format(Locale.US, "removeFromStart: %f,", removeFromStart1);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings() {
-        if (csvSettings != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings);
-        }
-        return "";
-    }
-
-    private String generateJSfields() {
-        if (fields != null) {
-            return String.format(Locale.US, "fields: %s,", fields);
-        }
-        return "";
-    }
-
-    private String generateJSstartKey() {
-        if (startKey != null) {
-            return String.format(Locale.US, "startKey: %f,", startKey);
-        }
-        return "";
-    }
-
-    private String generateJSstartKey1() {
-        if (startKey1 != null) {
-            return String.format(Locale.US, "startKey: %s,", startKey1);
-        }
-        return "";
-    }
-
-    private String generateJSendKey() {
-        if (endKey != null) {
-            return String.format(Locale.US, "endKey: %f,", endKey);
-        }
-        return "";
-    }
-
-    private String generateJSendKey1() {
-        if (endKey1 != null) {
-            return String.format(Locale.US, "endKey: %s,", endKey1);
-        }
-        return "";
-    }
-
-    private String generateJScount() {
-        if (count != null) {
-            return String.format(Locale.US, "count: %f,", count);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -411,21 +338,33 @@ public class DataTable extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSrawData());
-            js.append(generateJSrawData1());
-            js.append(generateJSremoveFromStart());
-            js.append(generateJSremoveFromStart1());
-            js.append(generateJScsvSettings());
-            js.append(generateJSfields());
-            js.append(generateJSstartKey());
-            js.append(generateJSstartKey1());
-            js.append(generateJSendKey());
-            js.append(generateJSendKey1());
-            js.append(generateJScount());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSrawData());
+////        
+//            js.append(generateJSrawData1());
+////        
+//            js.append(generateJSremoveFromStart());
+////        
+//            js.append(generateJSremoveFromStart1());
+////        
+//            js.append(generateJScsvSettings());
+////        
+//            js.append(generateJSfields());
+////        
+//            js.append(generateJSstartKey());
+////        
+//            js.append(generateJSstartKey1());
+////        
+//            js.append(generateJSendKey());
+////        
+//            js.append(generateJSendKey1());
+////        
+//            js.append(generateJScount());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -1,8 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 // chart class
 public class Pert extends SeparateChart {
@@ -12,6 +13,26 @@ public class Pert extends SeparateChart {
 
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Pert setData(List<DataEntry> data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     
@@ -26,17 +47,15 @@ public class Pert extends SeparateChart {
     }
     private String criticalPath;
     private List<Pert> setCriticalPath = new ArrayList<>();
-
     public Pert setCriticalPath(String criticalPath) {
-        this.criticalPath = criticalPath;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".criticalPath(%s)", criticalPath));
+        js.append(String.format(Locale.US, ".criticalPath(%s)", wrapQuotes(criticalPath)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".criticalPath(%s)", criticalPath));
+            onChangeListener.onChange(String.format(Locale.US, ".criticalPath(%s)", wrapQuotes(criticalPath)));
             js.setLength(0);
         }
         return this;
@@ -68,19 +87,15 @@ public class Pert extends SeparateChart {
     private String fillMethod1;
     private Dependency[] deps;
     private List<Pert> setData = new ArrayList<>();
-
     public Pert setData(Tree data, TreeFillingMethod fillMethod, Dependency[] deps) {
-        this.data = data;
-        this.fillMethod = fillMethod;
-        this.deps = deps;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
+        js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
             js.setLength(0);
         }
         return this;
@@ -97,19 +112,15 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setData1 = new ArrayList<>();
-
     public Pert setData(Tree data, String fillMethod1, Dependency[] deps) {
-        this.data = data;
-        this.fillMethod1 = fillMethod1;
-        this.deps = deps;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1, arrayToString(deps)));
+        js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(fillMethod1), arrayToString(deps)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", fillMethod1, arrayToString(deps)));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(fillMethod1), arrayToString(deps)));
             js.setLength(0);
         }
         return this;
@@ -126,19 +137,15 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setData2 = new ArrayList<>();
-
     public Pert setData(TreeView data1, TreeFillingMethod fillMethod, Dependency[] deps) {
-        this.data1 = data1;
-        this.fillMethod = fillMethod;
-        this.deps = deps;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
+        js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
             js.setLength(0);
         }
         return this;
@@ -155,19 +162,15 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setData3 = new ArrayList<>();
-
     public Pert setData(TreeView data1, String fillMethod1, Dependency[] deps) {
-        this.data1 = data1;
-        this.fillMethod1 = fillMethod1;
-        this.deps = deps;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1, arrayToString(deps)));
+        js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(fillMethod1), arrayToString(deps)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", fillMethod1, arrayToString(deps)));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(fillMethod1), arrayToString(deps)));
             js.setLength(0);
         }
         return this;
@@ -184,19 +187,15 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setData4 = new ArrayList<>();
-
     public Pert setData(String data2, TreeFillingMethod fillMethod, Dependency[] deps) {
-        this.data2 = data2;
-        this.fillMethod = fillMethod;
-        this.deps = deps;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
+        js.append(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", data2, (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
             js.setLength(0);
         }
         return this;
@@ -213,19 +212,15 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setData5 = new ArrayList<>();
-
     public Pert setData(String data2, String fillMethod1, Dependency[] deps) {
-        this.data2 = data2;
-        this.fillMethod1 = fillMethod1;
-        this.deps = deps;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", data2, fillMethod1, arrayToString(deps)));
+        js.append(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(fillMethod1), arrayToString(deps)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", data2, fillMethod1, arrayToString(deps)));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(fillMethod1), arrayToString(deps)));
             js.setLength(0);
         }
         return this;
@@ -244,9 +239,7 @@ public class Pert extends SeparateChart {
     private Double horizontalSpacing;
     private String horizontalSpacing1;
     private List<Pert> setHorizontalSpacing = new ArrayList<>();
-
     public Pert setHorizontalSpacing(Double horizontalSpacing) {
-        this.horizontalSpacing = horizontalSpacing;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -271,17 +264,15 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setHorizontalSpacing1 = new ArrayList<>();
-
     public Pert setHorizontalSpacing(String horizontalSpacing1) {
-        this.horizontalSpacing1 = horizontalSpacing1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".horizontalSpacing(%s)", horizontalSpacing1));
+        js.append(String.format(Locale.US, ".horizontalSpacing(%s)", wrapQuotes(horizontalSpacing1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".horizontalSpacing(%s)", horizontalSpacing1));
+            onChangeListener.onChange(String.format(Locale.US, ".horizontalSpacing(%s)", wrapQuotes(horizontalSpacing1)));
             js.setLength(0);
         }
         return this;
@@ -308,17 +299,15 @@ public class Pert extends SeparateChart {
     }
     private String milestones;
     private List<Pert> setMilestones = new ArrayList<>();
-
     public Pert setMilestones(String milestones) {
-        this.milestones = milestones;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".milestones(%s)", milestones));
+        js.append(String.format(Locale.US, ".milestones(%s)", wrapQuotes(milestones)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".milestones(%s)", milestones));
+            onChangeListener.onChange(String.format(Locale.US, ".milestones(%s)", wrapQuotes(milestones)));
             js.setLength(0);
         }
         return this;
@@ -345,17 +334,15 @@ public class Pert extends SeparateChart {
     }
     private String tasks;
     private List<Pert> setTasks = new ArrayList<>();
-
     public Pert setTasks(String tasks) {
-        this.tasks = tasks;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".tasks(%s)", tasks));
+        js.append(String.format(Locale.US, ".tasks(%s)", wrapQuotes(tasks)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".tasks(%s)", tasks));
+            onChangeListener.onChange(String.format(Locale.US, ".tasks(%s)", wrapQuotes(tasks)));
             js.setLength(0);
         }
         return this;
@@ -374,9 +361,7 @@ public class Pert extends SeparateChart {
     private Double verticalSpacing;
     private String verticalSpacing1;
     private List<Pert> setVerticalSpacing = new ArrayList<>();
-
     public Pert setVerticalSpacing(Double verticalSpacing) {
-        this.verticalSpacing = verticalSpacing;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -401,17 +386,15 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setVerticalSpacing1 = new ArrayList<>();
-
     public Pert setVerticalSpacing(String verticalSpacing1) {
-        this.verticalSpacing1 = verticalSpacing1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".verticalSpacing(%s)", verticalSpacing1));
+        js.append(String.format(Locale.US, ".verticalSpacing(%s)", wrapQuotes(verticalSpacing1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".verticalSpacing(%s)", verticalSpacing1));
+            onChangeListener.onChange(String.format(Locale.US, ".verticalSpacing(%s)", wrapQuotes(verticalSpacing1)));
             js.setLength(0);
         }
         return this;

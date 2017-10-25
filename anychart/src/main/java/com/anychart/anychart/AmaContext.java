@@ -22,7 +22,7 @@ public class AmaContext extends JsObject  {
         this.queue = queue;
         this.slowPeriod = slowPeriod;
 
-        js.append(String.format(Locale.US, "{fastPeriod: %f,period: %f,prevNoise: %f,prevResult: %f,queue: %s,slowPeriod: %f}",  fastPeriod, period, prevNoise, prevResult, (queue != null) ? queue.generateJs() : "null", slowPeriod));
+        js.append(String.format(Locale.US, "{fastPeriod: %f,period: %f,prevNoise: %f,prevResult: %f,queue: %s,slowPeriod: %f}",  fastPeriod, period, prevNoise, prevResult, ((queue != null) ? queue.generateJs() : "null"), slowPeriod));
     }
 
     @Override

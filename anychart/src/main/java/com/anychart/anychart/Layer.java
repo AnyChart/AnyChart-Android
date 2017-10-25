@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Layer extends Element {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChild(%s)", (element != null) ? element.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".addChild(%s)", ((element != null) ? element.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", (element != null) ? element.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", ((element != null) ? element.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class Layer extends Element {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", (element1 != null) ? element1.generateJs() : "null", index));
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.generateJs() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", (element1 != null) ? element1.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.generateJs() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -179,10 +181,10 @@ public class Layer extends Element {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hasChild(%s);", (element2 != null) ? element2.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".hasChild(%s);", ((element2 != null) ? element2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hasChild(%s)", (element2 != null) ? element2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hasChild(%s)", ((element2 != null) ? element2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -206,10 +208,10 @@ public class Layer extends Element {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".html(%f, %f, %s);", x, y, text));
+            js.append(String.format(Locale.US, jsBase + ".html(%f, %f, %s);", x, y, wrapQuotes(text)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".html(%f, %f, %s)", x, y, text));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".html(%f, %f, %s)", x, y, wrapQuotes(text)));
                 js.setLength(0);
             }
         }
@@ -246,10 +248,10 @@ public class Layer extends Element {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f);", src, x1, y1, width, height));
+            js.append(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f);", wrapQuotes(src), x1, y1, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f)", src, x1, y1, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f)", wrapQuotes(src), x1, y1, width, height));
                 js.setLength(0);
             }
         }
@@ -273,10 +275,10 @@ public class Layer extends Element {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (element3 != null) ? element3.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".indexOfChild(%s);", ((element3 != null) ? element3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", (element3 != null) ? element3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", ((element3 != null) ? element3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -345,10 +347,10 @@ public class Layer extends Element {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".removeChild(%s);", (element4 != null) ? element4.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".removeChild(%s);", ((element4 != null) ? element4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", (element4 != null) ? element4.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((element4 != null) ? element4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -412,10 +414,10 @@ public class Layer extends Element {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".swapChildren(%s, %s)", (element5 != null) ? element5.generateJs() : "null", (element6 != null) ? element6.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".swapChildren(%s, %s)", ((element5 != null) ? element5.generateJs() : "null"), ((element6 != null) ? element6.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".swapChildren(%s, %s)", (element5 != null) ? element5.generateJs() : "null", (element6 != null) ? element6.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".swapChildren(%s, %s)", ((element5 != null) ? element5.generateJs() : "null"), ((element6 != null) ? element6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -490,254 +492,18 @@ public class Layer extends Element {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".text(%f, %f, %s);", x3, y3, text1));
+            js.append(String.format(Locale.US, jsBase + ".text(%f, %f, %s);", x3, y3, wrapQuotes(text1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%f, %f, %s)", x3, y3, text1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%f, %f, %s)", x3, y3, wrapQuotes(text1)));
                 js.setLength(0);
             }
         }
         return new VectorText(jsBase);
     }
 
-    private String generateJSelement() {
-        if (element != null) {
-            return String.format(Locale.US, "element: %s,", (element != null) ? element.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSelement1() {
-        if (element1 != null) {
-            return String.format(Locale.US, "element: %s,", (element1 != null) ? element1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJScx() {
-        if (cx != null) {
-            return String.format(Locale.US, "cx: %f,", cx);
-        }
-        return "";
-    }
-
-    private String generateJScy() {
-        if (cy != null) {
-            return String.format(Locale.US, "cy: %f,", cy);
-        }
-        return "";
-    }
-
-    private String generateJSradius() {
-        if (radius != null) {
-            return String.format(Locale.US, "radius: %f,", radius);
-        }
-        return "";
-    }
-
-    private String generateJScx1() {
-        if (cx1 != null) {
-            return String.format(Locale.US, "cx: %f,", cx1);
-        }
-        return "";
-    }
-
-    private String generateJScy1() {
-        if (cy1 != null) {
-            return String.format(Locale.US, "cy: %f,", cy1);
-        }
-        return "";
-    }
-
-    private String generateJSrx() {
-        if (rx != null) {
-            return String.format(Locale.US, "rx: %f,", rx);
-        }
-        return "";
-    }
-
-    private String generateJSry() {
-        if (ry != null) {
-            return String.format(Locale.US, "ry: %f,", ry);
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSelement2() {
-        if (element2 != null) {
-            return String.format(Locale.US, "element: %s,", (element2 != null) ? element2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSx() {
-        if (x != null) {
-            return String.format(Locale.US, "x: %f,", x);
-        }
-        return "";
-    }
-
-    private String generateJSy() {
-        if (y != null) {
-            return String.format(Locale.US, "y: %f,", y);
-        }
-        return "";
-    }
-
-    private String generateJStext() {
-        if (text != null) {
-            return String.format(Locale.US, "text: %s,", text);
-        }
-        return "";
-    }
-
-    private String generateJSsrc() {
-        if (src != null) {
-            return String.format(Locale.US, "src: %s,", src);
-        }
-        return "";
-    }
-
-    private String generateJSx1() {
-        if (x1 != null) {
-            return String.format(Locale.US, "x: %f,", x1);
-        }
-        return "";
-    }
-
-    private String generateJSy1() {
-        if (y1 != null) {
-            return String.format(Locale.US, "y: %f,", y1);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSelement3() {
-        if (element3 != null) {
-            return String.format(Locale.US, "element: %s,", (element3 != null) ? element3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSx2() {
-        if (x2 != null) {
-            return String.format(Locale.US, "x: %f,", x2);
-        }
-        return "";
-    }
-
-    private String generateJSy2() {
-        if (y2 != null) {
-            return String.format(Locale.US, "y: %f,", y2);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %f,", width1);
-        }
-        return "";
-    }
-
-    private String generateJSheight1() {
-        if (height1 != null) {
-            return String.format(Locale.US, "height: %f,", height1);
-        }
-        return "";
-    }
-
-    private String generateJSelement4() {
-        if (element4 != null) {
-            return String.format(Locale.US, "element: %s,", (element4 != null) ? element4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex2() {
-        if (index2 != null) {
-            return String.format(Locale.US, "index: %f,", index2);
-        }
-        return "";
-    }
-
-    private String generateJSelement5() {
-        if (element5 != null) {
-            return String.format(Locale.US, "element: %s,", (element5 != null) ? element5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSelement6() {
-        if (element6 != null) {
-            return String.format(Locale.US, "element: %s,", (element6 != null) ? element6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex3() {
-        if (index3 != null) {
-            return String.format(Locale.US, "index: %f,", index3);
-        }
-        return "";
-    }
-
-    private String generateJSindex4() {
-        if (index4 != null) {
-            return String.format(Locale.US, "index: %f,", index4);
-        }
-        return "";
-    }
-
-    private String generateJSx3() {
-        if (x3 != null) {
-            return String.format(Locale.US, "x: %f,", x3);
-        }
-        return "";
-    }
-
-    private String generateJSy3() {
-        if (y3 != null) {
-            return String.format(Locale.US, "y: %f,", y3);
-        }
-        return "";
-    }
-
-    private String generateJStext1() {
-        if (text1 != null) {
-            return String.format(Locale.US, "text: %s,", text1);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -756,44 +522,79 @@ public class Layer extends Element {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSelement());
-            js.append(generateJSelement1());
-            js.append(generateJSindex());
-            js.append(generateJScx());
-            js.append(generateJScy());
-            js.append(generateJSradius());
-            js.append(generateJScx1());
-            js.append(generateJScy1());
-            js.append(generateJSrx());
-            js.append(generateJSry());
-            js.append(generateJSindex1());
-            js.append(generateJSelement2());
-            js.append(generateJSx());
-            js.append(generateJSy());
-            js.append(generateJStext());
-            js.append(generateJSsrc());
-            js.append(generateJSx1());
-            js.append(generateJSy1());
-            js.append(generateJSwidth());
-            js.append(generateJSheight());
-            js.append(generateJSelement3());
-            js.append(generateJSx2());
-            js.append(generateJSy2());
-            js.append(generateJSwidth1());
-            js.append(generateJSheight1());
-            js.append(generateJSelement4());
-            js.append(generateJSindex2());
-            js.append(generateJSelement5());
-            js.append(generateJSelement6());
-            js.append(generateJSindex3());
-            js.append(generateJSindex4());
-            js.append(generateJSx3());
-            js.append(generateJSy3());
-            js.append(generateJStext1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSelement());
+////        
+//            js.append(generateJSelement1());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJScx());
+////        
+//            js.append(generateJScy());
+////        
+//            js.append(generateJSradius());
+////        
+//            js.append(generateJScx1());
+////        
+//            js.append(generateJScy1());
+////        
+//            js.append(generateJSrx());
+////        
+//            js.append(generateJSry());
+////        
+//            js.append(generateJSindex1());
+////        
+//            js.append(generateJSelement2());
+////        
+//            js.append(generateJSx());
+////        
+//            js.append(generateJSy());
+////        
+//            js.append(generateJStext());
+////        
+//            js.append(generateJSsrc());
+////        
+//            js.append(generateJSx1());
+////        
+//            js.append(generateJSy1());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSheight());
+////        
+//            js.append(generateJSelement3());
+////        
+//            js.append(generateJSx2());
+////        
+//            js.append(generateJSy2());
+////        
+//            js.append(generateJSwidth1());
+////        
+//            js.append(generateJSheight1());
+////        
+//            js.append(generateJSelement4());
+////        
+//            js.append(generateJSindex2());
+////        
+//            js.append(generateJSelement5());
+////        
+//            js.append(generateJSelement6());
+////        
+//            js.append(generateJSindex3());
+////        
+//            js.append(generateJSindex4());
+////        
+//            js.append(generateJSx3());
+////        
+//            js.append(generateJSy3());
+////        
+//            js.append(generateJStext1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

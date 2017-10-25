@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,22 +37,17 @@ public class TableIterator extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".get(%s);", field));
+            js.append(String.format(Locale.US, jsBase + ".get(%s);", wrapQuotes(field)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", field));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
                 js.setLength(0);
             }
         }
     }
 
-    private String generateJSfield() {
-        if (field != null) {
-            return String.format(Locale.US, "field: %s,", field);
-        }
-        return "";
-    }
 
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -69,11 +66,13 @@ public class TableIterator extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSfield());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSfield());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

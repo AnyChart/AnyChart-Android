@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -39,10 +41,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".align(%s)", (align != null) ? align.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", (align != null) ? align.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".align(%s)", align1));
+            js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", align1));
+                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
                 js.setLength(0);
             }
         }
@@ -100,10 +102,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".background(%s)", background));
+            js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
             }
         }
@@ -206,10 +208,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".height(%s)", height1));
+            js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", height1));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -232,10 +234,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hoverCursor(%s)", (hoverCursor != null) ? hoverCursor.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".hoverCursor(%s)", ((hoverCursor != null) ? hoverCursor.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hoverCursor(%s)", (hoverCursor != null) ? hoverCursor.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".hoverCursor(%s)", ((hoverCursor != null) ? hoverCursor.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -256,10 +258,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hoverCursor(%s)", hoverCursor1));
+            js.append(String.format(Locale.US, ".hoverCursor(%s)", wrapQuotes(hoverCursor1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hoverCursor(%s)", hoverCursor1));
+                onChangeListener.onChange(String.format(Locale.US, ".hoverCursor(%s)", wrapQuotes(hoverCursor1)));
                 js.setLength(0);
             }
         }
@@ -306,10 +308,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".iconSize(%s)", iconSize1));
+            js.append(String.format(Locale.US, ".iconSize(%s)", wrapQuotes(iconSize1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".iconSize(%s)", iconSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".iconSize(%s)", wrapQuotes(iconSize1)));
                 js.setLength(0);
             }
         }
@@ -332,10 +334,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".iconTextSpacing(%s)", iconTextSpacing));
+            js.append(String.format(Locale.US, ".iconTextSpacing(%s)", wrapQuotes(iconTextSpacing)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".iconTextSpacing(%s)", iconTextSpacing));
+                onChangeListener.onChange(String.format(Locale.US, ".iconTextSpacing(%s)", wrapQuotes(iconTextSpacing)));
                 js.setLength(0);
             }
         }
@@ -426,10 +428,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemsLayout(%s)", (itemsLayout != null) ? itemsLayout.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".itemsLayout(%s)", ((itemsLayout != null) ? itemsLayout.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", (itemsLayout != null) ? itemsLayout.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", ((itemsLayout != null) ? itemsLayout.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -450,10 +452,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemsLayout(%s)", itemsLayout1));
+            js.append(String.format(Locale.US, ".itemsLayout(%s)", wrapQuotes(itemsLayout1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", itemsLayout1));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", wrapQuotes(itemsLayout1)));
                 js.setLength(0);
             }
         }
@@ -476,10 +478,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemsSourceMode(%s)", (itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".itemsSourceMode(%s)", ((itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", (itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", ((itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -500,10 +502,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemsSourceMode(%s)", itemsSourceMode1));
+            js.append(String.format(Locale.US, ".itemsSourceMode(%s)", wrapQuotes(itemsSourceMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", itemsSourceMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", wrapQuotes(itemsSourceMode1)));
                 js.setLength(0);
             }
         }
@@ -526,10 +528,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemsSpacing(%s)", itemsSpacing));
+            js.append(String.format(Locale.US, ".itemsSpacing(%s)", wrapQuotes(itemsSpacing)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsSpacing(%s)", itemsSpacing));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsSpacing(%s)", wrapQuotes(itemsSpacing)));
                 js.setLength(0);
             }
         }
@@ -618,10 +620,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
+            js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
             }
         }
@@ -689,10 +691,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value, value2, value4, value6));
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
             }
         }
@@ -802,10 +804,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxHeight(%s)", maxHeight1));
+            js.append(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", maxHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
                 js.setLength(0);
             }
         }
@@ -852,10 +854,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxWidth(%s)", maxWidth1));
+            js.append(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", maxWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
                 js.setLength(0);
             }
         }
@@ -920,10 +922,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+            js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
             }
         }
@@ -1023,10 +1025,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value8, value10, value12, value14));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value8, value10, value12, value14));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
             }
         }
@@ -1153,10 +1155,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".paginator(%s)", paginator));
+            js.append(String.format(Locale.US, ".paginator(%s)", wrapQuotes(paginator)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".paginator(%s)", paginator));
+                onChangeListener.onChange(String.format(Locale.US, ".paginator(%s)", wrapQuotes(paginator)));
                 js.setLength(0);
             }
         }
@@ -1203,10 +1205,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".position(%s)", (position != null) ? position.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", (position != null) ? position.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1227,10 +1229,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".position(%s)", position1));
+            js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", position1));
+                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
             }
         }
@@ -1253,10 +1255,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".positionMode(%s)", (positionMode != null) ? positionMode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".positionMode(%s)", ((positionMode != null) ? positionMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", (positionMode != null) ? positionMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", ((positionMode != null) ? positionMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1277,10 +1279,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".positionMode(%s)", positionMode1));
+            js.append(String.format(Locale.US, ".positionMode(%s)", wrapQuotes(positionMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", positionMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", wrapQuotes(positionMode1)));
                 js.setLength(0);
             }
         }
@@ -1339,10 +1341,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".title(%s)", title1));
+            js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", title1));
+                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
             }
         }
@@ -1361,10 +1363,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".titleFormat(%s)", titleFormat));
+            js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", titleFormat));
+                onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);
             }
         }
@@ -1396,10 +1398,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".titleSeparator(%s)", titleSeparator));
+            js.append(String.format(Locale.US, ".titleSeparator(%s)", wrapQuotes(titleSeparator)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".titleSeparator(%s)", titleSeparator));
+                onChangeListener.onChange(String.format(Locale.US, ".titleSeparator(%s)", wrapQuotes(titleSeparator)));
                 js.setLength(0);
             }
         }
@@ -1455,10 +1457,10 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".tooltip(%s)", tooltip));
+            js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", tooltip));
+                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
             }
         }
@@ -1529,19 +1531,78 @@ public class UiLegend extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".width(%s)", width1));
+            js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width1));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSUiBackground getBackground() {
+//        if (UiBackground getBackground != null) {
+//            return UiBackground getBackground.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSAnychartMathRect getGetRemainingBounds() {
+//        if (AnychartMathRect getGetRemainingBounds != null) {
+//            return AnychartMathRect getGetRemainingBounds.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSMargin getMargin() {
+//        if (Margin getMargin != null) {
+//            return Margin getMargin.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUtilsPadding getPadding() {
+//        if (UtilsPadding getPadding != null) {
+//            return UtilsPadding getPadding.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSPaginator getPaginator() {
+//        if (Paginator getPaginator != null) {
+//            return Paginator getPaginator.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiTitle getTitle() {
+//        if (UiTitle getTitle != null) {
+//            return UiTitle getTitle.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSSeparator getTitleSeparator() {
+//        if (Separator getTitleSeparator != null) {
+//            return Separator getTitleSeparator.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSTooltip getTooltip() {
+//        if (Tooltip getTooltip != null) {
+//            return Tooltip getTooltip.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
+            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -1549,6 +1610,7 @@ public class UiLegend extends CoreText {
     private String generateJSgetGetRemainingBounds() {
         if (getGetRemainingBounds != null) {
             return getGetRemainingBounds.generateJs();
+            //return String.format(Locale.US, "getGetRemainingBounds: %s,", ((getGetRemainingBounds != null) ? getGetRemainingBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -1556,6 +1618,7 @@ public class UiLegend extends CoreText {
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
+            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -1563,6 +1626,7 @@ public class UiLegend extends CoreText {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
+            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -1570,6 +1634,7 @@ public class UiLegend extends CoreText {
     private String generateJSgetPaginator() {
         if (getPaginator != null) {
             return getPaginator.generateJs();
+            //return String.format(Locale.US, "getPaginator: %s,", ((getPaginator != null) ? getPaginator.generateJs() : "null"));
         }
         return "";
     }
@@ -1577,6 +1642,7 @@ public class UiLegend extends CoreText {
     private String generateJSgetTitle() {
         if (getTitle != null) {
             return getTitle.generateJs();
+            //return String.format(Locale.US, "getTitle: %s,", ((getTitle != null) ? getTitle.generateJs() : "null"));
         }
         return "";
     }
@@ -1584,6 +1650,7 @@ public class UiLegend extends CoreText {
     private String generateJSgetTitleSeparator() {
         if (getTitleSeparator != null) {
             return getTitleSeparator.generateJs();
+            //return String.format(Locale.US, "getTitleSeparator: %s,", ((getTitleSeparator != null) ? getTitleSeparator.generateJs() : "null"));
         }
         return "";
     }
@@ -1591,482 +1658,7 @@ public class UiLegend extends CoreText {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSalign() {
-        if (align != null) {
-            return String.format(Locale.US, "align: %s,", (align != null) ? align.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSalign1() {
-        if (align1 != null) {
-            return String.format(Locale.US, "align: %s,", align1);
-        }
-        return "";
-    }
-
-    private String generateJSbackground() {
-        if (background != null) {
-            return String.format(Locale.US, "background: %s,", background);
-        }
-        return "";
-    }
-
-    private String generateJSbackground1() {
-        if (background1 != null) {
-            return String.format(Locale.US, "background: %s,", background1);
-        }
-        return "";
-    }
-
-    private String generateJSbackground2() {
-        if (background2 != null) {
-            return String.format(Locale.US, "background: %b,", background2);
-        }
-        return "";
-    }
-
-    private String generateJSdrag() {
-        if (drag != null) {
-            return String.format(Locale.US, "drag: %b,", drag);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSheight1() {
-        if (height1 != null) {
-            return String.format(Locale.US, "height: %s,", height1);
-        }
-        return "";
-    }
-
-    private String generateJShoverCursor() {
-        if (hoverCursor != null) {
-            return String.format(Locale.US, "hoverCursor: %s,", (hoverCursor != null) ? hoverCursor.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJShoverCursor1() {
-        if (hoverCursor1 != null) {
-            return String.format(Locale.US, "hoverCursor: %s,", hoverCursor1);
-        }
-        return "";
-    }
-
-    private String generateJSiconSize() {
-        if (iconSize != null) {
-            return String.format(Locale.US, "iconSize: %f,", iconSize);
-        }
-        return "";
-    }
-
-    private String generateJSiconSize1() {
-        if (iconSize1 != null) {
-            return String.format(Locale.US, "iconSize: %s,", iconSize1);
-        }
-        return "";
-    }
-
-    private String generateJSiconTextSpacing() {
-        if (iconTextSpacing != null) {
-            return String.format(Locale.US, "iconTextSpacing: %s,", iconTextSpacing);
-        }
-        return "";
-    }
-
-    private String generateJSiconTextSpacing1() {
-        if (iconTextSpacing1 != null) {
-            return String.format(Locale.US, "iconTextSpacing: %f,", iconTextSpacing1);
-        }
-        return "";
-    }
-
-    private String generateJSinverted() {
-        if (inverted != null) {
-            return String.format(Locale.US, "inverted: %b,", inverted);
-        }
-        return "";
-    }
-
-    private String generateJSitems() {
-        if (items != null) {
-            return String.format(Locale.US, "items: %s,", arrayToString(items));
-        }
-        return "";
-    }
-
-    private String generateJSitemsLayout() {
-        if (itemsLayout != null) {
-            return String.format(Locale.US, "itemsLayout: %s,", (itemsLayout != null) ? itemsLayout.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSitemsLayout1() {
-        if (itemsLayout1 != null) {
-            return String.format(Locale.US, "itemsLayout: %s,", itemsLayout1);
-        }
-        return "";
-    }
-
-    private String generateJSitemsSourceMode() {
-        if (itemsSourceMode != null) {
-            return String.format(Locale.US, "itemsSourceMode: %s,", (itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSitemsSourceMode1() {
-        if (itemsSourceMode1 != null) {
-            return String.format(Locale.US, "itemsSourceMode: %s,", itemsSourceMode1);
-        }
-        return "";
-    }
-
-    private String generateJSitemsSpacing() {
-        if (itemsSpacing != null) {
-            return String.format(Locale.US, "itemsSpacing: %s,", itemsSpacing);
-        }
-        return "";
-    }
-
-    private String generateJSitemsSpacing1() {
-        if (itemsSpacing1 != null) {
-            return String.format(Locale.US, "itemsSpacing: %f,", itemsSpacing1);
-        }
-        return "";
-    }
-
-    private String generateJSmargin() {
-        if (margin != null) {
-            return String.format(Locale.US, "margin: %s,", Arrays.toString(margin));
-        }
-        return "";
-    }
-
-    private String generateJSmargin1() {
-        if (margin1 != null) {
-            return String.format(Locale.US, "margin: %s,", Arrays.toString(margin1));
-        }
-        return "";
-    }
-
-    private String generateJSmargin2() {
-        if (margin2 != null) {
-            return String.format(Locale.US, "margin: %s,", margin2);
-        }
-        return "";
-    }
-
-    private String generateJSmargin3() {
-        if (margin3 != null) {
-            return String.format(Locale.US, "margin: %f,", margin3);
-        }
-        return "";
-    }
-
-    private String generateJSmargin4() {
-        if (margin4 != null) {
-            return String.format(Locale.US, "margin: %s,", margin4);
-        }
-        return "";
-    }
-
-    private String generateJSvalue() {
-        if (value != null) {
-            return String.format(Locale.US, "value: %s,", value);
-        }
-        return "";
-    }
-
-    private String generateJSvalue1() {
-        if (value1 != null) {
-            return String.format(Locale.US, "value: %f,", value1);
-        }
-        return "";
-    }
-
-    private String generateJSvalue2() {
-        if (value2 != null) {
-            return String.format(Locale.US, "value: %s,", value2);
-        }
-        return "";
-    }
-
-    private String generateJSvalue3() {
-        if (value3 != null) {
-            return String.format(Locale.US, "value: %f,", value3);
-        }
-        return "";
-    }
-
-    private String generateJSvalue4() {
-        if (value4 != null) {
-            return String.format(Locale.US, "value: %s,", value4);
-        }
-        return "";
-    }
-
-    private String generateJSvalue5() {
-        if (value5 != null) {
-            return String.format(Locale.US, "value: %f,", value5);
-        }
-        return "";
-    }
-
-    private String generateJSvalue6() {
-        if (value6 != null) {
-            return String.format(Locale.US, "value: %s,", value6);
-        }
-        return "";
-    }
-
-    private String generateJSvalue7() {
-        if (value7 != null) {
-            return String.format(Locale.US, "value: %f,", value7);
-        }
-        return "";
-    }
-
-    private String generateJSmaxHeight() {
-        if (maxHeight != null) {
-            return String.format(Locale.US, "maxHeight: %f,", maxHeight);
-        }
-        return "";
-    }
-
-    private String generateJSmaxHeight1() {
-        if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
-        }
-        return "";
-    }
-
-    private String generateJSmaxWidth() {
-        if (maxWidth != null) {
-            return String.format(Locale.US, "maxWidth: %f,", maxWidth);
-        }
-        return "";
-    }
-
-    private String generateJSmaxWidth1() {
-        if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSpadding() {
-        if (padding != null) {
-            return String.format(Locale.US, "padding: %s,", Arrays.toString(padding));
-        }
-        return "";
-    }
-
-    private String generateJSpadding1() {
-        if (padding1 != null) {
-            return String.format(Locale.US, "padding: %s,", Arrays.toString(padding1));
-        }
-        return "";
-    }
-
-    private String generateJSpadding2() {
-        if (padding2 != null) {
-            return String.format(Locale.US, "padding: %s,", padding2);
-        }
-        return "";
-    }
-
-    private String generateJSpadding3() {
-        if (padding3 != null) {
-            return String.format(Locale.US, "padding: %f,", padding3);
-        }
-        return "";
-    }
-
-    private String generateJSpadding4() {
-        if (padding4 != null) {
-            return String.format(Locale.US, "padding: %s,", padding4);
-        }
-        return "";
-    }
-
-    private String generateJSvalue8() {
-        if (value8 != null) {
-            return String.format(Locale.US, "value: %s,", value8);
-        }
-        return "";
-    }
-
-    private String generateJSvalue9() {
-        if (value9 != null) {
-            return String.format(Locale.US, "value: %f,", value9);
-        }
-        return "";
-    }
-
-    private String generateJSvalue10() {
-        if (value10 != null) {
-            return String.format(Locale.US, "value: %s,", value10);
-        }
-        return "";
-    }
-
-    private String generateJSvalue11() {
-        if (value11 != null) {
-            return String.format(Locale.US, "value: %f,", value11);
-        }
-        return "";
-    }
-
-    private String generateJSvalue12() {
-        if (value12 != null) {
-            return String.format(Locale.US, "value: %s,", value12);
-        }
-        return "";
-    }
-
-    private String generateJSvalue13() {
-        if (value13 != null) {
-            return String.format(Locale.US, "value: %f,", value13);
-        }
-        return "";
-    }
-
-    private String generateJSvalue14() {
-        if (value14 != null) {
-            return String.format(Locale.US, "value: %s,", value14);
-        }
-        return "";
-    }
-
-    private String generateJSvalue15() {
-        if (value15 != null) {
-            return String.format(Locale.US, "value: %f,", value15);
-        }
-        return "";
-    }
-
-    private String generateJSpaginator() {
-        if (paginator != null) {
-            return String.format(Locale.US, "paginator: %s,", paginator);
-        }
-        return "";
-    }
-
-    private String generateJSpaginator1() {
-        if (paginator1 != null) {
-            return String.format(Locale.US, "paginator: %b,", paginator1);
-        }
-        return "";
-    }
-
-    private String generateJSposition() {
-        if (position != null) {
-            return String.format(Locale.US, "position: %s,", (position != null) ? position.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSposition1() {
-        if (position1 != null) {
-            return String.format(Locale.US, "position: %s,", position1);
-        }
-        return "";
-    }
-
-    private String generateJSpositionMode() {
-        if (positionMode != null) {
-            return String.format(Locale.US, "positionMode: %s,", (positionMode != null) ? positionMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpositionMode1() {
-        if (positionMode1 != null) {
-            return String.format(Locale.US, "positionMode: %s,", positionMode1);
-        }
-        return "";
-    }
-
-    private String generateJStitle() {
-        if (title != null) {
-            return String.format(Locale.US, "title: %b,", title);
-        }
-        return "";
-    }
-
-    private String generateJStitle1() {
-        if (title1 != null) {
-            return String.format(Locale.US, "title: %s,", title1);
-        }
-        return "";
-    }
-
-    private String generateJStitle2() {
-        if (title2 != null) {
-            return String.format(Locale.US, "title: %s,", title2);
-        }
-        return "";
-    }
-
-    private String generateJStitleFormat() {
-        if (titleFormat != null) {
-            return String.format(Locale.US, "titleFormat: %s,", titleFormat);
-        }
-        return "";
-    }
-
-    private String generateJStitleSeparator() {
-        if (titleSeparator != null) {
-            return String.format(Locale.US, "titleSeparator: %s,", titleSeparator);
-        }
-        return "";
-    }
-
-    private String generateJStitleSeparator1() {
-        if (titleSeparator1 != null) {
-            return String.format(Locale.US, "titleSeparator: %b,", titleSeparator1);
-        }
-        return "";
-    }
-
-    private String generateJStooltip() {
-        if (tooltip != null) {
-            return String.format(Locale.US, "tooltip: %s,", tooltip);
-        }
-        return "";
-    }
-
-    private String generateJStooltip1() {
-        if (tooltip1 != null) {
-            return String.format(Locale.US, "tooltip: %b,", tooltip1);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %s,", width1);
+            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -2097,78 +1689,147 @@ public class UiLegend extends CoreText {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSalign());
-            js.append(generateJSalign1());
-            js.append(generateJSbackground());
-            js.append(generateJSbackground1());
-            js.append(generateJSbackground2());
-            js.append(generateJSdrag());
-            js.append(generateJSheight());
-            js.append(generateJSheight1());
-            js.append(generateJShoverCursor());
-            js.append(generateJShoverCursor1());
-            js.append(generateJSiconSize());
-            js.append(generateJSiconSize1());
-            js.append(generateJSiconTextSpacing());
-            js.append(generateJSiconTextSpacing1());
-            js.append(generateJSinverted());
-            js.append(generateJSitems());
-            js.append(generateJSitemsLayout());
-            js.append(generateJSitemsLayout1());
-            js.append(generateJSitemsSourceMode());
-            js.append(generateJSitemsSourceMode1());
-            js.append(generateJSitemsSpacing());
-            js.append(generateJSitemsSpacing1());
-            js.append(generateJSmargin());
-            js.append(generateJSmargin1());
-            js.append(generateJSmargin2());
-            js.append(generateJSmargin3());
-            js.append(generateJSmargin4());
-            js.append(generateJSvalue());
-            js.append(generateJSvalue1());
-            js.append(generateJSvalue2());
-            js.append(generateJSvalue3());
-            js.append(generateJSvalue4());
-            js.append(generateJSvalue5());
-            js.append(generateJSvalue6());
-            js.append(generateJSvalue7());
-            js.append(generateJSmaxHeight());
-            js.append(generateJSmaxHeight1());
-            js.append(generateJSmaxWidth());
-            js.append(generateJSmaxWidth1());
-            js.append(generateJSpadding());
-            js.append(generateJSpadding1());
-            js.append(generateJSpadding2());
-            js.append(generateJSpadding3());
-            js.append(generateJSpadding4());
-            js.append(generateJSvalue8());
-            js.append(generateJSvalue9());
-            js.append(generateJSvalue10());
-            js.append(generateJSvalue11());
-            js.append(generateJSvalue12());
-            js.append(generateJSvalue13());
-            js.append(generateJSvalue14());
-            js.append(generateJSvalue15());
-            js.append(generateJSpaginator());
-            js.append(generateJSpaginator1());
-            js.append(generateJSposition());
-            js.append(generateJSposition1());
-            js.append(generateJSpositionMode());
-            js.append(generateJSpositionMode1());
-            js.append(generateJStitle());
-            js.append(generateJStitle1());
-            js.append(generateJStitle2());
-            js.append(generateJStitleFormat());
-            js.append(generateJStitleSeparator());
-            js.append(generateJStitleSeparator1());
-            js.append(generateJStooltip());
-            js.append(generateJStooltip1());
-            js.append(generateJSwidth());
-            js.append(generateJSwidth1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSalign());
+////        
+//            js.append(generateJSalign1());
+////        
+//            js.append(generateJSbackground());
+////        
+//            js.append(generateJSbackground1());
+////        
+//            js.append(generateJSbackground2());
+////        
+//            js.append(generateJSdrag());
+////        
+//            js.append(generateJSheight());
+////        
+//            js.append(generateJSheight1());
+////        
+//            js.append(generateJShoverCursor());
+////        
+//            js.append(generateJShoverCursor1());
+////        
+//            js.append(generateJSiconSize());
+////        
+//            js.append(generateJSiconSize1());
+////        
+//            js.append(generateJSiconTextSpacing());
+////        
+//            js.append(generateJSiconTextSpacing1());
+////        
+//            js.append(generateJSinverted());
+////        
+//            js.append(generateJSitems());
+////        
+//            js.append(generateJSitemsLayout());
+////        
+//            js.append(generateJSitemsLayout1());
+////        
+//            js.append(generateJSitemsSourceMode());
+////        
+//            js.append(generateJSitemsSourceMode1());
+////        
+//            js.append(generateJSitemsSpacing());
+////        
+//            js.append(generateJSitemsSpacing1());
+////        
+//            js.append(generateJSmargin());
+////        
+//            js.append(generateJSmargin1());
+////        
+//            js.append(generateJSmargin2());
+////        
+//            js.append(generateJSmargin3());
+////        
+//            js.append(generateJSmargin4());
+////        
+//            js.append(generateJSvalue());
+////        
+//            js.append(generateJSvalue1());
+////        
+//            js.append(generateJSvalue2());
+////        
+//            js.append(generateJSvalue3());
+////        
+//            js.append(generateJSvalue4());
+////        
+//            js.append(generateJSvalue5());
+////        
+//            js.append(generateJSvalue6());
+////        
+//            js.append(generateJSvalue7());
+////        
+//            js.append(generateJSmaxHeight());
+////        
+//            js.append(generateJSmaxHeight1());
+////        
+//            js.append(generateJSmaxWidth());
+////        
+//            js.append(generateJSmaxWidth1());
+////        
+//            js.append(generateJSpadding());
+////        
+//            js.append(generateJSpadding1());
+////        
+//            js.append(generateJSpadding2());
+////        
+//            js.append(generateJSpadding3());
+////        
+//            js.append(generateJSpadding4());
+////        
+//            js.append(generateJSvalue8());
+////        
+//            js.append(generateJSvalue9());
+////        
+//            js.append(generateJSvalue10());
+////        
+//            js.append(generateJSvalue11());
+////        
+//            js.append(generateJSvalue12());
+////        
+//            js.append(generateJSvalue13());
+////        
+//            js.append(generateJSvalue14());
+////        
+//            js.append(generateJSvalue15());
+////        
+//            js.append(generateJSpaginator());
+////        
+//            js.append(generateJSpaginator1());
+////        
+//            js.append(generateJSposition());
+////        
+//            js.append(generateJSposition1());
+////        
+//            js.append(generateJSpositionMode());
+////        
+//            js.append(generateJSpositionMode1());
+////        
+//            js.append(generateJStitle());
+////        
+//            js.append(generateJStitle1());
+////        
+//            js.append(generateJStitle2());
+////        
+//            js.append(generateJStitleFormat());
+////        
+//            js.append(generateJStitleSeparator());
+////        
+//            js.append(generateJStitleSeparator1());
+////        
+//            js.append(generateJStooltip());
+////        
+//            js.append(generateJStooltip1());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSwidth1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

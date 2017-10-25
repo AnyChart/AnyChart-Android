@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -24,6 +26,8 @@ public class FibonacciTimezones extends FibonacciBase {
 
     
 
+//
+
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
 
@@ -41,10 +45,11 @@ public class FibonacciTimezones extends FibonacciBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

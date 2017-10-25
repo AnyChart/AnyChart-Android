@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -252,10 +254,10 @@ public class Geo extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xMinorTicks(%s)", xMinorTicks));
+            js.append(String.format(Locale.US, ".xMinorTicks(%s)", wrapQuotes(xMinorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xMinorTicks(%s)", xMinorTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".xMinorTicks(%s)", wrapQuotes(xMinorTicks)));
                 js.setLength(0);
             }
         }
@@ -276,10 +278,10 @@ public class Geo extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xMinorTicks(%s)", Arrays.toString(xMinorTicks1)));
+            js.append(String.format(Locale.US, ".xMinorTicks(%s)", arrayToStringWrapQuotes(xMinorTicks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xMinorTicks(%s)", Arrays.toString(xMinorTicks1)));
+                onChangeListener.onChange(String.format(Locale.US, ".xMinorTicks(%s)", arrayToStringWrapQuotes(xMinorTicks1)));
                 js.setLength(0);
             }
         }
@@ -311,10 +313,10 @@ public class Geo extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xTicks(%s)", xTicks));
+            js.append(String.format(Locale.US, ".xTicks(%s)", wrapQuotes(xTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xTicks(%s)", xTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".xTicks(%s)", wrapQuotes(xTicks)));
                 js.setLength(0);
             }
         }
@@ -335,10 +337,10 @@ public class Geo extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xTicks(%s)", Arrays.toString(xTicks1)));
+            js.append(String.format(Locale.US, ".xTicks(%s)", arrayToStringWrapQuotes(xTicks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xTicks(%s)", Arrays.toString(xTicks1)));
+                onChangeListener.onChange(String.format(Locale.US, ".xTicks(%s)", arrayToStringWrapQuotes(xTicks1)));
                 js.setLength(0);
             }
         }
@@ -370,10 +372,10 @@ public class Geo extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yMinorTicks(%s)", yMinorTicks));
+            js.append(String.format(Locale.US, ".yMinorTicks(%s)", wrapQuotes(yMinorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yMinorTicks(%s)", yMinorTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".yMinorTicks(%s)", wrapQuotes(yMinorTicks)));
                 js.setLength(0);
             }
         }
@@ -394,10 +396,10 @@ public class Geo extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yMinorTicks(%s)", Arrays.toString(yMinorTicks1)));
+            js.append(String.format(Locale.US, ".yMinorTicks(%s)", arrayToStringWrapQuotes(yMinorTicks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yMinorTicks(%s)", Arrays.toString(yMinorTicks1)));
+                onChangeListener.onChange(String.format(Locale.US, ".yMinorTicks(%s)", arrayToStringWrapQuotes(yMinorTicks1)));
                 js.setLength(0);
             }
         }
@@ -429,10 +431,10 @@ public class Geo extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yTicks(%s)", yTicks));
+            js.append(String.format(Locale.US, ".yTicks(%s)", wrapQuotes(yTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yTicks(%s)", yTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".yTicks(%s)", wrapQuotes(yTicks)));
                 js.setLength(0);
             }
         }
@@ -453,19 +455,50 @@ public class Geo extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yTicks(%s)", Arrays.toString(yTicks1)));
+            js.append(String.format(Locale.US, ".yTicks(%s)", arrayToStringWrapQuotes(yTicks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yTicks(%s)", Arrays.toString(yTicks1)));
+                onChangeListener.onChange(String.format(Locale.US, ".yTicks(%s)", arrayToStringWrapQuotes(yTicks1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSGeoTicks getXMinorTicks() {
+//        if (GeoTicks getXMinorTicks != null) {
+//            return GeoTicks getXMinorTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGeoTicks getXTicks() {
+//        if (GeoTicks getXTicks != null) {
+//            return GeoTicks getXTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGeoTicks getYMinorTicks() {
+//        if (GeoTicks getYMinorTicks != null) {
+//            return GeoTicks getYMinorTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGeoTicks getYTicks() {
+//        if (GeoTicks getYTicks != null) {
+//            return GeoTicks getYTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetXMinorTicks() {
         if (getXMinorTicks != null) {
             return getXMinorTicks.generateJs();
+            //return String.format(Locale.US, "getXMinorTicks: %s,", ((getXMinorTicks != null) ? getXMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -473,6 +506,7 @@ public class Geo extends CoreBase {
     private String generateJSgetXTicks() {
         if (getXTicks != null) {
             return getXTicks.generateJs();
+            //return String.format(Locale.US, "getXTicks: %s,", ((getXTicks != null) ? getXTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -480,6 +514,7 @@ public class Geo extends CoreBase {
     private String generateJSgetYMinorTicks() {
         if (getYMinorTicks != null) {
             return getYMinorTicks.generateJs();
+            //return String.format(Locale.US, "getYMinorTicks: %s,", ((getYMinorTicks != null) ? getYMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -487,139 +522,7 @@ public class Geo extends CoreBase {
     private String generateJSgetYTicks() {
         if (getYTicks != null) {
             return getYTicks.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSx() {
-        if (x != null) {
-            return String.format(Locale.US, "x: %f,", x);
-        }
-        return "";
-    }
-
-    private String generateJSy() {
-        if (y != null) {
-            return String.format(Locale.US, "y: %f,", y);
-        }
-        return "";
-    }
-
-    private String generateJSgap() {
-        if (gap != null) {
-            return String.format(Locale.US, "gap: %f,", gap);
-        }
-        return "";
-    }
-
-    private String generateJSmaxTicksCount() {
-        if (maxTicksCount != null) {
-            return String.format(Locale.US, "maxTicksCount: %f,", maxTicksCount);
-        }
-        return "";
-    }
-
-    private String generateJSmaximumX() {
-        if (maximumX != null) {
-            return String.format(Locale.US, "maximumX: %f,", maximumX);
-        }
-        return "";
-    }
-
-    private String generateJSmaximumY() {
-        if (maximumY != null) {
-            return String.format(Locale.US, "maximumY: %f,", maximumY);
-        }
-        return "";
-    }
-
-    private String generateJSminimumX() {
-        if (minimumX != null) {
-            return String.format(Locale.US, "minimumX: %f,", minimumX);
-        }
-        return "";
-    }
-
-    private String generateJSminimumY() {
-        if (minimumY != null) {
-            return String.format(Locale.US, "minimumY: %f,", minimumY);
-        }
-        return "";
-    }
-
-    private String generateJSprecision() {
-        if (precision != null) {
-            return String.format(Locale.US, "precision: %s,", Arrays.toString(precision));
-        }
-        return "";
-    }
-
-    private String generateJSxPrecision() {
-        if (xPrecision != null) {
-            return String.format(Locale.US, "xPrecision: %f,", xPrecision);
-        }
-        return "";
-    }
-
-    private String generateJSyPrecision() {
-        if (yPrecision != null) {
-            return String.format(Locale.US, "yPrecision: %f,", yPrecision);
-        }
-        return "";
-    }
-
-    private String generateJSxMinorTicks() {
-        if (xMinorTicks != null) {
-            return String.format(Locale.US, "xMinorTicks: %s,", xMinorTicks);
-        }
-        return "";
-    }
-
-    private String generateJSxMinorTicks1() {
-        if (xMinorTicks1 != null) {
-            return String.format(Locale.US, "xMinorTicks: %s,", Arrays.toString(xMinorTicks1));
-        }
-        return "";
-    }
-
-    private String generateJSxTicks() {
-        if (xTicks != null) {
-            return String.format(Locale.US, "xTicks: %s,", xTicks);
-        }
-        return "";
-    }
-
-    private String generateJSxTicks1() {
-        if (xTicks1 != null) {
-            return String.format(Locale.US, "xTicks: %s,", Arrays.toString(xTicks1));
-        }
-        return "";
-    }
-
-    private String generateJSyMinorTicks() {
-        if (yMinorTicks != null) {
-            return String.format(Locale.US, "yMinorTicks: %s,", yMinorTicks);
-        }
-        return "";
-    }
-
-    private String generateJSyMinorTicks1() {
-        if (yMinorTicks1 != null) {
-            return String.format(Locale.US, "yMinorTicks: %s,", Arrays.toString(yMinorTicks1));
-        }
-        return "";
-    }
-
-    private String generateJSyTicks() {
-        if (yTicks != null) {
-            return String.format(Locale.US, "yTicks: %s,", yTicks);
-        }
-        return "";
-    }
-
-    private String generateJSyTicks1() {
-        if (yTicks1 != null) {
-            return String.format(Locale.US, "yTicks: %s,", Arrays.toString(yTicks1));
+            //return String.format(Locale.US, "getYTicks: %s,", ((getYTicks != null) ? getYTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -646,29 +549,49 @@ public class Geo extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSx());
-            js.append(generateJSy());
-            js.append(generateJSgap());
-            js.append(generateJSmaxTicksCount());
-            js.append(generateJSmaximumX());
-            js.append(generateJSmaximumY());
-            js.append(generateJSminimumX());
-            js.append(generateJSminimumY());
-            js.append(generateJSprecision());
-            js.append(generateJSxPrecision());
-            js.append(generateJSyPrecision());
-            js.append(generateJSxMinorTicks());
-            js.append(generateJSxMinorTicks1());
-            js.append(generateJSxTicks());
-            js.append(generateJSxTicks1());
-            js.append(generateJSyMinorTicks());
-            js.append(generateJSyMinorTicks1());
-            js.append(generateJSyTicks());
-            js.append(generateJSyTicks1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSx());
+////        
+//            js.append(generateJSy());
+////        
+//            js.append(generateJSgap());
+////        
+//            js.append(generateJSmaxTicksCount());
+////        
+//            js.append(generateJSmaximumX());
+////        
+//            js.append(generateJSmaximumY());
+////        
+//            js.append(generateJSminimumX());
+////        
+//            js.append(generateJSminimumY());
+////        
+//            js.append(generateJSprecision());
+////        
+//            js.append(generateJSxPrecision());
+////        
+//            js.append(generateJSyPrecision());
+////        
+//            js.append(generateJSxMinorTicks());
+////        
+//            js.append(generateJSxMinorTicks1());
+////        
+//            js.append(generateJSxTicks());
+////        
+//            js.append(generateJSxTicks1());
+////        
+//            js.append(generateJSyMinorTicks());
+////        
+//            js.append(generateJSyMinorTicks1());
+////        
+//            js.append(generateJSyTicks());
+////        
+//            js.append(generateJSyTicks1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

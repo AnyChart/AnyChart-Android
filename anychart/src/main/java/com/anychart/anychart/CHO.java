@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -61,10 +63,10 @@ public class CHO extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maType(%s)", (maType != null) ? maType.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".maType(%s)", ((maType != null) ? maType.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maType(%s)", (maType != null) ? maType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".maType(%s)", ((maType != null) ? maType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -85,10 +87,10 @@ public class CHO extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maType(%s)", maType1));
+            js.append(String.format(Locale.US, ".maType(%s)", wrapQuotes(maType1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maType(%s)", maType1));
+                onChangeListener.onChange(String.format(Locale.US, ".maType(%s)", wrapQuotes(maType1)));
                 js.setLength(0);
             }
         }
@@ -120,10 +122,10 @@ public class CHO extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -144,10 +146,10 @@ public class CHO extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".series(%s)", type1));
+            js.append(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", type1));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
                 js.setLength(0);
             }
         }
@@ -176,51 +178,19 @@ public class CHO extends JsObject {
         return this;
     }
 
+
+//
+//    private String generateJSStockSeriesBase getSeries() {
+//        if (StockSeriesBase getSeries != null) {
+//            return StockSeriesBase getSeries.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetSeries() {
         if (getSeries != null) {
             return getSeries.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSfastPeriod() {
-        if (fastPeriod != null) {
-            return String.format(Locale.US, "fastPeriod: %f,", fastPeriod);
-        }
-        return "";
-    }
-
-    private String generateJSmaType() {
-        if (maType != null) {
-            return String.format(Locale.US, "maType: %s,", (maType != null) ? maType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmaType1() {
-        if (maType1 != null) {
-            return String.format(Locale.US, "maType: %s,", maType1);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSslowPeriod() {
-        if (slowPeriod != null) {
-            return String.format(Locale.US, "slowPeriod: %f,", slowPeriod);
+            //return String.format(Locale.US, "getSeries: %s,", ((getSeries != null) ? getSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -244,16 +214,23 @@ public class CHO extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSfastPeriod());
-            js.append(generateJSmaType());
-            js.append(generateJSmaType1());
-            js.append(generateJStype());
-            js.append(generateJStype1());
-            js.append(generateJSslowPeriod());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSfastPeriod());
+////        
+//            js.append(generateJSmaType());
+////        
+//            js.append(generateJSmaType1());
+////        
+//            js.append(generateJStype());
+////        
+//            js.append(generateJStype1());
+////        
+//            js.append(generateJSslowPeriod());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

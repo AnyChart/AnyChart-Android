@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -41,10 +43,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".background(%s)", background));
+            js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
             }
         }
@@ -116,10 +118,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".currentPage(%s)", currentPage1));
+            js.append(String.format(Locale.US, ".currentPage(%s)", wrapQuotes(currentPage1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".currentPage(%s)", currentPage1));
+                onChangeListener.onChange(String.format(Locale.US, ".currentPage(%s)", wrapQuotes(currentPage1)));
                 js.setLength(0);
             }
         }
@@ -142,10 +144,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -166,10 +168,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".layout(%s)", layout1));
+            js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", layout1));
+                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);
             }
         }
@@ -240,10 +242,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom3)));
+            js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom3)));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
                 js.setLength(0);
             }
         }
@@ -308,10 +310,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".orientation(%s)", (orientation != null) ? orientation.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", (orientation != null) ? orientation.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -332,10 +334,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".orientation(%s)", orientation1));
+            js.append(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", orientation1));
+                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
                 js.setLength(0);
             }
         }
@@ -416,10 +418,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(spaceOrTopOrTopAndBottom8)));
+            js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom8)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(spaceOrTopOrTopAndBottom8)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom8)));
                 js.setLength(0);
             }
         }
@@ -479,9 +481,26 @@ public class Paginator extends CoreText {
         return this;
     }
 
+
+//
+//    private String generateJSMargin getMargin() {
+//        if (Margin getMargin != null) {
+//            return Margin getMargin.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUtilsPadding getPadding() {
+//        if (UtilsPadding getPadding != null) {
+//            return UtilsPadding getPadding.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
+            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -489,223 +508,7 @@ public class Paginator extends CoreText {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSbackground() {
-        if (background != null) {
-            return String.format(Locale.US, "background: %s,", background);
-        }
-        return "";
-    }
-
-    private String generateJSbackground1() {
-        if (background1 != null) {
-            return String.format(Locale.US, "background: %s,", background1);
-        }
-        return "";
-    }
-
-    private String generateJSbackground2() {
-        if (background2 != null) {
-            return String.format(Locale.US, "background: %b,", background2);
-        }
-        return "";
-    }
-
-    private String generateJScurrentPage() {
-        if (currentPage != null) {
-            return String.format(Locale.US, "currentPage: %f,", currentPage);
-        }
-        return "";
-    }
-
-    private String generateJScurrentPage1() {
-        if (currentPage1 != null) {
-            return String.format(Locale.US, "currentPage: %s,", currentPage1);
-        }
-        return "";
-    }
-
-    private String generateJSlayout() {
-        if (layout != null) {
-            return String.format(Locale.US, "layout: %s,", (layout != null) ? layout.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlayout1() {
-        if (layout1 != null) {
-            return String.format(Locale.US, "layout: %s,", layout1);
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom() {
-        if (spaceOrTopOrTopAndBottom != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", spaceOrTopOrTopAndBottom);
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom1() {
-        if (spaceOrTopOrTopAndBottom1 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %f,", spaceOrTopOrTopAndBottom1);
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom2() {
-        if (spaceOrTopOrTopAndBottom2 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", Arrays.toString(spaceOrTopOrTopAndBottom2));
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom3() {
-        if (spaceOrTopOrTopAndBottom3 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", Arrays.toString(spaceOrTopOrTopAndBottom3));
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom4() {
-        if (spaceOrTopOrTopAndBottom4 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", spaceOrTopOrTopAndBottom4);
-        }
-        return "";
-    }
-
-    private String generateJSrightOrRightAndLeft() {
-        if (rightOrRightAndLeft != null) {
-            return String.format(Locale.US, "rightOrRightAndLeft: %s,", rightOrRightAndLeft);
-        }
-        return "";
-    }
-
-    private String generateJSrightOrRightAndLeft1() {
-        if (rightOrRightAndLeft1 != null) {
-            return String.format(Locale.US, "rightOrRightAndLeft: %f,", rightOrRightAndLeft1);
-        }
-        return "";
-    }
-
-    private String generateJSbottom() {
-        if (bottom != null) {
-            return String.format(Locale.US, "bottom: %s,", bottom);
-        }
-        return "";
-    }
-
-    private String generateJSbottom1() {
-        if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: %f,", bottom1);
-        }
-        return "";
-    }
-
-    private String generateJSleft() {
-        if (left != null) {
-            return String.format(Locale.US, "left: %s,", left);
-        }
-        return "";
-    }
-
-    private String generateJSleft1() {
-        if (left1 != null) {
-            return String.format(Locale.US, "left: %f,", left1);
-        }
-        return "";
-    }
-
-    private String generateJSorientation() {
-        if (orientation != null) {
-            return String.format(Locale.US, "orientation: %s,", (orientation != null) ? orientation.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSorientation1() {
-        if (orientation1 != null) {
-            return String.format(Locale.US, "orientation: %s,", orientation1);
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom5() {
-        if (spaceOrTopOrTopAndBottom5 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", spaceOrTopOrTopAndBottom5);
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom6() {
-        if (spaceOrTopOrTopAndBottom6 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %f,", spaceOrTopOrTopAndBottom6);
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom7() {
-        if (spaceOrTopOrTopAndBottom7 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", Arrays.toString(spaceOrTopOrTopAndBottom7));
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom8() {
-        if (spaceOrTopOrTopAndBottom8 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", Arrays.toString(spaceOrTopOrTopAndBottom8));
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom9() {
-        if (spaceOrTopOrTopAndBottom9 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", spaceOrTopOrTopAndBottom9);
-        }
-        return "";
-    }
-
-    private String generateJSrightOrRightAndLeft2() {
-        if (rightOrRightAndLeft2 != null) {
-            return String.format(Locale.US, "rightOrRightAndLeft: %s,", rightOrRightAndLeft2);
-        }
-        return "";
-    }
-
-    private String generateJSrightOrRightAndLeft3() {
-        if (rightOrRightAndLeft3 != null) {
-            return String.format(Locale.US, "rightOrRightAndLeft: %f,", rightOrRightAndLeft3);
-        }
-        return "";
-    }
-
-    private String generateJSbottom2() {
-        if (bottom2 != null) {
-            return String.format(Locale.US, "bottom: %s,", bottom2);
-        }
-        return "";
-    }
-
-    private String generateJSbottom3() {
-        if (bottom3 != null) {
-            return String.format(Locale.US, "bottom: %f,", bottom3);
-        }
-        return "";
-    }
-
-    private String generateJSleft2() {
-        if (left2 != null) {
-            return String.format(Locale.US, "left: %s,", left2);
-        }
-        return "";
-    }
-
-    private String generateJSleft3() {
-        if (left3 != null) {
-            return String.format(Locale.US, "left: %f,", left3);
+            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -730,41 +533,73 @@ public class Paginator extends CoreText {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSbackground());
-            js.append(generateJSbackground1());
-            js.append(generateJSbackground2());
-            js.append(generateJScurrentPage());
-            js.append(generateJScurrentPage1());
-            js.append(generateJSlayout());
-            js.append(generateJSlayout1());
-            js.append(generateJSspaceOrTopOrTopAndBottom());
-            js.append(generateJSspaceOrTopOrTopAndBottom1());
-            js.append(generateJSspaceOrTopOrTopAndBottom2());
-            js.append(generateJSspaceOrTopOrTopAndBottom3());
-            js.append(generateJSspaceOrTopOrTopAndBottom4());
-            js.append(generateJSrightOrRightAndLeft());
-            js.append(generateJSrightOrRightAndLeft1());
-            js.append(generateJSbottom());
-            js.append(generateJSbottom1());
-            js.append(generateJSleft());
-            js.append(generateJSleft1());
-            js.append(generateJSorientation());
-            js.append(generateJSorientation1());
-            js.append(generateJSspaceOrTopOrTopAndBottom5());
-            js.append(generateJSspaceOrTopOrTopAndBottom6());
-            js.append(generateJSspaceOrTopOrTopAndBottom7());
-            js.append(generateJSspaceOrTopOrTopAndBottom8());
-            js.append(generateJSspaceOrTopOrTopAndBottom9());
-            js.append(generateJSrightOrRightAndLeft2());
-            js.append(generateJSrightOrRightAndLeft3());
-            js.append(generateJSbottom2());
-            js.append(generateJSbottom3());
-            js.append(generateJSleft2());
-            js.append(generateJSleft3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSbackground());
+////        
+//            js.append(generateJSbackground1());
+////        
+//            js.append(generateJSbackground2());
+////        
+//            js.append(generateJScurrentPage());
+////        
+//            js.append(generateJScurrentPage1());
+////        
+//            js.append(generateJSlayout());
+////        
+//            js.append(generateJSlayout1());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom1());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom2());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom3());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom4());
+////        
+//            js.append(generateJSrightOrRightAndLeft());
+////        
+//            js.append(generateJSrightOrRightAndLeft1());
+////        
+//            js.append(generateJSbottom());
+////        
+//            js.append(generateJSbottom1());
+////        
+//            js.append(generateJSleft());
+////        
+//            js.append(generateJSleft1());
+////        
+//            js.append(generateJSorientation());
+////        
+//            js.append(generateJSorientation1());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom5());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom6());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom7());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom8());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom9());
+////        
+//            js.append(generateJSrightOrRightAndLeft2());
+////        
+//            js.append(generateJSrightOrRightAndLeft3());
+////        
+//            js.append(generateJSbottom2());
+////        
+//            js.append(generateJSbottom3());
+////        
+//            js.append(generateJSleft2());
+////        
+//            js.append(generateJSleft3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

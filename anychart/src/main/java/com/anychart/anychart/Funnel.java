@@ -15,21 +15,39 @@ public class Funnel extends SeparateChart {
         jsBase = "chart";
     }
 
+    public Funnel setData(List<DataEntry> data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("]);");
+        }
+
+        return this;
+    }
+
     
     private String baseWidth;
     private Double baseWidth1;
     private List<Funnel> setBaseWidth = new ArrayList<>();
-
     public Funnel setBaseWidth(String baseWidth) {
-        this.baseWidth = baseWidth;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".baseWidth(%s)", baseWidth));
+        js.append(String.format(Locale.US, ".baseWidth(%s)", wrapQuotes(baseWidth)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".baseWidth(%s)", baseWidth));
+            onChangeListener.onChange(String.format(Locale.US, ".baseWidth(%s)", wrapQuotes(baseWidth)));
             js.setLength(0);
         }
         return this;
@@ -46,9 +64,7 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setBaseWidth1 = new ArrayList<>();
-
     public Funnel setBaseWidth(Double baseWidth1) {
-        this.baseWidth1 = baseWidth1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -75,9 +91,7 @@ public class Funnel extends SeparateChart {
     private Double connectorLength;
     private String connectorLength1;
     private List<Funnel> setConnectorLength = new ArrayList<>();
-
     public Funnel setConnectorLength(Double connectorLength) {
-        this.connectorLength = connectorLength;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -102,17 +116,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setConnectorLength1 = new ArrayList<>();
-
     public Funnel setConnectorLength(String connectorLength1) {
-        this.connectorLength1 = connectorLength1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorLength(%s)", connectorLength1));
+        js.append(String.format(Locale.US, ".connectorLength(%s)", wrapQuotes(connectorLength1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorLength(%s)", connectorLength1));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorLength(%s)", wrapQuotes(connectorLength1)));
             js.setLength(0);
         }
         return this;
@@ -136,21 +148,15 @@ public class Funnel extends SeparateChart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<Funnel> setConnectorStroke = new ArrayList<>();
-
     public Funnel setConnectorStroke(Stroke connectorStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.connectorStroke = connectorStroke;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -167,21 +173,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setConnectorStroke1 = new ArrayList<>();
-
     public Funnel setConnectorStroke(ColoredFill connectorStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.connectorStroke1 = connectorStroke1;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -198,21 +198,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setConnectorStroke2 = new ArrayList<>();
-
     public Funnel setConnectorStroke(String connectorStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.connectorStroke2 = connectorStroke2;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -237,29 +231,23 @@ public class Funnel extends SeparateChart {
 
         return getData;
     }
-    private View data;
-    private Mapping data1;
-    private Set data2;
-    private String[] data3;
-    private String data4;
-    private DataSettings data5;
-    private TextParsingMode csvSettings;
-    private String csvSettings1;
-    private TextParsingSettings csvSettings2;
     private List<Funnel> setData = new ArrayList<>();
-
-    public Funnel setData(View data, TextParsingMode csvSettings) {
-        this.data = data;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
+    public Funnel data(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
         }
         return this;
     }
@@ -274,495 +262,17 @@ public class Funnel extends SeparateChart {
         return "";
     }
 
-    private List<Funnel> setData1 = new ArrayList<>();
-
-    public Funnel setData(View data, String csvSettings1) {
-        this.data = data;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData2 = new ArrayList<>();
-
-    public Funnel setData(View data, TextParsingSettings csvSettings2) {
-        this.data = data;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData3 = new ArrayList<>();
-
-    public Funnel setData(Mapping data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData3() {
-        if (!setData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData4 = new ArrayList<>();
-
-    public Funnel setData(Mapping data1, String csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData5 = new ArrayList<>();
-
-    public Funnel setData(Mapping data1, TextParsingSettings csvSettings2) {
-        this.data1 = data1;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData6 = new ArrayList<>();
-
-    public Funnel setData(Set data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData7 = new ArrayList<>();
-
-    public Funnel setData(Set data2, String csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData8 = new ArrayList<>();
-
-    public Funnel setData(Set data2, TextParsingSettings csvSettings2) {
-        this.data2 = data2;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData8() {
-        if (!setData8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData9 = new ArrayList<>();
-
-    public Funnel setData(String[] data3, TextParsingMode csvSettings) {
-        this.data3 = data3;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData9() {
-        if (!setData9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData10 = new ArrayList<>();
-
-    public Funnel setData(String[] data3, String csvSettings1) {
-        this.data3 = data3;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData10() {
-        if (!setData10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData11 = new ArrayList<>();
-
-    public Funnel setData(String[] data3, TextParsingSettings csvSettings2) {
-        this.data3 = data3;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData11() {
-        if (!setData11.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData11) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData12 = new ArrayList<>();
-
-    public Funnel setData(String data4, TextParsingMode csvSettings) {
-        this.data4 = data4;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData12() {
-        if (!setData12.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData12) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData13 = new ArrayList<>();
-
-    public Funnel setData(String data4, String csvSettings1) {
-        this.data4 = data4;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData13() {
-        if (!setData13.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData13) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData14 = new ArrayList<>();
-
-    public Funnel setData(String data4, TextParsingSettings csvSettings2) {
-        this.data4 = data4;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData14() {
-        if (!setData14.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData14) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData15 = new ArrayList<>();
-
-    public Funnel setData(DataSettings data5, TextParsingMode csvSettings) {
-        this.data5 = data5;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData15() {
-        if (!setData15.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData15) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData16 = new ArrayList<>();
-
-    public Funnel setData(DataSettings data5, String csvSettings1) {
-        this.data5 = data5;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData16() {
-        if (!setData16.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData16) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Funnel> setData17 = new ArrayList<>();
-
-    public Funnel setData(DataSettings data5, TextParsingSettings csvSettings2) {
-        this.data5 = data5;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData17() {
-        if (!setData17.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData17) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
     private Fill fill;
     private List<Funnel> setFill = new ArrayList<>();
-
     public Funnel setFill(Fill fill) {
-        this.fill = fill;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -781,18 +291,15 @@ public class Funnel extends SeparateChart {
     private String color;
     private Double opacity;
     private List<Funnel> setFill1 = new ArrayList<>();
-
     public Funnel fill(String color, Double opacity) {
-        this.color = color;
-        this.opacity = opacity;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+        js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
             js.setLength(0);
         }
         return this;
@@ -816,12 +323,7 @@ public class Funnel extends SeparateChart {
     private String mode2;
     private Double opacity1;
     private List<Funnel> setFill2 = new ArrayList<>();
-
     public Funnel fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
-        this.keys = keys;
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -846,20 +348,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill3 = new ArrayList<>();
-
     public Funnel fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys = keys;
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -876,20 +373,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill4 = new ArrayList<>();
-
     public Funnel fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
-        this.keys = keys;
-        this.mode2 = mode2;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -906,20 +398,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill5 = new ArrayList<>();
-
     public Funnel fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
-        this.keys1 = keys1;
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -936,20 +423,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill6 = new ArrayList<>();
-
     public Funnel fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys1 = keys1;
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -966,20 +448,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill7 = new ArrayList<>();
-
     public Funnel fill(String[] keys1, String mode2, Double angle, Double opacity1) {
-        this.keys1 = keys1;
-        this.mode2 = mode2;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -1004,23 +481,15 @@ public class Funnel extends SeparateChart {
     private Double fx;
     private Double fy;
     private List<Funnel> setFill8 = new ArrayList<>();
-
     public Funnel fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
-        this.keys2 = keys2;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode3 = mode3;
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -1037,23 +506,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill9 = new ArrayList<>();
-
     public Funnel fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
-        this.keys3 = keys3;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode3 = mode3;
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -1088,20 +549,15 @@ public class Funnel extends SeparateChart {
     private Double thickness1;
     private Double size;
     private List<Funnel> setHatchFill = new ArrayList<>();
-
     public Funnel setHatchFill(PatternFill patternFillOrType, String color1, Double thickness1, Double size) {
-        this.patternFillOrType = patternFillOrType;
-        this.color1 = color1;
-        this.thickness1 = thickness1;
-        this.size = size;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -1118,20 +574,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFill1 = new ArrayList<>();
-
     public Funnel setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness1, Double size) {
-        this.patternFillOrType1 = patternFillOrType1;
-        this.color1 = color1;
-        this.thickness1 = thickness1;
-        this.size = size;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -1148,20 +599,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFill2 = new ArrayList<>();
-
     public Funnel setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness1, Double size) {
-        this.patternFillOrType2 = patternFillOrType2;
-        this.color1 = color1;
-        this.thickness1 = thickness1;
-        this.size = size;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -1178,20 +624,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFill3 = new ArrayList<>();
-
     public Funnel setHatchFill(String patternFillOrType3, String color1, Double thickness1, Double size) {
-        this.patternFillOrType3 = patternFillOrType3;
-        this.color1 = color1;
-        this.thickness1 = thickness1;
-        this.size = size;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -1208,20 +649,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFill4 = new ArrayList<>();
-
     public Funnel setHatchFill(Boolean patternFillOrType4, String color1, Double thickness1, Double size) {
-        this.patternFillOrType4 = patternFillOrType4;
-        this.color1 = color1;
-        this.thickness1 = thickness1;
-        this.size = size;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -1250,9 +686,7 @@ public class Funnel extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<Funnel> setHatchFillPalette = new ArrayList<>();
-
     public Funnel setHatchFillPalette(HatchFillType[] hatchFillPalette) {
-        this.hatchFillPalette = hatchFillPalette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1277,17 +711,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFillPalette1 = new ArrayList<>();
-
     public Funnel setHatchFillPalette(String hatchFillPalette1) {
-        this.hatchFillPalette1 = hatchFillPalette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
             js.setLength(0);
         }
         return this;
@@ -1304,17 +736,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFillPalette2 = new ArrayList<>();
-
     public Funnel setHatchFillPalette(HatchFills hatchFillPalette2) {
-        this.hatchFillPalette2 = hatchFillPalette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1332,9 +762,7 @@ public class Funnel extends SeparateChart {
 
     private Double index;
     private List<Funnel> setHover = new ArrayList<>();
-
     public Funnel setHover(Double index) {
-        this.index = index;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1369,17 +797,15 @@ public class Funnel extends SeparateChart {
     }
     private String hovered;
     private List<Funnel> setHovered = new ArrayList<>();
-
     public Funnel setHovered(String hovered) {
-        this.hovered = hovered;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
+        js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
+            onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
             js.setLength(0);
         }
         return this;
@@ -1407,17 +833,15 @@ public class Funnel extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Funnel> setLabels = new ArrayList<>();
-
     public Funnel setLabels(String labels) {
-        this.labels = labels;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".labels(%s)", labels));
+        js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
+            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
             js.setLength(0);
         }
         return this;
@@ -1434,9 +858,7 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setLabels1 = new ArrayList<>();
-
     public Funnel setLabels(Boolean labels1) {
-        this.labels1 = labels1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1474,17 +896,15 @@ public class Funnel extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<Funnel> setMarkerPalette = new ArrayList<>();
-
     public Funnel setMarkerPalette(Markers markerPalette) {
-        this.markerPalette = markerPalette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1501,17 +921,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setMarkerPalette1 = new ArrayList<>();
-
     public Funnel setMarkerPalette(String markerPalette1) {
-        this.markerPalette1 = markerPalette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
             js.setLength(0);
         }
         return this;
@@ -1528,9 +946,7 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setMarkerPalette2 = new ArrayList<>();
-
     public Funnel setMarkerPalette(MarkerType[] markerPalette2) {
-        this.markerPalette2 = markerPalette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1555,17 +971,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setMarkerPalette3 = new ArrayList<>();
-
     public Funnel setMarkerPalette(String[] markerPalette3) {
-        this.markerPalette3 = markerPalette3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
             js.setLength(0);
         }
         return this;
@@ -1594,17 +1008,15 @@ public class Funnel extends SeparateChart {
     private Boolean markers1;
     private String markers2;
     private List<Funnel> setMarkers = new ArrayList<>();
-
     public Funnel setMarkers(String markers) {
-        this.markers = markers;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markers(%s)", markers));
+        js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
+            onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
             js.setLength(0);
         }
         return this;
@@ -1621,9 +1033,7 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setMarkers1 = new ArrayList<>();
-
     public Funnel setMarkers(Boolean markers1) {
-        this.markers1 = markers1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1650,17 +1060,15 @@ public class Funnel extends SeparateChart {
     private String neckHeight;
     private Double neckHeight1;
     private List<Funnel> setNeckHeight = new ArrayList<>();
-
     public Funnel setNeckHeight(String neckHeight) {
-        this.neckHeight = neckHeight;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".neckHeight(%s)", neckHeight));
+        js.append(String.format(Locale.US, ".neckHeight(%s)", wrapQuotes(neckHeight)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".neckHeight(%s)", neckHeight));
+            onChangeListener.onChange(String.format(Locale.US, ".neckHeight(%s)", wrapQuotes(neckHeight)));
             js.setLength(0);
         }
         return this;
@@ -1677,9 +1085,7 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setNeckHeight1 = new ArrayList<>();
-
     public Funnel setNeckHeight(Double neckHeight1) {
-        this.neckHeight1 = neckHeight1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1706,17 +1112,15 @@ public class Funnel extends SeparateChart {
     private String neckWidth;
     private Double neckWidth1;
     private List<Funnel> setNeckWidth = new ArrayList<>();
-
     public Funnel setNeckWidth(String neckWidth) {
-        this.neckWidth = neckWidth;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".neckWidth(%s)", neckWidth));
+        js.append(String.format(Locale.US, ".neckWidth(%s)", wrapQuotes(neckWidth)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".neckWidth(%s)", neckWidth));
+            onChangeListener.onChange(String.format(Locale.US, ".neckWidth(%s)", wrapQuotes(neckWidth)));
             js.setLength(0);
         }
         return this;
@@ -1733,9 +1137,7 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setNeckWidth1 = new ArrayList<>();
-
     public Funnel setNeckWidth(Double neckWidth1) {
-        this.neckWidth1 = neckWidth1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1770,17 +1172,15 @@ public class Funnel extends SeparateChart {
     }
     private String normal;
     private List<Funnel> setNormal = new ArrayList<>();
-
     public Funnel setNormal(String normal) {
-        this.normal = normal;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".normal(%s)", normal));
+        js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+            onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
             js.setLength(0);
         }
         return this;
@@ -1800,17 +1200,15 @@ public class Funnel extends SeparateChart {
     private String overlapMode1;
     private Boolean overlapMode2;
     private List<Funnel> setOverlapMode = new ArrayList<>();
-
     public Funnel setOverlapMode(LabelsOverlapMode overlapMode) {
-        this.overlapMode = overlapMode;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1827,17 +1225,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setOverlapMode1 = new ArrayList<>();
-
     public Funnel setOverlapMode(String overlapMode1) {
-        this.overlapMode1 = overlapMode1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+        js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+            onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
             js.setLength(0);
         }
         return this;
@@ -1854,9 +1250,7 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setOverlapMode2 = new ArrayList<>();
-
     public Funnel setOverlapMode(Boolean overlapMode2) {
-        this.overlapMode2 = overlapMode2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1894,17 +1288,15 @@ public class Funnel extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<Funnel> setPalette = new ArrayList<>();
-
     public Funnel setPalette(RangeColors palette) {
-        this.palette = palette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1921,17 +1313,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setPalette1 = new ArrayList<>();
-
     public Funnel setPalette(DistinctColors palette1) {
-        this.palette1 = palette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1948,17 +1338,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setPalette2 = new ArrayList<>();
-
     public Funnel setPalette(String palette2) {
-        this.palette2 = palette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", palette2));
+        js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
             js.setLength(0);
         }
         return this;
@@ -1975,17 +1363,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setPalette3 = new ArrayList<>();
-
     public Funnel setPalette(String[] palette3) {
-        this.palette3 = palette3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
+        js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
             js.setLength(0);
         }
         return this;
@@ -2004,17 +1390,15 @@ public class Funnel extends SeparateChart {
     private String pointsPadding;
     private Double pointsPadding1;
     private List<Funnel> setPointsPadding = new ArrayList<>();
-
     public Funnel setPointsPadding(String pointsPadding) {
-        this.pointsPadding = pointsPadding;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".pointsPadding(%s)", pointsPadding));
+        js.append(String.format(Locale.US, ".pointsPadding(%s)", wrapQuotes(pointsPadding)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".pointsPadding(%s)", pointsPadding));
+            onChangeListener.onChange(String.format(Locale.US, ".pointsPadding(%s)", wrapQuotes(pointsPadding)));
             js.setLength(0);
         }
         return this;
@@ -2031,9 +1415,7 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setPointsPadding1 = new ArrayList<>();
-
     public Funnel setPointsPadding(Double pointsPadding1) {
-        this.pointsPadding1 = pointsPadding1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2059,9 +1441,7 @@ public class Funnel extends SeparateChart {
 
     private Double index1;
     private List<Funnel> setSelect = new ArrayList<>();
-
     public Funnel select(Double index1) {
-        this.index1 = index1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2087,9 +1467,7 @@ public class Funnel extends SeparateChart {
 
     private Double[] indexes;
     private List<Funnel> setSelect1 = new ArrayList<>();
-
     public Funnel select(Double[] indexes) {
-        this.indexes = indexes;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2124,17 +1502,15 @@ public class Funnel extends SeparateChart {
     }
     private String selected;
     private List<Funnel> setSelected = new ArrayList<>();
-
     public Funnel setSelected(String selected) {
-        this.selected = selected;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selected(%s)", selected));
+        js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
+            onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
             js.setLength(0);
         }
         return this;
@@ -2152,17 +1528,15 @@ public class Funnel extends SeparateChart {
 
     private Stroke stroke;
     private List<Funnel> setStroke = new ArrayList<>();
-
     public Funnel setStroke(Stroke stroke) {
-        this.stroke = stroke;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s)", (stroke != null) ? stroke.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", (stroke != null) ? stroke.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2186,21 +1560,15 @@ public class Funnel extends SeparateChart {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
     private List<Funnel> setStroke1 = new ArrayList<>();
-
     public Funnel setStroke(Stroke color2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color2 = color2;
-        this.thickness2 = thickness2;
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin1 = lineJoin1;
-        this.lineCap1 = lineCap1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2217,21 +1585,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setStroke2 = new ArrayList<>();
-
     public Funnel setStroke(ColoredFill color3, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color3 = color3;
-        this.thickness2 = thickness2;
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin1 = lineJoin1;
-        this.lineCap1 = lineCap1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2248,21 +1610,15 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setStroke3 = new ArrayList<>();
-
     public Funnel setStroke(String color4, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color4 = color4;
-        this.thickness2 = thickness2;
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin1 = lineJoin1;
-        this.lineCap1 = lineCap1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2373,23 +1729,6 @@ public class Funnel extends SeparateChart {
         js.append(generateJSsetConnectorStroke1());
         js.append(generateJSsetConnectorStroke2());
         js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetData2());
-        js.append(generateJSsetData3());
-        js.append(generateJSsetData4());
-        js.append(generateJSsetData5());
-        js.append(generateJSsetData6());
-        js.append(generateJSsetData7());
-        js.append(generateJSsetData8());
-        js.append(generateJSsetData9());
-        js.append(generateJSsetData10());
-        js.append(generateJSsetData11());
-        js.append(generateJSsetData12());
-        js.append(generateJSsetData13());
-        js.append(generateJSsetData14());
-        js.append(generateJSsetData15());
-        js.append(generateJSsetData16());
-        js.append(generateJSsetData17());
         js.append(generateJSsetFill());
         js.append(generateJSsetFill1());
         js.append(generateJSsetFill2());

@@ -15,11 +15,29 @@ public class ChartsLinearGauge extends SeparateChart {
         jsBase = "chart";
     }
 
+    public ChartsLinearGauge setData(List<DataEntry> data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("]);");
+        }
+
+        return this;
+    }
+
     
     private Double var_args;
-
     public void addPointer(Double var_args) {
-        this.var_args = var_args;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -51,24 +69,20 @@ public class ChartsLinearGauge extends SeparateChart {
     }
     private String axis;
     private Boolean axis1;
-
     public void setAxis(String axis) {
-        this.axis = axis;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".axis(%s);", axis));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".axis(%s);", wrapQuotes(axis)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s)", axis));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s)", wrapQuotes(axis)));
             js.setLength(0);
         }
     }
 
-
     public void setAxis(Boolean axis1) {
-        this.axis1 = axis1;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -84,26 +98,20 @@ public class ChartsLinearGauge extends SeparateChart {
     private Double index1;
     private String axis2;
     private Boolean axis3;
-
     public void setAxis(String axis2, Double index1) {
-        this.axis2 = axis2;
-        this.index1 = index1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".axis(%s, %f);", axis2, index1));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".axis(%s, %f);", wrapQuotes(axis2), index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s, %f)", axis2, index1));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s, %f)", wrapQuotes(axis2), index1));
             js.setLength(0);
         }
     }
 
-
     public void setAxis(Boolean axis3, Double index1) {
-        this.axis3 = axis3;
-        this.index1 = index1;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -118,9 +126,7 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double dataIndex;
     private List<LineargaugePointersBar> setBar = new ArrayList<>();
-
     public LineargaugePointersBar bar(Double dataIndex) {
-        this.dataIndex = dataIndex;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -155,233 +161,49 @@ public class ChartsLinearGauge extends SeparateChart {
 
         return getData;
     }
-    private View data;
-    private Set data1;
-    private String[] data2;
-    private String data3;
-    private TextParsingMode csvSettings;
-    private String csvSettings1;
-    private TextParsingSettings csvSettings2;
-
-    public void setData(View data, TextParsingMode csvSettings) {
-        this.data = data;
-        this.csvSettings = csvSettings;
+    public void data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
 
-
-    public void setData(View data, String csvSettings1) {
-        this.data = data;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setData(View data, TextParsingSettings csvSettings2) {
-        this.data = data;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setData(Set data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setData(Set data1, String csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setData(Set data1, TextParsingSettings csvSettings2) {
-        this.data1 = data1;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setData(String[] data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setData(String[] data2, String csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", Arrays.toString(data2), csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setData(String[] data2, TextParsingSettings csvSettings2) {
-        this.data2 = data2;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setData(String data3, TextParsingMode csvSettings) {
-        this.data3 = data3;
-        this.csvSettings = csvSettings;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setData(String data3, String csvSettings1) {
-        this.data3 = data3;
-        this.csvSettings1 = csvSettings1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", data3, csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", data3, csvSettings1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setData(String data3, TextParsingSettings csvSettings2) {
-        this.data3 = data3;
-        this.csvSettings2 = csvSettings2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
         }
     }
 
     private LinearGaugePointerType defaultPointerType;
     private String defaultPointerType1;
-
     public void setDefaultPointerType(LinearGaugePointerType defaultPointerType) {
-        this.defaultPointerType = defaultPointerType;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".defaultPointerType(%s);", (defaultPointerType != null) ? defaultPointerType.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".defaultPointerType(%s);", ((defaultPointerType != null) ? defaultPointerType.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultPointerType(%s)", (defaultPointerType != null) ? defaultPointerType.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultPointerType(%s)", ((defaultPointerType != null) ? defaultPointerType.generateJs() : "null")));
             js.setLength(0);
         }
     }
 
-
     public void setDefaultPointerType(String defaultPointerType1) {
-        this.defaultPointerType1 = defaultPointerType1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".defaultPointerType(%s);", defaultPointerType1));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".defaultPointerType(%s);", wrapQuotes(defaultPointerType1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultPointerType(%s)", defaultPointerType1));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultPointerType(%s)", wrapQuotes(defaultPointerType1)));
             js.setLength(0);
         }
     }
@@ -389,9 +211,7 @@ public class ChartsLinearGauge extends SeparateChart {
     private Double id;
     private String id1;
     private List<LineargaugePointersBase> setGetPointer = new ArrayList<>();
-
     public LineargaugePointersBase getPointer(Double id) {
-        this.id = id;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -418,17 +238,15 @@ public class ChartsLinearGauge extends SeparateChart {
     }
 
     private List<LineargaugePointersBase> setGetPointer1 = new ArrayList<>();
-
     public LineargaugePointersBase getPointer(String id1) {
-        this.id1 = id1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setGetPointer1" + ++variableIndex + " = " + jsBase + ".getPointer(%s);", id1));
+        js.append(String.format(Locale.US, "var setGetPointer1" + ++variableIndex + " = " + jsBase + ".getPointer(%s);", wrapQuotes(id1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPointer(%s)", id1));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPointer(%s)", wrapQuotes(id1)));
             js.setLength(0);
         }
         LineargaugePointersBase item = new LineargaugePointersBase("setGetPointer1" + variableIndex);
@@ -448,9 +266,7 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double index2;
     private List<LineargaugePointersBase> setGetPointerAt = new ArrayList<>();
-
     public LineargaugePointersBase getPointerAt(Double index2) {
-        this.index2 = index2;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -478,24 +294,20 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private String globalOffset;
     private Double globalOffset1;
-
     public void setGlobalOffset(String globalOffset) {
-        this.globalOffset = globalOffset;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".globalOffset(%s);", globalOffset));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".globalOffset(%s);", wrapQuotes(globalOffset)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".globalOffset(%s)", globalOffset));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".globalOffset(%s)", wrapQuotes(globalOffset)));
             js.setLength(0);
         }
     }
 
-
     public void setGlobalOffset(Double globalOffset1) {
-        this.globalOffset1 = globalOffset1;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -520,9 +332,7 @@ public class ChartsLinearGauge extends SeparateChart {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-
     public void setHatchFillPalette(HatchFillType[] hatchFillPalette) {
-        this.hatchFillPalette = hatchFillPalette;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -535,40 +345,34 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
-
     public void setHatchFillPalette(String hatchFillPalette1) {
-        this.hatchFillPalette1 = hatchFillPalette1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".hatchFillPalette(%s);", hatchFillPalette1));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".hatchFillPalette(%s);", wrapQuotes(hatchFillPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", hatchFillPalette1));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
             js.setLength(0);
         }
     }
 
-
     public void setHatchFillPalette(HatchFills hatchFillPalette2) {
-        this.hatchFillPalette2 = hatchFillPalette2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".hatchFillPalette(%s);", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".hatchFillPalette(%s);", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
             js.setLength(0);
         }
     }
 
     private Boolean isVertical;
-
     public void setIsVertical(Boolean isVertical) {
-        this.isVertical = isVertical;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -583,41 +387,35 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Layout layout;
     private String layout1;
-
     public void setLayout(Layout layout) {
-        this.layout = layout;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".layout(%s);", (layout != null) ? layout.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".layout(%s);", ((layout != null) ? layout.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
             js.setLength(0);
         }
     }
 
-
     public void setLayout(String layout1) {
-        this.layout1 = layout1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".layout(%s);", layout1));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".layout(%s);", wrapQuotes(layout1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s)", layout1));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s)", wrapQuotes(layout1)));
             js.setLength(0);
         }
     }
 
     private Double dataIndex1;
     private List<Led> setLed = new ArrayList<>();
-
     public Led led(Double dataIndex1) {
-        this.dataIndex1 = dataIndex1;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -645,9 +443,7 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double dataIndex2;
     private List<LineargaugePointersMarker> setMarker = new ArrayList<>();
-
     public LineargaugePointersMarker marker(Double dataIndex2) {
-        this.dataIndex2 = dataIndex2;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -686,39 +482,33 @@ public class ChartsLinearGauge extends SeparateChart {
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
-
     public void setMarkerPalette(Markers markerPalette) {
-        this.markerPalette = markerPalette;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".markerPalette(%s);", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".markerPalette(%s);", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
             js.setLength(0);
         }
     }
-
 
     public void setMarkerPalette(String markerPalette1) {
-        this.markerPalette1 = markerPalette1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".markerPalette(%s);", markerPalette1));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".markerPalette(%s);", wrapQuotes(markerPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s)", markerPalette1));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s)", wrapQuotes(markerPalette1)));
             js.setLength(0);
         }
     }
 
-
     public void setMarkerPalette(MarkerType[] markerPalette2) {
-        this.markerPalette2 = markerPalette2;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -731,17 +521,15 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
-
     public void setMarkerPalette(String[] markerPalette3) {
-        this.markerPalette3 = markerPalette3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".markerPalette(%s);", Arrays.toString(markerPalette3)));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".markerPalette(%s);", arrayToStringWrapQuotes(markerPalette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
             js.setLength(0);
         }
     }
@@ -759,71 +547,61 @@ public class ChartsLinearGauge extends SeparateChart {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-
     public void setPalette(RangeColors palette) {
-        this.palette = palette;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", (palette != null) ? palette.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", ((palette != null) ? palette.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
             js.setLength(0);
         }
     }
-
 
     public void setPalette(DistinctColors palette1) {
-        this.palette1 = palette1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", (palette1 != null) ? palette1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", ((palette1 != null) ? palette1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
             js.setLength(0);
         }
     }
-
 
     public void setPalette(String palette2) {
-        this.palette2 = palette2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", palette2));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", wrapQuotes(palette2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", palette2));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", wrapQuotes(palette2)));
             js.setLength(0);
         }
     }
 
-
     public void setPalette(String[] palette3) {
-        this.palette3 = palette3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", Arrays.toString(palette3)));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", arrayToStringWrapQuotes(palette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", Arrays.toString(palette3)));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", arrayToStringWrapQuotes(palette3)));
             js.setLength(0);
         }
     }
 
     private Double dataIndex3;
     private List<PointersRangeBar> setRangeBar = new ArrayList<>();
-
     public PointersRangeBar rangeBar(Double dataIndex3) {
-        this.dataIndex3 = dataIndex3;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -851,9 +629,7 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double id2;
     private String id3;
-
     public void removePointer(Double id2) {
-        this.id2 = id2;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -866,25 +642,21 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
-
     public void removePointer(String id3) {
-        this.id3 = id3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".removePointer(%s);", id3));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".removePointer(%s);", wrapQuotes(id3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".removePointer(%s)", id3));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".removePointer(%s)", wrapQuotes(id3)));
             js.setLength(0);
         }
     }
 
     private Double index3;
-
     public void removePointerAt(Double index3) {
-        this.index3 = index3;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -910,47 +682,41 @@ public class ChartsLinearGauge extends SeparateChart {
     private String scale1;
     private ScalesBase scale2;
     private String scale3;
-
     public void setScale(ScaleTypes scale) {
-        this.scale = scale;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scale(%s);", ((scale != null) ? scale.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
             js.setLength(0);
         }
     }
-
 
     public void setScale(String scale1) {
-        this.scale1 = scale1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scale(%s);", scale1));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scale(%s);", wrapQuotes(scale1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", scale1));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", wrapQuotes(scale1)));
             js.setLength(0);
         }
     }
 
-
     public void setScale(ScalesBase scale2) {
-        this.scale2 = scale2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scale(%s);", (scale2 != null) ? scale2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scale(%s);", ((scale2 != null) ? scale2.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
             js.setLength(0);
         }
     }
@@ -974,24 +740,20 @@ public class ChartsLinearGauge extends SeparateChart {
     }
     private String scaleBar;
     private Boolean scaleBar1;
-
     public void setScaleBar(String scaleBar) {
-        this.scaleBar = scaleBar;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scaleBar(%s);", scaleBar));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scaleBar(%s);", wrapQuotes(scaleBar)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleBar(%s)", scaleBar));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleBar(%s)", wrapQuotes(scaleBar)));
             js.setLength(0);
         }
     }
 
-
     public void setScaleBar(Boolean scaleBar1) {
-        this.scaleBar1 = scaleBar1;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1007,26 +769,20 @@ public class ChartsLinearGauge extends SeparateChart {
     private Double index5;
     private String scaleBar2;
     private Boolean scaleBar3;
-
     public void setScaleBar(String scaleBar2, Double index5) {
-        this.scaleBar2 = scaleBar2;
-        this.index5 = index5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scaleBar(%s, %f);", scaleBar2, index5));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scaleBar(%s, %f);", wrapQuotes(scaleBar2), index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleBar(%s, %f)", scaleBar2, index5));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleBar(%s, %f)", wrapQuotes(scaleBar2), index5));
             js.setLength(0);
         }
     }
 
-
     public void setScaleBar(Boolean scaleBar3, Double index5) {
-        this.scaleBar3 = scaleBar3;
-        this.index5 = index5;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1041,9 +797,7 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double dataIndex4;
     private List<Tank> setTank = new ArrayList<>();
-
     public Tank tank(Double dataIndex4) {
-        this.dataIndex4 = dataIndex4;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1071,9 +825,7 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double dataIndex5;
     private List<Thermometer> setThermometer = new ArrayList<>();
-
     public Thermometer thermometer(Double dataIndex5) {
-        this.dataIndex5 = dataIndex5;
         if (isChain) {
             js.append(";");
             isChain = false;

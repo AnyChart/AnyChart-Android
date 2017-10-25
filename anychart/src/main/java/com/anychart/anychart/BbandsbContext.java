@@ -20,7 +20,7 @@ public class BbandsbContext extends JsObject  {
         this.prevDeviation = prevDeviation;
         this.prevResult = prevResult;
 
-        js.append(String.format(Locale.US, "{deviation: %f,highQueue: %s,period: %f,prevDeviation: %f,prevResult: %f}",  deviation, (highQueue != null) ? highQueue.generateJs() : "null", period, prevDeviation, prevResult));
+        js.append(String.format(Locale.US, "{deviation: %f,highQueue: %s,period: %f,prevDeviation: %f,prevResult: %f}",  deviation, ((highQueue != null) ? highQueue.generateJs() : "null"), period, prevDeviation, prevResult));
     }
 
     @Override

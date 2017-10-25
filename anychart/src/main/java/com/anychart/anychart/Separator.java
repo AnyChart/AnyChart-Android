@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -60,10 +62,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+            js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -141,10 +143,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -178,10 +180,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -215,10 +217,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -252,10 +254,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -289,10 +291,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -344,10 +346,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -391,10 +393,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -442,10 +444,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".height(%s)", height1));
+            js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", height1));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -516,10 +518,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom3)));
+            js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom3)));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
                 js.setLength(0);
             }
         }
@@ -568,13 +570,20 @@ public class Separator extends VisualBase {
         return this;
     }
 
-    private Separator getOrientation;
+    private List<Separator> getOrientation = new ArrayList<>();
 
-    public Separator getOrientation() {
-        if (getOrientation == null)
-            getOrientation = new Separator(jsBase + ".orientation()");
+    public Separator getOrientation(Orientation orientation) {
+        Separator item = new Separator(jsBase + ".orientation(" + ((orientation != null) ? orientation.generateJs() : "null") + ")");
+        getOrientation.add(item);
+        return item;
+    }
 
-        return getOrientation;
+    private List<Separator> getOrientation1 = new ArrayList<>();
+
+    public Separator getOrientation(String orientation) {
+        Separator item = new Separator(jsBase + ".orientation(" + wrapQuotes(orientation) + ")");
+        getOrientation1.add(item);
+        return item;
     }
 
     private Stroke strokeOrFill;
@@ -607,10 +616,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -640,10 +649,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -673,10 +682,10 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", strokeOrFill2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", strokeOrFill2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -723,316 +732,70 @@ public class Separator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".width(%s)", width1));
+            js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width1));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSMargin getMargin() {
+//        if (Margin getMargin != null) {
+//            return Margin getMargin.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSSeparator getOrientation() {
+//        if (Separator getOrientation != null) {
+//            return Separator getOrientation.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSSeparator getOrientation1() {
+//        if (Separator getOrientation1 != null) {
+//            return Separator getOrientation1.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
+            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetOrientation() {
-        if (getOrientation != null) {
-            return getOrientation.generateJs();
+        if (!getOrientation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : getOrientation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSfill() {
-        if (fill != null) {
-            return String.format(Locale.US, "fill: %s,", (fill != null) ? fill.generateJs() : "null");
+
+    private String generateJSgetOrientation1() {
+        if (!getOrientation1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : getOrientation1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSopacity() {
-        if (opacity != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity);
-        }
-        return "";
-    }
-
-    private String generateJSkeys() {
-        if (keys != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys));
-        }
-        return "";
-    }
-
-    private String generateJSkeys1() {
-        if (keys1 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys1));
-        }
-        return "";
-    }
-
-    private String generateJSangle() {
-        if (angle != null) {
-            return String.format(Locale.US, "angle: %f,", angle);
-        }
-        return "";
-    }
-
-    private String generateJSmode() {
-        if (mode != null) {
-            return String.format(Locale.US, "mode: %b,", mode);
-        }
-        return "";
-    }
-
-    private String generateJSmode1() {
-        if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode1 != null) ? mode1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode2() {
-        if (mode2 != null) {
-            return String.format(Locale.US, "mode: %s,", mode2);
-        }
-        return "";
-    }
-
-    private String generateJSopacity1() {
-        if (opacity1 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity1);
-        }
-        return "";
-    }
-
-    private String generateJSkeys2() {
-        if (keys2 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys2));
-        }
-        return "";
-    }
-
-    private String generateJSkeys3() {
-        if (keys3 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys3));
-        }
-        return "";
-    }
-
-    private String generateJScx() {
-        if (cx != null) {
-            return String.format(Locale.US, "cx: %f,", cx);
-        }
-        return "";
-    }
-
-    private String generateJScy() {
-        if (cy != null) {
-            return String.format(Locale.US, "cy: %f,", cy);
-        }
-        return "";
-    }
-
-    private String generateJSmode3() {
-        if (mode3 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity2() {
-        if (opacity2 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity2);
-        }
-        return "";
-    }
-
-    private String generateJSfx() {
-        if (fx != null) {
-            return String.format(Locale.US, "fx: %f,", fx);
-        }
-        return "";
-    }
-
-    private String generateJSfy() {
-        if (fy != null) {
-            return String.format(Locale.US, "fy: %f,", fy);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings() {
-        if (imageSettings != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings != null) ? imageSettings.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSheight1() {
-        if (height1 != null) {
-            return String.format(Locale.US, "height: %s,", height1);
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom() {
-        if (spaceOrTopOrTopAndBottom != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", spaceOrTopOrTopAndBottom);
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom1() {
-        if (spaceOrTopOrTopAndBottom1 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %f,", spaceOrTopOrTopAndBottom1);
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom2() {
-        if (spaceOrTopOrTopAndBottom2 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", Arrays.toString(spaceOrTopOrTopAndBottom2));
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom3() {
-        if (spaceOrTopOrTopAndBottom3 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", Arrays.toString(spaceOrTopOrTopAndBottom3));
-        }
-        return "";
-    }
-
-    private String generateJSspaceOrTopOrTopAndBottom4() {
-        if (spaceOrTopOrTopAndBottom4 != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", spaceOrTopOrTopAndBottom4);
-        }
-        return "";
-    }
-
-    private String generateJSrightOrRightAndLeft() {
-        if (rightOrRightAndLeft != null) {
-            return String.format(Locale.US, "rightOrRightAndLeft: %s,", rightOrRightAndLeft);
-        }
-        return "";
-    }
-
-    private String generateJSrightOrRightAndLeft1() {
-        if (rightOrRightAndLeft1 != null) {
-            return String.format(Locale.US, "rightOrRightAndLeft: %f,", rightOrRightAndLeft1);
-        }
-        return "";
-    }
-
-    private String generateJSbottom() {
-        if (bottom != null) {
-            return String.format(Locale.US, "bottom: %s,", bottom);
-        }
-        return "";
-    }
-
-    private String generateJSbottom1() {
-        if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: %f,", bottom1);
-        }
-        return "";
-    }
-
-    private String generateJSleft() {
-        if (left != null) {
-            return String.format(Locale.US, "left: %s,", left);
-        }
-        return "";
-    }
-
-    private String generateJSleft1() {
-        if (left1 != null) {
-            return String.format(Locale.US, "left: %f,", left1);
-        }
-        return "";
-    }
-
-    private String generateJSstrokeOrFill() {
-        if (strokeOrFill != null) {
-            return String.format(Locale.US, "strokeOrFill: %s,", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstrokeOrFill1() {
-        if (strokeOrFill1 != null) {
-            return String.format(Locale.US, "strokeOrFill: %s,", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstrokeOrFill2() {
-        if (strokeOrFill2 != null) {
-            return String.format(Locale.US, "strokeOrFill: %s,", strokeOrFill2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %s,", width1);
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -1043,6 +806,7 @@ public class Separator extends VisualBase {
     
         jsGetters.append(generateJSgetMargin());
         jsGetters.append(generateJSgetOrientation());
+        jsGetters.append(generateJSgetOrientation1());
 
         return jsGetters.toString();
     }
@@ -1054,51 +818,93 @@ public class Separator extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSfill());
-            js.append(generateJScolor());
-            js.append(generateJSopacity());
-            js.append(generateJSkeys());
-            js.append(generateJSkeys1());
-            js.append(generateJSangle());
-            js.append(generateJSmode());
-            js.append(generateJSmode1());
-            js.append(generateJSmode2());
-            js.append(generateJSopacity1());
-            js.append(generateJSkeys2());
-            js.append(generateJSkeys3());
-            js.append(generateJScx());
-            js.append(generateJScy());
-            js.append(generateJSmode3());
-            js.append(generateJSopacity2());
-            js.append(generateJSfx());
-            js.append(generateJSfy());
-            js.append(generateJSimageSettings());
-            js.append(generateJSheight());
-            js.append(generateJSheight1());
-            js.append(generateJSspaceOrTopOrTopAndBottom());
-            js.append(generateJSspaceOrTopOrTopAndBottom1());
-            js.append(generateJSspaceOrTopOrTopAndBottom2());
-            js.append(generateJSspaceOrTopOrTopAndBottom3());
-            js.append(generateJSspaceOrTopOrTopAndBottom4());
-            js.append(generateJSrightOrRightAndLeft());
-            js.append(generateJSrightOrRightAndLeft1());
-            js.append(generateJSbottom());
-            js.append(generateJSbottom1());
-            js.append(generateJSleft());
-            js.append(generateJSleft1());
-            js.append(generateJSstrokeOrFill());
-            js.append(generateJSstrokeOrFill1());
-            js.append(generateJSstrokeOrFill2());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJSwidth());
-            js.append(generateJSwidth1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSfill());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSopacity());
+////        
+//            js.append(generateJSkeys());
+////        
+//            js.append(generateJSkeys1());
+////        
+//            js.append(generateJSangle());
+////        
+//            js.append(generateJSmode());
+////        
+//            js.append(generateJSmode1());
+////        
+//            js.append(generateJSmode2());
+////        
+//            js.append(generateJSopacity1());
+////        
+//            js.append(generateJSkeys2());
+////        
+//            js.append(generateJSkeys3());
+////        
+//            js.append(generateJScx());
+////        
+//            js.append(generateJScy());
+////        
+//            js.append(generateJSmode3());
+////        
+//            js.append(generateJSopacity2());
+////        
+//            js.append(generateJSfx());
+////        
+//            js.append(generateJSfy());
+////        
+//            js.append(generateJSimageSettings());
+////        
+//            js.append(generateJSheight());
+////        
+//            js.append(generateJSheight1());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom1());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom2());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom3());
+////        
+//            js.append(generateJSspaceOrTopOrTopAndBottom4());
+////        
+//            js.append(generateJSrightOrRightAndLeft());
+////        
+//            js.append(generateJSrightOrRightAndLeft1());
+////        
+//            js.append(generateJSbottom());
+////        
+//            js.append(generateJSbottom1());
+////        
+//            js.append(generateJSleft());
+////        
+//            js.append(generateJSleft1());
+////        
+//            js.append(generateJSstrokeOrFill());
+////        
+//            js.append(generateJSstrokeOrFill1());
+////        
+//            js.append(generateJSstrokeOrFill2());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSwidth1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

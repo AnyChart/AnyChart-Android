@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -50,10 +52,10 @@ public class MapSeriesBaseWithMarkers extends MapSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".markers(%s)", markers));
+            js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
+                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
             }
         }
@@ -85,30 +87,19 @@ public class MapSeriesBaseWithMarkers extends MapSeriesBase {
         return this;
     }
 
+
+//
+//    private String generateJSUiMarkersFactory getMarkers() {
+//        if (UiMarkersFactory getMarkers != null) {
+//            return UiMarkersFactory getMarkers.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSmarkers() {
-        if (markers != null) {
-            return String.format(Locale.US, "markers: %s,", markers);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers1() {
-        if (markers1 != null) {
-            return String.format(Locale.US, "markers: %b,", markers1);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers2() {
-        if (markers2 != null) {
-            return String.format(Locale.US, "markers: %s,", markers2);
+            //return String.format(Locale.US, "getMarkers: %s,", ((getMarkers != null) ? getMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -132,13 +123,17 @@ public class MapSeriesBaseWithMarkers extends MapSeriesBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSmarkers());
-            js.append(generateJSmarkers1());
-            js.append(generateJSmarkers2());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSmarkers());
+////        
+//            js.append(generateJSmarkers1());
+////        
+//            js.append(generateJSmarkers2());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

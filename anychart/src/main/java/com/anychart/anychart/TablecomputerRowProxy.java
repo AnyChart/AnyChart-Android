@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".set(%s);", name));
+            js.append(String.format(Locale.US, jsBase + ".set(%s);", wrapQuotes(name)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s)", name));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s)", wrapQuotes(name)));
                 js.setLength(0);
             }
         }
@@ -65,20 +67,8 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
         }
     }
 
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
 
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -97,12 +87,15 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSname());
-            js.append(generateJSindex());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSname());
+////        
+//            js.append(generateJSindex());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

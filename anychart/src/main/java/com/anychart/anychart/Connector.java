@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -63,23 +65,30 @@ public class Connector extends MapSeriesBaseWithMarkers {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".curvature(%s)", curvature1));
+            js.append(String.format(Locale.US, ".curvature(%s)", wrapQuotes(curvature1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".curvature(%s)", curvature1));
+                onChangeListener.onChange(String.format(Locale.US, ".curvature(%s)", wrapQuotes(curvature1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private Connector getEndSize;
+    private List<Connector> getEndSize = new ArrayList<>();
 
-    public Connector getEndSize() {
-        if (getEndSize == null)
-            getEndSize = new Connector(jsBase + ".endSize()");
+    public Connector getEndSize(Double endSize) {
+        Connector item = new Connector(jsBase + ".endSize(" + endSize + ")");
+        getEndSize.add(item);
+        return item;
+    }
 
-        return getEndSize;
+    private List<Connector> getEndSize1 = new ArrayList<>();
+
+    public Connector getEndSize(String endSize) {
+        Connector item = new Connector(jsBase + ".endSize(" + wrapQuotes(endSize) + ")");
+        getEndSize1.add(item);
+        return item;
     }
 
     private Double startSize;
@@ -122,50 +131,55 @@ public class Connector extends MapSeriesBaseWithMarkers {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".startSize(%s)", startSize1));
+            js.append(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startSize(%s)", startSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSConnector getEndSize() {
+//        if (Connector getEndSize != null) {
+//            return Connector getEndSize.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSConnector getEndSize1() {
+//        if (Connector getEndSize1 != null) {
+//            return Connector getEndSize1.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetEndSize() {
-        if (getEndSize != null) {
-            return getEndSize.generateJs();
+        if (!getEndSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : getEndSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJScurvature() {
-        if (curvature != null) {
-            return String.format(Locale.US, "curvature: %f,", curvature);
+
+    private String generateJSgetEndSize1() {
+        if (!getEndSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : getEndSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJScurvature1() {
-        if (curvature1 != null) {
-            return String.format(Locale.US, "curvature: %s,", curvature1);
-        }
-        return "";
-    }
-
-    private String generateJSstartSize() {
-        if (startSize != null) {
-            return String.format(Locale.US, "startSize: %f,", startSize);
-        }
-        return "";
-    }
-
-    private String generateJSstartSize1() {
-        if (startSize1 != null) {
-            return String.format(Locale.US, "startSize: %s,", startSize1);
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -175,6 +189,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
 
     
         jsGetters.append(generateJSgetEndSize());
+        jsGetters.append(generateJSgetEndSize1());
 
         return jsGetters.toString();
     }
@@ -186,14 +201,19 @@ public class Connector extends MapSeriesBaseWithMarkers {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScurvature());
-            js.append(generateJScurvature1());
-            js.append(generateJSstartSize());
-            js.append(generateJSstartSize1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScurvature());
+////        
+//            js.append(generateJScurvature1());
+////        
+//            js.append(generateJSstartSize());
+////        
+//            js.append(generateJSstartSize1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

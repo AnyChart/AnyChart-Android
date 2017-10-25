@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -38,10 +40,10 @@ public class Markers extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, type));
+            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, wrapQuotes(type)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index, type));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index, wrapQuotes(type)));
                 js.setLength(0);
             }
         }
@@ -67,10 +69,10 @@ public class Markers extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", Arrays.toString(items), var_args));
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items), wrapQuotes(var_args)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", Arrays.toString(items), var_args));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items), wrapQuotes(var_args)));
                 js.setLength(0);
             }
         }
@@ -93,51 +95,18 @@ public class Markers extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", items1, var_args));
+            js.append(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items1), wrapQuotes(var_args)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", items1, var_args));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items1), wrapQuotes(var_args)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSitems() {
-        if (items != null) {
-            return String.format(Locale.US, "items: %s,", Arrays.toString(items));
-        }
-        return "";
-    }
-
-    private String generateJSitems1() {
-        if (items1 != null) {
-            return String.format(Locale.US, "items: %s,", items1);
-        }
-        return "";
-    }
-
-    private String generateJSvar_args() {
-        if (var_args != null) {
-            return String.format(Locale.US, "var_args: %s,", var_args);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -156,15 +125,21 @@ public class Markers extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSindex());
-            js.append(generateJStype());
-            js.append(generateJSitems());
-            js.append(generateJSitems1());
-            js.append(generateJSvar_args());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJStype());
+////        
+//            js.append(generateJSitems());
+////        
+//            js.append(generateJSitems1());
+////        
+//            js.append(generateJSvar_args());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

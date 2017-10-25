@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -50,10 +52,10 @@ public class NoDataSettings extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%s)", label));
+            js.append(String.format(Locale.US, ".label(%s)", wrapQuotes(label)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", label));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", wrapQuotes(label)));
                 js.setLength(0);
             }
         }
@@ -85,30 +87,19 @@ public class NoDataSettings extends CoreBase {
         return this;
     }
 
+
+//
+//    private String generateJSUiLabel getLabel() {
+//        if (UiLabel getLabel != null) {
+//            return UiLabel getLabel.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetLabel() {
         if (getLabel != null) {
             return getLabel.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSlabel() {
-        if (label != null) {
-            return String.format(Locale.US, "label: %s,", label);
-        }
-        return "";
-    }
-
-    private String generateJSlabel1() {
-        if (label1 != null) {
-            return String.format(Locale.US, "label: %s,", label1);
-        }
-        return "";
-    }
-
-    private String generateJSlabel2() {
-        if (label2 != null) {
-            return String.format(Locale.US, "label: %b,", label2);
+            //return String.format(Locale.US, "getLabel: %s,", ((getLabel != null) ? getLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -132,13 +123,17 @@ public class NoDataSettings extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSlabel());
-            js.append(generateJSlabel1());
-            js.append(generateJSlabel2());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSlabel());
+////        
+//            js.append(generateJSlabel1());
+////        
+//            js.append(generateJSlabel2());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

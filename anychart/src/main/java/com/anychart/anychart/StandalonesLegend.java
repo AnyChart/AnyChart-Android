@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -48,10 +50,10 @@ public class StandalonesLegend extends UiLegend {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", container));
+            js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", container));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
                 js.setLength(0);
             }
         }
@@ -72,10 +74,10 @@ public class StandalonesLegend extends UiLegend {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", (container1 != null) ? container1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (container1 != null) ? container1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -107,10 +109,10 @@ public class StandalonesLegend extends UiLegend {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemsSource(%s)", (itemsSource != null) ? itemsSource.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".itemsSource(%s)", ((itemsSource != null) ? itemsSource.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsSource(%s)", (itemsSource != null) ? itemsSource.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsSource(%s)", ((itemsSource != null) ? itemsSource.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -166,10 +168,10 @@ public class StandalonesLegend extends UiLegend {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", (parentBounds != null) ? parentBounds.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", (parentBounds != null) ? parentBounds.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -190,10 +192,10 @@ public class StandalonesLegend extends UiLegend {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", parentBounds1));
+            js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", parentBounds1));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
             }
         }
@@ -231,9 +233,33 @@ public class StandalonesLegend extends UiLegend {
         return this;
     }
 
+
+//
+//    private String generateJSElement getContainer() {
+//        if (Element getContainer != null) {
+//            return Element getContainer.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSSeparateChart getItemsSource() {
+//        if (SeparateChart getItemsSource != null) {
+//            return SeparateChart getItemsSource.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSAnychartMathRect getParentBounds() {
+//        if (AnychartMathRect getParentBounds != null) {
+//            return AnychartMathRect getParentBounds.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
+            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -241,6 +267,7 @@ public class StandalonesLegend extends UiLegend {
     private String generateJSgetItemsSource() {
         if (getItemsSource != null) {
             return getItemsSource.generateJs();
+            //return String.format(Locale.US, "getItemsSource: %s,", ((getItemsSource != null) ? getItemsSource.generateJs() : "null"));
         }
         return "";
     }
@@ -248,76 +275,7 @@ public class StandalonesLegend extends UiLegend {
     private String generateJSgetParentBounds() {
         if (getParentBounds != null) {
             return getParentBounds.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScontainer() {
-        if (container != null) {
-            return String.format(Locale.US, "container: %s,", container);
-        }
-        return "";
-    }
-
-    private String generateJScontainer1() {
-        if (container1 != null) {
-            return String.format(Locale.US, "container: %s,", (container1 != null) ? container1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSitemsSource() {
-        if (itemsSource != null) {
-            return String.format(Locale.US, "itemsSource: %s,", (itemsSource != null) ? itemsSource.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSitemsSource1() {
-        if (itemsSource1 != null) {
-            return String.format(Locale.US, "itemsSource: %s,", arrayToString(itemsSource1));
-        }
-        return "";
-    }
-
-    private String generateJSparentBounds() {
-        if (parentBounds != null) {
-            return String.format(Locale.US, "parentBounds: %s,", (parentBounds != null) ? parentBounds.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSparentBounds1() {
-        if (parentBounds1 != null) {
-            return String.format(Locale.US, "parentBounds: %s,", parentBounds1);
-        }
-        return "";
-    }
-
-    private String generateJSleft() {
-        if (left != null) {
-            return String.format(Locale.US, "left: %f,", left);
-        }
-        return "";
-    }
-
-    private String generateJStop() {
-        if (top != null) {
-            return String.format(Locale.US, "top: %f,", top);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
+            //return String.format(Locale.US, "getParentBounds: %s,", ((getParentBounds != null) ? getParentBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -343,20 +301,31 @@ public class StandalonesLegend extends UiLegend {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScontainer());
-            js.append(generateJScontainer1());
-            js.append(generateJSitemsSource());
-            js.append(generateJSitemsSource1());
-            js.append(generateJSparentBounds());
-            js.append(generateJSparentBounds1());
-            js.append(generateJSleft());
-            js.append(generateJStop());
-            js.append(generateJSwidth());
-            js.append(generateJSheight());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScontainer());
+////        
+//            js.append(generateJScontainer1());
+////        
+//            js.append(generateJSitemsSource());
+////        
+//            js.append(generateJSitemsSource1());
+////        
+//            js.append(generateJSparentBounds());
+////        
+//            js.append(generateJSparentBounds1());
+////        
+//            js.append(generateJSleft());
+////        
+//            js.append(generateJStop());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSheight());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

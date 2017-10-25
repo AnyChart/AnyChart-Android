@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", ((var_args != null) ? var_args.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", (seriesType != null) ? seriesType.generateJs() : "null", (mapping != null) ? mapping.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", (seriesType != null) ? seriesType.generateJs() : "null", (mapping != null) ? mapping.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -89,10 +91,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", seriesType1, (mapping != null) ? mapping.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", seriesType1, (mapping != null) ? mapping.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -132,10 +134,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", (seriesType2 != null) ? seriesType2.generateJs() : "null", (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
+            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", (seriesType2 != null) ? seriesType2.generateJs() : "null", (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
             }
         }
@@ -169,10 +171,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", seriesType3, (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
+            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", seriesType3, (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
             }
         }
@@ -200,10 +202,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
+            js.append(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
+                onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
                 js.setLength(0);
             }
         }
@@ -236,10 +238,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", (data != null) ? data.generateJs() : "null", mappingSettings, csvSettings));
+            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", (data != null) ? data.generateJs() : "null", mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -266,10 +268,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", (data1 != null) ? data1.generateJs() : "null", mappingSettings, csvSettings));
+            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -296,10 +298,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", data2, mappingSettings, csvSettings));
+            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", data2, mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -342,10 +344,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", (upSeriesType != null) ? upSeriesType.generateJs() : "null", (downSeriesType != null) ? downSeriesType.generateJs() : "null", (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", (upSeriesType != null) ? upSeriesType.generateJs() : "null", (downSeriesType != null) ? downSeriesType.generateJs() : "null", (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
@@ -382,10 +384,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", (upSeriesType != null) ? upSeriesType.generateJs() : "null", downSeriesType1, (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", (upSeriesType != null) ? upSeriesType.generateJs() : "null", downSeriesType1, (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
@@ -422,10 +424,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", upSeriesType1, (downSeriesType != null) ? downSeriesType.generateJs() : "null", (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", upSeriesType1, (downSeriesType != null) ? downSeriesType.generateJs() : "null", (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
@@ -462,10 +464,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", upSeriesType1, downSeriesType1, (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", upSeriesType1, downSeriesType1, (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
@@ -507,10 +509,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", (seriesType4 != null) ? seriesType4.generateJs() : "null", (mapping3 != null) ? mapping3.generateJs() : "null", period2));
+            js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", (seriesType4 != null) ? seriesType4.generateJs() : "null", (mapping3 != null) ? mapping3.generateJs() : "null", period2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
             }
         }
@@ -548,10 +550,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", seriesType5, (mapping3 != null) ? mapping3.generateJs() : "null", period2));
+            js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", seriesType5, (mapping3 != null) ? mapping3.generateJs() : "null", period2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
             }
         }
@@ -585,10 +587,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".background(%s)", background));
+            js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
             }
         }
@@ -670,10 +672,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
@@ -721,10 +723,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
@@ -772,10 +774,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", lowerSeriesType1, (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", lowerSeriesType1, (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
@@ -823,10 +825,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", lowerSeriesType1, middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", lowerSeriesType1, middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
@@ -874,10 +876,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", upperSeriesType1, (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
@@ -925,10 +927,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", upperSeriesType1, (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
@@ -976,10 +978,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, lowerSeriesType1, (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", upperSeriesType1, lowerSeriesType1, (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
@@ -1027,10 +1029,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, lowerSeriesType1, middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", upperSeriesType1, lowerSeriesType1, middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
@@ -1084,10 +1086,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", (seriesType6 != null) ? seriesType6.generateJs() : "null", (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
+            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", (seriesType6 != null) ? seriesType6.generateJs() : "null", (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
             }
         }
@@ -1136,10 +1138,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", seriesType7, (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
+            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", seriesType7, (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
             }
         }
@@ -1198,10 +1200,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", (seriesType8 != null) ? seriesType8.generateJs() : "null", (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
+            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", (seriesType8 != null) ? seriesType8.generateJs() : "null", (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
             }
         }
@@ -1255,10 +1257,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", seriesType9, (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
+            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", seriesType9, (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
             }
         }
@@ -1301,10 +1303,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", (data4 != null) ? data4.generateJs() : "null", mappingSettings1, csvSettings1));
+            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", (data4 != null) ? data4.generateJs() : "null", mappingSettings1, csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -1341,10 +1343,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", (data5 != null) ? data5.generateJs() : "null", mappingSettings1, csvSettings1));
+            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", (data5 != null) ? data5.generateJs() : "null", mappingSettings1, csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -1381,10 +1383,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", data6, mappingSettings1, csvSettings1));
+            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", data6, mappingSettings1, csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -1440,10 +1442,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", (seriesType10 != null) ? seriesType10.generateJs() : "null", (mapping7 != null) ? mapping7.generateJs() : "null", period6));
+            js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", (seriesType10 != null) ? seriesType10.generateJs() : "null", (mapping7 != null) ? mapping7.generateJs() : "null", period6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
             }
         }
@@ -1495,10 +1497,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", seriesType11, (mapping7 != null) ? mapping7.generateJs() : "null", period6));
+            js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", seriesType11, (mapping7 != null) ? mapping7.generateJs() : "null", period6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
             }
         }
@@ -1565,10 +1567,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", (maType != null) ? maType.generateJs() : "null", (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", (maType != null) ? maType.generateJs() : "null", (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
             }
         }
@@ -1628,10 +1630,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", (maType != null) ? maType.generateJs() : "null", seriesType13, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", (maType != null) ? maType.generateJs() : "null", seriesType13, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
             }
         }
@@ -1691,10 +1693,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", maType1, (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", maType1, (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
             }
         }
@@ -1754,10 +1756,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", maType1, seriesType13, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", wrapQuotes(maType1), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", maType1, seriesType13, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", wrapQuotes(maType1), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
             }
         }
@@ -1820,10 +1822,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", (seriesType14 != null) ? seriesType14.generateJs() : "null", (mapping9 != null) ? mapping9.generateJs() : "null", period7));
+            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", (seriesType14 != null) ? seriesType14.generateJs() : "null", (mapping9 != null) ? mapping9.generateJs() : "null", period7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
             }
         }
@@ -1882,10 +1884,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", seriesType15, (mapping9 != null) ? mapping9.generateJs() : "null", period7));
+            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", seriesType15, (mapping9 != null) ? mapping9.generateJs() : "null", period7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
             }
         }
@@ -1934,10 +1936,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", (data8 != null) ? data8.generateJs() : "null", mappingSettings2, csvSettings2));
+            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", (data8 != null) ? data8.generateJs() : "null", mappingSettings2, csvSettings2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
             }
         }
@@ -1980,10 +1982,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", (data9 != null) ? data9.generateJs() : "null", mappingSettings2, csvSettings2));
+            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", (data9 != null) ? data9.generateJs() : "null", mappingSettings2, csvSettings2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
             }
         }
@@ -2026,10 +2028,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", data10, mappingSettings2, csvSettings2));
+            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", data10, mappingSettings2, csvSettings2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
             }
         }
@@ -2061,10 +2063,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
+            js.append(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", crosshair));
+                onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
                 js.setLength(0);
             }
         }
@@ -2111,10 +2113,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2135,10 +2137,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
+            js.append(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
+                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -2209,10 +2211,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
@@ -2273,10 +2275,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
@@ -2337,10 +2339,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", ndiSeriesType1, (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", ndiSeriesType1, (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
@@ -2401,10 +2403,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", ndiSeriesType1, adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", ndiSeriesType1, adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
@@ -2465,10 +2467,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", pdiSeriesType1, (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", pdiSeriesType1, (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
@@ -2529,10 +2531,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", pdiSeriesType1, (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", pdiSeriesType1, (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
@@ -2593,10 +2595,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", pdiSeriesType1, ndiSeriesType1, (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", pdiSeriesType1, ndiSeriesType1, (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
@@ -2657,10 +2659,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", pdiSeriesType1, ndiSeriesType1, adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", pdiSeriesType1, ndiSeriesType1, adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
@@ -2729,10 +2731,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", (seriesType16 != null) ? seriesType16.generateJs() : "null", (mapping11 != null) ? mapping11.generateJs() : "null", period9));
+            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", (seriesType16 != null) ? seriesType16.generateJs() : "null", (mapping11 != null) ? mapping11.generateJs() : "null", period9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
             }
         }
@@ -2797,32 +2799,38 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", seriesType17, (mapping11 != null) ? mapping11.generateJs() : "null", period9));
+            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", seriesType17, (mapping11 != null) ? mapping11.generateJs() : "null", period9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
             }
         }
         return new EMA(jsBase);
     }
 
-    private StockSeriesBase getGetSeries;
+    private List<StockSeriesBase> getGetSeries = new ArrayList<>();
 
-    public StockSeriesBase getGetSeries() {
-        if (getGetSeries == null)
-            getGetSeries = new StockSeriesBase(jsBase + ".getSeries()");
-
-        return getGetSeries;
+    public StockSeriesBase getGetSeries(Double id) {
+        StockSeriesBase item = new StockSeriesBase(jsBase + ".getSeries(" + id + ")");
+        getGetSeries.add(item);
+        return item;
     }
 
-    private StockSeriesBase getGetSeriesAt;
+    private List<StockSeriesBase> getGetSeries1 = new ArrayList<>();
 
-    public StockSeriesBase getGetSeriesAt() {
-        if (getGetSeriesAt == null)
-            getGetSeriesAt = new StockSeriesBase(jsBase + ".getSeriesAt()");
+    public StockSeriesBase getGetSeries(String id) {
+        StockSeriesBase item = new StockSeriesBase(jsBase + ".getSeries(" + wrapQuotes(id) + ")");
+        getGetSeries1.add(item);
+        return item;
+    }
 
-        return getGetSeriesAt;
+    private List<StockSeriesBase> getGetSeriesAt = new ArrayList<>();
+
+    public StockSeriesBase getGetSeriesAt(Double index) {
+        StockSeriesBase item = new StockSeriesBase(jsBase + ".getSeriesAt(" + index + ")");
+        getGetSeriesAt.add(item);
+        return item;
     }
 
     private HatchFills getHatchFillPalette;
@@ -2877,10 +2885,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", hatchFillPalette1));
+            js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", wrapQuotes(hatchFillPalette1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", hatchFillPalette1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
                 js.setLength(0);
             }
         }
@@ -2902,10 +2910,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2960,10 +2968,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", (data12 != null) ? data12.generateJs() : "null", mappingSettings3, csvSettings3));
+            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", (data12 != null) ? data12.generateJs() : "null", mappingSettings3, csvSettings3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
             }
         }
@@ -3012,10 +3020,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", (data13 != null) ? data13.generateJs() : "null", mappingSettings3, csvSettings3));
+            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", (data13 != null) ? data13.generateJs() : "null", mappingSettings3, csvSettings3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
             }
         }
@@ -3064,10 +3072,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", data14, mappingSettings3, csvSettings3));
+            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", data14, mappingSettings3, csvSettings3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
             }
         }
@@ -3128,10 +3136,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", (data16 != null) ? data16.generateJs() : "null", mappingSettings4, csvSettings4));
+            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", (data16 != null) ? data16.generateJs() : "null", mappingSettings4, csvSettings4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
             }
         }
@@ -3186,10 +3194,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", (data17 != null) ? data17.generateJs() : "null", mappingSettings4, csvSettings4));
+            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", (data17 != null) ? data17.generateJs() : "null", mappingSettings4, csvSettings4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
             }
         }
@@ -3244,10 +3252,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", data18, mappingSettings4, csvSettings4));
+            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", data18, mappingSettings4, csvSettings4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
             }
         }
@@ -3330,10 +3338,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -3400,10 +3408,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -3470,10 +3478,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -3540,10 +3548,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -3610,10 +3618,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -3680,10 +3688,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -3750,10 +3758,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -3820,10 +3828,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -3890,10 +3898,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -3960,10 +3968,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4030,10 +4038,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4100,10 +4108,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4170,10 +4178,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4240,10 +4248,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4310,10 +4318,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4380,10 +4388,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4450,10 +4458,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4520,10 +4528,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4590,10 +4598,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4660,10 +4668,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4730,10 +4738,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4800,10 +4808,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4870,10 +4878,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -4940,10 +4948,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -5010,10 +5018,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -5080,10 +5088,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -5150,10 +5158,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -5220,10 +5228,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -5290,10 +5298,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -5360,10 +5368,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -5430,10 +5438,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -5500,10 +5508,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -5535,10 +5543,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".legend(%s)", legend));
+            js.append(String.format(Locale.US, ".legend(%s)", wrapQuotes(legend)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".legend(%s)", legend));
+                onChangeListener.onChange(String.format(Locale.US, ".legend(%s)", wrapQuotes(legend)));
                 js.setLength(0);
             }
         }
@@ -5629,10 +5637,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", (data20 != null) ? data20.generateJs() : "null", mappingSettings5, csvSettings5));
+            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", (data20 != null) ? data20.generateJs() : "null", mappingSettings5, csvSettings5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
             }
         }
@@ -5693,10 +5701,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", (data21 != null) ? data21.generateJs() : "null", mappingSettings5, csvSettings5));
+            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", (data21 != null) ? data21.generateJs() : "null", mappingSettings5, csvSettings5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
             }
         }
@@ -5757,10 +5765,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", data22, mappingSettings5, csvSettings5));
+            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", data22, mappingSettings5, csvSettings5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
             }
         }
@@ -5832,10 +5840,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -5897,10 +5905,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -5962,10 +5970,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", signalSeriesType1, (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", signalSeriesType1, (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -6027,10 +6035,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", signalSeriesType1, histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", signalSeriesType1, histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -6092,10 +6100,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType1, (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType1, (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -6157,10 +6165,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType1, (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType1, (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -6222,10 +6230,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType1, signalSeriesType1, (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType1, signalSeriesType1, (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -6287,10 +6295,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType1, signalSeriesType1, histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType1, signalSeriesType1, histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -6363,10 +6371,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", (data24 != null) ? data24.generateJs() : "null", mappingSettings6, csvSettings6));
+            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", (data24 != null) ? data24.generateJs() : "null", mappingSettings6, csvSettings6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
             }
         }
@@ -6433,10 +6441,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", (data25 != null) ? data25.generateJs() : "null", mappingSettings6, csvSettings6));
+            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", (data25 != null) ? data25.generateJs() : "null", mappingSettings6, csvSettings6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
             }
         }
@@ -6503,10 +6511,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", data26, mappingSettings6, csvSettings6));
+            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", data26, mappingSettings6, csvSettings6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
             }
         }
@@ -6542,10 +6550,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6568,10 +6576,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+            js.append(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
                 js.setLength(0);
             }
         }
@@ -6620,10 +6628,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
                 js.setLength(0);
             }
         }
@@ -6670,10 +6678,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+            js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
             }
         }
@@ -6720,10 +6728,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
+            js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
+                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
                 js.setLength(0);
             }
         }
@@ -6798,10 +6806,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", (seriesType18 != null) ? seriesType18.generateJs() : "null", (mapping14 != null) ? mapping14.generateJs() : "null", period10));
+            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", (seriesType18 != null) ? seriesType18.generateJs() : "null", (mapping14 != null) ? mapping14.generateJs() : "null", period10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
             }
         }
@@ -6872,10 +6880,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", seriesType19, (mapping14 != null) ? mapping14.generateJs() : "null", period10));
+            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", seriesType19, (mapping14 != null) ? mapping14.generateJs() : "null", period10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
             }
         }
@@ -6903,10 +6911,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".noData(%s)", noData));
+            js.append(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".noData(%s)", noData));
+                onChangeListener.onChange(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
                 js.setLength(0);
             }
         }
@@ -6985,10 +6993,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", (data28 != null) ? data28.generateJs() : "null", mappingSettings7, csvSettings7));
+            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", (data28 != null) ? data28.generateJs() : "null", mappingSettings7, csvSettings7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
             }
         }
@@ -7061,10 +7069,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", (data29 != null) ? data29.generateJs() : "null", mappingSettings7, csvSettings7));
+            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", (data29 != null) ? data29.generateJs() : "null", mappingSettings7, csvSettings7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
             }
         }
@@ -7137,10 +7145,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", data30, mappingSettings7, csvSettings7));
+            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", data30, mappingSettings7, csvSettings7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
             }
         }
@@ -7176,10 +7184,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7202,10 +7210,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7228,10 +7236,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".palette(%s)", palette2));
+            js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
                 js.setLength(0);
             }
         }
@@ -7254,10 +7262,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
+            js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
                 js.setLength(0);
             }
         }
@@ -7304,23 +7312,22 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+            js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private CurrentPriceIndicator getPriceIndicator;
+    private List<CurrentPriceIndicator> getPriceIndicator = new ArrayList<>();
 
-    public CurrentPriceIndicator getPriceIndicator() {
-        if (getPriceIndicator == null)
-            getPriceIndicator = new CurrentPriceIndicator(jsBase + ".priceIndicator()");
-
-        return getPriceIndicator;
+    public CurrentPriceIndicator getPriceIndicator(Double index) {
+        CurrentPriceIndicator item = new CurrentPriceIndicator(jsBase + ".priceIndicator(" + index + ")");
+        getPriceIndicator.add(item);
+        return item;
     }
 
     private String priceIndicator;
@@ -7339,10 +7346,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".priceIndicator(%s)", priceIndicator));
+            js.append(String.format(Locale.US, ".priceIndicator(%s)", wrapQuotes(priceIndicator)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s)", priceIndicator));
+                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s)", wrapQuotes(priceIndicator)));
                 js.setLength(0);
             }
         }
@@ -7394,10 +7401,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".priceIndicator(%s, %f)", priceIndicator2, index));
+            js.append(String.format(Locale.US, ".priceIndicator(%s, %f)", wrapQuotes(priceIndicator2), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s, %f)", priceIndicator2, index));
+                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s, %f)", wrapQuotes(priceIndicator2), index));
                 js.setLength(0);
             }
         }
@@ -7510,10 +7517,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", (data32 != null) ? data32.generateJs() : "null", mappingSettings8, csvSettings8));
+            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", (data32 != null) ? data32.generateJs() : "null", mappingSettings8, csvSettings8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
             }
         }
@@ -7592,10 +7599,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", (data33 != null) ? data33.generateJs() : "null", mappingSettings8, csvSettings8));
+            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", (data33 != null) ? data33.generateJs() : "null", mappingSettings8, csvSettings8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
             }
         }
@@ -7674,10 +7681,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", data34, mappingSettings8, csvSettings8));
+            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", data34, mappingSettings8, csvSettings8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
             }
         }
@@ -7768,10 +7775,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", (data36 != null) ? data36.generateJs() : "null", mappingSettings9, csvSettings9));
+            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", (data36 != null) ? data36.generateJs() : "null", mappingSettings9, csvSettings9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
             }
         }
@@ -7856,10 +7863,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", (data37 != null) ? data37.generateJs() : "null", mappingSettings9, csvSettings9));
+            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", (data37 != null) ? data37.generateJs() : "null", mappingSettings9, csvSettings9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
             }
         }
@@ -7944,10 +7951,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", data38, mappingSettings9, csvSettings9));
+            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", data38, mappingSettings9, csvSettings9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
             }
         }
@@ -8044,10 +8051,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", (data40 != null) ? data40.generateJs() : "null", mappingSettings10, csvSettings10));
+            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", (data40 != null) ? data40.generateJs() : "null", mappingSettings10, csvSettings10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
             }
         }
@@ -8138,10 +8145,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", (data41 != null) ? data41.generateJs() : "null", mappingSettings10, csvSettings10));
+            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", (data41 != null) ? data41.generateJs() : "null", mappingSettings10, csvSettings10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
             }
         }
@@ -8232,10 +8239,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", data42, mappingSettings10, csvSettings10));
+            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", data42, mappingSettings10, csvSettings10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
             }
         }
@@ -8338,10 +8345,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", (data44 != null) ? data44.generateJs() : "null", mappingSettings11, csvSettings11));
+            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", (data44 != null) ? data44.generateJs() : "null", mappingSettings11, csvSettings11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
             }
         }
@@ -8438,10 +8445,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", (data45 != null) ? data45.generateJs() : "null", mappingSettings11, csvSettings11));
+            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", (data45 != null) ? data45.generateJs() : "null", mappingSettings11, csvSettings11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
             }
         }
@@ -8538,10 +8545,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", data46, mappingSettings11, csvSettings11));
+            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", data46, mappingSettings11, csvSettings11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
             }
         }
@@ -8588,10 +8595,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeSeries(%s)", id1));
+            js.append(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id1));
+                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
                 js.setLength(0);
             }
         }
@@ -8695,10 +8702,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", (seriesType20 != null) ? seriesType20.generateJs() : "null", (mapping15 != null) ? mapping15.generateJs() : "null", period11));
+            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", (seriesType20 != null) ? seriesType20.generateJs() : "null", (mapping15 != null) ? mapping15.generateJs() : "null", period11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
             }
         }
@@ -8773,10 +8780,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", seriesType21, (mapping15 != null) ? mapping15.generateJs() : "null", period11));
+            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", seriesType21, (mapping15 != null) ? mapping15.generateJs() : "null", period11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
             }
         }
@@ -8859,10 +8866,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", (seriesType22 != null) ? seriesType22.generateJs() : "null", (mapping16 != null) ? mapping16.generateJs() : "null", period12));
+            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", (seriesType22 != null) ? seriesType22.generateJs() : "null", (mapping16 != null) ? mapping16.generateJs() : "null", period12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
             }
         }
@@ -8941,10 +8948,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", seriesType23, (mapping16 != null) ? mapping16.generateJs() : "null", period12));
+            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", seriesType23, (mapping16 != null) ? mapping16.generateJs() : "null", period12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
             }
         }
@@ -9031,10 +9038,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", (seriesType24 != null) ? seriesType24.generateJs() : "null", (mapping17 != null) ? mapping17.generateJs() : "null", period13));
+            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", (seriesType24 != null) ? seriesType24.generateJs() : "null", (mapping17 != null) ? mapping17.generateJs() : "null", period13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
             }
         }
@@ -9117,10 +9124,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", seriesType25, (mapping17 != null) ? mapping17.generateJs() : "null", period13));
+            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", seriesType25, (mapping17 != null) ? mapping17.generateJs() : "null", period13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
             }
         }
@@ -9229,10 +9236,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", (data48 != null) ? data48.generateJs() : "null", mappingSettings12, csvSettings12));
+            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", (data48 != null) ? data48.generateJs() : "null", mappingSettings12, csvSettings12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
             }
         }
@@ -9335,10 +9342,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", (data49 != null) ? data49.generateJs() : "null", mappingSettings12, csvSettings12));
+            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", (data49 != null) ? data49.generateJs() : "null", mappingSettings12, csvSettings12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
             }
         }
@@ -9441,10 +9448,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", data50, mappingSettings12, csvSettings12));
+            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", data50, mappingSettings12, csvSettings12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
             }
         }
@@ -9559,10 +9566,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", (data52 != null) ? data52.generateJs() : "null", mappingSettings13, csvSettings13));
+            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", (data52 != null) ? data52.generateJs() : "null", mappingSettings13, csvSettings13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
             }
         }
@@ -9671,10 +9678,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", (data53 != null) ? data53.generateJs() : "null", mappingSettings13, csvSettings13));
+            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", (data53 != null) ? data53.generateJs() : "null", mappingSettings13, csvSettings13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
             }
         }
@@ -9783,10 +9790,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", data54, mappingSettings13, csvSettings13));
+            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", data54, mappingSettings13, csvSettings13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
             }
         }
@@ -9907,10 +9914,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", (data56 != null) ? data56.generateJs() : "null", mappingSettings14, csvSettings14));
+            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", (data56 != null) ? data56.generateJs() : "null", mappingSettings14, csvSettings14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
             }
         }
@@ -10025,10 +10032,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", (data57 != null) ? data57.generateJs() : "null", mappingSettings14, csvSettings14));
+            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", (data57 != null) ? data57.generateJs() : "null", mappingSettings14, csvSettings14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
             }
         }
@@ -10143,10 +10150,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", data58, mappingSettings14, csvSettings14));
+            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", data58, mappingSettings14, csvSettings14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
             }
         }
@@ -10273,10 +10280,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", (data60 != null) ? data60.generateJs() : "null", mappingSettings15, csvSettings15));
+            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", (data60 != null) ? data60.generateJs() : "null", mappingSettings15, csvSettings15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
             }
         }
@@ -10397,10 +10404,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", (data61 != null) ? data61.generateJs() : "null", mappingSettings15, csvSettings15));
+            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", (data61 != null) ? data61.generateJs() : "null", mappingSettings15, csvSettings15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
             }
         }
@@ -10521,10 +10528,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", data62, mappingSettings15, csvSettings15));
+            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", data62, mappingSettings15, csvSettings15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
             }
         }
@@ -10657,10 +10664,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", (data64 != null) ? data64.generateJs() : "null", mappingSettings16, csvSettings16));
+            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", (data64 != null) ? data64.generateJs() : "null", mappingSettings16, csvSettings16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
             }
         }
@@ -10787,10 +10794,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", (data65 != null) ? data65.generateJs() : "null", mappingSettings16, csvSettings16));
+            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", (data65 != null) ? data65.generateJs() : "null", mappingSettings16, csvSettings16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
             }
         }
@@ -10917,10 +10924,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", data66, mappingSettings16, csvSettings16));
+            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", data66, mappingSettings16, csvSettings16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
             }
         }
@@ -11013,10 +11020,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11097,10 +11104,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11181,10 +11188,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11265,10 +11272,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11349,10 +11356,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11433,10 +11440,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11517,10 +11524,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11601,10 +11608,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11685,10 +11692,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11769,10 +11776,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11853,10 +11860,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -11937,10 +11944,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -12021,10 +12028,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -12105,10 +12112,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -12189,10 +12196,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, dMAType3, kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, dMAType3, kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -12273,10 +12280,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, dMAType3, kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, dMAType3, kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -12308,10 +12315,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
+            js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", xAxis));
+                onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
                 js.setLength(0);
             }
         }
@@ -12342,13 +12349,12 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private GridsStock getXGrid;
+    private List<GridsStock> getXGrid = new ArrayList<>();
 
-    public GridsStock getXGrid() {
-        if (getXGrid == null)
-            getXGrid = new GridsStock(jsBase + ".xGrid()");
-
-        return getXGrid;
+    public GridsStock getXGrid(Double index) {
+        GridsStock item = new GridsStock(jsBase + ".xGrid(" + index + ")");
+        getXGrid.add(item);
+        return item;
     }
 
     private String xGrid;
@@ -12367,10 +12373,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
+            js.append(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", xGrid));
+                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
                 js.setLength(0);
             }
         }
@@ -12426,10 +12432,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index2));
+            js.append(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index2));
+                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index2));
                 js.setLength(0);
             }
         }
@@ -12468,13 +12474,12 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private GridsStock getXMinorGrid;
+    private List<GridsStock> getXMinorGrid = new ArrayList<>();
 
-    public GridsStock getXMinorGrid() {
-        if (getXMinorGrid == null)
-            getXMinorGrid = new GridsStock(jsBase + ".xMinorGrid()");
-
-        return getXMinorGrid;
+    public GridsStock getXMinorGrid(Double index) {
+        GridsStock item = new GridsStock(jsBase + ".xMinorGrid(" + index + ")");
+        getXMinorGrid.add(item);
+        return item;
     }
 
     private String xMinorGrid;
@@ -12493,10 +12498,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
+            js.append(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
+                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
                 js.setLength(0);
             }
         }
@@ -12548,10 +12553,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, indexOrValue));
+            js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), indexOrValue));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, indexOrValue));
+                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), indexOrValue));
                 js.setLength(0);
             }
         }
@@ -12586,13 +12591,12 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private CoreAxesLinear getYAxis;
+    private List<CoreAxesLinear> getYAxis = new ArrayList<>();
 
-    public CoreAxesLinear getYAxis() {
-        if (getYAxis == null)
-            getYAxis = new CoreAxesLinear(jsBase + ".yAxis()");
-
-        return getYAxis;
+    public CoreAxesLinear getYAxis(Double index) {
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis(" + index + ")");
+        getYAxis.add(item);
+        return item;
     }
 
     private String yAxis;
@@ -12611,10 +12615,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
+            js.append(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", yAxis));
+                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
                 js.setLength(0);
             }
         }
@@ -12671,10 +12675,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index3));
+            js.append(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index3));
+                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index3));
                 js.setLength(0);
             }
         }
@@ -12714,13 +12718,12 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private GridsStock getYGrid;
+    private List<GridsStock> getYGrid = new ArrayList<>();
 
-    public GridsStock getYGrid() {
-        if (getYGrid == null)
-            getYGrid = new GridsStock(jsBase + ".yGrid()");
-
-        return getYGrid;
+    public GridsStock getYGrid(Double index) {
+        GridsStock item = new GridsStock(jsBase + ".yGrid(" + index + ")");
+        getYGrid.add(item);
+        return item;
     }
 
     private String yGrid;
@@ -12739,10 +12742,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
+            js.append(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", yGrid));
+                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
                 js.setLength(0);
             }
         }
@@ -12800,10 +12803,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index4));
+            js.append(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index4));
+                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index4));
                 js.setLength(0);
             }
         }
@@ -12844,13 +12847,12 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private GridsStock getYMinorGrid;
+    private List<GridsStock> getYMinorGrid = new ArrayList<>();
 
-    public GridsStock getYMinorGrid() {
-        if (getYMinorGrid == null)
-            getYMinorGrid = new GridsStock(jsBase + ".yMinorGrid()");
-
-        return getYMinorGrid;
+    public GridsStock getYMinorGrid(Double index) {
+        GridsStock item = new GridsStock(jsBase + ".yMinorGrid(" + index + ")");
+        getYMinorGrid.add(item);
+        return item;
     }
 
     private String yMinorGrid;
@@ -12869,10 +12871,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
+            js.append(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
+                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
                 js.setLength(0);
             }
         }
@@ -12927,10 +12929,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, indexOrValue1));
+            js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), indexOrValue1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, indexOrValue1));
+                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), indexOrValue1));
                 js.setLength(0);
             }
         }
@@ -12997,10 +12999,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13023,10 +13025,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
+            js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
             }
         }
@@ -13049,19 +13051,155 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSPlotController getAnnotations() {
+//        if (PlotController getAnnotations != null) {
+//            return PlotController getAnnotations.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiBackground getBackground() {
+//        if (UiBackground getBackground != null) {
+//            return UiBackground getBackground.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSCrosshair getCrosshair() {
+//        if (Crosshair getCrosshair != null) {
+//            return Crosshair getCrosshair.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockSeriesBase getGetSeries() {
+//        if (StockSeriesBase getGetSeries != null) {
+//            return StockSeriesBase getGetSeries.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockSeriesBase getGetSeries1() {
+//        if (StockSeriesBase getGetSeries1 != null) {
+//            return StockSeriesBase getGetSeries1.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockSeriesBase getGetSeriesAt() {
+//        if (StockSeriesBase getGetSeriesAt != null) {
+//            return StockSeriesBase getGetSeriesAt.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSHatchFills getHatchFillPalette() {
+//        if (HatchFills getHatchFillPalette != null) {
+//            return HatchFills getHatchFillPalette.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLegend getLegend() {
+//        if (UiLegend getLegend != null) {
+//            return UiLegend getLegend.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSMarkers getMarkerPalette() {
+//        if (Markers getMarkerPalette != null) {
+//            return Markers getMarkerPalette.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSNoDataSettings getNoData() {
+//        if (NoDataSettings getNoData != null) {
+//            return NoDataSettings getNoData.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSRangeColors getPalette() {
+//        if (RangeColors getPalette != null) {
+//            return RangeColors getPalette.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSCurrentPriceIndicator getPriceIndicator() {
+//        if (CurrentPriceIndicator getPriceIndicator != null) {
+//            return CurrentPriceIndicator getPriceIndicator.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockDateTime getXAxis() {
+//        if (StockDateTime getXAxis != null) {
+//            return StockDateTime getXAxis.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGridsStock getXGrid() {
+//        if (GridsStock getXGrid != null) {
+//            return GridsStock getXGrid.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGridsStock getXMinorGrid() {
+//        if (GridsStock getXMinorGrid != null) {
+//            return GridsStock getXMinorGrid.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSCoreAxesLinear getYAxis() {
+//        if (CoreAxesLinear getYAxis != null) {
+//            return CoreAxesLinear getYAxis.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGridsStock getYGrid() {
+//        if (GridsStock getYGrid != null) {
+//            return GridsStock getYGrid.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGridsStock getYMinorGrid() {
+//        if (GridsStock getYMinorGrid != null) {
+//            return GridsStock getYMinorGrid.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScatterBase getYScale() {
+//        if (ScatterBase getYScale != null) {
+//            return ScatterBase getYScale.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetAnnotations() {
         if (getAnnotations != null) {
             return getAnnotations.generateJs();
+            //return String.format(Locale.US, "getAnnotations: %s,", ((getAnnotations != null) ? getAnnotations.generateJs() : "null"));
         }
         return "";
     }
@@ -13069,6 +13207,7 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
+            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -13076,27 +13215,51 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetCrosshair() {
         if (getCrosshair != null) {
             return getCrosshair.generateJs();
+            //return String.format(Locale.US, "getCrosshair: %s,", ((getCrosshair != null) ? getCrosshair.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetGetSeries() {
-        if (getGetSeries != null) {
-            return getGetSeries.generateJs();
+        if (!getGetSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : getGetSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSgetGetSeriesAt() {
-        if (getGetSeriesAt != null) {
-            return getGetSeriesAt.generateJs();
+
+    private String generateJSgetGetSeries1() {
+        if (!getGetSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : getGetSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
+
+    private String generateJSgetGetSeriesAt() {
+        if (!getGetSeriesAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : getGetSeriesAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
 
     private String generateJSgetHatchFillPalette() {
         if (getHatchFillPalette != null) {
             return getHatchFillPalette.generateJs();
+            //return String.format(Locale.US, "getHatchFillPalette: %s,", ((getHatchFillPalette != null) ? getHatchFillPalette.generateJs() : "null"));
         }
         return "";
     }
@@ -13104,6 +13267,7 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetLegend() {
         if (getLegend != null) {
             return getLegend.generateJs();
+            //return String.format(Locale.US, "getLegend: %s,", ((getLegend != null) ? getLegend.generateJs() : "null"));
         }
         return "";
     }
@@ -13111,6 +13275,7 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetMarkerPalette() {
         if (getMarkerPalette != null) {
             return getMarkerPalette.generateJs();
+            //return String.format(Locale.US, "getMarkerPalette: %s,", ((getMarkerPalette != null) ? getMarkerPalette.generateJs() : "null"));
         }
         return "";
     }
@@ -13118,6 +13283,7 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetNoData() {
         if (getNoData != null) {
             return getNoData.generateJs();
+            //return String.format(Locale.US, "getNoData: %s,", ((getNoData != null) ? getNoData.generateJs() : "null"));
         }
         return "";
     }
@@ -13125,2099 +13291,95 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetPalette() {
         if (getPalette != null) {
             return getPalette.generateJs();
+            //return String.format(Locale.US, "getPalette: %s,", ((getPalette != null) ? getPalette.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetPriceIndicator() {
-        if (getPriceIndicator != null) {
-            return getPriceIndicator.generateJs();
+        if (!getPriceIndicator.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CurrentPriceIndicator item : getPriceIndicator) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetXAxis() {
         if (getXAxis != null) {
             return getXAxis.generateJs();
+            //return String.format(Locale.US, "getXAxis: %s,", ((getXAxis != null) ? getXAxis.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetXGrid() {
-        if (getXGrid != null) {
-            return getXGrid.generateJs();
+        if (!getXGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GridsStock item : getXGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXMinorGrid() {
-        if (getXMinorGrid != null) {
-            return getXMinorGrid.generateJs();
+        if (!getXMinorGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GridsStock item : getXMinorGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYAxis() {
-        if (getYAxis != null) {
-            return getYAxis.generateJs();
+        if (!getYAxis.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getYAxis) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYGrid() {
-        if (getYGrid != null) {
-            return getYGrid.generateJs();
+        if (!getYGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GridsStock item : getYGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetYMinorGrid() {
-        if (getYMinorGrid != null) {
-            return getYMinorGrid.generateJs();
+        if (!getYMinorGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GridsStock item : getYMinorGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSvar_args() {
-        if (var_args != null) {
-            return String.format(Locale.US, "var_args: %s,", (var_args != null) ? var_args.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmapping() {
-        if (mapping != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping != null) ? mapping.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType() {
-        if (seriesType != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType != null) ? seriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType1() {
-        if (seriesType1 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSmapping1() {
-        if (mapping1 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping1 != null) ? mapping1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod() {
-        if (period != null) {
-            return String.format(Locale.US, "period: %f,", period);
-        }
-        return "";
-    }
-
-    private String generateJSfastPeriod() {
-        if (fastPeriod != null) {
-            return String.format(Locale.US, "fastPeriod: %f,", fastPeriod);
-        }
-        return "";
-    }
-
-    private String generateJSslowPeriod() {
-        if (slowPeriod != null) {
-            return String.format(Locale.US, "slowPeriod: %f,", slowPeriod);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType2() {
-        if (seriesType2 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType2 != null) ? seriesType2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType3() {
-        if (seriesType3 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType3);
-        }
-        return "";
-    }
-
-    private String generateJSannotationsList() {
-        if (annotationsList != null) {
-            return String.format(Locale.US, "annotationsList: %s,", Arrays.toString(annotationsList));
-        }
-        return "";
-    }
-
-    private String generateJSdata() {
-        if (data != null) {
-            return String.format(Locale.US, "data: %s,", (data != null) ? data.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata1() {
-        if (data1 != null) {
-            return String.format(Locale.US, "data: %s,", (data1 != null) ? data1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata2() {
-        if (data2 != null) {
-            return String.format(Locale.US, "data: %s,", data2);
-        }
-        return "";
-    }
-
-    private String generateJSdata3() {
-        if (data3 != null) {
-            return String.format(Locale.US, "data: %s,", data3);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings() {
-        if (mappingSettings != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings() {
-        if (csvSettings != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings);
-        }
-        return "";
-    }
-
-    private String generateJSmapping2() {
-        if (mapping2 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping2 != null) ? mapping2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod1() {
-        if (period1 != null) {
-            return String.format(Locale.US, "period: %f,", period1);
-        }
-        return "";
-    }
-
-    private String generateJSupSeriesType() {
-        if (upSeriesType != null) {
-            return String.format(Locale.US, "upSeriesType: %s,", (upSeriesType != null) ? upSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSupSeriesType1() {
-        if (upSeriesType1 != null) {
-            return String.format(Locale.US, "upSeriesType: %s,", upSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSdownSeriesType() {
-        if (downSeriesType != null) {
-            return String.format(Locale.US, "downSeriesType: %s,", (downSeriesType != null) ? downSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdownSeriesType1() {
-        if (downSeriesType1 != null) {
-            return String.format(Locale.US, "downSeriesType: %s,", downSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSmapping3() {
-        if (mapping3 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping3 != null) ? mapping3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod2() {
-        if (period2 != null) {
-            return String.format(Locale.US, "period: %f,", period2);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType4() {
-        if (seriesType4 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType4 != null) ? seriesType4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType5() {
-        if (seriesType5 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType5);
-        }
-        return "";
-    }
-
-    private String generateJSbackground() {
-        if (background != null) {
-            return String.format(Locale.US, "background: %s,", background);
-        }
-        return "";
-    }
-
-    private String generateJSbackground1() {
-        if (background1 != null) {
-            return String.format(Locale.US, "background: %s,", background1);
-        }
-        return "";
-    }
-
-    private String generateJSbackground2() {
-        if (background2 != null) {
-            return String.format(Locale.US, "background: %b,", background2);
-        }
-        return "";
-    }
-
-    private String generateJSmapping4() {
-        if (mapping4 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping4 != null) ? mapping4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod3() {
-        if (period3 != null) {
-            return String.format(Locale.US, "period: %f,", period3);
-        }
-        return "";
-    }
-
-    private String generateJSdeviation() {
-        if (deviation != null) {
-            return String.format(Locale.US, "deviation: %f,", deviation);
-        }
-        return "";
-    }
-
-    private String generateJSupperSeriesType() {
-        if (upperSeriesType != null) {
-            return String.format(Locale.US, "upperSeriesType: %s,", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSupperSeriesType1() {
-        if (upperSeriesType1 != null) {
-            return String.format(Locale.US, "upperSeriesType: %s,", upperSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSlowerSeriesType() {
-        if (lowerSeriesType != null) {
-            return String.format(Locale.US, "lowerSeriesType: %s,", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlowerSeriesType1() {
-        if (lowerSeriesType1 != null) {
-            return String.format(Locale.US, "lowerSeriesType: %s,", lowerSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSmiddleSeriesType() {
-        if (middleSeriesType != null) {
-            return String.format(Locale.US, "middleSeriesType: %s,", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmiddleSeriesType1() {
-        if (middleSeriesType1 != null) {
-            return String.format(Locale.US, "middleSeriesType: %s,", middleSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSmapping5() {
-        if (mapping5 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping5 != null) ? mapping5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod4() {
-        if (period4 != null) {
-            return String.format(Locale.US, "period: %f,", period4);
-        }
-        return "";
-    }
-
-    private String generateJSdeviation1() {
-        if (deviation1 != null) {
-            return String.format(Locale.US, "deviation: %f,", deviation1);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType6() {
-        if (seriesType6 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType6 != null) ? seriesType6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType7() {
-        if (seriesType7 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType7);
-        }
-        return "";
-    }
-
-    private String generateJSmapping6() {
-        if (mapping6 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping6 != null) ? mapping6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod5() {
-        if (period5 != null) {
-            return String.format(Locale.US, "period: %f,", period5);
-        }
-        return "";
-    }
-
-    private String generateJSdeviation2() {
-        if (deviation2 != null) {
-            return String.format(Locale.US, "deviation: %f,", deviation2);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType8() {
-        if (seriesType8 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType8 != null) ? seriesType8.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType9() {
-        if (seriesType9 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType9);
-        }
-        return "";
-    }
-
-    private String generateJSdata4() {
-        if (data4 != null) {
-            return String.format(Locale.US, "data: %s,", (data4 != null) ? data4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata5() {
-        if (data5 != null) {
-            return String.format(Locale.US, "data: %s,", (data5 != null) ? data5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata6() {
-        if (data6 != null) {
-            return String.format(Locale.US, "data: %s,", data6);
-        }
-        return "";
-    }
-
-    private String generateJSdata7() {
-        if (data7 != null) {
-            return String.format(Locale.US, "data: %s,", data7);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings1() {
-        if (mappingSettings1 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings1);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings1() {
-        if (csvSettings1 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings1);
-        }
-        return "";
-    }
-
-    private String generateJSmapping7() {
-        if (mapping7 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping7 != null) ? mapping7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod6() {
-        if (period6 != null) {
-            return String.format(Locale.US, "period: %f,", period6);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType10() {
-        if (seriesType10 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType10 != null) ? seriesType10.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType11() {
-        if (seriesType11 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType11);
-        }
-        return "";
-    }
-
-    private String generateJSmapping8() {
-        if (mapping8 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping8 != null) ? mapping8.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSfastPeriod1() {
-        if (fastPeriod1 != null) {
-            return String.format(Locale.US, "fastPeriod: %f,", fastPeriod1);
-        }
-        return "";
-    }
-
-    private String generateJSslowPeriod1() {
-        if (slowPeriod1 != null) {
-            return String.format(Locale.US, "slowPeriod: %f,", slowPeriod1);
-        }
-        return "";
-    }
-
-    private String generateJSmaType() {
-        if (maType != null) {
-            return String.format(Locale.US, "maType: %s,", (maType != null) ? maType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmaType1() {
-        if (maType1 != null) {
-            return String.format(Locale.US, "maType: %s,", maType1);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType12() {
-        if (seriesType12 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType12 != null) ? seriesType12.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType13() {
-        if (seriesType13 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType13);
-        }
-        return "";
-    }
-
-    private String generateJSmapping9() {
-        if (mapping9 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping9 != null) ? mapping9.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod7() {
-        if (period7 != null) {
-            return String.format(Locale.US, "period: %f,", period7);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType14() {
-        if (seriesType14 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType14 != null) ? seriesType14.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType15() {
-        if (seriesType15 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType15);
-        }
-        return "";
-    }
-
-    private String generateJSdata8() {
-        if (data8 != null) {
-            return String.format(Locale.US, "data: %s,", (data8 != null) ? data8.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata9() {
-        if (data9 != null) {
-            return String.format(Locale.US, "data: %s,", (data9 != null) ? data9.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata10() {
-        if (data10 != null) {
-            return String.format(Locale.US, "data: %s,", data10);
-        }
-        return "";
-    }
-
-    private String generateJSdata11() {
-        if (data11 != null) {
-            return String.format(Locale.US, "data: %s,", data11);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings2() {
-        if (mappingSettings2 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings2);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings2() {
-        if (csvSettings2 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings2);
-        }
-        return "";
-    }
-
-    private String generateJScrosshair() {
-        if (crosshair != null) {
-            return String.format(Locale.US, "crosshair: %s,", crosshair);
-        }
-        return "";
-    }
-
-    private String generateJScrosshair1() {
-        if (crosshair1 != null) {
-            return String.format(Locale.US, "crosshair: %b,", crosshair1);
-        }
-        return "";
-    }
-
-    private String generateJSdefaultSeriesType() {
-        if (defaultSeriesType != null) {
-            return String.format(Locale.US, "defaultSeriesType: %s,", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdefaultSeriesType1() {
-        if (defaultSeriesType1 != null) {
-            return String.format(Locale.US, "defaultSeriesType: %s,", defaultSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSmapping10() {
-        if (mapping10 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping10 != null) ? mapping10.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod8() {
-        if (period8 != null) {
-            return String.format(Locale.US, "period: %f,", period8);
-        }
-        return "";
-    }
-
-    private String generateJSadxPeriod() {
-        if (adxPeriod != null) {
-            return String.format(Locale.US, "adxPeriod: %f,", adxPeriod);
-        }
-        return "";
-    }
-
-    private String generateJSuseWildersSmoothing() {
-        if (useWildersSmoothing != null) {
-            return String.format(Locale.US, "useWildersSmoothing: %b,", useWildersSmoothing);
-        }
-        return "";
-    }
-
-    private String generateJSpdiSeriesType() {
-        if (pdiSeriesType != null) {
-            return String.format(Locale.US, "pdiSeriesType: %s,", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpdiSeriesType1() {
-        if (pdiSeriesType1 != null) {
-            return String.format(Locale.US, "pdiSeriesType: %s,", pdiSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSndiSeriesType() {
-        if (ndiSeriesType != null) {
-            return String.format(Locale.US, "ndiSeriesType: %s,", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSndiSeriesType1() {
-        if (ndiSeriesType1 != null) {
-            return String.format(Locale.US, "ndiSeriesType: %s,", ndiSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSadxSeriesType() {
-        if (adxSeriesType != null) {
-            return String.format(Locale.US, "adxSeriesType: %s,", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSadxSeriesType1() {
-        if (adxSeriesType1 != null) {
-            return String.format(Locale.US, "adxSeriesType: %s,", adxSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSmapping11() {
-        if (mapping11 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping11 != null) ? mapping11.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod9() {
-        if (period9 != null) {
-            return String.format(Locale.US, "period: %f,", period9);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType16() {
-        if (seriesType16 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType16 != null) ? seriesType16.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType17() {
-        if (seriesType17 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType17);
-        }
-        return "";
-    }
-
-    private String generateJShatchFillPalette() {
-        if (hatchFillPalette != null) {
-            return String.format(Locale.US, "hatchFillPalette: %s,", arrayToString(hatchFillPalette));
-        }
-        return "";
-    }
-
-    private String generateJShatchFillPalette1() {
-        if (hatchFillPalette1 != null) {
-            return String.format(Locale.US, "hatchFillPalette: %s,", hatchFillPalette1);
-        }
-        return "";
-    }
-
-    private String generateJShatchFillPalette2() {
-        if (hatchFillPalette2 != null) {
-            return String.format(Locale.US, "hatchFillPalette: %s,", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata12() {
-        if (data12 != null) {
-            return String.format(Locale.US, "data: %s,", (data12 != null) ? data12.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata13() {
-        if (data13 != null) {
-            return String.format(Locale.US, "data: %s,", (data13 != null) ? data13.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata14() {
-        if (data14 != null) {
-            return String.format(Locale.US, "data: %s,", data14);
-        }
-        return "";
-    }
-
-    private String generateJSdata15() {
-        if (data15 != null) {
-            return String.format(Locale.US, "data: %s,", data15);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings3() {
-        if (mappingSettings3 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings3);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings3() {
-        if (csvSettings3 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings3);
-        }
-        return "";
-    }
-
-    private String generateJSdata16() {
-        if (data16 != null) {
-            return String.format(Locale.US, "data: %s,", (data16 != null) ? data16.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata17() {
-        if (data17 != null) {
-            return String.format(Locale.US, "data: %s,", (data17 != null) ? data17.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata18() {
-        if (data18 != null) {
-            return String.format(Locale.US, "data: %s,", data18);
-        }
-        return "";
-    }
-
-    private String generateJSdata19() {
-        if (data19 != null) {
-            return String.format(Locale.US, "data: %s,", data19);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings4() {
-        if (mappingSettings4 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings4);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings4() {
-        if (csvSettings4 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings4);
-        }
-        return "";
-    }
-
-    private String generateJSmapping12() {
-        if (mapping12 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping12 != null) ? mapping12.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSkPeriod() {
-        if (kPeriod != null) {
-            return String.format(Locale.US, "kPeriod: %f,", kPeriod);
-        }
-        return "";
-    }
-
-    private String generateJSkMAPeriod() {
-        if (kMAPeriod != null) {
-            return String.format(Locale.US, "kMAPeriod: %f,", kMAPeriod);
-        }
-        return "";
-    }
-
-    private String generateJSdPeriod() {
-        if (dPeriod != null) {
-            return String.format(Locale.US, "dPeriod: %f,", dPeriod);
-        }
-        return "";
-    }
-
-    private String generateJSkMAType() {
-        if (kMAType != null) {
-            return String.format(Locale.US, "kMAType: %s,", (kMAType != null) ? kMAType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSkMAType1() {
-        if (kMAType1 != null) {
-            return String.format(Locale.US, "kMAType: %s,", kMAType1);
-        }
-        return "";
-    }
-
-    private String generateJSdMAType() {
-        if (dMAType != null) {
-            return String.format(Locale.US, "dMAType: %s,", (dMAType != null) ? dMAType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdMAType1() {
-        if (dMAType1 != null) {
-            return String.format(Locale.US, "dMAType: %s,", dMAType1);
-        }
-        return "";
-    }
-
-    private String generateJSkMultiplier() {
-        if (kMultiplier != null) {
-            return String.format(Locale.US, "kMultiplier: %f,", kMultiplier);
-        }
-        return "";
-    }
-
-    private String generateJSdMultiplier() {
-        if (dMultiplier != null) {
-            return String.format(Locale.US, "dMultiplier: %f,", dMultiplier);
-        }
-        return "";
-    }
-
-    private String generateJSkSeriesType() {
-        if (kSeriesType != null) {
-            return String.format(Locale.US, "kSeriesType: %s,", (kSeriesType != null) ? kSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSkSeriesType1() {
-        if (kSeriesType1 != null) {
-            return String.format(Locale.US, "kSeriesType: %s,", kSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSdSeriesType() {
-        if (dSeriesType != null) {
-            return String.format(Locale.US, "dSeriesType: %s,", (dSeriesType != null) ? dSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdSeriesType1() {
-        if (dSeriesType1 != null) {
-            return String.format(Locale.US, "dSeriesType: %s,", dSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSjSeriesType() {
-        if (jSeriesType != null) {
-            return String.format(Locale.US, "jSeriesType: %s,", (jSeriesType != null) ? jSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSjSeriesType1() {
-        if (jSeriesType1 != null) {
-            return String.format(Locale.US, "jSeriesType: %s,", jSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSlegend() {
-        if (legend != null) {
-            return String.format(Locale.US, "legend: %s,", legend);
-        }
-        return "";
-    }
-
-    private String generateJSlegend1() {
-        if (legend1 != null) {
-            return String.format(Locale.US, "legend: %b,", legend1);
-        }
-        return "";
-    }
-
-    private String generateJSdata20() {
-        if (data20 != null) {
-            return String.format(Locale.US, "data: %s,", (data20 != null) ? data20.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata21() {
-        if (data21 != null) {
-            return String.format(Locale.US, "data: %s,", (data21 != null) ? data21.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata22() {
-        if (data22 != null) {
-            return String.format(Locale.US, "data: %s,", data22);
-        }
-        return "";
-    }
-
-    private String generateJSdata23() {
-        if (data23 != null) {
-            return String.format(Locale.US, "data: %s,", data23);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings5() {
-        if (mappingSettings5 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings5);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings5() {
-        if (csvSettings5 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings5);
-        }
-        return "";
-    }
-
-    private String generateJSmapping13() {
-        if (mapping13 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping13 != null) ? mapping13.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSfastPeriod2() {
-        if (fastPeriod2 != null) {
-            return String.format(Locale.US, "fastPeriod: %f,", fastPeriod2);
-        }
-        return "";
-    }
-
-    private String generateJSslowPeriod2() {
-        if (slowPeriod2 != null) {
-            return String.format(Locale.US, "slowPeriod: %f,", slowPeriod2);
-        }
-        return "";
-    }
-
-    private String generateJSsignalPeriod() {
-        if (signalPeriod != null) {
-            return String.format(Locale.US, "signalPeriod: %f,", signalPeriod);
-        }
-        return "";
-    }
-
-    private String generateJSmacdSeriesType() {
-        if (macdSeriesType != null) {
-            return String.format(Locale.US, "macdSeriesType: %s,", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmacdSeriesType1() {
-        if (macdSeriesType1 != null) {
-            return String.format(Locale.US, "macdSeriesType: %s,", macdSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSsignalSeriesType() {
-        if (signalSeriesType != null) {
-            return String.format(Locale.US, "signalSeriesType: %s,", (signalSeriesType != null) ? signalSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSsignalSeriesType1() {
-        if (signalSeriesType1 != null) {
-            return String.format(Locale.US, "signalSeriesType: %s,", signalSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJShistogramSeriesType() {
-        if (histogramSeriesType != null) {
-            return String.format(Locale.US, "histogramSeriesType: %s,", (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJShistogramSeriesType1() {
-        if (histogramSeriesType1 != null) {
-            return String.format(Locale.US, "histogramSeriesType: %s,", histogramSeriesType1);
-        }
-        return "";
-    }
-
-    private String generateJSdata24() {
-        if (data24 != null) {
-            return String.format(Locale.US, "data: %s,", (data24 != null) ? data24.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata25() {
-        if (data25 != null) {
-            return String.format(Locale.US, "data: %s,", (data25 != null) ? data25.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata26() {
-        if (data26 != null) {
-            return String.format(Locale.US, "data: %s,", data26);
-        }
-        return "";
-    }
-
-    private String generateJSdata27() {
-        if (data27 != null) {
-            return String.format(Locale.US, "data: %s,", data27);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings6() {
-        if (mappingSettings6 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings6);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings6() {
-        if (csvSettings6 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings6);
-        }
-        return "";
-    }
-
-    private String generateJSmarkerPalette() {
-        if (markerPalette != null) {
-            return String.format(Locale.US, "markerPalette: %s,", (markerPalette != null) ? markerPalette.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmarkerPalette1() {
-        if (markerPalette1 != null) {
-            return String.format(Locale.US, "markerPalette: %s,", markerPalette1);
-        }
-        return "";
-    }
-
-    private String generateJSmarkerPalette2() {
-        if (markerPalette2 != null) {
-            return String.format(Locale.US, "markerPalette: %s,", arrayToString(markerPalette2));
-        }
-        return "";
-    }
-
-    private String generateJSmarkerPalette3() {
-        if (markerPalette3 != null) {
-            return String.format(Locale.US, "markerPalette: %s,", Arrays.toString(markerPalette3));
-        }
-        return "";
-    }
-
-    private String generateJSmaxPointWidth() {
-        if (maxPointWidth != null) {
-            return String.format(Locale.US, "maxPointWidth: %f,", maxPointWidth);
-        }
-        return "";
-    }
-
-    private String generateJSmaxPointWidth1() {
-        if (maxPointWidth1 != null) {
-            return String.format(Locale.US, "maxPointWidth: %s,", maxPointWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSminPointLength() {
-        if (minPointLength != null) {
-            return String.format(Locale.US, "minPointLength: %f,", minPointLength);
-        }
-        return "";
-    }
-
-    private String generateJSminPointLength1() {
-        if (minPointLength1 != null) {
-            return String.format(Locale.US, "minPointLength: %s,", minPointLength1);
-        }
-        return "";
-    }
-
-    private String generateJSmapping14() {
-        if (mapping14 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping14 != null) ? mapping14.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod10() {
-        if (period10 != null) {
-            return String.format(Locale.US, "period: %f,", period10);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType18() {
-        if (seriesType18 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType18 != null) ? seriesType18.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType19() {
-        if (seriesType19 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType19);
-        }
-        return "";
-    }
-
-    private String generateJSnoData() {
-        if (noData != null) {
-            return String.format(Locale.US, "noData: %s,", noData);
-        }
-        return "";
-    }
-
-    private String generateJSdata28() {
-        if (data28 != null) {
-            return String.format(Locale.US, "data: %s,", (data28 != null) ? data28.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata29() {
-        if (data29 != null) {
-            return String.format(Locale.US, "data: %s,", (data29 != null) ? data29.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata30() {
-        if (data30 != null) {
-            return String.format(Locale.US, "data: %s,", data30);
-        }
-        return "";
-    }
-
-    private String generateJSdata31() {
-        if (data31 != null) {
-            return String.format(Locale.US, "data: %s,", data31);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings7() {
-        if (mappingSettings7 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings7);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings7() {
-        if (csvSettings7 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings7);
-        }
-        return "";
-    }
-
-    private String generateJSpalette() {
-        if (palette != null) {
-            return String.format(Locale.US, "palette: %s,", (palette != null) ? palette.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpalette1() {
-        if (palette1 != null) {
-            return String.format(Locale.US, "palette: %s,", (palette1 != null) ? palette1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpalette2() {
-        if (palette2 != null) {
-            return String.format(Locale.US, "palette: %s,", palette2);
-        }
-        return "";
-    }
-
-    private String generateJSpalette3() {
-        if (palette3 != null) {
-            return String.format(Locale.US, "palette: %s,", Arrays.toString(palette3));
-        }
-        return "";
-    }
-
-    private String generateJSpointWidth() {
-        if (pointWidth != null) {
-            return String.format(Locale.US, "pointWidth: %f,", pointWidth);
-        }
-        return "";
-    }
-
-    private String generateJSpointWidth1() {
-        if (pointWidth1 != null) {
-            return String.format(Locale.US, "pointWidth: %s,", pointWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSpriceIndicator() {
-        if (priceIndicator != null) {
-            return String.format(Locale.US, "priceIndicator: %s,", priceIndicator);
-        }
-        return "";
-    }
-
-    private String generateJSpriceIndicator1() {
-        if (priceIndicator1 != null) {
-            return String.format(Locale.US, "priceIndicator: %b,", priceIndicator1);
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJSpriceIndicator2() {
-        if (priceIndicator2 != null) {
-            return String.format(Locale.US, "priceIndicator: %s,", priceIndicator2);
-        }
-        return "";
-    }
-
-    private String generateJSpriceIndicator3() {
-        if (priceIndicator3 != null) {
-            return String.format(Locale.US, "priceIndicator: %b,", priceIndicator3);
-        }
-        return "";
-    }
-
-    private String generateJSdata32() {
-        if (data32 != null) {
-            return String.format(Locale.US, "data: %s,", (data32 != null) ? data32.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata33() {
-        if (data33 != null) {
-            return String.format(Locale.US, "data: %s,", (data33 != null) ? data33.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata34() {
-        if (data34 != null) {
-            return String.format(Locale.US, "data: %s,", data34);
-        }
-        return "";
-    }
-
-    private String generateJSdata35() {
-        if (data35 != null) {
-            return String.format(Locale.US, "data: %s,", data35);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings8() {
-        if (mappingSettings8 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings8);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings8() {
-        if (csvSettings8 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings8);
-        }
-        return "";
-    }
-
-    private String generateJSdata36() {
-        if (data36 != null) {
-            return String.format(Locale.US, "data: %s,", (data36 != null) ? data36.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata37() {
-        if (data37 != null) {
-            return String.format(Locale.US, "data: %s,", (data37 != null) ? data37.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata38() {
-        if (data38 != null) {
-            return String.format(Locale.US, "data: %s,", data38);
-        }
-        return "";
-    }
-
-    private String generateJSdata39() {
-        if (data39 != null) {
-            return String.format(Locale.US, "data: %s,", data39);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings9() {
-        if (mappingSettings9 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings9);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings9() {
-        if (csvSettings9 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings9);
-        }
-        return "";
-    }
-
-    private String generateJSdata40() {
-        if (data40 != null) {
-            return String.format(Locale.US, "data: %s,", (data40 != null) ? data40.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata41() {
-        if (data41 != null) {
-            return String.format(Locale.US, "data: %s,", (data41 != null) ? data41.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata42() {
-        if (data42 != null) {
-            return String.format(Locale.US, "data: %s,", data42);
-        }
-        return "";
-    }
-
-    private String generateJSdata43() {
-        if (data43 != null) {
-            return String.format(Locale.US, "data: %s,", data43);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings10() {
-        if (mappingSettings10 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings10);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings10() {
-        if (csvSettings10 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings10);
-        }
-        return "";
-    }
-
-    private String generateJSdata44() {
-        if (data44 != null) {
-            return String.format(Locale.US, "data: %s,", (data44 != null) ? data44.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata45() {
-        if (data45 != null) {
-            return String.format(Locale.US, "data: %s,", (data45 != null) ? data45.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata46() {
-        if (data46 != null) {
-            return String.format(Locale.US, "data: %s,", data46);
-        }
-        return "";
-    }
-
-    private String generateJSdata47() {
-        if (data47 != null) {
-            return String.format(Locale.US, "data: %s,", data47);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings11() {
-        if (mappingSettings11 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings11);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings11() {
-        if (csvSettings11 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings11);
-        }
-        return "";
-    }
-
-    private String generateJSid() {
-        if (id != null) {
-            return String.format(Locale.US, "id: %f,", id);
-        }
-        return "";
-    }
-
-    private String generateJSid1() {
-        if (id1 != null) {
-            return String.format(Locale.US, "id: %s,", id1);
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSmapping15() {
-        if (mapping15 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping15 != null) ? mapping15.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod11() {
-        if (period11 != null) {
-            return String.format(Locale.US, "period: %f,", period11);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType20() {
-        if (seriesType20 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType20 != null) ? seriesType20.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType21() {
-        if (seriesType21 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType21);
-        }
-        return "";
-    }
-
-    private String generateJSmapping16() {
-        if (mapping16 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping16 != null) ? mapping16.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod12() {
-        if (period12 != null) {
-            return String.format(Locale.US, "period: %f,", period12);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType22() {
-        if (seriesType22 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType22 != null) ? seriesType22.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType23() {
-        if (seriesType23 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType23);
-        }
-        return "";
-    }
-
-    private String generateJSmapping17() {
-        if (mapping17 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping17 != null) ? mapping17.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSperiod13() {
-        if (period13 != null) {
-            return String.format(Locale.US, "period: %f,", period13);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType24() {
-        if (seriesType24 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType24 != null) ? seriesType24.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseriesType25() {
-        if (seriesType25 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType25);
-        }
-        return "";
-    }
-
-    private String generateJSdata48() {
-        if (data48 != null) {
-            return String.format(Locale.US, "data: %s,", (data48 != null) ? data48.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata49() {
-        if (data49 != null) {
-            return String.format(Locale.US, "data: %s,", (data49 != null) ? data49.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata50() {
-        if (data50 != null) {
-            return String.format(Locale.US, "data: %s,", data50);
-        }
-        return "";
-    }
-
-    private String generateJSdata51() {
-        if (data51 != null) {
-            return String.format(Locale.US, "data: %s,", data51);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings12() {
-        if (mappingSettings12 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings12);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings12() {
-        if (csvSettings12 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings12);
-        }
-        return "";
-    }
-
-    private String generateJSdata52() {
-        if (data52 != null) {
-            return String.format(Locale.US, "data: %s,", (data52 != null) ? data52.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata53() {
-        if (data53 != null) {
-            return String.format(Locale.US, "data: %s,", (data53 != null) ? data53.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata54() {
-        if (data54 != null) {
-            return String.format(Locale.US, "data: %s,", data54);
-        }
-        return "";
-    }
-
-    private String generateJSdata55() {
-        if (data55 != null) {
-            return String.format(Locale.US, "data: %s,", data55);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings13() {
-        if (mappingSettings13 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings13);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings13() {
-        if (csvSettings13 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings13);
-        }
-        return "";
-    }
-
-    private String generateJSdata56() {
-        if (data56 != null) {
-            return String.format(Locale.US, "data: %s,", (data56 != null) ? data56.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata57() {
-        if (data57 != null) {
-            return String.format(Locale.US, "data: %s,", (data57 != null) ? data57.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata58() {
-        if (data58 != null) {
-            return String.format(Locale.US, "data: %s,", data58);
-        }
-        return "";
-    }
-
-    private String generateJSdata59() {
-        if (data59 != null) {
-            return String.format(Locale.US, "data: %s,", data59);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings14() {
-        if (mappingSettings14 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings14);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings14() {
-        if (csvSettings14 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings14);
-        }
-        return "";
-    }
-
-    private String generateJSdata60() {
-        if (data60 != null) {
-            return String.format(Locale.US, "data: %s,", (data60 != null) ? data60.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata61() {
-        if (data61 != null) {
-            return String.format(Locale.US, "data: %s,", (data61 != null) ? data61.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata62() {
-        if (data62 != null) {
-            return String.format(Locale.US, "data: %s,", data62);
-        }
-        return "";
-    }
-
-    private String generateJSdata63() {
-        if (data63 != null) {
-            return String.format(Locale.US, "data: %s,", data63);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings15() {
-        if (mappingSettings15 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings15);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings15() {
-        if (csvSettings15 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings15);
-        }
-        return "";
-    }
-
-    private String generateJSdata64() {
-        if (data64 != null) {
-            return String.format(Locale.US, "data: %s,", (data64 != null) ? data64.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata65() {
-        if (data65 != null) {
-            return String.format(Locale.US, "data: %s,", (data65 != null) ? data65.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata66() {
-        if (data66 != null) {
-            return String.format(Locale.US, "data: %s,", data66);
-        }
-        return "";
-    }
-
-    private String generateJSdata67() {
-        if (data67 != null) {
-            return String.format(Locale.US, "data: %s,", data67);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings16() {
-        if (mappingSettings16 != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings16);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings16() {
-        if (csvSettings16 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings16);
-        }
-        return "";
-    }
-
-    private String generateJSmapping18() {
-        if (mapping18 != null) {
-            return String.format(Locale.US, "mapping: %s,", (mapping18 != null) ? mapping18.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSkPeriod1() {
-        if (kPeriod1 != null) {
-            return String.format(Locale.US, "kPeriod: %f,", kPeriod1);
-        }
-        return "";
-    }
-
-    private String generateJSkMAPeriod1() {
-        if (kMAPeriod1 != null) {
-            return String.format(Locale.US, "kMAPeriod: %f,", kMAPeriod1);
-        }
-        return "";
-    }
-
-    private String generateJSdPeriod1() {
-        if (dPeriod1 != null) {
-            return String.format(Locale.US, "dPeriod: %f,", dPeriod1);
-        }
-        return "";
-    }
-
-    private String generateJSkMAType2() {
-        if (kMAType2 != null) {
-            return String.format(Locale.US, "kMAType: %s,", (kMAType2 != null) ? kMAType2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSkMAType3() {
-        if (kMAType3 != null) {
-            return String.format(Locale.US, "kMAType: %s,", kMAType3);
-        }
-        return "";
-    }
-
-    private String generateJSdMAType2() {
-        if (dMAType2 != null) {
-            return String.format(Locale.US, "dMAType: %s,", (dMAType2 != null) ? dMAType2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdMAType3() {
-        if (dMAType3 != null) {
-            return String.format(Locale.US, "dMAType: %s,", dMAType3);
-        }
-        return "";
-    }
-
-    private String generateJSkSeriesType2() {
-        if (kSeriesType2 != null) {
-            return String.format(Locale.US, "kSeriesType: %s,", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSkSeriesType3() {
-        if (kSeriesType3 != null) {
-            return String.format(Locale.US, "kSeriesType: %s,", kSeriesType3);
-        }
-        return "";
-    }
-
-    private String generateJSdSeriesType2() {
-        if (dSeriesType2 != null) {
-            return String.format(Locale.US, "dSeriesType: %s,", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdSeriesType3() {
-        if (dSeriesType3 != null) {
-            return String.format(Locale.US, "dSeriesType: %s,", dSeriesType3);
-        }
-        return "";
-    }
-
-    private String generateJSxAxis() {
-        if (xAxis != null) {
-            return String.format(Locale.US, "xAxis: %s,", xAxis);
-        }
-        return "";
-    }
-
-    private String generateJSxAxis1() {
-        if (xAxis1 != null) {
-            return String.format(Locale.US, "xAxis: %b,", xAxis1);
-        }
-        return "";
-    }
-
-    private String generateJSxGrid() {
-        if (xGrid != null) {
-            return String.format(Locale.US, "xGrid: %s,", xGrid);
-        }
-        return "";
-    }
-
-    private String generateJSxGrid1() {
-        if (xGrid1 != null) {
-            return String.format(Locale.US, "xGrid: %b,", xGrid1);
-        }
-        return "";
-    }
-
-    private String generateJSindex2() {
-        if (index2 != null) {
-            return String.format(Locale.US, "index: %f,", index2);
-        }
-        return "";
-    }
-
-    private String generateJSxGrid2() {
-        if (xGrid2 != null) {
-            return String.format(Locale.US, "xGrid: %s,", xGrid2);
-        }
-        return "";
-    }
-
-    private String generateJSxGrid3() {
-        if (xGrid3 != null) {
-            return String.format(Locale.US, "xGrid: %b,", xGrid3);
-        }
-        return "";
-    }
-
-    private String generateJSxMinorGrid() {
-        if (xMinorGrid != null) {
-            return String.format(Locale.US, "xMinorGrid: %s,", xMinorGrid);
-        }
-        return "";
-    }
-
-    private String generateJSxMinorGrid1() {
-        if (xMinorGrid1 != null) {
-            return String.format(Locale.US, "xMinorGrid: %b,", xMinorGrid1);
-        }
-        return "";
-    }
-
-    private String generateJSindexOrValue() {
-        if (indexOrValue != null) {
-            return String.format(Locale.US, "indexOrValue: %f,", indexOrValue);
-        }
-        return "";
-    }
-
-    private String generateJSxMinorGrid2() {
-        if (xMinorGrid2 != null) {
-            return String.format(Locale.US, "xMinorGrid: %s,", xMinorGrid2);
-        }
-        return "";
-    }
-
-    private String generateJSxMinorGrid3() {
-        if (xMinorGrid3 != null) {
-            return String.format(Locale.US, "xMinorGrid: %b,", xMinorGrid3);
-        }
-        return "";
-    }
-
-    private String generateJSyAxis() {
-        if (yAxis != null) {
-            return String.format(Locale.US, "yAxis: %s,", yAxis);
-        }
-        return "";
-    }
-
-    private String generateJSyAxis1() {
-        if (yAxis1 != null) {
-            return String.format(Locale.US, "yAxis: %b,", yAxis1);
-        }
-        return "";
-    }
-
-    private String generateJSindex3() {
-        if (index3 != null) {
-            return String.format(Locale.US, "index: %f,", index3);
-        }
-        return "";
-    }
-
-    private String generateJSyAxis2() {
-        if (yAxis2 != null) {
-            return String.format(Locale.US, "yAxis: %s,", yAxis2);
-        }
-        return "";
-    }
-
-    private String generateJSyAxis3() {
-        if (yAxis3 != null) {
-            return String.format(Locale.US, "yAxis: %b,", yAxis3);
-        }
-        return "";
-    }
-
-    private String generateJSyGrid() {
-        if (yGrid != null) {
-            return String.format(Locale.US, "yGrid: %s,", yGrid);
-        }
-        return "";
-    }
-
-    private String generateJSyGrid1() {
-        if (yGrid1 != null) {
-            return String.format(Locale.US, "yGrid: %b,", yGrid1);
-        }
-        return "";
-    }
-
-    private String generateJSindex4() {
-        if (index4 != null) {
-            return String.format(Locale.US, "index: %f,", index4);
-        }
-        return "";
-    }
-
-    private String generateJSyGrid2() {
-        if (yGrid2 != null) {
-            return String.format(Locale.US, "yGrid: %s,", yGrid2);
-        }
-        return "";
-    }
-
-    private String generateJSyGrid3() {
-        if (yGrid3 != null) {
-            return String.format(Locale.US, "yGrid: %b,", yGrid3);
-        }
-        return "";
-    }
-
-    private String generateJSyMinorGrid() {
-        if (yMinorGrid != null) {
-            return String.format(Locale.US, "yMinorGrid: %s,", yMinorGrid);
-        }
-        return "";
-    }
-
-    private String generateJSyMinorGrid1() {
-        if (yMinorGrid1 != null) {
-            return String.format(Locale.US, "yMinorGrid: %b,", yMinorGrid1);
-        }
-        return "";
-    }
-
-    private String generateJSindexOrValue1() {
-        if (indexOrValue1 != null) {
-            return String.format(Locale.US, "indexOrValue: %f,", indexOrValue1);
-        }
-        return "";
-    }
-
-    private String generateJSyMinorGrid2() {
-        if (yMinorGrid2 != null) {
-            return String.format(Locale.US, "yMinorGrid: %s,", yMinorGrid2);
-        }
-        return "";
-    }
-
-    private String generateJSyMinorGrid3() {
-        if (yMinorGrid3 != null) {
-            return String.format(Locale.US, "yMinorGrid: %b,", yMinorGrid3);
-        }
-        return "";
-    }
-
-    private String generateJSyScale() {
-        if (yScale != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale != null) ? yScale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale1() {
-        if (yScale1 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale1);
-        }
-        return "";
-    }
-
-    private String generateJSyScale2() {
-        if (yScale2 != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale2 != null) ? yScale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale3() {
-        if (yScale3 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale3);
+            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -15233,6 +13395,7 @@ public class Plot extends VisualBaseWithBounds {
         jsGetters.append(generateJSgetBackground());
         jsGetters.append(generateJSgetCrosshair());
         jsGetters.append(generateJSgetGetSeries());
+        jsGetters.append(generateJSgetGetSeries1());
         jsGetters.append(generateJSgetGetSeriesAt());
         jsGetters.append(generateJSgetHatchFillPalette());
         jsGetters.append(generateJSgetLegend());
@@ -15258,301 +13421,593 @@ public class Plot extends VisualBaseWithBounds {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSvar_args());
-            js.append(generateJSmapping());
-            js.append(generateJSseriesType());
-            js.append(generateJSseriesType1());
-            js.append(generateJSmapping1());
-            js.append(generateJSperiod());
-            js.append(generateJSfastPeriod());
-            js.append(generateJSslowPeriod());
-            js.append(generateJSseriesType2());
-            js.append(generateJSseriesType3());
-            js.append(generateJSannotationsList());
-            js.append(generateJSdata());
-            js.append(generateJSdata1());
-            js.append(generateJSdata2());
-            js.append(generateJSdata3());
-            js.append(generateJSmappingSettings());
-            js.append(generateJScsvSettings());
-            js.append(generateJSmapping2());
-            js.append(generateJSperiod1());
-            js.append(generateJSupSeriesType());
-            js.append(generateJSupSeriesType1());
-            js.append(generateJSdownSeriesType());
-            js.append(generateJSdownSeriesType1());
-            js.append(generateJSmapping3());
-            js.append(generateJSperiod2());
-            js.append(generateJSseriesType4());
-            js.append(generateJSseriesType5());
-            js.append(generateJSbackground());
-            js.append(generateJSbackground1());
-            js.append(generateJSbackground2());
-            js.append(generateJSmapping4());
-            js.append(generateJSperiod3());
-            js.append(generateJSdeviation());
-            js.append(generateJSupperSeriesType());
-            js.append(generateJSupperSeriesType1());
-            js.append(generateJSlowerSeriesType());
-            js.append(generateJSlowerSeriesType1());
-            js.append(generateJSmiddleSeriesType());
-            js.append(generateJSmiddleSeriesType1());
-            js.append(generateJSmapping5());
-            js.append(generateJSperiod4());
-            js.append(generateJSdeviation1());
-            js.append(generateJSseriesType6());
-            js.append(generateJSseriesType7());
-            js.append(generateJSmapping6());
-            js.append(generateJSperiod5());
-            js.append(generateJSdeviation2());
-            js.append(generateJSseriesType8());
-            js.append(generateJSseriesType9());
-            js.append(generateJSdata4());
-            js.append(generateJSdata5());
-            js.append(generateJSdata6());
-            js.append(generateJSdata7());
-            js.append(generateJSmappingSettings1());
-            js.append(generateJScsvSettings1());
-            js.append(generateJSmapping7());
-            js.append(generateJSperiod6());
-            js.append(generateJSseriesType10());
-            js.append(generateJSseriesType11());
-            js.append(generateJSmapping8());
-            js.append(generateJSfastPeriod1());
-            js.append(generateJSslowPeriod1());
-            js.append(generateJSmaType());
-            js.append(generateJSmaType1());
-            js.append(generateJSseriesType12());
-            js.append(generateJSseriesType13());
-            js.append(generateJSmapping9());
-            js.append(generateJSperiod7());
-            js.append(generateJSseriesType14());
-            js.append(generateJSseriesType15());
-            js.append(generateJSdata8());
-            js.append(generateJSdata9());
-            js.append(generateJSdata10());
-            js.append(generateJSdata11());
-            js.append(generateJSmappingSettings2());
-            js.append(generateJScsvSettings2());
-            js.append(generateJScrosshair());
-            js.append(generateJScrosshair1());
-            js.append(generateJSdefaultSeriesType());
-            js.append(generateJSdefaultSeriesType1());
-            js.append(generateJSmapping10());
-            js.append(generateJSperiod8());
-            js.append(generateJSadxPeriod());
-            js.append(generateJSuseWildersSmoothing());
-            js.append(generateJSpdiSeriesType());
-            js.append(generateJSpdiSeriesType1());
-            js.append(generateJSndiSeriesType());
-            js.append(generateJSndiSeriesType1());
-            js.append(generateJSadxSeriesType());
-            js.append(generateJSadxSeriesType1());
-            js.append(generateJSmapping11());
-            js.append(generateJSperiod9());
-            js.append(generateJSseriesType16());
-            js.append(generateJSseriesType17());
-            js.append(generateJShatchFillPalette());
-            js.append(generateJShatchFillPalette1());
-            js.append(generateJShatchFillPalette2());
-            js.append(generateJSdata12());
-            js.append(generateJSdata13());
-            js.append(generateJSdata14());
-            js.append(generateJSdata15());
-            js.append(generateJSmappingSettings3());
-            js.append(generateJScsvSettings3());
-            js.append(generateJSdata16());
-            js.append(generateJSdata17());
-            js.append(generateJSdata18());
-            js.append(generateJSdata19());
-            js.append(generateJSmappingSettings4());
-            js.append(generateJScsvSettings4());
-            js.append(generateJSmapping12());
-            js.append(generateJSkPeriod());
-            js.append(generateJSkMAPeriod());
-            js.append(generateJSdPeriod());
-            js.append(generateJSkMAType());
-            js.append(generateJSkMAType1());
-            js.append(generateJSdMAType());
-            js.append(generateJSdMAType1());
-            js.append(generateJSkMultiplier());
-            js.append(generateJSdMultiplier());
-            js.append(generateJSkSeriesType());
-            js.append(generateJSkSeriesType1());
-            js.append(generateJSdSeriesType());
-            js.append(generateJSdSeriesType1());
-            js.append(generateJSjSeriesType());
-            js.append(generateJSjSeriesType1());
-            js.append(generateJSlegend());
-            js.append(generateJSlegend1());
-            js.append(generateJSdata20());
-            js.append(generateJSdata21());
-            js.append(generateJSdata22());
-            js.append(generateJSdata23());
-            js.append(generateJSmappingSettings5());
-            js.append(generateJScsvSettings5());
-            js.append(generateJSmapping13());
-            js.append(generateJSfastPeriod2());
-            js.append(generateJSslowPeriod2());
-            js.append(generateJSsignalPeriod());
-            js.append(generateJSmacdSeriesType());
-            js.append(generateJSmacdSeriesType1());
-            js.append(generateJSsignalSeriesType());
-            js.append(generateJSsignalSeriesType1());
-            js.append(generateJShistogramSeriesType());
-            js.append(generateJShistogramSeriesType1());
-            js.append(generateJSdata24());
-            js.append(generateJSdata25());
-            js.append(generateJSdata26());
-            js.append(generateJSdata27());
-            js.append(generateJSmappingSettings6());
-            js.append(generateJScsvSettings6());
-            js.append(generateJSmarkerPalette());
-            js.append(generateJSmarkerPalette1());
-            js.append(generateJSmarkerPalette2());
-            js.append(generateJSmarkerPalette3());
-            js.append(generateJSmaxPointWidth());
-            js.append(generateJSmaxPointWidth1());
-            js.append(generateJSminPointLength());
-            js.append(generateJSminPointLength1());
-            js.append(generateJSmapping14());
-            js.append(generateJSperiod10());
-            js.append(generateJSseriesType18());
-            js.append(generateJSseriesType19());
-            js.append(generateJSnoData());
-            js.append(generateJSdata28());
-            js.append(generateJSdata29());
-            js.append(generateJSdata30());
-            js.append(generateJSdata31());
-            js.append(generateJSmappingSettings7());
-            js.append(generateJScsvSettings7());
-            js.append(generateJSpalette());
-            js.append(generateJSpalette1());
-            js.append(generateJSpalette2());
-            js.append(generateJSpalette3());
-            js.append(generateJSpointWidth());
-            js.append(generateJSpointWidth1());
-            js.append(generateJSpriceIndicator());
-            js.append(generateJSpriceIndicator1());
-            js.append(generateJSindex());
-            js.append(generateJSpriceIndicator2());
-            js.append(generateJSpriceIndicator3());
-            js.append(generateJSdata32());
-            js.append(generateJSdata33());
-            js.append(generateJSdata34());
-            js.append(generateJSdata35());
-            js.append(generateJSmappingSettings8());
-            js.append(generateJScsvSettings8());
-            js.append(generateJSdata36());
-            js.append(generateJSdata37());
-            js.append(generateJSdata38());
-            js.append(generateJSdata39());
-            js.append(generateJSmappingSettings9());
-            js.append(generateJScsvSettings9());
-            js.append(generateJSdata40());
-            js.append(generateJSdata41());
-            js.append(generateJSdata42());
-            js.append(generateJSdata43());
-            js.append(generateJSmappingSettings10());
-            js.append(generateJScsvSettings10());
-            js.append(generateJSdata44());
-            js.append(generateJSdata45());
-            js.append(generateJSdata46());
-            js.append(generateJSdata47());
-            js.append(generateJSmappingSettings11());
-            js.append(generateJScsvSettings11());
-            js.append(generateJSid());
-            js.append(generateJSid1());
-            js.append(generateJSindex1());
-            js.append(generateJSmapping15());
-            js.append(generateJSperiod11());
-            js.append(generateJSseriesType20());
-            js.append(generateJSseriesType21());
-            js.append(generateJSmapping16());
-            js.append(generateJSperiod12());
-            js.append(generateJSseriesType22());
-            js.append(generateJSseriesType23());
-            js.append(generateJSmapping17());
-            js.append(generateJSperiod13());
-            js.append(generateJSseriesType24());
-            js.append(generateJSseriesType25());
-            js.append(generateJSdata48());
-            js.append(generateJSdata49());
-            js.append(generateJSdata50());
-            js.append(generateJSdata51());
-            js.append(generateJSmappingSettings12());
-            js.append(generateJScsvSettings12());
-            js.append(generateJSdata52());
-            js.append(generateJSdata53());
-            js.append(generateJSdata54());
-            js.append(generateJSdata55());
-            js.append(generateJSmappingSettings13());
-            js.append(generateJScsvSettings13());
-            js.append(generateJSdata56());
-            js.append(generateJSdata57());
-            js.append(generateJSdata58());
-            js.append(generateJSdata59());
-            js.append(generateJSmappingSettings14());
-            js.append(generateJScsvSettings14());
-            js.append(generateJSdata60());
-            js.append(generateJSdata61());
-            js.append(generateJSdata62());
-            js.append(generateJSdata63());
-            js.append(generateJSmappingSettings15());
-            js.append(generateJScsvSettings15());
-            js.append(generateJSdata64());
-            js.append(generateJSdata65());
-            js.append(generateJSdata66());
-            js.append(generateJSdata67());
-            js.append(generateJSmappingSettings16());
-            js.append(generateJScsvSettings16());
-            js.append(generateJSmapping18());
-            js.append(generateJSkPeriod1());
-            js.append(generateJSkMAPeriod1());
-            js.append(generateJSdPeriod1());
-            js.append(generateJSkMAType2());
-            js.append(generateJSkMAType3());
-            js.append(generateJSdMAType2());
-            js.append(generateJSdMAType3());
-            js.append(generateJSkSeriesType2());
-            js.append(generateJSkSeriesType3());
-            js.append(generateJSdSeriesType2());
-            js.append(generateJSdSeriesType3());
-            js.append(generateJSxAxis());
-            js.append(generateJSxAxis1());
-            js.append(generateJSxGrid());
-            js.append(generateJSxGrid1());
-            js.append(generateJSindex2());
-            js.append(generateJSxGrid2());
-            js.append(generateJSxGrid3());
-            js.append(generateJSxMinorGrid());
-            js.append(generateJSxMinorGrid1());
-            js.append(generateJSindexOrValue());
-            js.append(generateJSxMinorGrid2());
-            js.append(generateJSxMinorGrid3());
-            js.append(generateJSyAxis());
-            js.append(generateJSyAxis1());
-            js.append(generateJSindex3());
-            js.append(generateJSyAxis2());
-            js.append(generateJSyAxis3());
-            js.append(generateJSyGrid());
-            js.append(generateJSyGrid1());
-            js.append(generateJSindex4());
-            js.append(generateJSyGrid2());
-            js.append(generateJSyGrid3());
-            js.append(generateJSyMinorGrid());
-            js.append(generateJSyMinorGrid1());
-            js.append(generateJSindexOrValue1());
-            js.append(generateJSyMinorGrid2());
-            js.append(generateJSyMinorGrid3());
-            js.append(generateJSyScale());
-            js.append(generateJSyScale1());
-            js.append(generateJSyScale2());
-            js.append(generateJSyScale3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSvar_args());
+////        
+//            js.append(generateJSmapping());
+////        
+//            js.append(generateJSseriesType());
+////        
+//            js.append(generateJSseriesType1());
+////        
+//            js.append(generateJSmapping1());
+////        
+//            js.append(generateJSperiod());
+////        
+//            js.append(generateJSfastPeriod());
+////        
+//            js.append(generateJSslowPeriod());
+////        
+//            js.append(generateJSseriesType2());
+////        
+//            js.append(generateJSseriesType3());
+////        
+//            js.append(generateJSannotationsList());
+////        
+//            js.append(generateJSdata());
+////        
+//            js.append(generateJSdata1());
+////        
+//            js.append(generateJSdata2());
+////        
+//            js.append(generateJSdata3());
+////        
+//            js.append(generateJSmappingSettings());
+////        
+//            js.append(generateJScsvSettings());
+////        
+//            js.append(generateJSmapping2());
+////        
+//            js.append(generateJSperiod1());
+////        
+//            js.append(generateJSupSeriesType());
+////        
+//            js.append(generateJSupSeriesType1());
+////        
+//            js.append(generateJSdownSeriesType());
+////        
+//            js.append(generateJSdownSeriesType1());
+////        
+//            js.append(generateJSmapping3());
+////        
+//            js.append(generateJSperiod2());
+////        
+//            js.append(generateJSseriesType4());
+////        
+//            js.append(generateJSseriesType5());
+////        
+//            js.append(generateJSbackground());
+////        
+//            js.append(generateJSbackground1());
+////        
+//            js.append(generateJSbackground2());
+////        
+//            js.append(generateJSmapping4());
+////        
+//            js.append(generateJSperiod3());
+////        
+//            js.append(generateJSdeviation());
+////        
+//            js.append(generateJSupperSeriesType());
+////        
+//            js.append(generateJSupperSeriesType1());
+////        
+//            js.append(generateJSlowerSeriesType());
+////        
+//            js.append(generateJSlowerSeriesType1());
+////        
+//            js.append(generateJSmiddleSeriesType());
+////        
+//            js.append(generateJSmiddleSeriesType1());
+////        
+//            js.append(generateJSmapping5());
+////        
+//            js.append(generateJSperiod4());
+////        
+//            js.append(generateJSdeviation1());
+////        
+//            js.append(generateJSseriesType6());
+////        
+//            js.append(generateJSseriesType7());
+////        
+//            js.append(generateJSmapping6());
+////        
+//            js.append(generateJSperiod5());
+////        
+//            js.append(generateJSdeviation2());
+////        
+//            js.append(generateJSseriesType8());
+////        
+//            js.append(generateJSseriesType9());
+////        
+//            js.append(generateJSdata4());
+////        
+//            js.append(generateJSdata5());
+////        
+//            js.append(generateJSdata6());
+////        
+//            js.append(generateJSdata7());
+////        
+//            js.append(generateJSmappingSettings1());
+////        
+//            js.append(generateJScsvSettings1());
+////        
+//            js.append(generateJSmapping7());
+////        
+//            js.append(generateJSperiod6());
+////        
+//            js.append(generateJSseriesType10());
+////        
+//            js.append(generateJSseriesType11());
+////        
+//            js.append(generateJSmapping8());
+////        
+//            js.append(generateJSfastPeriod1());
+////        
+//            js.append(generateJSslowPeriod1());
+////        
+//            js.append(generateJSmaType());
+////        
+//            js.append(generateJSmaType1());
+////        
+//            js.append(generateJSseriesType12());
+////        
+//            js.append(generateJSseriesType13());
+////        
+//            js.append(generateJSmapping9());
+////        
+//            js.append(generateJSperiod7());
+////        
+//            js.append(generateJSseriesType14());
+////        
+//            js.append(generateJSseriesType15());
+////        
+//            js.append(generateJSdata8());
+////        
+//            js.append(generateJSdata9());
+////        
+//            js.append(generateJSdata10());
+////        
+//            js.append(generateJSdata11());
+////        
+//            js.append(generateJSmappingSettings2());
+////        
+//            js.append(generateJScsvSettings2());
+////        
+//            js.append(generateJScrosshair());
+////        
+//            js.append(generateJScrosshair1());
+////        
+//            js.append(generateJSdefaultSeriesType());
+////        
+//            js.append(generateJSdefaultSeriesType1());
+////        
+//            js.append(generateJSmapping10());
+////        
+//            js.append(generateJSperiod8());
+////        
+//            js.append(generateJSadxPeriod());
+////        
+//            js.append(generateJSuseWildersSmoothing());
+////        
+//            js.append(generateJSpdiSeriesType());
+////        
+//            js.append(generateJSpdiSeriesType1());
+////        
+//            js.append(generateJSndiSeriesType());
+////        
+//            js.append(generateJSndiSeriesType1());
+////        
+//            js.append(generateJSadxSeriesType());
+////        
+//            js.append(generateJSadxSeriesType1());
+////        
+//            js.append(generateJSmapping11());
+////        
+//            js.append(generateJSperiod9());
+////        
+//            js.append(generateJSseriesType16());
+////        
+//            js.append(generateJSseriesType17());
+////        
+//            js.append(generateJShatchFillPalette());
+////        
+//            js.append(generateJShatchFillPalette1());
+////        
+//            js.append(generateJShatchFillPalette2());
+////        
+//            js.append(generateJSdata12());
+////        
+//            js.append(generateJSdata13());
+////        
+//            js.append(generateJSdata14());
+////        
+//            js.append(generateJSdata15());
+////        
+//            js.append(generateJSmappingSettings3());
+////        
+//            js.append(generateJScsvSettings3());
+////        
+//            js.append(generateJSdata16());
+////        
+//            js.append(generateJSdata17());
+////        
+//            js.append(generateJSdata18());
+////        
+//            js.append(generateJSdata19());
+////        
+//            js.append(generateJSmappingSettings4());
+////        
+//            js.append(generateJScsvSettings4());
+////        
+//            js.append(generateJSmapping12());
+////        
+//            js.append(generateJSkPeriod());
+////        
+//            js.append(generateJSkMAPeriod());
+////        
+//            js.append(generateJSdPeriod());
+////        
+//            js.append(generateJSkMAType());
+////        
+//            js.append(generateJSkMAType1());
+////        
+//            js.append(generateJSdMAType());
+////        
+//            js.append(generateJSdMAType1());
+////        
+//            js.append(generateJSkMultiplier());
+////        
+//            js.append(generateJSdMultiplier());
+////        
+//            js.append(generateJSkSeriesType());
+////        
+//            js.append(generateJSkSeriesType1());
+////        
+//            js.append(generateJSdSeriesType());
+////        
+//            js.append(generateJSdSeriesType1());
+////        
+//            js.append(generateJSjSeriesType());
+////        
+//            js.append(generateJSjSeriesType1());
+////        
+//            js.append(generateJSlegend());
+////        
+//            js.append(generateJSlegend1());
+////        
+//            js.append(generateJSdata20());
+////        
+//            js.append(generateJSdata21());
+////        
+//            js.append(generateJSdata22());
+////        
+//            js.append(generateJSdata23());
+////        
+//            js.append(generateJSmappingSettings5());
+////        
+//            js.append(generateJScsvSettings5());
+////        
+//            js.append(generateJSmapping13());
+////        
+//            js.append(generateJSfastPeriod2());
+////        
+//            js.append(generateJSslowPeriod2());
+////        
+//            js.append(generateJSsignalPeriod());
+////        
+//            js.append(generateJSmacdSeriesType());
+////        
+//            js.append(generateJSmacdSeriesType1());
+////        
+//            js.append(generateJSsignalSeriesType());
+////        
+//            js.append(generateJSsignalSeriesType1());
+////        
+//            js.append(generateJShistogramSeriesType());
+////        
+//            js.append(generateJShistogramSeriesType1());
+////        
+//            js.append(generateJSdata24());
+////        
+//            js.append(generateJSdata25());
+////        
+//            js.append(generateJSdata26());
+////        
+//            js.append(generateJSdata27());
+////        
+//            js.append(generateJSmappingSettings6());
+////        
+//            js.append(generateJScsvSettings6());
+////        
+//            js.append(generateJSmarkerPalette());
+////        
+//            js.append(generateJSmarkerPalette1());
+////        
+//            js.append(generateJSmarkerPalette2());
+////        
+//            js.append(generateJSmarkerPalette3());
+////        
+//            js.append(generateJSmaxPointWidth());
+////        
+//            js.append(generateJSmaxPointWidth1());
+////        
+//            js.append(generateJSminPointLength());
+////        
+//            js.append(generateJSminPointLength1());
+////        
+//            js.append(generateJSmapping14());
+////        
+//            js.append(generateJSperiod10());
+////        
+//            js.append(generateJSseriesType18());
+////        
+//            js.append(generateJSseriesType19());
+////        
+//            js.append(generateJSnoData());
+////        
+//            js.append(generateJSdata28());
+////        
+//            js.append(generateJSdata29());
+////        
+//            js.append(generateJSdata30());
+////        
+//            js.append(generateJSdata31());
+////        
+//            js.append(generateJSmappingSettings7());
+////        
+//            js.append(generateJScsvSettings7());
+////        
+//            js.append(generateJSpalette());
+////        
+//            js.append(generateJSpalette1());
+////        
+//            js.append(generateJSpalette2());
+////        
+//            js.append(generateJSpalette3());
+////        
+//            js.append(generateJSpointWidth());
+////        
+//            js.append(generateJSpointWidth1());
+////        
+//            js.append(generateJSpriceIndicator());
+////        
+//            js.append(generateJSpriceIndicator1());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSpriceIndicator2());
+////        
+//            js.append(generateJSpriceIndicator3());
+////        
+//            js.append(generateJSdata32());
+////        
+//            js.append(generateJSdata33());
+////        
+//            js.append(generateJSdata34());
+////        
+//            js.append(generateJSdata35());
+////        
+//            js.append(generateJSmappingSettings8());
+////        
+//            js.append(generateJScsvSettings8());
+////        
+//            js.append(generateJSdata36());
+////        
+//            js.append(generateJSdata37());
+////        
+//            js.append(generateJSdata38());
+////        
+//            js.append(generateJSdata39());
+////        
+//            js.append(generateJSmappingSettings9());
+////        
+//            js.append(generateJScsvSettings9());
+////        
+//            js.append(generateJSdata40());
+////        
+//            js.append(generateJSdata41());
+////        
+//            js.append(generateJSdata42());
+////        
+//            js.append(generateJSdata43());
+////        
+//            js.append(generateJSmappingSettings10());
+////        
+//            js.append(generateJScsvSettings10());
+////        
+//            js.append(generateJSdata44());
+////        
+//            js.append(generateJSdata45());
+////        
+//            js.append(generateJSdata46());
+////        
+//            js.append(generateJSdata47());
+////        
+//            js.append(generateJSmappingSettings11());
+////        
+//            js.append(generateJScsvSettings11());
+////        
+//            js.append(generateJSid());
+////        
+//            js.append(generateJSid1());
+////        
+//            js.append(generateJSindex1());
+////        
+//            js.append(generateJSmapping15());
+////        
+//            js.append(generateJSperiod11());
+////        
+//            js.append(generateJSseriesType20());
+////        
+//            js.append(generateJSseriesType21());
+////        
+//            js.append(generateJSmapping16());
+////        
+//            js.append(generateJSperiod12());
+////        
+//            js.append(generateJSseriesType22());
+////        
+//            js.append(generateJSseriesType23());
+////        
+//            js.append(generateJSmapping17());
+////        
+//            js.append(generateJSperiod13());
+////        
+//            js.append(generateJSseriesType24());
+////        
+//            js.append(generateJSseriesType25());
+////        
+//            js.append(generateJSdata48());
+////        
+//            js.append(generateJSdata49());
+////        
+//            js.append(generateJSdata50());
+////        
+//            js.append(generateJSdata51());
+////        
+//            js.append(generateJSmappingSettings12());
+////        
+//            js.append(generateJScsvSettings12());
+////        
+//            js.append(generateJSdata52());
+////        
+//            js.append(generateJSdata53());
+////        
+//            js.append(generateJSdata54());
+////        
+//            js.append(generateJSdata55());
+////        
+//            js.append(generateJSmappingSettings13());
+////        
+//            js.append(generateJScsvSettings13());
+////        
+//            js.append(generateJSdata56());
+////        
+//            js.append(generateJSdata57());
+////        
+//            js.append(generateJSdata58());
+////        
+//            js.append(generateJSdata59());
+////        
+//            js.append(generateJSmappingSettings14());
+////        
+//            js.append(generateJScsvSettings14());
+////        
+//            js.append(generateJSdata60());
+////        
+//            js.append(generateJSdata61());
+////        
+//            js.append(generateJSdata62());
+////        
+//            js.append(generateJSdata63());
+////        
+//            js.append(generateJSmappingSettings15());
+////        
+//            js.append(generateJScsvSettings15());
+////        
+//            js.append(generateJSdata64());
+////        
+//            js.append(generateJSdata65());
+////        
+//            js.append(generateJSdata66());
+////        
+//            js.append(generateJSdata67());
+////        
+//            js.append(generateJSmappingSettings16());
+////        
+//            js.append(generateJScsvSettings16());
+////        
+//            js.append(generateJSmapping18());
+////        
+//            js.append(generateJSkPeriod1());
+////        
+//            js.append(generateJSkMAPeriod1());
+////        
+//            js.append(generateJSdPeriod1());
+////        
+//            js.append(generateJSkMAType2());
+////        
+//            js.append(generateJSkMAType3());
+////        
+//            js.append(generateJSdMAType2());
+////        
+//            js.append(generateJSdMAType3());
+////        
+//            js.append(generateJSkSeriesType2());
+////        
+//            js.append(generateJSkSeriesType3());
+////        
+//            js.append(generateJSdSeriesType2());
+////        
+//            js.append(generateJSdSeriesType3());
+////        
+//            js.append(generateJSxAxis());
+////        
+//            js.append(generateJSxAxis1());
+////        
+//            js.append(generateJSxGrid());
+////        
+//            js.append(generateJSxGrid1());
+////        
+//            js.append(generateJSindex2());
+////        
+//            js.append(generateJSxGrid2());
+////        
+//            js.append(generateJSxGrid3());
+////        
+//            js.append(generateJSxMinorGrid());
+////        
+//            js.append(generateJSxMinorGrid1());
+////        
+//            js.append(generateJSindexOrValue());
+////        
+//            js.append(generateJSxMinorGrid2());
+////        
+//            js.append(generateJSxMinorGrid3());
+////        
+//            js.append(generateJSyAxis());
+////        
+//            js.append(generateJSyAxis1());
+////        
+//            js.append(generateJSindex3());
+////        
+//            js.append(generateJSyAxis2());
+////        
+//            js.append(generateJSyAxis3());
+////        
+//            js.append(generateJSyGrid());
+////        
+//            js.append(generateJSyGrid1());
+////        
+//            js.append(generateJSindex4());
+////        
+//            js.append(generateJSyGrid2());
+////        
+//            js.append(generateJSyGrid3());
+////        
+//            js.append(generateJSyMinorGrid());
+////        
+//            js.append(generateJSyMinorGrid1());
+////        
+//            js.append(generateJSindexOrValue1());
+////        
+//            js.append(generateJSyMinorGrid2());
+////        
+//            js.append(generateJSyMinorGrid3());
+////        
+//            js.append(generateJSyScale());
+////        
+//            js.append(generateJSyScale1());
+////        
+//            js.append(generateJSyScale2());
+////        
+//            js.append(generateJSyScale3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

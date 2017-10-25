@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,23 +37,18 @@ public class AxesLinearGauge extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".offset(%s)", offset));
+            js.append(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".offset(%s)", offset));
+                onChangeListener.onChange(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSoffset() {
-        if (offset != null) {
-            return String.format(Locale.US, "offset: %s,", offset);
-        }
-        return "";
-    }
 
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -70,11 +67,13 @@ public class AxesLinearGauge extends CoreAxesLinear {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSoffset());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSoffset());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

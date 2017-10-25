@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -155,48 +157,8 @@ public class GanttDateTime extends CoreBase {
         return this;
     }
 
-    private String generateJSmaximum() {
-        if (maximum != null) {
-            return String.format(Locale.US, "maximum: %f,", maximum);
-        }
-        return "";
-    }
 
-    private String generateJSmaximumGap() {
-        if (maximumGap != null) {
-            return String.format(Locale.US, "maximumGap: %f,", maximumGap);
-        }
-        return "";
-    }
-
-    private String generateJSminimum() {
-        if (minimum != null) {
-            return String.format(Locale.US, "minimum: %f,", minimum);
-        }
-        return "";
-    }
-
-    private String generateJSminimumGap() {
-        if (minimumGap != null) {
-            return String.format(Locale.US, "minimumGap: %f,", minimumGap);
-        }
-        return "";
-    }
-
-    private String generateJSsoftMaximum() {
-        if (softMaximum != null) {
-            return String.format(Locale.US, "softMaximum: %f,", softMaximum);
-        }
-        return "";
-    }
-
-    private String generateJSsoftMinimum() {
-        if (softMinimum != null) {
-            return String.format(Locale.US, "softMinimum: %f,", softMinimum);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -215,16 +177,23 @@ public class GanttDateTime extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSmaximum());
-            js.append(generateJSmaximumGap());
-            js.append(generateJSminimum());
-            js.append(generateJSminimumGap());
-            js.append(generateJSsoftMaximum());
-            js.append(generateJSsoftMinimum());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSmaximum());
+////        
+//            js.append(generateJSmaximumGap());
+////        
+//            js.append(generateJSminimum());
+////        
+//            js.append(generateJSminimumGap());
+////        
+//            js.append(generateJSsoftMaximum());
+////        
+//            js.append(generateJSsoftMinimum());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

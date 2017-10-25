@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -32,9 +34,19 @@ public class SeriesPoint extends Point {
         return getGetSeries;
     }
 
+
+//
+//    private String generateJSAnychartSeriesBase getGetSeries() {
+//        if (AnychartSeriesBase getGetSeries != null) {
+//            return AnychartSeriesBase getGetSeries.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetGetSeries() {
         if (getGetSeries != null) {
             return getGetSeries.generateJs();
+            //return String.format(Locale.US, "getGetSeries: %s,", ((getGetSeries != null) ? getGetSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -58,10 +70,11 @@ public class SeriesPoint extends Point {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

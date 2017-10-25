@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -66,20 +68,8 @@ public class ScalesBase extends CoreBase {
         return this;
     }
 
-    private String generateJSsilently() {
-        if (silently != null) {
-            return String.format(Locale.US, "silently: %b,", silently);
-        }
-        return "";
-    }
 
-    private String generateJSinverted() {
-        if (inverted != null) {
-            return String.format(Locale.US, "inverted: %b,", inverted);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -98,12 +88,15 @@ public class ScalesBase extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSsilently());
-            js.append(generateJSinverted());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSsilently());
+////        
+//            js.append(generateJSinverted());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

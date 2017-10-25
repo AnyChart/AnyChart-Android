@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -64,10 +66,10 @@ public class VisualBase extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", ((paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null"), landscape));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", ((paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null"), landscape));
                 js.setLength(0);
             }
         }
@@ -89,10 +91,10 @@ public class VisualBase extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", wrapQuotes(paperSizeOrOptions1), landscape));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", paperSizeOrOptions1, landscape));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", wrapQuotes(paperSizeOrOptions1), landscape));
                 js.setLength(0);
             }
         }
@@ -120,41 +122,8 @@ public class VisualBase extends CoreBase {
         return this;
     }
 
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
 
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -173,15 +142,21 @@ public class VisualBase extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSenabled());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
-            js.append(generateJSzIndex());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSenabled());
+////        
+//            js.append(generateJSpaperSizeOrOptions());
+////        
+//            js.append(generateJSpaperSizeOrOptions1());
+////        
+//            js.append(generateJSlandscape());
+////        
+//            js.append(generateJSzIndex());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -57,10 +59,10 @@ public class Exports extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s);", captionOrOptions, link, name, description, width, height, appId));
+            js.append(String.format(Locale.US, jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description), wrapQuotes(width), wrapQuotes(height), wrapQuotes(appId)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s)", captionOrOptions, link, name, description, width, height, appId));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s)", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description), wrapQuotes(width), wrapQuotes(height), wrapQuotes(appId)));
                 js.setLength(0);
             }
         }
@@ -78,10 +80,10 @@ public class Exports extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".filename(%s);", filename));
+            js.append(String.format(Locale.US, jsBase + ".filename(%s);", wrapQuotes(filename)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".filename(%s)", filename));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".filename(%s)", wrapQuotes(filename)));
                 js.setLength(0);
             }
         }
@@ -109,10 +111,10 @@ public class Exports extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".image(%s, %s);", widthOrOptions, height1));
+            js.append(String.format(Locale.US, jsBase + ".image(%s, %s);", wrapQuotes(widthOrOptions), wrapQuotes(height1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %s)", widthOrOptions, height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %s)", wrapQuotes(widthOrOptions), wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -155,10 +157,10 @@ public class Exports extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".linkedin(%s, %s, %s, %s);", captionOrOptions2, description1, width1, height2));
+            js.append(String.format(Locale.US, jsBase + ".linkedin(%s, %s, %s, %s);", wrapQuotes(captionOrOptions2), wrapQuotes(description1), wrapQuotes(width1), wrapQuotes(height2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".linkedin(%s, %s, %s, %s)", captionOrOptions2, description1, width1, height2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".linkedin(%s, %s, %s, %s)", wrapQuotes(captionOrOptions2), wrapQuotes(description1), wrapQuotes(width1), wrapQuotes(height2)));
                 js.setLength(0);
             }
         }
@@ -202,10 +204,10 @@ public class Exports extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".pinterest(%s, %s, %s, %s);", linkOrOptions, description2, width2, height3));
+            js.append(String.format(Locale.US, jsBase + ".pinterest(%s, %s, %s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description2), wrapQuotes(width2), wrapQuotes(height3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pinterest(%s, %s, %s, %s)", linkOrOptions, description2, width2, height3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pinterest(%s, %s, %s, %s)", wrapQuotes(linkOrOptions), wrapQuotes(description2), wrapQuotes(width2), wrapQuotes(height3)));
                 js.setLength(0);
             }
         }
@@ -244,197 +246,17 @@ public class Exports extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".twitter(%s, %s, %s);", urlOrOptions, width3, height4));
+            js.append(String.format(Locale.US, jsBase + ".twitter(%s, %s, %s);", wrapQuotes(urlOrOptions), wrapQuotes(width3), wrapQuotes(height4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".twitter(%s, %s, %s)", urlOrOptions, width3, height4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".twitter(%s, %s, %s)", wrapQuotes(urlOrOptions), wrapQuotes(width3), wrapQuotes(height4)));
                 js.setLength(0);
             }
         }
     }
 
-    private String generateJScaptionOrOptions() {
-        if (captionOrOptions != null) {
-            return String.format(Locale.US, "captionOrOptions: %s,", captionOrOptions);
-        }
-        return "";
-    }
 
-    private String generateJScaptionOrOptions1() {
-        if (captionOrOptions1 != null) {
-            return String.format(Locale.US, "captionOrOptions: %s,", captionOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlink() {
-        if (link != null) {
-            return String.format(Locale.US, "link: %s,", link);
-        }
-        return "";
-    }
-
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
-
-    private String generateJSdescription() {
-        if (description != null) {
-            return String.format(Locale.US, "description: %s,", description);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %s,", width);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %s,", height);
-        }
-        return "";
-    }
-
-    private String generateJSappId() {
-        if (appId != null) {
-            return String.format(Locale.US, "appId: %s,", appId);
-        }
-        return "";
-    }
-
-    private String generateJSfilename() {
-        if (filename != null) {
-            return String.format(Locale.US, "filename: %s,", filename);
-        }
-        return "";
-    }
-
-    private String generateJSwidthOrOptions() {
-        if (widthOrOptions != null) {
-            return String.format(Locale.US, "widthOrOptions: %s,", widthOrOptions);
-        }
-        return "";
-    }
-
-    private String generateJSwidthOrOptions1() {
-        if (widthOrOptions1 != null) {
-            return String.format(Locale.US, "widthOrOptions: %s,", widthOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSheight1() {
-        if (height1 != null) {
-            return String.format(Locale.US, "height: %s,", height1);
-        }
-        return "";
-    }
-
-    private String generateJScaptionOrOptions2() {
-        if (captionOrOptions2 != null) {
-            return String.format(Locale.US, "captionOrOptions: %s,", captionOrOptions2);
-        }
-        return "";
-    }
-
-    private String generateJScaptionOrOptions3() {
-        if (captionOrOptions3 != null) {
-            return String.format(Locale.US, "captionOrOptions: %s,", captionOrOptions3);
-        }
-        return "";
-    }
-
-    private String generateJSdescription1() {
-        if (description1 != null) {
-            return String.format(Locale.US, "description: %s,", description1);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %s,", width1);
-        }
-        return "";
-    }
-
-    private String generateJSheight2() {
-        if (height2 != null) {
-            return String.format(Locale.US, "height: %s,", height2);
-        }
-        return "";
-    }
-
-    private String generateJSlinkOrOptions() {
-        if (linkOrOptions != null) {
-            return String.format(Locale.US, "linkOrOptions: %s,", linkOrOptions);
-        }
-        return "";
-    }
-
-    private String generateJSlinkOrOptions1() {
-        if (linkOrOptions1 != null) {
-            return String.format(Locale.US, "linkOrOptions: %s,", linkOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSdescription2() {
-        if (description2 != null) {
-            return String.format(Locale.US, "description: %s,", description2);
-        }
-        return "";
-    }
-
-    private String generateJSwidth2() {
-        if (width2 != null) {
-            return String.format(Locale.US, "width: %s,", width2);
-        }
-        return "";
-    }
-
-    private String generateJSheight3() {
-        if (height3 != null) {
-            return String.format(Locale.US, "height: %s,", height3);
-        }
-        return "";
-    }
-
-    private String generateJSurlOrOptions() {
-        if (urlOrOptions != null) {
-            return String.format(Locale.US, "urlOrOptions: %s,", urlOrOptions);
-        }
-        return "";
-    }
-
-    private String generateJSurlOrOptions1() {
-        if (urlOrOptions1 != null) {
-            return String.format(Locale.US, "urlOrOptions: %s,", urlOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSwidth3() {
-        if (width3 != null) {
-            return String.format(Locale.US, "width: %s,", width3);
-        }
-        return "";
-    }
-
-    private String generateJSheight4() {
-        if (height4 != null) {
-            return String.format(Locale.US, "height: %s,", height4);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -453,36 +275,63 @@ public class Exports extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScaptionOrOptions());
-            js.append(generateJScaptionOrOptions1());
-            js.append(generateJSlink());
-            js.append(generateJSname());
-            js.append(generateJSdescription());
-            js.append(generateJSwidth());
-            js.append(generateJSheight());
-            js.append(generateJSappId());
-            js.append(generateJSfilename());
-            js.append(generateJSwidthOrOptions());
-            js.append(generateJSwidthOrOptions1());
-            js.append(generateJSheight1());
-            js.append(generateJScaptionOrOptions2());
-            js.append(generateJScaptionOrOptions3());
-            js.append(generateJSdescription1());
-            js.append(generateJSwidth1());
-            js.append(generateJSheight2());
-            js.append(generateJSlinkOrOptions());
-            js.append(generateJSlinkOrOptions1());
-            js.append(generateJSdescription2());
-            js.append(generateJSwidth2());
-            js.append(generateJSheight3());
-            js.append(generateJSurlOrOptions());
-            js.append(generateJSurlOrOptions1());
-            js.append(generateJSwidth3());
-            js.append(generateJSheight4());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScaptionOrOptions());
+////        
+//            js.append(generateJScaptionOrOptions1());
+////        
+//            js.append(generateJSlink());
+////        
+//            js.append(generateJSname());
+////        
+//            js.append(generateJSdescription());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSheight());
+////        
+//            js.append(generateJSappId());
+////        
+//            js.append(generateJSfilename());
+////        
+//            js.append(generateJSwidthOrOptions());
+////        
+//            js.append(generateJSwidthOrOptions1());
+////        
+//            js.append(generateJSheight1());
+////        
+//            js.append(generateJScaptionOrOptions2());
+////        
+//            js.append(generateJScaptionOrOptions3());
+////        
+//            js.append(generateJSdescription1());
+////        
+//            js.append(generateJSwidth1());
+////        
+//            js.append(generateJSheight2());
+////        
+//            js.append(generateJSlinkOrOptions());
+////        
+//            js.append(generateJSlinkOrOptions1());
+////        
+//            js.append(generateJSdescription2());
+////        
+//            js.append(generateJSwidth2());
+////        
+//            js.append(generateJSheight3());
+////        
+//            js.append(generateJSurlOrOptions());
+////        
+//            js.append(generateJSurlOrOptions1());
+////        
+//            js.append(generateJSwidth3());
+////        
+//            js.append(generateJSheight4());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

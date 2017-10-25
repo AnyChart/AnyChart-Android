@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -23,13 +25,20 @@ public class Quarter extends UiBackground {
     }
 
     
-    private UiLabel getLabel;
+    private List<UiLabel> getLabel = new ArrayList<>();
 
-    public UiLabel getLabel() {
-        if (getLabel == null)
-            getLabel = new UiLabel(jsBase + ".label()");
+    public UiLabel getLabel(String index) {
+        UiLabel item = new UiLabel(jsBase + ".label(" + wrapQuotes(index) + ")");
+        getLabel.add(item);
+        return item;
+    }
 
-        return getLabel;
+    private List<UiLabel> getLabel1 = new ArrayList<>();
+
+    public UiLabel getLabel(Double index) {
+        UiLabel item = new UiLabel(jsBase + ".label(" + index + ")");
+        getLabel1.add(item);
+        return item;
     }
 
     private Boolean label;
@@ -75,10 +84,10 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".label(%s);", label1));
+            js.append(String.format(Locale.US, jsBase + ".label(%s);", wrapQuotes(label1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s)", label1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s)", wrapQuotes(label1)));
                 js.setLength(0);
             }
         }
@@ -113,10 +122,10 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".label(%s, %b);", index, label3));
+            js.append(String.format(Locale.US, jsBase + ".label(%s, %b);", wrapQuotes(index), label3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %b)", index, label3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %b)", wrapQuotes(index), label3));
                 js.setLength(0);
             }
         }
@@ -146,10 +155,10 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".label(%s, %s);", index, label4));
+            js.append(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(label4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %s)", index, label4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %s)", wrapQuotes(index), wrapQuotes(label4)));
                 js.setLength(0);
             }
         }
@@ -212,10 +221,10 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".label(%f, %s);", index1, label4));
+            js.append(String.format(Locale.US, jsBase + ".label(%f, %s);", index1, wrapQuotes(label4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %s)", index1, label4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %s)", index1, wrapQuotes(label4)));
                 js.setLength(0);
             }
         }
@@ -274,10 +283,10 @@ public class Quarter extends UiBackground {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
+            js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
             }
         }
@@ -299,10 +308,10 @@ public class Quarter extends UiBackground {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s)", margin2));
+            js.append(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", margin2));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
                 js.setLength(0);
             }
         }
@@ -370,10 +379,10 @@ public class Quarter extends UiBackground {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value, value2, value4, value6));
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
             }
         }
@@ -495,10 +504,10 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+            js.append(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", Arrays.toString(padding1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
             }
         }
@@ -520,10 +529,10 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+            js.append(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", padding2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
             }
         }
@@ -623,10 +632,10 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value8, value10, value12, value14));
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s)", value8, value10, value12, value14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
             }
         }
@@ -780,26 +789,81 @@ public class Quarter extends UiBackground {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".title(%s)", title1));
+            js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", title1));
+                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSUiLabel getLabel() {
+//        if (UiLabel getLabel != null) {
+//            return UiLabel getLabel.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabel getLabel1() {
+//        if (UiLabel getLabel1 != null) {
+//            return UiLabel getLabel1.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSMargin getMargin() {
+//        if (Margin getMargin != null) {
+//            return Margin getMargin.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUtilsPadding getPadding() {
+//        if (UtilsPadding getPadding != null) {
+//            return UtilsPadding getPadding.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiTitle getTitle() {
+//        if (UiTitle getTitle != null) {
+//            return UiTitle getTitle.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetLabel() {
-        if (getLabel != null) {
-            return getLabel.generateJs();
+        if (!getLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabel item : getLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
+    private String generateJSgetLabel1() {
+        if (!getLabel1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabel item : getLabel1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
+            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -807,6 +871,7 @@ public class Quarter extends UiBackground {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
+            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -814,237 +879,7 @@ public class Quarter extends UiBackground {
     private String generateJSgetTitle() {
         if (getTitle != null) {
             return getTitle.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSlabel() {
-        if (label != null) {
-            return String.format(Locale.US, "label: %b,", label);
-        }
-        return "";
-    }
-
-    private String generateJSlabel1() {
-        if (label1 != null) {
-            return String.format(Locale.US, "label: %s,", label1);
-        }
-        return "";
-    }
-
-    private String generateJSlabel2() {
-        if (label2 != null) {
-            return String.format(Locale.US, "label: %s,", label2);
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %s,", index);
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSlabel3() {
-        if (label3 != null) {
-            return String.format(Locale.US, "label: %b,", label3);
-        }
-        return "";
-    }
-
-    private String generateJSlabel4() {
-        if (label4 != null) {
-            return String.format(Locale.US, "label: %s,", label4);
-        }
-        return "";
-    }
-
-    private String generateJSlabel5() {
-        if (label5 != null) {
-            return String.format(Locale.US, "label: %s,", label5);
-        }
-        return "";
-    }
-
-    private String generateJSmargin() {
-        if (margin != null) {
-            return String.format(Locale.US, "margin: %s,", Arrays.toString(margin));
-        }
-        return "";
-    }
-
-    private String generateJSmargin1() {
-        if (margin1 != null) {
-            return String.format(Locale.US, "margin: %s,", Arrays.toString(margin1));
-        }
-        return "";
-    }
-
-    private String generateJSmargin2() {
-        if (margin2 != null) {
-            return String.format(Locale.US, "margin: %s,", margin2);
-        }
-        return "";
-    }
-
-    private String generateJSvalue() {
-        if (value != null) {
-            return String.format(Locale.US, "value: %s,", value);
-        }
-        return "";
-    }
-
-    private String generateJSvalue1() {
-        if (value1 != null) {
-            return String.format(Locale.US, "value: %f,", value1);
-        }
-        return "";
-    }
-
-    private String generateJSvalue2() {
-        if (value2 != null) {
-            return String.format(Locale.US, "value: %s,", value2);
-        }
-        return "";
-    }
-
-    private String generateJSvalue3() {
-        if (value3 != null) {
-            return String.format(Locale.US, "value: %f,", value3);
-        }
-        return "";
-    }
-
-    private String generateJSvalue4() {
-        if (value4 != null) {
-            return String.format(Locale.US, "value: %s,", value4);
-        }
-        return "";
-    }
-
-    private String generateJSvalue5() {
-        if (value5 != null) {
-            return String.format(Locale.US, "value: %f,", value5);
-        }
-        return "";
-    }
-
-    private String generateJSvalue6() {
-        if (value6 != null) {
-            return String.format(Locale.US, "value: %s,", value6);
-        }
-        return "";
-    }
-
-    private String generateJSvalue7() {
-        if (value7 != null) {
-            return String.format(Locale.US, "value: %f,", value7);
-        }
-        return "";
-    }
-
-    private String generateJSpadding() {
-        if (padding != null) {
-            return String.format(Locale.US, "padding: %s,", Arrays.toString(padding));
-        }
-        return "";
-    }
-
-    private String generateJSpadding1() {
-        if (padding1 != null) {
-            return String.format(Locale.US, "padding: %s,", Arrays.toString(padding1));
-        }
-        return "";
-    }
-
-    private String generateJSpadding2() {
-        if (padding2 != null) {
-            return String.format(Locale.US, "padding: %s,", padding2);
-        }
-        return "";
-    }
-
-    private String generateJSvalue8() {
-        if (value8 != null) {
-            return String.format(Locale.US, "value: %s,", value8);
-        }
-        return "";
-    }
-
-    private String generateJSvalue9() {
-        if (value9 != null) {
-            return String.format(Locale.US, "value: %f,", value9);
-        }
-        return "";
-    }
-
-    private String generateJSvalue10() {
-        if (value10 != null) {
-            return String.format(Locale.US, "value: %s,", value10);
-        }
-        return "";
-    }
-
-    private String generateJSvalue11() {
-        if (value11 != null) {
-            return String.format(Locale.US, "value: %f,", value11);
-        }
-        return "";
-    }
-
-    private String generateJSvalue12() {
-        if (value12 != null) {
-            return String.format(Locale.US, "value: %s,", value12);
-        }
-        return "";
-    }
-
-    private String generateJSvalue13() {
-        if (value13 != null) {
-            return String.format(Locale.US, "value: %f,", value13);
-        }
-        return "";
-    }
-
-    private String generateJSvalue14() {
-        if (value14 != null) {
-            return String.format(Locale.US, "value: %s,", value14);
-        }
-        return "";
-    }
-
-    private String generateJSvalue15() {
-        if (value15 != null) {
-            return String.format(Locale.US, "value: %f,", value15);
-        }
-        return "";
-    }
-
-    private String generateJStitle() {
-        if (title != null) {
-            return String.format(Locale.US, "title: %b,", title);
-        }
-        return "";
-    }
-
-    private String generateJStitle1() {
-        if (title1 != null) {
-            return String.format(Locale.US, "title: %s,", title1);
-        }
-        return "";
-    }
-
-    private String generateJStitle2() {
-        if (title2 != null) {
-            return String.format(Locale.US, "title: %s,", title2);
+            //return String.format(Locale.US, "getTitle: %s,", ((getTitle != null) ? getTitle.generateJs() : "null"));
         }
         return "";
     }
@@ -1057,6 +892,7 @@ public class Quarter extends UiBackground {
 
     
         jsGetters.append(generateJSgetLabel());
+        jsGetters.append(generateJSgetLabel1());
         jsGetters.append(generateJSgetMargin());
         jsGetters.append(generateJSgetPadding());
         jsGetters.append(generateJSgetTitle());
@@ -1071,43 +907,77 @@ public class Quarter extends UiBackground {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSlabel());
-            js.append(generateJSlabel1());
-            js.append(generateJSlabel2());
-            js.append(generateJSindex());
-            js.append(generateJSindex1());
-            js.append(generateJSlabel3());
-            js.append(generateJSlabel4());
-            js.append(generateJSlabel5());
-            js.append(generateJSmargin());
-            js.append(generateJSmargin1());
-            js.append(generateJSmargin2());
-            js.append(generateJSvalue());
-            js.append(generateJSvalue1());
-            js.append(generateJSvalue2());
-            js.append(generateJSvalue3());
-            js.append(generateJSvalue4());
-            js.append(generateJSvalue5());
-            js.append(generateJSvalue6());
-            js.append(generateJSvalue7());
-            js.append(generateJSpadding());
-            js.append(generateJSpadding1());
-            js.append(generateJSpadding2());
-            js.append(generateJSvalue8());
-            js.append(generateJSvalue9());
-            js.append(generateJSvalue10());
-            js.append(generateJSvalue11());
-            js.append(generateJSvalue12());
-            js.append(generateJSvalue13());
-            js.append(generateJSvalue14());
-            js.append(generateJSvalue15());
-            js.append(generateJStitle());
-            js.append(generateJStitle1());
-            js.append(generateJStitle2());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSlabel());
+////        
+//            js.append(generateJSlabel1());
+////        
+//            js.append(generateJSlabel2());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSindex1());
+////        
+//            js.append(generateJSlabel3());
+////        
+//            js.append(generateJSlabel4());
+////        
+//            js.append(generateJSlabel5());
+////        
+//            js.append(generateJSmargin());
+////        
+//            js.append(generateJSmargin1());
+////        
+//            js.append(generateJSmargin2());
+////        
+//            js.append(generateJSvalue());
+////        
+//            js.append(generateJSvalue1());
+////        
+//            js.append(generateJSvalue2());
+////        
+//            js.append(generateJSvalue3());
+////        
+//            js.append(generateJSvalue4());
+////        
+//            js.append(generateJSvalue5());
+////        
+//            js.append(generateJSvalue6());
+////        
+//            js.append(generateJSvalue7());
+////        
+//            js.append(generateJSpadding());
+////        
+//            js.append(generateJSpadding1());
+////        
+//            js.append(generateJSpadding2());
+////        
+//            js.append(generateJSvalue8());
+////        
+//            js.append(generateJSvalue9());
+////        
+//            js.append(generateJSvalue10());
+////        
+//            js.append(generateJSvalue11());
+////        
+//            js.append(generateJSvalue12());
+////        
+//            js.append(generateJSvalue13());
+////        
+//            js.append(generateJSvalue14());
+////        
+//            js.append(generateJSvalue15());
+////        
+//            js.append(generateJStitle());
+////        
+//            js.append(generateJStitle1());
+////        
+//            js.append(generateJStitle2());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

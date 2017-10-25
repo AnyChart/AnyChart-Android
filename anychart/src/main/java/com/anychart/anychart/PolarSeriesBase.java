@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -219,10 +221,10 @@ public class PolarSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+            js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
             }
         }
@@ -269,10 +271,10 @@ public class PolarSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+            js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
                 js.setLength(0);
             }
         }
@@ -308,10 +310,10 @@ public class PolarSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -334,10 +336,10 @@ public class PolarSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xScale(%s)", xScale1));
+            js.append(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale1));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale1)));
                 js.setLength(0);
             }
         }
@@ -360,10 +362,10 @@ public class PolarSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -399,10 +401,10 @@ public class PolarSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -425,10 +427,10 @@ public class PolarSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
+            js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
             }
         }
@@ -451,19 +453,36 @@ public class PolarSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSScalesLinear getXScale() {
+//        if (ScalesLinear getXScale != null) {
+//            return ScalesLinear getXScale.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScalesBase getYScale() {
+//        if (ScalesBase getYScale != null) {
+//            return ScalesBase getYScale.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetXScale() {
         if (getXScale != null) {
             return getXScale.generateJs();
+            //return String.format(Locale.US, "getXScale: %s,", ((getXScale != null) ? getXScale.generateJs() : "null"));
         }
         return "";
     }
@@ -471,132 +490,7 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSindexes() {
-        if (indexes != null) {
-            return String.format(Locale.US, "indexes: %f,", indexes);
-        }
-        return "";
-    }
-
-    private String generateJSindexes1() {
-        if (indexes1 != null) {
-            return String.format(Locale.US, "indexes: %s,", Arrays.toString(indexes1));
-        }
-        return "";
-    }
-
-    private String generateJSindexes2() {
-        if (indexes2 != null) {
-            return String.format(Locale.US, "indexes: %f,", indexes2);
-        }
-        return "";
-    }
-
-    private String generateJSindexes3() {
-        if (indexes3 != null) {
-            return String.format(Locale.US, "indexes: %s,", Arrays.toString(indexes3));
-        }
-        return "";
-    }
-
-    private String generateJSindexes4() {
-        if (indexes4 != null) {
-            return String.format(Locale.US, "indexes: %f,", indexes4);
-        }
-        return "";
-    }
-
-    private String generateJSindexes5() {
-        if (indexes5 != null) {
-            return String.format(Locale.US, "indexes: %s,", Arrays.toString(indexes5));
-        }
-        return "";
-    }
-
-    private String generateJSmaxPointWidth() {
-        if (maxPointWidth != null) {
-            return String.format(Locale.US, "maxPointWidth: %f,", maxPointWidth);
-        }
-        return "";
-    }
-
-    private String generateJSmaxPointWidth1() {
-        if (maxPointWidth1 != null) {
-            return String.format(Locale.US, "maxPointWidth: %s,", maxPointWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSpointWidth() {
-        if (pointWidth != null) {
-            return String.format(Locale.US, "pointWidth: %f,", pointWidth);
-        }
-        return "";
-    }
-
-    private String generateJSpointWidth1() {
-        if (pointWidth1 != null) {
-            return String.format(Locale.US, "pointWidth: %s,", pointWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSxScale() {
-        if (xScale != null) {
-            return String.format(Locale.US, "xScale: %s,", (xScale != null) ? xScale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSxScale1() {
-        if (xScale1 != null) {
-            return String.format(Locale.US, "xScale: %s,", xScale1);
-        }
-        return "";
-    }
-
-    private String generateJSxScale2() {
-        if (xScale2 != null) {
-            return String.format(Locale.US, "xScale: %s,", (xScale2 != null) ? xScale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSxScale3() {
-        if (xScale3 != null) {
-            return String.format(Locale.US, "xScale: %s,", xScale3);
-        }
-        return "";
-    }
-
-    private String generateJSyScale() {
-        if (yScale != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale != null) ? yScale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale1() {
-        if (yScale1 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale1);
-        }
-        return "";
-    }
-
-    private String generateJSyScale2() {
-        if (yScale2 != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale2 != null) ? yScale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale3() {
-        if (yScale3 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale3);
+            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -621,28 +515,47 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSindexes());
-            js.append(generateJSindexes1());
-            js.append(generateJSindexes2());
-            js.append(generateJSindexes3());
-            js.append(generateJSindexes4());
-            js.append(generateJSindexes5());
-            js.append(generateJSmaxPointWidth());
-            js.append(generateJSmaxPointWidth1());
-            js.append(generateJSpointWidth());
-            js.append(generateJSpointWidth1());
-            js.append(generateJSxScale());
-            js.append(generateJSxScale1());
-            js.append(generateJSxScale2());
-            js.append(generateJSxScale3());
-            js.append(generateJSyScale());
-            js.append(generateJSyScale1());
-            js.append(generateJSyScale2());
-            js.append(generateJSyScale3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSindexes());
+////        
+//            js.append(generateJSindexes1());
+////        
+//            js.append(generateJSindexes2());
+////        
+//            js.append(generateJSindexes3());
+////        
+//            js.append(generateJSindexes4());
+////        
+//            js.append(generateJSindexes5());
+////        
+//            js.append(generateJSmaxPointWidth());
+////        
+//            js.append(generateJSmaxPointWidth1());
+////        
+//            js.append(generateJSpointWidth());
+////        
+//            js.append(generateJSpointWidth1());
+////        
+//            js.append(generateJSxScale());
+////        
+//            js.append(generateJSxScale1());
+////        
+//            js.append(generateJSxScale2());
+////        
+//            js.append(generateJSxScale3());
+////        
+//            js.append(generateJSyScale());
+////        
+//            js.append(generateJSyScale1());
+////        
+//            js.append(generateJSyScale2());
+////        
+//            js.append(generateJSyScale3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -52,10 +54,10 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", (container != null) ? container.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (container != null) ? container.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -78,10 +80,10 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", (container1 != null) ? container1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (container1 != null) ? container1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -104,10 +106,10 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", container2));
+            js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", container2));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
                 js.setLength(0);
             }
         }
@@ -130,10 +132,10 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", (container3 != null) ? container3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (container3 != null) ? container3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -192,10 +194,10 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+            js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
             }
         }
@@ -217,10 +219,10 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".padding(%s)", padding2));
+            js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
             }
         }
@@ -288,10 +290,10 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value, value2, value4, value6));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
             }
         }
@@ -386,10 +388,10 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", (parentBounds != null) ? parentBounds.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", (parentBounds != null) ? parentBounds.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -410,10 +412,10 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", parentBounds1));
+            js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", parentBounds1));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
             }
         }
@@ -451,9 +453,33 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         return this;
     }
 
+
+//
+//    private String generateJSLayer getContainer() {
+//        if (Layer getContainer != null) {
+//            return Layer getContainer.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUtilsPadding getPadding() {
+//        if (UtilsPadding getPadding != null) {
+//            return UtilsPadding getPadding.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSAnychartMathRect getParentBounds() {
+//        if (AnychartMathRect getParentBounds != null) {
+//            return AnychartMathRect getParentBounds.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
+            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -461,6 +487,7 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
+            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -468,153 +495,7 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private String generateJSgetParentBounds() {
         if (getParentBounds != null) {
             return getParentBounds.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScontainer() {
-        if (container != null) {
-            return String.format(Locale.US, "container: %s,", (container != null) ? container.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScontainer1() {
-        if (container1 != null) {
-            return String.format(Locale.US, "container: %s,", (container1 != null) ? container1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScontainer2() {
-        if (container2 != null) {
-            return String.format(Locale.US, "container: %s,", container2);
-        }
-        return "";
-    }
-
-    private String generateJScontainer3() {
-        if (container3 != null) {
-            return String.format(Locale.US, "container: %s,", (container3 != null) ? container3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpadding() {
-        if (padding != null) {
-            return String.format(Locale.US, "padding: %s,", Arrays.toString(padding));
-        }
-        return "";
-    }
-
-    private String generateJSpadding1() {
-        if (padding1 != null) {
-            return String.format(Locale.US, "padding: %s,", Arrays.toString(padding1));
-        }
-        return "";
-    }
-
-    private String generateJSpadding2() {
-        if (padding2 != null) {
-            return String.format(Locale.US, "padding: %s,", padding2);
-        }
-        return "";
-    }
-
-    private String generateJSvalue() {
-        if (value != null) {
-            return String.format(Locale.US, "value: %s,", value);
-        }
-        return "";
-    }
-
-    private String generateJSvalue1() {
-        if (value1 != null) {
-            return String.format(Locale.US, "value: %f,", value1);
-        }
-        return "";
-    }
-
-    private String generateJSvalue2() {
-        if (value2 != null) {
-            return String.format(Locale.US, "value: %s,", value2);
-        }
-        return "";
-    }
-
-    private String generateJSvalue3() {
-        if (value3 != null) {
-            return String.format(Locale.US, "value: %f,", value3);
-        }
-        return "";
-    }
-
-    private String generateJSvalue4() {
-        if (value4 != null) {
-            return String.format(Locale.US, "value: %s,", value4);
-        }
-        return "";
-    }
-
-    private String generateJSvalue5() {
-        if (value5 != null) {
-            return String.format(Locale.US, "value: %f,", value5);
-        }
-        return "";
-    }
-
-    private String generateJSvalue6() {
-        if (value6 != null) {
-            return String.format(Locale.US, "value: %s,", value6);
-        }
-        return "";
-    }
-
-    private String generateJSvalue7() {
-        if (value7 != null) {
-            return String.format(Locale.US, "value: %f,", value7);
-        }
-        return "";
-    }
-
-    private String generateJSparentBounds() {
-        if (parentBounds != null) {
-            return String.format(Locale.US, "parentBounds: %s,", (parentBounds != null) ? parentBounds.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSparentBounds1() {
-        if (parentBounds1 != null) {
-            return String.format(Locale.US, "parentBounds: %s,", parentBounds1);
-        }
-        return "";
-    }
-
-    private String generateJSleft() {
-        if (left != null) {
-            return String.format(Locale.US, "left: %f,", left);
-        }
-        return "";
-    }
-
-    private String generateJStop() {
-        if (top != null) {
-            return String.format(Locale.US, "top: %f,", top);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
+            //return String.format(Locale.US, "getParentBounds: %s,", ((getParentBounds != null) ? getParentBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -640,31 +521,53 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScontainer());
-            js.append(generateJScontainer1());
-            js.append(generateJScontainer2());
-            js.append(generateJScontainer3());
-            js.append(generateJSpadding());
-            js.append(generateJSpadding1());
-            js.append(generateJSpadding2());
-            js.append(generateJSvalue());
-            js.append(generateJSvalue1());
-            js.append(generateJSvalue2());
-            js.append(generateJSvalue3());
-            js.append(generateJSvalue4());
-            js.append(generateJSvalue5());
-            js.append(generateJSvalue6());
-            js.append(generateJSvalue7());
-            js.append(generateJSparentBounds());
-            js.append(generateJSparentBounds1());
-            js.append(generateJSleft());
-            js.append(generateJStop());
-            js.append(generateJSwidth());
-            js.append(generateJSheight());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScontainer());
+////        
+//            js.append(generateJScontainer1());
+////        
+//            js.append(generateJScontainer2());
+////        
+//            js.append(generateJScontainer3());
+////        
+//            js.append(generateJSpadding());
+////        
+//            js.append(generateJSpadding1());
+////        
+//            js.append(generateJSpadding2());
+////        
+//            js.append(generateJSvalue());
+////        
+//            js.append(generateJSvalue1());
+////        
+//            js.append(generateJSvalue2());
+////        
+//            js.append(generateJSvalue3());
+////        
+//            js.append(generateJSvalue4());
+////        
+//            js.append(generateJSvalue5());
+////        
+//            js.append(generateJSvalue6());
+////        
+//            js.append(generateJSvalue7());
+////        
+//            js.append(generateJSparentBounds());
+////        
+//            js.append(generateJSparentBounds1());
+////        
+//            js.append(generateJSleft());
+////        
+//            js.append(generateJStop());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSheight());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

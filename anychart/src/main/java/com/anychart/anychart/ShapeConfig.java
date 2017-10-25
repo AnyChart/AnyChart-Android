@@ -27,7 +27,7 @@ public class ShapeConfig extends JsObject  {
         this.strokeNames = strokeNames;
         this.zIndex = zIndex;
 
-        js.append(String.format(Locale.US, "{shapeType: %s,canBeHoveredSelected: %b,fillNames: %s,isHatchFill: %b,name: %s,scrollerSelected: %b,strokeNames: %s,zIndex: %f}",  (shapeType != null) ? shapeType.generateJs() : "null", canBeHoveredSelected, fillNames, isHatchFill, name, scrollerSelected, strokeNames, zIndex));
+        js.append(String.format(Locale.US, "{shapeType: %s,canBeHoveredSelected: %b,fillNames: %s,isHatchFill: %b,name: %s,scrollerSelected: %b,strokeNames: %s,zIndex: %f}",  ((shapeType != null) ? shapeType.generateJs() : "null"), canBeHoveredSelected, wrapQuotes(fillNames), isHatchFill, wrapQuotes(name), scrollerSelected, wrapQuotes(strokeNames), zIndex));
     }
     public ShapeConfig(String shapeType1, Boolean canBeHoveredSelected, String fillNames, Boolean isHatchFill, String name, Boolean scrollerSelected, String strokeNames, Double zIndex) {
         this.shapeType1 = shapeType1;
@@ -39,7 +39,7 @@ public class ShapeConfig extends JsObject  {
         this.strokeNames = strokeNames;
         this.zIndex = zIndex;
 
-        js.append(String.format(Locale.US, "{shapeType: %s,canBeHoveredSelected: %b,fillNames: %s,isHatchFill: %b,name: %s,scrollerSelected: %b,strokeNames: %s,zIndex: %f}",  shapeType1, canBeHoveredSelected, fillNames, isHatchFill, name, scrollerSelected, strokeNames, zIndex));
+        js.append(String.format(Locale.US, "{shapeType: %s,canBeHoveredSelected: %b,fillNames: %s,isHatchFill: %b,name: %s,scrollerSelected: %b,strokeNames: %s,zIndex: %f}",  wrapQuotes(shapeType1), canBeHoveredSelected, wrapQuotes(fillNames), isHatchFill, wrapQuotes(name), scrollerSelected, wrapQuotes(strokeNames), zIndex));
     }
 
     @Override

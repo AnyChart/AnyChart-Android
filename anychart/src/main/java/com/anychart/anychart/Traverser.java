@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -44,10 +46,10 @@ public class Traverser extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".meta(%s);", key));
+            js.append(String.format(Locale.US, jsBase + ".meta(%s);", wrapQuotes(key)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
                 js.setLength(0);
             }
         }
@@ -68,33 +70,29 @@ public class Traverser extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%s)", key1));
+            js.append(String.format(Locale.US, ".set(%s)", wrapQuotes(key1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", key1));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", wrapQuotes(key1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSTreeDataItem getCurrent() {
+//        if (TreeDataItem getCurrent != null) {
+//            return TreeDataItem getCurrent.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetCurrent() {
         if (getCurrent != null) {
             return getCurrent.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
-    private String generateJSkey1() {
-        if (key1 != null) {
-            return String.format(Locale.US, "key: %s,", key1);
+            //return String.format(Locale.US, "getCurrent: %s,", ((getCurrent != null) ? getCurrent.generateJs() : "null"));
         }
         return "";
     }
@@ -118,12 +116,15 @@ public class Traverser extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSkey());
-            js.append(generateJSkey1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSkey());
+////        
+//            js.append(generateJSkey1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -72,10 +74,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".axis(%s)", (axis1 != null) ? axis1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".axis(%s)", ((axis1 != null) ? axis1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", (axis1 != null) ? axis1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", ((axis1 != null) ? axis1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -114,10 +116,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fallingLabel(%s, %b)", index, fallingLabel));
+            js.append(String.format(Locale.US, ".fallingLabel(%s, %b)", wrapQuotes(index), fallingLabel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingLabel(%s, %b)", index, fallingLabel));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingLabel(%s, %b)", wrapQuotes(index), fallingLabel));
                 js.setLength(0);
             }
         }
@@ -143,10 +145,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fallingLabel(%s, %s)", index, fallingLabel1));
+            js.append(String.format(Locale.US, ".fallingLabel(%s, %s)", wrapQuotes(index), wrapQuotes(fallingLabel1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingLabel(%s, %s)", index, fallingLabel1));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingLabel(%s, %s)", wrapQuotes(index), wrapQuotes(fallingLabel1)));
                 js.setLength(0);
             }
         }
@@ -201,10 +203,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fallingLabel(%f, %s)", index1, fallingLabel1));
+            js.append(String.format(Locale.US, ".fallingLabel(%f, %s)", index1, wrapQuotes(fallingLabel1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingLabel(%f, %s)", index1, fallingLabel1));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingLabel(%f, %s)", index1, wrapQuotes(fallingLabel1)));
                 js.setLength(0);
             }
         }
@@ -241,10 +243,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", (fallingStroke != null) ? fallingStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((fallingStroke != null) ? fallingStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", (fallingStroke != null) ? fallingStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((fallingStroke != null) ? fallingStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -274,10 +276,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", (fallingStroke1 != null) ? fallingStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((fallingStroke1 != null) ? fallingStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", (fallingStroke1 != null) ? fallingStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((fallingStroke1 != null) ? fallingStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -307,10 +309,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", fallingStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(fallingStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", fallingStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(fallingStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -351,10 +353,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%s, %b)", index2, label));
+            js.append(String.format(Locale.US, ".label(%s, %b)", wrapQuotes(index2), label));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %b)", index2, label));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %b)", wrapQuotes(index2), label));
                 js.setLength(0);
             }
         }
@@ -382,10 +384,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%s, %s)", index2, label1));
+            js.append(String.format(Locale.US, ".label(%s, %s)", wrapQuotes(index2), wrapQuotes(label1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %s)", index2, label1));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %s)", wrapQuotes(index2), wrapQuotes(label1)));
                 js.setLength(0);
             }
         }
@@ -444,10 +446,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%f, %s)", index3, label1));
+            js.append(String.format(Locale.US, ".label(%f, %s)", index3, wrapQuotes(label1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%f, %s)", index3, label1));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%f, %s)", index3, wrapQuotes(label1)));
                 js.setLength(0);
             }
         }
@@ -490,10 +492,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".risingLabel(%s, %b)", index4, risingLabel));
+            js.append(String.format(Locale.US, ".risingLabel(%s, %b)", wrapQuotes(index4), risingLabel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingLabel(%s, %b)", index4, risingLabel));
+                onChangeListener.onChange(String.format(Locale.US, ".risingLabel(%s, %b)", wrapQuotes(index4), risingLabel));
                 js.setLength(0);
             }
         }
@@ -523,10 +525,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".risingLabel(%s, %s)", index4, risingLabel1));
+            js.append(String.format(Locale.US, ".risingLabel(%s, %s)", wrapQuotes(index4), wrapQuotes(risingLabel1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingLabel(%s, %s)", index4, risingLabel1));
+                onChangeListener.onChange(String.format(Locale.US, ".risingLabel(%s, %s)", wrapQuotes(index4), wrapQuotes(risingLabel1)));
                 js.setLength(0);
             }
         }
@@ -589,10 +591,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".risingLabel(%f, %s)", index5, risingLabel1));
+            js.append(String.format(Locale.US, ".risingLabel(%f, %s)", index5, wrapQuotes(risingLabel1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingLabel(%f, %s)", index5, risingLabel1));
+                onChangeListener.onChange(String.format(Locale.US, ".risingLabel(%f, %s)", index5, wrapQuotes(risingLabel1)));
                 js.setLength(0);
             }
         }
@@ -641,10 +643,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", (risingStroke != null) ? risingStroke.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((risingStroke != null) ? risingStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", (risingStroke != null) ? risingStroke.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((risingStroke != null) ? risingStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -686,10 +688,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", (risingStroke1 != null) ? risingStroke1.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((risingStroke1 != null) ? risingStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", (risingStroke1 != null) ? risingStroke1.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((risingStroke1 != null) ? risingStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -731,10 +733,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", risingStroke2, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(risingStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", risingStroke2, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(risingStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -790,10 +792,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".series(%s)", (series1 != null) ? series1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".series(%s)", ((series1 != null) ? series1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", (series1 != null) ? series1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", ((series1 != null) ? series1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -846,10 +848,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -895,10 +897,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -944,10 +946,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -972,10 +974,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".value(%s)", (value != null) ? value.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".value(%s)", ((value != null) ? value.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".value(%s)", (value != null) ? value.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".value(%s)", ((value != null) ? value.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -997,10 +999,10 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".value(%s)", value1));
+            js.append(String.format(Locale.US, ".value(%s)", wrapQuotes(value1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".value(%s)", value1));
+                onChangeListener.onChange(String.format(Locale.US, ".value(%s)", wrapQuotes(value1)));
                 js.setLength(0);
             }
         }
@@ -1044,18 +1046,56 @@ public class CurrentPriceIndicator extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".valueField(%s);", valueField));
+            js.append(String.format(Locale.US, jsBase + ".valueField(%s);", wrapQuotes(valueField)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueField(%s)", valueField));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueField(%s)", wrapQuotes(valueField)));
                 js.setLength(0);
             }
         }
     }
 
+
+//
+//    private String generateJSCoreAxesLinear getAxis() {
+//        if (CoreAxesLinear getAxis != null) {
+//            return CoreAxesLinear getAxis.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabel getFallingLabel() {
+//        if (UiLabel getFallingLabel != null) {
+//            return UiLabel getFallingLabel.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getLabel() {
+//        if (UiLabelsFactory getLabel != null) {
+//            return UiLabelsFactory getLabel.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabel getRisingLabel() {
+//        if (UiLabel getRisingLabel != null) {
+//            return UiLabel getRisingLabel.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockSeriesBase getSeries() {
+//        if (StockSeriesBase getSeries != null) {
+//            return StockSeriesBase getSeries.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetAxis() {
         if (getAxis != null) {
             return getAxis.generateJs();
+            //return String.format(Locale.US, "getAxis: %s,", ((getAxis != null) ? getAxis.generateJs() : "null"));
         }
         return "";
     }
@@ -1063,6 +1103,7 @@ public class CurrentPriceIndicator extends VisualBase {
     private String generateJSgetFallingLabel() {
         if (getFallingLabel != null) {
             return getFallingLabel.generateJs();
+            //return String.format(Locale.US, "getFallingLabel: %s,", ((getFallingLabel != null) ? getFallingLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -1070,6 +1111,7 @@ public class CurrentPriceIndicator extends VisualBase {
     private String generateJSgetLabel() {
         if (getLabel != null) {
             return getLabel.generateJs();
+            //return String.format(Locale.US, "getLabel: %s,", ((getLabel != null) ? getLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -1077,6 +1119,7 @@ public class CurrentPriceIndicator extends VisualBase {
     private String generateJSgetRisingLabel() {
         if (getRisingLabel != null) {
             return getRisingLabel.generateJs();
+            //return String.format(Locale.US, "getRisingLabel: %s,", ((getRisingLabel != null) ? getRisingLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -1084,293 +1127,7 @@ public class CurrentPriceIndicator extends VisualBase {
     private String generateJSgetSeries() {
         if (getSeries != null) {
             return getSeries.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSaxis() {
-        if (axis != null) {
-            return String.format(Locale.US, "axis: %f,", axis);
-        }
-        return "";
-    }
-
-    private String generateJSaxis1() {
-        if (axis1 != null) {
-            return String.format(Locale.US, "axis: %s,", (axis1 != null) ? axis1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %s,", index);
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSfallingLabel() {
-        if (fallingLabel != null) {
-            return String.format(Locale.US, "fallingLabel: %b,", fallingLabel);
-        }
-        return "";
-    }
-
-    private String generateJSfallingLabel1() {
-        if (fallingLabel1 != null) {
-            return String.format(Locale.US, "fallingLabel: %s,", fallingLabel1);
-        }
-        return "";
-    }
-
-    private String generateJSfallingStroke() {
-        if (fallingStroke != null) {
-            return String.format(Locale.US, "fallingStroke: %s,", (fallingStroke != null) ? fallingStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSfallingStroke1() {
-        if (fallingStroke1 != null) {
-            return String.format(Locale.US, "fallingStroke: %s,", (fallingStroke1 != null) ? fallingStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSfallingStroke2() {
-        if (fallingStroke2 != null) {
-            return String.format(Locale.US, "fallingStroke: %s,", fallingStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex2() {
-        if (index2 != null) {
-            return String.format(Locale.US, "index: %s,", index2);
-        }
-        return "";
-    }
-
-    private String generateJSindex3() {
-        if (index3 != null) {
-            return String.format(Locale.US, "index: %f,", index3);
-        }
-        return "";
-    }
-
-    private String generateJSlabel() {
-        if (label != null) {
-            return String.format(Locale.US, "label: %b,", label);
-        }
-        return "";
-    }
-
-    private String generateJSlabel1() {
-        if (label1 != null) {
-            return String.format(Locale.US, "label: %s,", label1);
-        }
-        return "";
-    }
-
-    private String generateJSindex4() {
-        if (index4 != null) {
-            return String.format(Locale.US, "index: %s,", index4);
-        }
-        return "";
-    }
-
-    private String generateJSindex5() {
-        if (index5 != null) {
-            return String.format(Locale.US, "index: %f,", index5);
-        }
-        return "";
-    }
-
-    private String generateJSrisingLabel() {
-        if (risingLabel != null) {
-            return String.format(Locale.US, "risingLabel: %b,", risingLabel);
-        }
-        return "";
-    }
-
-    private String generateJSrisingLabel1() {
-        if (risingLabel1 != null) {
-            return String.format(Locale.US, "risingLabel: %s,", risingLabel1);
-        }
-        return "";
-    }
-
-    private String generateJSrisingStroke() {
-        if (risingStroke != null) {
-            return String.format(Locale.US, "risingStroke: %s,", (risingStroke != null) ? risingStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSrisingStroke1() {
-        if (risingStroke1 != null) {
-            return String.format(Locale.US, "risingStroke: %s,", (risingStroke1 != null) ? risingStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSrisingStroke2() {
-        if (risingStroke2 != null) {
-            return String.format(Locale.US, "risingStroke: %s,", risingStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness1() {
-        if (thickness1 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness1);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern1() {
-        if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin1() {
-        if (lineJoin1 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin1 != null) ? lineJoin1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap1() {
-        if (lineCap1 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap1 != null) ? lineCap1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSseries() {
-        if (series != null) {
-            return String.format(Locale.US, "series: %f,", series);
-        }
-        return "";
-    }
-
-    private String generateJSseries1() {
-        if (series1 != null) {
-            return String.format(Locale.US, "series: %s,", (series1 != null) ? series1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke() {
-        if (stroke != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke != null) ? stroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke1() {
-        if (stroke1 != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke1 != null) ? stroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke2() {
-        if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: %s,", stroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness2() {
-        if (thickness2 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness2);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern2() {
-        if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin2() {
-        if (lineJoin2 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin2 != null) ? lineJoin2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap2() {
-        if (lineCap2 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap2 != null) ? lineCap2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSvalue() {
-        if (value != null) {
-            return String.format(Locale.US, "value: %s,", (value != null) ? value.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSvalue1() {
-        if (value1 != null) {
-            return String.format(Locale.US, "value: %s,", value1);
-        }
-        return "";
-    }
-
-    private String generateJSvalue2() {
-        if (value2 != null) {
-            return String.format(Locale.US, "value: %f,", value2);
-        }
-        return "";
-    }
-
-    private String generateJSvalueField() {
-        if (valueField != null) {
-            return String.format(Locale.US, "valueField: %s,", valueField);
+            //return String.format(Locale.US, "getSeries: %s,", ((getSeries != null) ? getSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -1398,51 +1155,93 @@ public class CurrentPriceIndicator extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSaxis());
-            js.append(generateJSaxis1());
-            js.append(generateJSindex());
-            js.append(generateJSindex1());
-            js.append(generateJSfallingLabel());
-            js.append(generateJSfallingLabel1());
-            js.append(generateJSfallingStroke());
-            js.append(generateJSfallingStroke1());
-            js.append(generateJSfallingStroke2());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJSindex2());
-            js.append(generateJSindex3());
-            js.append(generateJSlabel());
-            js.append(generateJSlabel1());
-            js.append(generateJSindex4());
-            js.append(generateJSindex5());
-            js.append(generateJSrisingLabel());
-            js.append(generateJSrisingLabel1());
-            js.append(generateJSrisingStroke());
-            js.append(generateJSrisingStroke1());
-            js.append(generateJSrisingStroke2());
-            js.append(generateJSthickness1());
-            js.append(generateJSdashpattern1());
-            js.append(generateJSlineJoin1());
-            js.append(generateJSlineCap1());
-            js.append(generateJSseries());
-            js.append(generateJSseries1());
-            js.append(generateJSstroke());
-            js.append(generateJSstroke1());
-            js.append(generateJSstroke2());
-            js.append(generateJSthickness2());
-            js.append(generateJSdashpattern2());
-            js.append(generateJSlineJoin2());
-            js.append(generateJSlineCap2());
-            js.append(generateJSvalue());
-            js.append(generateJSvalue1());
-            js.append(generateJSvalue2());
-            js.append(generateJSvalueField());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSaxis());
+////        
+//            js.append(generateJSaxis1());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSindex1());
+////        
+//            js.append(generateJSfallingLabel());
+////        
+//            js.append(generateJSfallingLabel1());
+////        
+//            js.append(generateJSfallingStroke());
+////        
+//            js.append(generateJSfallingStroke1());
+////        
+//            js.append(generateJSfallingStroke2());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJSindex2());
+////        
+//            js.append(generateJSindex3());
+////        
+//            js.append(generateJSlabel());
+////        
+//            js.append(generateJSlabel1());
+////        
+//            js.append(generateJSindex4());
+////        
+//            js.append(generateJSindex5());
+////        
+//            js.append(generateJSrisingLabel());
+////        
+//            js.append(generateJSrisingLabel1());
+////        
+//            js.append(generateJSrisingStroke());
+////        
+//            js.append(generateJSrisingStroke1());
+////        
+//            js.append(generateJSrisingStroke2());
+////        
+//            js.append(generateJSthickness1());
+////        
+//            js.append(generateJSdashpattern1());
+////        
+//            js.append(generateJSlineJoin1());
+////        
+//            js.append(generateJSlineCap1());
+////        
+//            js.append(generateJSseries());
+////        
+//            js.append(generateJSseries1());
+////        
+//            js.append(generateJSstroke());
+////        
+//            js.append(generateJSstroke1());
+////        
+//            js.append(generateJSstroke2());
+////        
+//            js.append(generateJSthickness2());
+////        
+//            js.append(generateJSdashpattern2());
+////        
+//            js.append(generateJSlineJoin2());
+////        
+//            js.append(generateJSlineCap2());
+////        
+//            js.append(generateJSvalue());
+////        
+//            js.append(generateJSvalue1());
+////        
+//            js.append(generateJSvalue2());
+////        
+//            js.append(generateJSvalueField());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

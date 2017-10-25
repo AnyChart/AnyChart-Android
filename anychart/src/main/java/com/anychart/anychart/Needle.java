@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -63,10 +65,10 @@ public class Needle extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".endRadius(%s)", endRadius1));
+            js.append(String.format(Locale.US, ".endRadius(%s)", wrapQuotes(endRadius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".endRadius(%s)", endRadius1));
+                onChangeListener.onChange(String.format(Locale.US, ".endRadius(%s)", wrapQuotes(endRadius1)));
                 js.setLength(0);
             }
         }
@@ -113,10 +115,10 @@ public class Needle extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".endWidth(%s)", endWidth1));
+            js.append(String.format(Locale.US, ".endWidth(%s)", wrapQuotes(endWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".endWidth(%s)", endWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".endWidth(%s)", wrapQuotes(endWidth1)));
                 js.setLength(0);
             }
         }
@@ -163,10 +165,10 @@ public class Needle extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".middleRadius(%s)", middleRadius1));
+            js.append(String.format(Locale.US, ".middleRadius(%s)", wrapQuotes(middleRadius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".middleRadius(%s)", middleRadius1));
+                onChangeListener.onChange(String.format(Locale.US, ".middleRadius(%s)", wrapQuotes(middleRadius1)));
                 js.setLength(0);
             }
         }
@@ -213,10 +215,10 @@ public class Needle extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".middleWidth(%s)", middleWidth1));
+            js.append(String.format(Locale.US, ".middleWidth(%s)", wrapQuotes(middleWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".middleWidth(%s)", middleWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".middleWidth(%s)", wrapQuotes(middleWidth1)));
                 js.setLength(0);
             }
         }
@@ -263,10 +265,10 @@ public class Needle extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".startRadius(%s)", startRadius1));
+            js.append(String.format(Locale.US, ".startRadius(%s)", wrapQuotes(startRadius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startRadius(%s)", startRadius1));
+                onChangeListener.onChange(String.format(Locale.US, ".startRadius(%s)", wrapQuotes(startRadius1)));
                 js.setLength(0);
             }
         }
@@ -313,100 +315,18 @@ public class Needle extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".startWidth(%s)", startWidth1));
+            js.append(String.format(Locale.US, ".startWidth(%s)", wrapQuotes(startWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startWidth(%s)", startWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".startWidth(%s)", wrapQuotes(startWidth1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSendRadius() {
-        if (endRadius != null) {
-            return String.format(Locale.US, "endRadius: %f,", endRadius);
-        }
-        return "";
-    }
 
-    private String generateJSendRadius1() {
-        if (endRadius1 != null) {
-            return String.format(Locale.US, "endRadius: %s,", endRadius1);
-        }
-        return "";
-    }
-
-    private String generateJSendWidth() {
-        if (endWidth != null) {
-            return String.format(Locale.US, "endWidth: %f,", endWidth);
-        }
-        return "";
-    }
-
-    private String generateJSendWidth1() {
-        if (endWidth1 != null) {
-            return String.format(Locale.US, "endWidth: %s,", endWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSmiddleRadius() {
-        if (middleRadius != null) {
-            return String.format(Locale.US, "middleRadius: %f,", middleRadius);
-        }
-        return "";
-    }
-
-    private String generateJSmiddleRadius1() {
-        if (middleRadius1 != null) {
-            return String.format(Locale.US, "middleRadius: %s,", middleRadius1);
-        }
-        return "";
-    }
-
-    private String generateJSmiddleWidth() {
-        if (middleWidth != null) {
-            return String.format(Locale.US, "middleWidth: %f,", middleWidth);
-        }
-        return "";
-    }
-
-    private String generateJSmiddleWidth1() {
-        if (middleWidth1 != null) {
-            return String.format(Locale.US, "middleWidth: %s,", middleWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSstartRadius() {
-        if (startRadius != null) {
-            return String.format(Locale.US, "startRadius: %f,", startRadius);
-        }
-        return "";
-    }
-
-    private String generateJSstartRadius1() {
-        if (startRadius1 != null) {
-            return String.format(Locale.US, "startRadius: %s,", startRadius1);
-        }
-        return "";
-    }
-
-    private String generateJSstartWidth() {
-        if (startWidth != null) {
-            return String.format(Locale.US, "startWidth: %f,", startWidth);
-        }
-        return "";
-    }
-
-    private String generateJSstartWidth1() {
-        if (startWidth1 != null) {
-            return String.format(Locale.US, "startWidth: %s,", startWidth1);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -425,22 +345,35 @@ public class Needle extends GaugePointersBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSendRadius());
-            js.append(generateJSendRadius1());
-            js.append(generateJSendWidth());
-            js.append(generateJSendWidth1());
-            js.append(generateJSmiddleRadius());
-            js.append(generateJSmiddleRadius1());
-            js.append(generateJSmiddleWidth());
-            js.append(generateJSmiddleWidth1());
-            js.append(generateJSstartRadius());
-            js.append(generateJSstartRadius1());
-            js.append(generateJSstartWidth());
-            js.append(generateJSstartWidth1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSendRadius());
+////        
+//            js.append(generateJSendRadius1());
+////        
+//            js.append(generateJSendWidth());
+////        
+//            js.append(generateJSendWidth1());
+////        
+//            js.append(generateJSmiddleRadius());
+////        
+//            js.append(generateJSmiddleRadius1());
+////        
+//            js.append(generateJSmiddleWidth());
+////        
+//            js.append(generateJSmiddleWidth1());
+////        
+//            js.append(generateJSstartRadius());
+////        
+//            js.append(generateJSstartRadius1());
+////        
+//            js.append(generateJSstartWidth());
+////        
+//            js.append(generateJSstartWidth1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

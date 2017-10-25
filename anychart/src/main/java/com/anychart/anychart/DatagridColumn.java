@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -39,10 +41,10 @@ public class DatagridColumn extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".buttonCursor(%s)", (valueCursor != null) ? valueCursor.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".buttonCursor(%s)", ((valueCursor != null) ? valueCursor.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".buttonCursor(%s)", (valueCursor != null) ? valueCursor.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".buttonCursor(%s)", ((valueCursor != null) ? valueCursor.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class DatagridColumn extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".buttonCursor(%s)", valueCursor1));
+            js.append(String.format(Locale.US, ".buttonCursor(%s)", wrapQuotes(valueCursor1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".buttonCursor(%s)", valueCursor1));
+                onChangeListener.onChange(String.format(Locale.US, ".buttonCursor(%s)", wrapQuotes(valueCursor1)));
                 js.setLength(0);
             }
         }
@@ -94,10 +96,10 @@ public class DatagridColumn extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".cellTextSettings(%s)", cellTextSettings));
+            js.append(String.format(Locale.US, ".cellTextSettings(%s)", wrapQuotes(cellTextSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellTextSettings(%s)", cellTextSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".cellTextSettings(%s)", wrapQuotes(cellTextSettings)));
                 js.setLength(0);
             }
         }
@@ -189,10 +191,10 @@ public class DatagridColumn extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", (presetValue != null) ? presetValue.generateJs() : "null", fieldName));
+            js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", ((presetValue != null) ? presetValue.generateJs() : "null"), wrapQuotes(fieldName)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", (presetValue != null) ? presetValue.generateJs() : "null", fieldName));
+                onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", ((presetValue != null) ? presetValue.generateJs() : "null"), wrapQuotes(fieldName)));
                 js.setLength(0);
             }
         }
@@ -215,10 +217,10 @@ public class DatagridColumn extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", presetValue1, fieldName));
+            js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(presetValue1), wrapQuotes(fieldName)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", presetValue1, fieldName));
+                onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(presetValue1), wrapQuotes(fieldName)));
                 js.setLength(0);
             }
         }
@@ -279,10 +281,10 @@ public class DatagridColumn extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".title(%s)", title1));
+            js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", title1));
+                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
             }
         }
@@ -329,19 +331,36 @@ public class DatagridColumn extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".width(%s)", width1));
+            js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width1));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSUiLabelsFactory getCellTextSettings() {
+//        if (UiLabelsFactory getCellTextSettings != null) {
+//            return UiLabelsFactory getCellTextSettings.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiTitle getTitle() {
+//        if (UiTitle getTitle != null) {
+//            return UiTitle getTitle.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetCellTextSettings() {
         if (getCellTextSettings != null) {
             return getCellTextSettings.generateJs();
+            //return String.format(Locale.US, "getCellTextSettings: %s,", ((getCellTextSettings != null) ? getCellTextSettings.generateJs() : "null"));
         }
         return "";
     }
@@ -349,118 +368,7 @@ public class DatagridColumn extends VisualBase {
     private String generateJSgetTitle() {
         if (getTitle != null) {
             return getTitle.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSvalueCursor() {
-        if (valueCursor != null) {
-            return String.format(Locale.US, "valueCursor: %s,", (valueCursor != null) ? valueCursor.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSvalueCursor1() {
-        if (valueCursor1 != null) {
-            return String.format(Locale.US, "valueCursor: %s,", valueCursor1);
-        }
-        return "";
-    }
-
-    private String generateJScellTextSettings() {
-        if (cellTextSettings != null) {
-            return String.format(Locale.US, "cellTextSettings: %s,", cellTextSettings);
-        }
-        return "";
-    }
-
-    private String generateJScollapseExpandButtons() {
-        if (collapseExpandButtons != null) {
-            return String.format(Locale.US, "collapseExpandButtons: %b,", collapseExpandButtons);
-        }
-        return "";
-    }
-
-    private String generateJSdefaultWidth() {
-        if (defaultWidth != null) {
-            return String.format(Locale.US, "defaultWidth: %f,", defaultWidth);
-        }
-        return "";
-    }
-
-    private String generateJSdepthPaddingMultiplier() {
-        if (depthPaddingMultiplier != null) {
-            return String.format(Locale.US, "depthPaddingMultiplier: %f,", depthPaddingMultiplier);
-        }
-        return "";
-    }
-
-    private String generateJSfieldName() {
-        if (fieldName != null) {
-            return String.format(Locale.US, "fieldName: %s,", fieldName);
-        }
-        return "";
-    }
-
-    private String generateJSpresetValue() {
-        if (presetValue != null) {
-            return String.format(Locale.US, "presetValue: %s,", (presetValue != null) ? presetValue.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpresetValue1() {
-        if (presetValue1 != null) {
-            return String.format(Locale.US, "presetValue: %s,", presetValue1);
-        }
-        return "";
-    }
-
-    private String generateJSfieldName1() {
-        if (fieldName1 != null) {
-            return String.format(Locale.US, "fieldName: %s,", fieldName1);
-        }
-        return "";
-    }
-
-    private String generateJSsettings() {
-        if (settings != null) {
-            return String.format(Locale.US, "settings: %s,", settings);
-        }
-        return "";
-    }
-
-    private String generateJStitle() {
-        if (title != null) {
-            return String.format(Locale.US, "title: %b,", title);
-        }
-        return "";
-    }
-
-    private String generateJStitle1() {
-        if (title1 != null) {
-            return String.format(Locale.US, "title: %s,", title1);
-        }
-        return "";
-    }
-
-    private String generateJStitle2() {
-        if (title2 != null) {
-            return String.format(Locale.US, "title: %s,", title2);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %s,", width1);
+            //return String.format(Locale.US, "getTitle: %s,", ((getTitle != null) ? getTitle.generateJs() : "null"));
         }
         return "";
     }
@@ -485,26 +393,43 @@ public class DatagridColumn extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSvalueCursor());
-            js.append(generateJSvalueCursor1());
-            js.append(generateJScellTextSettings());
-            js.append(generateJScollapseExpandButtons());
-            js.append(generateJSdefaultWidth());
-            js.append(generateJSdepthPaddingMultiplier());
-            js.append(generateJSfieldName());
-            js.append(generateJSpresetValue());
-            js.append(generateJSpresetValue1());
-            js.append(generateJSfieldName1());
-            js.append(generateJSsettings());
-            js.append(generateJStitle());
-            js.append(generateJStitle1());
-            js.append(generateJStitle2());
-            js.append(generateJSwidth());
-            js.append(generateJSwidth1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSvalueCursor());
+////        
+//            js.append(generateJSvalueCursor1());
+////        
+//            js.append(generateJScellTextSettings());
+////        
+//            js.append(generateJScollapseExpandButtons());
+////        
+//            js.append(generateJSdefaultWidth());
+////        
+//            js.append(generateJSdepthPaddingMultiplier());
+////        
+//            js.append(generateJSfieldName());
+////        
+//            js.append(generateJSpresetValue());
+////        
+//            js.append(generateJSpresetValue1());
+////        
+//            js.append(generateJSfieldName1());
+////        
+//            js.append(generateJSsettings());
+////        
+//            js.append(generateJStitle());
+////        
+//            js.append(generateJStitle1());
+////        
+//            js.append(generateJStitle2());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSwidth1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

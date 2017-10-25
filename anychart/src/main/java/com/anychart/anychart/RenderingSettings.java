@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -101,44 +103,18 @@ public class RenderingSettings extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yValues(%s)", Arrays.toString(yValues)));
+            js.append(String.format(Locale.US, ".yValues(%s)", arrayToStringWrapQuotes(yValues)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yValues(%s)", Arrays.toString(yValues)));
+                onChangeListener.onChange(String.format(Locale.US, ".yValues(%s)", arrayToStringWrapQuotes(yValues)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSneedsWidth() {
-        if (needsWidth != null) {
-            return String.format(Locale.US, "needsWidth: %b,", needsWidth);
-        }
-        return "";
-    }
 
-    private String generateJSneedsZero() {
-        if (needsZero != null) {
-            return String.format(Locale.US, "needsZero: %b,", needsZero);
-        }
-        return "";
-    }
-
-    private String generateJSshapes() {
-        if (shapes != null) {
-            return String.format(Locale.US, "shapes: %s,", arrayToString(shapes));
-        }
-        return "";
-    }
-
-    private String generateJSyValues() {
-        if (yValues != null) {
-            return String.format(Locale.US, "yValues: %s,", Arrays.toString(yValues));
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -157,14 +133,19 @@ public class RenderingSettings extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSneedsWidth());
-            js.append(generateJSneedsZero());
-            js.append(generateJSshapes());
-            js.append(generateJSyValues());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSneedsWidth());
+////        
+//            js.append(generateJSneedsZero());
+////        
+//            js.append(generateJSshapes());
+////        
+//            js.append(generateJSyValues());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -67,20 +69,8 @@ public class StockInteractivity extends Interactivity {
         return this;
     }
 
-    private String generateJSscrollOnMouseWheel() {
-        if (scrollOnMouseWheel != null) {
-            return String.format(Locale.US, "scrollOnMouseWheel: %b,", scrollOnMouseWheel);
-        }
-        return "";
-    }
 
-    private String generateJSzoomOnMouseWheel() {
-        if (zoomOnMouseWheel != null) {
-            return String.format(Locale.US, "zoomOnMouseWheel: %b,", zoomOnMouseWheel);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -99,12 +89,15 @@ public class StockInteractivity extends Interactivity {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSscrollOnMouseWheel());
-            js.append(generateJSzoomOnMouseWheel());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSscrollOnMouseWheel());
+////        
+//            js.append(generateJSzoomOnMouseWheel());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

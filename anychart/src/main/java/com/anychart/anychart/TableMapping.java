@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -48,10 +50,10 @@ public class TableMapping extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", (type != null) ? type.generateJs() : "null", name, column, weightsColumn));
+            js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(name), column, weightsColumn));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", (type != null) ? type.generateJs() : "null", name, column, weightsColumn));
+                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(name), column, weightsColumn));
                 js.setLength(0);
             }
         }
@@ -78,51 +80,18 @@ public class TableMapping extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", type1, name, column, weightsColumn));
+            js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", wrapQuotes(type1), wrapQuotes(name), column, weightsColumn));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", type1, name, column, weightsColumn));
+                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", wrapQuotes(type1), wrapQuotes(name), column, weightsColumn));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
 
-    private String generateJScolumn() {
-        if (column != null) {
-            return String.format(Locale.US, "column: %f,", column);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSweightsColumn() {
-        if (weightsColumn != null) {
-            return String.format(Locale.US, "weightsColumn: %f,", weightsColumn);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -141,15 +110,21 @@ public class TableMapping extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSname());
-            js.append(generateJScolumn());
-            js.append(generateJStype());
-            js.append(generateJStype1());
-            js.append(generateJSweightsColumn());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSname());
+////        
+//            js.append(generateJScolumn());
+////        
+//            js.append(generateJStype());
+////        
+//            js.append(generateJStype1());
+////        
+//            js.append(generateJSweightsColumn());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

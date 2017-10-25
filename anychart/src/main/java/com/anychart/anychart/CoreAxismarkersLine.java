@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -44,10 +46,10 @@ public class CoreAxismarkersLine extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".axis(%s)", (axis != null) ? axis.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".axis(%s)", ((axis != null) ? axis.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", (axis != null) ? axis.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", ((axis != null) ? axis.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -70,10 +72,10 @@ public class CoreAxismarkersLine extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -94,10 +96,10 @@ public class CoreAxismarkersLine extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".layout(%s)", layout1));
+            js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", layout1));
+                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);
             }
         }
@@ -133,10 +135,10 @@ public class CoreAxismarkersLine extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -159,10 +161,10 @@ public class CoreAxismarkersLine extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", scale1));
+            js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale1));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
             }
         }
@@ -185,10 +187,10 @@ public class CoreAxismarkersLine extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -225,10 +227,10 @@ public class CoreAxismarkersLine extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -258,10 +260,10 @@ public class CoreAxismarkersLine extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -291,10 +293,10 @@ public class CoreAxismarkersLine extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -323,9 +325,26 @@ public class CoreAxismarkersLine extends VisualBase {
         return this;
     }
 
+
+//
+//    private String generateJSCoreAxesLinear getAxis() {
+//        if (CoreAxesLinear getAxis != null) {
+//            return CoreAxesLinear getAxis.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScalesBase getScale() {
+//        if (ScalesBase getScale != null) {
+//            return ScalesBase getScale.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetAxis() {
         if (getAxis != null) {
             return getAxis.generateJs();
+            //return String.format(Locale.US, "getAxis: %s,", ((getAxis != null) ? getAxis.generateJs() : "null"));
         }
         return "";
     }
@@ -333,111 +352,7 @@ public class CoreAxismarkersLine extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSaxis() {
-        if (axis != null) {
-            return String.format(Locale.US, "axis: %s,", (axis != null) ? axis.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlayout() {
-        if (layout != null) {
-            return String.format(Locale.US, "layout: %s,", (layout != null) ? layout.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlayout1() {
-        if (layout1 != null) {
-            return String.format(Locale.US, "layout: %s,", layout1);
-        }
-        return "";
-    }
-
-    private String generateJSscale() {
-        if (scale != null) {
-            return String.format(Locale.US, "scale: %s,", (scale != null) ? scale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSscale1() {
-        if (scale1 != null) {
-            return String.format(Locale.US, "scale: %s,", scale1);
-        }
-        return "";
-    }
-
-    private String generateJSscale2() {
-        if (scale2 != null) {
-            return String.format(Locale.US, "scale: %s,", (scale2 != null) ? scale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSscale3() {
-        if (scale3 != null) {
-            return String.format(Locale.US, "scale: %s,", scale3);
-        }
-        return "";
-    }
-
-    private String generateJSstroke() {
-        if (stroke != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke != null) ? stroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke1() {
-        if (stroke1 != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke1 != null) ? stroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke2() {
-        if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: %s,", stroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSnewValue() {
-        if (newValue != null) {
-            return String.format(Locale.US, "newValue: %f,", newValue);
+            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -462,25 +377,41 @@ public class CoreAxismarkersLine extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSaxis());
-            js.append(generateJSlayout());
-            js.append(generateJSlayout1());
-            js.append(generateJSscale());
-            js.append(generateJSscale1());
-            js.append(generateJSscale2());
-            js.append(generateJSscale3());
-            js.append(generateJSstroke());
-            js.append(generateJSstroke1());
-            js.append(generateJSstroke2());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJSnewValue());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSaxis());
+////        
+//            js.append(generateJSlayout());
+////        
+//            js.append(generateJSlayout1());
+////        
+//            js.append(generateJSscale());
+////        
+//            js.append(generateJSscale1());
+////        
+//            js.append(generateJSscale2());
+////        
+//            js.append(generateJSscale3());
+////        
+//            js.append(generateJSstroke());
+////        
+//            js.append(generateJSstroke1());
+////        
+//            js.append(generateJSstroke2());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJSnewValue());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

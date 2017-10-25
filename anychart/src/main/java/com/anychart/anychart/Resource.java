@@ -15,6 +15,26 @@ public class Resource extends Chart {
         jsBase = "chart";
     }
 
+    public Resource setData(List<DataEntry> data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("]);");
+        }
+
+        return this;
+    }
+
     
 
     private Activities getActivities;
@@ -27,17 +47,15 @@ public class Resource extends Chart {
     }
     private String activities;
     private List<Resource> setActivities = new ArrayList<>();
-
     public Resource setActivities(String activities) {
-        this.activities = activities;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".activities(%s)", activities));
+        js.append(String.format(Locale.US, ".activities(%s)", wrapQuotes(activities)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".activities(%s)", activities));
+            onChangeListener.onChange(String.format(Locale.US, ".activities(%s)", wrapQuotes(activities)));
             js.setLength(0);
         }
         return this;
@@ -64,17 +82,15 @@ public class Resource extends Chart {
     }
     private String calendar;
     private List<Resource> setCalendar = new ArrayList<>();
-
     public Resource setCalendar(String calendar) {
-        this.calendar = calendar;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".calendar(%s)", calendar));
+        js.append(String.format(Locale.US, ".calendar(%s)", wrapQuotes(calendar)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".calendar(%s)", calendar));
+            onChangeListener.onChange(String.format(Locale.US, ".calendar(%s)", wrapQuotes(calendar)));
             js.setLength(0);
         }
         return this;
@@ -103,9 +119,7 @@ public class Resource extends Chart {
     private String[] cellPadding1;
     private String cellPadding2;
     private List<Resource> setCellPadding = new ArrayList<>();
-
     public Resource setCellPadding(Double[] cellPadding) {
-        this.cellPadding = cellPadding;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -130,17 +144,15 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setCellPadding1 = new ArrayList<>();
-
     public Resource setCellPadding(String[] cellPadding1) {
-        this.cellPadding1 = cellPadding1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding1)));
+        js.append(String.format(Locale.US, ".cellPadding(%s)", arrayToStringWrapQuotes(cellPadding1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding1)));
+            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", arrayToStringWrapQuotes(cellPadding1)));
             js.setLength(0);
         }
         return this;
@@ -157,17 +169,15 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setCellPadding2 = new ArrayList<>();
-
     public Resource setCellPadding(String cellPadding2) {
-        this.cellPadding2 = cellPadding2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
+        js.append(String.format(Locale.US, ".cellPadding(%s)", wrapQuotes(cellPadding2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
+            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", wrapQuotes(cellPadding2)));
             js.setLength(0);
         }
         return this;
@@ -192,20 +202,15 @@ public class Resource extends Chart {
     private String value6;
     private Double value7;
     private List<Resource> setCellPadding3 = new ArrayList<>();
-
     public Resource setCellPadding(String value, String value2, String value4, String value6) {
-        this.value = value;
-        this.value2 = value2;
-        this.value4 = value4;
-        this.value6 = value6;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", value, value2, value4, value6));
+        js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", value, value2, value4, value6));
+            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
             js.setLength(0);
         }
         return this;
@@ -222,12 +227,7 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setCellPadding4 = new ArrayList<>();
-
     public Resource setCellPadding(Double value1, Double value3, Double value5, Double value7) {
-        this.value1 = value1;
-        this.value3 = value3;
-        this.value5 = value5;
-        this.value7 = value7;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -262,17 +262,15 @@ public class Resource extends Chart {
     }
     private String conflicts;
     private List<Resource> setConflicts = new ArrayList<>();
-
     public Resource setConflicts(String conflicts) {
-        this.conflicts = conflicts;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".conflicts(%s)", conflicts));
+        js.append(String.format(Locale.US, ".conflicts(%s)", wrapQuotes(conflicts)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".conflicts(%s)", conflicts));
+            onChangeListener.onChange(String.format(Locale.US, ".conflicts(%s)", wrapQuotes(conflicts)));
             js.setLength(0);
         }
         return this;
@@ -291,9 +289,7 @@ public class Resource extends Chart {
     private Double currentStartDate;
     private String currentStartDate1;
     private List<Resource> setCurrentStartDate = new ArrayList<>();
-
     public Resource setCurrentStartDate(Double currentStartDate) {
-        this.currentStartDate = currentStartDate;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -318,17 +314,15 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setCurrentStartDate1 = new ArrayList<>();
-
     public Resource setCurrentStartDate(String currentStartDate1) {
-        this.currentStartDate1 = currentStartDate1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".currentStartDate(%s)", currentStartDate1));
+        js.append(String.format(Locale.US, ".currentStartDate(%s)", wrapQuotes(currentStartDate1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".currentStartDate(%s)", currentStartDate1));
+            onChangeListener.onChange(String.format(Locale.US, ".currentStartDate(%s)", wrapQuotes(currentStartDate1)));
             js.setLength(0);
         }
         return this;
@@ -353,27 +347,23 @@ public class Resource extends Chart {
 
         return getData;
     }
-    private View data;
-    private Set data1;
-    private String[] data2;
-    private String data3;
-    private TextParsingMode csvSettings;
-    private String csvSettings1;
-    private TextParsingSettings csvSettings2;
     private List<Resource> setData = new ArrayList<>();
-
-    public Resource setData(View data, TextParsingMode csvSettings) {
-        this.data = data;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
+    public Resource data(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
         }
         return this;
     }
@@ -388,319 +378,9 @@ public class Resource extends Chart {
         return "";
     }
 
-    private List<Resource> setData1 = new ArrayList<>();
-
-    public Resource setData(View data, String csvSettings1) {
-        this.data = data;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData2 = new ArrayList<>();
-
-    public Resource setData(View data, TextParsingSettings csvSettings2) {
-        this.data = data;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData3 = new ArrayList<>();
-
-    public Resource setData(Set data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData3() {
-        if (!setData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData4 = new ArrayList<>();
-
-    public Resource setData(Set data1, String csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData5 = new ArrayList<>();
-
-    public Resource setData(Set data1, TextParsingSettings csvSettings2) {
-        this.data1 = data1;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData6 = new ArrayList<>();
-
-    public Resource setData(String[] data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData7 = new ArrayList<>();
-
-    public Resource setData(String[] data2, String csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData8 = new ArrayList<>();
-
-    public Resource setData(String[] data2, TextParsingSettings csvSettings2) {
-        this.data2 = data2;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData8() {
-        if (!setData8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData9 = new ArrayList<>();
-
-    public Resource setData(String data3, TextParsingMode csvSettings) {
-        this.data3 = data3;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData9() {
-        if (!setData9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData10 = new ArrayList<>();
-
-    public Resource setData(String data3, String csvSettings1) {
-        this.data3 = data3;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData10() {
-        if (!setData10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData11 = new ArrayList<>();
-
-    public Resource setData(String data3, TextParsingSettings csvSettings2) {
-        this.data3 = data3;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData11() {
-        if (!setData11.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData11) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
     private Double defaultMinutesPerDay;
     private List<Resource> setDefaultMinutesPerDay = new ArrayList<>();
-
     public Resource setDefaultMinutesPerDay(Double defaultMinutesPerDay) {
-        this.defaultMinutesPerDay = defaultMinutesPerDay;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -736,17 +416,15 @@ public class Resource extends Chart {
     private String grid;
     private Boolean grid1;
     private List<Resource> setGrid = new ArrayList<>();
-
     public Resource setGrid(String grid) {
-        this.grid = grid;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".grid(%s)", grid));
+        js.append(String.format(Locale.US, ".grid(%s)", wrapQuotes(grid)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".grid(%s)", grid));
+            onChangeListener.onChange(String.format(Locale.US, ".grid(%s)", wrapQuotes(grid)));
             js.setLength(0);
         }
         return this;
@@ -763,9 +441,7 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setGrid1 = new ArrayList<>();
-
     public Resource setGrid(Boolean grid1) {
-        this.grid1 = grid1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -801,17 +477,15 @@ public class Resource extends Chart {
     private String horizontalScrollBar;
     private Boolean horizontalScrollBar1;
     private List<Resource> setHorizontalScrollBar = new ArrayList<>();
-
     public Resource setHorizontalScrollBar(String horizontalScrollBar) {
-        this.horizontalScrollBar = horizontalScrollBar;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", horizontalScrollBar));
+        js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".horizontalScrollBar(%s)", horizontalScrollBar));
+            onChangeListener.onChange(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
             js.setLength(0);
         }
         return this;
@@ -828,9 +502,7 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setHorizontalScrollBar1 = new ArrayList<>();
-
     public Resource setHorizontalScrollBar(Boolean horizontalScrollBar1) {
-        this.horizontalScrollBar1 = horizontalScrollBar1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -857,10 +529,7 @@ public class Resource extends Chart {
     private Double resourceIndex;
     private Double activityIndex;
     private List<Resource> setHover = new ArrayList<>();
-
     public Resource setHover(Double resourceIndex, Double activityIndex) {
-        this.resourceIndex = resourceIndex;
-        this.activityIndex = activityIndex;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -886,9 +555,7 @@ public class Resource extends Chart {
 
     private Double globalIndex;
     private List<Resource> setHoverPoint = new ArrayList<>();
-
     public Resource hoverPoint(Double globalIndex) {
-        this.globalIndex = globalIndex;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -923,17 +590,15 @@ public class Resource extends Chart {
     }
     private String logo;
     private List<Resource> setLogo = new ArrayList<>();
-
     public Resource setLogo(String logo) {
-        this.logo = logo;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".logo(%s)", logo));
+        js.append(String.format(Locale.US, ".logo(%s)", wrapQuotes(logo)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".logo(%s)", logo));
+            onChangeListener.onChange(String.format(Locale.US, ".logo(%s)", wrapQuotes(logo)));
             js.setLength(0);
         }
         return this;
@@ -951,9 +616,7 @@ public class Resource extends Chart {
 
     private Double minRowHeight;
     private List<Resource> setMinRowHeight = new ArrayList<>();
-
     public Resource setMinRowHeight(Double minRowHeight) {
-        this.minRowHeight = minRowHeight;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -989,17 +652,15 @@ public class Resource extends Chart {
     private String overlay;
     private Boolean overlay1;
     private List<Resource> setOverlay = new ArrayList<>();
-
     public Resource setOverlay(String overlay) {
-        this.overlay = overlay;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".overlay(%s)", overlay));
+        js.append(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".overlay(%s)", overlay));
+            onChangeListener.onChange(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
             js.setLength(0);
         }
         return this;
@@ -1016,9 +677,7 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setOverlay1 = new ArrayList<>();
-
     public Resource setOverlay(Boolean overlay1) {
-        this.overlay1 = overlay1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1044,9 +703,7 @@ public class Resource extends Chart {
 
     private Double pixPerHour;
     private List<Resource> setPixPerHour = new ArrayList<>();
-
     public Resource setPixPerHour(Double pixPerHour) {
-        this.pixPerHour = pixPerHour;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1073,9 +730,7 @@ public class Resource extends Chart {
     private Double resourceListWidth;
     private String resourceListWidth1;
     private List<Resource> setResourceListWidth = new ArrayList<>();
-
     public Resource setResourceListWidth(Double resourceListWidth) {
-        this.resourceListWidth = resourceListWidth;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1100,17 +755,15 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setResourceListWidth1 = new ArrayList<>();
-
     public Resource setResourceListWidth(String resourceListWidth1) {
-        this.resourceListWidth1 = resourceListWidth1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".resourceListWidth(%s)", resourceListWidth1));
+        js.append(String.format(Locale.US, ".resourceListWidth(%s)", wrapQuotes(resourceListWidth1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".resourceListWidth(%s)", resourceListWidth1));
+            onChangeListener.onChange(String.format(Locale.US, ".resourceListWidth(%s)", wrapQuotes(resourceListWidth1)));
             js.setLength(0);
         }
         return this;
@@ -1129,10 +782,7 @@ public class Resource extends Chart {
     private Double resourceIndex1;
     private Double activityIndex1;
     private List<Resource> setSelect = new ArrayList<>();
-
     public Resource setSelect(Double resourceIndex1, Double activityIndex1) {
-        this.resourceIndex1 = resourceIndex1;
-        this.activityIndex1 = activityIndex1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1158,9 +808,7 @@ public class Resource extends Chart {
 
     private Double globalIndex1;
     private List<Resource> setSelectPoint = new ArrayList<>();
-
     public Resource selectPoint(Double globalIndex1) {
-        this.globalIndex1 = globalIndex1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1192,21 +840,15 @@ public class Resource extends Chart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<Resource> setSplitterStroke = new ArrayList<>();
-
     public Resource setSplitterStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = color;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1223,21 +865,15 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setSplitterStroke1 = new ArrayList<>();
-
     public Resource setSplitterStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color1 = color1;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1254,21 +890,15 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setSplitterStroke2 = new ArrayList<>();
-
     public Resource setSplitterStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color2 = color2;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1296,17 +926,15 @@ public class Resource extends Chart {
     private String timeLine;
     private Boolean timeLine1;
     private List<Resource> setTimeLine = new ArrayList<>();
-
     public Resource setTimeLine(String timeLine) {
-        this.timeLine = timeLine;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".timeLine(%s)", timeLine));
+        js.append(String.format(Locale.US, ".timeLine(%s)", wrapQuotes(timeLine)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".timeLine(%s)", timeLine));
+            onChangeListener.onChange(String.format(Locale.US, ".timeLine(%s)", wrapQuotes(timeLine)));
             js.setLength(0);
         }
         return this;
@@ -1323,9 +951,7 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setTimeLine1 = new ArrayList<>();
-
     public Resource setTimeLine(Boolean timeLine1) {
-        this.timeLine1 = timeLine1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1352,9 +978,7 @@ public class Resource extends Chart {
     private Double timeLineHeight;
     private String timeLineHeight1;
     private List<Resource> setTimeLineHeight = new ArrayList<>();
-
     public Resource setTimeLineHeight(Double timeLineHeight) {
-        this.timeLineHeight = timeLineHeight;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1379,17 +1003,15 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setTimeLineHeight1 = new ArrayList<>();
-
     public Resource setTimeLineHeight(String timeLineHeight1) {
-        this.timeLineHeight1 = timeLineHeight1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".timeLineHeight(%s)", timeLineHeight1));
+        js.append(String.format(Locale.US, ".timeLineHeight(%s)", wrapQuotes(timeLineHeight1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".timeLineHeight(%s)", timeLineHeight1));
+            onChangeListener.onChange(String.format(Locale.US, ".timeLineHeight(%s)", wrapQuotes(timeLineHeight1)));
             js.setLength(0);
         }
         return this;
@@ -1408,17 +1030,15 @@ public class Resource extends Chart {
     private TimeTrackingMode timeTrackingMode;
     private String timeTrackingMode1;
     private List<Resource> setTimeTrackingMode = new ArrayList<>();
-
     public Resource setTimeTrackingMode(TimeTrackingMode timeTrackingMode) {
-        this.timeTrackingMode = timeTrackingMode;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".timeTrackingMode(%s)", (timeTrackingMode != null) ? timeTrackingMode.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".timeTrackingMode(%s)", ((timeTrackingMode != null) ? timeTrackingMode.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".timeTrackingMode(%s)", (timeTrackingMode != null) ? timeTrackingMode.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".timeTrackingMode(%s)", ((timeTrackingMode != null) ? timeTrackingMode.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1435,17 +1055,15 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setTimeTrackingMode1 = new ArrayList<>();
-
     public Resource setTimeTrackingMode(String timeTrackingMode1) {
-        this.timeTrackingMode1 = timeTrackingMode1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".timeTrackingMode(%s)", timeTrackingMode1));
+        js.append(String.format(Locale.US, ".timeTrackingMode(%s)", wrapQuotes(timeTrackingMode1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".timeTrackingMode(%s)", timeTrackingMode1));
+            onChangeListener.onChange(String.format(Locale.US, ".timeTrackingMode(%s)", wrapQuotes(timeTrackingMode1)));
             js.setLength(0);
         }
         return this;
@@ -1465,10 +1083,7 @@ public class Resource extends Chart {
     private Double[] resourceIndex3;
     private Double activityIndex2;
     private List<Resource> setUnhover = new ArrayList<>();
-
     public Resource unhover(Double resourceIndex2, Double activityIndex2) {
-        this.resourceIndex2 = resourceIndex2;
-        this.activityIndex2 = activityIndex2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1493,10 +1108,7 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setUnhover1 = new ArrayList<>();
-
     public Resource unhover(Double[] resourceIndex3, Double activityIndex2) {
-        this.resourceIndex3 = resourceIndex3;
-        this.activityIndex2 = activityIndex2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1523,10 +1135,7 @@ public class Resource extends Chart {
     private Double resourceIndex4;
     private Double[] resourceIndex5;
     private Double activityIndex3;
-
     public void unselect(Double resourceIndex4, Double activityIndex3) {
-        this.resourceIndex4 = resourceIndex4;
-        this.activityIndex3 = activityIndex3;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1539,10 +1148,7 @@ public class Resource extends Chart {
         }
     }
 
-
     public void unselect(Double[] resourceIndex5, Double activityIndex3) {
-        this.resourceIndex5 = resourceIndex5;
-        this.activityIndex3 = activityIndex3;
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1567,17 +1173,15 @@ public class Resource extends Chart {
     private String verticalScrollBar;
     private Boolean verticalScrollBar1;
     private List<Resource> setVerticalScrollBar = new ArrayList<>();
-
     public Resource setVerticalScrollBar(String verticalScrollBar) {
-        this.verticalScrollBar = verticalScrollBar;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".verticalScrollBar(%s)", verticalScrollBar));
+        js.append(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".verticalScrollBar(%s)", verticalScrollBar));
+            onChangeListener.onChange(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
             js.setLength(0);
         }
         return this;
@@ -1594,9 +1198,7 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setVerticalScrollBar1 = new ArrayList<>();
-
     public Resource setVerticalScrollBar(Boolean verticalScrollBar1) {
-        this.verticalScrollBar1 = verticalScrollBar1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1631,17 +1233,15 @@ public class Resource extends Chart {
     }
     private String xScale;
     private List<Resource> setXScale = new ArrayList<>();
-
     public Resource setXScale(String xScale) {
-        this.xScale = xScale;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
+        js.append(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale)));
             js.setLength(0);
         }
         return this;
@@ -1660,9 +1260,7 @@ public class Resource extends Chart {
     private Double indexOrId;
     private String indexOrId1;
     private List<Resource> setZoomLevel = new ArrayList<>();
-
     public Resource setZoomLevel(Double indexOrId) {
-        this.indexOrId = indexOrId;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1687,17 +1285,15 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setZoomLevel1 = new ArrayList<>();
-
     public Resource setZoomLevel(String indexOrId1) {
-        this.indexOrId1 = indexOrId1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomLevel(%s)", indexOrId1));
+        js.append(String.format(Locale.US, ".zoomLevel(%s)", wrapQuotes(indexOrId1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomLevel(%s)", indexOrId1));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomLevel(%s)", wrapQuotes(indexOrId1)));
             js.setLength(0);
         }
         return this;
@@ -1715,9 +1311,7 @@ public class Resource extends Chart {
 
     private ZoomLevel[] zoomLevels;
     private List<Resource> setZoomLevels = new ArrayList<>();
-
     public Resource setZoomLevels(ZoomLevel[] zoomLevels) {
-        this.zoomLevels = zoomLevels;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1855,17 +1449,6 @@ public class Resource extends Chart {
         js.append(generateJSsetCurrentStartDate());
         js.append(generateJSsetCurrentStartDate1());
         js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetData2());
-        js.append(generateJSsetData3());
-        js.append(generateJSsetData4());
-        js.append(generateJSsetData5());
-        js.append(generateJSsetData6());
-        js.append(generateJSsetData7());
-        js.append(generateJSsetData8());
-        js.append(generateJSsetData9());
-        js.append(generateJSsetData10());
-        js.append(generateJSsetData11());
         js.append(generateJSsetDefaultMinutesPerDay());
         js.append(generateJSsetGrid());
         js.append(generateJSsetGrid1());

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".backgroundFill(%s)", (backgroundFill != null) ? backgroundFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s)", (backgroundFill != null) ? backgroundFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -60,10 +62,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", color, opacity));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f)", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -141,10 +143,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -178,10 +180,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -215,10 +217,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -252,10 +254,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -289,10 +291,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -344,10 +346,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -391,10 +393,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -414,10 +416,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseFill(%s)", (baseFill != null) ? baseFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".baseFill(%s)", ((baseFill != null) ? baseFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s)", (baseFill != null) ? baseFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s)", ((baseFill != null) ? baseFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -447,10 +449,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseFill(%s, %f)", color1, opacity3));
+            js.append(String.format(Locale.US, ".baseFill(%s, %f)", wrapQuotes(color1), opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f)", color1, opacity3));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f)", wrapQuotes(color1), opacity3));
                 js.setLength(0);
             }
         }
@@ -556,10 +558,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
             }
         }
@@ -607,10 +609,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
             }
         }
@@ -658,10 +660,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
+            js.append(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
             }
         }
@@ -709,10 +711,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
             }
         }
@@ -760,10 +762,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
             }
         }
@@ -838,10 +840,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -908,10 +910,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -944,10 +946,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseLabels(%s)", baseLabels));
+            js.append(String.format(Locale.US, ".baseLabels(%s)", wrapQuotes(baseLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseLabels(%s)", baseLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".baseLabels(%s)", wrapQuotes(baseLabels)));
                 js.setLength(0);
             }
         }
@@ -1008,10 +1010,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", (baseStroke != null) ? baseStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", (baseStroke != null) ? baseStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1041,10 +1043,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", (baseStroke1 != null) ? baseStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", (baseStroke1 != null) ? baseStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1074,10 +1076,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", baseStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", baseStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1118,10 +1120,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineFill(%s)", (baselineFill != null) ? baselineFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".baselineFill(%s)", ((baselineFill != null) ? baselineFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s)", (baselineFill != null) ? baselineFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s)", ((baselineFill != null) ? baselineFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1155,10 +1157,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f)", color2, opacity6));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f)", wrapQuotes(color2), opacity6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f)", color2, opacity6));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f)", wrapQuotes(color2), opacity6));
                 js.setLength(0);
             }
         }
@@ -1288,10 +1290,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
             }
         }
@@ -1351,10 +1353,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), mode10, angle2, opacity7));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), mode10, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
             }
         }
@@ -1414,10 +1416,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", Arrays.toString(keys9), mode8, angle2, opacity7));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", Arrays.toString(keys9), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
                 js.setLength(0);
             }
         }
@@ -1477,10 +1479,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
             }
         }
@@ -1540,10 +1542,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", Arrays.toString(keys9), mode10, angle2, opacity7));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", Arrays.toString(keys9), mode10, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
             }
         }
@@ -1633,10 +1635,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -1718,10 +1720,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -1754,10 +1756,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineLabels(%s)", baselineLabels));
+            js.append(String.format(Locale.US, ".baselineLabels(%s)", wrapQuotes(baselineLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineLabels(%s)", baselineLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineLabels(%s)", wrapQuotes(baselineLabels)));
                 js.setLength(0);
             }
         }
@@ -1830,10 +1832,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", (baselineStroke != null) ? baselineStroke.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", (baselineStroke != null) ? baselineStroke.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1875,10 +1877,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", (baselineStroke1 != null) ? baselineStroke1.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", (baselineStroke1 != null) ? baselineStroke1.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1920,10 +1922,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", baselineStroke2, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", baselineStroke2, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1946,10 +1948,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".columnStroke(%s)", (columnStroke != null) ? columnStroke.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", (columnStroke != null) ? columnStroke.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1970,10 +1972,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".columnStroke(%s)", columnStroke1));
+            js.append(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", columnStroke1));
+                onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
                 js.setLength(0);
             }
         }
@@ -2047,10 +2049,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", (connectorFill != null) ? connectorFill.generateJs() : "null", cx3, cy3, (opacityOrMode != null) ? opacityOrMode.generateJs() : "null", opacity9, fx3, fy3));
+            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", (connectorFill != null) ? connectorFill.generateJs() : "null", cx3, cy3, (opacityOrMode != null) ? opacityOrMode.generateJs() : "null", opacity9, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2115,10 +2117,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, (opacityOrMode != null) ? opacityOrMode.generateJs() : "null", opacity9, fx3, fy3));
+            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, (opacityOrMode != null) ? opacityOrMode.generateJs() : "null", opacity9, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2183,10 +2185,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(connectorFill2), cx3, cy3, (opacityOrMode != null) ? opacityOrMode.generateJs() : "null", opacity9, fx3, fy3));
+            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(connectorFill2), cx3, cy3, (opacityOrMode != null) ? opacityOrMode.generateJs() : "null", opacity9, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2239,10 +2241,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", (connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", (connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2288,10 +2290,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", (connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", (connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2337,10 +2339,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", connectorPreviewStroke2, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", connectorPreviewStroke2, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2397,10 +2399,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2450,10 +2452,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2503,10 +2505,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2525,10 +2527,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s)", (editConnectorThumbFill != null) ? editConnectorThumbFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s)", ((editConnectorThumbFill != null) ? editConnectorThumbFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s)", (editConnectorThumbFill != null) ? editConnectorThumbFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s)", ((editConnectorThumbFill != null) ? editConnectorThumbFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2567,10 +2569,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f)", color3, opacity10));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f)", wrapQuotes(color3), opacity10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f)", color3, opacity10));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f)", wrapQuotes(color3), opacity10));
                 js.setLength(0);
             }
         }
@@ -2726,10 +2728,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity11));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
                 js.setLength(0);
             }
         }
@@ -2802,10 +2804,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), mode14, angle3, opacity11));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), mode14, angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
                 js.setLength(0);
             }
         }
@@ -2878,10 +2880,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", Arrays.toString(keys13), mode12, angle3, opacity11));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", Arrays.toString(keys13), mode12, angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
                 js.setLength(0);
             }
         }
@@ -2954,10 +2956,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity11));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
                 js.setLength(0);
             }
         }
@@ -3030,10 +3032,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", Arrays.toString(keys13), mode14, angle3, opacity11));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", Arrays.toString(keys13), mode14, angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
                 js.setLength(0);
             }
         }
@@ -3143,10 +3145,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, (mode15 != null) ? mode15.generateJs() : "null", opacity12, fx4, fy4));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, (mode15 != null) ? mode15.generateJs() : "null", opacity12, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -3248,10 +3250,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys15), cx4, cy4, (mode15 != null) ? mode15.generateJs() : "null", opacity12, fx4, fy4));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys15), cx4, cy4, (mode15 != null) ? mode15.generateJs() : "null", opacity12, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -3313,10 +3315,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", (editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null", thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", (editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null", thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3370,10 +3372,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", (editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null", thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", (editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null", thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3427,10 +3429,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", editConnectorThumbStroke2, thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", editConnectorThumbStroke2, thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3497,10 +3499,10 @@ public class Timeline extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", (editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", ((editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", (editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", ((editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3520,10 +3522,10 @@ public class Timeline extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", editFinishConnectorMarkerType1));
+            js.append(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", wrapQuotes(editFinishConnectorMarkerType1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", editFinishConnectorMarkerType1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", wrapQuotes(editFinishConnectorMarkerType1)));
                 js.setLength(0);
             }
         }
@@ -3563,10 +3565,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s)", (editIntervalThumbFill != null) ? editIntervalThumbFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s)", ((editIntervalThumbFill != null) ? editIntervalThumbFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s)", (editIntervalThumbFill != null) ? editIntervalThumbFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s)", ((editIntervalThumbFill != null) ? editIntervalThumbFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3609,10 +3611,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f)", color4, opacity13));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f)", wrapQuotes(color4), opacity13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f)", color4, opacity13));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f)", wrapQuotes(color4), opacity13));
                 js.setLength(0);
             }
         }
@@ -3792,10 +3794,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity14));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
                 js.setLength(0);
             }
         }
@@ -3880,10 +3882,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), mode18, angle4, opacity14));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), mode18, angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
                 js.setLength(0);
             }
         }
@@ -3968,10 +3970,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", Arrays.toString(keys17), mode16, angle4, opacity14));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", Arrays.toString(keys17), mode16, angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
                 js.setLength(0);
             }
         }
@@ -4056,10 +4058,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity14));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
                 js.setLength(0);
             }
         }
@@ -4144,10 +4146,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", Arrays.toString(keys17), mode18, angle4, opacity14));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", Arrays.toString(keys17), mode18, angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
                 js.setLength(0);
             }
         }
@@ -4272,10 +4274,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, (mode19 != null) ? mode19.generateJs() : "null", opacity15, fx5, fy5));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, (mode19 != null) ? mode19.generateJs() : "null", opacity15, fx5, fy5));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
                 js.setLength(0);
             }
         }
@@ -4392,10 +4394,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys19), cx5, cy5, (mode19 != null) ? mode19.generateJs() : "null", opacity15, fx5, fy5));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys19), cx5, cy5, (mode19 != null) ? mode19.generateJs() : "null", opacity15, fx5, fy5));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
                 js.setLength(0);
             }
         }
@@ -4461,10 +4463,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", (editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null", thickness5, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", (editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null", thickness5, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4522,10 +4524,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", (editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null", thickness5, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", (editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null", thickness5, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4583,10 +4585,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", editIntervalThumbStroke2, thickness5, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", editIntervalThumbStroke2, thickness5, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4627,10 +4629,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewFill(%s)", (editPreviewFill != null) ? editPreviewFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s)", ((editPreviewFill != null) ? editPreviewFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s)", (editPreviewFill != null) ? editPreviewFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s)", ((editPreviewFill != null) ? editPreviewFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4677,10 +4679,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f)", color5, opacity16));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f)", wrapQuotes(color5), opacity16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f)", color5, opacity16));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f)", wrapQuotes(color5), opacity16));
                 js.setLength(0);
             }
         }
@@ -4884,10 +4886,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity17));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
                 js.setLength(0);
             }
         }
@@ -4984,10 +4986,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), mode22, angle5, opacity17));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), mode22, angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity17));
                 js.setLength(0);
             }
         }
@@ -5084,10 +5086,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", Arrays.toString(keys21), mode20, angle5, opacity17));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", Arrays.toString(keys21), mode20, angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity17));
                 js.setLength(0);
             }
         }
@@ -5184,10 +5186,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity17));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
                 js.setLength(0);
             }
         }
@@ -5284,10 +5286,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", Arrays.toString(keys21), mode22, angle5, opacity17));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", Arrays.toString(keys21), mode22, angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity17));
                 js.setLength(0);
             }
         }
@@ -5427,10 +5429,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, (mode23 != null) ? mode23.generateJs() : "null", opacity18, fx6, fy6));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, (mode23 != null) ? mode23.generateJs() : "null", opacity18, fx6, fy6));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
                 js.setLength(0);
             }
         }
@@ -5562,10 +5564,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys23), cx6, cy6, (mode23 != null) ? mode23.generateJs() : "null", opacity18, fx6, fy6));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys23), cx6, cy6, (mode23 != null) ? mode23.generateJs() : "null", opacity18, fx6, fy6));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
                 js.setLength(0);
             }
         }
@@ -5635,10 +5637,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", (editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null", thickness6, dashpattern6, (lineJoin6 != null) ? lineJoin6.generateJs() : "null", (lineCap6 != null) ? lineCap6.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", (editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null", thickness6, dashpattern6, (lineJoin6 != null) ? lineJoin6.generateJs() : "null", (lineCap6 != null) ? lineCap6.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5700,10 +5702,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", (editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null", thickness6, dashpattern6, (lineJoin6 != null) ? lineJoin6.generateJs() : "null", (lineCap6 != null) ? lineCap6.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", (editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null", thickness6, dashpattern6, (lineJoin6 != null) ? lineJoin6.generateJs() : "null", (lineCap6 != null) ? lineCap6.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5765,10 +5767,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", editPreviewStroke2, thickness6, dashpattern6, (lineJoin6 != null) ? lineJoin6.generateJs() : "null", (lineCap6 != null) ? lineCap6.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", editPreviewStroke2, thickness6, dashpattern6, (lineJoin6 != null) ? lineJoin6.generateJs() : "null", (lineCap6 != null) ? lineCap6.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5787,10 +5789,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressFill(%s)", (editProgressFill != null) ? editProgressFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editProgressFill(%s)", ((editProgressFill != null) ? editProgressFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s)", (editProgressFill != null) ? editProgressFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s)", ((editProgressFill != null) ? editProgressFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5841,10 +5843,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f)", color6, opacity19));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f)", wrapQuotes(color6), opacity19));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f)", color6, opacity19));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f)", wrapQuotes(color6), opacity19));
                 js.setLength(0);
             }
         }
@@ -6072,10 +6074,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), (mode25 != null) ? mode25.generateJs() : "null", angle6, opacity20));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), (mode25 != null) ? mode25.generateJs() : "null", angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
                 js.setLength(0);
             }
         }
@@ -6184,10 +6186,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), mode26, angle6, opacity20));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6, opacity20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), mode26, angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6, opacity20));
                 js.setLength(0);
             }
         }
@@ -6296,10 +6298,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", Arrays.toString(keys25), mode24, angle6, opacity20));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6, opacity20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", Arrays.toString(keys25), mode24, angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6, opacity20));
                 js.setLength(0);
             }
         }
@@ -6408,10 +6410,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", Arrays.toString(keys25), (mode25 != null) ? mode25.generateJs() : "null", angle6, opacity20));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", Arrays.toString(keys25), (mode25 != null) ? mode25.generateJs() : "null", angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
                 js.setLength(0);
             }
         }
@@ -6520,10 +6522,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", Arrays.toString(keys25), mode26, angle6, opacity20));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6, opacity20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", Arrays.toString(keys25), mode26, angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6, opacity20));
                 js.setLength(0);
             }
         }
@@ -6678,10 +6680,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, (mode27 != null) ? mode27.generateJs() : "null", opacity21, fx7, fy7));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, (mode27 != null) ? mode27.generateJs() : "null", opacity21, fx7, fy7));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
                 js.setLength(0);
             }
         }
@@ -6828,10 +6830,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys27), cx7, cy7, (mode27 != null) ? mode27.generateJs() : "null", opacity21, fx7, fy7));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys27), cx7, cy7, (mode27 != null) ? mode27.generateJs() : "null", opacity21, fx7, fy7));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
                 js.setLength(0);
             }
         }
@@ -6905,10 +6907,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", (editProgressStroke != null) ? editProgressStroke.generateJs() : "null", thickness7, dashpattern7, (lineJoin7 != null) ? lineJoin7.generateJs() : "null", (lineCap7 != null) ? lineCap7.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", (editProgressStroke != null) ? editProgressStroke.generateJs() : "null", thickness7, dashpattern7, (lineJoin7 != null) ? lineJoin7.generateJs() : "null", (lineCap7 != null) ? lineCap7.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6974,10 +6976,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", (editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null", thickness7, dashpattern7, (lineJoin7 != null) ? lineJoin7.generateJs() : "null", (lineCap7 != null) ? lineCap7.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", (editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null", thickness7, dashpattern7, (lineJoin7 != null) ? lineJoin7.generateJs() : "null", (lineCap7 != null) ? lineCap7.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7043,10 +7045,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", editProgressStroke2, thickness7, dashpattern7, (lineJoin7 != null) ? lineJoin7.generateJs() : "null", (lineCap7 != null) ? lineCap7.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", editProgressStroke2, thickness7, dashpattern7, (lineJoin7 != null) ? lineJoin7.generateJs() : "null", (lineCap7 != null) ? lineCap7.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7113,10 +7115,10 @@ public class Timeline extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", (editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", ((editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", (editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", ((editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7136,10 +7138,10 @@ public class Timeline extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", editStartConnectorMarkerType1));
+            js.append(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", wrapQuotes(editStartConnectorMarkerType1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", editStartConnectorMarkerType1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", wrapQuotes(editStartConnectorMarkerType1)));
                 js.setLength(0);
             }
         }
@@ -7237,10 +7239,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", (editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null", thickness8, dashpattern8, (lineJoin8 != null) ? lineJoin8.generateJs() : "null", (lineCap8 != null) ? lineCap8.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", (editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null", thickness8, dashpattern8, (lineJoin8 != null) ? lineJoin8.generateJs() : "null", (lineCap8 != null) ? lineCap8.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7310,10 +7312,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", (editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null", thickness8, dashpattern8, (lineJoin8 != null) ? lineJoin8.generateJs() : "null", (lineCap8 != null) ? lineCap8.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", (editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null", thickness8, dashpattern8, (lineJoin8 != null) ? lineJoin8.generateJs() : "null", (lineCap8 != null) ? lineCap8.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7383,10 +7385,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", editStructurePreviewDashStroke2, thickness8, dashpattern8, (lineJoin8 != null) ? lineJoin8.generateJs() : "null", (lineCap8 != null) ? lineCap8.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", editStructurePreviewDashStroke2, thickness8, dashpattern8, (lineJoin8 != null) ? lineJoin8.generateJs() : "null", (lineCap8 != null) ? lineCap8.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7405,10 +7407,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s)", (editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s)", ((editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s)", (editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s)", ((editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7463,10 +7465,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", color7, opacity22));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color7), opacity22));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", color7, opacity22));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color7), opacity22));
                 js.setLength(0);
             }
         }
@@ -7718,10 +7720,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), (mode29 != null) ? mode29.generateJs() : "null", angle7, opacity23));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), (mode29 != null) ? mode29.generateJs() : "null", angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
                 js.setLength(0);
             }
         }
@@ -7842,10 +7844,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), mode30, angle7, opacity23));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), wrapQuotes(mode30), angle7, opacity23));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), mode30, angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), wrapQuotes(mode30), angle7, opacity23));
                 js.setLength(0);
             }
         }
@@ -7966,10 +7968,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", Arrays.toString(keys29), mode28, angle7, opacity23));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys29), mode28, angle7, opacity23));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", Arrays.toString(keys29), mode28, angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys29), mode28, angle7, opacity23));
                 js.setLength(0);
             }
         }
@@ -8090,10 +8092,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", Arrays.toString(keys29), (mode29 != null) ? mode29.generateJs() : "null", angle7, opacity23));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", Arrays.toString(keys29), (mode29 != null) ? mode29.generateJs() : "null", angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
                 js.setLength(0);
             }
         }
@@ -8214,10 +8216,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", Arrays.toString(keys29), mode30, angle7, opacity23));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), wrapQuotes(mode30), angle7, opacity23));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", Arrays.toString(keys29), mode30, angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), wrapQuotes(mode30), angle7, opacity23));
                 js.setLength(0);
             }
         }
@@ -8387,10 +8389,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, (mode31 != null) ? mode31.generateJs() : "null", opacity24, fx8, fy8));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, (mode31 != null) ? mode31.generateJs() : "null", opacity24, fx8, fy8));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
                 js.setLength(0);
             }
         }
@@ -8552,10 +8554,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys31), cx8, cy8, (mode31 != null) ? mode31.generateJs() : "null", opacity24, fx8, fy8));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys31), cx8, cy8, (mode31 != null) ? mode31.generateJs() : "null", opacity24, fx8, fy8));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
                 js.setLength(0);
             }
         }
@@ -8637,10 +8639,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", (editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null", thickness9, dashpattern9, (lineJoin9 != null) ? lineJoin9.generateJs() : "null", (lineCap9 != null) ? lineCap9.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", (editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null", thickness9, dashpattern9, (lineJoin9 != null) ? lineJoin9.generateJs() : "null", (lineCap9 != null) ? lineCap9.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8714,10 +8716,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", (editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null", thickness9, dashpattern9, (lineJoin9 != null) ? lineJoin9.generateJs() : "null", (lineCap9 != null) ? lineCap9.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", (editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null", thickness9, dashpattern9, (lineJoin9 != null) ? lineJoin9.generateJs() : "null", (lineCap9 != null) ? lineCap9.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8791,10 +8793,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", editStructurePreviewStroke2, thickness9, dashpattern9, (lineJoin9 != null) ? lineJoin9.generateJs() : "null", (lineCap9 != null) ? lineCap9.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", editStructurePreviewStroke2, thickness9, dashpattern9, (lineJoin9 != null) ? lineJoin9.generateJs() : "null", (lineCap9 != null) ? lineCap9.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8844,10 +8846,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".header(%s)", header));
+            js.append(String.format(Locale.US, ".header(%s)", wrapQuotes(header)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".header(%s)", header));
+                onChangeListener.onChange(String.format(Locale.US, ".header(%s)", wrapQuotes(header)));
                 js.setLength(0);
             }
         }
@@ -8875,10 +8877,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", horizontalScrollBar));
+            js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".horizontalScrollBar(%s)", horizontalScrollBar));
+                onChangeListener.onChange(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
                 js.setLength(0);
             }
         }
@@ -8906,23 +8908,22 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".labels(%s)", labels));
+            js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private GanttLine getLineMarker;
+    private List<GanttLine> getLineMarker = new ArrayList<>();
 
-    public GanttLine getLineMarker() {
-        if (getLineMarker == null)
-            getLineMarker = new GanttLine(jsBase + ".lineMarker()");
-
-        return getLineMarker;
+    public GanttLine getLineMarker(Double index) {
+        GanttLine item = new GanttLine(jsBase + ".lineMarker(" + index + ")");
+        getLineMarker.add(item);
+        return item;
     }
 
     private String lineMarker;
@@ -8941,10 +8942,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
+            js.append(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
+                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
                 js.setLength(0);
             }
         }
@@ -9000,10 +9001,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index));
+            js.append(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index));
+                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index));
                 js.setLength(0);
             }
         }
@@ -9060,10 +9061,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".lineMarker(%s, %f)", (lineMarker4 != null) ? lineMarker4.generateJs() : "null", index));
+            js.append(String.format(Locale.US, ".lineMarker(%s, %f)", ((lineMarker4 != null) ? lineMarker4.generateJs() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", (lineMarker4 != null) ? lineMarker4.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", ((lineMarker4 != null) ? lineMarker4.generateJs() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -9091,10 +9092,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".markers(%s)", markers));
+            js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
+                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
             }
         }
@@ -9113,10 +9114,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneFill(%s)", (milestoneFill != null) ? milestoneFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".milestoneFill(%s)", ((milestoneFill != null) ? milestoneFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s)", (milestoneFill != null) ? milestoneFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s)", ((milestoneFill != null) ? milestoneFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9175,10 +9176,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f)", color8, opacity25));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f)", wrapQuotes(color8), opacity25));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f)", color8, opacity25));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f)", wrapQuotes(color8), opacity25));
                 js.setLength(0);
             }
         }
@@ -9454,10 +9455,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), (mode33 != null) ? mode33.generateJs() : "null", angle8, opacity26));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), (mode33 != null) ? mode33.generateJs() : "null", angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
                 js.setLength(0);
             }
         }
@@ -9590,10 +9591,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), mode34, angle8, opacity26));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), wrapQuotes(mode34), angle8, opacity26));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), mode34, angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), wrapQuotes(mode34), angle8, opacity26));
                 js.setLength(0);
             }
         }
@@ -9726,10 +9727,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", Arrays.toString(keys33), mode32, angle8, opacity26));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys33), mode32, angle8, opacity26));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", Arrays.toString(keys33), mode32, angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys33), mode32, angle8, opacity26));
                 js.setLength(0);
             }
         }
@@ -9862,10 +9863,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", Arrays.toString(keys33), (mode33 != null) ? mode33.generateJs() : "null", angle8, opacity26));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", Arrays.toString(keys33), (mode33 != null) ? mode33.generateJs() : "null", angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
                 js.setLength(0);
             }
         }
@@ -9998,10 +9999,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", Arrays.toString(keys33), mode34, angle8, opacity26));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), wrapQuotes(mode34), angle8, opacity26));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", Arrays.toString(keys33), mode34, angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), wrapQuotes(mode34), angle8, opacity26));
                 js.setLength(0);
             }
         }
@@ -10186,10 +10187,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, (mode35 != null) ? mode35.generateJs() : "null", opacity27, fx9, fy9));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, (mode35 != null) ? mode35.generateJs() : "null", opacity27, fx9, fy9));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
                 js.setLength(0);
             }
         }
@@ -10366,10 +10367,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys35), cx9, cy9, (mode35 != null) ? mode35.generateJs() : "null", opacity27, fx9, fy9));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys35), cx9, cy9, (mode35 != null) ? mode35.generateJs() : "null", opacity27, fx9, fy9));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
                 js.setLength(0);
             }
         }
@@ -10402,10 +10403,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneLabels(%s)", milestoneLabels));
+            js.append(String.format(Locale.US, ".milestoneLabels(%s)", wrapQuotes(milestoneLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneLabels(%s)", milestoneLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneLabels(%s)", wrapQuotes(milestoneLabels)));
                 js.setLength(0);
             }
         }
@@ -10514,10 +10515,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", (milestoneStroke != null) ? milestoneStroke.generateJs() : "null", thickness10, dashpattern10, (lineJoin10 != null) ? lineJoin10.generateJs() : "null", (lineCap10 != null) ? lineCap10.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", (milestoneStroke != null) ? milestoneStroke.generateJs() : "null", thickness10, dashpattern10, (lineJoin10 != null) ? lineJoin10.generateJs() : "null", (lineCap10 != null) ? lineCap10.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10595,10 +10596,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", (milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null", thickness10, dashpattern10, (lineJoin10 != null) ? lineJoin10.generateJs() : "null", (lineCap10 != null) ? lineCap10.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", (milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null", thickness10, dashpattern10, (lineJoin10 != null) ? lineJoin10.generateJs() : "null", (lineCap10 != null) ? lineCap10.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10676,10 +10677,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", milestoneStroke2, thickness10, dashpattern10, (lineJoin10 != null) ? lineJoin10.generateJs() : "null", (lineCap10 != null) ? lineCap10.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", milestoneStroke2, thickness10, dashpattern10, (lineJoin10 != null) ? lineJoin10.generateJs() : "null", (lineCap10 != null) ? lineCap10.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10698,10 +10699,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentFill(%s)", (parentFill != null) ? parentFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".parentFill(%s)", ((parentFill != null) ? parentFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s)", (parentFill != null) ? parentFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s)", ((parentFill != null) ? parentFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10764,10 +10765,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentFill(%s, %f)", color9, opacity28));
+            js.append(String.format(Locale.US, ".parentFill(%s, %f)", wrapQuotes(color9), opacity28));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f)", color9, opacity28));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f)", wrapQuotes(color9), opacity28));
                 js.setLength(0);
             }
         }
@@ -11067,10 +11068,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), (mode37 != null) ? mode37.generateJs() : "null", angle9, opacity29));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), (mode37 != null) ? mode37.generateJs() : "null", angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
                 js.setLength(0);
             }
         }
@@ -11215,10 +11216,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), mode38, angle9, opacity29));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), wrapQuotes(mode38), angle9, opacity29));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), mode38, angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), wrapQuotes(mode38), angle9, opacity29));
                 js.setLength(0);
             }
         }
@@ -11363,10 +11364,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", Arrays.toString(keys37), mode36, angle9, opacity29));
+            js.append(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys37), mode36, angle9, opacity29));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", Arrays.toString(keys37), mode36, angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys37), mode36, angle9, opacity29));
                 js.setLength(0);
             }
         }
@@ -11511,10 +11512,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", Arrays.toString(keys37), (mode37 != null) ? mode37.generateJs() : "null", angle9, opacity29));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", Arrays.toString(keys37), (mode37 != null) ? mode37.generateJs() : "null", angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
                 js.setLength(0);
             }
         }
@@ -11659,10 +11660,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", Arrays.toString(keys37), mode38, angle9, opacity29));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), wrapQuotes(mode38), angle9, opacity29));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", Arrays.toString(keys37), mode38, angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), wrapQuotes(mode38), angle9, opacity29));
                 js.setLength(0);
             }
         }
@@ -11862,10 +11863,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, (mode39 != null) ? mode39.generateJs() : "null", opacity30, fx10, fy10));
+            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, (mode39 != null) ? mode39.generateJs() : "null", opacity30, fx10, fy10));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
                 js.setLength(0);
             }
         }
@@ -12057,10 +12058,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys39), cx10, cy10, (mode39 != null) ? mode39.generateJs() : "null", opacity30, fx10, fy10));
+            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys39), cx10, cy10, (mode39 != null) ? mode39.generateJs() : "null", opacity30, fx10, fy10));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
                 js.setLength(0);
             }
         }
@@ -12093,10 +12094,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentLabels(%s)", parentLabels));
+            js.append(String.format(Locale.US, ".parentLabels(%s)", wrapQuotes(parentLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentLabels(%s)", parentLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".parentLabels(%s)", wrapQuotes(parentLabels)));
                 js.setLength(0);
             }
         }
@@ -12209,10 +12210,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", (parentStroke != null) ? parentStroke.generateJs() : "null", thickness11, dashpattern11, (lineJoin11 != null) ? lineJoin11.generateJs() : "null", (lineCap11 != null) ? lineCap11.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", (parentStroke != null) ? parentStroke.generateJs() : "null", thickness11, dashpattern11, (lineJoin11 != null) ? lineJoin11.generateJs() : "null", (lineCap11 != null) ? lineCap11.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -12294,10 +12295,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", (parentStroke1 != null) ? parentStroke1.generateJs() : "null", thickness11, dashpattern11, (lineJoin11 != null) ? lineJoin11.generateJs() : "null", (lineCap11 != null) ? lineCap11.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", (parentStroke1 != null) ? parentStroke1.generateJs() : "null", thickness11, dashpattern11, (lineJoin11 != null) ? lineJoin11.generateJs() : "null", (lineCap11 != null) ? lineCap11.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -12379,10 +12380,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", parentStroke2, thickness11, dashpattern11, (lineJoin11 != null) ? lineJoin11.generateJs() : "null", (lineCap11 != null) ? lineCap11.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", parentStroke2, thickness11, dashpattern11, (lineJoin11 != null) ? lineJoin11.generateJs() : "null", (lineCap11 != null) ? lineCap11.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -12401,10 +12402,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressFill(%s)", (progressFill != null) ? progressFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".progressFill(%s)", ((progressFill != null) ? progressFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s)", (progressFill != null) ? progressFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s)", ((progressFill != null) ? progressFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -12471,10 +12472,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressFill(%s, %f)", color10, opacity31));
+            js.append(String.format(Locale.US, ".progressFill(%s, %f)", wrapQuotes(color10), opacity31));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f)", color10, opacity31));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f)", wrapQuotes(color10), opacity31));
                 js.setLength(0);
             }
         }
@@ -12798,10 +12799,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), (mode41 != null) ? mode41.generateJs() : "null", angle10, opacity32));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), (mode41 != null) ? mode41.generateJs() : "null", angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
                 js.setLength(0);
             }
         }
@@ -12958,10 +12959,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), mode42, angle10, opacity32));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), wrapQuotes(mode42), angle10, opacity32));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), mode42, angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), wrapQuotes(mode42), angle10, opacity32));
                 js.setLength(0);
             }
         }
@@ -13118,10 +13119,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", Arrays.toString(keys41), mode40, angle10, opacity32));
+            js.append(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys41), mode40, angle10, opacity32));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", Arrays.toString(keys41), mode40, angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys41), mode40, angle10, opacity32));
                 js.setLength(0);
             }
         }
@@ -13278,10 +13279,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", Arrays.toString(keys41), (mode41 != null) ? mode41.generateJs() : "null", angle10, opacity32));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", Arrays.toString(keys41), (mode41 != null) ? mode41.generateJs() : "null", angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
                 js.setLength(0);
             }
         }
@@ -13438,10 +13439,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", Arrays.toString(keys41), mode42, angle10, opacity32));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), wrapQuotes(mode42), angle10, opacity32));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", Arrays.toString(keys41), mode42, angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), wrapQuotes(mode42), angle10, opacity32));
                 js.setLength(0);
             }
         }
@@ -13656,10 +13657,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, (mode43 != null) ? mode43.generateJs() : "null", opacity33, fx11, fy11));
+            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, (mode43 != null) ? mode43.generateJs() : "null", opacity33, fx11, fy11));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
                 js.setLength(0);
             }
         }
@@ -13866,10 +13867,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys43), cx11, cy11, (mode43 != null) ? mode43.generateJs() : "null", opacity33, fx11, fy11));
+            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys43), cx11, cy11, (mode43 != null) ? mode43.generateJs() : "null", opacity33, fx11, fy11));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
                 js.setLength(0);
             }
         }
@@ -13902,10 +13903,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressLabels(%s)", progressLabels));
+            js.append(String.format(Locale.US, ".progressLabels(%s)", wrapQuotes(progressLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressLabels(%s)", progressLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".progressLabels(%s)", wrapQuotes(progressLabels)));
                 js.setLength(0);
             }
         }
@@ -14022,10 +14023,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", (progressStroke != null) ? progressStroke.generateJs() : "null", thickness12, dashpattern12, (lineJoin12 != null) ? lineJoin12.generateJs() : "null", (lineCap12 != null) ? lineCap12.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", (progressStroke != null) ? progressStroke.generateJs() : "null", thickness12, dashpattern12, (lineJoin12 != null) ? lineJoin12.generateJs() : "null", (lineCap12 != null) ? lineCap12.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -14111,10 +14112,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", (progressStroke1 != null) ? progressStroke1.generateJs() : "null", thickness12, dashpattern12, (lineJoin12 != null) ? lineJoin12.generateJs() : "null", (lineCap12 != null) ? lineCap12.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", (progressStroke1 != null) ? progressStroke1.generateJs() : "null", thickness12, dashpattern12, (lineJoin12 != null) ? lineJoin12.generateJs() : "null", (lineCap12 != null) ? lineCap12.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -14200,23 +14201,22 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", progressStroke2, thickness12, dashpattern12, (lineJoin12 != null) ? lineJoin12.generateJs() : "null", (lineCap12 != null) ? lineCap12.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", progressStroke2, thickness12, dashpattern12, (lineJoin12 != null) ? lineJoin12.generateJs() : "null", (lineCap12 != null) ? lineCap12.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private GanttRange getRangeMarker;
+    private List<GanttRange> getRangeMarker = new ArrayList<>();
 
-    public GanttRange getRangeMarker() {
-        if (getRangeMarker == null)
-            getRangeMarker = new GanttRange(jsBase + ".rangeMarker()");
-
-        return getRangeMarker;
+    public GanttRange getRangeMarker(Double index) {
+        GanttRange item = new GanttRange(jsBase + ".rangeMarker(" + index + ")");
+        getRangeMarker.add(item);
+        return item;
     }
 
     private String rangeMarker;
@@ -14235,10 +14235,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
+            js.append(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
+                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
                 js.setLength(0);
             }
         }
@@ -14269,13 +14269,108 @@ public class Timeline extends JsObject {
         return this;
     }
 
-    private Timeline getRangeMarker1;
+    private Double index1;
+    private String rangeMarker2;
+    private Boolean rangeMarker3;
+    private GanttDateTimeMarkers rangeMarker4;
+    private String rangeMarker5;
 
-    public Timeline getRangeMarker1() {
-        if (getRangeMarker1 == null)
-            getRangeMarker1 = new Timeline(jsBase + ".rangeMarker()");
+    public Timeline setRangeMarker(String rangeMarker2, Double index1) {
+        if (jsBase == null) {
+            this.rangeMarker = null;
+            this.rangeMarker1 = null;
+            this.rangeMarker2 = null;
+            this.rangeMarker3 = null;
+            this.rangeMarker4 = null;
+            this.rangeMarker5 = null;
+            
+            this.rangeMarker2 = rangeMarker2;
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+        } else {
+            this.rangeMarker2 = rangeMarker2;
+            this.index1 = index1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
 
-        return getRangeMarker1;
+            js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Timeline setRangeMarker(Boolean rangeMarker3, Double index1) {
+        if (jsBase == null) {
+            this.rangeMarker = null;
+            this.rangeMarker1 = null;
+            this.rangeMarker2 = null;
+            this.rangeMarker3 = null;
+            this.rangeMarker4 = null;
+            this.rangeMarker5 = null;
+            
+            this.rangeMarker3 = rangeMarker3;
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+        } else {
+            this.rangeMarker3 = rangeMarker3;
+            this.index1 = index1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Timeline setRangeMarker(GanttDateTimeMarkers rangeMarker4, Double index1) {
+        if (jsBase == null) {
+            this.rangeMarker = null;
+            this.rangeMarker1 = null;
+            this.rangeMarker2 = null;
+            this.rangeMarker3 = null;
+            this.rangeMarker4 = null;
+            this.rangeMarker5 = null;
+            
+            this.rangeMarker4 = rangeMarker4;
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+        } else {
+            this.rangeMarker4 = rangeMarker4;
+            this.index1 = index1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null"), index1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null"), index1));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private Fill rowEvenFill;
@@ -14290,10 +14385,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowEvenFill(%s)", (rowEvenFill != null) ? rowEvenFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s)", (rowEvenFill != null) ? rowEvenFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -14364,10 +14459,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", color11, opacity34));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color11), opacity34));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f)", color11, opacity34));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color11), opacity34));
                 js.setLength(0);
             }
         }
@@ -14715,10 +14810,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), (mode45 != null) ? mode45.generateJs() : "null", angle11, opacity35));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), (mode45 != null) ? mode45.generateJs() : "null", angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
                 js.setLength(0);
             }
         }
@@ -14887,10 +14982,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), mode46, angle11, opacity35));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), wrapQuotes(mode46), angle11, opacity35));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), mode46, angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), wrapQuotes(mode46), angle11, opacity35));
                 js.setLength(0);
             }
         }
@@ -15059,10 +15154,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", Arrays.toString(keys45), mode44, angle11, opacity35));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys45), mode44, angle11, opacity35));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", Arrays.toString(keys45), mode44, angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys45), mode44, angle11, opacity35));
                 js.setLength(0);
             }
         }
@@ -15231,10 +15326,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", Arrays.toString(keys45), (mode45 != null) ? mode45.generateJs() : "null", angle11, opacity35));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", Arrays.toString(keys45), (mode45 != null) ? mode45.generateJs() : "null", angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
                 js.setLength(0);
             }
         }
@@ -15403,10 +15498,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", Arrays.toString(keys45), mode46, angle11, opacity35));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), wrapQuotes(mode46), angle11, opacity35));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", Arrays.toString(keys45), mode46, angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), wrapQuotes(mode46), angle11, opacity35));
                 js.setLength(0);
             }
         }
@@ -15636,10 +15731,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, (mode47 != null) ? mode47.generateJs() : "null", opacity36, fx12, fy12));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, (mode47 != null) ? mode47.generateJs() : "null", opacity36, fx12, fy12));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
                 js.setLength(0);
             }
         }
@@ -15861,10 +15956,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys47), cx12, cy12, (mode47 != null) ? mode47.generateJs() : "null", opacity36, fx12, fy12));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys47), cx12, cy12, (mode47 != null) ? mode47.generateJs() : "null", opacity36, fx12, fy12));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
                 js.setLength(0);
             }
         }
@@ -15884,10 +15979,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowFill(%s)", (rowFill != null) ? rowFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".rowFill(%s)", ((rowFill != null) ? rowFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s)", (rowFill != null) ? rowFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s)", ((rowFill != null) ? rowFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -15962,10 +16057,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowFill(%s, %f)", color12, opacity37));
+            js.append(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color12), opacity37));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f)", color12, opacity37));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color12), opacity37));
                 js.setLength(0);
             }
         }
@@ -16337,10 +16432,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), (mode49 != null) ? mode49.generateJs() : "null", angle12, opacity38));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), (mode49 != null) ? mode49.generateJs() : "null", angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
                 js.setLength(0);
             }
         }
@@ -16521,10 +16616,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), mode50, angle12, opacity38));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), wrapQuotes(mode50), angle12, opacity38));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), mode50, angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), wrapQuotes(mode50), angle12, opacity38));
                 js.setLength(0);
             }
         }
@@ -16705,10 +16800,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", Arrays.toString(keys49), mode48, angle12, opacity38));
+            js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys49), mode48, angle12, opacity38));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", Arrays.toString(keys49), mode48, angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys49), mode48, angle12, opacity38));
                 js.setLength(0);
             }
         }
@@ -16889,10 +16984,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", Arrays.toString(keys49), (mode49 != null) ? mode49.generateJs() : "null", angle12, opacity38));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", Arrays.toString(keys49), (mode49 != null) ? mode49.generateJs() : "null", angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
                 js.setLength(0);
             }
         }
@@ -17073,10 +17168,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", Arrays.toString(keys49), mode50, angle12, opacity38));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), wrapQuotes(mode50), angle12, opacity38));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", Arrays.toString(keys49), mode50, angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), wrapQuotes(mode50), angle12, opacity38));
                 js.setLength(0);
             }
         }
@@ -17321,10 +17416,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, (mode51 != null) ? mode51.generateJs() : "null", opacity39, fx13, fy13));
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, (mode51 != null) ? mode51.generateJs() : "null", opacity39, fx13, fy13));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
                 js.setLength(0);
             }
         }
@@ -17561,10 +17656,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys51), cx13, cy13, (mode51 != null) ? mode51.generateJs() : "null", opacity39, fx13, fy13));
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys51), cx13, cy13, (mode51 != null) ? mode51.generateJs() : "null", opacity39, fx13, fy13));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
                 js.setLength(0);
             }
         }
@@ -17584,10 +17679,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowHoverFill(%s)", (rowHoverFill != null) ? rowHoverFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s)", (rowHoverFill != null) ? rowHoverFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -17666,10 +17761,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", color13, opacity40));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color13), opacity40));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f)", color13, opacity40));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color13), opacity40));
                 js.setLength(0);
             }
         }
@@ -18065,10 +18160,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), (mode53 != null) ? mode53.generateJs() : "null", angle13, opacity41));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), (mode53 != null) ? mode53.generateJs() : "null", angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
                 js.setLength(0);
             }
         }
@@ -18261,10 +18356,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), mode54, angle13, opacity41));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), wrapQuotes(mode54), angle13, opacity41));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), mode54, angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), wrapQuotes(mode54), angle13, opacity41));
                 js.setLength(0);
             }
         }
@@ -18457,10 +18552,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", Arrays.toString(keys53), mode52, angle13, opacity41));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys53), mode52, angle13, opacity41));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", Arrays.toString(keys53), mode52, angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys53), mode52, angle13, opacity41));
                 js.setLength(0);
             }
         }
@@ -18653,10 +18748,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys53), (mode53 != null) ? mode53.generateJs() : "null", angle13, opacity41));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys53), (mode53 != null) ? mode53.generateJs() : "null", angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
                 js.setLength(0);
             }
         }
@@ -18849,10 +18944,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys53), mode54, angle13, opacity41));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), wrapQuotes(mode54), angle13, opacity41));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", Arrays.toString(keys53), mode54, angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), wrapQuotes(mode54), angle13, opacity41));
                 js.setLength(0);
             }
         }
@@ -19112,10 +19207,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, (mode55 != null) ? mode55.generateJs() : "null", opacity42, fx14, fy14));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, (mode55 != null) ? mode55.generateJs() : "null", opacity42, fx14, fy14));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
                 js.setLength(0);
             }
         }
@@ -19367,10 +19462,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys55), cx14, cy14, (mode55 != null) ? mode55.generateJs() : "null", opacity42, fx14, fy14));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys55), cx14, cy14, (mode55 != null) ? mode55.generateJs() : "null", opacity42, fx14, fy14));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
                 js.setLength(0);
             }
         }
@@ -19389,10 +19484,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowOddFill(%s)", (rowOddFill != null) ? rowOddFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s)", (rowOddFill != null) ? rowOddFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -19475,10 +19570,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", color14, opacity43));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color14), opacity43));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f)", color14, opacity43));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color14), opacity43));
                 js.setLength(0);
             }
         }
@@ -19898,10 +19993,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), (mode57 != null) ? mode57.generateJs() : "null", angle14, opacity44));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), (mode57 != null) ? mode57.generateJs() : "null", angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
                 js.setLength(0);
             }
         }
@@ -20106,10 +20201,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), mode58, angle14, opacity44));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), wrapQuotes(mode58), angle14, opacity44));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), mode58, angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), wrapQuotes(mode58), angle14, opacity44));
                 js.setLength(0);
             }
         }
@@ -20314,10 +20409,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", Arrays.toString(keys57), mode56, angle14, opacity44));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys57), mode56, angle14, opacity44));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", Arrays.toString(keys57), mode56, angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys57), mode56, angle14, opacity44));
                 js.setLength(0);
             }
         }
@@ -20522,10 +20617,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", Arrays.toString(keys57), (mode57 != null) ? mode57.generateJs() : "null", angle14, opacity44));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", Arrays.toString(keys57), (mode57 != null) ? mode57.generateJs() : "null", angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
                 js.setLength(0);
             }
         }
@@ -20730,10 +20825,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", Arrays.toString(keys57), mode58, angle14, opacity44));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), wrapQuotes(mode58), angle14, opacity44));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", Arrays.toString(keys57), mode58, angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), wrapQuotes(mode58), angle14, opacity44));
                 js.setLength(0);
             }
         }
@@ -21008,10 +21103,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, (mode59 != null) ? mode59.generateJs() : "null", opacity45, fx15, fy15));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, (mode59 != null) ? mode59.generateJs() : "null", opacity45, fx15, fy15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
                 js.setLength(0);
             }
         }
@@ -21278,10 +21373,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys59), cx15, cy15, (mode59 != null) ? mode59.generateJs() : "null", opacity45, fx15, fy15));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys59), cx15, cy15, (mode59 != null) ? mode59.generateJs() : "null", opacity45, fx15, fy15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
                 js.setLength(0);
             }
         }
@@ -21301,10 +21396,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s)", (rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s)", (rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -21391,10 +21486,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", color15, opacity46));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color15), opacity46));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f)", color15, opacity46));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color15), opacity46));
                 js.setLength(0);
             }
         }
@@ -21735,10 +21830,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), (mode61 != null) ? mode61.generateJs() : "null", angle15));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), (mode61 != null) ? mode61.generateJs() : "null", angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
                 js.setLength(0);
             }
         }
@@ -21904,10 +21999,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), mode62, angle15));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), wrapQuotes(mode62), angle15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), mode62, angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), wrapQuotes(mode62), angle15));
                 js.setLength(0);
             }
         }
@@ -22073,10 +22168,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", Arrays.toString(keys61), mode60, angle15));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys61), mode60, angle15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", Arrays.toString(keys61), mode60, angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys61), mode60, angle15));
                 js.setLength(0);
             }
         }
@@ -22242,10 +22337,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", Arrays.toString(keys61), (mode61 != null) ? mode61.generateJs() : "null", angle15));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", Arrays.toString(keys61), (mode61 != null) ? mode61.generateJs() : "null", angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
                 js.setLength(0);
             }
         }
@@ -22411,10 +22506,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", Arrays.toString(keys61), mode62, angle15));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), wrapQuotes(mode62), angle15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", Arrays.toString(keys61), mode62, angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), wrapQuotes(mode62), angle15));
                 js.setLength(0);
             }
         }
@@ -22703,10 +22798,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, (mode63 != null) ? mode63.generateJs() : "null", opacity47, fx16, fy16));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, (mode63 != null) ? mode63.generateJs() : "null", opacity47, fx16, fy16));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
                 js.setLength(0);
             }
         }
@@ -22987,10 +23082,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys63), cx16, cy16, (mode63 != null) ? mode63.generateJs() : "null", opacity47, fx16, fy16));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys63), cx16, cy16, (mode63 != null) ? mode63.generateJs() : "null", opacity47, fx16, fy16));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
                 js.setLength(0);
             }
         }
@@ -23019,10 +23114,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", scale));
+            js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale)));
                 js.setLength(0);
             }
         }
@@ -23041,10 +23136,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementFill(%s)", (selectedElementFill != null) ? selectedElementFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s)", ((selectedElementFill != null) ? selectedElementFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s)", (selectedElementFill != null) ? selectedElementFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s)", ((selectedElementFill != null) ? selectedElementFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -23134,10 +23229,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f)", color16, opacity48));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f)", wrapQuotes(color16), opacity48));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f)", color16, opacity48));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f)", wrapQuotes(color16), opacity48));
                 js.setLength(0);
             }
         }
@@ -23603,10 +23698,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), (mode65 != null) ? mode65.generateJs() : "null", angle16, opacity49));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), (mode65 != null) ? mode65.generateJs() : "null", angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
                 js.setLength(0);
             }
         }
@@ -23834,10 +23929,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), mode66, angle16, opacity49));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), wrapQuotes(mode66), angle16, opacity49));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), mode66, angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), wrapQuotes(mode66), angle16, opacity49));
                 js.setLength(0);
             }
         }
@@ -24065,10 +24160,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", Arrays.toString(keys65), mode64, angle16, opacity49));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys65), mode64, angle16, opacity49));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", Arrays.toString(keys65), mode64, angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys65), mode64, angle16, opacity49));
                 js.setLength(0);
             }
         }
@@ -24296,10 +24391,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", Arrays.toString(keys65), (mode65 != null) ? mode65.generateJs() : "null", angle16, opacity49));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", Arrays.toString(keys65), (mode65 != null) ? mode65.generateJs() : "null", angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
                 js.setLength(0);
             }
         }
@@ -24527,10 +24622,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", Arrays.toString(keys65), mode66, angle16, opacity49));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), wrapQuotes(mode66), angle16, opacity49));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", Arrays.toString(keys65), mode66, angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), wrapQuotes(mode66), angle16, opacity49));
                 js.setLength(0);
             }
         }
@@ -24834,10 +24929,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, (mode67 != null) ? mode67.generateJs() : "null", opacity50, fx17, fy17));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, (mode67 != null) ? mode67.generateJs() : "null", opacity50, fx17, fy17));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
                 js.setLength(0);
             }
         }
@@ -25133,10 +25228,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys67), cx17, cy17, (mode67 != null) ? mode67.generateJs() : "null", opacity50, fx17, fy17));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys67), cx17, cy17, (mode67 != null) ? mode67.generateJs() : "null", opacity50, fx17, fy17));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
                 js.setLength(0);
             }
         }
@@ -25234,10 +25329,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", (selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null", thickness13, dashpattern13, (lineJoin13 != null) ? lineJoin13.generateJs() : "null", (lineCap13 != null) ? lineCap13.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", (selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null", thickness13, dashpattern13, (lineJoin13 != null) ? lineJoin13.generateJs() : "null", (lineCap13 != null) ? lineCap13.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -25327,10 +25422,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", (selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null", thickness13, dashpattern13, (lineJoin13 != null) ? lineJoin13.generateJs() : "null", (lineCap13 != null) ? lineCap13.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", (selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null", thickness13, dashpattern13, (lineJoin13 != null) ? lineJoin13.generateJs() : "null", (lineCap13 != null) ? lineCap13.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -25420,23 +25515,22 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", selectedElementStroke2, thickness13, dashpattern13, (lineJoin13 != null) ? lineJoin13.generateJs() : "null", (lineCap13 != null) ? lineCap13.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", selectedElementStroke2, thickness13, dashpattern13, (lineJoin13 != null) ? lineJoin13.generateJs() : "null", (lineCap13 != null) ? lineCap13.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private GanttText getTextMarker;
+    private List<GanttText> getTextMarker = new ArrayList<>();
 
-    public GanttText getTextMarker() {
-        if (getTextMarker == null)
-            getTextMarker = new GanttText(jsBase + ".textMarker()");
-
-        return getTextMarker;
+    public GanttText getTextMarker(Double index) {
+        GanttText item = new GanttText(jsBase + ".textMarker(" + index + ")");
+        getTextMarker.add(item);
+        return item;
     }
 
     private String textMarker;
@@ -25455,10 +25549,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
+            js.append(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", textMarker));
+                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
                 js.setLength(0);
             }
         }
@@ -25489,13 +25583,13 @@ public class Timeline extends JsObject {
         return this;
     }
 
-    private Double index1;
+    private Double index2;
     private String textMarker2;
     private Boolean textMarker3;
     private GanttDateTimeMarkers textMarker4;
     private String textMarker5;
 
-    public Timeline setTextMarker(String textMarker2, Double index1) {
+    public Timeline setTextMarker(String textMarker2, Double index2) {
         if (jsBase == null) {
             this.textMarker = null;
             this.textMarker1 = null;
@@ -25507,20 +25601,21 @@ public class Timeline extends JsObject {
             this.textMarker2 = textMarker2;
             this.index = null;
             this.index1 = null;
+            this.index2 = null;
             
-            this.index1 = index1;
+            this.index2 = index2;
         } else {
             this.textMarker2 = textMarker2;
-            this.index1 = index1;
+            this.index2 = index2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index1));
+            js.append(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index1));
+                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index2));
                 js.setLength(0);
             }
         }
@@ -25528,7 +25623,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setTextMarker(Boolean textMarker3, Double index1) {
+    public Timeline setTextMarker(Boolean textMarker3, Double index2) {
         if (jsBase == null) {
             this.textMarker = null;
             this.textMarker1 = null;
@@ -25540,20 +25635,21 @@ public class Timeline extends JsObject {
             this.textMarker3 = textMarker3;
             this.index = null;
             this.index1 = null;
+            this.index2 = null;
             
-            this.index1 = index1;
+            this.index2 = index2;
         } else {
             this.textMarker3 = textMarker3;
-            this.index1 = index1;
+            this.index2 = index2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index1));
+            js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index1));
+                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index2));
                 js.setLength(0);
             }
         }
@@ -25561,7 +25657,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setTextMarker(GanttDateTimeMarkers textMarker4, Double index1) {
+    public Timeline setTextMarker(GanttDateTimeMarkers textMarker4, Double index2) {
         if (jsBase == null) {
             this.textMarker = null;
             this.textMarker1 = null;
@@ -25573,20 +25669,21 @@ public class Timeline extends JsObject {
             this.textMarker4 = textMarker4;
             this.index = null;
             this.index1 = null;
+            this.index2 = null;
             
-            this.index1 = index1;
+            this.index2 = index2;
         } else {
             this.textMarker4 = textMarker4;
-            this.index1 = index1;
+            this.index2 = index2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".textMarker(%s, %f)", (textMarker4 != null) ? textMarker4.generateJs() : "null", index1));
+            js.append(String.format(Locale.US, ".textMarker(%s, %f)", ((textMarker4 != null) ? textMarker4.generateJs() : "null"), index2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", (textMarker4 != null) ? textMarker4.generateJs() : "null", index1));
+                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", ((textMarker4 != null) ? textMarker4.generateJs() : "null"), index2));
                 js.setLength(0);
             }
         }
@@ -25618,10 +25715,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".tooltip(%s)", tooltip));
+            js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", tooltip));
+                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
             }
         }
@@ -25673,19 +25770,127 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".verticalScrollBar(%s)", verticalScrollBar));
+            js.append(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".verticalScrollBar(%s)", verticalScrollBar));
+                onChangeListener.onChange(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSUiLabelsFactory getBaseLabels() {
+//        if (UiLabelsFactory getBaseLabels != null) {
+//            return UiLabelsFactory getBaseLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getBaselineLabels() {
+//        if (UiLabelsFactory getBaselineLabels != null) {
+//            return UiLabelsFactory getBaselineLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSTimelineHeader getHeader() {
+//        if (TimelineHeader getHeader != null) {
+//            return TimelineHeader getHeader.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScrollBar getHorizontalScrollBar() {
+//        if (ScrollBar getHorizontalScrollBar != null) {
+//            return ScrollBar getHorizontalScrollBar.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getLabels() {
+//        if (UiLabelsFactory getLabels != null) {
+//            return UiLabelsFactory getLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGanttLine getLineMarker() {
+//        if (GanttLine getLineMarker != null) {
+//            return GanttLine getLineMarker.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiMarkersFactory getMarkers() {
+//        if (UiMarkersFactory getMarkers != null) {
+//            return UiMarkersFactory getMarkers.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getMilestoneLabels() {
+//        if (UiLabelsFactory getMilestoneLabels != null) {
+//            return UiLabelsFactory getMilestoneLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getParentLabels() {
+//        if (UiLabelsFactory getParentLabels != null) {
+//            return UiLabelsFactory getParentLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getProgressLabels() {
+//        if (UiLabelsFactory getProgressLabels != null) {
+//            return UiLabelsFactory getProgressLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGanttRange getRangeMarker() {
+//        if (GanttRange getRangeMarker != null) {
+//            return GanttRange getRangeMarker.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGanttDateTime getScale() {
+//        if (GanttDateTime getScale != null) {
+//            return GanttDateTime getScale.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSGanttText getTextMarker() {
+//        if (GanttText getTextMarker != null) {
+//            return GanttText getTextMarker.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSTooltip getTooltip() {
+//        if (Tooltip getTooltip != null) {
+//            return Tooltip getTooltip.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScrollBar getVerticalScrollBar() {
+//        if (ScrollBar getVerticalScrollBar != null) {
+//            return ScrollBar getVerticalScrollBar.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetBaseLabels() {
         if (getBaseLabels != null) {
             return getBaseLabels.generateJs();
+            //return String.format(Locale.US, "getBaseLabels: %s,", ((getBaseLabels != null) ? getBaseLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -25693,6 +25898,7 @@ public class Timeline extends JsObject {
     private String generateJSgetBaselineLabels() {
         if (getBaselineLabels != null) {
             return getBaselineLabels.generateJs();
+            //return String.format(Locale.US, "getBaselineLabels: %s,", ((getBaselineLabels != null) ? getBaselineLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -25700,6 +25906,7 @@ public class Timeline extends JsObject {
     private String generateJSgetHeader() {
         if (getHeader != null) {
             return getHeader.generateJs();
+            //return String.format(Locale.US, "getHeader: %s,", ((getHeader != null) ? getHeader.generateJs() : "null"));
         }
         return "";
     }
@@ -25707,6 +25914,7 @@ public class Timeline extends JsObject {
     private String generateJSgetHorizontalScrollBar() {
         if (getHorizontalScrollBar != null) {
             return getHorizontalScrollBar.generateJs();
+            //return String.format(Locale.US, "getHorizontalScrollBar: %s,", ((getHorizontalScrollBar != null) ? getHorizontalScrollBar.generateJs() : "null"));
         }
         return "";
     }
@@ -25714,20 +25922,27 @@ public class Timeline extends JsObject {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
+            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetLineMarker() {
-        if (getLineMarker != null) {
-            return getLineMarker.generateJs();
+        if (!getLineMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttLine item : getLineMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
+            //return String.format(Locale.US, "getMarkers: %s,", ((getMarkers != null) ? getMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -25735,6 +25950,7 @@ public class Timeline extends JsObject {
     private String generateJSgetMilestoneLabels() {
         if (getMilestoneLabels != null) {
             return getMilestoneLabels.generateJs();
+            //return String.format(Locale.US, "getMilestoneLabels: %s,", ((getMilestoneLabels != null) ? getMilestoneLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -25742,6 +25958,7 @@ public class Timeline extends JsObject {
     private String generateJSgetParentLabels() {
         if (getParentLabels != null) {
             return getParentLabels.generateJs();
+            //return String.format(Locale.US, "getParentLabels: %s,", ((getParentLabels != null) ? getParentLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -25749,41 +25966,47 @@ public class Timeline extends JsObject {
     private String generateJSgetProgressLabels() {
         if (getProgressLabels != null) {
             return getProgressLabels.generateJs();
+            //return String.format(Locale.US, "getProgressLabels: %s,", ((getProgressLabels != null) ? getProgressLabels.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetRangeMarker() {
-        if (getRangeMarker != null) {
-            return getRangeMarker.generateJs();
+        if (!getRangeMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttRange item : getRangeMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSgetRangeMarker1() {
-        if (getRangeMarker1 != null) {
-            return getRangeMarker1.generateJs();
-        }
-        return "";
-    }
 
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
+            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetTextMarker() {
-        if (getTextMarker != null) {
-            return getTextMarker.generateJs();
+        if (!getTextMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttText item : getTextMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
+            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -25791,3345 +26014,7 @@ public class Timeline extends JsObject {
     private String generateJSgetVerticalScrollBar() {
         if (getVerticalScrollBar != null) {
             return getVerticalScrollBar.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSbackgroundFill() {
-        if (backgroundFill != null) {
-            return String.format(Locale.US, "backgroundFill: %s,", (backgroundFill != null) ? backgroundFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSopacity() {
-        if (opacity != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity);
-        }
-        return "";
-    }
-
-    private String generateJSkeys() {
-        if (keys != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys));
-        }
-        return "";
-    }
-
-    private String generateJSkeys1() {
-        if (keys1 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys1));
-        }
-        return "";
-    }
-
-    private String generateJSangle() {
-        if (angle != null) {
-            return String.format(Locale.US, "angle: %f,", angle);
-        }
-        return "";
-    }
-
-    private String generateJSmode() {
-        if (mode != null) {
-            return String.format(Locale.US, "mode: %b,", mode);
-        }
-        return "";
-    }
-
-    private String generateJSmode1() {
-        if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode1 != null) ? mode1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode2() {
-        if (mode2 != null) {
-            return String.format(Locale.US, "mode: %s,", mode2);
-        }
-        return "";
-    }
-
-    private String generateJSopacity1() {
-        if (opacity1 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity1);
-        }
-        return "";
-    }
-
-    private String generateJSkeys2() {
-        if (keys2 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys2));
-        }
-        return "";
-    }
-
-    private String generateJSkeys3() {
-        if (keys3 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys3));
-        }
-        return "";
-    }
-
-    private String generateJScx() {
-        if (cx != null) {
-            return String.format(Locale.US, "cx: %f,", cx);
-        }
-        return "";
-    }
-
-    private String generateJScy() {
-        if (cy != null) {
-            return String.format(Locale.US, "cy: %f,", cy);
-        }
-        return "";
-    }
-
-    private String generateJSmode3() {
-        if (mode3 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity2() {
-        if (opacity2 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity2);
-        }
-        return "";
-    }
-
-    private String generateJSfx() {
-        if (fx != null) {
-            return String.format(Locale.US, "fx: %f,", fx);
-        }
-        return "";
-    }
-
-    private String generateJSfy() {
-        if (fy != null) {
-            return String.format(Locale.US, "fy: %f,", fy);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings() {
-        if (imageSettings != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings != null) ? imageSettings.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbaseFill() {
-        if (baseFill != null) {
-            return String.format(Locale.US, "baseFill: %s,", (baseFill != null) ? baseFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor1() {
-        if (color1 != null) {
-            return String.format(Locale.US, "color: %s,", color1);
-        }
-        return "";
-    }
-
-    private String generateJSopacity3() {
-        if (opacity3 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity3);
-        }
-        return "";
-    }
-
-    private String generateJSkeys4() {
-        if (keys4 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys4));
-        }
-        return "";
-    }
-
-    private String generateJSkeys5() {
-        if (keys5 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys5));
-        }
-        return "";
-    }
-
-    private String generateJSangle1() {
-        if (angle1 != null) {
-            return String.format(Locale.US, "angle: %f,", angle1);
-        }
-        return "";
-    }
-
-    private String generateJSmode4() {
-        if (mode4 != null) {
-            return String.format(Locale.US, "mode: %b,", mode4);
-        }
-        return "";
-    }
-
-    private String generateJSmode5() {
-        if (mode5 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode5 != null) ? mode5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode6() {
-        if (mode6 != null) {
-            return String.format(Locale.US, "mode: %s,", mode6);
-        }
-        return "";
-    }
-
-    private String generateJSopacity4() {
-        if (opacity4 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity4);
-        }
-        return "";
-    }
-
-    private String generateJSkeys6() {
-        if (keys6 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys6));
-        }
-        return "";
-    }
-
-    private String generateJSkeys7() {
-        if (keys7 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys7));
-        }
-        return "";
-    }
-
-    private String generateJScx1() {
-        if (cx1 != null) {
-            return String.format(Locale.US, "cx: %f,", cx1);
-        }
-        return "";
-    }
-
-    private String generateJScy1() {
-        if (cy1 != null) {
-            return String.format(Locale.US, "cy: %f,", cy1);
-        }
-        return "";
-    }
-
-    private String generateJSmode7() {
-        if (mode7 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode7 != null) ? mode7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity5() {
-        if (opacity5 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity5);
-        }
-        return "";
-    }
-
-    private String generateJSfx1() {
-        if (fx1 != null) {
-            return String.format(Locale.US, "fx: %f,", fx1);
-        }
-        return "";
-    }
-
-    private String generateJSfy1() {
-        if (fy1 != null) {
-            return String.format(Locale.US, "fy: %f,", fy1);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings1() {
-        if (imageSettings1 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings1 != null) ? imageSettings1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbaseLabels() {
-        if (baseLabels != null) {
-            return String.format(Locale.US, "baseLabels: %s,", baseLabels);
-        }
-        return "";
-    }
-
-    private String generateJSbaseLabels1() {
-        if (baseLabels1 != null) {
-            return String.format(Locale.US, "baseLabels: %b,", baseLabels1);
-        }
-        return "";
-    }
-
-    private String generateJSbaseStroke() {
-        if (baseStroke != null) {
-            return String.format(Locale.US, "baseStroke: %s,", (baseStroke != null) ? baseStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbaseStroke1() {
-        if (baseStroke1 != null) {
-            return String.format(Locale.US, "baseStroke: %s,", (baseStroke1 != null) ? baseStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbaseStroke2() {
-        if (baseStroke2 != null) {
-            return String.format(Locale.US, "baseStroke: %s,", baseStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbaselineAbove() {
-        if (baselineAbove != null) {
-            return String.format(Locale.US, "baselineAbove: %b,", baselineAbove);
-        }
-        return "";
-    }
-
-    private String generateJSbaselineFill() {
-        if (baselineFill != null) {
-            return String.format(Locale.US, "baselineFill: %s,", (baselineFill != null) ? baselineFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor2() {
-        if (color2 != null) {
-            return String.format(Locale.US, "color: %s,", color2);
-        }
-        return "";
-    }
-
-    private String generateJSopacity6() {
-        if (opacity6 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity6);
-        }
-        return "";
-    }
-
-    private String generateJSkeys8() {
-        if (keys8 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys8));
-        }
-        return "";
-    }
-
-    private String generateJSkeys9() {
-        if (keys9 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys9));
-        }
-        return "";
-    }
-
-    private String generateJSangle2() {
-        if (angle2 != null) {
-            return String.format(Locale.US, "angle: %f,", angle2);
-        }
-        return "";
-    }
-
-    private String generateJSmode8() {
-        if (mode8 != null) {
-            return String.format(Locale.US, "mode: %b,", mode8);
-        }
-        return "";
-    }
-
-    private String generateJSmode9() {
-        if (mode9 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode9 != null) ? mode9.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode10() {
-        if (mode10 != null) {
-            return String.format(Locale.US, "mode: %s,", mode10);
-        }
-        return "";
-    }
-
-    private String generateJSopacity7() {
-        if (opacity7 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity7);
-        }
-        return "";
-    }
-
-    private String generateJSkeys10() {
-        if (keys10 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys10));
-        }
-        return "";
-    }
-
-    private String generateJSkeys11() {
-        if (keys11 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys11));
-        }
-        return "";
-    }
-
-    private String generateJScx2() {
-        if (cx2 != null) {
-            return String.format(Locale.US, "cx: %f,", cx2);
-        }
-        return "";
-    }
-
-    private String generateJScy2() {
-        if (cy2 != null) {
-            return String.format(Locale.US, "cy: %f,", cy2);
-        }
-        return "";
-    }
-
-    private String generateJSmode11() {
-        if (mode11 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode11 != null) ? mode11.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity8() {
-        if (opacity8 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity8);
-        }
-        return "";
-    }
-
-    private String generateJSfx2() {
-        if (fx2 != null) {
-            return String.format(Locale.US, "fx: %f,", fx2);
-        }
-        return "";
-    }
-
-    private String generateJSfy2() {
-        if (fy2 != null) {
-            return String.format(Locale.US, "fy: %f,", fy2);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings2() {
-        if (imageSettings2 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings2 != null) ? imageSettings2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbaselineLabels() {
-        if (baselineLabels != null) {
-            return String.format(Locale.US, "baselineLabels: %s,", baselineLabels);
-        }
-        return "";
-    }
-
-    private String generateJSbaselineLabels1() {
-        if (baselineLabels1 != null) {
-            return String.format(Locale.US, "baselineLabels: %b,", baselineLabels1);
-        }
-        return "";
-    }
-
-    private String generateJSbaselineStroke() {
-        if (baselineStroke != null) {
-            return String.format(Locale.US, "baselineStroke: %s,", (baselineStroke != null) ? baselineStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbaselineStroke1() {
-        if (baselineStroke1 != null) {
-            return String.format(Locale.US, "baselineStroke: %s,", (baselineStroke1 != null) ? baselineStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbaselineStroke2() {
-        if (baselineStroke2 != null) {
-            return String.format(Locale.US, "baselineStroke: %s,", baselineStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness1() {
-        if (thickness1 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness1);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern1() {
-        if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin1() {
-        if (lineJoin1 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin1 != null) ? lineJoin1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap1() {
-        if (lineCap1 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap1 != null) ? lineCap1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolumnStroke() {
-        if (columnStroke != null) {
-            return String.format(Locale.US, "columnStroke: %s,", (columnStroke != null) ? columnStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolumnStroke1() {
-        if (columnStroke1 != null) {
-            return String.format(Locale.US, "columnStroke: %s,", columnStroke1);
-        }
-        return "";
-    }
-
-    private String generateJSconnectorFill() {
-        if (connectorFill != null) {
-            return String.format(Locale.US, "connectorFill: %s,", (connectorFill != null) ? connectorFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSconnectorFill1() {
-        if (connectorFill1 != null) {
-            return String.format(Locale.US, "connectorFill: %s,", arrayToString(connectorFill1));
-        }
-        return "";
-    }
-
-    private String generateJSconnectorFill2() {
-        if (connectorFill2 != null) {
-            return String.format(Locale.US, "connectorFill: %s,", Arrays.toString(connectorFill2));
-        }
-        return "";
-    }
-
-    private String generateJScx3() {
-        if (cx3 != null) {
-            return String.format(Locale.US, "cx: %f,", cx3);
-        }
-        return "";
-    }
-
-    private String generateJScy3() {
-        if (cy3 != null) {
-            return String.format(Locale.US, "cy: %f,", cy3);
-        }
-        return "";
-    }
-
-    private String generateJSopacityOrMode() {
-        if (opacityOrMode != null) {
-            return String.format(Locale.US, "opacityOrMode: %s,", (opacityOrMode != null) ? opacityOrMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity9() {
-        if (opacity9 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity9);
-        }
-        return "";
-    }
-
-    private String generateJSfx3() {
-        if (fx3 != null) {
-            return String.format(Locale.US, "fx: %f,", fx3);
-        }
-        return "";
-    }
-
-    private String generateJSfy3() {
-        if (fy3 != null) {
-            return String.format(Locale.US, "fy: %f,", fy3);
-        }
-        return "";
-    }
-
-    private String generateJSconnectorPreviewStroke() {
-        if (connectorPreviewStroke != null) {
-            return String.format(Locale.US, "connectorPreviewStroke: %s,", (connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSconnectorPreviewStroke1() {
-        if (connectorPreviewStroke1 != null) {
-            return String.format(Locale.US, "connectorPreviewStroke: %s,", (connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSconnectorPreviewStroke2() {
-        if (connectorPreviewStroke2 != null) {
-            return String.format(Locale.US, "connectorPreviewStroke: %s,", connectorPreviewStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness2() {
-        if (thickness2 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness2);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern2() {
-        if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin2() {
-        if (lineJoin2 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin2 != null) ? lineJoin2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap2() {
-        if (lineCap2 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap2 != null) ? lineCap2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSconnectorStroke() {
-        if (connectorStroke != null) {
-            return String.format(Locale.US, "connectorStroke: %s,", (connectorStroke != null) ? connectorStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSconnectorStroke1() {
-        if (connectorStroke1 != null) {
-            return String.format(Locale.US, "connectorStroke: %s,", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSconnectorStroke2() {
-        if (connectorStroke2 != null) {
-            return String.format(Locale.US, "connectorStroke: %s,", connectorStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness3() {
-        if (thickness3 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness3);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern3() {
-        if (dashpattern3 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern3);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin3() {
-        if (lineJoin3 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin3 != null) ? lineJoin3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap3() {
-        if (lineCap3 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap3 != null) ? lineCap3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditConnectorThumbFill() {
-        if (editConnectorThumbFill != null) {
-            return String.format(Locale.US, "editConnectorThumbFill: %s,", (editConnectorThumbFill != null) ? editConnectorThumbFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor3() {
-        if (color3 != null) {
-            return String.format(Locale.US, "color: %s,", color3);
-        }
-        return "";
-    }
-
-    private String generateJSopacity10() {
-        if (opacity10 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity10);
-        }
-        return "";
-    }
-
-    private String generateJSkeys12() {
-        if (keys12 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys12));
-        }
-        return "";
-    }
-
-    private String generateJSkeys13() {
-        if (keys13 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys13));
-        }
-        return "";
-    }
-
-    private String generateJSangle3() {
-        if (angle3 != null) {
-            return String.format(Locale.US, "angle: %f,", angle3);
-        }
-        return "";
-    }
-
-    private String generateJSmode12() {
-        if (mode12 != null) {
-            return String.format(Locale.US, "mode: %b,", mode12);
-        }
-        return "";
-    }
-
-    private String generateJSmode13() {
-        if (mode13 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode13 != null) ? mode13.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode14() {
-        if (mode14 != null) {
-            return String.format(Locale.US, "mode: %s,", mode14);
-        }
-        return "";
-    }
-
-    private String generateJSopacity11() {
-        if (opacity11 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity11);
-        }
-        return "";
-    }
-
-    private String generateJSkeys14() {
-        if (keys14 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys14));
-        }
-        return "";
-    }
-
-    private String generateJSkeys15() {
-        if (keys15 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys15));
-        }
-        return "";
-    }
-
-    private String generateJScx4() {
-        if (cx4 != null) {
-            return String.format(Locale.US, "cx: %f,", cx4);
-        }
-        return "";
-    }
-
-    private String generateJScy4() {
-        if (cy4 != null) {
-            return String.format(Locale.US, "cy: %f,", cy4);
-        }
-        return "";
-    }
-
-    private String generateJSmode15() {
-        if (mode15 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode15 != null) ? mode15.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity12() {
-        if (opacity12 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity12);
-        }
-        return "";
-    }
-
-    private String generateJSfx4() {
-        if (fx4 != null) {
-            return String.format(Locale.US, "fx: %f,", fx4);
-        }
-        return "";
-    }
-
-    private String generateJSfy4() {
-        if (fy4 != null) {
-            return String.format(Locale.US, "fy: %f,", fy4);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings3() {
-        if (imageSettings3 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings3 != null) ? imageSettings3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditConnectorThumbStroke() {
-        if (editConnectorThumbStroke != null) {
-            return String.format(Locale.US, "editConnectorThumbStroke: %s,", (editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditConnectorThumbStroke1() {
-        if (editConnectorThumbStroke1 != null) {
-            return String.format(Locale.US, "editConnectorThumbStroke: %s,", (editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditConnectorThumbStroke2() {
-        if (editConnectorThumbStroke2 != null) {
-            return String.format(Locale.US, "editConnectorThumbStroke: %s,", editConnectorThumbStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness4() {
-        if (thickness4 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness4);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern4() {
-        if (dashpattern4 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern4);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin4() {
-        if (lineJoin4 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin4 != null) ? lineJoin4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap4() {
-        if (lineCap4 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap4 != null) ? lineCap4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditFinishConnectorMarkerHorizontalOffset() {
-        if (editFinishConnectorMarkerHorizontalOffset != null) {
-            return String.format(Locale.US, "editFinishConnectorMarkerHorizontalOffset: %f,", editFinishConnectorMarkerHorizontalOffset);
-        }
-        return "";
-    }
-
-    private String generateJSeditFinishConnectorMarkerSize() {
-        if (editFinishConnectorMarkerSize != null) {
-            return String.format(Locale.US, "editFinishConnectorMarkerSize: %f,", editFinishConnectorMarkerSize);
-        }
-        return "";
-    }
-
-    private String generateJSeditFinishConnectorMarkerType() {
-        if (editFinishConnectorMarkerType != null) {
-            return String.format(Locale.US, "editFinishConnectorMarkerType: %s,", (editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditFinishConnectorMarkerType1() {
-        if (editFinishConnectorMarkerType1 != null) {
-            return String.format(Locale.US, "editFinishConnectorMarkerType: %s,", editFinishConnectorMarkerType1);
-        }
-        return "";
-    }
-
-    private String generateJSeditFinishConnectorMarkerVerticalOffset() {
-        if (editFinishConnectorMarkerVerticalOffset != null) {
-            return String.format(Locale.US, "editFinishConnectorMarkerVerticalOffset: %f,", editFinishConnectorMarkerVerticalOffset);
-        }
-        return "";
-    }
-
-    private String generateJSeditIntervalThumbFill() {
-        if (editIntervalThumbFill != null) {
-            return String.format(Locale.US, "editIntervalThumbFill: %s,", (editIntervalThumbFill != null) ? editIntervalThumbFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor4() {
-        if (color4 != null) {
-            return String.format(Locale.US, "color: %s,", color4);
-        }
-        return "";
-    }
-
-    private String generateJSopacity13() {
-        if (opacity13 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity13);
-        }
-        return "";
-    }
-
-    private String generateJSkeys16() {
-        if (keys16 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys16));
-        }
-        return "";
-    }
-
-    private String generateJSkeys17() {
-        if (keys17 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys17));
-        }
-        return "";
-    }
-
-    private String generateJSangle4() {
-        if (angle4 != null) {
-            return String.format(Locale.US, "angle: %f,", angle4);
-        }
-        return "";
-    }
-
-    private String generateJSmode16() {
-        if (mode16 != null) {
-            return String.format(Locale.US, "mode: %b,", mode16);
-        }
-        return "";
-    }
-
-    private String generateJSmode17() {
-        if (mode17 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode17 != null) ? mode17.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode18() {
-        if (mode18 != null) {
-            return String.format(Locale.US, "mode: %s,", mode18);
-        }
-        return "";
-    }
-
-    private String generateJSopacity14() {
-        if (opacity14 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity14);
-        }
-        return "";
-    }
-
-    private String generateJSkeys18() {
-        if (keys18 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys18));
-        }
-        return "";
-    }
-
-    private String generateJSkeys19() {
-        if (keys19 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys19));
-        }
-        return "";
-    }
-
-    private String generateJScx5() {
-        if (cx5 != null) {
-            return String.format(Locale.US, "cx: %f,", cx5);
-        }
-        return "";
-    }
-
-    private String generateJScy5() {
-        if (cy5 != null) {
-            return String.format(Locale.US, "cy: %f,", cy5);
-        }
-        return "";
-    }
-
-    private String generateJSmode19() {
-        if (mode19 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode19 != null) ? mode19.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity15() {
-        if (opacity15 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity15);
-        }
-        return "";
-    }
-
-    private String generateJSfx5() {
-        if (fx5 != null) {
-            return String.format(Locale.US, "fx: %f,", fx5);
-        }
-        return "";
-    }
-
-    private String generateJSfy5() {
-        if (fy5 != null) {
-            return String.format(Locale.US, "fy: %f,", fy5);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings4() {
-        if (imageSettings4 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings4 != null) ? imageSettings4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditIntervalThumbStroke() {
-        if (editIntervalThumbStroke != null) {
-            return String.format(Locale.US, "editIntervalThumbStroke: %s,", (editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditIntervalThumbStroke1() {
-        if (editIntervalThumbStroke1 != null) {
-            return String.format(Locale.US, "editIntervalThumbStroke: %s,", (editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditIntervalThumbStroke2() {
-        if (editIntervalThumbStroke2 != null) {
-            return String.format(Locale.US, "editIntervalThumbStroke: %s,", editIntervalThumbStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness5() {
-        if (thickness5 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness5);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern5() {
-        if (dashpattern5 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern5);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin5() {
-        if (lineJoin5 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin5 != null) ? lineJoin5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap5() {
-        if (lineCap5 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap5 != null) ? lineCap5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditIntervalWidth() {
-        if (editIntervalWidth != null) {
-            return String.format(Locale.US, "editIntervalWidth: %f,", editIntervalWidth);
-        }
-        return "";
-    }
-
-    private String generateJSeditPreviewFill() {
-        if (editPreviewFill != null) {
-            return String.format(Locale.US, "editPreviewFill: %s,", (editPreviewFill != null) ? editPreviewFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor5() {
-        if (color5 != null) {
-            return String.format(Locale.US, "color: %s,", color5);
-        }
-        return "";
-    }
-
-    private String generateJSopacity16() {
-        if (opacity16 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity16);
-        }
-        return "";
-    }
-
-    private String generateJSkeys20() {
-        if (keys20 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys20));
-        }
-        return "";
-    }
-
-    private String generateJSkeys21() {
-        if (keys21 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys21));
-        }
-        return "";
-    }
-
-    private String generateJSangle5() {
-        if (angle5 != null) {
-            return String.format(Locale.US, "angle: %f,", angle5);
-        }
-        return "";
-    }
-
-    private String generateJSmode20() {
-        if (mode20 != null) {
-            return String.format(Locale.US, "mode: %b,", mode20);
-        }
-        return "";
-    }
-
-    private String generateJSmode21() {
-        if (mode21 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode21 != null) ? mode21.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode22() {
-        if (mode22 != null) {
-            return String.format(Locale.US, "mode: %s,", mode22);
-        }
-        return "";
-    }
-
-    private String generateJSopacity17() {
-        if (opacity17 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity17);
-        }
-        return "";
-    }
-
-    private String generateJSkeys22() {
-        if (keys22 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys22));
-        }
-        return "";
-    }
-
-    private String generateJSkeys23() {
-        if (keys23 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys23));
-        }
-        return "";
-    }
-
-    private String generateJScx6() {
-        if (cx6 != null) {
-            return String.format(Locale.US, "cx: %f,", cx6);
-        }
-        return "";
-    }
-
-    private String generateJScy6() {
-        if (cy6 != null) {
-            return String.format(Locale.US, "cy: %f,", cy6);
-        }
-        return "";
-    }
-
-    private String generateJSmode23() {
-        if (mode23 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode23 != null) ? mode23.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity18() {
-        if (opacity18 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity18);
-        }
-        return "";
-    }
-
-    private String generateJSfx6() {
-        if (fx6 != null) {
-            return String.format(Locale.US, "fx: %f,", fx6);
-        }
-        return "";
-    }
-
-    private String generateJSfy6() {
-        if (fy6 != null) {
-            return String.format(Locale.US, "fy: %f,", fy6);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings5() {
-        if (imageSettings5 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings5 != null) ? imageSettings5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditPreviewStroke() {
-        if (editPreviewStroke != null) {
-            return String.format(Locale.US, "editPreviewStroke: %s,", (editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditPreviewStroke1() {
-        if (editPreviewStroke1 != null) {
-            return String.format(Locale.US, "editPreviewStroke: %s,", (editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditPreviewStroke2() {
-        if (editPreviewStroke2 != null) {
-            return String.format(Locale.US, "editPreviewStroke: %s,", editPreviewStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness6() {
-        if (thickness6 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness6);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern6() {
-        if (dashpattern6 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern6);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin6() {
-        if (lineJoin6 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin6 != null) ? lineJoin6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap6() {
-        if (lineCap6 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap6 != null) ? lineCap6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditProgressFill() {
-        if (editProgressFill != null) {
-            return String.format(Locale.US, "editProgressFill: %s,", (editProgressFill != null) ? editProgressFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor6() {
-        if (color6 != null) {
-            return String.format(Locale.US, "color: %s,", color6);
-        }
-        return "";
-    }
-
-    private String generateJSopacity19() {
-        if (opacity19 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity19);
-        }
-        return "";
-    }
-
-    private String generateJSkeys24() {
-        if (keys24 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys24));
-        }
-        return "";
-    }
-
-    private String generateJSkeys25() {
-        if (keys25 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys25));
-        }
-        return "";
-    }
-
-    private String generateJSangle6() {
-        if (angle6 != null) {
-            return String.format(Locale.US, "angle: %f,", angle6);
-        }
-        return "";
-    }
-
-    private String generateJSmode24() {
-        if (mode24 != null) {
-            return String.format(Locale.US, "mode: %b,", mode24);
-        }
-        return "";
-    }
-
-    private String generateJSmode25() {
-        if (mode25 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode25 != null) ? mode25.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode26() {
-        if (mode26 != null) {
-            return String.format(Locale.US, "mode: %s,", mode26);
-        }
-        return "";
-    }
-
-    private String generateJSopacity20() {
-        if (opacity20 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity20);
-        }
-        return "";
-    }
-
-    private String generateJSkeys26() {
-        if (keys26 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys26));
-        }
-        return "";
-    }
-
-    private String generateJSkeys27() {
-        if (keys27 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys27));
-        }
-        return "";
-    }
-
-    private String generateJScx7() {
-        if (cx7 != null) {
-            return String.format(Locale.US, "cx: %f,", cx7);
-        }
-        return "";
-    }
-
-    private String generateJScy7() {
-        if (cy7 != null) {
-            return String.format(Locale.US, "cy: %f,", cy7);
-        }
-        return "";
-    }
-
-    private String generateJSmode27() {
-        if (mode27 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode27 != null) ? mode27.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity21() {
-        if (opacity21 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity21);
-        }
-        return "";
-    }
-
-    private String generateJSfx7() {
-        if (fx7 != null) {
-            return String.format(Locale.US, "fx: %f,", fx7);
-        }
-        return "";
-    }
-
-    private String generateJSfy7() {
-        if (fy7 != null) {
-            return String.format(Locale.US, "fy: %f,", fy7);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings6() {
-        if (imageSettings6 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings6 != null) ? imageSettings6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditProgressStroke() {
-        if (editProgressStroke != null) {
-            return String.format(Locale.US, "editProgressStroke: %s,", (editProgressStroke != null) ? editProgressStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditProgressStroke1() {
-        if (editProgressStroke1 != null) {
-            return String.format(Locale.US, "editProgressStroke: %s,", (editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditProgressStroke2() {
-        if (editProgressStroke2 != null) {
-            return String.format(Locale.US, "editProgressStroke: %s,", editProgressStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness7() {
-        if (thickness7 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness7);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern7() {
-        if (dashpattern7 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern7);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin7() {
-        if (lineJoin7 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin7 != null) ? lineJoin7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap7() {
-        if (lineCap7 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap7 != null) ? lineCap7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditStartConnectorMarkerHorizontalOffset() {
-        if (editStartConnectorMarkerHorizontalOffset != null) {
-            return String.format(Locale.US, "editStartConnectorMarkerHorizontalOffset: %f,", editStartConnectorMarkerHorizontalOffset);
-        }
-        return "";
-    }
-
-    private String generateJSeditStartConnectorMarkerSize() {
-        if (editStartConnectorMarkerSize != null) {
-            return String.format(Locale.US, "editStartConnectorMarkerSize: %f,", editStartConnectorMarkerSize);
-        }
-        return "";
-    }
-
-    private String generateJSeditStartConnectorMarkerType() {
-        if (editStartConnectorMarkerType != null) {
-            return String.format(Locale.US, "editStartConnectorMarkerType: %s,", (editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditStartConnectorMarkerType1() {
-        if (editStartConnectorMarkerType1 != null) {
-            return String.format(Locale.US, "editStartConnectorMarkerType: %s,", editStartConnectorMarkerType1);
-        }
-        return "";
-    }
-
-    private String generateJSeditStartConnectorMarkerVerticalOffset() {
-        if (editStartConnectorMarkerVerticalOffset != null) {
-            return String.format(Locale.US, "editStartConnectorMarkerVerticalOffset: %f,", editStartConnectorMarkerVerticalOffset);
-        }
-        return "";
-    }
-
-    private String generateJSeditStructurePreviewDashStroke() {
-        if (editStructurePreviewDashStroke != null) {
-            return String.format(Locale.US, "editStructurePreviewDashStroke: %s,", (editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditStructurePreviewDashStroke1() {
-        if (editStructurePreviewDashStroke1 != null) {
-            return String.format(Locale.US, "editStructurePreviewDashStroke: %s,", (editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditStructurePreviewDashStroke2() {
-        if (editStructurePreviewDashStroke2 != null) {
-            return String.format(Locale.US, "editStructurePreviewDashStroke: %s,", editStructurePreviewDashStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness8() {
-        if (thickness8 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness8);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern8() {
-        if (dashpattern8 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern8);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin8() {
-        if (lineJoin8 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin8 != null) ? lineJoin8.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap8() {
-        if (lineCap8 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap8 != null) ? lineCap8.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditStructurePreviewFill() {
-        if (editStructurePreviewFill != null) {
-            return String.format(Locale.US, "editStructurePreviewFill: %s,", (editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor7() {
-        if (color7 != null) {
-            return String.format(Locale.US, "color: %s,", color7);
-        }
-        return "";
-    }
-
-    private String generateJSopacity22() {
-        if (opacity22 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity22);
-        }
-        return "";
-    }
-
-    private String generateJSkeys28() {
-        if (keys28 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys28));
-        }
-        return "";
-    }
-
-    private String generateJSkeys29() {
-        if (keys29 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys29));
-        }
-        return "";
-    }
-
-    private String generateJSangle7() {
-        if (angle7 != null) {
-            return String.format(Locale.US, "angle: %f,", angle7);
-        }
-        return "";
-    }
-
-    private String generateJSmode28() {
-        if (mode28 != null) {
-            return String.format(Locale.US, "mode: %b,", mode28);
-        }
-        return "";
-    }
-
-    private String generateJSmode29() {
-        if (mode29 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode29 != null) ? mode29.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode30() {
-        if (mode30 != null) {
-            return String.format(Locale.US, "mode: %s,", mode30);
-        }
-        return "";
-    }
-
-    private String generateJSopacity23() {
-        if (opacity23 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity23);
-        }
-        return "";
-    }
-
-    private String generateJSkeys30() {
-        if (keys30 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys30));
-        }
-        return "";
-    }
-
-    private String generateJSkeys31() {
-        if (keys31 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys31));
-        }
-        return "";
-    }
-
-    private String generateJScx8() {
-        if (cx8 != null) {
-            return String.format(Locale.US, "cx: %f,", cx8);
-        }
-        return "";
-    }
-
-    private String generateJScy8() {
-        if (cy8 != null) {
-            return String.format(Locale.US, "cy: %f,", cy8);
-        }
-        return "";
-    }
-
-    private String generateJSmode31() {
-        if (mode31 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode31 != null) ? mode31.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity24() {
-        if (opacity24 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity24);
-        }
-        return "";
-    }
-
-    private String generateJSfx8() {
-        if (fx8 != null) {
-            return String.format(Locale.US, "fx: %f,", fx8);
-        }
-        return "";
-    }
-
-    private String generateJSfy8() {
-        if (fy8 != null) {
-            return String.format(Locale.US, "fy: %f,", fy8);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings7() {
-        if (imageSettings7 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings7 != null) ? imageSettings7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditStructurePreviewStroke() {
-        if (editStructurePreviewStroke != null) {
-            return String.format(Locale.US, "editStructurePreviewStroke: %s,", (editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditStructurePreviewStroke1() {
-        if (editStructurePreviewStroke1 != null) {
-            return String.format(Locale.US, "editStructurePreviewStroke: %s,", (editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSeditStructurePreviewStroke2() {
-        if (editStructurePreviewStroke2 != null) {
-            return String.format(Locale.US, "editStructurePreviewStroke: %s,", editStructurePreviewStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness9() {
-        if (thickness9 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness9);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern9() {
-        if (dashpattern9 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern9);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin9() {
-        if (lineJoin9 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin9 != null) ? lineJoin9.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap9() {
-        if (lineCap9 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap9 != null) ? lineCap9.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSediting() {
-        if (editing != null) {
-            return String.format(Locale.US, "editing: %b,", editing);
-        }
-        return "";
-    }
-
-    private String generateJSheader() {
-        if (header != null) {
-            return String.format(Locale.US, "header: %s,", header);
-        }
-        return "";
-    }
-
-    private String generateJShorizontalScrollBar() {
-        if (horizontalScrollBar != null) {
-            return String.format(Locale.US, "horizontalScrollBar: %s,", horizontalScrollBar);
-        }
-        return "";
-    }
-
-    private String generateJSlabels() {
-        if (labels != null) {
-            return String.format(Locale.US, "labels: %s,", labels);
-        }
-        return "";
-    }
-
-    private String generateJSlineMarker() {
-        if (lineMarker != null) {
-            return String.format(Locale.US, "lineMarker: %s,", lineMarker);
-        }
-        return "";
-    }
-
-    private String generateJSlineMarker1() {
-        if (lineMarker1 != null) {
-            return String.format(Locale.US, "lineMarker: %b,", lineMarker1);
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJSlineMarker2() {
-        if (lineMarker2 != null) {
-            return String.format(Locale.US, "lineMarker: %s,", lineMarker2);
-        }
-        return "";
-    }
-
-    private String generateJSlineMarker3() {
-        if (lineMarker3 != null) {
-            return String.format(Locale.US, "lineMarker: %b,", lineMarker3);
-        }
-        return "";
-    }
-
-    private String generateJSlineMarker4() {
-        if (lineMarker4 != null) {
-            return String.format(Locale.US, "lineMarker: %s,", (lineMarker4 != null) ? lineMarker4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineMarker5() {
-        if (lineMarker5 != null) {
-            return String.format(Locale.US, "lineMarker: %s,", lineMarker5);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers() {
-        if (markers != null) {
-            return String.format(Locale.US, "markers: %s,", markers);
-        }
-        return "";
-    }
-
-    private String generateJSmilestoneFill() {
-        if (milestoneFill != null) {
-            return String.format(Locale.US, "milestoneFill: %s,", (milestoneFill != null) ? milestoneFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor8() {
-        if (color8 != null) {
-            return String.format(Locale.US, "color: %s,", color8);
-        }
-        return "";
-    }
-
-    private String generateJSopacity25() {
-        if (opacity25 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity25);
-        }
-        return "";
-    }
-
-    private String generateJSkeys32() {
-        if (keys32 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys32));
-        }
-        return "";
-    }
-
-    private String generateJSkeys33() {
-        if (keys33 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys33));
-        }
-        return "";
-    }
-
-    private String generateJSangle8() {
-        if (angle8 != null) {
-            return String.format(Locale.US, "angle: %f,", angle8);
-        }
-        return "";
-    }
-
-    private String generateJSmode32() {
-        if (mode32 != null) {
-            return String.format(Locale.US, "mode: %b,", mode32);
-        }
-        return "";
-    }
-
-    private String generateJSmode33() {
-        if (mode33 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode33 != null) ? mode33.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode34() {
-        if (mode34 != null) {
-            return String.format(Locale.US, "mode: %s,", mode34);
-        }
-        return "";
-    }
-
-    private String generateJSopacity26() {
-        if (opacity26 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity26);
-        }
-        return "";
-    }
-
-    private String generateJSkeys34() {
-        if (keys34 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys34));
-        }
-        return "";
-    }
-
-    private String generateJSkeys35() {
-        if (keys35 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys35));
-        }
-        return "";
-    }
-
-    private String generateJScx9() {
-        if (cx9 != null) {
-            return String.format(Locale.US, "cx: %f,", cx9);
-        }
-        return "";
-    }
-
-    private String generateJScy9() {
-        if (cy9 != null) {
-            return String.format(Locale.US, "cy: %f,", cy9);
-        }
-        return "";
-    }
-
-    private String generateJSmode35() {
-        if (mode35 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode35 != null) ? mode35.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity27() {
-        if (opacity27 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity27);
-        }
-        return "";
-    }
-
-    private String generateJSfx9() {
-        if (fx9 != null) {
-            return String.format(Locale.US, "fx: %f,", fx9);
-        }
-        return "";
-    }
-
-    private String generateJSfy9() {
-        if (fy9 != null) {
-            return String.format(Locale.US, "fy: %f,", fy9);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings8() {
-        if (imageSettings8 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings8 != null) ? imageSettings8.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmilestoneLabels() {
-        if (milestoneLabels != null) {
-            return String.format(Locale.US, "milestoneLabels: %s,", milestoneLabels);
-        }
-        return "";
-    }
-
-    private String generateJSmilestoneLabels1() {
-        if (milestoneLabels1 != null) {
-            return String.format(Locale.US, "milestoneLabels: %b,", milestoneLabels1);
-        }
-        return "";
-    }
-
-    private String generateJSmilestoneStroke() {
-        if (milestoneStroke != null) {
-            return String.format(Locale.US, "milestoneStroke: %s,", (milestoneStroke != null) ? milestoneStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmilestoneStroke1() {
-        if (milestoneStroke1 != null) {
-            return String.format(Locale.US, "milestoneStroke: %s,", (milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmilestoneStroke2() {
-        if (milestoneStroke2 != null) {
-            return String.format(Locale.US, "milestoneStroke: %s,", milestoneStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness10() {
-        if (thickness10 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness10);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern10() {
-        if (dashpattern10 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern10);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin10() {
-        if (lineJoin10 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin10 != null) ? lineJoin10.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap10() {
-        if (lineCap10 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap10 != null) ? lineCap10.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSparentFill() {
-        if (parentFill != null) {
-            return String.format(Locale.US, "parentFill: %s,", (parentFill != null) ? parentFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor9() {
-        if (color9 != null) {
-            return String.format(Locale.US, "color: %s,", color9);
-        }
-        return "";
-    }
-
-    private String generateJSopacity28() {
-        if (opacity28 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity28);
-        }
-        return "";
-    }
-
-    private String generateJSkeys36() {
-        if (keys36 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys36));
-        }
-        return "";
-    }
-
-    private String generateJSkeys37() {
-        if (keys37 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys37));
-        }
-        return "";
-    }
-
-    private String generateJSangle9() {
-        if (angle9 != null) {
-            return String.format(Locale.US, "angle: %f,", angle9);
-        }
-        return "";
-    }
-
-    private String generateJSmode36() {
-        if (mode36 != null) {
-            return String.format(Locale.US, "mode: %b,", mode36);
-        }
-        return "";
-    }
-
-    private String generateJSmode37() {
-        if (mode37 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode37 != null) ? mode37.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode38() {
-        if (mode38 != null) {
-            return String.format(Locale.US, "mode: %s,", mode38);
-        }
-        return "";
-    }
-
-    private String generateJSopacity29() {
-        if (opacity29 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity29);
-        }
-        return "";
-    }
-
-    private String generateJSkeys38() {
-        if (keys38 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys38));
-        }
-        return "";
-    }
-
-    private String generateJSkeys39() {
-        if (keys39 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys39));
-        }
-        return "";
-    }
-
-    private String generateJScx10() {
-        if (cx10 != null) {
-            return String.format(Locale.US, "cx: %f,", cx10);
-        }
-        return "";
-    }
-
-    private String generateJScy10() {
-        if (cy10 != null) {
-            return String.format(Locale.US, "cy: %f,", cy10);
-        }
-        return "";
-    }
-
-    private String generateJSmode39() {
-        if (mode39 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode39 != null) ? mode39.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity30() {
-        if (opacity30 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity30);
-        }
-        return "";
-    }
-
-    private String generateJSfx10() {
-        if (fx10 != null) {
-            return String.format(Locale.US, "fx: %f,", fx10);
-        }
-        return "";
-    }
-
-    private String generateJSfy10() {
-        if (fy10 != null) {
-            return String.format(Locale.US, "fy: %f,", fy10);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings9() {
-        if (imageSettings9 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings9 != null) ? imageSettings9.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSparentLabels() {
-        if (parentLabels != null) {
-            return String.format(Locale.US, "parentLabels: %s,", parentLabels);
-        }
-        return "";
-    }
-
-    private String generateJSparentLabels1() {
-        if (parentLabels1 != null) {
-            return String.format(Locale.US, "parentLabels: %b,", parentLabels1);
-        }
-        return "";
-    }
-
-    private String generateJSparentStroke() {
-        if (parentStroke != null) {
-            return String.format(Locale.US, "parentStroke: %s,", (parentStroke != null) ? parentStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSparentStroke1() {
-        if (parentStroke1 != null) {
-            return String.format(Locale.US, "parentStroke: %s,", (parentStroke1 != null) ? parentStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSparentStroke2() {
-        if (parentStroke2 != null) {
-            return String.format(Locale.US, "parentStroke: %s,", parentStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness11() {
-        if (thickness11 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness11);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern11() {
-        if (dashpattern11 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern11);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin11() {
-        if (lineJoin11 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin11 != null) ? lineJoin11.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap11() {
-        if (lineCap11 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap11 != null) ? lineCap11.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSprogressFill() {
-        if (progressFill != null) {
-            return String.format(Locale.US, "progressFill: %s,", (progressFill != null) ? progressFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor10() {
-        if (color10 != null) {
-            return String.format(Locale.US, "color: %s,", color10);
-        }
-        return "";
-    }
-
-    private String generateJSopacity31() {
-        if (opacity31 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity31);
-        }
-        return "";
-    }
-
-    private String generateJSkeys40() {
-        if (keys40 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys40));
-        }
-        return "";
-    }
-
-    private String generateJSkeys41() {
-        if (keys41 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys41));
-        }
-        return "";
-    }
-
-    private String generateJSangle10() {
-        if (angle10 != null) {
-            return String.format(Locale.US, "angle: %f,", angle10);
-        }
-        return "";
-    }
-
-    private String generateJSmode40() {
-        if (mode40 != null) {
-            return String.format(Locale.US, "mode: %b,", mode40);
-        }
-        return "";
-    }
-
-    private String generateJSmode41() {
-        if (mode41 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode41 != null) ? mode41.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode42() {
-        if (mode42 != null) {
-            return String.format(Locale.US, "mode: %s,", mode42);
-        }
-        return "";
-    }
-
-    private String generateJSopacity32() {
-        if (opacity32 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity32);
-        }
-        return "";
-    }
-
-    private String generateJSkeys42() {
-        if (keys42 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys42));
-        }
-        return "";
-    }
-
-    private String generateJSkeys43() {
-        if (keys43 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys43));
-        }
-        return "";
-    }
-
-    private String generateJScx11() {
-        if (cx11 != null) {
-            return String.format(Locale.US, "cx: %f,", cx11);
-        }
-        return "";
-    }
-
-    private String generateJScy11() {
-        if (cy11 != null) {
-            return String.format(Locale.US, "cy: %f,", cy11);
-        }
-        return "";
-    }
-
-    private String generateJSmode43() {
-        if (mode43 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode43 != null) ? mode43.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity33() {
-        if (opacity33 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity33);
-        }
-        return "";
-    }
-
-    private String generateJSfx11() {
-        if (fx11 != null) {
-            return String.format(Locale.US, "fx: %f,", fx11);
-        }
-        return "";
-    }
-
-    private String generateJSfy11() {
-        if (fy11 != null) {
-            return String.format(Locale.US, "fy: %f,", fy11);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings10() {
-        if (imageSettings10 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings10 != null) ? imageSettings10.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSprogressLabels() {
-        if (progressLabels != null) {
-            return String.format(Locale.US, "progressLabels: %s,", progressLabels);
-        }
-        return "";
-    }
-
-    private String generateJSprogressLabels1() {
-        if (progressLabels1 != null) {
-            return String.format(Locale.US, "progressLabels: %b,", progressLabels1);
-        }
-        return "";
-    }
-
-    private String generateJSprogressStroke() {
-        if (progressStroke != null) {
-            return String.format(Locale.US, "progressStroke: %s,", (progressStroke != null) ? progressStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSprogressStroke1() {
-        if (progressStroke1 != null) {
-            return String.format(Locale.US, "progressStroke: %s,", (progressStroke1 != null) ? progressStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSprogressStroke2() {
-        if (progressStroke2 != null) {
-            return String.format(Locale.US, "progressStroke: %s,", progressStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness12() {
-        if (thickness12 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness12);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern12() {
-        if (dashpattern12 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern12);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin12() {
-        if (lineJoin12 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin12 != null) ? lineJoin12.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap12() {
-        if (lineCap12 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap12 != null) ? lineCap12.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSrangeMarker() {
-        if (rangeMarker != null) {
-            return String.format(Locale.US, "rangeMarker: %s,", rangeMarker);
-        }
-        return "";
-    }
-
-    private String generateJSrangeMarker1() {
-        if (rangeMarker1 != null) {
-            return String.format(Locale.US, "rangeMarker: %b,", rangeMarker1);
-        }
-        return "";
-    }
-
-    private String generateJSrowEvenFill() {
-        if (rowEvenFill != null) {
-            return String.format(Locale.US, "rowEvenFill: %s,", (rowEvenFill != null) ? rowEvenFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor11() {
-        if (color11 != null) {
-            return String.format(Locale.US, "color: %s,", color11);
-        }
-        return "";
-    }
-
-    private String generateJSopacity34() {
-        if (opacity34 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity34);
-        }
-        return "";
-    }
-
-    private String generateJSkeys44() {
-        if (keys44 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys44));
-        }
-        return "";
-    }
-
-    private String generateJSkeys45() {
-        if (keys45 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys45));
-        }
-        return "";
-    }
-
-    private String generateJSangle11() {
-        if (angle11 != null) {
-            return String.format(Locale.US, "angle: %f,", angle11);
-        }
-        return "";
-    }
-
-    private String generateJSmode44() {
-        if (mode44 != null) {
-            return String.format(Locale.US, "mode: %b,", mode44);
-        }
-        return "";
-    }
-
-    private String generateJSmode45() {
-        if (mode45 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode45 != null) ? mode45.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode46() {
-        if (mode46 != null) {
-            return String.format(Locale.US, "mode: %s,", mode46);
-        }
-        return "";
-    }
-
-    private String generateJSopacity35() {
-        if (opacity35 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity35);
-        }
-        return "";
-    }
-
-    private String generateJSkeys46() {
-        if (keys46 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys46));
-        }
-        return "";
-    }
-
-    private String generateJSkeys47() {
-        if (keys47 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys47));
-        }
-        return "";
-    }
-
-    private String generateJScx12() {
-        if (cx12 != null) {
-            return String.format(Locale.US, "cx: %f,", cx12);
-        }
-        return "";
-    }
-
-    private String generateJScy12() {
-        if (cy12 != null) {
-            return String.format(Locale.US, "cy: %f,", cy12);
-        }
-        return "";
-    }
-
-    private String generateJSmode47() {
-        if (mode47 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode47 != null) ? mode47.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity36() {
-        if (opacity36 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity36);
-        }
-        return "";
-    }
-
-    private String generateJSfx12() {
-        if (fx12 != null) {
-            return String.format(Locale.US, "fx: %f,", fx12);
-        }
-        return "";
-    }
-
-    private String generateJSfy12() {
-        if (fy12 != null) {
-            return String.format(Locale.US, "fy: %f,", fy12);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings11() {
-        if (imageSettings11 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings11 != null) ? imageSettings11.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSrowFill() {
-        if (rowFill != null) {
-            return String.format(Locale.US, "rowFill: %s,", (rowFill != null) ? rowFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor12() {
-        if (color12 != null) {
-            return String.format(Locale.US, "color: %s,", color12);
-        }
-        return "";
-    }
-
-    private String generateJSopacity37() {
-        if (opacity37 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity37);
-        }
-        return "";
-    }
-
-    private String generateJSkeys48() {
-        if (keys48 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys48));
-        }
-        return "";
-    }
-
-    private String generateJSkeys49() {
-        if (keys49 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys49));
-        }
-        return "";
-    }
-
-    private String generateJSangle12() {
-        if (angle12 != null) {
-            return String.format(Locale.US, "angle: %f,", angle12);
-        }
-        return "";
-    }
-
-    private String generateJSmode48() {
-        if (mode48 != null) {
-            return String.format(Locale.US, "mode: %b,", mode48);
-        }
-        return "";
-    }
-
-    private String generateJSmode49() {
-        if (mode49 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode49 != null) ? mode49.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode50() {
-        if (mode50 != null) {
-            return String.format(Locale.US, "mode: %s,", mode50);
-        }
-        return "";
-    }
-
-    private String generateJSopacity38() {
-        if (opacity38 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity38);
-        }
-        return "";
-    }
-
-    private String generateJSkeys50() {
-        if (keys50 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys50));
-        }
-        return "";
-    }
-
-    private String generateJSkeys51() {
-        if (keys51 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys51));
-        }
-        return "";
-    }
-
-    private String generateJScx13() {
-        if (cx13 != null) {
-            return String.format(Locale.US, "cx: %f,", cx13);
-        }
-        return "";
-    }
-
-    private String generateJScy13() {
-        if (cy13 != null) {
-            return String.format(Locale.US, "cy: %f,", cy13);
-        }
-        return "";
-    }
-
-    private String generateJSmode51() {
-        if (mode51 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode51 != null) ? mode51.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity39() {
-        if (opacity39 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity39);
-        }
-        return "";
-    }
-
-    private String generateJSfx13() {
-        if (fx13 != null) {
-            return String.format(Locale.US, "fx: %f,", fx13);
-        }
-        return "";
-    }
-
-    private String generateJSfy13() {
-        if (fy13 != null) {
-            return String.format(Locale.US, "fy: %f,", fy13);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings12() {
-        if (imageSettings12 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings12 != null) ? imageSettings12.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSrowHoverFill() {
-        if (rowHoverFill != null) {
-            return String.format(Locale.US, "rowHoverFill: %s,", (rowHoverFill != null) ? rowHoverFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor13() {
-        if (color13 != null) {
-            return String.format(Locale.US, "color: %s,", color13);
-        }
-        return "";
-    }
-
-    private String generateJSopacity40() {
-        if (opacity40 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity40);
-        }
-        return "";
-    }
-
-    private String generateJSkeys52() {
-        if (keys52 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys52));
-        }
-        return "";
-    }
-
-    private String generateJSkeys53() {
-        if (keys53 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys53));
-        }
-        return "";
-    }
-
-    private String generateJSangle13() {
-        if (angle13 != null) {
-            return String.format(Locale.US, "angle: %f,", angle13);
-        }
-        return "";
-    }
-
-    private String generateJSmode52() {
-        if (mode52 != null) {
-            return String.format(Locale.US, "mode: %b,", mode52);
-        }
-        return "";
-    }
-
-    private String generateJSmode53() {
-        if (mode53 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode53 != null) ? mode53.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode54() {
-        if (mode54 != null) {
-            return String.format(Locale.US, "mode: %s,", mode54);
-        }
-        return "";
-    }
-
-    private String generateJSopacity41() {
-        if (opacity41 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity41);
-        }
-        return "";
-    }
-
-    private String generateJSkeys54() {
-        if (keys54 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys54));
-        }
-        return "";
-    }
-
-    private String generateJSkeys55() {
-        if (keys55 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys55));
-        }
-        return "";
-    }
-
-    private String generateJScx14() {
-        if (cx14 != null) {
-            return String.format(Locale.US, "cx: %f,", cx14);
-        }
-        return "";
-    }
-
-    private String generateJScy14() {
-        if (cy14 != null) {
-            return String.format(Locale.US, "cy: %f,", cy14);
-        }
-        return "";
-    }
-
-    private String generateJSmode55() {
-        if (mode55 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode55 != null) ? mode55.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity42() {
-        if (opacity42 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity42);
-        }
-        return "";
-    }
-
-    private String generateJSfx14() {
-        if (fx14 != null) {
-            return String.format(Locale.US, "fx: %f,", fx14);
-        }
-        return "";
-    }
-
-    private String generateJSfy14() {
-        if (fy14 != null) {
-            return String.format(Locale.US, "fy: %f,", fy14);
-        }
-        return "";
-    }
-
-    private String generateJSrowOddFill() {
-        if (rowOddFill != null) {
-            return String.format(Locale.US, "rowOddFill: %s,", (rowOddFill != null) ? rowOddFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor14() {
-        if (color14 != null) {
-            return String.format(Locale.US, "color: %s,", color14);
-        }
-        return "";
-    }
-
-    private String generateJSopacity43() {
-        if (opacity43 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity43);
-        }
-        return "";
-    }
-
-    private String generateJSkeys56() {
-        if (keys56 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys56));
-        }
-        return "";
-    }
-
-    private String generateJSkeys57() {
-        if (keys57 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys57));
-        }
-        return "";
-    }
-
-    private String generateJSangle14() {
-        if (angle14 != null) {
-            return String.format(Locale.US, "angle: %f,", angle14);
-        }
-        return "";
-    }
-
-    private String generateJSmode56() {
-        if (mode56 != null) {
-            return String.format(Locale.US, "mode: %b,", mode56);
-        }
-        return "";
-    }
-
-    private String generateJSmode57() {
-        if (mode57 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode57 != null) ? mode57.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode58() {
-        if (mode58 != null) {
-            return String.format(Locale.US, "mode: %s,", mode58);
-        }
-        return "";
-    }
-
-    private String generateJSopacity44() {
-        if (opacity44 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity44);
-        }
-        return "";
-    }
-
-    private String generateJSkeys58() {
-        if (keys58 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys58));
-        }
-        return "";
-    }
-
-    private String generateJSkeys59() {
-        if (keys59 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys59));
-        }
-        return "";
-    }
-
-    private String generateJScx15() {
-        if (cx15 != null) {
-            return String.format(Locale.US, "cx: %f,", cx15);
-        }
-        return "";
-    }
-
-    private String generateJScy15() {
-        if (cy15 != null) {
-            return String.format(Locale.US, "cy: %f,", cy15);
-        }
-        return "";
-    }
-
-    private String generateJSmode59() {
-        if (mode59 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode59 != null) ? mode59.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity45() {
-        if (opacity45 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity45);
-        }
-        return "";
-    }
-
-    private String generateJSfx15() {
-        if (fx15 != null) {
-            return String.format(Locale.US, "fx: %f,", fx15);
-        }
-        return "";
-    }
-
-    private String generateJSfy15() {
-        if (fy15 != null) {
-            return String.format(Locale.US, "fy: %f,", fy15);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings13() {
-        if (imageSettings13 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings13 != null) ? imageSettings13.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSrowSelectedFill() {
-        if (rowSelectedFill != null) {
-            return String.format(Locale.US, "rowSelectedFill: %s,", (rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor15() {
-        if (color15 != null) {
-            return String.format(Locale.US, "color: %s,", color15);
-        }
-        return "";
-    }
-
-    private String generateJSopacity46() {
-        if (opacity46 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity46);
-        }
-        return "";
-    }
-
-    private String generateJSkeys60() {
-        if (keys60 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys60));
-        }
-        return "";
-    }
-
-    private String generateJSkeys61() {
-        if (keys61 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys61));
-        }
-        return "";
-    }
-
-    private String generateJSangle15() {
-        if (angle15 != null) {
-            return String.format(Locale.US, "angle: %f,", angle15);
-        }
-        return "";
-    }
-
-    private String generateJSmode60() {
-        if (mode60 != null) {
-            return String.format(Locale.US, "mode: %b,", mode60);
-        }
-        return "";
-    }
-
-    private String generateJSmode61() {
-        if (mode61 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode61 != null) ? mode61.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode62() {
-        if (mode62 != null) {
-            return String.format(Locale.US, "mode: %s,", mode62);
-        }
-        return "";
-    }
-
-    private String generateJSkeys62() {
-        if (keys62 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys62));
-        }
-        return "";
-    }
-
-    private String generateJSkeys63() {
-        if (keys63 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys63));
-        }
-        return "";
-    }
-
-    private String generateJScx16() {
-        if (cx16 != null) {
-            return String.format(Locale.US, "cx: %f,", cx16);
-        }
-        return "";
-    }
-
-    private String generateJScy16() {
-        if (cy16 != null) {
-            return String.format(Locale.US, "cy: %f,", cy16);
-        }
-        return "";
-    }
-
-    private String generateJSmode63() {
-        if (mode63 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode63 != null) ? mode63.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity47() {
-        if (opacity47 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity47);
-        }
-        return "";
-    }
-
-    private String generateJSfx16() {
-        if (fx16 != null) {
-            return String.format(Locale.US, "fx: %f,", fx16);
-        }
-        return "";
-    }
-
-    private String generateJSfy16() {
-        if (fy16 != null) {
-            return String.format(Locale.US, "fy: %f,", fy16);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings14() {
-        if (imageSettings14 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings14 != null) ? imageSettings14.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSscale() {
-        if (scale != null) {
-            return String.format(Locale.US, "scale: %s,", scale);
-        }
-        return "";
-    }
-
-    private String generateJSselectedElementFill() {
-        if (selectedElementFill != null) {
-            return String.format(Locale.US, "selectedElementFill: %s,", (selectedElementFill != null) ? selectedElementFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor16() {
-        if (color16 != null) {
-            return String.format(Locale.US, "color: %s,", color16);
-        }
-        return "";
-    }
-
-    private String generateJSopacity48() {
-        if (opacity48 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity48);
-        }
-        return "";
-    }
-
-    private String generateJSkeys64() {
-        if (keys64 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys64));
-        }
-        return "";
-    }
-
-    private String generateJSkeys65() {
-        if (keys65 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys65));
-        }
-        return "";
-    }
-
-    private String generateJSangle16() {
-        if (angle16 != null) {
-            return String.format(Locale.US, "angle: %f,", angle16);
-        }
-        return "";
-    }
-
-    private String generateJSmode64() {
-        if (mode64 != null) {
-            return String.format(Locale.US, "mode: %b,", mode64);
-        }
-        return "";
-    }
-
-    private String generateJSmode65() {
-        if (mode65 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode65 != null) ? mode65.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode66() {
-        if (mode66 != null) {
-            return String.format(Locale.US, "mode: %s,", mode66);
-        }
-        return "";
-    }
-
-    private String generateJSopacity49() {
-        if (opacity49 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity49);
-        }
-        return "";
-    }
-
-    private String generateJSkeys66() {
-        if (keys66 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys66));
-        }
-        return "";
-    }
-
-    private String generateJSkeys67() {
-        if (keys67 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys67));
-        }
-        return "";
-    }
-
-    private String generateJScx17() {
-        if (cx17 != null) {
-            return String.format(Locale.US, "cx: %f,", cx17);
-        }
-        return "";
-    }
-
-    private String generateJScy17() {
-        if (cy17 != null) {
-            return String.format(Locale.US, "cy: %f,", cy17);
-        }
-        return "";
-    }
-
-    private String generateJSmode67() {
-        if (mode67 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode67 != null) ? mode67.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity50() {
-        if (opacity50 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity50);
-        }
-        return "";
-    }
-
-    private String generateJSfx17() {
-        if (fx17 != null) {
-            return String.format(Locale.US, "fx: %f,", fx17);
-        }
-        return "";
-    }
-
-    private String generateJSfy17() {
-        if (fy17 != null) {
-            return String.format(Locale.US, "fy: %f,", fy17);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings15() {
-        if (imageSettings15 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings15 != null) ? imageSettings15.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSselectedElementStroke() {
-        if (selectedElementStroke != null) {
-            return String.format(Locale.US, "selectedElementStroke: %s,", (selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSselectedElementStroke1() {
-        if (selectedElementStroke1 != null) {
-            return String.format(Locale.US, "selectedElementStroke: %s,", (selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSselectedElementStroke2() {
-        if (selectedElementStroke2 != null) {
-            return String.format(Locale.US, "selectedElementStroke: %s,", selectedElementStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness13() {
-        if (thickness13 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness13);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern13() {
-        if (dashpattern13 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern13);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin13() {
-        if (lineJoin13 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin13 != null) ? lineJoin13.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap13() {
-        if (lineCap13 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap13 != null) ? lineCap13.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStextMarker() {
-        if (textMarker != null) {
-            return String.format(Locale.US, "textMarker: %s,", textMarker);
-        }
-        return "";
-    }
-
-    private String generateJStextMarker1() {
-        if (textMarker1 != null) {
-            return String.format(Locale.US, "textMarker: %b,", textMarker1);
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJStextMarker2() {
-        if (textMarker2 != null) {
-            return String.format(Locale.US, "textMarker: %s,", textMarker2);
-        }
-        return "";
-    }
-
-    private String generateJStextMarker3() {
-        if (textMarker3 != null) {
-            return String.format(Locale.US, "textMarker: %b,", textMarker3);
-        }
-        return "";
-    }
-
-    private String generateJStextMarker4() {
-        if (textMarker4 != null) {
-            return String.format(Locale.US, "textMarker: %s,", (textMarker4 != null) ? textMarker4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStextMarker5() {
-        if (textMarker5 != null) {
-            return String.format(Locale.US, "textMarker: %s,", textMarker5);
-        }
-        return "";
-    }
-
-    private String generateJStooltip() {
-        if (tooltip != null) {
-            return String.format(Locale.US, "tooltip: %s,", tooltip);
-        }
-        return "";
-    }
-
-    private String generateJStooltip1() {
-        if (tooltip1 != null) {
-            return String.format(Locale.US, "tooltip: %b,", tooltip1);
-        }
-        return "";
-    }
-
-    private String generateJSverticalScrollBar() {
-        if (verticalScrollBar != null) {
-            return String.format(Locale.US, "verticalScrollBar: %s,", verticalScrollBar);
+            //return String.format(Locale.US, "getVerticalScrollBar: %s,", ((getVerticalScrollBar != null) ? getVerticalScrollBar.generateJs() : "null"));
         }
         return "";
     }
@@ -29152,7 +26037,6 @@ public class Timeline extends JsObject {
         jsGetters.append(generateJSgetParentLabels());
         jsGetters.append(generateJSgetProgressLabels());
         jsGetters.append(generateJSgetRangeMarker());
-        jsGetters.append(generateJSgetRangeMarker1());
         jsGetters.append(generateJSgetScale());
         jsGetters.append(generateJSgetTextMarker());
         jsGetters.append(generateJSgetTooltip());
@@ -29168,487 +26052,975 @@ public class Timeline extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSbackgroundFill());
-            js.append(generateJScolor());
-            js.append(generateJSopacity());
-            js.append(generateJSkeys());
-            js.append(generateJSkeys1());
-            js.append(generateJSangle());
-            js.append(generateJSmode());
-            js.append(generateJSmode1());
-            js.append(generateJSmode2());
-            js.append(generateJSopacity1());
-            js.append(generateJSkeys2());
-            js.append(generateJSkeys3());
-            js.append(generateJScx());
-            js.append(generateJScy());
-            js.append(generateJSmode3());
-            js.append(generateJSopacity2());
-            js.append(generateJSfx());
-            js.append(generateJSfy());
-            js.append(generateJSimageSettings());
-            js.append(generateJSbaseFill());
-            js.append(generateJScolor1());
-            js.append(generateJSopacity3());
-            js.append(generateJSkeys4());
-            js.append(generateJSkeys5());
-            js.append(generateJSangle1());
-            js.append(generateJSmode4());
-            js.append(generateJSmode5());
-            js.append(generateJSmode6());
-            js.append(generateJSopacity4());
-            js.append(generateJSkeys6());
-            js.append(generateJSkeys7());
-            js.append(generateJScx1());
-            js.append(generateJScy1());
-            js.append(generateJSmode7());
-            js.append(generateJSopacity5());
-            js.append(generateJSfx1());
-            js.append(generateJSfy1());
-            js.append(generateJSimageSettings1());
-            js.append(generateJSbaseLabels());
-            js.append(generateJSbaseLabels1());
-            js.append(generateJSbaseStroke());
-            js.append(generateJSbaseStroke1());
-            js.append(generateJSbaseStroke2());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJSbaselineAbove());
-            js.append(generateJSbaselineFill());
-            js.append(generateJScolor2());
-            js.append(generateJSopacity6());
-            js.append(generateJSkeys8());
-            js.append(generateJSkeys9());
-            js.append(generateJSangle2());
-            js.append(generateJSmode8());
-            js.append(generateJSmode9());
-            js.append(generateJSmode10());
-            js.append(generateJSopacity7());
-            js.append(generateJSkeys10());
-            js.append(generateJSkeys11());
-            js.append(generateJScx2());
-            js.append(generateJScy2());
-            js.append(generateJSmode11());
-            js.append(generateJSopacity8());
-            js.append(generateJSfx2());
-            js.append(generateJSfy2());
-            js.append(generateJSimageSettings2());
-            js.append(generateJSbaselineLabels());
-            js.append(generateJSbaselineLabels1());
-            js.append(generateJSbaselineStroke());
-            js.append(generateJSbaselineStroke1());
-            js.append(generateJSbaselineStroke2());
-            js.append(generateJSthickness1());
-            js.append(generateJSdashpattern1());
-            js.append(generateJSlineJoin1());
-            js.append(generateJSlineCap1());
-            js.append(generateJScolumnStroke());
-            js.append(generateJScolumnStroke1());
-            js.append(generateJSconnectorFill());
-            js.append(generateJSconnectorFill1());
-            js.append(generateJSconnectorFill2());
-            js.append(generateJScx3());
-            js.append(generateJScy3());
-            js.append(generateJSopacityOrMode());
-            js.append(generateJSopacity9());
-            js.append(generateJSfx3());
-            js.append(generateJSfy3());
-            js.append(generateJSconnectorPreviewStroke());
-            js.append(generateJSconnectorPreviewStroke1());
-            js.append(generateJSconnectorPreviewStroke2());
-            js.append(generateJSthickness2());
-            js.append(generateJSdashpattern2());
-            js.append(generateJSlineJoin2());
-            js.append(generateJSlineCap2());
-            js.append(generateJSconnectorStroke());
-            js.append(generateJSconnectorStroke1());
-            js.append(generateJSconnectorStroke2());
-            js.append(generateJSthickness3());
-            js.append(generateJSdashpattern3());
-            js.append(generateJSlineJoin3());
-            js.append(generateJSlineCap3());
-            js.append(generateJSeditConnectorThumbFill());
-            js.append(generateJScolor3());
-            js.append(generateJSopacity10());
-            js.append(generateJSkeys12());
-            js.append(generateJSkeys13());
-            js.append(generateJSangle3());
-            js.append(generateJSmode12());
-            js.append(generateJSmode13());
-            js.append(generateJSmode14());
-            js.append(generateJSopacity11());
-            js.append(generateJSkeys14());
-            js.append(generateJSkeys15());
-            js.append(generateJScx4());
-            js.append(generateJScy4());
-            js.append(generateJSmode15());
-            js.append(generateJSopacity12());
-            js.append(generateJSfx4());
-            js.append(generateJSfy4());
-            js.append(generateJSimageSettings3());
-            js.append(generateJSeditConnectorThumbStroke());
-            js.append(generateJSeditConnectorThumbStroke1());
-            js.append(generateJSeditConnectorThumbStroke2());
-            js.append(generateJSthickness4());
-            js.append(generateJSdashpattern4());
-            js.append(generateJSlineJoin4());
-            js.append(generateJSlineCap4());
-            js.append(generateJSeditFinishConnectorMarkerHorizontalOffset());
-            js.append(generateJSeditFinishConnectorMarkerSize());
-            js.append(generateJSeditFinishConnectorMarkerType());
-            js.append(generateJSeditFinishConnectorMarkerType1());
-            js.append(generateJSeditFinishConnectorMarkerVerticalOffset());
-            js.append(generateJSeditIntervalThumbFill());
-            js.append(generateJScolor4());
-            js.append(generateJSopacity13());
-            js.append(generateJSkeys16());
-            js.append(generateJSkeys17());
-            js.append(generateJSangle4());
-            js.append(generateJSmode16());
-            js.append(generateJSmode17());
-            js.append(generateJSmode18());
-            js.append(generateJSopacity14());
-            js.append(generateJSkeys18());
-            js.append(generateJSkeys19());
-            js.append(generateJScx5());
-            js.append(generateJScy5());
-            js.append(generateJSmode19());
-            js.append(generateJSopacity15());
-            js.append(generateJSfx5());
-            js.append(generateJSfy5());
-            js.append(generateJSimageSettings4());
-            js.append(generateJSeditIntervalThumbStroke());
-            js.append(generateJSeditIntervalThumbStroke1());
-            js.append(generateJSeditIntervalThumbStroke2());
-            js.append(generateJSthickness5());
-            js.append(generateJSdashpattern5());
-            js.append(generateJSlineJoin5());
-            js.append(generateJSlineCap5());
-            js.append(generateJSeditIntervalWidth());
-            js.append(generateJSeditPreviewFill());
-            js.append(generateJScolor5());
-            js.append(generateJSopacity16());
-            js.append(generateJSkeys20());
-            js.append(generateJSkeys21());
-            js.append(generateJSangle5());
-            js.append(generateJSmode20());
-            js.append(generateJSmode21());
-            js.append(generateJSmode22());
-            js.append(generateJSopacity17());
-            js.append(generateJSkeys22());
-            js.append(generateJSkeys23());
-            js.append(generateJScx6());
-            js.append(generateJScy6());
-            js.append(generateJSmode23());
-            js.append(generateJSopacity18());
-            js.append(generateJSfx6());
-            js.append(generateJSfy6());
-            js.append(generateJSimageSettings5());
-            js.append(generateJSeditPreviewStroke());
-            js.append(generateJSeditPreviewStroke1());
-            js.append(generateJSeditPreviewStroke2());
-            js.append(generateJSthickness6());
-            js.append(generateJSdashpattern6());
-            js.append(generateJSlineJoin6());
-            js.append(generateJSlineCap6());
-            js.append(generateJSeditProgressFill());
-            js.append(generateJScolor6());
-            js.append(generateJSopacity19());
-            js.append(generateJSkeys24());
-            js.append(generateJSkeys25());
-            js.append(generateJSangle6());
-            js.append(generateJSmode24());
-            js.append(generateJSmode25());
-            js.append(generateJSmode26());
-            js.append(generateJSopacity20());
-            js.append(generateJSkeys26());
-            js.append(generateJSkeys27());
-            js.append(generateJScx7());
-            js.append(generateJScy7());
-            js.append(generateJSmode27());
-            js.append(generateJSopacity21());
-            js.append(generateJSfx7());
-            js.append(generateJSfy7());
-            js.append(generateJSimageSettings6());
-            js.append(generateJSeditProgressStroke());
-            js.append(generateJSeditProgressStroke1());
-            js.append(generateJSeditProgressStroke2());
-            js.append(generateJSthickness7());
-            js.append(generateJSdashpattern7());
-            js.append(generateJSlineJoin7());
-            js.append(generateJSlineCap7());
-            js.append(generateJSeditStartConnectorMarkerHorizontalOffset());
-            js.append(generateJSeditStartConnectorMarkerSize());
-            js.append(generateJSeditStartConnectorMarkerType());
-            js.append(generateJSeditStartConnectorMarkerType1());
-            js.append(generateJSeditStartConnectorMarkerVerticalOffset());
-            js.append(generateJSeditStructurePreviewDashStroke());
-            js.append(generateJSeditStructurePreviewDashStroke1());
-            js.append(generateJSeditStructurePreviewDashStroke2());
-            js.append(generateJSthickness8());
-            js.append(generateJSdashpattern8());
-            js.append(generateJSlineJoin8());
-            js.append(generateJSlineCap8());
-            js.append(generateJSeditStructurePreviewFill());
-            js.append(generateJScolor7());
-            js.append(generateJSopacity22());
-            js.append(generateJSkeys28());
-            js.append(generateJSkeys29());
-            js.append(generateJSangle7());
-            js.append(generateJSmode28());
-            js.append(generateJSmode29());
-            js.append(generateJSmode30());
-            js.append(generateJSopacity23());
-            js.append(generateJSkeys30());
-            js.append(generateJSkeys31());
-            js.append(generateJScx8());
-            js.append(generateJScy8());
-            js.append(generateJSmode31());
-            js.append(generateJSopacity24());
-            js.append(generateJSfx8());
-            js.append(generateJSfy8());
-            js.append(generateJSimageSettings7());
-            js.append(generateJSeditStructurePreviewStroke());
-            js.append(generateJSeditStructurePreviewStroke1());
-            js.append(generateJSeditStructurePreviewStroke2());
-            js.append(generateJSthickness9());
-            js.append(generateJSdashpattern9());
-            js.append(generateJSlineJoin9());
-            js.append(generateJSlineCap9());
-            js.append(generateJSediting());
-            js.append(generateJSheader());
-            js.append(generateJShorizontalScrollBar());
-            js.append(generateJSlabels());
-            js.append(generateJSlineMarker());
-            js.append(generateJSlineMarker1());
-            js.append(generateJSindex());
-            js.append(generateJSlineMarker2());
-            js.append(generateJSlineMarker3());
-            js.append(generateJSlineMarker4());
-            js.append(generateJSlineMarker5());
-            js.append(generateJSmarkers());
-            js.append(generateJSmilestoneFill());
-            js.append(generateJScolor8());
-            js.append(generateJSopacity25());
-            js.append(generateJSkeys32());
-            js.append(generateJSkeys33());
-            js.append(generateJSangle8());
-            js.append(generateJSmode32());
-            js.append(generateJSmode33());
-            js.append(generateJSmode34());
-            js.append(generateJSopacity26());
-            js.append(generateJSkeys34());
-            js.append(generateJSkeys35());
-            js.append(generateJScx9());
-            js.append(generateJScy9());
-            js.append(generateJSmode35());
-            js.append(generateJSopacity27());
-            js.append(generateJSfx9());
-            js.append(generateJSfy9());
-            js.append(generateJSimageSettings8());
-            js.append(generateJSmilestoneLabels());
-            js.append(generateJSmilestoneLabels1());
-            js.append(generateJSmilestoneStroke());
-            js.append(generateJSmilestoneStroke1());
-            js.append(generateJSmilestoneStroke2());
-            js.append(generateJSthickness10());
-            js.append(generateJSdashpattern10());
-            js.append(generateJSlineJoin10());
-            js.append(generateJSlineCap10());
-            js.append(generateJSparentFill());
-            js.append(generateJScolor9());
-            js.append(generateJSopacity28());
-            js.append(generateJSkeys36());
-            js.append(generateJSkeys37());
-            js.append(generateJSangle9());
-            js.append(generateJSmode36());
-            js.append(generateJSmode37());
-            js.append(generateJSmode38());
-            js.append(generateJSopacity29());
-            js.append(generateJSkeys38());
-            js.append(generateJSkeys39());
-            js.append(generateJScx10());
-            js.append(generateJScy10());
-            js.append(generateJSmode39());
-            js.append(generateJSopacity30());
-            js.append(generateJSfx10());
-            js.append(generateJSfy10());
-            js.append(generateJSimageSettings9());
-            js.append(generateJSparentLabels());
-            js.append(generateJSparentLabels1());
-            js.append(generateJSparentStroke());
-            js.append(generateJSparentStroke1());
-            js.append(generateJSparentStroke2());
-            js.append(generateJSthickness11());
-            js.append(generateJSdashpattern11());
-            js.append(generateJSlineJoin11());
-            js.append(generateJSlineCap11());
-            js.append(generateJSprogressFill());
-            js.append(generateJScolor10());
-            js.append(generateJSopacity31());
-            js.append(generateJSkeys40());
-            js.append(generateJSkeys41());
-            js.append(generateJSangle10());
-            js.append(generateJSmode40());
-            js.append(generateJSmode41());
-            js.append(generateJSmode42());
-            js.append(generateJSopacity32());
-            js.append(generateJSkeys42());
-            js.append(generateJSkeys43());
-            js.append(generateJScx11());
-            js.append(generateJScy11());
-            js.append(generateJSmode43());
-            js.append(generateJSopacity33());
-            js.append(generateJSfx11());
-            js.append(generateJSfy11());
-            js.append(generateJSimageSettings10());
-            js.append(generateJSprogressLabels());
-            js.append(generateJSprogressLabels1());
-            js.append(generateJSprogressStroke());
-            js.append(generateJSprogressStroke1());
-            js.append(generateJSprogressStroke2());
-            js.append(generateJSthickness12());
-            js.append(generateJSdashpattern12());
-            js.append(generateJSlineJoin12());
-            js.append(generateJSlineCap12());
-            js.append(generateJSrangeMarker());
-            js.append(generateJSrangeMarker1());
-            js.append(generateJSrowEvenFill());
-            js.append(generateJScolor11());
-            js.append(generateJSopacity34());
-            js.append(generateJSkeys44());
-            js.append(generateJSkeys45());
-            js.append(generateJSangle11());
-            js.append(generateJSmode44());
-            js.append(generateJSmode45());
-            js.append(generateJSmode46());
-            js.append(generateJSopacity35());
-            js.append(generateJSkeys46());
-            js.append(generateJSkeys47());
-            js.append(generateJScx12());
-            js.append(generateJScy12());
-            js.append(generateJSmode47());
-            js.append(generateJSopacity36());
-            js.append(generateJSfx12());
-            js.append(generateJSfy12());
-            js.append(generateJSimageSettings11());
-            js.append(generateJSrowFill());
-            js.append(generateJScolor12());
-            js.append(generateJSopacity37());
-            js.append(generateJSkeys48());
-            js.append(generateJSkeys49());
-            js.append(generateJSangle12());
-            js.append(generateJSmode48());
-            js.append(generateJSmode49());
-            js.append(generateJSmode50());
-            js.append(generateJSopacity38());
-            js.append(generateJSkeys50());
-            js.append(generateJSkeys51());
-            js.append(generateJScx13());
-            js.append(generateJScy13());
-            js.append(generateJSmode51());
-            js.append(generateJSopacity39());
-            js.append(generateJSfx13());
-            js.append(generateJSfy13());
-            js.append(generateJSimageSettings12());
-            js.append(generateJSrowHoverFill());
-            js.append(generateJScolor13());
-            js.append(generateJSopacity40());
-            js.append(generateJSkeys52());
-            js.append(generateJSkeys53());
-            js.append(generateJSangle13());
-            js.append(generateJSmode52());
-            js.append(generateJSmode53());
-            js.append(generateJSmode54());
-            js.append(generateJSopacity41());
-            js.append(generateJSkeys54());
-            js.append(generateJSkeys55());
-            js.append(generateJScx14());
-            js.append(generateJScy14());
-            js.append(generateJSmode55());
-            js.append(generateJSopacity42());
-            js.append(generateJSfx14());
-            js.append(generateJSfy14());
-            js.append(generateJSrowOddFill());
-            js.append(generateJScolor14());
-            js.append(generateJSopacity43());
-            js.append(generateJSkeys56());
-            js.append(generateJSkeys57());
-            js.append(generateJSangle14());
-            js.append(generateJSmode56());
-            js.append(generateJSmode57());
-            js.append(generateJSmode58());
-            js.append(generateJSopacity44());
-            js.append(generateJSkeys58());
-            js.append(generateJSkeys59());
-            js.append(generateJScx15());
-            js.append(generateJScy15());
-            js.append(generateJSmode59());
-            js.append(generateJSopacity45());
-            js.append(generateJSfx15());
-            js.append(generateJSfy15());
-            js.append(generateJSimageSettings13());
-            js.append(generateJSrowSelectedFill());
-            js.append(generateJScolor15());
-            js.append(generateJSopacity46());
-            js.append(generateJSkeys60());
-            js.append(generateJSkeys61());
-            js.append(generateJSangle15());
-            js.append(generateJSmode60());
-            js.append(generateJSmode61());
-            js.append(generateJSmode62());
-            js.append(generateJSkeys62());
-            js.append(generateJSkeys63());
-            js.append(generateJScx16());
-            js.append(generateJScy16());
-            js.append(generateJSmode63());
-            js.append(generateJSopacity47());
-            js.append(generateJSfx16());
-            js.append(generateJSfy16());
-            js.append(generateJSimageSettings14());
-            js.append(generateJSscale());
-            js.append(generateJSselectedElementFill());
-            js.append(generateJScolor16());
-            js.append(generateJSopacity48());
-            js.append(generateJSkeys64());
-            js.append(generateJSkeys65());
-            js.append(generateJSangle16());
-            js.append(generateJSmode64());
-            js.append(generateJSmode65());
-            js.append(generateJSmode66());
-            js.append(generateJSopacity49());
-            js.append(generateJSkeys66());
-            js.append(generateJSkeys67());
-            js.append(generateJScx17());
-            js.append(generateJScy17());
-            js.append(generateJSmode67());
-            js.append(generateJSopacity50());
-            js.append(generateJSfx17());
-            js.append(generateJSfy17());
-            js.append(generateJSimageSettings15());
-            js.append(generateJSselectedElementStroke());
-            js.append(generateJSselectedElementStroke1());
-            js.append(generateJSselectedElementStroke2());
-            js.append(generateJSthickness13());
-            js.append(generateJSdashpattern13());
-            js.append(generateJSlineJoin13());
-            js.append(generateJSlineCap13());
-            js.append(generateJStextMarker());
-            js.append(generateJStextMarker1());
-            js.append(generateJSindex1());
-            js.append(generateJStextMarker2());
-            js.append(generateJStextMarker3());
-            js.append(generateJStextMarker4());
-            js.append(generateJStextMarker5());
-            js.append(generateJStooltip());
-            js.append(generateJStooltip1());
-            js.append(generateJSverticalScrollBar());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSbackgroundFill());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSopacity());
+////        
+//            js.append(generateJSkeys());
+////        
+//            js.append(generateJSkeys1());
+////        
+//            js.append(generateJSangle());
+////        
+//            js.append(generateJSmode());
+////        
+//            js.append(generateJSmode1());
+////        
+//            js.append(generateJSmode2());
+////        
+//            js.append(generateJSopacity1());
+////        
+//            js.append(generateJSkeys2());
+////        
+//            js.append(generateJSkeys3());
+////        
+//            js.append(generateJScx());
+////        
+//            js.append(generateJScy());
+////        
+//            js.append(generateJSmode3());
+////        
+//            js.append(generateJSopacity2());
+////        
+//            js.append(generateJSfx());
+////        
+//            js.append(generateJSfy());
+////        
+//            js.append(generateJSimageSettings());
+////        
+//            js.append(generateJSbaseFill());
+////        
+//            js.append(generateJScolor1());
+////        
+//            js.append(generateJSopacity3());
+////        
+//            js.append(generateJSkeys4());
+////        
+//            js.append(generateJSkeys5());
+////        
+//            js.append(generateJSangle1());
+////        
+//            js.append(generateJSmode4());
+////        
+//            js.append(generateJSmode5());
+////        
+//            js.append(generateJSmode6());
+////        
+//            js.append(generateJSopacity4());
+////        
+//            js.append(generateJSkeys6());
+////        
+//            js.append(generateJSkeys7());
+////        
+//            js.append(generateJScx1());
+////        
+//            js.append(generateJScy1());
+////        
+//            js.append(generateJSmode7());
+////        
+//            js.append(generateJSopacity5());
+////        
+//            js.append(generateJSfx1());
+////        
+//            js.append(generateJSfy1());
+////        
+//            js.append(generateJSimageSettings1());
+////        
+//            js.append(generateJSbaseLabels());
+////        
+//            js.append(generateJSbaseLabels1());
+////        
+//            js.append(generateJSbaseStroke());
+////        
+//            js.append(generateJSbaseStroke1());
+////        
+//            js.append(generateJSbaseStroke2());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJSbaselineAbove());
+////        
+//            js.append(generateJSbaselineFill());
+////        
+//            js.append(generateJScolor2());
+////        
+//            js.append(generateJSopacity6());
+////        
+//            js.append(generateJSkeys8());
+////        
+//            js.append(generateJSkeys9());
+////        
+//            js.append(generateJSangle2());
+////        
+//            js.append(generateJSmode8());
+////        
+//            js.append(generateJSmode9());
+////        
+//            js.append(generateJSmode10());
+////        
+//            js.append(generateJSopacity7());
+////        
+//            js.append(generateJSkeys10());
+////        
+//            js.append(generateJSkeys11());
+////        
+//            js.append(generateJScx2());
+////        
+//            js.append(generateJScy2());
+////        
+//            js.append(generateJSmode11());
+////        
+//            js.append(generateJSopacity8());
+////        
+//            js.append(generateJSfx2());
+////        
+//            js.append(generateJSfy2());
+////        
+//            js.append(generateJSimageSettings2());
+////        
+//            js.append(generateJSbaselineLabels());
+////        
+//            js.append(generateJSbaselineLabels1());
+////        
+//            js.append(generateJSbaselineStroke());
+////        
+//            js.append(generateJSbaselineStroke1());
+////        
+//            js.append(generateJSbaselineStroke2());
+////        
+//            js.append(generateJSthickness1());
+////        
+//            js.append(generateJSdashpattern1());
+////        
+//            js.append(generateJSlineJoin1());
+////        
+//            js.append(generateJSlineCap1());
+////        
+//            js.append(generateJScolumnStroke());
+////        
+//            js.append(generateJScolumnStroke1());
+////        
+//            js.append(generateJSconnectorFill());
+////        
+//            js.append(generateJSconnectorFill1());
+////        
+//            js.append(generateJSconnectorFill2());
+////        
+//            js.append(generateJScx3());
+////        
+//            js.append(generateJScy3());
+////        
+//            js.append(generateJSopacityOrMode());
+////        
+//            js.append(generateJSopacity9());
+////        
+//            js.append(generateJSfx3());
+////        
+//            js.append(generateJSfy3());
+////        
+//            js.append(generateJSconnectorPreviewStroke());
+////        
+//            js.append(generateJSconnectorPreviewStroke1());
+////        
+//            js.append(generateJSconnectorPreviewStroke2());
+////        
+//            js.append(generateJSthickness2());
+////        
+//            js.append(generateJSdashpattern2());
+////        
+//            js.append(generateJSlineJoin2());
+////        
+//            js.append(generateJSlineCap2());
+////        
+//            js.append(generateJSconnectorStroke());
+////        
+//            js.append(generateJSconnectorStroke1());
+////        
+//            js.append(generateJSconnectorStroke2());
+////        
+//            js.append(generateJSthickness3());
+////        
+//            js.append(generateJSdashpattern3());
+////        
+//            js.append(generateJSlineJoin3());
+////        
+//            js.append(generateJSlineCap3());
+////        
+//            js.append(generateJSeditConnectorThumbFill());
+////        
+//            js.append(generateJScolor3());
+////        
+//            js.append(generateJSopacity10());
+////        
+//            js.append(generateJSkeys12());
+////        
+//            js.append(generateJSkeys13());
+////        
+//            js.append(generateJSangle3());
+////        
+//            js.append(generateJSmode12());
+////        
+//            js.append(generateJSmode13());
+////        
+//            js.append(generateJSmode14());
+////        
+//            js.append(generateJSopacity11());
+////        
+//            js.append(generateJSkeys14());
+////        
+//            js.append(generateJSkeys15());
+////        
+//            js.append(generateJScx4());
+////        
+//            js.append(generateJScy4());
+////        
+//            js.append(generateJSmode15());
+////        
+//            js.append(generateJSopacity12());
+////        
+//            js.append(generateJSfx4());
+////        
+//            js.append(generateJSfy4());
+////        
+//            js.append(generateJSimageSettings3());
+////        
+//            js.append(generateJSeditConnectorThumbStroke());
+////        
+//            js.append(generateJSeditConnectorThumbStroke1());
+////        
+//            js.append(generateJSeditConnectorThumbStroke2());
+////        
+//            js.append(generateJSthickness4());
+////        
+//            js.append(generateJSdashpattern4());
+////        
+//            js.append(generateJSlineJoin4());
+////        
+//            js.append(generateJSlineCap4());
+////        
+//            js.append(generateJSeditFinishConnectorMarkerHorizontalOffset());
+////        
+//            js.append(generateJSeditFinishConnectorMarkerSize());
+////        
+//            js.append(generateJSeditFinishConnectorMarkerType());
+////        
+//            js.append(generateJSeditFinishConnectorMarkerType1());
+////        
+//            js.append(generateJSeditFinishConnectorMarkerVerticalOffset());
+////        
+//            js.append(generateJSeditIntervalThumbFill());
+////        
+//            js.append(generateJScolor4());
+////        
+//            js.append(generateJSopacity13());
+////        
+//            js.append(generateJSkeys16());
+////        
+//            js.append(generateJSkeys17());
+////        
+//            js.append(generateJSangle4());
+////        
+//            js.append(generateJSmode16());
+////        
+//            js.append(generateJSmode17());
+////        
+//            js.append(generateJSmode18());
+////        
+//            js.append(generateJSopacity14());
+////        
+//            js.append(generateJSkeys18());
+////        
+//            js.append(generateJSkeys19());
+////        
+//            js.append(generateJScx5());
+////        
+//            js.append(generateJScy5());
+////        
+//            js.append(generateJSmode19());
+////        
+//            js.append(generateJSopacity15());
+////        
+//            js.append(generateJSfx5());
+////        
+//            js.append(generateJSfy5());
+////        
+//            js.append(generateJSimageSettings4());
+////        
+//            js.append(generateJSeditIntervalThumbStroke());
+////        
+//            js.append(generateJSeditIntervalThumbStroke1());
+////        
+//            js.append(generateJSeditIntervalThumbStroke2());
+////        
+//            js.append(generateJSthickness5());
+////        
+//            js.append(generateJSdashpattern5());
+////        
+//            js.append(generateJSlineJoin5());
+////        
+//            js.append(generateJSlineCap5());
+////        
+//            js.append(generateJSeditIntervalWidth());
+////        
+//            js.append(generateJSeditPreviewFill());
+////        
+//            js.append(generateJScolor5());
+////        
+//            js.append(generateJSopacity16());
+////        
+//            js.append(generateJSkeys20());
+////        
+//            js.append(generateJSkeys21());
+////        
+//            js.append(generateJSangle5());
+////        
+//            js.append(generateJSmode20());
+////        
+//            js.append(generateJSmode21());
+////        
+//            js.append(generateJSmode22());
+////        
+//            js.append(generateJSopacity17());
+////        
+//            js.append(generateJSkeys22());
+////        
+//            js.append(generateJSkeys23());
+////        
+//            js.append(generateJScx6());
+////        
+//            js.append(generateJScy6());
+////        
+//            js.append(generateJSmode23());
+////        
+//            js.append(generateJSopacity18());
+////        
+//            js.append(generateJSfx6());
+////        
+//            js.append(generateJSfy6());
+////        
+//            js.append(generateJSimageSettings5());
+////        
+//            js.append(generateJSeditPreviewStroke());
+////        
+//            js.append(generateJSeditPreviewStroke1());
+////        
+//            js.append(generateJSeditPreviewStroke2());
+////        
+//            js.append(generateJSthickness6());
+////        
+//            js.append(generateJSdashpattern6());
+////        
+//            js.append(generateJSlineJoin6());
+////        
+//            js.append(generateJSlineCap6());
+////        
+//            js.append(generateJSeditProgressFill());
+////        
+//            js.append(generateJScolor6());
+////        
+//            js.append(generateJSopacity19());
+////        
+//            js.append(generateJSkeys24());
+////        
+//            js.append(generateJSkeys25());
+////        
+//            js.append(generateJSangle6());
+////        
+//            js.append(generateJSmode24());
+////        
+//            js.append(generateJSmode25());
+////        
+//            js.append(generateJSmode26());
+////        
+//            js.append(generateJSopacity20());
+////        
+//            js.append(generateJSkeys26());
+////        
+//            js.append(generateJSkeys27());
+////        
+//            js.append(generateJScx7());
+////        
+//            js.append(generateJScy7());
+////        
+//            js.append(generateJSmode27());
+////        
+//            js.append(generateJSopacity21());
+////        
+//            js.append(generateJSfx7());
+////        
+//            js.append(generateJSfy7());
+////        
+//            js.append(generateJSimageSettings6());
+////        
+//            js.append(generateJSeditProgressStroke());
+////        
+//            js.append(generateJSeditProgressStroke1());
+////        
+//            js.append(generateJSeditProgressStroke2());
+////        
+//            js.append(generateJSthickness7());
+////        
+//            js.append(generateJSdashpattern7());
+////        
+//            js.append(generateJSlineJoin7());
+////        
+//            js.append(generateJSlineCap7());
+////        
+//            js.append(generateJSeditStartConnectorMarkerHorizontalOffset());
+////        
+//            js.append(generateJSeditStartConnectorMarkerSize());
+////        
+//            js.append(generateJSeditStartConnectorMarkerType());
+////        
+//            js.append(generateJSeditStartConnectorMarkerType1());
+////        
+//            js.append(generateJSeditStartConnectorMarkerVerticalOffset());
+////        
+//            js.append(generateJSeditStructurePreviewDashStroke());
+////        
+//            js.append(generateJSeditStructurePreviewDashStroke1());
+////        
+//            js.append(generateJSeditStructurePreviewDashStroke2());
+////        
+//            js.append(generateJSthickness8());
+////        
+//            js.append(generateJSdashpattern8());
+////        
+//            js.append(generateJSlineJoin8());
+////        
+//            js.append(generateJSlineCap8());
+////        
+//            js.append(generateJSeditStructurePreviewFill());
+////        
+//            js.append(generateJScolor7());
+////        
+//            js.append(generateJSopacity22());
+////        
+//            js.append(generateJSkeys28());
+////        
+//            js.append(generateJSkeys29());
+////        
+//            js.append(generateJSangle7());
+////        
+//            js.append(generateJSmode28());
+////        
+//            js.append(generateJSmode29());
+////        
+//            js.append(generateJSmode30());
+////        
+//            js.append(generateJSopacity23());
+////        
+//            js.append(generateJSkeys30());
+////        
+//            js.append(generateJSkeys31());
+////        
+//            js.append(generateJScx8());
+////        
+//            js.append(generateJScy8());
+////        
+//            js.append(generateJSmode31());
+////        
+//            js.append(generateJSopacity24());
+////        
+//            js.append(generateJSfx8());
+////        
+//            js.append(generateJSfy8());
+////        
+//            js.append(generateJSimageSettings7());
+////        
+//            js.append(generateJSeditStructurePreviewStroke());
+////        
+//            js.append(generateJSeditStructurePreviewStroke1());
+////        
+//            js.append(generateJSeditStructurePreviewStroke2());
+////        
+//            js.append(generateJSthickness9());
+////        
+//            js.append(generateJSdashpattern9());
+////        
+//            js.append(generateJSlineJoin9());
+////        
+//            js.append(generateJSlineCap9());
+////        
+//            js.append(generateJSediting());
+////        
+//            js.append(generateJSheader());
+////        
+//            js.append(generateJShorizontalScrollBar());
+////        
+//            js.append(generateJSlabels());
+////        
+//            js.append(generateJSlineMarker());
+////        
+//            js.append(generateJSlineMarker1());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSlineMarker2());
+////        
+//            js.append(generateJSlineMarker3());
+////        
+//            js.append(generateJSlineMarker4());
+////        
+//            js.append(generateJSlineMarker5());
+////        
+//            js.append(generateJSmarkers());
+////        
+//            js.append(generateJSmilestoneFill());
+////        
+//            js.append(generateJScolor8());
+////        
+//            js.append(generateJSopacity25());
+////        
+//            js.append(generateJSkeys32());
+////        
+//            js.append(generateJSkeys33());
+////        
+//            js.append(generateJSangle8());
+////        
+//            js.append(generateJSmode32());
+////        
+//            js.append(generateJSmode33());
+////        
+//            js.append(generateJSmode34());
+////        
+//            js.append(generateJSopacity26());
+////        
+//            js.append(generateJSkeys34());
+////        
+//            js.append(generateJSkeys35());
+////        
+//            js.append(generateJScx9());
+////        
+//            js.append(generateJScy9());
+////        
+//            js.append(generateJSmode35());
+////        
+//            js.append(generateJSopacity27());
+////        
+//            js.append(generateJSfx9());
+////        
+//            js.append(generateJSfy9());
+////        
+//            js.append(generateJSimageSettings8());
+////        
+//            js.append(generateJSmilestoneLabels());
+////        
+//            js.append(generateJSmilestoneLabels1());
+////        
+//            js.append(generateJSmilestoneStroke());
+////        
+//            js.append(generateJSmilestoneStroke1());
+////        
+//            js.append(generateJSmilestoneStroke2());
+////        
+//            js.append(generateJSthickness10());
+////        
+//            js.append(generateJSdashpattern10());
+////        
+//            js.append(generateJSlineJoin10());
+////        
+//            js.append(generateJSlineCap10());
+////        
+//            js.append(generateJSparentFill());
+////        
+//            js.append(generateJScolor9());
+////        
+//            js.append(generateJSopacity28());
+////        
+//            js.append(generateJSkeys36());
+////        
+//            js.append(generateJSkeys37());
+////        
+//            js.append(generateJSangle9());
+////        
+//            js.append(generateJSmode36());
+////        
+//            js.append(generateJSmode37());
+////        
+//            js.append(generateJSmode38());
+////        
+//            js.append(generateJSopacity29());
+////        
+//            js.append(generateJSkeys38());
+////        
+//            js.append(generateJSkeys39());
+////        
+//            js.append(generateJScx10());
+////        
+//            js.append(generateJScy10());
+////        
+//            js.append(generateJSmode39());
+////        
+//            js.append(generateJSopacity30());
+////        
+//            js.append(generateJSfx10());
+////        
+//            js.append(generateJSfy10());
+////        
+//            js.append(generateJSimageSettings9());
+////        
+//            js.append(generateJSparentLabels());
+////        
+//            js.append(generateJSparentLabels1());
+////        
+//            js.append(generateJSparentStroke());
+////        
+//            js.append(generateJSparentStroke1());
+////        
+//            js.append(generateJSparentStroke2());
+////        
+//            js.append(generateJSthickness11());
+////        
+//            js.append(generateJSdashpattern11());
+////        
+//            js.append(generateJSlineJoin11());
+////        
+//            js.append(generateJSlineCap11());
+////        
+//            js.append(generateJSprogressFill());
+////        
+//            js.append(generateJScolor10());
+////        
+//            js.append(generateJSopacity31());
+////        
+//            js.append(generateJSkeys40());
+////        
+//            js.append(generateJSkeys41());
+////        
+//            js.append(generateJSangle10());
+////        
+//            js.append(generateJSmode40());
+////        
+//            js.append(generateJSmode41());
+////        
+//            js.append(generateJSmode42());
+////        
+//            js.append(generateJSopacity32());
+////        
+//            js.append(generateJSkeys42());
+////        
+//            js.append(generateJSkeys43());
+////        
+//            js.append(generateJScx11());
+////        
+//            js.append(generateJScy11());
+////        
+//            js.append(generateJSmode43());
+////        
+//            js.append(generateJSopacity33());
+////        
+//            js.append(generateJSfx11());
+////        
+//            js.append(generateJSfy11());
+////        
+//            js.append(generateJSimageSettings10());
+////        
+//            js.append(generateJSprogressLabels());
+////        
+//            js.append(generateJSprogressLabels1());
+////        
+//            js.append(generateJSprogressStroke());
+////        
+//            js.append(generateJSprogressStroke1());
+////        
+//            js.append(generateJSprogressStroke2());
+////        
+//            js.append(generateJSthickness12());
+////        
+//            js.append(generateJSdashpattern12());
+////        
+//            js.append(generateJSlineJoin12());
+////        
+//            js.append(generateJSlineCap12());
+////        
+//            js.append(generateJSrangeMarker());
+////        
+//            js.append(generateJSrangeMarker1());
+////        
+//            js.append(generateJSindex1());
+////        
+//            js.append(generateJSrangeMarker2());
+////        
+//            js.append(generateJSrangeMarker3());
+////        
+//            js.append(generateJSrangeMarker4());
+////        
+//            js.append(generateJSrangeMarker5());
+////        
+//            js.append(generateJSrowEvenFill());
+////        
+//            js.append(generateJScolor11());
+////        
+//            js.append(generateJSopacity34());
+////        
+//            js.append(generateJSkeys44());
+////        
+//            js.append(generateJSkeys45());
+////        
+//            js.append(generateJSangle11());
+////        
+//            js.append(generateJSmode44());
+////        
+//            js.append(generateJSmode45());
+////        
+//            js.append(generateJSmode46());
+////        
+//            js.append(generateJSopacity35());
+////        
+//            js.append(generateJSkeys46());
+////        
+//            js.append(generateJSkeys47());
+////        
+//            js.append(generateJScx12());
+////        
+//            js.append(generateJScy12());
+////        
+//            js.append(generateJSmode47());
+////        
+//            js.append(generateJSopacity36());
+////        
+//            js.append(generateJSfx12());
+////        
+//            js.append(generateJSfy12());
+////        
+//            js.append(generateJSimageSettings11());
+////        
+//            js.append(generateJSrowFill());
+////        
+//            js.append(generateJScolor12());
+////        
+//            js.append(generateJSopacity37());
+////        
+//            js.append(generateJSkeys48());
+////        
+//            js.append(generateJSkeys49());
+////        
+//            js.append(generateJSangle12());
+////        
+//            js.append(generateJSmode48());
+////        
+//            js.append(generateJSmode49());
+////        
+//            js.append(generateJSmode50());
+////        
+//            js.append(generateJSopacity38());
+////        
+//            js.append(generateJSkeys50());
+////        
+//            js.append(generateJSkeys51());
+////        
+//            js.append(generateJScx13());
+////        
+//            js.append(generateJScy13());
+////        
+//            js.append(generateJSmode51());
+////        
+//            js.append(generateJSopacity39());
+////        
+//            js.append(generateJSfx13());
+////        
+//            js.append(generateJSfy13());
+////        
+//            js.append(generateJSimageSettings12());
+////        
+//            js.append(generateJSrowHoverFill());
+////        
+//            js.append(generateJScolor13());
+////        
+//            js.append(generateJSopacity40());
+////        
+//            js.append(generateJSkeys52());
+////        
+//            js.append(generateJSkeys53());
+////        
+//            js.append(generateJSangle13());
+////        
+//            js.append(generateJSmode52());
+////        
+//            js.append(generateJSmode53());
+////        
+//            js.append(generateJSmode54());
+////        
+//            js.append(generateJSopacity41());
+////        
+//            js.append(generateJSkeys54());
+////        
+//            js.append(generateJSkeys55());
+////        
+//            js.append(generateJScx14());
+////        
+//            js.append(generateJScy14());
+////        
+//            js.append(generateJSmode55());
+////        
+//            js.append(generateJSopacity42());
+////        
+//            js.append(generateJSfx14());
+////        
+//            js.append(generateJSfy14());
+////        
+//            js.append(generateJSrowOddFill());
+////        
+//            js.append(generateJScolor14());
+////        
+//            js.append(generateJSopacity43());
+////        
+//            js.append(generateJSkeys56());
+////        
+//            js.append(generateJSkeys57());
+////        
+//            js.append(generateJSangle14());
+////        
+//            js.append(generateJSmode56());
+////        
+//            js.append(generateJSmode57());
+////        
+//            js.append(generateJSmode58());
+////        
+//            js.append(generateJSopacity44());
+////        
+//            js.append(generateJSkeys58());
+////        
+//            js.append(generateJSkeys59());
+////        
+//            js.append(generateJScx15());
+////        
+//            js.append(generateJScy15());
+////        
+//            js.append(generateJSmode59());
+////        
+//            js.append(generateJSopacity45());
+////        
+//            js.append(generateJSfx15());
+////        
+//            js.append(generateJSfy15());
+////        
+//            js.append(generateJSimageSettings13());
+////        
+//            js.append(generateJSrowSelectedFill());
+////        
+//            js.append(generateJScolor15());
+////        
+//            js.append(generateJSopacity46());
+////        
+//            js.append(generateJSkeys60());
+////        
+//            js.append(generateJSkeys61());
+////        
+//            js.append(generateJSangle15());
+////        
+//            js.append(generateJSmode60());
+////        
+//            js.append(generateJSmode61());
+////        
+//            js.append(generateJSmode62());
+////        
+//            js.append(generateJSkeys62());
+////        
+//            js.append(generateJSkeys63());
+////        
+//            js.append(generateJScx16());
+////        
+//            js.append(generateJScy16());
+////        
+//            js.append(generateJSmode63());
+////        
+//            js.append(generateJSopacity47());
+////        
+//            js.append(generateJSfx16());
+////        
+//            js.append(generateJSfy16());
+////        
+//            js.append(generateJSimageSettings14());
+////        
+//            js.append(generateJSscale());
+////        
+//            js.append(generateJSselectedElementFill());
+////        
+//            js.append(generateJScolor16());
+////        
+//            js.append(generateJSopacity48());
+////        
+//            js.append(generateJSkeys64());
+////        
+//            js.append(generateJSkeys65());
+////        
+//            js.append(generateJSangle16());
+////        
+//            js.append(generateJSmode64());
+////        
+//            js.append(generateJSmode65());
+////        
+//            js.append(generateJSmode66());
+////        
+//            js.append(generateJSopacity49());
+////        
+//            js.append(generateJSkeys66());
+////        
+//            js.append(generateJSkeys67());
+////        
+//            js.append(generateJScx17());
+////        
+//            js.append(generateJScy17());
+////        
+//            js.append(generateJSmode67());
+////        
+//            js.append(generateJSopacity50());
+////        
+//            js.append(generateJSfx17());
+////        
+//            js.append(generateJSfy17());
+////        
+//            js.append(generateJSimageSettings15());
+////        
+//            js.append(generateJSselectedElementStroke());
+////        
+//            js.append(generateJSselectedElementStroke1());
+////        
+//            js.append(generateJSselectedElementStroke2());
+////        
+//            js.append(generateJSthickness13());
+////        
+//            js.append(generateJSdashpattern13());
+////        
+//            js.append(generateJSlineJoin13());
+////        
+//            js.append(generateJSlineCap13());
+////        
+//            js.append(generateJStextMarker());
+////        
+//            js.append(generateJStextMarker1());
+////        
+//            js.append(generateJSindex2());
+////        
+//            js.append(generateJStextMarker2());
+////        
+//            js.append(generateJStextMarker3());
+////        
+//            js.append(generateJStextMarker4());
+////        
+//            js.append(generateJStextMarker5());
+////        
+//            js.append(generateJStooltip());
+////        
+//            js.append(generateJStooltip1());
+////        
+//            js.append(generateJSverticalScrollBar());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

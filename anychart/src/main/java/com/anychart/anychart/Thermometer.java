@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -39,10 +41,10 @@ public class Thermometer extends LineargaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bulbPadding(%s)", bulbPadding));
+            js.append(String.format(Locale.US, ".bulbPadding(%s)", wrapQuotes(bulbPadding)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bulbPadding(%s)", bulbPadding));
+                onChangeListener.onChange(String.format(Locale.US, ".bulbPadding(%s)", wrapQuotes(bulbPadding)));
                 js.setLength(0);
             }
         }
@@ -85,37 +87,18 @@ public class Thermometer extends LineargaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bulbRadius(%s)", bulbRadius));
+            js.append(String.format(Locale.US, ".bulbRadius(%s)", wrapQuotes(bulbRadius)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bulbRadius(%s)", bulbRadius));
+                onChangeListener.onChange(String.format(Locale.US, ".bulbRadius(%s)", wrapQuotes(bulbRadius)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSbulbPadding() {
-        if (bulbPadding != null) {
-            return String.format(Locale.US, "bulbPadding: %s,", bulbPadding);
-        }
-        return "";
-    }
 
-    private String generateJSbulbPadding1() {
-        if (bulbPadding1 != null) {
-            return String.format(Locale.US, "bulbPadding: %f,", bulbPadding1);
-        }
-        return "";
-    }
-
-    private String generateJSbulbRadius() {
-        if (bulbRadius != null) {
-            return String.format(Locale.US, "bulbRadius: %s,", bulbRadius);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -134,13 +117,17 @@ public class Thermometer extends LineargaugePointersBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSbulbPadding());
-            js.append(generateJSbulbPadding1());
-            js.append(generateJSbulbRadius());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSbulbPadding());
+////        
+//            js.append(generateJSbulbPadding1());
+////        
+//            js.append(generateJSbulbRadius());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

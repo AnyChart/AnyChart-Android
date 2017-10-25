@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Zoom extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".decorate(%s);", (decorate != null) ? decorate.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".decorate(%s);", ((decorate != null) ? decorate.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", (decorate != null) ? decorate.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((decorate != null) ? decorate.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -60,10 +62,10 @@ public class Zoom extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".render(%s);", (parentElement != null) ? parentElement.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement != null) ? parentElement.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", (parentElement != null) ? parentElement.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -83,10 +85,10 @@ public class Zoom extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".render(%s);", (parentElement1 != null) ? parentElement1.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement1 != null) ? parentElement1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", (parentElement1 != null) ? parentElement1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement1 != null) ? parentElement1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -104,43 +106,17 @@ public class Zoom extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".target(%s);", (chart != null) ? chart.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".target(%s);", ((chart != null) ? chart.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", (chart != null) ? chart.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", ((chart != null) ? chart.generateJs() : "null")));
                 js.setLength(0);
             }
         }
     }
 
-    private String generateJSdecorate() {
-        if (decorate != null) {
-            return String.format(Locale.US, "decorate: %s,", (decorate != null) ? decorate.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSparentElement() {
-        if (parentElement != null) {
-            return String.format(Locale.US, "parentElement: %s,", (parentElement != null) ? parentElement.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSparentElement1() {
-        if (parentElement1 != null) {
-            return String.format(Locale.US, "parentElement: %s,", (parentElement1 != null) ? parentElement1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchart() {
-        if (chart != null) {
-            return String.format(Locale.US, "chart: %s,", (chart != null) ? chart.generateJs() : "null");
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -159,14 +135,19 @@ public class Zoom extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSdecorate());
-            js.append(generateJSparentElement());
-            js.append(generateJSparentElement1());
-            js.append(generateJSchart());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSdecorate());
+////        
+//            js.append(generateJSparentElement());
+////        
+//            js.append(generateJSparentElement1());
+////        
+//            js.append(generateJSchart());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

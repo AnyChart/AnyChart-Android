@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -50,10 +52,10 @@ public class StockDateTime extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".background(%s)", background));
+            js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
             }
         }
@@ -132,10 +134,10 @@ public class StockDateTime extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".labels(%s)", labels));
+            js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
             }
         }
@@ -191,10 +193,10 @@ public class StockDateTime extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minorLabels(%s)", minorLabels));
+            js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", minorLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
                 js.setLength(0);
             }
         }
@@ -250,10 +252,10 @@ public class StockDateTime extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
+            js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -300,10 +302,10 @@ public class StockDateTime extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -324,10 +326,10 @@ public class StockDateTime extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+            js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
                 js.setLength(0);
             }
         }
@@ -365,18 +367,77 @@ public class StockDateTime extends VisualBase {
         return getTicks;
     }
 
-    private StockDateTime getTicks1;
+    private List<StockDateTime> getTicks1 = new ArrayList<>();
 
-    public StockDateTime getTicks1() {
-        if (getTicks1 == null)
-            getTicks1 = new StockDateTime(jsBase + ".ticks()");
-
-        return getTicks1;
+    public StockDateTime getTicks(String ticks) {
+        StockDateTime item = new StockDateTime(jsBase + ".ticks(" + wrapQuotes(ticks) + ")");
+        getTicks1.add(item);
+        return item;
     }
 
+    private List<StockDateTime> getTicks2 = new ArrayList<>();
+
+    public StockDateTime getTicks(Boolean ticks) {
+        StockDateTime item = new StockDateTime(jsBase + ".ticks(" + ticks + ")");
+        getTicks2.add(item);
+        return item;
+    }
+
+
+//
+//    private String generateJSUiBackground getBackground() {
+//        if (UiBackground getBackground != null) {
+//            return UiBackground getBackground.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getLabels() {
+//        if (UiLabelsFactory getLabels != null) {
+//            return UiLabelsFactory getLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getMinorLabels() {
+//        if (UiLabelsFactory getMinorLabels != null) {
+//            return UiLabelsFactory getMinorLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockTicks getMinorTicks() {
+//        if (StockTicks getMinorTicks != null) {
+//            return StockTicks getMinorTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockTicks getTicks() {
+//        if (StockTicks getTicks != null) {
+//            return StockTicks getTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockDateTime getTicks1() {
+//        if (StockDateTime getTicks1 != null) {
+//            return StockDateTime getTicks1.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockDateTime getTicks2() {
+//        if (StockDateTime getTicks2 != null) {
+//            return StockDateTime getTicks2.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
+            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -384,6 +445,7 @@ public class StockDateTime extends VisualBase {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
+            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -391,6 +453,7 @@ public class StockDateTime extends VisualBase {
     private String generateJSgetMinorLabels() {
         if (getMinorLabels != null) {
             return getMinorLabels.generateJs();
+            //return String.format(Locale.US, "getMinorLabels: %s,", ((getMinorLabels != null) ? getMinorLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -398,6 +461,7 @@ public class StockDateTime extends VisualBase {
     private String generateJSgetMinorTicks() {
         if (getMinorTicks != null) {
             return getMinorTicks.generateJs();
+            //return String.format(Locale.US, "getMinorTicks: %s,", ((getMinorTicks != null) ? getMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -405,107 +469,34 @@ public class StockDateTime extends VisualBase {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
+            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetTicks1() {
-        if (getTicks1 != null) {
-            return getTicks1.generateJs();
+        if (!getTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockDateTime item : getTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSbackground() {
-        if (background != null) {
-            return String.format(Locale.US, "background: %s,", background);
+
+    private String generateJSgetTicks2() {
+        if (!getTicks2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockDateTime item : getTicks2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSbackground1() {
-        if (background1 != null) {
-            return String.format(Locale.US, "background: %b,", background1);
-        }
-        return "";
-    }
-
-    private String generateJSbackground2() {
-        if (background2 != null) {
-            return String.format(Locale.US, "background: %s,", background2);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSlabels() {
-        if (labels != null) {
-            return String.format(Locale.US, "labels: %s,", labels);
-        }
-        return "";
-    }
-
-    private String generateJSlabels1() {
-        if (labels1 != null) {
-            return String.format(Locale.US, "labels: %b,", labels1);
-        }
-        return "";
-    }
-
-    private String generateJSminorLabels() {
-        if (minorLabels != null) {
-            return String.format(Locale.US, "minorLabels: %s,", minorLabels);
-        }
-        return "";
-    }
-
-    private String generateJSminorLabels1() {
-        if (minorLabels1 != null) {
-            return String.format(Locale.US, "minorLabels: %b,", minorLabels1);
-        }
-        return "";
-    }
-
-    private String generateJSminorTicks() {
-        if (minorTicks != null) {
-            return String.format(Locale.US, "minorTicks: %s,", minorTicks);
-        }
-        return "";
-    }
-
-    private String generateJSminorTicks1() {
-        if (minorTicks1 != null) {
-            return String.format(Locale.US, "minorTicks: %b,", minorTicks1);
-        }
-        return "";
-    }
-
-    private String generateJSoverlapMode() {
-        if (overlapMode != null) {
-            return String.format(Locale.US, "overlapMode: %s,", (overlapMode != null) ? overlapMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSoverlapMode1() {
-        if (overlapMode1 != null) {
-            return String.format(Locale.US, "overlapMode: %s,", overlapMode1);
-        }
-        return "";
-    }
-
-    private String generateJSshowHelperLabel() {
-        if (showHelperLabel != null) {
-            return String.format(Locale.US, "showHelperLabel: %b,", showHelperLabel);
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -520,6 +511,7 @@ public class StockDateTime extends VisualBase {
         jsGetters.append(generateJSgetMinorTicks());
         jsGetters.append(generateJSgetTicks());
         jsGetters.append(generateJSgetTicks1());
+        jsGetters.append(generateJSgetTicks2());
 
         return jsGetters.toString();
     }
@@ -531,23 +523,37 @@ public class StockDateTime extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSbackground());
-            js.append(generateJSbackground1());
-            js.append(generateJSbackground2());
-            js.append(generateJSheight());
-            js.append(generateJSlabels());
-            js.append(generateJSlabels1());
-            js.append(generateJSminorLabels());
-            js.append(generateJSminorLabels1());
-            js.append(generateJSminorTicks());
-            js.append(generateJSminorTicks1());
-            js.append(generateJSoverlapMode());
-            js.append(generateJSoverlapMode1());
-            js.append(generateJSshowHelperLabel());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSbackground());
+////        
+//            js.append(generateJSbackground1());
+////        
+//            js.append(generateJSbackground2());
+////        
+//            js.append(generateJSheight());
+////        
+//            js.append(generateJSlabels());
+////        
+//            js.append(generateJSlabels1());
+////        
+//            js.append(generateJSminorLabels());
+////        
+//            js.append(generateJSminorLabels1());
+////        
+//            js.append(generateJSminorTicks());
+////        
+//            js.append(generateJSminorTicks1());
+////        
+//            js.append(generateJSoverlapMode());
+////        
+//            js.append(generateJSoverlapMode1());
+////        
+//            js.append(generateJSshowHelperLabel());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

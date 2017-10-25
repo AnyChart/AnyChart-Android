@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".color(%s)", color));
+            js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".color(%s)", color));
+                onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
             }
         }
@@ -57,10 +59,10 @@ public class Tasks extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dummyFill(%s);", (dummyFill != null) ? dummyFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".dummyFill(%s);", ((dummyFill != null) ? dummyFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dummyFill(%s)", (dummyFill != null) ? dummyFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dummyFill(%s)", ((dummyFill != null) ? dummyFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -85,10 +87,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyFill(%s, %f)", color1, opacity));
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f)", wrapQuotes(color1), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f)", color1, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f)", wrapQuotes(color1), opacity));
                 js.setLength(0);
             }
         }
@@ -166,10 +168,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -203,10 +205,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -240,10 +242,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+            js.append(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -277,10 +279,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -314,10 +316,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -369,10 +371,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -416,10 +418,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -459,10 +461,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -494,10 +496,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -529,10 +531,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", color4, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", color4, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -551,10 +553,10 @@ public class Tasks extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".fill(%s);", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -588,10 +590,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f)", color5, opacity3));
+            js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color5), opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color5, opacity3));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color5), opacity3));
                 js.setLength(0);
             }
         }
@@ -697,10 +699,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
             }
         }
@@ -748,10 +750,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
             }
         }
@@ -799,10 +801,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
             }
         }
@@ -850,10 +852,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
             }
         }
@@ -901,10 +903,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
             }
         }
@@ -979,10 +981,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1049,10 +1051,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1081,10 +1083,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hovered(%s)", hovered));
+            js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
+                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
             }
         }
@@ -1116,10 +1118,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".lowerLabels(%s)", lowerLabels));
+            js.append(String.format(Locale.US, ".lowerLabels(%s)", wrapQuotes(lowerLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lowerLabels(%s)", lowerLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".lowerLabels(%s)", wrapQuotes(lowerLabels)));
                 js.setLength(0);
             }
         }
@@ -1171,10 +1173,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".normal(%s)", normal));
+            js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
             }
         }
@@ -1202,10 +1204,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selected(%s)", selected));
+            js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
+                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
             }
         }
@@ -1260,10 +1262,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color6 != null) ? color6.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color6 != null) ? color6.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color6 != null) ? color6.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color6 != null) ? color6.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1311,10 +1313,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color7 != null) ? color7.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color7 != null) ? color7.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color7 != null) ? color7.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color7 != null) ? color7.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1362,10 +1364,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color8, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color8), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color8, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color8), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1397,10 +1399,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".tooltip(%s)", tooltip));
+            js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", tooltip));
+                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
             }
         }
@@ -1456,10 +1458,10 @@ public class Tasks extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".upperLabels(%s)", upperLabels));
+            js.append(String.format(Locale.US, ".upperLabels(%s)", wrapQuotes(upperLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".upperLabels(%s)", upperLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".upperLabels(%s)", wrapQuotes(upperLabels)));
                 js.setLength(0);
             }
         }
@@ -1490,9 +1492,54 @@ public class Tasks extends JsObject {
         return this;
     }
 
+
+//
+//    private String generateJSStateSettings getHovered() {
+//        if (StateSettings getHovered != null) {
+//            return StateSettings getHovered.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getLowerLabels() {
+//        if (UiLabelsFactory getLowerLabels != null) {
+//            return UiLabelsFactory getLowerLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getNormal() {
+//        if (StateSettings getNormal != null) {
+//            return StateSettings getNormal.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getSelected() {
+//        if (StateSettings getSelected != null) {
+//            return StateSettings getSelected.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSTooltip getTooltip() {
+//        if (Tooltip getTooltip != null) {
+//            return Tooltip getTooltip.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getUpperLabels() {
+//        if (UiLabelsFactory getUpperLabels != null) {
+//            return UiLabelsFactory getUpperLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
+            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -1500,6 +1547,7 @@ public class Tasks extends JsObject {
     private String generateJSgetLowerLabels() {
         if (getLowerLabels != null) {
             return getLowerLabels.generateJs();
+            //return String.format(Locale.US, "getLowerLabels: %s,", ((getLowerLabels != null) ? getLowerLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1507,6 +1555,7 @@ public class Tasks extends JsObject {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
+            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -1514,6 +1563,7 @@ public class Tasks extends JsObject {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
+            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -1521,6 +1571,7 @@ public class Tasks extends JsObject {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
+            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -1528,440 +1579,7 @@ public class Tasks extends JsObject {
     private String generateJSgetUpperLabels() {
         if (getUpperLabels != null) {
             return getUpperLabels.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSdummyFill() {
-        if (dummyFill != null) {
-            return String.format(Locale.US, "dummyFill: %s,", (dummyFill != null) ? dummyFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor1() {
-        if (color1 != null) {
-            return String.format(Locale.US, "color: %s,", color1);
-        }
-        return "";
-    }
-
-    private String generateJSopacity() {
-        if (opacity != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity);
-        }
-        return "";
-    }
-
-    private String generateJSkeys() {
-        if (keys != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys));
-        }
-        return "";
-    }
-
-    private String generateJSkeys1() {
-        if (keys1 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys1));
-        }
-        return "";
-    }
-
-    private String generateJSangle() {
-        if (angle != null) {
-            return String.format(Locale.US, "angle: %f,", angle);
-        }
-        return "";
-    }
-
-    private String generateJSmode() {
-        if (mode != null) {
-            return String.format(Locale.US, "mode: %b,", mode);
-        }
-        return "";
-    }
-
-    private String generateJSmode1() {
-        if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode1 != null) ? mode1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode2() {
-        if (mode2 != null) {
-            return String.format(Locale.US, "mode: %s,", mode2);
-        }
-        return "";
-    }
-
-    private String generateJSopacity1() {
-        if (opacity1 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity1);
-        }
-        return "";
-    }
-
-    private String generateJSkeys2() {
-        if (keys2 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys2));
-        }
-        return "";
-    }
-
-    private String generateJSkeys3() {
-        if (keys3 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys3));
-        }
-        return "";
-    }
-
-    private String generateJScx() {
-        if (cx != null) {
-            return String.format(Locale.US, "cx: %f,", cx);
-        }
-        return "";
-    }
-
-    private String generateJScy() {
-        if (cy != null) {
-            return String.format(Locale.US, "cy: %f,", cy);
-        }
-        return "";
-    }
-
-    private String generateJSmode3() {
-        if (mode3 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity2() {
-        if (opacity2 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity2);
-        }
-        return "";
-    }
-
-    private String generateJSfx() {
-        if (fx != null) {
-            return String.format(Locale.US, "fx: %f,", fx);
-        }
-        return "";
-    }
-
-    private String generateJSfy() {
-        if (fy != null) {
-            return String.format(Locale.US, "fy: %f,", fy);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings() {
-        if (imageSettings != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings != null) ? imageSettings.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor2() {
-        if (color2 != null) {
-            return String.format(Locale.US, "color: %s,", (color2 != null) ? color2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor3() {
-        if (color3 != null) {
-            return String.format(Locale.US, "color: %s,", (color3 != null) ? color3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor4() {
-        if (color4 != null) {
-            return String.format(Locale.US, "color: %s,", color4);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSfill() {
-        if (fill != null) {
-            return String.format(Locale.US, "fill: %s,", (fill != null) ? fill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor5() {
-        if (color5 != null) {
-            return String.format(Locale.US, "color: %s,", color5);
-        }
-        return "";
-    }
-
-    private String generateJSopacity3() {
-        if (opacity3 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity3);
-        }
-        return "";
-    }
-
-    private String generateJSkeys4() {
-        if (keys4 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys4));
-        }
-        return "";
-    }
-
-    private String generateJSkeys5() {
-        if (keys5 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys5));
-        }
-        return "";
-    }
-
-    private String generateJSangle1() {
-        if (angle1 != null) {
-            return String.format(Locale.US, "angle: %f,", angle1);
-        }
-        return "";
-    }
-
-    private String generateJSmode4() {
-        if (mode4 != null) {
-            return String.format(Locale.US, "mode: %b,", mode4);
-        }
-        return "";
-    }
-
-    private String generateJSmode5() {
-        if (mode5 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode5 != null) ? mode5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode6() {
-        if (mode6 != null) {
-            return String.format(Locale.US, "mode: %s,", mode6);
-        }
-        return "";
-    }
-
-    private String generateJSopacity4() {
-        if (opacity4 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity4);
-        }
-        return "";
-    }
-
-    private String generateJSkeys6() {
-        if (keys6 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys6));
-        }
-        return "";
-    }
-
-    private String generateJSkeys7() {
-        if (keys7 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys7));
-        }
-        return "";
-    }
-
-    private String generateJScx1() {
-        if (cx1 != null) {
-            return String.format(Locale.US, "cx: %f,", cx1);
-        }
-        return "";
-    }
-
-    private String generateJScy1() {
-        if (cy1 != null) {
-            return String.format(Locale.US, "cy: %f,", cy1);
-        }
-        return "";
-    }
-
-    private String generateJSmode7() {
-        if (mode7 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode7 != null) ? mode7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity5() {
-        if (opacity5 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity5);
-        }
-        return "";
-    }
-
-    private String generateJSfx1() {
-        if (fx1 != null) {
-            return String.format(Locale.US, "fx: %f,", fx1);
-        }
-        return "";
-    }
-
-    private String generateJSfy1() {
-        if (fy1 != null) {
-            return String.format(Locale.US, "fy: %f,", fy1);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings1() {
-        if (imageSettings1 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings1 != null) ? imageSettings1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJShovered() {
-        if (hovered != null) {
-            return String.format(Locale.US, "hovered: %s,", hovered);
-        }
-        return "";
-    }
-
-    private String generateJSlowerLabels() {
-        if (lowerLabels != null) {
-            return String.format(Locale.US, "lowerLabels: %s,", lowerLabels);
-        }
-        return "";
-    }
-
-    private String generateJSlowerLabels1() {
-        if (lowerLabels1 != null) {
-            return String.format(Locale.US, "lowerLabels: %b,", lowerLabels1);
-        }
-        return "";
-    }
-
-    private String generateJSnormal() {
-        if (normal != null) {
-            return String.format(Locale.US, "normal: %s,", normal);
-        }
-        return "";
-    }
-
-    private String generateJSselected() {
-        if (selected != null) {
-            return String.format(Locale.US, "selected: %s,", selected);
-        }
-        return "";
-    }
-
-    private String generateJScolor6() {
-        if (color6 != null) {
-            return String.format(Locale.US, "color: %s,", (color6 != null) ? color6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor7() {
-        if (color7 != null) {
-            return String.format(Locale.US, "color: %s,", (color7 != null) ? color7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor8() {
-        if (color8 != null) {
-            return String.format(Locale.US, "color: %s,", color8);
-        }
-        return "";
-    }
-
-    private String generateJSthickness1() {
-        if (thickness1 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness1);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern1() {
-        if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin1() {
-        if (lineJoin1 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin1 != null) ? lineJoin1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap1() {
-        if (lineCap1 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap1 != null) ? lineCap1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStooltip() {
-        if (tooltip != null) {
-            return String.format(Locale.US, "tooltip: %s,", tooltip);
-        }
-        return "";
-    }
-
-    private String generateJStooltip1() {
-        if (tooltip1 != null) {
-            return String.format(Locale.US, "tooltip: %b,", tooltip1);
-        }
-        return "";
-    }
-
-    private String generateJSupperLabels() {
-        if (upperLabels != null) {
-            return String.format(Locale.US, "upperLabels: %s,", upperLabels);
-        }
-        return "";
-    }
-
-    private String generateJSupperLabels1() {
-        if (upperLabels1 != null) {
-            return String.format(Locale.US, "upperLabels: %b,", upperLabels1);
+            //return String.format(Locale.US, "getUpperLabels: %s,", ((getUpperLabels != null) ? getUpperLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1990,72 +1608,135 @@ public class Tasks extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScolor());
-            js.append(generateJSdummyFill());
-            js.append(generateJScolor1());
-            js.append(generateJSopacity());
-            js.append(generateJSkeys());
-            js.append(generateJSkeys1());
-            js.append(generateJSangle());
-            js.append(generateJSmode());
-            js.append(generateJSmode1());
-            js.append(generateJSmode2());
-            js.append(generateJSopacity1());
-            js.append(generateJSkeys2());
-            js.append(generateJSkeys3());
-            js.append(generateJScx());
-            js.append(generateJScy());
-            js.append(generateJSmode3());
-            js.append(generateJSopacity2());
-            js.append(generateJSfx());
-            js.append(generateJSfy());
-            js.append(generateJSimageSettings());
-            js.append(generateJScolor2());
-            js.append(generateJScolor3());
-            js.append(generateJScolor4());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJSfill());
-            js.append(generateJScolor5());
-            js.append(generateJSopacity3());
-            js.append(generateJSkeys4());
-            js.append(generateJSkeys5());
-            js.append(generateJSangle1());
-            js.append(generateJSmode4());
-            js.append(generateJSmode5());
-            js.append(generateJSmode6());
-            js.append(generateJSopacity4());
-            js.append(generateJSkeys6());
-            js.append(generateJSkeys7());
-            js.append(generateJScx1());
-            js.append(generateJScy1());
-            js.append(generateJSmode7());
-            js.append(generateJSopacity5());
-            js.append(generateJSfx1());
-            js.append(generateJSfy1());
-            js.append(generateJSimageSettings1());
-            js.append(generateJShovered());
-            js.append(generateJSlowerLabels());
-            js.append(generateJSlowerLabels1());
-            js.append(generateJSnormal());
-            js.append(generateJSselected());
-            js.append(generateJScolor6());
-            js.append(generateJScolor7());
-            js.append(generateJScolor8());
-            js.append(generateJSthickness1());
-            js.append(generateJSdashpattern1());
-            js.append(generateJSlineJoin1());
-            js.append(generateJSlineCap1());
-            js.append(generateJStooltip());
-            js.append(generateJStooltip1());
-            js.append(generateJSupperLabels());
-            js.append(generateJSupperLabels1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSdummyFill());
+////        
+//            js.append(generateJScolor1());
+////        
+//            js.append(generateJSopacity());
+////        
+//            js.append(generateJSkeys());
+////        
+//            js.append(generateJSkeys1());
+////        
+//            js.append(generateJSangle());
+////        
+//            js.append(generateJSmode());
+////        
+//            js.append(generateJSmode1());
+////        
+//            js.append(generateJSmode2());
+////        
+//            js.append(generateJSopacity1());
+////        
+//            js.append(generateJSkeys2());
+////        
+//            js.append(generateJSkeys3());
+////        
+//            js.append(generateJScx());
+////        
+//            js.append(generateJScy());
+////        
+//            js.append(generateJSmode3());
+////        
+//            js.append(generateJSopacity2());
+////        
+//            js.append(generateJSfx());
+////        
+//            js.append(generateJSfy());
+////        
+//            js.append(generateJSimageSettings());
+////        
+//            js.append(generateJScolor2());
+////        
+//            js.append(generateJScolor3());
+////        
+//            js.append(generateJScolor4());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJSfill());
+////        
+//            js.append(generateJScolor5());
+////        
+//            js.append(generateJSopacity3());
+////        
+//            js.append(generateJSkeys4());
+////        
+//            js.append(generateJSkeys5());
+////        
+//            js.append(generateJSangle1());
+////        
+//            js.append(generateJSmode4());
+////        
+//            js.append(generateJSmode5());
+////        
+//            js.append(generateJSmode6());
+////        
+//            js.append(generateJSopacity4());
+////        
+//            js.append(generateJSkeys6());
+////        
+//            js.append(generateJSkeys7());
+////        
+//            js.append(generateJScx1());
+////        
+//            js.append(generateJScy1());
+////        
+//            js.append(generateJSmode7());
+////        
+//            js.append(generateJSopacity5());
+////        
+//            js.append(generateJSfx1());
+////        
+//            js.append(generateJSfy1());
+////        
+//            js.append(generateJSimageSettings1());
+////        
+//            js.append(generateJShovered());
+////        
+//            js.append(generateJSlowerLabels());
+////        
+//            js.append(generateJSlowerLabels1());
+////        
+//            js.append(generateJSnormal());
+////        
+//            js.append(generateJSselected());
+////        
+//            js.append(generateJScolor6());
+////        
+//            js.append(generateJScolor7());
+////        
+//            js.append(generateJScolor8());
+////        
+//            js.append(generateJSthickness1());
+////        
+//            js.append(generateJSdashpattern1());
+////        
+//            js.append(generateJSlineJoin1());
+////        
+//            js.append(generateJSlineCap1());
+////        
+//            js.append(generateJStooltip());
+////        
+//            js.append(generateJStooltip1());
+////        
+//            js.append(generateJSupperLabels());
+////        
+//            js.append(generateJSupperLabels1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -30,7 +30,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext != null) ? kMAContext.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext != null) ? kMAContext.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, MovingAverageType dMAType, SmaContext kMAContext, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -41,7 +41,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext != null) ? kMAContext.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext != null) ? kMAContext.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, MovingAverageType dMAType, EmaContext kMAContext1, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -52,7 +52,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext1 != null) ? kMAContext1.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, MovingAverageType dMAType, EmaContext kMAContext1, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -63,7 +63,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext1 != null) ? kMAContext1.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, MovingAverageType dMAType, String kMAContext2, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -74,7 +74,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kMAContext2, (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kMAContext2), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, MovingAverageType dMAType, String kMAContext2, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -85,7 +85,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kMAContext2, kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kMAContext2), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, String dMAType1, SmaContext kMAContext, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -96,7 +96,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", dMAType1, (kMAContext != null) ? kMAContext.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), wrapQuotes(dMAType1), ((kMAContext != null) ? kMAContext.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, String dMAType1, SmaContext kMAContext, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -107,7 +107,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", dMAType1, (kMAContext != null) ? kMAContext.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), wrapQuotes(dMAType1), ((kMAContext != null) ? kMAContext.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, String dMAType1, EmaContext kMAContext1, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -118,7 +118,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", dMAType1, (kMAContext1 != null) ? kMAContext1.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), wrapQuotes(dMAType1), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, String dMAType1, EmaContext kMAContext1, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -129,7 +129,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", dMAType1, (kMAContext1 != null) ? kMAContext1.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), wrapQuotes(dMAType1), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, String dMAType1, String kMAContext2, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -140,7 +140,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", dMAType1, kMAContext2, (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kMAContext2), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(SmaContext dMAContext, String dMAType1, String kMAContext2, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext = dMAContext;
@@ -151,7 +151,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext != null) ? dMAContext.generateJs() : "null", dMAType1, kMAContext2, kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext != null) ? dMAContext.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kMAContext2), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, MovingAverageType dMAType, SmaContext kMAContext, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -162,7 +162,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext != null) ? kMAContext.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext != null) ? kMAContext.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, MovingAverageType dMAType, SmaContext kMAContext, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -173,7 +173,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext != null) ? kMAContext.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext != null) ? kMAContext.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, MovingAverageType dMAType, EmaContext kMAContext1, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -184,7 +184,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext1 != null) ? kMAContext1.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, MovingAverageType dMAType, EmaContext kMAContext1, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -195,7 +195,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext1 != null) ? kMAContext1.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, MovingAverageType dMAType, String kMAContext2, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -206,7 +206,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kMAContext2, (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kMAContext2), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, MovingAverageType dMAType, String kMAContext2, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -217,7 +217,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kMAContext2, kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kMAContext2), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, String dMAType1, SmaContext kMAContext, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -228,7 +228,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", dMAType1, (kMAContext != null) ? kMAContext.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), wrapQuotes(dMAType1), ((kMAContext != null) ? kMAContext.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, String dMAType1, SmaContext kMAContext, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -239,7 +239,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", dMAType1, (kMAContext != null) ? kMAContext.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), wrapQuotes(dMAType1), ((kMAContext != null) ? kMAContext.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, String dMAType1, EmaContext kMAContext1, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -250,7 +250,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", dMAType1, (kMAContext1 != null) ? kMAContext1.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), wrapQuotes(dMAType1), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, String dMAType1, EmaContext kMAContext1, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -261,7 +261,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", dMAType1, (kMAContext1 != null) ? kMAContext1.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), wrapQuotes(dMAType1), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, String dMAType1, String kMAContext2, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -272,7 +272,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", dMAType1, kMAContext2, (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kMAContext2), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(EmaContext dMAContext1, String dMAType1, String kMAContext2, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext1 = dMAContext1;
@@ -283,7 +283,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  (dMAContext1 != null) ? dMAContext1.generateJs() : "null", dMAType1, kMAContext2, kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  ((dMAContext1 != null) ? dMAContext1.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kMAContext2), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, MovingAverageType dMAType, SmaContext kMAContext, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -294,7 +294,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext != null) ? kMAContext.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext != null) ? kMAContext.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, MovingAverageType dMAType, SmaContext kMAContext, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -305,7 +305,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext != null) ? kMAContext.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext != null) ? kMAContext.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, MovingAverageType dMAType, EmaContext kMAContext1, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -316,7 +316,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext1 != null) ? kMAContext1.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, MovingAverageType dMAType, EmaContext kMAContext1, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -327,7 +327,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, (dMAType != null) ? dMAType.generateJs() : "null", (kMAContext1 != null) ? kMAContext1.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, MovingAverageType dMAType, String kMAContext2, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -338,7 +338,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, (dMAType != null) ? dMAType.generateJs() : "null", kMAContext2, (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kMAContext2), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, MovingAverageType dMAType, String kMAContext2, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -349,7 +349,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, (dMAType != null) ? dMAType.generateJs() : "null", kMAContext2, kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kMAContext2), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, String dMAType1, SmaContext kMAContext, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -360,7 +360,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, dMAType1, (kMAContext != null) ? kMAContext.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), wrapQuotes(dMAType1), ((kMAContext != null) ? kMAContext.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, String dMAType1, SmaContext kMAContext, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -371,7 +371,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, dMAType1, (kMAContext != null) ? kMAContext.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), wrapQuotes(dMAType1), ((kMAContext != null) ? kMAContext.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, String dMAType1, EmaContext kMAContext1, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -382,7 +382,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, dMAType1, (kMAContext1 != null) ? kMAContext1.generateJs() : "null", (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), wrapQuotes(dMAType1), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, String dMAType1, EmaContext kMAContext1, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -393,7 +393,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, dMAType1, (kMAContext1 != null) ? kMAContext1.generateJs() : "null", kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), wrapQuotes(dMAType1), ((kMAContext1 != null) ? kMAContext1.generateJs() : "null"), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, String dMAType1, String kMAContext2, MovingAverageType kMAType, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -404,7 +404,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, dMAType1, kMAContext2, (kMAType != null) ? kMAType.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), wrapQuotes(dMAType1), wrapQuotes(kMAContext2), ((kMAType != null) ? kMAType.generateJs() : "null"), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
     public StochasticContext(String dMAContext2, String dMAType1, String kMAContext2, String kMAType1, CycledQueue highQueue, Double kPeriod, CycledQueue lowQueue) {
         this.dMAContext2 = dMAContext2;
@@ -415,7 +415,7 @@ public class StochasticContext extends JsObject  {
         this.kPeriod = kPeriod;
         this.lowQueue = lowQueue;
 
-        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  dMAContext2, dMAType1, kMAContext2, kMAType1, (highQueue != null) ? highQueue.generateJs() : "null", kPeriod, (lowQueue != null) ? lowQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{dMAContext: %s,dMAType: %s,kMAContext: %s,kMAType: %s,highQueue: %s,kPeriod: %f,lowQueue: %s}",  wrapQuotes(dMAContext2), wrapQuotes(dMAType1), wrapQuotes(kMAContext2), wrapQuotes(kMAType1), ((highQueue != null) ? highQueue.generateJs() : "null"), kPeriod, ((lowQueue != null) ? lowQueue.generateJs() : "null")));
     }
 
     @Override

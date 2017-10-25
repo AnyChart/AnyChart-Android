@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -41,10 +43,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".compareWith(%s)", (compareWith != null) ? compareWith.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".compareWith(%s)", ((compareWith != null) ? compareWith.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", (compareWith != null) ? compareWith.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", ((compareWith != null) ? compareWith.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -66,10 +68,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".compareWith(%s)", compareWith1));
+            js.append(String.format(Locale.US, ".compareWith(%s)", wrapQuotes(compareWith1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", compareWith1));
+                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", wrapQuotes(compareWith1)));
                 js.setLength(0);
             }
         }
@@ -117,10 +119,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".comparisonMode(%s)", (comparisonMode != null) ? comparisonMode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".comparisonMode(%s)", ((comparisonMode != null) ? comparisonMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", (comparisonMode != null) ? comparisonMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", ((comparisonMode != null) ? comparisonMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -141,10 +143,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".comparisonMode(%s)", comparisonMode1));
+            js.append(String.format(Locale.US, ".comparisonMode(%s)", wrapQuotes(comparisonMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", comparisonMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", wrapQuotes(comparisonMode1)));
                 js.setLength(0);
             }
         }
@@ -220,10 +222,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
+            js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -244,10 +246,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minorTicks(%s)", Arrays.toString(minorTicks1)));
+            js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", Arrays.toString(minorTicks1)));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
                 js.setLength(0);
             }
         }
@@ -314,10 +316,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stackDirection(%s)", (stackDirection != null) ? stackDirection.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stackDirection(%s)", ((stackDirection != null) ? stackDirection.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stackDirection(%s)", (stackDirection != null) ? stackDirection.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stackDirection(%s)", ((stackDirection != null) ? stackDirection.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -338,10 +340,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stackDirection(%s)", stackDirection1));
+            js.append(String.format(Locale.US, ".stackDirection(%s)", wrapQuotes(stackDirection1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stackDirection(%s)", stackDirection1));
+                onChangeListener.onChange(String.format(Locale.US, ".stackDirection(%s)", wrapQuotes(stackDirection1)));
                 js.setLength(0);
             }
         }
@@ -364,10 +366,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stackMode(%s)", (stackMode != null) ? stackMode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stackMode(%s)", ((stackMode != null) ? stackMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stackMode(%s)", (stackMode != null) ? stackMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stackMode(%s)", ((stackMode != null) ? stackMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -388,10 +390,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stackMode(%s)", stackMode1));
+            js.append(String.format(Locale.US, ".stackMode(%s)", wrapQuotes(stackMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stackMode(%s)", stackMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".stackMode(%s)", wrapQuotes(stackMode1)));
                 js.setLength(0);
             }
         }
@@ -445,10 +447,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".ticks(%s)", ticks));
+            js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", ticks));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -469,19 +471,36 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".ticks(%s)", Arrays.toString(ticks1)));
+            js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", Arrays.toString(ticks1)));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSScatterTicks getMinorTicks() {
+//        if (ScatterTicks getMinorTicks != null) {
+//            return ScatterTicks getMinorTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScatterTicks getTicks() {
+//        if (ScatterTicks getTicks != null) {
+//            return ScatterTicks getTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetMinorTicks() {
         if (getMinorTicks != null) {
             return getMinorTicks.generateJs();
+            //return String.format(Locale.US, "getMinorTicks: %s,", ((getMinorTicks != null) ? getMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -489,132 +508,7 @@ public class ScalesLinear extends ScatterBase {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScompareWith() {
-        if (compareWith != null) {
-            return String.format(Locale.US, "compareWith: %s,", (compareWith != null) ? compareWith.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScompareWith1() {
-        if (compareWith1 != null) {
-            return String.format(Locale.US, "compareWith: %s,", compareWith1);
-        }
-        return "";
-    }
-
-    private String generateJScompareWith2() {
-        if (compareWith2 != null) {
-            return String.format(Locale.US, "compareWith: %f,", compareWith2);
-        }
-        return "";
-    }
-
-    private String generateJScomparisonMode() {
-        if (comparisonMode != null) {
-            return String.format(Locale.US, "comparisonMode: %s,", (comparisonMode != null) ? comparisonMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScomparisonMode1() {
-        if (comparisonMode1 != null) {
-            return String.format(Locale.US, "comparisonMode: %s,", comparisonMode1);
-        }
-        return "";
-    }
-
-    private String generateJSmaximumGap() {
-        if (maximumGap != null) {
-            return String.format(Locale.US, "maximumGap: %f,", maximumGap);
-        }
-        return "";
-    }
-
-    private String generateJSminimumGap() {
-        if (minimumGap != null) {
-            return String.format(Locale.US, "minimumGap: %f,", minimumGap);
-        }
-        return "";
-    }
-
-    private String generateJSminorTicks() {
-        if (minorTicks != null) {
-            return String.format(Locale.US, "minorTicks: %s,", minorTicks);
-        }
-        return "";
-    }
-
-    private String generateJSminorTicks1() {
-        if (minorTicks1 != null) {
-            return String.format(Locale.US, "minorTicks: %s,", Arrays.toString(minorTicks1));
-        }
-        return "";
-    }
-
-    private String generateJSsoftMaximum() {
-        if (softMaximum != null) {
-            return String.format(Locale.US, "softMaximum: %f,", softMaximum);
-        }
-        return "";
-    }
-
-    private String generateJSsoftMinimum() {
-        if (softMinimum != null) {
-            return String.format(Locale.US, "softMinimum: %f,", softMinimum);
-        }
-        return "";
-    }
-
-    private String generateJSstackDirection() {
-        if (stackDirection != null) {
-            return String.format(Locale.US, "stackDirection: %s,", (stackDirection != null) ? stackDirection.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstackDirection1() {
-        if (stackDirection1 != null) {
-            return String.format(Locale.US, "stackDirection: %s,", stackDirection1);
-        }
-        return "";
-    }
-
-    private String generateJSstackMode() {
-        if (stackMode != null) {
-            return String.format(Locale.US, "stackMode: %s,", (stackMode != null) ? stackMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstackMode1() {
-        if (stackMode1 != null) {
-            return String.format(Locale.US, "stackMode: %s,", stackMode1);
-        }
-        return "";
-    }
-
-    private String generateJSstickToZero() {
-        if (stickToZero != null) {
-            return String.format(Locale.US, "stickToZero: %b,", stickToZero);
-        }
-        return "";
-    }
-
-    private String generateJSticks() {
-        if (ticks != null) {
-            return String.format(Locale.US, "ticks: %s,", ticks);
-        }
-        return "";
-    }
-
-    private String generateJSticks1() {
-        if (ticks1 != null) {
-            return String.format(Locale.US, "ticks: %s,", Arrays.toString(ticks1));
+            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -639,28 +533,47 @@ public class ScalesLinear extends ScatterBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScompareWith());
-            js.append(generateJScompareWith1());
-            js.append(generateJScompareWith2());
-            js.append(generateJScomparisonMode());
-            js.append(generateJScomparisonMode1());
-            js.append(generateJSmaximumGap());
-            js.append(generateJSminimumGap());
-            js.append(generateJSminorTicks());
-            js.append(generateJSminorTicks1());
-            js.append(generateJSsoftMaximum());
-            js.append(generateJSsoftMinimum());
-            js.append(generateJSstackDirection());
-            js.append(generateJSstackDirection1());
-            js.append(generateJSstackMode());
-            js.append(generateJSstackMode1());
-            js.append(generateJSstickToZero());
-            js.append(generateJSticks());
-            js.append(generateJSticks1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScompareWith());
+////        
+//            js.append(generateJScompareWith1());
+////        
+//            js.append(generateJScompareWith2());
+////        
+//            js.append(generateJScomparisonMode());
+////        
+//            js.append(generateJScomparisonMode1());
+////        
+//            js.append(generateJSmaximumGap());
+////        
+//            js.append(generateJSminimumGap());
+////        
+//            js.append(generateJSminorTicks());
+////        
+//            js.append(generateJSminorTicks1());
+////        
+//            js.append(generateJSsoftMaximum());
+////        
+//            js.append(generateJSsoftMinimum());
+////        
+//            js.append(generateJSstackDirection());
+////        
+//            js.append(generateJSstackDirection1());
+////        
+//            js.append(generateJSstackMode());
+////        
+//            js.append(generateJSstackMode1());
+////        
+//            js.append(generateJSstickToZero());
+////        
+//            js.append(generateJSticks());
+////        
+//            js.append(generateJSticks1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

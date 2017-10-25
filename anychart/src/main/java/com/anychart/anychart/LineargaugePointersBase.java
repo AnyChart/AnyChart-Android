@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".color(%s)", color));
+            js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".color(%s)", color));
+                onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
             }
         }
@@ -79,10 +81,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -107,10 +109,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f)", color1, opacity));
+            js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color1, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity));
                 js.setLength(0);
             }
         }
@@ -188,10 +190,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -225,10 +227,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -262,10 +264,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -299,10 +301,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -336,10 +338,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -391,10 +393,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -438,10 +440,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -493,10 +495,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color2), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
             }
         }
@@ -530,10 +532,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color2), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
             }
         }
@@ -567,10 +569,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color2), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
             }
         }
@@ -604,10 +606,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color2, thickness, size));
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color2), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color2, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
             }
         }
@@ -641,10 +643,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color2, thickness, size));
+            js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color2), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color2, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color2), thickness, size));
                 js.setLength(0);
             }
         }
@@ -672,10 +674,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hovered(%s)", hovered));
+            js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
+                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
             }
         }
@@ -709,10 +711,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%s)", (label != null) ? label.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".label(%s)", ((label != null) ? label.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", (label != null) ? label.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", ((label != null) ? label.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -734,10 +736,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%s)", label1));
+            js.append(String.format(Locale.US, ".label(%s)", wrapQuotes(label1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", label1));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", wrapQuotes(label1)));
                 js.setLength(0);
             }
         }
@@ -790,10 +792,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".legendItem(%s)", legendItem));
+            js.append(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".legendItem(%s)", legendItem));
+                onChangeListener.onChange(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
                 js.setLength(0);
             }
         }
@@ -812,10 +814,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".name(%s)", name));
+            js.append(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".name(%s)", name));
+                onChangeListener.onChange(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
                 js.setLength(0);
             }
         }
@@ -843,10 +845,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".normal(%s)", normal));
+            js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
             }
         }
@@ -865,10 +867,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".offset(%s)", offset));
+            js.append(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".offset(%s)", offset));
+                onChangeListener.onChange(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
                 js.setLength(0);
             }
         }
@@ -896,10 +898,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -927,10 +929,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selected(%s)", selected));
+            js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
+                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
             }
         }
@@ -949,10 +951,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s)", (stroke != null) ? stroke.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", (stroke != null) ? stroke.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -995,10 +997,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1034,10 +1036,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color4 != null) ? color4.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color4 != null) ? color4.generateJs() : "null", thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1073,10 +1075,10 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color5, thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color5, thickness1, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1095,19 +1097,71 @@ public class LineargaugePointersBase extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".width(%s)", width));
+            js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSPatternFill getHatchFill() {
+//        if (PatternFill getHatchFill != null) {
+//            return PatternFill getHatchFill.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getHovered() {
+//        if (StateSettings getHovered != null) {
+//            return StateSettings getHovered.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getLabel() {
+//        if (UiLabelsFactory getLabel != null) {
+//            return UiLabelsFactory getLabel.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItemSettings getLegendItem() {
+//        if (LegendItemSettings getLegendItem != null) {
+//            return LegendItemSettings getLegendItem.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getNormal() {
+//        if (StateSettings getNormal != null) {
+//            return StateSettings getNormal.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScalesBase getScale() {
+//        if (ScalesBase getScale != null) {
+//            return ScalesBase getScale.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getSelected() {
+//        if (StateSettings getSelected != null) {
+//            return StateSettings getSelected.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
+            //return String.format(Locale.US, "getHatchFill: %s,", ((getHatchFill != null) ? getHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -1115,6 +1169,7 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
+            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -1122,6 +1177,7 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetLabel() {
         if (getLabel != null) {
             return getLabel.generateJs();
+            //return String.format(Locale.US, "getLabel: %s,", ((getLabel != null) ? getLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -1129,6 +1185,7 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetLegendItem() {
         if (getLegendItem != null) {
             return getLegendItem.generateJs();
+            //return String.format(Locale.US, "getLegendItem: %s,", ((getLegendItem != null) ? getLegendItem.generateJs() : "null"));
         }
         return "";
     }
@@ -1136,6 +1193,7 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
+            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -1143,6 +1201,7 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
+            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -1150,342 +1209,7 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJSfill() {
-        if (fill != null) {
-            return String.format(Locale.US, "fill: %s,", (fill != null) ? fill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor1() {
-        if (color1 != null) {
-            return String.format(Locale.US, "color: %s,", color1);
-        }
-        return "";
-    }
-
-    private String generateJSopacity() {
-        if (opacity != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity);
-        }
-        return "";
-    }
-
-    private String generateJSkeys() {
-        if (keys != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys));
-        }
-        return "";
-    }
-
-    private String generateJSkeys1() {
-        if (keys1 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys1));
-        }
-        return "";
-    }
-
-    private String generateJSangle() {
-        if (angle != null) {
-            return String.format(Locale.US, "angle: %f,", angle);
-        }
-        return "";
-    }
-
-    private String generateJSmode() {
-        if (mode != null) {
-            return String.format(Locale.US, "mode: %b,", mode);
-        }
-        return "";
-    }
-
-    private String generateJSmode1() {
-        if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode1 != null) ? mode1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode2() {
-        if (mode2 != null) {
-            return String.format(Locale.US, "mode: %s,", mode2);
-        }
-        return "";
-    }
-
-    private String generateJSopacity1() {
-        if (opacity1 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity1);
-        }
-        return "";
-    }
-
-    private String generateJSkeys2() {
-        if (keys2 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys2));
-        }
-        return "";
-    }
-
-    private String generateJSkeys3() {
-        if (keys3 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys3));
-        }
-        return "";
-    }
-
-    private String generateJScx() {
-        if (cx != null) {
-            return String.format(Locale.US, "cx: %f,", cx);
-        }
-        return "";
-    }
-
-    private String generateJScy() {
-        if (cy != null) {
-            return String.format(Locale.US, "cy: %f,", cy);
-        }
-        return "";
-    }
-
-    private String generateJSmode3() {
-        if (mode3 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity2() {
-        if (opacity2 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity2);
-        }
-        return "";
-    }
-
-    private String generateJSfx() {
-        if (fx != null) {
-            return String.format(Locale.US, "fx: %f,", fx);
-        }
-        return "";
-    }
-
-    private String generateJSfy() {
-        if (fy != null) {
-            return String.format(Locale.US, "fy: %f,", fy);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings() {
-        if (imageSettings != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings != null) ? imageSettings.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType() {
-        if (patternFillOrType != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType1() {
-        if (patternFillOrType1 != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType2() {
-        if (patternFillOrType2 != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType3() {
-        if (patternFillOrType3 != null) {
-            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType3);
-        }
-        return "";
-    }
-
-    private String generateJSpatternFillOrType4() {
-        if (patternFillOrType4 != null) {
-            return String.format(Locale.US, "patternFillOrType: %b,", patternFillOrType4);
-        }
-        return "";
-    }
-
-    private String generateJScolor2() {
-        if (color2 != null) {
-            return String.format(Locale.US, "color: %s,", color2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSsize() {
-        if (size != null) {
-            return String.format(Locale.US, "size: %f,", size);
-        }
-        return "";
-    }
-
-    private String generateJShovered() {
-        if (hovered != null) {
-            return String.format(Locale.US, "hovered: %s,", hovered);
-        }
-        return "";
-    }
-
-    private String generateJSlabel() {
-        if (label != null) {
-            return String.format(Locale.US, "label: %s,", (label != null) ? label.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlabel1() {
-        if (label1 != null) {
-            return String.format(Locale.US, "label: %s,", label1);
-        }
-        return "";
-    }
-
-    private String generateJSlabel2() {
-        if (label2 != null) {
-            return String.format(Locale.US, "label: %b,", label2);
-        }
-        return "";
-    }
-
-    private String generateJSlegendItem() {
-        if (legendItem != null) {
-            return String.format(Locale.US, "legendItem: %s,", legendItem);
-        }
-        return "";
-    }
-
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
-
-    private String generateJSnormal() {
-        if (normal != null) {
-            return String.format(Locale.US, "normal: %s,", normal);
-        }
-        return "";
-    }
-
-    private String generateJSoffset() {
-        if (offset != null) {
-            return String.format(Locale.US, "offset: %s,", offset);
-        }
-        return "";
-    }
-
-    private String generateJSscale() {
-        if (scale != null) {
-            return String.format(Locale.US, "scale: %s,", (scale != null) ? scale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSselected() {
-        if (selected != null) {
-            return String.format(Locale.US, "selected: %s,", selected);
-        }
-        return "";
-    }
-
-    private String generateJSstroke() {
-        if (stroke != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke != null) ? stroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor3() {
-        if (color3 != null) {
-            return String.format(Locale.US, "color: %s,", (color3 != null) ? color3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor4() {
-        if (color4 != null) {
-            return String.format(Locale.US, "color: %s,", (color4 != null) ? color4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor5() {
-        if (color5 != null) {
-            return String.format(Locale.US, "color: %s,", color5);
-        }
-        return "";
-    }
-
-    private String generateJSthickness1() {
-        if (thickness1 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness1);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %s,", width);
+            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -1515,58 +1239,107 @@ public class LineargaugePointersBase extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScolor());
-            js.append(generateJSindex());
-            js.append(generateJSfill());
-            js.append(generateJScolor1());
-            js.append(generateJSopacity());
-            js.append(generateJSkeys());
-            js.append(generateJSkeys1());
-            js.append(generateJSangle());
-            js.append(generateJSmode());
-            js.append(generateJSmode1());
-            js.append(generateJSmode2());
-            js.append(generateJSopacity1());
-            js.append(generateJSkeys2());
-            js.append(generateJSkeys3());
-            js.append(generateJScx());
-            js.append(generateJScy());
-            js.append(generateJSmode3());
-            js.append(generateJSopacity2());
-            js.append(generateJSfx());
-            js.append(generateJSfy());
-            js.append(generateJSimageSettings());
-            js.append(generateJSpatternFillOrType());
-            js.append(generateJSpatternFillOrType1());
-            js.append(generateJSpatternFillOrType2());
-            js.append(generateJSpatternFillOrType3());
-            js.append(generateJSpatternFillOrType4());
-            js.append(generateJScolor2());
-            js.append(generateJSthickness());
-            js.append(generateJSsize());
-            js.append(generateJShovered());
-            js.append(generateJSlabel());
-            js.append(generateJSlabel1());
-            js.append(generateJSlabel2());
-            js.append(generateJSlegendItem());
-            js.append(generateJSname());
-            js.append(generateJSnormal());
-            js.append(generateJSoffset());
-            js.append(generateJSscale());
-            js.append(generateJSselected());
-            js.append(generateJSstroke());
-            js.append(generateJScolor3());
-            js.append(generateJScolor4());
-            js.append(generateJScolor5());
-            js.append(generateJSthickness1());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJSwidth());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSfill());
+////        
+//            js.append(generateJScolor1());
+////        
+//            js.append(generateJSopacity());
+////        
+//            js.append(generateJSkeys());
+////        
+//            js.append(generateJSkeys1());
+////        
+//            js.append(generateJSangle());
+////        
+//            js.append(generateJSmode());
+////        
+//            js.append(generateJSmode1());
+////        
+//            js.append(generateJSmode2());
+////        
+//            js.append(generateJSopacity1());
+////        
+//            js.append(generateJSkeys2());
+////        
+//            js.append(generateJSkeys3());
+////        
+//            js.append(generateJScx());
+////        
+//            js.append(generateJScy());
+////        
+//            js.append(generateJSmode3());
+////        
+//            js.append(generateJSopacity2());
+////        
+//            js.append(generateJSfx());
+////        
+//            js.append(generateJSfy());
+////        
+//            js.append(generateJSimageSettings());
+////        
+//            js.append(generateJSpatternFillOrType());
+////        
+//            js.append(generateJSpatternFillOrType1());
+////        
+//            js.append(generateJSpatternFillOrType2());
+////        
+//            js.append(generateJSpatternFillOrType3());
+////        
+//            js.append(generateJSpatternFillOrType4());
+////        
+//            js.append(generateJScolor2());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSsize());
+////        
+//            js.append(generateJShovered());
+////        
+//            js.append(generateJSlabel());
+////        
+//            js.append(generateJSlabel1());
+////        
+//            js.append(generateJSlabel2());
+////        
+//            js.append(generateJSlegendItem());
+////        
+//            js.append(generateJSname());
+////        
+//            js.append(generateJSnormal());
+////        
+//            js.append(generateJSoffset());
+////        
+//            js.append(generateJSscale());
+////        
+//            js.append(generateJSselected());
+////        
+//            js.append(generateJSstroke());
+////        
+//            js.append(generateJScolor3());
+////        
+//            js.append(generateJScolor4());
+////        
+//            js.append(generateJScolor5());
+////        
+//            js.append(generateJSthickness1());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJSwidth());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

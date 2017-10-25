@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -25,7 +27,7 @@ public class Chart extends VisualBaseWithBounds {
     
     private ChartA11y getA11y;
 
-    public ChartA11y getA11y() {
+    public ChartA11y getAy() {
         if (getA11y == null)
             getA11y = new ChartA11y(jsBase + ".ay()");
 
@@ -72,10 +74,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".a11y(%s)", ay1));
+            js.append(String.format(Locale.US, ".a11y(%s)", wrapQuotes(ay1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".a11y(%s)", ay1));
+                onChangeListener.onChange(String.format(Locale.US, ".a11y(%s)", wrapQuotes(ay1)));
                 js.setLength(0);
             }
         }
@@ -131,10 +133,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".animation(%s)", animation1));
+            js.append(String.format(Locale.US, ".animation(%s)", wrapQuotes(animation1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".animation(%s)", animation1));
+                onChangeListener.onChange(String.format(Locale.US, ".animation(%s)", wrapQuotes(animation1)));
                 js.setLength(0);
             }
         }
@@ -187,10 +189,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".background(%s)", background));
+            js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
             }
         }
@@ -226,10 +228,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", (container != null) ? container.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (container != null) ? container.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -252,10 +254,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", (container1 != null) ? container1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (container1 != null) ? container1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -278,10 +280,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", container2));
+            js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", container2));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
                 js.setLength(0);
             }
         }
@@ -304,10 +306,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".container(%s)", (container3 != null) ? container3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (container3 != null) ? container3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -339,10 +341,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".contextMenu(%s)", contextMenu));
+            js.append(String.format(Locale.US, ".contextMenu(%s)", wrapQuotes(contextMenu)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".contextMenu(%s)", contextMenu));
+                onChangeListener.onChange(String.format(Locale.US, ".contextMenu(%s)", wrapQuotes(contextMenu)));
                 js.setLength(0);
             }
         }
@@ -416,10 +418,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".exports(%s)", exports));
+            js.append(String.format(Locale.US, ".exports(%s)", wrapQuotes(exports)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".exports(%s)", exports));
+                onChangeListener.onChange(String.format(Locale.US, ".exports(%s)", wrapQuotes(exports)));
                 js.setLength(0);
             }
         }
@@ -450,10 +452,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b);", onSuccessOrOptions, width, height, quality, forceTransparentWhite));
+            js.append(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b);", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b)", onSuccessOrOptions, width, height, quality, forceTransparentWhite));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b)", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
                 js.setLength(0);
             }
         }
@@ -494,10 +496,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %s, %f, %f);", paperSizeOrWidth, landscapeOrWidth, onSuccessOrOptions1, x, y));
+            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %s, %f, %f);", paperSizeOrWidth, landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %s, %f, %f)", paperSizeOrWidth, landscapeOrWidth, onSuccessOrOptions1, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %s, %f, %f)", paperSizeOrWidth, landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
                 js.setLength(0);
             }
         }
@@ -531,10 +533,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %s, %f, %f);", paperSizeOrWidth, landscapeOrWidth1, onSuccessOrOptions1, x, y));
+            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %s, %f, %f);", paperSizeOrWidth, landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %s, %f, %f)", paperSizeOrWidth, landscapeOrWidth1, onSuccessOrOptions1, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %s, %f, %f)", paperSizeOrWidth, landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
                 js.setLength(0);
             }
         }
@@ -568,10 +570,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %s, %f, %f);", paperSizeOrWidth1, landscapeOrWidth, onSuccessOrOptions1, x, y));
+            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %s, %f, %f);", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %s, %f, %f)", paperSizeOrWidth1, landscapeOrWidth, onSuccessOrOptions1, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %s, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
                 js.setLength(0);
             }
         }
@@ -605,10 +607,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %s, %f, %f);", paperSizeOrWidth1, landscapeOrWidth1, onSuccessOrOptions1, x, y));
+            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %s, %f, %f);", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %s, %f, %f)", paperSizeOrWidth1, landscapeOrWidth1, onSuccessOrOptions1, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %s, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
                 js.setLength(0);
             }
         }
@@ -648,10 +650,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %f, %f, %f);", onSuccessOrOptions2, width1, height1, quality1));
+            js.append(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %f, %f, %f);", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %f, %f, %f)", onSuccessOrOptions2, width1, height1, quality1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %f, %f, %f)", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
                 js.setLength(0);
             }
         }
@@ -690,10 +692,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b, %s);", paperSizeOrWidth2, landscapeOrHeight, onSuccessOrOptions3));
+            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b, %s);", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b, %s)", paperSizeOrWidth2, landscapeOrHeight, onSuccessOrOptions3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b, %s)", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
                 js.setLength(0);
             }
         }
@@ -727,10 +729,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s);", paperSizeOrWidth2, landscapeOrHeight1, onSuccessOrOptions3));
+            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s);", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s)", paperSizeOrWidth2, landscapeOrHeight1, onSuccessOrOptions3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s)", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
                 js.setLength(0);
             }
         }
@@ -764,10 +766,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b, %s);", paperSizeOrWidth3, landscapeOrHeight, onSuccessOrOptions3));
+            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b, %s);", paperSizeOrWidth3, landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b, %s)", paperSizeOrWidth3, landscapeOrHeight, onSuccessOrOptions3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b, %s)", paperSizeOrWidth3, landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
                 js.setLength(0);
             }
         }
@@ -801,10 +803,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s, %s);", paperSizeOrWidth3, landscapeOrHeight1, onSuccessOrOptions3));
+            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s, %s);", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s, %s)", paperSizeOrWidth3, landscapeOrHeight1, onSuccessOrOptions3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s, %s)", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
                 js.setLength(0);
             }
         }
@@ -834,13 +836,20 @@ public class Chart extends VisualBaseWithBounds {
         }
     }
 
-    private UiLabel getLabel;
+    private List<UiLabel> getLabel = new ArrayList<>();
 
-    public UiLabel getLabel() {
-        if (getLabel == null)
-            getLabel = new UiLabel(jsBase + ".label()");
+    public UiLabel getLabel(String index) {
+        UiLabel item = new UiLabel(jsBase + ".label(" + wrapQuotes(index) + ")");
+        getLabel.add(item);
+        return item;
+    }
 
-        return getLabel;
+    private List<UiLabel> getLabel1 = new ArrayList<>();
+
+    public UiLabel getLabel(Double index) {
+        UiLabel item = new UiLabel(jsBase + ".label(" + index + ")");
+        getLabel1.add(item);
+        return item;
     }
 
     private Boolean label;
@@ -886,10 +895,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%s)", label1));
+            js.append(String.format(Locale.US, ".label(%s)", wrapQuotes(label1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", label1));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", wrapQuotes(label1)));
                 js.setLength(0);
             }
         }
@@ -924,10 +933,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%s, %b)", index, label3));
+            js.append(String.format(Locale.US, ".label(%s, %b)", wrapQuotes(index), label3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %b)", index, label3));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %b)", wrapQuotes(index), label3));
                 js.setLength(0);
             }
         }
@@ -957,10 +966,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%s, %s)", index, label4));
+            js.append(String.format(Locale.US, ".label(%s, %s)", wrapQuotes(index), wrapQuotes(label4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %s)", index, label4));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %s)", wrapQuotes(index), wrapQuotes(label4)));
                 js.setLength(0);
             }
         }
@@ -1023,10 +1032,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%f, %s)", index1, label4));
+            js.append(String.format(Locale.US, ".label(%f, %s)", index1, wrapQuotes(label4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%f, %s)", index1, label4));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%f, %s)", index1, wrapQuotes(label4)));
                 js.setLength(0);
             }
         }
@@ -1115,10 +1124,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
+            js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
             }
         }
@@ -1140,10 +1149,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s)", margin2));
+            js.append(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", margin2));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
                 js.setLength(0);
             }
         }
@@ -1211,10 +1220,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value, value2, value4, value6));
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
             }
         }
@@ -1305,10 +1314,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".noData(%s)", noData));
+            js.append(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".noData(%s)", noData));
+                onChangeListener.onChange(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
                 js.setLength(0);
             }
         }
@@ -1367,10 +1376,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+            js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
             }
         }
@@ -1392,10 +1401,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".padding(%s)", padding2));
+            js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
             }
         }
@@ -1495,10 +1504,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value8, value10, value12, value14));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value8, value10, value12, value14));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
             }
         }
@@ -1622,10 +1631,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s);", (chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null", csvSettings, filename));
+            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s);", ((chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null"), wrapQuotes(csvSettings), wrapQuotes(filename)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", (chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null", csvSettings, filename));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", ((chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null"), wrapQuotes(csvSettings), wrapQuotes(filename)));
                 js.setLength(0);
             }
         }
@@ -1649,10 +1658,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s);", chartDataExportMode1, csvSettings, filename));
+            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s);", wrapQuotes(chartDataExportMode1), wrapQuotes(csvSettings), wrapQuotes(filename)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", chartDataExportMode1, csvSettings, filename));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", wrapQuotes(chartDataExportMode1), wrapQuotes(csvSettings), wrapQuotes(filename)));
                 js.setLength(0);
             }
         }
@@ -1702,10 +1711,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s);", width2, height2, quality2, forceTransparentWhite1, filename1));
+            js.append(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s);", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s)", width2, height2, quality2, forceTransparentWhite1, filename1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s)", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -1749,10 +1758,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %f, %f, %b, %s);", width3, height2, quality2, forceTransparentWhite1, filename1));
+            js.append(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %f, %f, %b, %s);", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %f, %f, %b, %s)", width3, height2, quality2, forceTransparentWhite1, filename1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %f, %f, %b, %s)", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -1774,10 +1783,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsJson(%s);", filename2));
+            js.append(String.format(Locale.US, jsBase + ".saveAsJson(%s);", wrapQuotes(filename2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJson(%s)", filename2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJson(%s)", wrapQuotes(filename2)));
                 js.setLength(0);
             }
         }
@@ -1824,10 +1833,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsPdf(%f, %b, %f, %f, %s);", paperSizeOrWidthOrOptions, landscape, x1, y1, filename3));
+            js.append(String.format(Locale.US, jsBase + ".saveAsPdf(%f, %b, %f, %f, %s);", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%f, %b, %f, %f, %s)", paperSizeOrWidthOrOptions, landscape, x1, y1, filename3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%f, %b, %f, %f, %s)", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
                 js.setLength(0);
             }
         }
@@ -1867,10 +1876,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s);", paperSizeOrWidthOrOptions1, landscape, x1, y1, filename3));
+            js.append(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidthOrOptions1), landscape, x1, y1, wrapQuotes(filename3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s)", paperSizeOrWidthOrOptions1, landscape, x1, y1, filename3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidthOrOptions1), landscape, x1, y1, wrapQuotes(filename3)));
                 js.setLength(0);
             }
         }
@@ -1921,10 +1930,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s);", width4, height3, quality3, filename4));
+            js.append(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s);", width4, height3, quality3, wrapQuotes(filename4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s)", width4, height3, quality3, filename4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s)", width4, height3, quality3, wrapQuotes(filename4)));
                 js.setLength(0);
             }
         }
@@ -1970,10 +1979,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsPng(%s, %f, %f, %s);", width5, height3, quality3, filename4));
+            js.append(String.format(Locale.US, jsBase + ".saveAsPng(%s, %f, %f, %s);", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%s, %f, %f, %s)", width5, height3, quality3, filename4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%s, %f, %f, %s)", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
                 js.setLength(0);
             }
         }
@@ -2011,10 +2020,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s);", paperSize, landscape1, filename5));
+            js.append(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s);", wrapQuotes(paperSize), landscape1, wrapQuotes(filename5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s)", paperSize, landscape1, filename5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s)", wrapQuotes(paperSize), landscape1, wrapQuotes(filename5)));
                 js.setLength(0);
             }
         }
@@ -2087,10 +2096,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s);", (chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null", filename6));
+            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s);", ((chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null"), wrapQuotes(filename6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", (chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null", filename6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", ((chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null"), wrapQuotes(filename6)));
                 js.setLength(0);
             }
         }
@@ -2122,10 +2131,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s);", chartDataExportMode3, filename6));
+            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s);", wrapQuotes(chartDataExportMode3), wrapQuotes(filename6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", chartDataExportMode3, filename6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", wrapQuotes(chartDataExportMode3), wrapQuotes(filename6)));
                 js.setLength(0);
             }
         }
@@ -2152,10 +2161,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsXml(%s);", filename7));
+            js.append(String.format(Locale.US, jsBase + ".saveAsXml(%s);", wrapQuotes(filename7)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXml(%s)", filename7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXml(%s)", wrapQuotes(filename7)));
                 js.setLength(0);
             }
         }
@@ -2173,10 +2182,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s)", (selectMarqueeFill != null) ? selectMarqueeFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s)", ((selectMarqueeFill != null) ? selectMarqueeFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s)", (selectMarqueeFill != null) ? selectMarqueeFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s)", ((selectMarqueeFill != null) ? selectMarqueeFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2198,10 +2207,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f)", color, opacity));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f)", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -2279,10 +2288,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -2316,10 +2325,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -2353,10 +2362,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -2390,10 +2399,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -2427,10 +2436,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -2482,10 +2491,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -2529,10 +2538,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -2571,10 +2580,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2605,10 +2614,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2639,10 +2648,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2721,10 +2730,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s);", onSuccessOrOptions4, asBase, width7, height5, quality4, forceTransparentWhite2, filename8));
+            js.append(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s);", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s)", onSuccessOrOptions4, asBase, width7, height5, quality4, forceTransparentWhite2, filename8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s)", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
                 js.setLength(0);
             }
         }
@@ -2803,10 +2812,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %s, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth2, onSuccessOrOptions5, asBase1, x2, y2, filename9));
+            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %s, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %s, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth2, onSuccessOrOptions5, asBase1, x2, y2, filename9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %s, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -2876,10 +2885,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %s, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth3, onSuccessOrOptions5, asBase1, x2, y2, filename9));
+            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %s, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %s, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth3, onSuccessOrOptions5, asBase1, x2, y2, filename9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %s, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -2949,10 +2958,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %s, %b, %f, %f, %s);", paperSizeOrWidth5, landscapeOrWidth2, onSuccessOrOptions5, asBase1, x2, y2, filename9));
+            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %s, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %s, %b, %f, %f, %s)", paperSizeOrWidth5, landscapeOrWidth2, onSuccessOrOptions5, asBase1, x2, y2, filename9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -3022,10 +3031,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %b, %f, %f, %s);", paperSizeOrWidth5, landscapeOrWidth3, onSuccessOrOptions5, asBase1, x2, y2, filename9));
+            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %b, %f, %f, %s)", paperSizeOrWidth5, landscapeOrWidth3, onSuccessOrOptions5, asBase1, x2, y2, filename9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -3107,10 +3116,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s);", onSuccessOrOptions6, asBase2, width8, height6, quality5, filename10));
+            js.append(String.format(Locale.US, jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s)", onSuccessOrOptions6, asBase2, width8, height6, quality5, filename10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s)", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
                 js.setLength(0);
             }
         }
@@ -3183,10 +3192,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %b, %s);", paperSizeOrWidth6, landscapeOrHeight2, onSuccessOrOptions7, asBase3, filename11));
+            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %b, %s);", wrapQuotes(paperSizeOrWidth6), landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %b, %s)", paperSizeOrWidth6, landscapeOrHeight2, onSuccessOrOptions7, asBase3, filename11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %b, %s)", wrapQuotes(paperSizeOrWidth6), landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
                 js.setLength(0);
             }
         }
@@ -3252,10 +3261,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %b, %s);", paperSizeOrWidth6, landscapeOrHeight3, onSuccessOrOptions7, asBase3, filename11));
+            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %b, %s);", wrapQuotes(paperSizeOrWidth6), wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %b, %s)", paperSizeOrWidth6, landscapeOrHeight3, onSuccessOrOptions7, asBase3, filename11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %b, %s)", wrapQuotes(paperSizeOrWidth6), wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
                 js.setLength(0);
             }
         }
@@ -3321,10 +3330,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %s, %b, %s);", paperSizeOrWidth7, landscapeOrHeight2, onSuccessOrOptions7, asBase3, filename11));
+            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %s, %b, %s);", paperSizeOrWidth7, landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %s, %b, %s)", paperSizeOrWidth7, landscapeOrHeight2, onSuccessOrOptions7, asBase3, filename11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %s, %b, %s)", paperSizeOrWidth7, landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
                 js.setLength(0);
             }
         }
@@ -3390,10 +3399,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %s, %b, %s);", paperSizeOrWidth7, landscapeOrHeight3, onSuccessOrOptions7, asBase3, filename11));
+            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %s, %b, %s);", paperSizeOrWidth7, wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %s, %b, %s)", paperSizeOrWidth7, landscapeOrHeight3, onSuccessOrOptions7, asBase3, filename11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %s, %b, %s)", paperSizeOrWidth7, wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
                 js.setLength(0);
             }
         }
@@ -3424,10 +3433,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", captionOrOptions, link, name, description));
+            js.append(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s)", captionOrOptions, link, name, description));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s)", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
                 js.setLength(0);
             }
         }
@@ -3457,10 +3466,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", captionOrOptions2, description1));
+            js.append(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions2), wrapQuotes(description1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s)", captionOrOptions2, description1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s)", wrapQuotes(captionOrOptions2), wrapQuotes(description1)));
                 js.setLength(0);
             }
         }
@@ -3489,10 +3498,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", linkOrOptions, description2));
+            js.append(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s)", linkOrOptions, description2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s)", wrapQuotes(linkOrOptions), wrapQuotes(description2)));
                 js.setLength(0);
             }
         }
@@ -3572,10 +3581,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".title(%s)", title1));
+            js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", title1));
+                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
             }
         }
@@ -3602,10 +3611,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toA11yTable(%s, %b);", title3, asString));
+            js.append(String.format(Locale.US, jsBase + ".toA11yTable(%s, %b);", wrapQuotes(title3), asString));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toA11yTable(%s, %b)", title3, asString));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toA11yTable(%s, %b)", wrapQuotes(title3), asString));
                 js.setLength(0);
             }
         }
@@ -3638,10 +3647,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toCsv(%s, %s);", (chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null", csvSettings1));
+            js.append(String.format(Locale.US, jsBase + ".toCsv(%s, %s);", ((chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null"), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", (chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null", csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", ((chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null"), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -3670,10 +3679,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toCsv(%s, %s);", chartDataExportMode5, csvSettings1));
+            js.append(String.format(Locale.US, jsBase + ".toCsv(%s, %s);", wrapQuotes(chartDataExportMode5), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", chartDataExportMode5, csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", wrapQuotes(chartDataExportMode5), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -3703,10 +3712,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %b);", title4, asString1));
+            js.append(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %b);", wrapQuotes(title4), asString1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %b)", title4, asString1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %b)", wrapQuotes(title4), asString1));
                 js.setLength(0);
             }
         }
@@ -3759,10 +3768,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toSvg(%s, %b);", paperSize2, landscape2));
+            js.append(String.format(Locale.US, jsBase + ".toSvg(%s, %b);", wrapQuotes(paperSize2), landscape2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b)", paperSize2, landscape2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b)", wrapQuotes(paperSize2), landscape2));
                 js.setLength(0);
             }
         }
@@ -3858,10 +3867,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".tooltip(%s)", tooltip));
+            js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", tooltip));
+                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
             }
         }
@@ -3892,9 +3901,103 @@ public class Chart extends VisualBaseWithBounds {
         return this;
     }
 
+
+//
+//    private String generateJSChartA11y getA11y() {
+//        if (ChartA11y getA11y != null) {
+//            return ChartA11y getA11y.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSAnimation getAnimation() {
+//        if (Animation getAnimation != null) {
+//            return Animation getAnimation.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiBackground getBackground() {
+//        if (UiBackground getBackground != null) {
+//            return UiBackground getBackground.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLayer getContainer() {
+//        if (Layer getContainer != null) {
+//            return Layer getContainer.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSContextMenu getContextMenu() {
+//        if (ContextMenu getContextMenu != null) {
+//            return ContextMenu getContextMenu.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSExports getExports() {
+//        if (Exports getExports != null) {
+//            return Exports getExports.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabel getLabel() {
+//        if (UiLabel getLabel != null) {
+//            return UiLabel getLabel.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabel getLabel1() {
+//        if (UiLabel getLabel1 != null) {
+//            return UiLabel getLabel1.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSMargin getMargin() {
+//        if (Margin getMargin != null) {
+//            return Margin getMargin.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSNoDataSettings getNoData() {
+//        if (NoDataSettings getNoData != null) {
+//            return NoDataSettings getNoData.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUtilsPadding getPadding() {
+//        if (UtilsPadding getPadding != null) {
+//            return UtilsPadding getPadding.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiTitle getTitle() {
+//        if (UiTitle getTitle != null) {
+//            return UiTitle getTitle.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSTooltip getTooltip() {
+//        if (Tooltip getTooltip != null) {
+//            return Tooltip getTooltip.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetA11y() {
         if (getA11y != null) {
             return getA11y.generateJs();
+            //return String.format(Locale.US, "getAy: %s,", ((getA11y != null) ? getA11y.generateJs() : "null"));
         }
         return "";
     }
@@ -3902,6 +4005,7 @@ public class Chart extends VisualBaseWithBounds {
     private String generateJSgetAnimation() {
         if (getAnimation != null) {
             return getAnimation.generateJs();
+            //return String.format(Locale.US, "getAnimation: %s,", ((getAnimation != null) ? getAnimation.generateJs() : "null"));
         }
         return "";
     }
@@ -3909,6 +4013,7 @@ public class Chart extends VisualBaseWithBounds {
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
+            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -3916,6 +4021,7 @@ public class Chart extends VisualBaseWithBounds {
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
+            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -3923,6 +4029,7 @@ public class Chart extends VisualBaseWithBounds {
     private String generateJSgetContextMenu() {
         if (getContextMenu != null) {
             return getContextMenu.generateJs();
+            //return String.format(Locale.US, "getContextMenu: %s,", ((getContextMenu != null) ? getContextMenu.generateJs() : "null"));
         }
         return "";
     }
@@ -3930,20 +4037,39 @@ public class Chart extends VisualBaseWithBounds {
     private String generateJSgetExports() {
         if (getExports != null) {
             return getExports.generateJs();
+            //return String.format(Locale.US, "getExports: %s,", ((getExports != null) ? getExports.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetLabel() {
-        if (getLabel != null) {
-            return getLabel.generateJs();
+        if (!getLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabel item : getLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
+    private String generateJSgetLabel1() {
+        if (!getLabel1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabel item : getLabel1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
+            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -3951,6 +4077,7 @@ public class Chart extends VisualBaseWithBounds {
     private String generateJSgetNoData() {
         if (getNoData != null) {
             return getNoData.generateJs();
+            //return String.format(Locale.US, "getNoData: %s,", ((getNoData != null) ? getNoData.generateJs() : "null"));
         }
         return "";
     }
@@ -3958,6 +4085,7 @@ public class Chart extends VisualBaseWithBounds {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
+            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -3965,6 +4093,7 @@ public class Chart extends VisualBaseWithBounds {
     private String generateJSgetTitle() {
         if (getTitle != null) {
             return getTitle.generateJs();
+            //return String.format(Locale.US, "getTitle: %s,", ((getTitle != null) ? getTitle.generateJs() : "null"));
         }
         return "";
     }
@@ -3972,1336 +4101,7 @@ public class Chart extends VisualBaseWithBounds {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSay() {
-        if (ay != null) {
-            return String.format(Locale.US, "ay: %b,", ay);
-        }
-        return "";
-    }
-
-    private String generateJSay1() {
-        if (ay1 != null) {
-            return String.format(Locale.US, "ay: %s,", ay1);
-        }
-        return "";
-    }
-
-    private String generateJSanimation() {
-        if (animation != null) {
-            return String.format(Locale.US, "animation: %b,", animation);
-        }
-        return "";
-    }
-
-    private String generateJSanimation1() {
-        if (animation1 != null) {
-            return String.format(Locale.US, "animation: %s,", animation1);
-        }
-        return "";
-    }
-
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
-
-    private String generateJSduration() {
-        if (duration != null) {
-            return String.format(Locale.US, "duration: %f,", duration);
-        }
-        return "";
-    }
-
-    private String generateJSbackground() {
-        if (background != null) {
-            return String.format(Locale.US, "background: %s,", background);
-        }
-        return "";
-    }
-
-    private String generateJScontainer() {
-        if (container != null) {
-            return String.format(Locale.US, "container: %s,", (container != null) ? container.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScontainer1() {
-        if (container1 != null) {
-            return String.format(Locale.US, "container: %s,", (container1 != null) ? container1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScontainer2() {
-        if (container2 != null) {
-            return String.format(Locale.US, "container: %s,", container2);
-        }
-        return "";
-    }
-
-    private String generateJScontainer3() {
-        if (container3 != null) {
-            return String.format(Locale.US, "container: %s,", (container3 != null) ? container3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScontextMenu() {
-        if (contextMenu != null) {
-            return String.format(Locale.US, "contextMenu: %s,", contextMenu);
-        }
-        return "";
-    }
-
-    private String generateJScontextMenu1() {
-        if (contextMenu1 != null) {
-            return String.format(Locale.US, "contextMenu: %b,", contextMenu1);
-        }
-        return "";
-    }
-
-    private String generateJSasync() {
-        if (async != null) {
-            return String.format(Locale.US, "async: %b,", async);
-        }
-        return "";
-    }
-
-    private String generateJSexports() {
-        if (exports != null) {
-            return String.format(Locale.US, "exports: %s,", exports);
-        }
-        return "";
-    }
-
-    private String generateJSonSuccessOrOptions() {
-        if (onSuccessOrOptions != null) {
-            return String.format(Locale.US, "onSuccessOrOptions: %s,", onSuccessOrOptions);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSquality() {
-        if (quality != null) {
-            return String.format(Locale.US, "quality: %f,", quality);
-        }
-        return "";
-    }
-
-    private String generateJSforceTransparentWhite() {
-        if (forceTransparentWhite != null) {
-            return String.format(Locale.US, "forceTransparentWhite: %b,", forceTransparentWhite);
-        }
-        return "";
-    }
-
-    private String generateJSonSuccessOrOptions1() {
-        if (onSuccessOrOptions1 != null) {
-            return String.format(Locale.US, "onSuccessOrOptions: %s,", onSuccessOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidth() {
-        if (paperSizeOrWidth != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: %f,", paperSizeOrWidth);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidth1() {
-        if (paperSizeOrWidth1 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: %s,", paperSizeOrWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscapeOrWidth() {
-        if (landscapeOrWidth != null) {
-            return String.format(Locale.US, "landscapeOrWidth: %f,", landscapeOrWidth);
-        }
-        return "";
-    }
-
-    private String generateJSlandscapeOrWidth1() {
-        if (landscapeOrWidth1 != null) {
-            return String.format(Locale.US, "landscapeOrWidth: %b,", landscapeOrWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSx() {
-        if (x != null) {
-            return String.format(Locale.US, "x: %f,", x);
-        }
-        return "";
-    }
-
-    private String generateJSy() {
-        if (y != null) {
-            return String.format(Locale.US, "y: %f,", y);
-        }
-        return "";
-    }
-
-    private String generateJSonSuccessOrOptions2() {
-        if (onSuccessOrOptions2 != null) {
-            return String.format(Locale.US, "onSuccessOrOptions: %s,", onSuccessOrOptions2);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %f,", width1);
-        }
-        return "";
-    }
-
-    private String generateJSheight1() {
-        if (height1 != null) {
-            return String.format(Locale.US, "height: %f,", height1);
-        }
-        return "";
-    }
-
-    private String generateJSquality1() {
-        if (quality1 != null) {
-            return String.format(Locale.US, "quality: %f,", quality1);
-        }
-        return "";
-    }
-
-    private String generateJSonSuccessOrOptions3() {
-        if (onSuccessOrOptions3 != null) {
-            return String.format(Locale.US, "onSuccessOrOptions: %s,", onSuccessOrOptions3);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidth2() {
-        if (paperSizeOrWidth2 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: %s,", paperSizeOrWidth2);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidth3() {
-        if (paperSizeOrWidth3 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: %f,", paperSizeOrWidth3);
-        }
-        return "";
-    }
-
-    private String generateJSlandscapeOrHeight() {
-        if (landscapeOrHeight != null) {
-            return String.format(Locale.US, "landscapeOrHeight: %b,", landscapeOrHeight);
-        }
-        return "";
-    }
-
-    private String generateJSlandscapeOrHeight1() {
-        if (landscapeOrHeight1 != null) {
-            return String.format(Locale.US, "landscapeOrHeight: %s,", landscapeOrHeight1);
-        }
-        return "";
-    }
-
-    private String generateJSxCoord() {
-        if (xCoord != null) {
-            return String.format(Locale.US, "xCoord: %f,", xCoord);
-        }
-        return "";
-    }
-
-    private String generateJSyCoord() {
-        if (yCoord != null) {
-            return String.format(Locale.US, "yCoord: %f,", yCoord);
-        }
-        return "";
-    }
-
-    private String generateJSlabel() {
-        if (label != null) {
-            return String.format(Locale.US, "label: %b,", label);
-        }
-        return "";
-    }
-
-    private String generateJSlabel1() {
-        if (label1 != null) {
-            return String.format(Locale.US, "label: %s,", label1);
-        }
-        return "";
-    }
-
-    private String generateJSlabel2() {
-        if (label2 != null) {
-            return String.format(Locale.US, "label: %s,", label2);
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %s,", index);
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSlabel3() {
-        if (label3 != null) {
-            return String.format(Locale.US, "label: %b,", label3);
-        }
-        return "";
-    }
-
-    private String generateJSlabel4() {
-        if (label4 != null) {
-            return String.format(Locale.US, "label: %s,", label4);
-        }
-        return "";
-    }
-
-    private String generateJSlabel5() {
-        if (label5 != null) {
-            return String.format(Locale.US, "label: %s,", label5);
-        }
-        return "";
-    }
-
-    private String generateJSxCoord1() {
-        if (xCoord1 != null) {
-            return String.format(Locale.US, "xCoord: %f,", xCoord1);
-        }
-        return "";
-    }
-
-    private String generateJSyCoord1() {
-        if (yCoord1 != null) {
-            return String.format(Locale.US, "yCoord: %f,", yCoord1);
-        }
-        return "";
-    }
-
-    private String generateJSmargin() {
-        if (margin != null) {
-            return String.format(Locale.US, "margin: %s,", Arrays.toString(margin));
-        }
-        return "";
-    }
-
-    private String generateJSmargin1() {
-        if (margin1 != null) {
-            return String.format(Locale.US, "margin: %s,", Arrays.toString(margin1));
-        }
-        return "";
-    }
-
-    private String generateJSmargin2() {
-        if (margin2 != null) {
-            return String.format(Locale.US, "margin: %s,", margin2);
-        }
-        return "";
-    }
-
-    private String generateJSvalue() {
-        if (value != null) {
-            return String.format(Locale.US, "value: %s,", value);
-        }
-        return "";
-    }
-
-    private String generateJSvalue1() {
-        if (value1 != null) {
-            return String.format(Locale.US, "value: %f,", value1);
-        }
-        return "";
-    }
-
-    private String generateJSvalue2() {
-        if (value2 != null) {
-            return String.format(Locale.US, "value: %s,", value2);
-        }
-        return "";
-    }
-
-    private String generateJSvalue3() {
-        if (value3 != null) {
-            return String.format(Locale.US, "value: %f,", value3);
-        }
-        return "";
-    }
-
-    private String generateJSvalue4() {
-        if (value4 != null) {
-            return String.format(Locale.US, "value: %s,", value4);
-        }
-        return "";
-    }
-
-    private String generateJSvalue5() {
-        if (value5 != null) {
-            return String.format(Locale.US, "value: %f,", value5);
-        }
-        return "";
-    }
-
-    private String generateJSvalue6() {
-        if (value6 != null) {
-            return String.format(Locale.US, "value: %s,", value6);
-        }
-        return "";
-    }
-
-    private String generateJSvalue7() {
-        if (value7 != null) {
-            return String.format(Locale.US, "value: %f,", value7);
-        }
-        return "";
-    }
-
-    private String generateJSnoData() {
-        if (noData != null) {
-            return String.format(Locale.US, "noData: %s,", noData);
-        }
-        return "";
-    }
-
-    private String generateJSpadding() {
-        if (padding != null) {
-            return String.format(Locale.US, "padding: %s,", Arrays.toString(padding));
-        }
-        return "";
-    }
-
-    private String generateJSpadding1() {
-        if (padding1 != null) {
-            return String.format(Locale.US, "padding: %s,", Arrays.toString(padding1));
-        }
-        return "";
-    }
-
-    private String generateJSpadding2() {
-        if (padding2 != null) {
-            return String.format(Locale.US, "padding: %s,", padding2);
-        }
-        return "";
-    }
-
-    private String generateJSvalue8() {
-        if (value8 != null) {
-            return String.format(Locale.US, "value: %s,", value8);
-        }
-        return "";
-    }
-
-    private String generateJSvalue9() {
-        if (value9 != null) {
-            return String.format(Locale.US, "value: %f,", value9);
-        }
-        return "";
-    }
-
-    private String generateJSvalue10() {
-        if (value10 != null) {
-            return String.format(Locale.US, "value: %s,", value10);
-        }
-        return "";
-    }
-
-    private String generateJSvalue11() {
-        if (value11 != null) {
-            return String.format(Locale.US, "value: %f,", value11);
-        }
-        return "";
-    }
-
-    private String generateJSvalue12() {
-        if (value12 != null) {
-            return String.format(Locale.US, "value: %s,", value12);
-        }
-        return "";
-    }
-
-    private String generateJSvalue13() {
-        if (value13 != null) {
-            return String.format(Locale.US, "value: %f,", value13);
-        }
-        return "";
-    }
-
-    private String generateJSvalue14() {
-        if (value14 != null) {
-            return String.format(Locale.US, "value: %s,", value14);
-        }
-        return "";
-    }
-
-    private String generateJSvalue15() {
-        if (value15 != null) {
-            return String.format(Locale.US, "value: %f,", value15);
-        }
-        return "";
-    }
-
-    private String generateJSchartDataExportMode() {
-        if (chartDataExportMode != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", (chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchartDataExportMode1() {
-        if (chartDataExportMode1 != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode1);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings() {
-        if (csvSettings != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings);
-        }
-        return "";
-    }
-
-    private String generateJSfilename() {
-        if (filename != null) {
-            return String.format(Locale.US, "filename: %s,", filename);
-        }
-        return "";
-    }
-
-    private String generateJSwidth2() {
-        if (width2 != null) {
-            return String.format(Locale.US, "width: %f,", width2);
-        }
-        return "";
-    }
-
-    private String generateJSwidth3() {
-        if (width3 != null) {
-            return String.format(Locale.US, "width: %s,", width3);
-        }
-        return "";
-    }
-
-    private String generateJSheight2() {
-        if (height2 != null) {
-            return String.format(Locale.US, "height: %f,", height2);
-        }
-        return "";
-    }
-
-    private String generateJSquality2() {
-        if (quality2 != null) {
-            return String.format(Locale.US, "quality: %f,", quality2);
-        }
-        return "";
-    }
-
-    private String generateJSforceTransparentWhite1() {
-        if (forceTransparentWhite1 != null) {
-            return String.format(Locale.US, "forceTransparentWhite: %b,", forceTransparentWhite1);
-        }
-        return "";
-    }
-
-    private String generateJSfilename1() {
-        if (filename1 != null) {
-            return String.format(Locale.US, "filename: %s,", filename1);
-        }
-        return "";
-    }
-
-    private String generateJSfilename2() {
-        if (filename2 != null) {
-            return String.format(Locale.US, "filename: %s,", filename2);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidthOrOptions() {
-        if (paperSizeOrWidthOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrWidthOrOptions: %f,", paperSizeOrWidthOrOptions);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidthOrOptions1() {
-        if (paperSizeOrWidthOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrWidthOrOptions: %s,", paperSizeOrWidthOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidthOrOptions2() {
-        if (paperSizeOrWidthOrOptions2 != null) {
-            return String.format(Locale.US, "paperSizeOrWidthOrOptions: %s,", paperSizeOrWidthOrOptions2);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
-    private String generateJSx1() {
-        if (x1 != null) {
-            return String.format(Locale.US, "x: %f,", x1);
-        }
-        return "";
-    }
-
-    private String generateJSy1() {
-        if (y1 != null) {
-            return String.format(Locale.US, "y: %f,", y1);
-        }
-        return "";
-    }
-
-    private String generateJSfilename3() {
-        if (filename3 != null) {
-            return String.format(Locale.US, "filename: %s,", filename3);
-        }
-        return "";
-    }
-
-    private String generateJSwidth4() {
-        if (width4 != null) {
-            return String.format(Locale.US, "width: %f,", width4);
-        }
-        return "";
-    }
-
-    private String generateJSwidth5() {
-        if (width5 != null) {
-            return String.format(Locale.US, "width: %s,", width5);
-        }
-        return "";
-    }
-
-    private String generateJSheight3() {
-        if (height3 != null) {
-            return String.format(Locale.US, "height: %f,", height3);
-        }
-        return "";
-    }
-
-    private String generateJSquality3() {
-        if (quality3 != null) {
-            return String.format(Locale.US, "quality: %f,", quality3);
-        }
-        return "";
-    }
-
-    private String generateJSfilename4() {
-        if (filename4 != null) {
-            return String.format(Locale.US, "filename: %s,", filename4);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSize() {
-        if (paperSize != null) {
-            return String.format(Locale.US, "paperSize: %s,", paperSize);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSize1() {
-        if (paperSize1 != null) {
-            return String.format(Locale.US, "paperSize: %s,", paperSize1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape1() {
-        if (landscape1 != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape1);
-        }
-        return "";
-    }
-
-    private String generateJSfilename5() {
-        if (filename5 != null) {
-            return String.format(Locale.US, "filename: %s,", filename5);
-        }
-        return "";
-    }
-
-    private String generateJSwidth6() {
-        if (width6 != null) {
-            return String.format(Locale.US, "width: %f,", width6);
-        }
-        return "";
-    }
-
-    private String generateJSheight4() {
-        if (height4 != null) {
-            return String.format(Locale.US, "height: %f,", height4);
-        }
-        return "";
-    }
-
-    private String generateJSchartDataExportMode2() {
-        if (chartDataExportMode2 != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", (chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchartDataExportMode3() {
-        if (chartDataExportMode3 != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode3);
-        }
-        return "";
-    }
-
-    private String generateJSfilename6() {
-        if (filename6 != null) {
-            return String.format(Locale.US, "filename: %s,", filename6);
-        }
-        return "";
-    }
-
-    private String generateJSfilename7() {
-        if (filename7 != null) {
-            return String.format(Locale.US, "filename: %s,", filename7);
-        }
-        return "";
-    }
-
-    private String generateJSselectMarqueeFill() {
-        if (selectMarqueeFill != null) {
-            return String.format(Locale.US, "selectMarqueeFill: %s,", (selectMarqueeFill != null) ? selectMarqueeFill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSopacity() {
-        if (opacity != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity);
-        }
-        return "";
-    }
-
-    private String generateJSkeys() {
-        if (keys != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys));
-        }
-        return "";
-    }
-
-    private String generateJSkeys1() {
-        if (keys1 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys1));
-        }
-        return "";
-    }
-
-    private String generateJSangle() {
-        if (angle != null) {
-            return String.format(Locale.US, "angle: %f,", angle);
-        }
-        return "";
-    }
-
-    private String generateJSmode() {
-        if (mode != null) {
-            return String.format(Locale.US, "mode: %b,", mode);
-        }
-        return "";
-    }
-
-    private String generateJSmode1() {
-        if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode1 != null) ? mode1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode2() {
-        if (mode2 != null) {
-            return String.format(Locale.US, "mode: %s,", mode2);
-        }
-        return "";
-    }
-
-    private String generateJSopacity1() {
-        if (opacity1 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity1);
-        }
-        return "";
-    }
-
-    private String generateJSkeys2() {
-        if (keys2 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys2));
-        }
-        return "";
-    }
-
-    private String generateJSkeys3() {
-        if (keys3 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys3));
-        }
-        return "";
-    }
-
-    private String generateJScx() {
-        if (cx != null) {
-            return String.format(Locale.US, "cx: %f,", cx);
-        }
-        return "";
-    }
-
-    private String generateJScy() {
-        if (cy != null) {
-            return String.format(Locale.US, "cy: %f,", cy);
-        }
-        return "";
-    }
-
-    private String generateJSmode3() {
-        if (mode3 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity2() {
-        if (opacity2 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity2);
-        }
-        return "";
-    }
-
-    private String generateJSfx() {
-        if (fx != null) {
-            return String.format(Locale.US, "fx: %f,", fx);
-        }
-        return "";
-    }
-
-    private String generateJSfy() {
-        if (fy != null) {
-            return String.format(Locale.US, "fy: %f,", fy);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings() {
-        if (imageSettings != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings != null) ? imageSettings.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor1() {
-        if (color1 != null) {
-            return String.format(Locale.US, "color: %s,", (color1 != null) ? color1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor2() {
-        if (color2 != null) {
-            return String.format(Locale.US, "color: %s,", (color2 != null) ? color2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor3() {
-        if (color3 != null) {
-            return String.format(Locale.US, "color: %s,", color3);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSonSuccessOrOptions4() {
-        if (onSuccessOrOptions4 != null) {
-            return String.format(Locale.US, "onSuccessOrOptions: %s,", onSuccessOrOptions4);
-        }
-        return "";
-    }
-
-    private String generateJSasBase() {
-        if (asBase != null) {
-            return String.format(Locale.US, "asBase: %b,", asBase);
-        }
-        return "";
-    }
-
-    private String generateJSwidth7() {
-        if (width7 != null) {
-            return String.format(Locale.US, "width: %f,", width7);
-        }
-        return "";
-    }
-
-    private String generateJSheight5() {
-        if (height5 != null) {
-            return String.format(Locale.US, "height: %f,", height5);
-        }
-        return "";
-    }
-
-    private String generateJSquality4() {
-        if (quality4 != null) {
-            return String.format(Locale.US, "quality: %f,", quality4);
-        }
-        return "";
-    }
-
-    private String generateJSforceTransparentWhite2() {
-        if (forceTransparentWhite2 != null) {
-            return String.format(Locale.US, "forceTransparentWhite: %b,", forceTransparentWhite2);
-        }
-        return "";
-    }
-
-    private String generateJSfilename8() {
-        if (filename8 != null) {
-            return String.format(Locale.US, "filename: %s,", filename8);
-        }
-        return "";
-    }
-
-    private String generateJSonSuccessOrOptions5() {
-        if (onSuccessOrOptions5 != null) {
-            return String.format(Locale.US, "onSuccessOrOptions: %s,", onSuccessOrOptions5);
-        }
-        return "";
-    }
-
-    private String generateJSasBase1() {
-        if (asBase1 != null) {
-            return String.format(Locale.US, "asBase: %b,", asBase1);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidth4() {
-        if (paperSizeOrWidth4 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: %f,", paperSizeOrWidth4);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidth5() {
-        if (paperSizeOrWidth5 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: %s,", paperSizeOrWidth5);
-        }
-        return "";
-    }
-
-    private String generateJSlandscapeOrWidth2() {
-        if (landscapeOrWidth2 != null) {
-            return String.format(Locale.US, "landscapeOrWidth: %f,", landscapeOrWidth2);
-        }
-        return "";
-    }
-
-    private String generateJSlandscapeOrWidth3() {
-        if (landscapeOrWidth3 != null) {
-            return String.format(Locale.US, "landscapeOrWidth: %b,", landscapeOrWidth3);
-        }
-        return "";
-    }
-
-    private String generateJSx2() {
-        if (x2 != null) {
-            return String.format(Locale.US, "x: %f,", x2);
-        }
-        return "";
-    }
-
-    private String generateJSy2() {
-        if (y2 != null) {
-            return String.format(Locale.US, "y: %f,", y2);
-        }
-        return "";
-    }
-
-    private String generateJSfilename9() {
-        if (filename9 != null) {
-            return String.format(Locale.US, "filename: %s,", filename9);
-        }
-        return "";
-    }
-
-    private String generateJSonSuccessOrOptions6() {
-        if (onSuccessOrOptions6 != null) {
-            return String.format(Locale.US, "onSuccessOrOptions: %s,", onSuccessOrOptions6);
-        }
-        return "";
-    }
-
-    private String generateJSasBase2() {
-        if (asBase2 != null) {
-            return String.format(Locale.US, "asBase: %b,", asBase2);
-        }
-        return "";
-    }
-
-    private String generateJSwidth8() {
-        if (width8 != null) {
-            return String.format(Locale.US, "width: %f,", width8);
-        }
-        return "";
-    }
-
-    private String generateJSheight6() {
-        if (height6 != null) {
-            return String.format(Locale.US, "height: %f,", height6);
-        }
-        return "";
-    }
-
-    private String generateJSquality5() {
-        if (quality5 != null) {
-            return String.format(Locale.US, "quality: %f,", quality5);
-        }
-        return "";
-    }
-
-    private String generateJSfilename10() {
-        if (filename10 != null) {
-            return String.format(Locale.US, "filename: %s,", filename10);
-        }
-        return "";
-    }
-
-    private String generateJSonSuccessOrOptions7() {
-        if (onSuccessOrOptions7 != null) {
-            return String.format(Locale.US, "onSuccessOrOptions: %s,", onSuccessOrOptions7);
-        }
-        return "";
-    }
-
-    private String generateJSasBase3() {
-        if (asBase3 != null) {
-            return String.format(Locale.US, "asBase: %b,", asBase3);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidth6() {
-        if (paperSizeOrWidth6 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: %s,", paperSizeOrWidth6);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrWidth7() {
-        if (paperSizeOrWidth7 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: %f,", paperSizeOrWidth7);
-        }
-        return "";
-    }
-
-    private String generateJSlandscapeOrHeight2() {
-        if (landscapeOrHeight2 != null) {
-            return String.format(Locale.US, "landscapeOrHeight: %b,", landscapeOrHeight2);
-        }
-        return "";
-    }
-
-    private String generateJSlandscapeOrHeight3() {
-        if (landscapeOrHeight3 != null) {
-            return String.format(Locale.US, "landscapeOrHeight: %s,", landscapeOrHeight3);
-        }
-        return "";
-    }
-
-    private String generateJSfilename11() {
-        if (filename11 != null) {
-            return String.format(Locale.US, "filename: %s,", filename11);
-        }
-        return "";
-    }
-
-    private String generateJScaptionOrOptions() {
-        if (captionOrOptions != null) {
-            return String.format(Locale.US, "captionOrOptions: %s,", captionOrOptions);
-        }
-        return "";
-    }
-
-    private String generateJScaptionOrOptions1() {
-        if (captionOrOptions1 != null) {
-            return String.format(Locale.US, "captionOrOptions: %s,", captionOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlink() {
-        if (link != null) {
-            return String.format(Locale.US, "link: %s,", link);
-        }
-        return "";
-    }
-
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
-
-    private String generateJSdescription() {
-        if (description != null) {
-            return String.format(Locale.US, "description: %s,", description);
-        }
-        return "";
-    }
-
-    private String generateJScaptionOrOptions2() {
-        if (captionOrOptions2 != null) {
-            return String.format(Locale.US, "captionOrOptions: %s,", captionOrOptions2);
-        }
-        return "";
-    }
-
-    private String generateJScaptionOrOptions3() {
-        if (captionOrOptions3 != null) {
-            return String.format(Locale.US, "captionOrOptions: %s,", captionOrOptions3);
-        }
-        return "";
-    }
-
-    private String generateJSdescription1() {
-        if (description1 != null) {
-            return String.format(Locale.US, "description: %s,", description1);
-        }
-        return "";
-    }
-
-    private String generateJSlinkOrOptions() {
-        if (linkOrOptions != null) {
-            return String.format(Locale.US, "linkOrOptions: %s,", linkOrOptions);
-        }
-        return "";
-    }
-
-    private String generateJSlinkOrOptions1() {
-        if (linkOrOptions1 != null) {
-            return String.format(Locale.US, "linkOrOptions: %s,", linkOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSdescription2() {
-        if (description2 != null) {
-            return String.format(Locale.US, "description: %s,", description2);
-        }
-        return "";
-    }
-
-    private String generateJSrepeat() {
-        if (repeat != null) {
-            return String.format(Locale.US, "repeat: %b,", repeat);
-        }
-        return "";
-    }
-
-    private String generateJStitle() {
-        if (title != null) {
-            return String.format(Locale.US, "title: %b,", title);
-        }
-        return "";
-    }
-
-    private String generateJStitle1() {
-        if (title1 != null) {
-            return String.format(Locale.US, "title: %s,", title1);
-        }
-        return "";
-    }
-
-    private String generateJStitle2() {
-        if (title2 != null) {
-            return String.format(Locale.US, "title: %s,", title2);
-        }
-        return "";
-    }
-
-    private String generateJStitle3() {
-        if (title3 != null) {
-            return String.format(Locale.US, "title: %s,", title3);
-        }
-        return "";
-    }
-
-    private String generateJSasString() {
-        if (asString != null) {
-            return String.format(Locale.US, "asString: %b,", asString);
-        }
-        return "";
-    }
-
-    private String generateJSchartDataExportMode4() {
-        if (chartDataExportMode4 != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", (chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchartDataExportMode5() {
-        if (chartDataExportMode5 != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode5);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings1() {
-        if (csvSettings1 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings1);
-        }
-        return "";
-    }
-
-    private String generateJStitle4() {
-        if (title4 != null) {
-            return String.format(Locale.US, "title: %s,", title4);
-        }
-        return "";
-    }
-
-    private String generateJSasString1() {
-        if (asString1 != null) {
-            return String.format(Locale.US, "asString: %b,", asString1);
-        }
-        return "";
-    }
-
-    private String generateJSstringify() {
-        if (stringify != null) {
-            return String.format(Locale.US, "stringify: %b,", stringify);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSize2() {
-        if (paperSize2 != null) {
-            return String.format(Locale.US, "paperSize: %s,", paperSize2);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSize3() {
-        if (paperSize3 != null) {
-            return String.format(Locale.US, "paperSize: %s,", paperSize3);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape2() {
-        if (landscape2 != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape2);
-        }
-        return "";
-    }
-
-    private String generateJSwidth9() {
-        if (width9 != null) {
-            return String.format(Locale.US, "width: %f,", width9);
-        }
-        return "";
-    }
-
-    private String generateJSheight7() {
-        if (height7 != null) {
-            return String.format(Locale.US, "height: %f,", height7);
-        }
-        return "";
-    }
-
-    private String generateJSasXmlNode() {
-        if (asXmlNode != null) {
-            return String.format(Locale.US, "asXmlNode: %b,", asXmlNode);
-        }
-        return "";
-    }
-
-    private String generateJStooltip() {
-        if (tooltip != null) {
-            return String.format(Locale.US, "tooltip: %s,", tooltip);
-        }
-        return "";
-    }
-
-    private String generateJStooltip1() {
-        if (tooltip1 != null) {
-            return String.format(Locale.US, "tooltip: %b,", tooltip1);
+            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -5320,6 +4120,7 @@ public class Chart extends VisualBaseWithBounds {
         jsGetters.append(generateJSgetContextMenu());
         jsGetters.append(generateJSgetExports());
         jsGetters.append(generateJSgetLabel());
+        jsGetters.append(generateJSgetLabel1());
         jsGetters.append(generateJSgetMargin());
         jsGetters.append(generateJSgetNoData());
         jsGetters.append(generateJSgetPadding());
@@ -5336,200 +4137,391 @@ public class Chart extends VisualBaseWithBounds {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSay());
-            js.append(generateJSay1());
-            js.append(generateJSanimation());
-            js.append(generateJSanimation1());
-            js.append(generateJSenabled());
-            js.append(generateJSduration());
-            js.append(generateJSbackground());
-            js.append(generateJScontainer());
-            js.append(generateJScontainer1());
-            js.append(generateJScontainer2());
-            js.append(generateJScontainer3());
-            js.append(generateJScontextMenu());
-            js.append(generateJScontextMenu1());
-            js.append(generateJSasync());
-            js.append(generateJSexports());
-            js.append(generateJSonSuccessOrOptions());
-            js.append(generateJSwidth());
-            js.append(generateJSheight());
-            js.append(generateJSquality());
-            js.append(generateJSforceTransparentWhite());
-            js.append(generateJSonSuccessOrOptions1());
-            js.append(generateJSpaperSizeOrWidth());
-            js.append(generateJSpaperSizeOrWidth1());
-            js.append(generateJSlandscapeOrWidth());
-            js.append(generateJSlandscapeOrWidth1());
-            js.append(generateJSx());
-            js.append(generateJSy());
-            js.append(generateJSonSuccessOrOptions2());
-            js.append(generateJSwidth1());
-            js.append(generateJSheight1());
-            js.append(generateJSquality1());
-            js.append(generateJSonSuccessOrOptions3());
-            js.append(generateJSpaperSizeOrWidth2());
-            js.append(generateJSpaperSizeOrWidth3());
-            js.append(generateJSlandscapeOrHeight());
-            js.append(generateJSlandscapeOrHeight1());
-            js.append(generateJSxCoord());
-            js.append(generateJSyCoord());
-            js.append(generateJSlabel());
-            js.append(generateJSlabel1());
-            js.append(generateJSlabel2());
-            js.append(generateJSindex());
-            js.append(generateJSindex1());
-            js.append(generateJSlabel3());
-            js.append(generateJSlabel4());
-            js.append(generateJSlabel5());
-            js.append(generateJSxCoord1());
-            js.append(generateJSyCoord1());
-            js.append(generateJSmargin());
-            js.append(generateJSmargin1());
-            js.append(generateJSmargin2());
-            js.append(generateJSvalue());
-            js.append(generateJSvalue1());
-            js.append(generateJSvalue2());
-            js.append(generateJSvalue3());
-            js.append(generateJSvalue4());
-            js.append(generateJSvalue5());
-            js.append(generateJSvalue6());
-            js.append(generateJSvalue7());
-            js.append(generateJSnoData());
-            js.append(generateJSpadding());
-            js.append(generateJSpadding1());
-            js.append(generateJSpadding2());
-            js.append(generateJSvalue8());
-            js.append(generateJSvalue9());
-            js.append(generateJSvalue10());
-            js.append(generateJSvalue11());
-            js.append(generateJSvalue12());
-            js.append(generateJSvalue13());
-            js.append(generateJSvalue14());
-            js.append(generateJSvalue15());
-            js.append(generateJSchartDataExportMode());
-            js.append(generateJSchartDataExportMode1());
-            js.append(generateJScsvSettings());
-            js.append(generateJSfilename());
-            js.append(generateJSwidth2());
-            js.append(generateJSwidth3());
-            js.append(generateJSheight2());
-            js.append(generateJSquality2());
-            js.append(generateJSforceTransparentWhite1());
-            js.append(generateJSfilename1());
-            js.append(generateJSfilename2());
-            js.append(generateJSpaperSizeOrWidthOrOptions());
-            js.append(generateJSpaperSizeOrWidthOrOptions1());
-            js.append(generateJSpaperSizeOrWidthOrOptions2());
-            js.append(generateJSlandscape());
-            js.append(generateJSx1());
-            js.append(generateJSy1());
-            js.append(generateJSfilename3());
-            js.append(generateJSwidth4());
-            js.append(generateJSwidth5());
-            js.append(generateJSheight3());
-            js.append(generateJSquality3());
-            js.append(generateJSfilename4());
-            js.append(generateJSpaperSize());
-            js.append(generateJSpaperSize1());
-            js.append(generateJSlandscape1());
-            js.append(generateJSfilename5());
-            js.append(generateJSwidth6());
-            js.append(generateJSheight4());
-            js.append(generateJSchartDataExportMode2());
-            js.append(generateJSchartDataExportMode3());
-            js.append(generateJSfilename6());
-            js.append(generateJSfilename7());
-            js.append(generateJSselectMarqueeFill());
-            js.append(generateJScolor());
-            js.append(generateJSopacity());
-            js.append(generateJSkeys());
-            js.append(generateJSkeys1());
-            js.append(generateJSangle());
-            js.append(generateJSmode());
-            js.append(generateJSmode1());
-            js.append(generateJSmode2());
-            js.append(generateJSopacity1());
-            js.append(generateJSkeys2());
-            js.append(generateJSkeys3());
-            js.append(generateJScx());
-            js.append(generateJScy());
-            js.append(generateJSmode3());
-            js.append(generateJSopacity2());
-            js.append(generateJSfx());
-            js.append(generateJSfy());
-            js.append(generateJSimageSettings());
-            js.append(generateJScolor1());
-            js.append(generateJScolor2());
-            js.append(generateJScolor3());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJSonSuccessOrOptions4());
-            js.append(generateJSasBase());
-            js.append(generateJSwidth7());
-            js.append(generateJSheight5());
-            js.append(generateJSquality4());
-            js.append(generateJSforceTransparentWhite2());
-            js.append(generateJSfilename8());
-            js.append(generateJSonSuccessOrOptions5());
-            js.append(generateJSasBase1());
-            js.append(generateJSpaperSizeOrWidth4());
-            js.append(generateJSpaperSizeOrWidth5());
-            js.append(generateJSlandscapeOrWidth2());
-            js.append(generateJSlandscapeOrWidth3());
-            js.append(generateJSx2());
-            js.append(generateJSy2());
-            js.append(generateJSfilename9());
-            js.append(generateJSonSuccessOrOptions6());
-            js.append(generateJSasBase2());
-            js.append(generateJSwidth8());
-            js.append(generateJSheight6());
-            js.append(generateJSquality5());
-            js.append(generateJSfilename10());
-            js.append(generateJSonSuccessOrOptions7());
-            js.append(generateJSasBase3());
-            js.append(generateJSpaperSizeOrWidth6());
-            js.append(generateJSpaperSizeOrWidth7());
-            js.append(generateJSlandscapeOrHeight2());
-            js.append(generateJSlandscapeOrHeight3());
-            js.append(generateJSfilename11());
-            js.append(generateJScaptionOrOptions());
-            js.append(generateJScaptionOrOptions1());
-            js.append(generateJSlink());
-            js.append(generateJSname());
-            js.append(generateJSdescription());
-            js.append(generateJScaptionOrOptions2());
-            js.append(generateJScaptionOrOptions3());
-            js.append(generateJSdescription1());
-            js.append(generateJSlinkOrOptions());
-            js.append(generateJSlinkOrOptions1());
-            js.append(generateJSdescription2());
-            js.append(generateJSrepeat());
-            js.append(generateJStitle());
-            js.append(generateJStitle1());
-            js.append(generateJStitle2());
-            js.append(generateJStitle3());
-            js.append(generateJSasString());
-            js.append(generateJSchartDataExportMode4());
-            js.append(generateJSchartDataExportMode5());
-            js.append(generateJScsvSettings1());
-            js.append(generateJStitle4());
-            js.append(generateJSasString1());
-            js.append(generateJSstringify());
-            js.append(generateJSpaperSize2());
-            js.append(generateJSpaperSize3());
-            js.append(generateJSlandscape2());
-            js.append(generateJSwidth9());
-            js.append(generateJSheight7());
-            js.append(generateJSasXmlNode());
-            js.append(generateJStooltip());
-            js.append(generateJStooltip1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSay());
+////        
+//            js.append(generateJSay1());
+////        
+//            js.append(generateJSanimation());
+////        
+//            js.append(generateJSanimation1());
+////        
+//            js.append(generateJSenabled());
+////        
+//            js.append(generateJSduration());
+////        
+//            js.append(generateJSbackground());
+////        
+//            js.append(generateJScontainer());
+////        
+//            js.append(generateJScontainer1());
+////        
+//            js.append(generateJScontainer2());
+////        
+//            js.append(generateJScontainer3());
+////        
+//            js.append(generateJScontextMenu());
+////        
+//            js.append(generateJScontextMenu1());
+////        
+//            js.append(generateJSasync());
+////        
+//            js.append(generateJSexports());
+////        
+//            js.append(generateJSonSuccessOrOptions());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSheight());
+////        
+//            js.append(generateJSquality());
+////        
+//            js.append(generateJSforceTransparentWhite());
+////        
+//            js.append(generateJSonSuccessOrOptions1());
+////        
+//            js.append(generateJSpaperSizeOrWidth());
+////        
+//            js.append(generateJSpaperSizeOrWidth1());
+////        
+//            js.append(generateJSlandscapeOrWidth());
+////        
+//            js.append(generateJSlandscapeOrWidth1());
+////        
+//            js.append(generateJSx());
+////        
+//            js.append(generateJSy());
+////        
+//            js.append(generateJSonSuccessOrOptions2());
+////        
+//            js.append(generateJSwidth1());
+////        
+//            js.append(generateJSheight1());
+////        
+//            js.append(generateJSquality1());
+////        
+//            js.append(generateJSonSuccessOrOptions3());
+////        
+//            js.append(generateJSpaperSizeOrWidth2());
+////        
+//            js.append(generateJSpaperSizeOrWidth3());
+////        
+//            js.append(generateJSlandscapeOrHeight());
+////        
+//            js.append(generateJSlandscapeOrHeight1());
+////        
+//            js.append(generateJSxCoord());
+////        
+//            js.append(generateJSyCoord());
+////        
+//            js.append(generateJSlabel());
+////        
+//            js.append(generateJSlabel1());
+////        
+//            js.append(generateJSlabel2());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSindex1());
+////        
+//            js.append(generateJSlabel3());
+////        
+//            js.append(generateJSlabel4());
+////        
+//            js.append(generateJSlabel5());
+////        
+//            js.append(generateJSxCoord1());
+////        
+//            js.append(generateJSyCoord1());
+////        
+//            js.append(generateJSmargin());
+////        
+//            js.append(generateJSmargin1());
+////        
+//            js.append(generateJSmargin2());
+////        
+//            js.append(generateJSvalue());
+////        
+//            js.append(generateJSvalue1());
+////        
+//            js.append(generateJSvalue2());
+////        
+//            js.append(generateJSvalue3());
+////        
+//            js.append(generateJSvalue4());
+////        
+//            js.append(generateJSvalue5());
+////        
+//            js.append(generateJSvalue6());
+////        
+//            js.append(generateJSvalue7());
+////        
+//            js.append(generateJSnoData());
+////        
+//            js.append(generateJSpadding());
+////        
+//            js.append(generateJSpadding1());
+////        
+//            js.append(generateJSpadding2());
+////        
+//            js.append(generateJSvalue8());
+////        
+//            js.append(generateJSvalue9());
+////        
+//            js.append(generateJSvalue10());
+////        
+//            js.append(generateJSvalue11());
+////        
+//            js.append(generateJSvalue12());
+////        
+//            js.append(generateJSvalue13());
+////        
+//            js.append(generateJSvalue14());
+////        
+//            js.append(generateJSvalue15());
+////        
+//            js.append(generateJSchartDataExportMode());
+////        
+//            js.append(generateJSchartDataExportMode1());
+////        
+//            js.append(generateJScsvSettings());
+////        
+//            js.append(generateJSfilename());
+////        
+//            js.append(generateJSwidth2());
+////        
+//            js.append(generateJSwidth3());
+////        
+//            js.append(generateJSheight2());
+////        
+//            js.append(generateJSquality2());
+////        
+//            js.append(generateJSforceTransparentWhite1());
+////        
+//            js.append(generateJSfilename1());
+////        
+//            js.append(generateJSfilename2());
+////        
+//            js.append(generateJSpaperSizeOrWidthOrOptions());
+////        
+//            js.append(generateJSpaperSizeOrWidthOrOptions1());
+////        
+//            js.append(generateJSpaperSizeOrWidthOrOptions2());
+////        
+//            js.append(generateJSlandscape());
+////        
+//            js.append(generateJSx1());
+////        
+//            js.append(generateJSy1());
+////        
+//            js.append(generateJSfilename3());
+////        
+//            js.append(generateJSwidth4());
+////        
+//            js.append(generateJSwidth5());
+////        
+//            js.append(generateJSheight3());
+////        
+//            js.append(generateJSquality3());
+////        
+//            js.append(generateJSfilename4());
+////        
+//            js.append(generateJSpaperSize());
+////        
+//            js.append(generateJSpaperSize1());
+////        
+//            js.append(generateJSlandscape1());
+////        
+//            js.append(generateJSfilename5());
+////        
+//            js.append(generateJSwidth6());
+////        
+//            js.append(generateJSheight4());
+////        
+//            js.append(generateJSchartDataExportMode2());
+////        
+//            js.append(generateJSchartDataExportMode3());
+////        
+//            js.append(generateJSfilename6());
+////        
+//            js.append(generateJSfilename7());
+////        
+//            js.append(generateJSselectMarqueeFill());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSopacity());
+////        
+//            js.append(generateJSkeys());
+////        
+//            js.append(generateJSkeys1());
+////        
+//            js.append(generateJSangle());
+////        
+//            js.append(generateJSmode());
+////        
+//            js.append(generateJSmode1());
+////        
+//            js.append(generateJSmode2());
+////        
+//            js.append(generateJSopacity1());
+////        
+//            js.append(generateJSkeys2());
+////        
+//            js.append(generateJSkeys3());
+////        
+//            js.append(generateJScx());
+////        
+//            js.append(generateJScy());
+////        
+//            js.append(generateJSmode3());
+////        
+//            js.append(generateJSopacity2());
+////        
+//            js.append(generateJSfx());
+////        
+//            js.append(generateJSfy());
+////        
+//            js.append(generateJSimageSettings());
+////        
+//            js.append(generateJScolor1());
+////        
+//            js.append(generateJScolor2());
+////        
+//            js.append(generateJScolor3());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJSonSuccessOrOptions4());
+////        
+//            js.append(generateJSasBase());
+////        
+//            js.append(generateJSwidth7());
+////        
+//            js.append(generateJSheight5());
+////        
+//            js.append(generateJSquality4());
+////        
+//            js.append(generateJSforceTransparentWhite2());
+////        
+//            js.append(generateJSfilename8());
+////        
+//            js.append(generateJSonSuccessOrOptions5());
+////        
+//            js.append(generateJSasBase1());
+////        
+//            js.append(generateJSpaperSizeOrWidth4());
+////        
+//            js.append(generateJSpaperSizeOrWidth5());
+////        
+//            js.append(generateJSlandscapeOrWidth2());
+////        
+//            js.append(generateJSlandscapeOrWidth3());
+////        
+//            js.append(generateJSx2());
+////        
+//            js.append(generateJSy2());
+////        
+//            js.append(generateJSfilename9());
+////        
+//            js.append(generateJSonSuccessOrOptions6());
+////        
+//            js.append(generateJSasBase2());
+////        
+//            js.append(generateJSwidth8());
+////        
+//            js.append(generateJSheight6());
+////        
+//            js.append(generateJSquality5());
+////        
+//            js.append(generateJSfilename10());
+////        
+//            js.append(generateJSonSuccessOrOptions7());
+////        
+//            js.append(generateJSasBase3());
+////        
+//            js.append(generateJSpaperSizeOrWidth6());
+////        
+//            js.append(generateJSpaperSizeOrWidth7());
+////        
+//            js.append(generateJSlandscapeOrHeight2());
+////        
+//            js.append(generateJSlandscapeOrHeight3());
+////        
+//            js.append(generateJSfilename11());
+////        
+//            js.append(generateJScaptionOrOptions());
+////        
+//            js.append(generateJScaptionOrOptions1());
+////        
+//            js.append(generateJSlink());
+////        
+//            js.append(generateJSname());
+////        
+//            js.append(generateJSdescription());
+////        
+//            js.append(generateJScaptionOrOptions2());
+////        
+//            js.append(generateJScaptionOrOptions3());
+////        
+//            js.append(generateJSdescription1());
+////        
+//            js.append(generateJSlinkOrOptions());
+////        
+//            js.append(generateJSlinkOrOptions1());
+////        
+//            js.append(generateJSdescription2());
+////        
+//            js.append(generateJSrepeat());
+////        
+//            js.append(generateJStitle());
+////        
+//            js.append(generateJStitle1());
+////        
+//            js.append(generateJStitle2());
+////        
+//            js.append(generateJStitle3());
+////        
+//            js.append(generateJSasString());
+////        
+//            js.append(generateJSchartDataExportMode4());
+////        
+//            js.append(generateJSchartDataExportMode5());
+////        
+//            js.append(generateJScsvSettings1());
+////        
+//            js.append(generateJStitle4());
+////        
+//            js.append(generateJSasString1());
+////        
+//            js.append(generateJSstringify());
+////        
+//            js.append(generateJSpaperSize2());
+////        
+//            js.append(generateJSpaperSize3());
+////        
+//            js.append(generateJSlandscape2());
+////        
+//            js.append(generateJSwidth9());
+////        
+//            js.append(generateJSheight7());
+////        
+//            js.append(generateJSasXmlNode());
+////        
+//            js.append(generateJStooltip());
+////        
+//            js.append(generateJStooltip1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

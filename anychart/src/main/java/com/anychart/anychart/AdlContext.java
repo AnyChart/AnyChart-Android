@@ -24,7 +24,7 @@ public class AdlContext extends JsObject  {
         this.prevResult = prevResult;
         this.volumeQueue = volumeQueue;
 
-        js.append(String.format(Locale.US, "{closeQueue: %s,dispose: %f,highQueue: %s,lowQueue: %s,period: %f,prevResult: %f,volumeQueue: %s}",  (closeQueue != null) ? closeQueue.generateJs() : "null", dispose, (highQueue != null) ? highQueue.generateJs() : "null", (lowQueue != null) ? lowQueue.generateJs() : "null", period, prevResult, (volumeQueue != null) ? volumeQueue.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{closeQueue: %s,dispose: %f,highQueue: %s,lowQueue: %s,period: %f,prevResult: %f,volumeQueue: %s}",  ((closeQueue != null) ? closeQueue.generateJs() : "null"), dispose, ((highQueue != null) ? highQueue.generateJs() : "null"), ((lowQueue != null) ? lowQueue.generateJs() : "null"), period, prevResult, ((volumeQueue != null) ? volumeQueue.generateJs() : "null")));
     }
 
     @Override

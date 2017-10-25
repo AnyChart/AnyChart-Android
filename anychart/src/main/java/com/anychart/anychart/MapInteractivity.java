@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -111,34 +113,8 @@ public class MapInteractivity extends Interactivity {
         return new Interactivity(jsBase);
     }
 
-    private String generateJSdrag() {
-        if (drag != null) {
-            return String.format(Locale.US, "drag: %b,", drag);
-        }
-        return "";
-    }
 
-    private String generateJSkeyboardZoomAndMove() {
-        if (keyboardZoomAndMove != null) {
-            return String.format(Locale.US, "keyboardZoomAndMove: %b,", keyboardZoomAndMove);
-        }
-        return "";
-    }
-
-    private String generateJSzoomOnDoubleClick() {
-        if (zoomOnDoubleClick != null) {
-            return String.format(Locale.US, "zoomOnDoubleClick: %b,", zoomOnDoubleClick);
-        }
-        return "";
-    }
-
-    private String generateJSzoomOnMouseWheel() {
-        if (zoomOnMouseWheel != null) {
-            return String.format(Locale.US, "zoomOnMouseWheel: %b,", zoomOnMouseWheel);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -157,14 +133,19 @@ public class MapInteractivity extends Interactivity {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSdrag());
-            js.append(generateJSkeyboardZoomAndMove());
-            js.append(generateJSzoomOnDoubleClick());
-            js.append(generateJSzoomOnMouseWheel());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSdrag());
+////        
+//            js.append(generateJSkeyboardZoomAndMove());
+////        
+//            js.append(generateJSzoomOnDoubleClick());
+////        
+//            js.append(generateJSzoomOnMouseWheel());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

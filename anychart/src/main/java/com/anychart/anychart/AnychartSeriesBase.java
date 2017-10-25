@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -25,7 +27,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     
     private SeriesA11y getA11y;
 
-    public SeriesA11y getA11y() {
+    public SeriesA11y getAy() {
         if (getA11y == null)
             getA11y = new SeriesA11y(jsBase + ".ay()");
 
@@ -72,10 +74,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".a11y(%s)", ay1));
+            js.append(String.format(Locale.US, ".a11y(%s)", wrapQuotes(ay1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".a11y(%s)", ay1));
+                onChangeListener.onChange(String.format(Locale.US, ".a11y(%s)", wrapQuotes(ay1)));
                 js.setLength(0);
             }
         }
@@ -94,10 +96,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".color(%s)", color));
+            js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".color(%s)", color));
+                onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
             }
         }
@@ -142,10 +144,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -174,10 +176,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -206,10 +208,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -238,10 +240,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -270,10 +272,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -302,10 +304,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -334,10 +336,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -366,10 +368,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
+            js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -398,10 +400,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -430,10 +432,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -462,10 +464,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
+            js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -494,23 +496,22 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private SeriesPoint getGetPoint;
+    private List<SeriesPoint> getGetPoint = new ArrayList<>();
 
-    public SeriesPoint getGetPoint() {
-        if (getGetPoint == null)
-            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
-
-        return getGetPoint;
+    public SeriesPoint getGetPoint(Double index) {
+        SeriesPoint item = new SeriesPoint(jsBase + ".getPoint(" + index + ")");
+        getGetPoint.add(item);
+        return item;
     }
 
     private Double index;
@@ -578,10 +579,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".hovered(%s)", hovered));
+            js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
+                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
             }
         }
@@ -604,10 +605,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".id(%s)", id));
+            js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".id(%s)", id));
+                onChangeListener.onChange(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
                 js.setLength(0);
             }
         }
@@ -663,10 +664,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".labels(%s)", labels));
+            js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
             }
         }
@@ -718,10 +719,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".legendItem(%s)", legendItem));
+            js.append(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".legendItem(%s)", legendItem));
+                onChangeListener.onChange(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
                 js.setLength(0);
             }
         }
@@ -755,10 +756,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".markers(%s)", markers));
+            js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
+                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
             }
         }
@@ -802,10 +803,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".name(%s)", name));
+            js.append(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".name(%s)", name));
+                onChangeListener.onChange(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
                 js.setLength(0);
             }
         }
@@ -833,10 +834,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".normal(%s)", normal));
+            js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
             }
         }
@@ -916,10 +917,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selected(%s)", selected));
+            js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
+                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
             }
         }
@@ -942,10 +943,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectionMode(%s)", (selectionMode != null) ? selectionMode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", (selectionMode != null) ? selectionMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -966,10 +967,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectionMode(%s)", selectionMode1));
+            js.append(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", selectionMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
                 js.setLength(0);
             }
         }
@@ -1001,10 +1002,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".tooltip(%s)", tooltip));
+            js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", tooltip));
+                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
             }
         }
@@ -1138,9 +1139,82 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         return this;
     }
 
+
+//
+//    private String generateJSSeriesA11y getA11y() {
+//        if (SeriesA11y getA11y != null) {
+//            return SeriesA11y getA11y.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSView getData() {
+//        if (View getData != null) {
+//            return View getData.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSSeriesPoint getGetPoint() {
+//        if (SeriesPoint getGetPoint != null) {
+//            return SeriesPoint getGetPoint.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getHovered() {
+//        if (StateSettings getHovered != null) {
+//            return StateSettings getHovered.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getLabels() {
+//        if (UiLabelsFactory getLabels != null) {
+//            return UiLabelsFactory getLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSLegendItemSettings getLegendItem() {
+//        if (LegendItemSettings getLegendItem != null) {
+//            return LegendItemSettings getLegendItem.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiMarkersFactory getMarkers() {
+//        if (UiMarkersFactory getMarkers != null) {
+//            return UiMarkersFactory getMarkers.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getNormal() {
+//        if (StateSettings getNormal != null) {
+//            return StateSettings getNormal.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getSelected() {
+//        if (StateSettings getSelected != null) {
+//            return StateSettings getSelected.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSTooltip getTooltip() {
+//        if (Tooltip getTooltip != null) {
+//            return Tooltip getTooltip.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetA11y() {
         if (getA11y != null) {
             return getA11y.generateJs();
+            //return String.format(Locale.US, "getAy: %s,", ((getA11y != null) ? getA11y.generateJs() : "null"));
         }
         return "";
     }
@@ -1148,20 +1222,27 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetData() {
         if (getData != null) {
             return getData.generateJs();
+            //return String.format(Locale.US, "getData: %s,", ((getData != null) ? getData.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetGetPoint() {
-        if (getGetPoint != null) {
-            return getGetPoint.generateJs();
+        if (!getGetPoint.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesPoint item : getGetPoint) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
+            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -1169,6 +1250,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
+            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1176,6 +1258,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetLegendItem() {
         if (getLegendItem != null) {
             return getLegendItem.generateJs();
+            //return String.format(Locale.US, "getLegendItem: %s,", ((getLegendItem != null) ? getLegendItem.generateJs() : "null"));
         }
         return "";
     }
@@ -1183,6 +1266,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
+            //return String.format(Locale.US, "getMarkers: %s,", ((getMarkers != null) ? getMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -1190,6 +1274,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
+            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -1197,6 +1282,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
+            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -1204,251 +1290,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSay() {
-        if (ay != null) {
-            return String.format(Locale.US, "ay: %b,", ay);
-        }
-        return "";
-    }
-
-    private String generateJSay1() {
-        if (ay1 != null) {
-            return String.format(Locale.US, "ay: %s,", ay1);
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSdata() {
-        if (data != null) {
-            return String.format(Locale.US, "data: %s,", (data != null) ? data.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata1() {
-        if (data1 != null) {
-            return String.format(Locale.US, "data: %s,", (data1 != null) ? data1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata2() {
-        if (data2 != null) {
-            return String.format(Locale.US, "data: %s,", Arrays.toString(data2));
-        }
-        return "";
-    }
-
-    private String generateJSdata3() {
-        if (data3 != null) {
-            return String.format(Locale.US, "data: %s,", data3);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings() {
-        if (csvSettings != null) {
-            return String.format(Locale.US, "csvSettings: %s,", (csvSettings != null) ? csvSettings.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings1() {
-        if (csvSettings1 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings1);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings2() {
-        if (csvSettings2 != null) {
-            return String.format(Locale.US, "csvSettings: %s,", (csvSettings2 != null) ? csvSettings2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJSindexes() {
-        if (indexes != null) {
-            return String.format(Locale.US, "indexes: %s,", Arrays.toString(indexes));
-        }
-        return "";
-    }
-
-    private String generateJShovered() {
-        if (hovered != null) {
-            return String.format(Locale.US, "hovered: %s,", hovered);
-        }
-        return "";
-    }
-
-    private String generateJSid() {
-        if (id != null) {
-            return String.format(Locale.US, "id: %s,", id);
-        }
-        return "";
-    }
-
-    private String generateJSid1() {
-        if (id1 != null) {
-            return String.format(Locale.US, "id: %f,", id1);
-        }
-        return "";
-    }
-
-    private String generateJSlabels() {
-        if (labels != null) {
-            return String.format(Locale.US, "labels: %s,", labels);
-        }
-        return "";
-    }
-
-    private String generateJSlabels1() {
-        if (labels1 != null) {
-            return String.format(Locale.US, "labels: %b,", labels1);
-        }
-        return "";
-    }
-
-    private String generateJSlegendItem() {
-        if (legendItem != null) {
-            return String.format(Locale.US, "legendItem: %s,", legendItem);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers() {
-        if (markers != null) {
-            return String.format(Locale.US, "markers: %s,", markers);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers1() {
-        if (markers1 != null) {
-            return String.format(Locale.US, "markers: %b,", markers1);
-        }
-        return "";
-    }
-
-    private String generateJSmarkers2() {
-        if (markers2 != null) {
-            return String.format(Locale.US, "markers: %s,", markers2);
-        }
-        return "";
-    }
-
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
-
-    private String generateJSnormal() {
-        if (normal != null) {
-            return String.format(Locale.US, "normal: %s,", normal);
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSindexes1() {
-        if (indexes1 != null) {
-            return String.format(Locale.US, "indexes: %f,", indexes1);
-        }
-        return "";
-    }
-
-    private String generateJSindexes2() {
-        if (indexes2 != null) {
-            return String.format(Locale.US, "indexes: %s,", Arrays.toString(indexes2));
-        }
-        return "";
-    }
-
-    private String generateJSselected() {
-        if (selected != null) {
-            return String.format(Locale.US, "selected: %s,", selected);
-        }
-        return "";
-    }
-
-    private String generateJSselectionMode() {
-        if (selectionMode != null) {
-            return String.format(Locale.US, "selectionMode: %s,", (selectionMode != null) ? selectionMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSselectionMode1() {
-        if (selectionMode1 != null) {
-            return String.format(Locale.US, "selectionMode: %s,", selectionMode1);
-        }
-        return "";
-    }
-
-    private String generateJStooltip() {
-        if (tooltip != null) {
-            return String.format(Locale.US, "tooltip: %s,", tooltip);
-        }
-        return "";
-    }
-
-    private String generateJStooltip1() {
-        if (tooltip1 != null) {
-            return String.format(Locale.US, "tooltip: %b,", tooltip1);
-        }
-        return "";
-    }
-
-    private String generateJSindexOrIndexes() {
-        if (indexOrIndexes != null) {
-            return String.format(Locale.US, "indexOrIndexes: %f,", indexOrIndexes);
-        }
-        return "";
-    }
-
-    private String generateJSindexOrIndexes1() {
-        if (indexOrIndexes1 != null) {
-            return String.format(Locale.US, "indexOrIndexes: %s,", Arrays.toString(indexOrIndexes1));
-        }
-        return "";
-    }
-
-    private String generateJSindex2() {
-        if (index2 != null) {
-            return String.format(Locale.US, "index: %f,", index2);
-        }
-        return "";
-    }
-
-    private String generateJSindexes3() {
-        if (indexes3 != null) {
-            return String.format(Locale.US, "indexes: %s,", Arrays.toString(indexes3));
+            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -1481,45 +1323,81 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSay());
-            js.append(generateJSay1());
-            js.append(generateJScolor());
-            js.append(generateJSdata());
-            js.append(generateJSdata1());
-            js.append(generateJSdata2());
-            js.append(generateJSdata3());
-            js.append(generateJScsvSettings());
-            js.append(generateJScsvSettings1());
-            js.append(generateJScsvSettings2());
-            js.append(generateJSindex());
-            js.append(generateJSindexes());
-            js.append(generateJShovered());
-            js.append(generateJSid());
-            js.append(generateJSid1());
-            js.append(generateJSlabels());
-            js.append(generateJSlabels1());
-            js.append(generateJSlegendItem());
-            js.append(generateJSmarkers());
-            js.append(generateJSmarkers1());
-            js.append(generateJSmarkers2());
-            js.append(generateJSname());
-            js.append(generateJSnormal());
-            js.append(generateJSindex1());
-            js.append(generateJSindexes1());
-            js.append(generateJSindexes2());
-            js.append(generateJSselected());
-            js.append(generateJSselectionMode());
-            js.append(generateJSselectionMode1());
-            js.append(generateJStooltip());
-            js.append(generateJStooltip1());
-            js.append(generateJSindexOrIndexes());
-            js.append(generateJSindexOrIndexes1());
-            js.append(generateJSindex2());
-            js.append(generateJSindexes3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSay());
+////        
+//            js.append(generateJSay1());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSdata());
+////        
+//            js.append(generateJSdata1());
+////        
+//            js.append(generateJSdata2());
+////        
+//            js.append(generateJSdata3());
+////        
+//            js.append(generateJScsvSettings());
+////        
+//            js.append(generateJScsvSettings1());
+////        
+//            js.append(generateJScsvSettings2());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSindexes());
+////        
+//            js.append(generateJShovered());
+////        
+//            js.append(generateJSid());
+////        
+//            js.append(generateJSid1());
+////        
+//            js.append(generateJSlabels());
+////        
+//            js.append(generateJSlabels1());
+////        
+//            js.append(generateJSlegendItem());
+////        
+//            js.append(generateJSmarkers());
+////        
+//            js.append(generateJSmarkers1());
+////        
+//            js.append(generateJSmarkers2());
+////        
+//            js.append(generateJSname());
+////        
+//            js.append(generateJSnormal());
+////        
+//            js.append(generateJSindex1());
+////        
+//            js.append(generateJSindexes1());
+////        
+//            js.append(generateJSindexes2());
+////        
+//            js.append(generateJSselected());
+////        
+//            js.append(generateJSselectionMode());
+////        
+//            js.append(generateJSselectionMode1());
+////        
+//            js.append(generateJStooltip());
+////        
+//            js.append(generateJStooltip1());
+////        
+//            js.append(generateJSindexOrIndexes());
+////        
+//            js.append(generateJSindexOrIndexes1());
+////        
+//            js.append(generateJSindex2());
+////        
+//            js.append(generateJSindexes3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

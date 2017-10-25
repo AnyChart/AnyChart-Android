@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -48,10 +50,10 @@ public class ChartWithCredits extends Chart {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".credits(%s);", credits));
+            js.append(String.format(Locale.US, jsBase + ".credits(%s);", wrapQuotes(credits)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%s)", credits));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%s)", wrapQuotes(credits)));
                 js.setLength(0);
             }
         }
@@ -82,23 +84,19 @@ public class ChartWithCredits extends Chart {
         return new Chart(jsBase);
     }
 
+
+//
+//    private String generateJSChartCredits getCredits() {
+//        if (ChartCredits getCredits != null) {
+//            return ChartCredits getCredits.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetCredits() {
         if (getCredits != null) {
             return getCredits.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScredits() {
-        if (credits != null) {
-            return String.format(Locale.US, "credits: %s,", credits);
-        }
-        return "";
-    }
-
-    private String generateJScredits1() {
-        if (credits1 != null) {
-            return String.format(Locale.US, "credits: %b,", credits1);
+            //return String.format(Locale.US, "getCredits: %s,", ((getCredits != null) ? getCredits.generateJs() : "null"));
         }
         return "";
     }
@@ -122,12 +120,15 @@ public class ChartWithCredits extends Chart {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScredits());
-            js.append(generateJScredits1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScredits());
+////        
+//            js.append(generateJScredits1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

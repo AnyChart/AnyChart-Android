@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -39,10 +41,10 @@ public class GaugePointersMarker extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".position(%s)", (position != null) ? position.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", (position != null) ? position.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class GaugePointersMarker extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".position(%s)", position1));
+            js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", position1));
+                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
             }
         }
@@ -113,10 +115,10 @@ public class GaugePointersMarker extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".radius(%s)", radius1));
+            js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", radius1));
+                onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
                 js.setLength(0);
             }
         }
@@ -163,10 +165,10 @@ public class GaugePointersMarker extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".size(%s)", size1));
+            js.append(String.format(Locale.US, ".size(%s)", wrapQuotes(size1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".size(%s)", size1));
+                onChangeListener.onChange(String.format(Locale.US, ".size(%s)", wrapQuotes(size1)));
                 js.setLength(0);
             }
         }
@@ -191,10 +193,10 @@ public class GaugePointersMarker extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".type(%s)", (type != null) ? type.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -216,79 +218,18 @@ public class GaugePointersMarker extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".type(%s)", type1));
+            js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", type1));
+                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSposition() {
-        if (position != null) {
-            return String.format(Locale.US, "position: %s,", (position != null) ? position.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSposition1() {
-        if (position1 != null) {
-            return String.format(Locale.US, "position: %s,", position1);
-        }
-        return "";
-    }
-
-    private String generateJSradius() {
-        if (radius != null) {
-            return String.format(Locale.US, "radius: %f,", radius);
-        }
-        return "";
-    }
-
-    private String generateJSradius1() {
-        if (radius1 != null) {
-            return String.format(Locale.US, "radius: %s,", radius1);
-        }
-        return "";
-    }
-
-    private String generateJSsize() {
-        if (size != null) {
-            return String.format(Locale.US, "size: %f,", size);
-        }
-        return "";
-    }
-
-    private String generateJSsize1() {
-        if (size1 != null) {
-            return String.format(Locale.US, "size: %s,", size1);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -307,19 +248,29 @@ public class GaugePointersMarker extends GaugePointersBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSposition());
-            js.append(generateJSposition1());
-            js.append(generateJSradius());
-            js.append(generateJSradius1());
-            js.append(generateJSsize());
-            js.append(generateJSsize1());
-            js.append(generateJStype());
-            js.append(generateJStype1());
-            js.append(generateJStype2());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSposition());
+////        
+//            js.append(generateJSposition1());
+////        
+//            js.append(generateJSradius());
+////        
+//            js.append(generateJSradius1());
+////        
+//            js.append(generateJSsize());
+////        
+//            js.append(generateJSsize1());
+////        
+//            js.append(generateJStype());
+////        
+//            js.append(generateJStype1());
+////        
+//            js.append(generateJStype2());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -63,10 +65,10 @@ public class Knob extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bottomRadius(%s)", bottomRadius1));
+            js.append(String.format(Locale.US, ".bottomRadius(%s)", wrapQuotes(bottomRadius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottomRadius(%s)", bottomRadius1));
+                onChangeListener.onChange(String.format(Locale.US, ".bottomRadius(%s)", wrapQuotes(bottomRadius1)));
                 js.setLength(0);
             }
         }
@@ -135,10 +137,10 @@ public class Knob extends GaugePointersBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".topRadius(%s)", topRadius1));
+            js.append(String.format(Locale.US, ".topRadius(%s)", wrapQuotes(topRadius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".topRadius(%s)", topRadius1));
+                onChangeListener.onChange(String.format(Locale.US, ".topRadius(%s)", wrapQuotes(topRadius1)));
                 js.setLength(0);
             }
         }
@@ -211,62 +213,8 @@ public class Knob extends GaugePointersBase {
         return this;
     }
 
-    private String generateJSbottomRadius() {
-        if (bottomRadius != null) {
-            return String.format(Locale.US, "bottomRadius: %f,", bottomRadius);
-        }
-        return "";
-    }
 
-    private String generateJSbottomRadius1() {
-        if (bottomRadius1 != null) {
-            return String.format(Locale.US, "bottomRadius: %s,", bottomRadius1);
-        }
-        return "";
-    }
-
-    private String generateJSbottomRatio() {
-        if (bottomRatio != null) {
-            return String.format(Locale.US, "bottomRatio: %f,", bottomRatio);
-        }
-        return "";
-    }
-
-    private String generateJStopRadius() {
-        if (topRadius != null) {
-            return String.format(Locale.US, "topRadius: %f,", topRadius);
-        }
-        return "";
-    }
-
-    private String generateJStopRadius1() {
-        if (topRadius1 != null) {
-            return String.format(Locale.US, "topRadius: %s,", topRadius1);
-        }
-        return "";
-    }
-
-    private String generateJStopRatio() {
-        if (topRatio != null) {
-            return String.format(Locale.US, "topRatio: %f,", topRatio);
-        }
-        return "";
-    }
-
-    private String generateJSverticesCount() {
-        if (verticesCount != null) {
-            return String.format(Locale.US, "verticesCount: %f,", verticesCount);
-        }
-        return "";
-    }
-
-    private String generateJSverticesCurvature() {
-        if (verticesCurvature != null) {
-            return String.format(Locale.US, "verticesCurvature: %f,", verticesCurvature);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -285,18 +233,27 @@ public class Knob extends GaugePointersBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSbottomRadius());
-            js.append(generateJSbottomRadius1());
-            js.append(generateJSbottomRatio());
-            js.append(generateJStopRadius());
-            js.append(generateJStopRadius1());
-            js.append(generateJStopRatio());
-            js.append(generateJSverticesCount());
-            js.append(generateJSverticesCurvature());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSbottomRadius());
+////        
+//            js.append(generateJSbottomRadius1());
+////        
+//            js.append(generateJSbottomRatio());
+////        
+//            js.append(generateJStopRadius());
+////        
+//            js.append(generateJStopRadius1());
+////        
+//            js.append(generateJStopRatio());
+////        
+//            js.append(generateJSverticesCount());
+////        
+//            js.append(generateJSverticesCurvature());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

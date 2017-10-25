@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -53,10 +55,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -86,10 +88,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -119,10 +121,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -174,10 +176,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -222,10 +224,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", (color4 != null) ? color4.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", (color4 != null) ? color4.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -270,10 +272,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", color5, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", color5, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -332,10 +334,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", (color6 != null) ? color6.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", ((color6 != null) ? color6.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", (color6 != null) ? color6.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", ((color6 != null) ? color6.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -387,10 +389,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", (color7 != null) ? color7.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", ((color7 != null) ? color7.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", (color7 != null) ? color7.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", ((color7 != null) ? color7.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -442,10 +444,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", color8, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", wrapQuotes(color8), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", color8, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", wrapQuotes(color8), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -511,10 +513,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", (color9 != null) ? color9.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", ((color9 != null) ? color9.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", (color9 != null) ? color9.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", ((color9 != null) ? color9.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -573,10 +575,10 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", (color10 != null) ? color10.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", (color10 != null) ? color10.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -635,212 +637,18 @@ public class Border extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", color11, thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", wrapQuotes(color11), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", color11, thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", wrapQuotes(color11), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", (color != null) ? color.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJScolor1() {
-        if (color1 != null) {
-            return String.format(Locale.US, "color: %s,", (color1 != null) ? color1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor2() {
-        if (color2 != null) {
-            return String.format(Locale.US, "color: %s,", color2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor3() {
-        if (color3 != null) {
-            return String.format(Locale.US, "color: %s,", (color3 != null) ? color3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor4() {
-        if (color4 != null) {
-            return String.format(Locale.US, "color: %s,", (color4 != null) ? color4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor5() {
-        if (color5 != null) {
-            return String.format(Locale.US, "color: %s,", color5);
-        }
-        return "";
-    }
-
-    private String generateJSthickness1() {
-        if (thickness1 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness1);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern1() {
-        if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin1() {
-        if (lineJoin1 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin1 != null) ? lineJoin1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap1() {
-        if (lineCap1 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap1 != null) ? lineCap1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor6() {
-        if (color6 != null) {
-            return String.format(Locale.US, "color: %s,", (color6 != null) ? color6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor7() {
-        if (color7 != null) {
-            return String.format(Locale.US, "color: %s,", (color7 != null) ? color7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor8() {
-        if (color8 != null) {
-            return String.format(Locale.US, "color: %s,", color8);
-        }
-        return "";
-    }
-
-    private String generateJSthickness2() {
-        if (thickness2 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness2);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern2() {
-        if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin2() {
-        if (lineJoin2 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin2 != null) ? lineJoin2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap2() {
-        if (lineCap2 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap2 != null) ? lineCap2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor9() {
-        if (color9 != null) {
-            return String.format(Locale.US, "color: %s,", (color9 != null) ? color9.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor10() {
-        if (color10 != null) {
-            return String.format(Locale.US, "color: %s,", (color10 != null) ? color10.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor11() {
-        if (color11 != null) {
-            return String.format(Locale.US, "color: %s,", color11);
-        }
-        return "";
-    }
-
-    private String generateJSthickness3() {
-        if (thickness3 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness3);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern3() {
-        if (dashpattern3 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern3);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin3() {
-        if (lineJoin3 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin3 != null) ? lineJoin3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap3() {
-        if (lineCap3 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap3 != null) ? lineCap3.generateJs() : "null");
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -859,38 +667,67 @@ public class Border extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScolor());
-            js.append(generateJScolor1());
-            js.append(generateJScolor2());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJScolor3());
-            js.append(generateJScolor4());
-            js.append(generateJScolor5());
-            js.append(generateJSthickness1());
-            js.append(generateJSdashpattern1());
-            js.append(generateJSlineJoin1());
-            js.append(generateJSlineCap1());
-            js.append(generateJScolor6());
-            js.append(generateJScolor7());
-            js.append(generateJScolor8());
-            js.append(generateJSthickness2());
-            js.append(generateJSdashpattern2());
-            js.append(generateJSlineJoin2());
-            js.append(generateJSlineCap2());
-            js.append(generateJScolor9());
-            js.append(generateJScolor10());
-            js.append(generateJScolor11());
-            js.append(generateJSthickness3());
-            js.append(generateJSdashpattern3());
-            js.append(generateJSlineJoin3());
-            js.append(generateJSlineCap3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJScolor1());
+////        
+//            js.append(generateJScolor2());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJScolor3());
+////        
+//            js.append(generateJScolor4());
+////        
+//            js.append(generateJScolor5());
+////        
+//            js.append(generateJSthickness1());
+////        
+//            js.append(generateJSdashpattern1());
+////        
+//            js.append(generateJSlineJoin1());
+////        
+//            js.append(generateJSlineCap1());
+////        
+//            js.append(generateJScolor6());
+////        
+//            js.append(generateJScolor7());
+////        
+//            js.append(generateJScolor8());
+////        
+//            js.append(generateJSthickness2());
+////        
+//            js.append(generateJSdashpattern2());
+////        
+//            js.append(generateJSlineJoin2());
+////        
+//            js.append(generateJSlineCap2());
+////        
+//            js.append(generateJScolor9());
+////        
+//            js.append(generateJScolor10());
+////        
+//            js.append(generateJScolor11());
+////        
+//            js.append(generateJSthickness3());
+////        
+//            js.append(generateJSdashpattern3());
+////        
+//            js.append(generateJSlineJoin3());
+////        
+//            js.append(generateJSlineCap3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

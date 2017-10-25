@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -103,10 +105,10 @@ public class DateTimeWithCalendar extends ScatterBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", (unit != null) ? unit.generateJs() : "null", fromPix, toPix, count1));
+            js.append(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", ((unit != null) ? unit.generateJs() : "null"), fromPix, toPix, count1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", (unit != null) ? unit.generateJs() : "null", fromPix, toPix, count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", ((unit != null) ? unit.generateJs() : "null"), fromPix, toPix, count1));
                 js.setLength(0);
             }
         }
@@ -135,10 +137,10 @@ public class DateTimeWithCalendar extends ScatterBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", unit1, fromPix, toPix, count1));
+            js.append(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", wrapQuotes(unit1), fromPix, toPix, count1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", unit1, fromPix, toPix, count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", wrapQuotes(unit1), fromPix, toPix, count1));
                 js.setLength(0);
             }
         }
@@ -293,10 +295,10 @@ public class DateTimeWithCalendar extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".unit(%s)", (unit2 != null) ? unit2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".unit(%s)", ((unit2 != null) ? unit2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", (unit2 != null) ? unit2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", ((unit2 != null) ? unit2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -319,10 +321,10 @@ public class DateTimeWithCalendar extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".unit(%s)", unit3));
+            js.append(String.format(Locale.US, ".unit(%s)", wrapQuotes(unit3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", unit3));
+                onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", wrapQuotes(unit3)));
                 js.setLength(0);
             }
         }
@@ -369,138 +371,29 @@ public class DateTimeWithCalendar extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".unitPixSize(%s)", unitPixSize1));
+            js.append(String.format(Locale.US, ".unitPixSize(%s)", wrapQuotes(unitPixSize1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".unitPixSize(%s)", unitPixSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".unitPixSize(%s)", wrapQuotes(unitPixSize1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSCalendar getCalendar() {
+//        if (Calendar getCalendar != null) {
+//            return Calendar getCalendar.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetCalendar() {
         if (getCalendar != null) {
             return getCalendar.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScount() {
-        if (count != null) {
-            return String.format(Locale.US, "count: %f,", count);
-        }
-        return "";
-    }
-
-    private String generateJSdate() {
-        if (date != null) {
-            return String.format(Locale.US, "date: %f,", date);
-        }
-        return "";
-    }
-
-    private String generateJSfromPix() {
-        if (fromPix != null) {
-            return String.format(Locale.US, "fromPix: %f,", fromPix);
-        }
-        return "";
-    }
-
-    private String generateJStoPix() {
-        if (toPix != null) {
-            return String.format(Locale.US, "toPix: %f,", toPix);
-        }
-        return "";
-    }
-
-    private String generateJSunit() {
-        if (unit != null) {
-            return String.format(Locale.US, "unit: %s,", (unit != null) ? unit.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSunit1() {
-        if (unit1 != null) {
-            return String.format(Locale.US, "unit: %s,", unit1);
-        }
-        return "";
-    }
-
-    private String generateJScount1() {
-        if (count1 != null) {
-            return String.format(Locale.US, "count: %f,", count1);
-        }
-        return "";
-    }
-
-    private String generateJSmaximumGap() {
-        if (maximumGap != null) {
-            return String.format(Locale.US, "maximumGap: %f,", maximumGap);
-        }
-        return "";
-    }
-
-    private String generateJSminimumGap() {
-        if (minimumGap != null) {
-            return String.format(Locale.US, "minimumGap: %f,", minimumGap);
-        }
-        return "";
-    }
-
-    private String generateJSpix() {
-        if (pix != null) {
-            return String.format(Locale.US, "pix: %f,", pix);
-        }
-        return "";
-    }
-
-    private String generateJSskipHolidays() {
-        if (skipHolidays != null) {
-            return String.format(Locale.US, "skipHolidays: %b,", skipHolidays);
-        }
-        return "";
-    }
-
-    private String generateJSsoftMaximum() {
-        if (softMaximum != null) {
-            return String.format(Locale.US, "softMaximum: %f,", softMaximum);
-        }
-        return "";
-    }
-
-    private String generateJSsoftMinimum() {
-        if (softMinimum != null) {
-            return String.format(Locale.US, "softMinimum: %f,", softMinimum);
-        }
-        return "";
-    }
-
-    private String generateJSunit2() {
-        if (unit2 != null) {
-            return String.format(Locale.US, "unit: %s,", (unit2 != null) ? unit2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSunit3() {
-        if (unit3 != null) {
-            return String.format(Locale.US, "unit: %s,", unit3);
-        }
-        return "";
-    }
-
-    private String generateJSunitPixSize() {
-        if (unitPixSize != null) {
-            return String.format(Locale.US, "unitPixSize: %f,", unitPixSize);
-        }
-        return "";
-    }
-
-    private String generateJSunitPixSize1() {
-        if (unitPixSize1 != null) {
-            return String.format(Locale.US, "unitPixSize: %s,", unitPixSize1);
+            //return String.format(Locale.US, "getCalendar: %s,", ((getCalendar != null) ? getCalendar.generateJs() : "null"));
         }
         return "";
     }
@@ -524,27 +417,45 @@ public class DateTimeWithCalendar extends ScatterBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScount());
-            js.append(generateJSdate());
-            js.append(generateJSfromPix());
-            js.append(generateJStoPix());
-            js.append(generateJSunit());
-            js.append(generateJSunit1());
-            js.append(generateJScount1());
-            js.append(generateJSmaximumGap());
-            js.append(generateJSminimumGap());
-            js.append(generateJSpix());
-            js.append(generateJSskipHolidays());
-            js.append(generateJSsoftMaximum());
-            js.append(generateJSsoftMinimum());
-            js.append(generateJSunit2());
-            js.append(generateJSunit3());
-            js.append(generateJSunitPixSize());
-            js.append(generateJSunitPixSize1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScount());
+////        
+//            js.append(generateJSdate());
+////        
+//            js.append(generateJSfromPix());
+////        
+//            js.append(generateJStoPix());
+////        
+//            js.append(generateJSunit());
+////        
+//            js.append(generateJSunit1());
+////        
+//            js.append(generateJScount1());
+////        
+//            js.append(generateJSmaximumGap());
+////        
+//            js.append(generateJSminimumGap());
+////        
+//            js.append(generateJSpix());
+////        
+//            js.append(generateJSskipHolidays());
+////        
+//            js.append(generateJSsoftMaximum());
+////        
+//            js.append(generateJSsoftMinimum());
+////        
+//            js.append(generateJSunit2());
+////        
+//            js.append(generateJSunit3());
+////        
+//            js.append(generateJSunitPixSize());
+////        
+//            js.append(generateJSunitPixSize1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

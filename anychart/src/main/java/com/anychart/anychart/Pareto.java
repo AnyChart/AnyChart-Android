@@ -15,52 +15,43 @@ public class Pareto extends SeparateChart {
         jsBase = "chart";
     }
 
+    public Pareto setData(List<DataEntry> data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("]);");
+        }
+
+        return this;
+    }
+
     
-    private View var_args;
-    private Set var_args1;
-    private String[] var_args2;
-
-    public void addSeries(View var_args) {
-        this.var_args = var_args;
+    public void addSeries(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args != null) ? var_args.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
 
-
-    public void addSeries(Set var_args1) {
-        this.var_args1 = var_args1;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", (var_args1 != null) ? var_args1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args1 != null) ? var_args1.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void addSeries(String[] var_args2) {
-        this.var_args2 = var_args2;
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", Arrays.toString(var_args2)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", Arrays.toString(var_args2)));
-            js.setLength(0);
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
         }
     }
 
@@ -75,17 +66,15 @@ public class Pareto extends SeparateChart {
     }
     private String[] annotationsList;
     private List<Pareto> setAnnotations = new ArrayList<>();
-
     public Pareto setAnnotations(String[] annotationsList) {
-        this.annotationsList = annotationsList;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
+        js.append(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
+            onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
             js.setLength(0);
         }
         return this;
@@ -103,9 +92,7 @@ public class Pareto extends SeparateChart {
 
     private Double barGroupsPadding;
     private List<Pareto> setBarGroupsPadding = new ArrayList<>();
-
     public Pareto setBarGroupsPadding(Double barGroupsPadding) {
-        this.barGroupsPadding = barGroupsPadding;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -131,9 +118,7 @@ public class Pareto extends SeparateChart {
 
     private Double barsPadding;
     private List<Pareto> setBarsPadding = new ArrayList<>();
-
     public Pareto setBarsPadding(Double barsPadding) {
-        this.barsPadding = barsPadding;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -169,17 +154,15 @@ public class Pareto extends SeparateChart {
     private String crosshair;
     private Boolean crosshair1;
     private List<Pareto> setCrosshair = new ArrayList<>();
-
     public Pareto setCrosshair(String crosshair) {
-        this.crosshair = crosshair;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
+        js.append(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", crosshair));
+            onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
             js.setLength(0);
         }
         return this;
@@ -196,9 +179,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setCrosshair1 = new ArrayList<>();
-
     public Pareto setCrosshair(Boolean crosshair1) {
-        this.crosshair1 = crosshair1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -231,28 +212,23 @@ public class Pareto extends SeparateChart {
 
         return getData;
     }
-    private View data;
-    private Set data1;
-    private DataSettings data2;
-    private String[] data3;
-    private String data4;
-    private TextParsingMode csvSettings;
-    private String csvSettings1;
-    private TextParsingSettings csvSettings2;
     private List<Pareto> setData = new ArrayList<>();
-
-    public Pareto setData(View data, TextParsingMode csvSettings) {
-        this.data = data;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
+    public Pareto data(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
         }
         return this;
     }
@@ -267,412 +243,18 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
-    private List<Pareto> setData1 = new ArrayList<>();
-
-    public Pareto setData(View data, String csvSettings1) {
-        this.data = data;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData2 = new ArrayList<>();
-
-    public Pareto setData(View data, TextParsingSettings csvSettings2) {
-        this.data = data;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData3 = new ArrayList<>();
-
-    public Pareto setData(Set data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData3() {
-        if (!setData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData4 = new ArrayList<>();
-
-    public Pareto setData(Set data1, String csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData5 = new ArrayList<>();
-
-    public Pareto setData(Set data1, TextParsingSettings csvSettings2) {
-        this.data1 = data1;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData6 = new ArrayList<>();
-
-    public Pareto setData(DataSettings data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData7 = new ArrayList<>();
-
-    public Pareto setData(DataSettings data2, String csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData8 = new ArrayList<>();
-
-    public Pareto setData(DataSettings data2, TextParsingSettings csvSettings2) {
-        this.data2 = data2;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData8() {
-        if (!setData8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData9 = new ArrayList<>();
-
-    public Pareto setData(String[] data3, TextParsingMode csvSettings) {
-        this.data3 = data3;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData9() {
-        if (!setData9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData10 = new ArrayList<>();
-
-    public Pareto setData(String[] data3, String csvSettings1) {
-        this.data3 = data3;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData10() {
-        if (!setData10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData11 = new ArrayList<>();
-
-    public Pareto setData(String[] data3, TextParsingSettings csvSettings2) {
-        this.data3 = data3;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData11() {
-        if (!setData11.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData11) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData12 = new ArrayList<>();
-
-    public Pareto setData(String data4, TextParsingMode csvSettings) {
-        this.data4 = data4;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData12() {
-        if (!setData12.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData12) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData13 = new ArrayList<>();
-
-    public Pareto setData(String data4, String csvSettings1) {
-        this.data4 = data4;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData13() {
-        if (!setData13.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData13) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData14 = new ArrayList<>();
-
-    public Pareto setData(String data4, TextParsingSettings csvSettings2) {
-        this.data4 = data4;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData14() {
-        if (!setData14.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData14) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
     private CartesianSeriesType defaultSeriesType;
     private String defaultSeriesType1;
     private List<Pareto> setDefaultSeriesType = new ArrayList<>();
-
     public Pareto setDefaultSeriesType(CartesianSeriesType defaultSeriesType) {
-        this.defaultSeriesType = defaultSeriesType;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -689,17 +271,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setDefaultSeriesType1 = new ArrayList<>();
-
     public Pareto setDefaultSeriesType(String defaultSeriesType1) {
-        this.defaultSeriesType1 = defaultSeriesType1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
             js.setLength(0);
         }
         return this;
@@ -736,7 +316,7 @@ public class Pareto extends SeparateChart {
     private List<CartesianSeriesBase> getGetSeries1 = new ArrayList<>();
 
     public CartesianSeriesBase getGetSeries(String id1) {
-        CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeries("+ id1+")");
+        CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeries("+ wrapQuotes(id1)+")");
         getGetSeries1.add(item);
         return item;
     }
@@ -761,9 +341,7 @@ public class Pareto extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<Pareto> setHatchFillPalette = new ArrayList<>();
-
     public Pareto setHatchFillPalette(HatchFillType[] hatchFillPalette) {
-        this.hatchFillPalette = hatchFillPalette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -788,17 +366,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setHatchFillPalette1 = new ArrayList<>();
-
     public Pareto setHatchFillPalette(String hatchFillPalette1) {
-        this.hatchFillPalette1 = hatchFillPalette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
             js.setLength(0);
         }
         return this;
@@ -815,17 +391,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setHatchFillPalette2 = new ArrayList<>();
-
     public Pareto setHatchFillPalette(HatchFills hatchFillPalette2) {
-        this.hatchFillPalette2 = hatchFillPalette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -852,17 +426,15 @@ public class Pareto extends SeparateChart {
     }
     private String hovered;
     private List<Pareto> setHovered = new ArrayList<>();
-
     public Pareto setHovered(String hovered) {
-        this.hovered = hovered;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
+        js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
+            onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
             js.setLength(0);
         }
         return this;
@@ -890,17 +462,15 @@ public class Pareto extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Pareto> setLabels = new ArrayList<>();
-
     public Pareto setLabels(String labels) {
-        this.labels = labels;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".labels(%s)", labels));
+        js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
+            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
             js.setLength(0);
         }
         return this;
@@ -917,9 +487,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setLabels1 = new ArrayList<>();
-
     public Pareto setLabels(Boolean labels1) {
-        this.labels1 = labels1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -963,17 +531,15 @@ public class Pareto extends SeparateChart {
     private String lineMarker;
     private Boolean lineMarker1;
     private List<Pareto> setLineMarker = new ArrayList<>();
-
     public Pareto setLineMarker(String lineMarker) {
-        this.lineMarker = lineMarker;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
+        js.append(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
             js.setLength(0);
         }
         return this;
@@ -990,9 +556,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setLineMarker1 = new ArrayList<>();
-
     public Pareto setLineMarker(Boolean lineMarker1) {
-        this.lineMarker1 = lineMarker1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1020,18 +584,15 @@ public class Pareto extends SeparateChart {
     private String lineMarker2;
     private Boolean lineMarker3;
     private List<Pareto> setLineMarker2 = new ArrayList<>();
-
     public Pareto setLineMarker(String lineMarker2, Double index2) {
-        this.lineMarker2 = lineMarker2;
-        this.index2 = index2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
+        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index2));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index2));
             js.setLength(0);
         }
         return this;
@@ -1048,10 +609,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setLineMarker3 = new ArrayList<>();
-
     public Pareto setLineMarker(Boolean lineMarker3, Double index2) {
-        this.lineMarker3 = lineMarker3;
-        this.index2 = index2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1089,17 +647,15 @@ public class Pareto extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<Pareto> setMarkerPalette = new ArrayList<>();
-
     public Pareto setMarkerPalette(Markers markerPalette) {
-        this.markerPalette = markerPalette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1116,17 +672,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMarkerPalette1 = new ArrayList<>();
-
     public Pareto setMarkerPalette(String markerPalette1) {
-        this.markerPalette1 = markerPalette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
             js.setLength(0);
         }
         return this;
@@ -1143,9 +697,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMarkerPalette2 = new ArrayList<>();
-
     public Pareto setMarkerPalette(MarkerType[] markerPalette2) {
-        this.markerPalette2 = markerPalette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1170,17 +722,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMarkerPalette3 = new ArrayList<>();
-
     public Pareto setMarkerPalette(String[] markerPalette3) {
-        this.markerPalette3 = markerPalette3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
             js.setLength(0);
         }
         return this;
@@ -1199,9 +749,7 @@ public class Pareto extends SeparateChart {
     private Double maxBubbleSize;
     private String maxBubbleSize1;
     private List<Pareto> setMaxBubbleSize = new ArrayList<>();
-
     public Pareto setMaxBubbleSize(Double maxBubbleSize) {
-        this.maxBubbleSize = maxBubbleSize;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1226,17 +774,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMaxBubbleSize1 = new ArrayList<>();
-
     public Pareto setMaxBubbleSize(String maxBubbleSize1) {
-        this.maxBubbleSize1 = maxBubbleSize1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
+        js.append(String.format(Locale.US, ".maxBubbleSize(%s)", wrapQuotes(maxBubbleSize1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize1));
+            onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%s)", wrapQuotes(maxBubbleSize1)));
             js.setLength(0);
         }
         return this;
@@ -1255,9 +801,7 @@ public class Pareto extends SeparateChart {
     private Double maxPointWidth;
     private String maxPointWidth1;
     private List<Pareto> setMaxPointWidth = new ArrayList<>();
-
     public Pareto setMaxPointWidth(Double maxPointWidth) {
-        this.maxPointWidth = maxPointWidth;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1282,17 +826,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMaxPointWidth1 = new ArrayList<>();
-
     public Pareto setMaxPointWidth(String maxPointWidth1) {
-        this.maxPointWidth1 = maxPointWidth1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+        js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+            onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
             js.setLength(0);
         }
         return this;
@@ -1311,9 +853,7 @@ public class Pareto extends SeparateChart {
     private Double minBubbleSize;
     private String minBubbleSize1;
     private List<Pareto> setMinBubbleSize = new ArrayList<>();
-
     public Pareto setMinBubbleSize(Double minBubbleSize) {
-        this.minBubbleSize = minBubbleSize;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1338,17 +878,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMinBubbleSize1 = new ArrayList<>();
-
     public Pareto setMinBubbleSize(String minBubbleSize1) {
-        this.minBubbleSize1 = minBubbleSize1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
+        js.append(String.format(Locale.US, ".minBubbleSize(%s)", wrapQuotes(minBubbleSize1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize1));
+            onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", wrapQuotes(minBubbleSize1)));
             js.setLength(0);
         }
         return this;
@@ -1367,9 +905,7 @@ public class Pareto extends SeparateChart {
     private Double minPointLength;
     private String minPointLength1;
     private List<Pareto> setMinPointLength = new ArrayList<>();
-
     public Pareto setMinPointLength(Double minPointLength) {
-        this.minPointLength = minPointLength;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1394,17 +930,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMinPointLength1 = new ArrayList<>();
-
     public Pareto setMinPointLength(String minPointLength1) {
-        this.minPointLength1 = minPointLength1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
+        js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
+            onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
             js.setLength(0);
         }
         return this;
@@ -1431,17 +965,15 @@ public class Pareto extends SeparateChart {
     }
     private String normal;
     private List<Pareto> setNormal = new ArrayList<>();
-
     public Pareto setNormal(String normal) {
-        this.normal = normal;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".normal(%s)", normal));
+        js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+            onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
             js.setLength(0);
         }
         return this;
@@ -1471,17 +1003,15 @@ public class Pareto extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<Pareto> setPalette = new ArrayList<>();
-
     public Pareto setPalette(RangeColors palette) {
-        this.palette = palette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1498,17 +1028,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setPalette1 = new ArrayList<>();
-
     public Pareto setPalette(DistinctColors palette1) {
-        this.palette1 = palette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1525,17 +1053,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setPalette2 = new ArrayList<>();
-
     public Pareto setPalette(String palette2) {
-        this.palette2 = palette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", palette2));
+        js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
             js.setLength(0);
         }
         return this;
@@ -1552,17 +1078,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setPalette3 = new ArrayList<>();
-
     public Pareto setPalette(String[] palette3) {
-        this.palette3 = palette3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
+        js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
             js.setLength(0);
         }
         return this;
@@ -1581,9 +1105,7 @@ public class Pareto extends SeparateChart {
     private Double pointWidth;
     private String pointWidth1;
     private List<Pareto> setPointWidth = new ArrayList<>();
-
     public Pareto setPointWidth(Double pointWidth) {
-        this.pointWidth = pointWidth;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1608,17 +1130,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setPointWidth1 = new ArrayList<>();
-
     public Pareto setPointWidth(String pointWidth1) {
-        this.pointWidth1 = pointWidth1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+        js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+            onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
             js.setLength(0);
         }
         return this;
@@ -1654,17 +1174,15 @@ public class Pareto extends SeparateChart {
     private String rangeMarker;
     private Boolean rangeMarker1;
     private List<Pareto> setRangeMarker = new ArrayList<>();
-
     public Pareto setRangeMarker(String rangeMarker) {
-        this.rangeMarker = rangeMarker;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
+        js.append(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
             js.setLength(0);
         }
         return this;
@@ -1681,9 +1199,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setRangeMarker1 = new ArrayList<>();
-
     public Pareto setRangeMarker(Boolean rangeMarker1) {
-        this.rangeMarker1 = rangeMarker1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1711,18 +1227,15 @@ public class Pareto extends SeparateChart {
     private String rangeMarker2;
     private Boolean rangeMarker3;
     private List<Pareto> setRangeMarker2 = new ArrayList<>();
-
     public Pareto setRangeMarker(String rangeMarker2, Double index4) {
-        this.rangeMarker2 = rangeMarker2;
-        this.index4 = index4;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
+        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index4));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index4));
             js.setLength(0);
         }
         return this;
@@ -1739,10 +1252,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setRangeMarker3 = new ArrayList<>();
-
     public Pareto setRangeMarker(Boolean rangeMarker3, Double index4) {
-        this.rangeMarker3 = rangeMarker3;
-        this.index4 = index4;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1769,9 +1279,7 @@ public class Pareto extends SeparateChart {
     private Double id2;
     private String id3;
     private List<Pareto> setRemoveSeries = new ArrayList<>();
-
     public Pareto removeSeries(Double id2) {
-        this.id2 = id2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1796,17 +1304,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setRemoveSeries1 = new ArrayList<>();
-
     public Pareto removeSeries(String id3) {
-        this.id3 = id3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
+        js.append(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id3));
+            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id3)));
             js.setLength(0);
         }
         return this;
@@ -1824,9 +1330,7 @@ public class Pareto extends SeparateChart {
 
     private Double index5;
     private List<Pareto> setRemoveSeriesAt = new ArrayList<>();
-
     public Pareto removeSeriesAt(Double index5) {
-        this.index5 = index5;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1861,17 +1365,15 @@ public class Pareto extends SeparateChart {
     }
     private String selected;
     private List<Pareto> setSelected = new ArrayList<>();
-
     public Pareto setSelected(String selected) {
-        this.selected = selected;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selected(%s)", selected));
+        js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
+            onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
             js.setLength(0);
         }
         return this;
@@ -1907,17 +1409,15 @@ public class Pareto extends SeparateChart {
     private String textMarker;
     private Boolean textMarker1;
     private List<Pareto> setTextMarker = new ArrayList<>();
-
     public Pareto setTextMarker(String textMarker) {
-        this.textMarker = textMarker;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
+        js.append(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", textMarker));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
             js.setLength(0);
         }
         return this;
@@ -1934,9 +1434,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setTextMarker1 = new ArrayList<>();
-
     public Pareto setTextMarker(Boolean textMarker1) {
-        this.textMarker1 = textMarker1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1964,18 +1462,15 @@ public class Pareto extends SeparateChart {
     private String textMarker2;
     private Boolean textMarker3;
     private List<Pareto> setTextMarker2 = new ArrayList<>();
-
     public Pareto setTextMarker(String textMarker2, Double index7) {
-        this.textMarker2 = textMarker2;
-        this.index7 = index7;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
+        js.append(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index7));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index7));
             js.setLength(0);
         }
         return this;
@@ -1992,10 +1487,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setTextMarker3 = new ArrayList<>();
-
     public Pareto setTextMarker(Boolean textMarker3, Double index7) {
-        this.textMarker3 = textMarker3;
-        this.index7 = index7;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2039,17 +1531,15 @@ public class Pareto extends SeparateChart {
     private String xAxis;
     private Boolean xAxis1;
     private List<Pareto> setXAxis = new ArrayList<>();
-
     public Pareto setXAxis(String xAxis) {
-        this.xAxis = xAxis;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
+        js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", xAxis));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
             js.setLength(0);
         }
         return this;
@@ -2066,9 +1556,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXAxis1 = new ArrayList<>();
-
     public Pareto setXAxis(Boolean xAxis1) {
-        this.xAxis1 = xAxis1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2096,18 +1584,15 @@ public class Pareto extends SeparateChart {
     private String xAxis2;
     private Boolean xAxis3;
     private List<Pareto> setXAxis2 = new ArrayList<>();
-
     public Pareto setXAxis(String xAxis2, Double index9) {
-        this.xAxis2 = xAxis2;
-        this.index9 = index9;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
+        js.append(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", xAxis2, index9));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index9));
             js.setLength(0);
         }
         return this;
@@ -2124,10 +1609,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXAxis3 = new ArrayList<>();
-
     public Pareto setXAxis(Boolean xAxis3, Double index9) {
-        this.xAxis3 = xAxis3;
-        this.index9 = index9;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2171,17 +1653,15 @@ public class Pareto extends SeparateChart {
     private String xGrid;
     private Boolean xGrid1;
     private List<Pareto> setXGrid = new ArrayList<>();
-
     public Pareto setXGrid(String xGrid) {
-        this.xGrid = xGrid;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
+        js.append(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", xGrid));
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
             js.setLength(0);
         }
         return this;
@@ -2198,9 +1678,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXGrid1 = new ArrayList<>();
-
     public Pareto setXGrid(Boolean xGrid1) {
-        this.xGrid1 = xGrid1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2228,18 +1706,15 @@ public class Pareto extends SeparateChart {
     private String xGrid2;
     private Boolean xGrid3;
     private List<Pareto> setXGrid2 = new ArrayList<>();
-
     public Pareto setXGrid(String xGrid2, Double index11) {
-        this.xGrid2 = xGrid2;
-        this.index11 = index11;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
+        js.append(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index11));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index11));
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index11));
             js.setLength(0);
         }
         return this;
@@ -2256,10 +1731,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXGrid3 = new ArrayList<>();
-
     public Pareto setXGrid(Boolean xGrid3, Double index11) {
-        this.xGrid3 = xGrid3;
-        this.index11 = index11;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2303,17 +1775,15 @@ public class Pareto extends SeparateChart {
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<Pareto> setXMinorGrid = new ArrayList<>();
-
     public Pareto setXMinorGrid(String xMinorGrid) {
-        this.xMinorGrid = xMinorGrid;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
+        js.append(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
             js.setLength(0);
         }
         return this;
@@ -2330,9 +1800,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXMinorGrid1 = new ArrayList<>();
-
     public Pareto setXMinorGrid(Boolean xMinorGrid1) {
-        this.xMinorGrid1 = xMinorGrid1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2360,18 +1828,15 @@ public class Pareto extends SeparateChart {
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
     private List<Pareto> setXMinorGrid2 = new ArrayList<>();
-
     public Pareto setXMinorGrid(String xMinorGrid2, Double index13) {
-        this.xMinorGrid2 = xMinorGrid2;
-        this.index13 = index13;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
+        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, index13));
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index13));
             js.setLength(0);
         }
         return this;
@@ -2388,10 +1853,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXMinorGrid3 = new ArrayList<>();
-
     public Pareto setXMinorGrid(Boolean xMinorGrid3, Double index13) {
-        this.xMinorGrid3 = xMinorGrid3;
-        this.index13 = index13;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2429,17 +1891,15 @@ public class Pareto extends SeparateChart {
     private String xScale2;
     private ScalesBase xScale3;
     private List<Pareto> setXScale = new ArrayList<>();
-
     public Pareto setXScale(String xScale) {
-        this.xScale = xScale;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", xScale));
+        js.append(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale)));
             js.setLength(0);
         }
         return this;
@@ -2456,17 +1916,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXScale1 = new ArrayList<>();
-
     public Pareto setXScale(ScaleTypes xScale1) {
-        this.xScale1 = xScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2483,17 +1941,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXScale2 = new ArrayList<>();
-
     public Pareto setXScale(ScalesBase xScale3) {
-        this.xScale3 = xScale3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale3 != null) ? xScale3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2521,17 +1977,15 @@ public class Pareto extends SeparateChart {
     private String xScroller;
     private Boolean xScroller1;
     private List<Pareto> setXScroller = new ArrayList<>();
-
     public Pareto setXScroller(String xScroller) {
-        this.xScroller = xScroller;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScroller(%s)", xScroller));
+        js.append(String.format(Locale.US, ".xScroller(%s)", wrapQuotes(xScroller)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScroller(%s)", xScroller));
+            onChangeListener.onChange(String.format(Locale.US, ".xScroller(%s)", wrapQuotes(xScroller)));
             js.setLength(0);
         }
         return this;
@@ -2548,9 +2002,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXScroller1 = new ArrayList<>();
-
     public Pareto setXScroller(Boolean xScroller1) {
-        this.xScroller1 = xScroller1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2587,9 +2039,7 @@ public class Pareto extends SeparateChart {
     private Boolean xZoom1;
     private String xZoom2;
     private List<Pareto> setXZoom = new ArrayList<>();
-
     public Pareto setXZoom(Double xZoom) {
-        this.xZoom = xZoom;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2614,9 +2064,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXZoom1 = new ArrayList<>();
-
     public Pareto setXZoom(Boolean xZoom1) {
-        this.xZoom1 = xZoom1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2641,17 +2089,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXZoom2 = new ArrayList<>();
-
     public Pareto setXZoom(String xZoom2) {
-        this.xZoom2 = xZoom2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xZoom(%s)", xZoom2));
+        js.append(String.format(Locale.US, ".xZoom(%s)", wrapQuotes(xZoom2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xZoom(%s)", xZoom2));
+            onChangeListener.onChange(String.format(Locale.US, ".xZoom(%s)", wrapQuotes(xZoom2)));
             js.setLength(0);
         }
         return this;
@@ -2687,17 +2133,15 @@ public class Pareto extends SeparateChart {
     private String yAxis;
     private Boolean yAxis1;
     private List<Pareto> setYAxis = new ArrayList<>();
-
     public Pareto setYAxis(String yAxis) {
-        this.yAxis = yAxis;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
+        js.append(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", yAxis));
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
             js.setLength(0);
         }
         return this;
@@ -2714,9 +2158,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYAxis1 = new ArrayList<>();
-
     public Pareto setYAxis(Boolean yAxis1) {
-        this.yAxis1 = yAxis1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2744,18 +2186,15 @@ public class Pareto extends SeparateChart {
     private String yAxis2;
     private Boolean yAxis3;
     private List<Pareto> setYAxis2 = new ArrayList<>();
-
     public Pareto setYAxis(String yAxis2, Double index15) {
-        this.yAxis2 = yAxis2;
-        this.index15 = index15;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
+        js.append(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index15));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index15));
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index15));
             js.setLength(0);
         }
         return this;
@@ -2772,10 +2211,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYAxis3 = new ArrayList<>();
-
     public Pareto setYAxis(Boolean yAxis3, Double index15) {
-        this.yAxis3 = yAxis3;
-        this.index15 = index15;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2819,17 +2255,15 @@ public class Pareto extends SeparateChart {
     private String yGrid;
     private Boolean yGrid1;
     private List<Pareto> setYGrid = new ArrayList<>();
-
     public Pareto setYGrid(String yGrid) {
-        this.yGrid = yGrid;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
+        js.append(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", yGrid));
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
             js.setLength(0);
         }
         return this;
@@ -2846,9 +2280,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYGrid1 = new ArrayList<>();
-
     public Pareto setYGrid(Boolean yGrid1) {
-        this.yGrid1 = yGrid1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2876,18 +2308,15 @@ public class Pareto extends SeparateChart {
     private String yGrid2;
     private Boolean yGrid3;
     private List<Pareto> setYGrid2 = new ArrayList<>();
-
     public Pareto setYGrid(String yGrid2, Double index17) {
-        this.yGrid2 = yGrid2;
-        this.index17 = index17;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
+        js.append(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index17));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index17));
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index17));
             js.setLength(0);
         }
         return this;
@@ -2904,10 +2333,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYGrid3 = new ArrayList<>();
-
     public Pareto setYGrid(Boolean yGrid3, Double index17) {
-        this.yGrid3 = yGrid3;
-        this.index17 = index17;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2951,17 +2377,15 @@ public class Pareto extends SeparateChart {
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<Pareto> setYMinorGrid = new ArrayList<>();
-
     public Pareto setYMinorGrid(String yMinorGrid) {
-        this.yMinorGrid = yMinorGrid;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
+        js.append(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
             js.setLength(0);
         }
         return this;
@@ -2978,9 +2402,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYMinorGrid1 = new ArrayList<>();
-
     public Pareto setYMinorGrid(Boolean yMinorGrid1) {
-        this.yMinorGrid1 = yMinorGrid1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -3008,18 +2430,15 @@ public class Pareto extends SeparateChart {
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
     private List<Pareto> setYMinorGrid2 = new ArrayList<>();
-
     public Pareto setYMinorGrid(String yMinorGrid2, Double index19) {
-        this.yMinorGrid2 = yMinorGrid2;
-        this.index19 = index19;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
+        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index19));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, index19));
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index19));
             js.setLength(0);
         }
         return this;
@@ -3036,10 +2455,7 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYMinorGrid3 = new ArrayList<>();
-
     public Pareto setYMinorGrid(Boolean yMinorGrid3, Double index19) {
-        this.yMinorGrid3 = yMinorGrid3;
-        this.index19 = index19;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -3077,17 +2493,15 @@ public class Pareto extends SeparateChart {
     private String yScale2;
     private ScalesBase yScale3;
     private List<Pareto> setYScale = new ArrayList<>();
-
     public Pareto setYScale(String yScale) {
-        this.yScale = yScale;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", yScale));
+        js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale)));
             js.setLength(0);
         }
         return this;
@@ -3104,17 +2518,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYScale1 = new ArrayList<>();
-
     public Pareto setYScale(ScaleTypes yScale1) {
-        this.yScale1 = yScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale1 != null) ? yScale1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale1 != null) ? yScale1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -3131,17 +2543,15 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYScale2 = new ArrayList<>();
-
     public Pareto setYScale(ScalesBase yScale3) {
-        this.yScale3 = yScale3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale3 != null) ? yScale3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -3518,20 +2928,6 @@ public class Pareto extends SeparateChart {
         js.append(generateJSsetCrosshair());
         js.append(generateJSsetCrosshair1());
         js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetData2());
-        js.append(generateJSsetData3());
-        js.append(generateJSsetData4());
-        js.append(generateJSsetData5());
-        js.append(generateJSsetData6());
-        js.append(generateJSsetData7());
-        js.append(generateJSsetData8());
-        js.append(generateJSsetData9());
-        js.append(generateJSsetData10());
-        js.append(generateJSsetData11());
-        js.append(generateJSsetData12());
-        js.append(generateJSsetData13());
-        js.append(generateJSsetData14());
         js.append(generateJSsetDefaultSeriesType());
         js.append(generateJSsetDefaultSeriesType1());
         js.append(generateJSsetHatchFillPalette());

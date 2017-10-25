@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -60,10 +62,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, (color != null) ? color.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, ((color != null) ? color.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index, (color != null) ? color.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index, ((color != null) ? color.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -103,10 +105,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), (var_args != null) ? var_args.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args != null) ? var_args.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -137,10 +139,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), var_args1));
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), wrapQuotes(var_args1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), var_args1));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), wrapQuotes(var_args1)));
                 js.setLength(0);
             }
         }
@@ -171,10 +173,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", (items1 != null) ? items1.generateJs() : "null", (var_args != null) ? var_args.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".items(%s, %s)", ((items1 != null) ? items1.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", (items1 != null) ? items1.generateJs() : "null", (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items1 != null) ? items1.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -205,10 +207,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", (items1 != null) ? items1.generateJs() : "null", var_args1));
+            js.append(String.format(Locale.US, ".items(%s, %s)", ((items1 != null) ? items1.generateJs() : "null"), wrapQuotes(var_args1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", (items1 != null) ? items1.generateJs() : "null", var_args1));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items1 != null) ? items1.generateJs() : "null"), wrapQuotes(var_args1)));
                 js.setLength(0);
             }
         }
@@ -239,10 +241,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", (items2 != null) ? items2.generateJs() : "null", (var_args != null) ? var_args.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".items(%s, %s)", ((items2 != null) ? items2.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", (items2 != null) ? items2.generateJs() : "null", (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items2 != null) ? items2.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -273,10 +275,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", (items2 != null) ? items2.generateJs() : "null", var_args1));
+            js.append(String.format(Locale.US, ".items(%s, %s)", ((items2 != null) ? items2.generateJs() : "null"), wrapQuotes(var_args1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", (items2 != null) ? items2.generateJs() : "null", var_args1));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items2 != null) ? items2.generateJs() : "null"), wrapQuotes(var_args1)));
                 js.setLength(0);
             }
         }
@@ -307,10 +309,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), (var_args != null) ? var_args.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), ((var_args != null) ? var_args.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -341,10 +343,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), var_args1));
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), wrapQuotes(var_args1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), var_args1));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), wrapQuotes(var_args1)));
                 js.setLength(0);
             }
         }
@@ -375,10 +377,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", Arrays.toString(items4), (var_args != null) ? var_args.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items4), ((var_args != null) ? var_args.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", Arrays.toString(items4), (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items4), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -409,10 +411,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", Arrays.toString(items4), var_args1));
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items4), wrapQuotes(var_args1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", Arrays.toString(items4), var_args1));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items4), wrapQuotes(var_args1)));
                 js.setLength(0);
             }
         }
@@ -443,10 +445,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", (items5 != null) ? items5.generateJs() : "null", (var_args != null) ? var_args.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".items(%s, %s)", ((items5 != null) ? items5.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", (items5 != null) ? items5.generateJs() : "null", (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items5 != null) ? items5.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -477,10 +479,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", (items5 != null) ? items5.generateJs() : "null", var_args1));
+            js.append(String.format(Locale.US, ".items(%s, %s)", ((items5 != null) ? items5.generateJs() : "null"), wrapQuotes(var_args1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", (items5 != null) ? items5.generateJs() : "null", var_args1));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items5 != null) ? items5.generateJs() : "null"), wrapQuotes(var_args1)));
                 js.setLength(0);
             }
         }
@@ -511,10 +513,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", items6, (var_args != null) ? var_args.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items6), ((var_args != null) ? var_args.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", items6, (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items6), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -545,100 +547,18 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".items(%s, %s)", items6, var_args1));
+            js.append(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items6), wrapQuotes(var_args1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", items6, var_args1));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items6), wrapQuotes(var_args1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJScount() {
-        if (count != null) {
-            return String.format(Locale.US, "count: %f,", count);
-        }
-        return "";
-    }
 
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", (color != null) ? color.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSitems() {
-        if (items != null) {
-            return String.format(Locale.US, "items: %s,", arrayToString(items));
-        }
-        return "";
-    }
-
-    private String generateJSitems1() {
-        if (items1 != null) {
-            return String.format(Locale.US, "items: %s,", (items1 != null) ? items1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSitems2() {
-        if (items2 != null) {
-            return String.format(Locale.US, "items: %s,", (items2 != null) ? items2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSitems3() {
-        if (items3 != null) {
-            return String.format(Locale.US, "items: %s,", arrayToString(items3));
-        }
-        return "";
-    }
-
-    private String generateJSitems4() {
-        if (items4 != null) {
-            return String.format(Locale.US, "items: %s,", Arrays.toString(items4));
-        }
-        return "";
-    }
-
-    private String generateJSitems5() {
-        if (items5 != null) {
-            return String.format(Locale.US, "items: %s,", (items5 != null) ? items5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSitems6() {
-        if (items6 != null) {
-            return String.format(Locale.US, "items: %s,", items6);
-        }
-        return "";
-    }
-
-    private String generateJSvar_args() {
-        if (var_args != null) {
-            return String.format(Locale.US, "var_args: %s,", (var_args != null) ? var_args.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSvar_args1() {
-        if (var_args1 != null) {
-            return String.format(Locale.US, "var_args: %s,", var_args1);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -657,22 +577,35 @@ public class RangeColors extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScount());
-            js.append(generateJSindex());
-            js.append(generateJScolor());
-            js.append(generateJSitems());
-            js.append(generateJSitems1());
-            js.append(generateJSitems2());
-            js.append(generateJSitems3());
-            js.append(generateJSitems4());
-            js.append(generateJSitems5());
-            js.append(generateJSitems6());
-            js.append(generateJSvar_args());
-            js.append(generateJSvar_args1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScount());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSitems());
+////        
+//            js.append(generateJSitems1());
+////        
+//            js.append(generateJSitems2());
+////        
+//            js.append(generateJSitems3());
+////        
+//            js.append(generateJSitems4());
+////        
+//            js.append(generateJSitems5());
+////        
+//            js.append(generateJSitems6());
+////        
+//            js.append(generateJSvar_args());
+////        
+//            js.append(generateJSvar_args1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

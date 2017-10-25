@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -57,30 +59,18 @@ public class SeriesA11y extends A11y {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".titleFormat(%s)", titleFormat));
+            js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", titleFormat));
+                onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
 
-    private String generateJStitleFormat() {
-        if (titleFormat != null) {
-            return String.format(Locale.US, "titleFormat: %s,", titleFormat);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -99,12 +89,15 @@ public class SeriesA11y extends A11y {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSenabled());
-            js.append(generateJStitleFormat());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSenabled());
+////        
+//            js.append(generateJStitleFormat());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

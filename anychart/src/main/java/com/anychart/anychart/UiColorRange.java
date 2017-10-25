@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -39,10 +41,10 @@ public class UiColorRange extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".align(%s)", (align != null) ? align.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", (align != null) ? align.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class UiColorRange extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".align(%s)", align1));
+            js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", align1));
+                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
                 js.setLength(0);
             }
         }
@@ -111,10 +113,10 @@ public class UiColorRange extends CoreAxesLinear {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".length(%s)", length));
+            js.append(String.format(Locale.US, ".length(%s)", wrapQuotes(length)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".length(%s)", length));
+                onChangeListener.onChange(String.format(Locale.US, ".length(%s)", wrapQuotes(length)));
                 js.setLength(0);
             }
         }
@@ -154,63 +156,76 @@ public class UiColorRange extends CoreAxesLinear {
         return getMarker;
     }
 
-    private UiColorRange getMarker1;
+    private List<UiColorRange> getMarker1 = new ArrayList<>();
 
-    public UiColorRange getMarker1() {
-        if (getMarker1 == null)
-            getMarker1 = new UiColorRange(jsBase + ".marker()");
-
-        return getMarker1;
+    public UiColorRange getMarker(UiMarkersfactoryMarker marker) {
+        UiColorRange item = new UiColorRange(jsBase + ".marker(" + ((marker != null) ? marker.generateJs() : "null") + ")");
+        getMarker1.add(item);
+        return item;
     }
 
+    private List<UiColorRange> getMarker2 = new ArrayList<>();
+
+    public UiColorRange getMarker(String marker) {
+        UiColorRange item = new UiColorRange(jsBase + ".marker(" + wrapQuotes(marker) + ")");
+        getMarker2.add(item);
+        return item;
+    }
+
+
+//
+//    private String generateJSUiMarkersfactoryMarker getMarker() {
+//        if (UiMarkersfactoryMarker getMarker != null) {
+//            return UiMarkersfactoryMarker getMarker.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiColorRange getMarker1() {
+//        if (UiColorRange getMarker1 != null) {
+//            return UiColorRange getMarker1.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiColorRange getMarker2() {
+//        if (UiColorRange getMarker2 != null) {
+//            return UiColorRange getMarker2.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetMarker() {
         if (getMarker != null) {
             return getMarker.generateJs();
+            //return String.format(Locale.US, "getMarker: %s,", ((getMarker != null) ? getMarker.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetMarker1() {
-        if (getMarker1 != null) {
-            return getMarker1.generateJs();
+        if (!getMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiColorRange item : getMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSalign() {
-        if (align != null) {
-            return String.format(Locale.US, "align: %s,", (align != null) ? align.generateJs() : "null");
+
+    private String generateJSgetMarker2() {
+        if (!getMarker2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiColorRange item : getMarker2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSalign1() {
-        if (align1 != null) {
-            return String.format(Locale.US, "align: %s,", align1);
-        }
-        return "";
-    }
-
-    private String generateJScolorLineSize() {
-        if (colorLineSize != null) {
-            return String.format(Locale.US, "colorLineSize: %f,", colorLineSize);
-        }
-        return "";
-    }
-
-    private String generateJSlength() {
-        if (length != null) {
-            return String.format(Locale.US, "length: %s,", length);
-        }
-        return "";
-    }
-
-    private String generateJSlength1() {
-        if (length1 != null) {
-            return String.format(Locale.US, "length: %f,", length1);
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -221,6 +236,7 @@ public class UiColorRange extends CoreAxesLinear {
     
         jsGetters.append(generateJSgetMarker());
         jsGetters.append(generateJSgetMarker1());
+        jsGetters.append(generateJSgetMarker2());
 
         return jsGetters.toString();
     }
@@ -232,15 +248,21 @@ public class UiColorRange extends CoreAxesLinear {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSalign());
-            js.append(generateJSalign1());
-            js.append(generateJScolorLineSize());
-            js.append(generateJSlength());
-            js.append(generateJSlength1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSalign());
+////        
+//            js.append(generateJSalign1());
+////        
+//            js.append(generateJScolorLineSize());
+////        
+//            js.append(generateJSlength());
+////        
+//            js.append(generateJSlength1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

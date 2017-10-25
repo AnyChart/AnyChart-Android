@@ -16,19 +16,19 @@ public class CoordinateObject extends JsObject  {
         this.x = x;
         this.y = y;
 
-        js.append(String.format(Locale.US, "{x: %s,y: %s}",  x, y));
+        js.append(String.format(Locale.US, "{x: %s,y: %s}",  wrapQuotes(x), wrapQuotes(y)));
     }
     public CoordinateObject(String x, Double y1) {
         this.x = x;
         this.y1 = y1;
 
-        js.append(String.format(Locale.US, "{x: %s,y: %f}",  x, y1));
+        js.append(String.format(Locale.US, "{x: %s,y: %f}",  wrapQuotes(x), y1));
     }
     public CoordinateObject(Double x1, String y) {
         this.x1 = x1;
         this.y = y;
 
-        js.append(String.format(Locale.US, "{x: %f,y: %s}",  x1, y));
+        js.append(String.format(Locale.US, "{x: %f,y: %s}",  x1, wrapQuotes(y)));
     }
     public CoordinateObject(Double x1, Double y1) {
         this.x1 = x1;

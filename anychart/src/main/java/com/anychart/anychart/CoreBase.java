@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -41,10 +43,10 @@ public class CoreBase extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", type, useCapture, listenerScope));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
                 js.setLength(0);
             }
         }
@@ -77,10 +79,10 @@ public class CoreBase extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", type1, useCapture1, listenerScope1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
                 js.setLength(0);
             }
         }
@@ -102,10 +104,10 @@ public class CoreBase extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", wrapQuotes(type2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s)", type2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s)", wrapQuotes(type2)));
                 js.setLength(0);
             }
         }
@@ -142,10 +144,10 @@ public class CoreBase extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", wrapQuotes(type3), useCapture2, wrapQuotes(listenerScope2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", type3, useCapture2, listenerScope2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", wrapQuotes(type3), useCapture2, wrapQuotes(listenerScope2)));
                 js.setLength(0);
             }
         }
@@ -163,92 +165,17 @@ public class CoreBase extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", wrapQuotes(key)));
                 js.setLength(0);
             }
         }
     }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
 
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -267,21 +194,33 @@ public class CoreBase extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
-            js.append(generateJStype2());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJStype());
+////        
+//            js.append(generateJSuseCapture());
+////        
+//            js.append(generateJSlistenerScope());
+////        
+//            js.append(generateJStype1());
+////        
+//            js.append(generateJSuseCapture1());
+////        
+//            js.append(generateJSlistenerScope1());
+////        
+//            js.append(generateJStype2());
+////        
+//            js.append(generateJStype3());
+////        
+//            js.append(generateJSuseCapture2());
+////        
+//            js.append(generateJSlistenerScope2());
+////        
+//            js.append(generateJSkey());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Preloader extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".decorate(%s);", (element != null) ? element.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".decorate(%s);", ((element != null) ? element.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", (element != null) ? element.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((element != null) ? element.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -56,10 +58,10 @@ public class Preloader extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".render(%s);", (parentElement != null) ? parentElement.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement != null) ? parentElement.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", (parentElement != null) ? parentElement.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -87,27 +89,8 @@ public class Preloader extends JsObject {
         return this;
     }
 
-    private String generateJSelement() {
-        if (element != null) {
-            return String.format(Locale.US, "element: %s,", (element != null) ? element.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSparentElement() {
-        if (parentElement != null) {
-            return String.format(Locale.US, "parentElement: %s,", (parentElement != null) ? parentElement.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSvisible() {
-        if (visible != null) {
-            return String.format(Locale.US, "visible: %b,", visible);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -126,13 +109,17 @@ public class Preloader extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSelement());
-            js.append(generateJSparentElement());
-            js.append(generateJSvisible());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSelement());
+////        
+//            js.append(generateJSparentElement());
+////        
+//            js.append(generateJSvisible());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

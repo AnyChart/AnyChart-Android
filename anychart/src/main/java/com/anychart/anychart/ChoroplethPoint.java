@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class ChoroplethPoint extends SeriesPoint {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".crs(%s)", crs));
+            js.append(String.format(Locale.US, ".crs(%s)", wrapQuotes(crs)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".crs(%s)", crs));
+                onChangeListener.onChange(String.format(Locale.US, ".crs(%s)", wrapQuotes(crs)));
                 js.setLength(0);
             }
         }
@@ -176,65 +178,19 @@ public class ChoroplethPoint extends SeriesPoint {
         return this;
     }
 
+
+//
+//    private String generateJSAnychartMathRect getGetFeatureBounds() {
+//        if (AnychartMathRect getGetFeatureBounds != null) {
+//            return AnychartMathRect getGetFeatureBounds.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetGetFeatureBounds() {
         if (getGetFeatureBounds != null) {
             return getGetFeatureBounds.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScrs() {
-        if (crs != null) {
-            return String.format(Locale.US, "crs: %s,", crs);
-        }
-        return "";
-    }
-
-    private String generateJSmiddleX() {
-        if (middleX != null) {
-            return String.format(Locale.US, "middleX: %f,", middleX);
-        }
-        return "";
-    }
-
-    private String generateJSmiddleY() {
-        if (middleY != null) {
-            return String.format(Locale.US, "middleY: %f,", middleY);
-        }
-        return "";
-    }
-
-    private String generateJSscale() {
-        if (scale != null) {
-            return String.format(Locale.US, "scale: %f,", scale);
-        }
-        return "";
-    }
-
-    private String generateJSdx() {
-        if (dx != null) {
-            return String.format(Locale.US, "dx: %f,", dx);
-        }
-        return "";
-    }
-
-    private String generateJSdy() {
-        if (dy != null) {
-            return String.format(Locale.US, "dy: %f,", dy);
-        }
-        return "";
-    }
-
-    private String generateJSdx1() {
-        if (dx1 != null) {
-            return String.format(Locale.US, "dx: %f,", dx1);
-        }
-        return "";
-    }
-
-    private String generateJSdy1() {
-        if (dy1 != null) {
-            return String.format(Locale.US, "dy: %f,", dy1);
+            //return String.format(Locale.US, "getGetFeatureBounds: %s,", ((getGetFeatureBounds != null) ? getGetFeatureBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -258,18 +214,27 @@ public class ChoroplethPoint extends SeriesPoint {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScrs());
-            js.append(generateJSmiddleX());
-            js.append(generateJSmiddleY());
-            js.append(generateJSscale());
-            js.append(generateJSdx());
-            js.append(generateJSdy());
-            js.append(generateJSdx1());
-            js.append(generateJSdy1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScrs());
+////        
+//            js.append(generateJSmiddleX());
+////        
+//            js.append(generateJSmiddleY());
+////        
+//            js.append(generateJSscale());
+////        
+//            js.append(generateJSdx());
+////        
+//            js.append(generateJSdy());
+////        
+//            js.append(generateJSdx1());
+////        
+//            js.append(generateJSdy1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

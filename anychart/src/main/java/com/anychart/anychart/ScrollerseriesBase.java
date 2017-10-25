@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -58,10 +60,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", mappingSettings, csvSettings));
+            js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data != null) ? data.generateJs() : "null", mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -88,10 +90,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", mappingSettings, csvSettings));
+            js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -118,10 +120,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s, %s)", data2, mappingSettings, csvSettings));
+            js.append(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", data2, mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -168,10 +170,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+            js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
             }
         }
@@ -218,10 +220,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
+            js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
+                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
                 js.setLength(0);
             }
         }
@@ -249,10 +251,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".normal(%s)", normal));
+            js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
             }
         }
@@ -299,10 +301,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+            js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
                 js.setLength(0);
             }
         }
@@ -330,10 +332,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rendering(%s)", rendering));
+            js.append(String.format(Locale.US, ".rendering(%s)", wrapQuotes(rendering)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rendering(%s)", rendering));
+                onChangeListener.onChange(String.format(Locale.US, ".rendering(%s)", wrapQuotes(rendering)));
                 js.setLength(0);
             }
         }
@@ -361,10 +363,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selected(%s)", selected));
+            js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
+                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
             }
         }
@@ -383,10 +385,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".seriesType(%s)", seriesType));
+            js.append(String.format(Locale.US, ".seriesType(%s)", wrapQuotes(seriesType)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", seriesType));
+                onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", wrapQuotes(seriesType)));
                 js.setLength(0);
             }
         }
@@ -422,10 +424,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -448,10 +450,10 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
+            js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
             }
         }
@@ -474,19 +476,57 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSTableMapping getData() {
+//        if (TableMapping getData != null) {
+//            return TableMapping getData.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getNormal() {
+//        if (StateSettings getNormal != null) {
+//            return StateSettings getNormal.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSRenderingSettings getRendering() {
+//        if (RenderingSettings getRendering != null) {
+//            return RenderingSettings getRendering.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStateSettings getSelected() {
+//        if (StateSettings getSelected != null) {
+//            return StateSettings getSelected.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScatterBase getYScale() {
+//        if (ScatterBase getYScale != null) {
+//            return ScatterBase getYScale.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetData() {
         if (getData != null) {
             return getData.generateJs();
+            //return String.format(Locale.US, "getData: %s,", ((getData != null) ? getData.generateJs() : "null"));
         }
         return "";
     }
@@ -494,6 +534,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
+            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -501,6 +542,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
     private String generateJSgetRendering() {
         if (getRendering != null) {
             return getRendering.generateJs();
+            //return String.format(Locale.US, "getRendering: %s,", ((getRendering != null) ? getRendering.generateJs() : "null"));
         }
         return "";
     }
@@ -508,6 +550,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
+            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -515,146 +558,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSdata() {
-        if (data != null) {
-            return String.format(Locale.US, "data: %s,", (data != null) ? data.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata1() {
-        if (data1 != null) {
-            return String.format(Locale.US, "data: %s,", (data1 != null) ? data1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdata2() {
-        if (data2 != null) {
-            return String.format(Locale.US, "data: %s,", data2);
-        }
-        return "";
-    }
-
-    private String generateJSdata3() {
-        if (data3 != null) {
-            return String.format(Locale.US, "data: %s,", data3);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettings() {
-        if (mappingSettings != null) {
-            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettings() {
-        if (csvSettings != null) {
-            return String.format(Locale.US, "csvSettings: %s,", csvSettings);
-        }
-        return "";
-    }
-
-    private String generateJSmaxPointWidth() {
-        if (maxPointWidth != null) {
-            return String.format(Locale.US, "maxPointWidth: %f,", maxPointWidth);
-        }
-        return "";
-    }
-
-    private String generateJSmaxPointWidth1() {
-        if (maxPointWidth1 != null) {
-            return String.format(Locale.US, "maxPointWidth: %s,", maxPointWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSminPointLength() {
-        if (minPointLength != null) {
-            return String.format(Locale.US, "minPointLength: %f,", minPointLength);
-        }
-        return "";
-    }
-
-    private String generateJSminPointLength1() {
-        if (minPointLength1 != null) {
-            return String.format(Locale.US, "minPointLength: %s,", minPointLength1);
-        }
-        return "";
-    }
-
-    private String generateJSnormal() {
-        if (normal != null) {
-            return String.format(Locale.US, "normal: %s,", normal);
-        }
-        return "";
-    }
-
-    private String generateJSpointWidth() {
-        if (pointWidth != null) {
-            return String.format(Locale.US, "pointWidth: %f,", pointWidth);
-        }
-        return "";
-    }
-
-    private String generateJSpointWidth1() {
-        if (pointWidth1 != null) {
-            return String.format(Locale.US, "pointWidth: %s,", pointWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSrendering() {
-        if (rendering != null) {
-            return String.format(Locale.US, "rendering: %s,", rendering);
-        }
-        return "";
-    }
-
-    private String generateJSselected() {
-        if (selected != null) {
-            return String.format(Locale.US, "selected: %s,", selected);
-        }
-        return "";
-    }
-
-    private String generateJSseriesType() {
-        if (seriesType != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType);
-        }
-        return "";
-    }
-
-    private String generateJSyScale() {
-        if (yScale != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale != null) ? yScale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale1() {
-        if (yScale1 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale1);
-        }
-        return "";
-    }
-
-    private String generateJSyScale2() {
-        if (yScale2 != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale2 != null) ? yScale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyScale3() {
-        if (yScale3 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale3);
+            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -682,30 +586,51 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSdata());
-            js.append(generateJSdata1());
-            js.append(generateJSdata2());
-            js.append(generateJSdata3());
-            js.append(generateJSmappingSettings());
-            js.append(generateJScsvSettings());
-            js.append(generateJSmaxPointWidth());
-            js.append(generateJSmaxPointWidth1());
-            js.append(generateJSminPointLength());
-            js.append(generateJSminPointLength1());
-            js.append(generateJSnormal());
-            js.append(generateJSpointWidth());
-            js.append(generateJSpointWidth1());
-            js.append(generateJSrendering());
-            js.append(generateJSselected());
-            js.append(generateJSseriesType());
-            js.append(generateJSyScale());
-            js.append(generateJSyScale1());
-            js.append(generateJSyScale2());
-            js.append(generateJSyScale3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSdata());
+////        
+//            js.append(generateJSdata1());
+////        
+//            js.append(generateJSdata2());
+////        
+//            js.append(generateJSdata3());
+////        
+//            js.append(generateJSmappingSettings());
+////        
+//            js.append(generateJScsvSettings());
+////        
+//            js.append(generateJSmaxPointWidth());
+////        
+//            js.append(generateJSmaxPointWidth1());
+////        
+//            js.append(generateJSminPointLength());
+////        
+//            js.append(generateJSminPointLength1());
+////        
+//            js.append(generateJSnormal());
+////        
+//            js.append(generateJSpointWidth());
+////        
+//            js.append(generateJSpointWidth1());
+////        
+//            js.append(generateJSrendering());
+////        
+//            js.append(generateJSselected());
+////        
+//            js.append(generateJSseriesType());
+////        
+//            js.append(generateJSyScale());
+////        
+//            js.append(generateJSyScale1());
+////        
+//            js.append(generateJSyScale2());
+////        
+//            js.append(generateJSyScale3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

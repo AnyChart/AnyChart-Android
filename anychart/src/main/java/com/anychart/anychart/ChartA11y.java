@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -61,10 +63,10 @@ public class ChartA11y extends A11y {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -85,10 +87,10 @@ public class ChartA11y extends A11y {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".mode(%s)", mode1));
+            js.append(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", mode1));
+                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
                 js.setLength(0);
             }
         }
@@ -107,44 +109,18 @@ public class ChartA11y extends A11y {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".titleFormat(%s)", titleFormat));
+            js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", titleFormat));
+                onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
 
-    private String generateJSmode() {
-        if (mode != null) {
-            return String.format(Locale.US, "mode: %s,", (mode != null) ? mode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode1() {
-        if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", mode1);
-        }
-        return "";
-    }
-
-    private String generateJStitleFormat() {
-        if (titleFormat != null) {
-            return String.format(Locale.US, "titleFormat: %s,", titleFormat);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -163,14 +139,19 @@ public class ChartA11y extends A11y {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSenabled());
-            js.append(generateJSmode());
-            js.append(generateJSmode1());
-            js.append(generateJStitleFormat());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSenabled());
+////        
+//            js.append(generateJSmode());
+////        
+//            js.append(generateJSmode1());
+////        
+//            js.append(generateJStitleFormat());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

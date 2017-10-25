@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -41,10 +43,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".add(%s);", (annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".add(%s);", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", (annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -66,10 +68,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".add(%s);", annotationTypeOrConfig1));
+            js.append(String.format(Locale.US, jsBase + ".add(%s);", wrapQuotes(annotationTypeOrConfig1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", annotationTypeOrConfig1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", wrapQuotes(annotationTypeOrConfig1)));
                 js.setLength(0);
             }
         }
@@ -91,10 +93,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".add(%s);", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".add(%s);", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -113,10 +115,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".andrewsPitchfork(%s);", config));
+            js.append(String.format(Locale.US, jsBase + ".andrewsPitchfork(%s);", wrapQuotes(config)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".andrewsPitchfork(%s)", config));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".andrewsPitchfork(%s)", wrapQuotes(config)));
                 js.setLength(0);
             }
         }
@@ -138,10 +140,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ellipse(%s);", config1));
+            js.append(String.format(Locale.US, jsBase + ".ellipse(%s);", wrapQuotes(config1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%s)", config1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%s)", wrapQuotes(config1)));
                 js.setLength(0);
             }
         }
@@ -164,10 +166,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fibonacciArc(%s);", config2));
+            js.append(String.format(Locale.US, jsBase + ".fibonacciArc(%s);", wrapQuotes(config2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciArc(%s)", config2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciArc(%s)", wrapQuotes(config2)));
                 js.setLength(0);
             }
         }
@@ -191,10 +193,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fibonacciFan(%s);", config3));
+            js.append(String.format(Locale.US, jsBase + ".fibonacciFan(%s);", wrapQuotes(config3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciFan(%s)", config3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciFan(%s)", wrapQuotes(config3)));
                 js.setLength(0);
             }
         }
@@ -219,10 +221,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fibonacciRetracement(%s);", config4));
+            js.append(String.format(Locale.US, jsBase + ".fibonacciRetracement(%s);", wrapQuotes(config4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciRetracement(%s)", config4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciRetracement(%s)", wrapQuotes(config4)));
                 js.setLength(0);
             }
         }
@@ -248,10 +250,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fibonacciTimezones(%s);", config5));
+            js.append(String.format(Locale.US, jsBase + ".fibonacciTimezones(%s);", wrapQuotes(config5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciTimezones(%s)", config5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciTimezones(%s)", wrapQuotes(config5)));
                 js.setLength(0);
             }
         }
@@ -280,10 +282,10 @@ public class PlotController extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fromJson(%s)", config6));
+            js.append(String.format(Locale.US, ".fromJson(%s)", wrapQuotes(config6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fromJson(%s)", config6));
+                onChangeListener.onChange(String.format(Locale.US, ".fromJson(%s)", wrapQuotes(config6)));
                 js.setLength(0);
             }
         }
@@ -312,10 +314,10 @@ public class PlotController extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fromXml(%s)", config8));
+            js.append(String.format(Locale.US, ".fromXml(%s)", wrapQuotes(config8)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fromXml(%s)", config8));
+                onChangeListener.onChange(String.format(Locale.US, ".fromXml(%s)", wrapQuotes(config8)));
                 js.setLength(0);
             }
         }
@@ -367,10 +369,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".horizontalLine(%s);", config9));
+            js.append(String.format(Locale.US, jsBase + ".horizontalLine(%s);", wrapQuotes(config9)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalLine(%s)", config9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalLine(%s)", wrapQuotes(config9)));
                 js.setLength(0);
             }
         }
@@ -401,10 +403,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".infiniteLine(%s);", config10));
+            js.append(String.format(Locale.US, jsBase + ".infiniteLine(%s);", wrapQuotes(config10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".infiniteLine(%s)", config10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".infiniteLine(%s)", wrapQuotes(config10)));
                 js.setLength(0);
             }
         }
@@ -436,10 +438,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".line(%s);", config11));
+            js.append(String.format(Locale.US, jsBase + ".line(%s);", wrapQuotes(config11)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s)", config11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s)", wrapQuotes(config11)));
                 js.setLength(0);
             }
         }
@@ -472,10 +474,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".marker(%s);", config12));
+            js.append(String.format(Locale.US, jsBase + ".marker(%s);", wrapQuotes(config12)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s)", config12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s)", wrapQuotes(config12)));
                 js.setLength(0);
             }
         }
@@ -509,10 +511,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ray(%s);", config13));
+            js.append(String.format(Locale.US, jsBase + ".ray(%s);", wrapQuotes(config13)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ray(%s)", config13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ray(%s)", wrapQuotes(config13)));
                 js.setLength(0);
             }
         }
@@ -547,10 +549,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rectangle(%s);", config14));
+            js.append(String.format(Locale.US, jsBase + ".rectangle(%s);", wrapQuotes(config14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rectangle(%s)", config14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rectangle(%s)", wrapQuotes(config14)));
                 js.setLength(0);
             }
         }
@@ -569,10 +571,10 @@ public class PlotController extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeAnnotation(%s)", (annotation != null) ? annotation.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".removeAnnotation(%s)", ((annotation != null) ? annotation.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeAnnotation(%s)", (annotation != null) ? annotation.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".removeAnnotation(%s)", ((annotation != null) ? annotation.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -619,10 +621,10 @@ public class PlotController extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".select(%s)", (annotation1 != null) ? annotation1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".select(%s)", ((annotation1 != null) ? annotation1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%s)", (annotation1 != null) ? annotation1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s)", ((annotation1 != null) ? annotation1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -650,10 +652,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", (annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", (annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -678,10 +680,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", annotationTypeOrConfig4));
+            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", wrapQuotes(annotationTypeOrConfig4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", annotationTypeOrConfig4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", wrapQuotes(annotationTypeOrConfig4)));
                 js.setLength(0);
             }
         }
@@ -706,10 +708,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", (annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", (annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -787,10 +789,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".trendChannel(%s);", config15));
+            js.append(String.format(Locale.US, jsBase + ".trendChannel(%s);", wrapQuotes(config15)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".trendChannel(%s)", config15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".trendChannel(%s)", wrapQuotes(config15)));
                 js.setLength(0);
             }
         }
@@ -827,10 +829,10 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".triangle(%s);", config16));
+            js.append(String.format(Locale.US, jsBase + ".triangle(%s);", wrapQuotes(config16)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".triangle(%s)", config16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".triangle(%s)", wrapQuotes(config16)));
                 js.setLength(0);
             }
         }
@@ -868,226 +870,18 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".verticalLine(%s);", config17));
+            js.append(String.format(Locale.US, jsBase + ".verticalLine(%s);", wrapQuotes(config17)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalLine(%s)", config17));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalLine(%s)", wrapQuotes(config17)));
                 js.setLength(0);
             }
         }
         return new VerticalLine(jsBase);
     }
 
-    private String generateJSannotationTypeOrConfig() {
-        if (annotationTypeOrConfig != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSannotationTypeOrConfig1() {
-        if (annotationTypeOrConfig1 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", annotationTypeOrConfig1);
-        }
-        return "";
-    }
-
-    private String generateJSannotationTypeOrConfig2() {
-        if (annotationTypeOrConfig2 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSconfig() {
-        if (config != null) {
-            return String.format(Locale.US, "config: %s,", config);
-        }
-        return "";
-    }
-
-    private String generateJSconfig1() {
-        if (config1 != null) {
-            return String.format(Locale.US, "config: %s,", config1);
-        }
-        return "";
-    }
-
-    private String generateJSconfig2() {
-        if (config2 != null) {
-            return String.format(Locale.US, "config: %s,", config2);
-        }
-        return "";
-    }
-
-    private String generateJSconfig3() {
-        if (config3 != null) {
-            return String.format(Locale.US, "config: %s,", config3);
-        }
-        return "";
-    }
-
-    private String generateJSconfig4() {
-        if (config4 != null) {
-            return String.format(Locale.US, "config: %s,", config4);
-        }
-        return "";
-    }
-
-    private String generateJSconfig5() {
-        if (config5 != null) {
-            return String.format(Locale.US, "config: %s,", config5);
-        }
-        return "";
-    }
-
-    private String generateJSconfig6() {
-        if (config6 != null) {
-            return String.format(Locale.US, "config: %s,", config6);
-        }
-        return "";
-    }
-
-    private String generateJSconfig7() {
-        if (config7 != null) {
-            return String.format(Locale.US, "config: %s,", config7);
-        }
-        return "";
-    }
-
-    private String generateJSconfig8() {
-        if (config8 != null) {
-            return String.format(Locale.US, "config: %s,", config8);
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJSconfig9() {
-        if (config9 != null) {
-            return String.format(Locale.US, "config: %s,", config9);
-        }
-        return "";
-    }
-
-    private String generateJSconfig10() {
-        if (config10 != null) {
-            return String.format(Locale.US, "config: %s,", config10);
-        }
-        return "";
-    }
-
-    private String generateJSconfig11() {
-        if (config11 != null) {
-            return String.format(Locale.US, "config: %s,", config11);
-        }
-        return "";
-    }
-
-    private String generateJSconfig12() {
-        if (config12 != null) {
-            return String.format(Locale.US, "config: %s,", config12);
-        }
-        return "";
-    }
-
-    private String generateJSconfig13() {
-        if (config13 != null) {
-            return String.format(Locale.US, "config: %s,", config13);
-        }
-        return "";
-    }
-
-    private String generateJSconfig14() {
-        if (config14 != null) {
-            return String.format(Locale.US, "config: %s,", config14);
-        }
-        return "";
-    }
-
-    private String generateJSannotation() {
-        if (annotation != null) {
-            return String.format(Locale.US, "annotation: %s,", (annotation != null) ? annotation.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSannotation1() {
-        if (annotation1 != null) {
-            return String.format(Locale.US, "annotation: %s,", (annotation1 != null) ? annotation1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSannotationTypeOrConfig3() {
-        if (annotationTypeOrConfig3 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSannotationTypeOrConfig4() {
-        if (annotationTypeOrConfig4 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", annotationTypeOrConfig4);
-        }
-        return "";
-    }
-
-    private String generateJSannotationTypeOrConfig5() {
-        if (annotationTypeOrConfig5 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstringify() {
-        if (stringify != null) {
-            return String.format(Locale.US, "stringify: %b,", stringify);
-        }
-        return "";
-    }
-
-    private String generateJSasXmlNode() {
-        if (asXmlNode != null) {
-            return String.format(Locale.US, "asXmlNode: %b,", asXmlNode);
-        }
-        return "";
-    }
-
-    private String generateJSconfig15() {
-        if (config15 != null) {
-            return String.format(Locale.US, "config: %s,", config15);
-        }
-        return "";
-    }
-
-    private String generateJSconfig16() {
-        if (config16 != null) {
-            return String.format(Locale.US, "config: %s,", config16);
-        }
-        return "";
-    }
-
-    private String generateJSconfig17() {
-        if (config17 != null) {
-            return String.format(Locale.US, "config: %s,", config17);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -1106,40 +900,71 @@ public class PlotController extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSannotationTypeOrConfig());
-            js.append(generateJSannotationTypeOrConfig1());
-            js.append(generateJSannotationTypeOrConfig2());
-            js.append(generateJSconfig());
-            js.append(generateJSconfig1());
-            js.append(generateJSconfig2());
-            js.append(generateJSconfig3());
-            js.append(generateJSconfig4());
-            js.append(generateJSconfig5());
-            js.append(generateJSconfig6());
-            js.append(generateJSconfig7());
-            js.append(generateJSconfig8());
-            js.append(generateJSindex());
-            js.append(generateJSconfig9());
-            js.append(generateJSconfig10());
-            js.append(generateJSconfig11());
-            js.append(generateJSconfig12());
-            js.append(generateJSconfig13());
-            js.append(generateJSconfig14());
-            js.append(generateJSannotation());
-            js.append(generateJSindex1());
-            js.append(generateJSannotation1());
-            js.append(generateJSannotationTypeOrConfig3());
-            js.append(generateJSannotationTypeOrConfig4());
-            js.append(generateJSannotationTypeOrConfig5());
-            js.append(generateJSstringify());
-            js.append(generateJSasXmlNode());
-            js.append(generateJSconfig15());
-            js.append(generateJSconfig16());
-            js.append(generateJSconfig17());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSannotationTypeOrConfig());
+////        
+//            js.append(generateJSannotationTypeOrConfig1());
+////        
+//            js.append(generateJSannotationTypeOrConfig2());
+////        
+//            js.append(generateJSconfig());
+////        
+//            js.append(generateJSconfig1());
+////        
+//            js.append(generateJSconfig2());
+////        
+//            js.append(generateJSconfig3());
+////        
+//            js.append(generateJSconfig4());
+////        
+//            js.append(generateJSconfig5());
+////        
+//            js.append(generateJSconfig6());
+////        
+//            js.append(generateJSconfig7());
+////        
+//            js.append(generateJSconfig8());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSconfig9());
+////        
+//            js.append(generateJSconfig10());
+////        
+//            js.append(generateJSconfig11());
+////        
+//            js.append(generateJSconfig12());
+////        
+//            js.append(generateJSconfig13());
+////        
+//            js.append(generateJSconfig14());
+////        
+//            js.append(generateJSannotation());
+////        
+//            js.append(generateJSindex1());
+////        
+//            js.append(generateJSannotation1());
+////        
+//            js.append(generateJSannotationTypeOrConfig3());
+////        
+//            js.append(generateJSannotationTypeOrConfig4());
+////        
+//            js.append(generateJSannotationTypeOrConfig5());
+////        
+//            js.append(generateJSstringify());
+////        
+//            js.append(generateJSasXmlNode());
+////        
+//            js.append(generateJSconfig15());
+////        
+//            js.append(generateJSconfig16());
+////        
+//            js.append(generateJSconfig17());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

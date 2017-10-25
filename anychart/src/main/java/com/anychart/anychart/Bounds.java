@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -63,10 +65,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bottom(%s)", bottom1));
+            js.append(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", bottom1));
+                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
                 js.setLength(0);
             }
         }
@@ -113,10 +115,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".height(%s)", height1));
+            js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", height1));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -163,10 +165,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".left(%s)", left1));
+            js.append(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".left(%s)", left1));
+                onChangeListener.onChange(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
                 js.setLength(0);
             }
         }
@@ -213,10 +215,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxHeight(%s)", maxHeight1));
+            js.append(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", maxHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
                 js.setLength(0);
             }
         }
@@ -263,10 +265,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".maxWidth(%s)", maxWidth1));
+            js.append(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", maxWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
                 js.setLength(0);
             }
         }
@@ -313,10 +315,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minHeight(%s)", minHeight1));
+            js.append(String.format(Locale.US, ".minHeight(%s)", wrapQuotes(minHeight1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minHeight(%s)", minHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".minHeight(%s)", wrapQuotes(minHeight1)));
                 js.setLength(0);
             }
         }
@@ -363,10 +365,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minWidth(%s)", minWidth1));
+            js.append(String.format(Locale.US, ".minWidth(%s)", wrapQuotes(minWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minWidth(%s)", minWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".minWidth(%s)", wrapQuotes(minWidth1)));
                 js.setLength(0);
             }
         }
@@ -413,10 +415,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".right(%s)", right1));
+            js.append(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".right(%s)", right1));
+                onChangeListener.onChange(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
                 js.setLength(0);
             }
         }
@@ -481,10 +483,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%s)", (xOrRect3 != null) ? xOrRect3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".set(%s)", ((xOrRect3 != null) ? xOrRect3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", (xOrRect3 != null) ? xOrRect3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect3 != null) ? xOrRect3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -509,10 +511,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%s)", (xOrRect4 != null) ? xOrRect4.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".set(%s)", ((xOrRect4 != null) ? xOrRect4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", (xOrRect4 != null) ? xOrRect4.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect4 != null) ? xOrRect4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -537,10 +539,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%s)", (xOrRect5 != null) ? xOrRect5.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".set(%s)", ((xOrRect5 != null) ? xOrRect5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", (xOrRect5 != null) ? xOrRect5.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect5 != null) ? xOrRect5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -605,10 +607,10 @@ public class Bounds extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f);", (parentLeftOrRect1 != null) ? parentLeftOrRect1.generateJs() : "null", parentTop, parentWidth, parentHeight));
+            js.append(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f);", ((parentLeftOrRect1 != null) ? parentLeftOrRect1.generateJs() : "null"), parentTop, parentWidth, parentHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f)", (parentLeftOrRect1 != null) ? parentLeftOrRect1.generateJs() : "null", parentTop, parentWidth, parentHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f)", ((parentLeftOrRect1 != null) ? parentLeftOrRect1.generateJs() : "null"), parentTop, parentWidth, parentHeight));
                 js.setLength(0);
             }
         }
@@ -636,10 +638,10 @@ public class Bounds extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f);", parentLeftOrRect2, parentTop, parentWidth, parentHeight));
+            js.append(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f);", wrapQuotes(parentLeftOrRect2), parentTop, parentWidth, parentHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f)", parentLeftOrRect2, parentTop, parentWidth, parentHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f)", wrapQuotes(parentLeftOrRect2), parentTop, parentWidth, parentHeight));
                 js.setLength(0);
             }
         }
@@ -686,10 +688,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".top(%s)", top1));
+            js.append(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".top(%s)", top1));
+                onChangeListener.onChange(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
                 js.setLength(0);
             }
         }
@@ -740,282 +742,18 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".width(%s)", width3));
+            js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width3));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width3)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSbottom() {
-        if (bottom != null) {
-            return String.format(Locale.US, "bottom: %f,", bottom);
-        }
-        return "";
-    }
 
-    private String generateJSbottom1() {
-        if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: %s,", bottom1);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSheight1() {
-        if (height1 != null) {
-            return String.format(Locale.US, "height: %s,", height1);
-        }
-        return "";
-    }
-
-    private String generateJSleft() {
-        if (left != null) {
-            return String.format(Locale.US, "left: %f,", left);
-        }
-        return "";
-    }
-
-    private String generateJSleft1() {
-        if (left1 != null) {
-            return String.format(Locale.US, "left: %s,", left1);
-        }
-        return "";
-    }
-
-    private String generateJSmaxHeight() {
-        if (maxHeight != null) {
-            return String.format(Locale.US, "maxHeight: %f,", maxHeight);
-        }
-        return "";
-    }
-
-    private String generateJSmaxHeight1() {
-        if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
-        }
-        return "";
-    }
-
-    private String generateJSmaxWidth() {
-        if (maxWidth != null) {
-            return String.format(Locale.US, "maxWidth: %f,", maxWidth);
-        }
-        return "";
-    }
-
-    private String generateJSmaxWidth1() {
-        if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSminHeight() {
-        if (minHeight != null) {
-            return String.format(Locale.US, "minHeight: %f,", minHeight);
-        }
-        return "";
-    }
-
-    private String generateJSminHeight1() {
-        if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: %s,", minHeight1);
-        }
-        return "";
-    }
-
-    private String generateJSminWidth() {
-        if (minWidth != null) {
-            return String.format(Locale.US, "minWidth: %f,", minWidth);
-        }
-        return "";
-    }
-
-    private String generateJSminWidth1() {
-        if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: %s,", minWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSright() {
-        if (right != null) {
-            return String.format(Locale.US, "right: %f,", right);
-        }
-        return "";
-    }
-
-    private String generateJSright1() {
-        if (right1 != null) {
-            return String.format(Locale.US, "right: %s,", right1);
-        }
-        return "";
-    }
-
-    private String generateJSxOrRect() {
-        if (xOrRect != null) {
-            return String.format(Locale.US, "xOrRect: %f,", xOrRect);
-        }
-        return "";
-    }
-
-    private String generateJSxOrRect1() {
-        if (xOrRect1 != null) {
-            return String.format(Locale.US, "xOrRect: %s,", xOrRect1);
-        }
-        return "";
-    }
-
-    private String generateJSxOrRect2() {
-        if (xOrRect2 != null) {
-            return String.format(Locale.US, "xOrRect: %s,", Arrays.toString(xOrRect2));
-        }
-        return "";
-    }
-
-    private String generateJSxOrRect3() {
-        if (xOrRect3 != null) {
-            return String.format(Locale.US, "xOrRect: %s,", (xOrRect3 != null) ? xOrRect3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSxOrRect4() {
-        if (xOrRect4 != null) {
-            return String.format(Locale.US, "xOrRect: %s,", (xOrRect4 != null) ? xOrRect4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSxOrRect5() {
-        if (xOrRect5 != null) {
-            return String.format(Locale.US, "xOrRect: %s,", (xOrRect5 != null) ? xOrRect5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSy() {
-        if (y != null) {
-            return String.format(Locale.US, "y: %f,", y);
-        }
-        return "";
-    }
-
-    private String generateJSy1() {
-        if (y1 != null) {
-            return String.format(Locale.US, "y: %s,", y1);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %s,", width1);
-        }
-        return "";
-    }
-
-    private String generateJSheight2() {
-        if (height2 != null) {
-            return String.format(Locale.US, "height: %f,", height2);
-        }
-        return "";
-    }
-
-    private String generateJSheight3() {
-        if (height3 != null) {
-            return String.format(Locale.US, "height: %s,", height3);
-        }
-        return "";
-    }
-
-    private String generateJSparentLeftOrRect() {
-        if (parentLeftOrRect != null) {
-            return String.format(Locale.US, "parentLeftOrRect: %f,", parentLeftOrRect);
-        }
-        return "";
-    }
-
-    private String generateJSparentLeftOrRect1() {
-        if (parentLeftOrRect1 != null) {
-            return String.format(Locale.US, "parentLeftOrRect: %s,", (parentLeftOrRect1 != null) ? parentLeftOrRect1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSparentLeftOrRect2() {
-        if (parentLeftOrRect2 != null) {
-            return String.format(Locale.US, "parentLeftOrRect: %s,", parentLeftOrRect2);
-        }
-        return "";
-    }
-
-    private String generateJSparentTop() {
-        if (parentTop != null) {
-            return String.format(Locale.US, "parentTop: %f,", parentTop);
-        }
-        return "";
-    }
-
-    private String generateJSparentWidth() {
-        if (parentWidth != null) {
-            return String.format(Locale.US, "parentWidth: %f,", parentWidth);
-        }
-        return "";
-    }
-
-    private String generateJSparentHeight() {
-        if (parentHeight != null) {
-            return String.format(Locale.US, "parentHeight: %f,", parentHeight);
-        }
-        return "";
-    }
-
-    private String generateJStop() {
-        if (top != null) {
-            return String.format(Locale.US, "top: %f,", top);
-        }
-        return "";
-    }
-
-    private String generateJStop1() {
-        if (top1 != null) {
-            return String.format(Locale.US, "top: %s,", top1);
-        }
-        return "";
-    }
-
-    private String generateJSwidth2() {
-        if (width2 != null) {
-            return String.format(Locale.US, "width: %f,", width2);
-        }
-        return "";
-    }
-
-    private String generateJSwidth3() {
-        if (width3 != null) {
-            return String.format(Locale.US, "width: %s,", width3);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -1034,48 +772,87 @@ public class Bounds extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSbottom());
-            js.append(generateJSbottom1());
-            js.append(generateJSheight());
-            js.append(generateJSheight1());
-            js.append(generateJSleft());
-            js.append(generateJSleft1());
-            js.append(generateJSmaxHeight());
-            js.append(generateJSmaxHeight1());
-            js.append(generateJSmaxWidth());
-            js.append(generateJSmaxWidth1());
-            js.append(generateJSminHeight());
-            js.append(generateJSminHeight1());
-            js.append(generateJSminWidth());
-            js.append(generateJSminWidth1());
-            js.append(generateJSright());
-            js.append(generateJSright1());
-            js.append(generateJSxOrRect());
-            js.append(generateJSxOrRect1());
-            js.append(generateJSxOrRect2());
-            js.append(generateJSxOrRect3());
-            js.append(generateJSxOrRect4());
-            js.append(generateJSxOrRect5());
-            js.append(generateJSy());
-            js.append(generateJSy1());
-            js.append(generateJSwidth());
-            js.append(generateJSwidth1());
-            js.append(generateJSheight2());
-            js.append(generateJSheight3());
-            js.append(generateJSparentLeftOrRect());
-            js.append(generateJSparentLeftOrRect1());
-            js.append(generateJSparentLeftOrRect2());
-            js.append(generateJSparentTop());
-            js.append(generateJSparentWidth());
-            js.append(generateJSparentHeight());
-            js.append(generateJStop());
-            js.append(generateJStop1());
-            js.append(generateJSwidth2());
-            js.append(generateJSwidth3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSbottom());
+////        
+//            js.append(generateJSbottom1());
+////        
+//            js.append(generateJSheight());
+////        
+//            js.append(generateJSheight1());
+////        
+//            js.append(generateJSleft());
+////        
+//            js.append(generateJSleft1());
+////        
+//            js.append(generateJSmaxHeight());
+////        
+//            js.append(generateJSmaxHeight1());
+////        
+//            js.append(generateJSmaxWidth());
+////        
+//            js.append(generateJSmaxWidth1());
+////        
+//            js.append(generateJSminHeight());
+////        
+//            js.append(generateJSminHeight1());
+////        
+//            js.append(generateJSminWidth());
+////        
+//            js.append(generateJSminWidth1());
+////        
+//            js.append(generateJSright());
+////        
+//            js.append(generateJSright1());
+////        
+//            js.append(generateJSxOrRect());
+////        
+//            js.append(generateJSxOrRect1());
+////        
+//            js.append(generateJSxOrRect2());
+////        
+//            js.append(generateJSxOrRect3());
+////        
+//            js.append(generateJSxOrRect4());
+////        
+//            js.append(generateJSxOrRect5());
+////        
+//            js.append(generateJSy());
+////        
+//            js.append(generateJSy1());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSwidth1());
+////        
+//            js.append(generateJSheight2());
+////        
+//            js.append(generateJSheight3());
+////        
+//            js.append(generateJSparentLeftOrRect());
+////        
+//            js.append(generateJSparentLeftOrRect1());
+////        
+//            js.append(generateJSparentLeftOrRect2());
+////        
+//            js.append(generateJSparentTop());
+////        
+//            js.append(generateJSparentWidth());
+////        
+//            js.append(generateJSparentHeight());
+////        
+//            js.append(generateJStop());
+////        
+//            js.append(generateJStop1());
+////        
+//            js.append(generateJSwidth2());
+////        
+//            js.append(generateJSwidth3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

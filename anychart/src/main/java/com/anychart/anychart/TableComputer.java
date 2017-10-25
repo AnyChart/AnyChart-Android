@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -38,10 +40,10 @@ public class TableComputer extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".addOutputField(%s, %s);", name, uid));
+            js.append(String.format(Locale.US, jsBase + ".addOutputField(%s, %s);", wrapQuotes(name), wrapQuotes(uid)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addOutputField(%s, %s)", name, uid));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addOutputField(%s, %s)", wrapQuotes(name), wrapQuotes(uid)));
                 js.setLength(0);
             }
         }
@@ -62,10 +64,10 @@ public class TableComputer extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getFieldIndex(%s);", name1));
+            js.append(String.format(Locale.US, jsBase + ".getFieldIndex(%s);", wrapQuotes(name1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getFieldIndex(%s)", name1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getFieldIndex(%s)", wrapQuotes(name1)));
                 js.setLength(0);
             }
         }
@@ -83,43 +85,17 @@ public class TableComputer extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".setContext(%s);", setContext));
+            js.append(String.format(Locale.US, jsBase + ".setContext(%s);", wrapQuotes(setContext)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setContext(%s)", setContext));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setContext(%s)", wrapQuotes(setContext)));
                 js.setLength(0);
             }
         }
     }
 
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
 
-    private String generateJSuid() {
-        if (uid != null) {
-            return String.format(Locale.US, "uid: %s,", uid);
-        }
-        return "";
-    }
-
-    private String generateJSname1() {
-        if (name1 != null) {
-            return String.format(Locale.US, "name: %s,", name1);
-        }
-        return "";
-    }
-
-    private String generateJSsetContext() {
-        if (setContext != null) {
-            return String.format(Locale.US, "setContext: %s,", setContext);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -138,14 +114,19 @@ public class TableComputer extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSname());
-            js.append(generateJSuid());
-            js.append(generateJSname1());
-            js.append(generateJSsetContext());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSname());
+////        
+//            js.append(generateJSuid());
+////        
+//            js.append(generateJSname1());
+////        
+//            js.append(generateJSsetContext());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

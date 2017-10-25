@@ -1,7 +1,14 @@
 package com.anychart.anychart;
 
+import android.text.TextUtils;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 /**
  * Created by arseny on 8/9/17.
@@ -45,6 +52,51 @@ abstract class JsObject {
 
     protected String generateJsGetters() {
         return "";
+    }
+
+    protected static String wrapQuotes(String value) {
+        if (TextUtils.isEmpty(value)) {
+            return value;
+        }
+
+        if (isJSONValid(value) || isFunction(value)) {
+            return value;
+        }
+
+        StringBuilder result = new StringBuilder(value.length() + 2);
+        result.append("\'").append(value).append("\'");
+
+        return result.toString();
+    }
+
+    private static boolean isJSONValid(String json) {
+        try {
+            new JSONObject(json);
+        } catch (JSONException ex1) {
+            try {
+                new JSONArray(json);
+            } catch (JSONException ex2) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isFunction(String function) {
+        return function.length() > 10 && function.trim().toLowerCase().substring(0, 8).equals("function");
+    }
+
+    private static boolean isContainBracketOrBrace(String value) {
+        return value.charAt(0) == '[' || value.charAt(0) == '{';
+    }
+
+    protected static String arrayToStringWrapQuotes(String[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (TextUtils.isDigitsOnly(array[i]) || isContainBracketOrBrace(array[i]))
+                continue;
+            array[i] = wrapQuotes(array[i]);
+        }
+        return Arrays.toString(array);
     }
 
     public static String arrayToString(JsObject[] jsObjects) {

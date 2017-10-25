@@ -21,7 +21,7 @@ public class ChoContext extends JsObject  {
         this.slowMAContext = slowMAContext;
         this.adlContext = adlContext;
 
-        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  (fastMAContext != null) ? fastMAContext.generateJs() : "null", (maType != null) ? maType.generateJs() : "null", (slowMAContext != null) ? slowMAContext.generateJs() : "null", (adlContext != null) ? adlContext.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  ((fastMAContext != null) ? fastMAContext.generateJs() : "null"), ((maType != null) ? maType.generateJs() : "null"), ((slowMAContext != null) ? slowMAContext.generateJs() : "null"), ((adlContext != null) ? adlContext.generateJs() : "null")));
     }
     public ChoContext(EmaContext fastMAContext, MovingAverageType maType, SmaContext slowMAContext1, AdlContext adlContext) {
         this.fastMAContext = fastMAContext;
@@ -29,7 +29,7 @@ public class ChoContext extends JsObject  {
         this.slowMAContext1 = slowMAContext1;
         this.adlContext = adlContext;
 
-        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  (fastMAContext != null) ? fastMAContext.generateJs() : "null", (maType != null) ? maType.generateJs() : "null", (slowMAContext1 != null) ? slowMAContext1.generateJs() : "null", (adlContext != null) ? adlContext.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  ((fastMAContext != null) ? fastMAContext.generateJs() : "null"), ((maType != null) ? maType.generateJs() : "null"), ((slowMAContext1 != null) ? slowMAContext1.generateJs() : "null"), ((adlContext != null) ? adlContext.generateJs() : "null")));
     }
     public ChoContext(EmaContext fastMAContext, String maType1, EmaContext slowMAContext, AdlContext adlContext) {
         this.fastMAContext = fastMAContext;
@@ -37,7 +37,7 @@ public class ChoContext extends JsObject  {
         this.slowMAContext = slowMAContext;
         this.adlContext = adlContext;
 
-        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  (fastMAContext != null) ? fastMAContext.generateJs() : "null", maType1, (slowMAContext != null) ? slowMAContext.generateJs() : "null", (adlContext != null) ? adlContext.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  ((fastMAContext != null) ? fastMAContext.generateJs() : "null"), wrapQuotes(maType1), ((slowMAContext != null) ? slowMAContext.generateJs() : "null"), ((adlContext != null) ? adlContext.generateJs() : "null")));
     }
     public ChoContext(EmaContext fastMAContext, String maType1, SmaContext slowMAContext1, AdlContext adlContext) {
         this.fastMAContext = fastMAContext;
@@ -45,7 +45,7 @@ public class ChoContext extends JsObject  {
         this.slowMAContext1 = slowMAContext1;
         this.adlContext = adlContext;
 
-        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  (fastMAContext != null) ? fastMAContext.generateJs() : "null", maType1, (slowMAContext1 != null) ? slowMAContext1.generateJs() : "null", (adlContext != null) ? adlContext.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  ((fastMAContext != null) ? fastMAContext.generateJs() : "null"), wrapQuotes(maType1), ((slowMAContext1 != null) ? slowMAContext1.generateJs() : "null"), ((adlContext != null) ? adlContext.generateJs() : "null")));
     }
     public ChoContext(SmaContext fastMAContext1, MovingAverageType maType, EmaContext slowMAContext, AdlContext adlContext) {
         this.fastMAContext1 = fastMAContext1;
@@ -53,7 +53,7 @@ public class ChoContext extends JsObject  {
         this.slowMAContext = slowMAContext;
         this.adlContext = adlContext;
 
-        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  (fastMAContext1 != null) ? fastMAContext1.generateJs() : "null", (maType != null) ? maType.generateJs() : "null", (slowMAContext != null) ? slowMAContext.generateJs() : "null", (adlContext != null) ? adlContext.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  ((fastMAContext1 != null) ? fastMAContext1.generateJs() : "null"), ((maType != null) ? maType.generateJs() : "null"), ((slowMAContext != null) ? slowMAContext.generateJs() : "null"), ((adlContext != null) ? adlContext.generateJs() : "null")));
     }
     public ChoContext(SmaContext fastMAContext1, MovingAverageType maType, SmaContext slowMAContext1, AdlContext adlContext) {
         this.fastMAContext1 = fastMAContext1;
@@ -61,7 +61,7 @@ public class ChoContext extends JsObject  {
         this.slowMAContext1 = slowMAContext1;
         this.adlContext = adlContext;
 
-        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  (fastMAContext1 != null) ? fastMAContext1.generateJs() : "null", (maType != null) ? maType.generateJs() : "null", (slowMAContext1 != null) ? slowMAContext1.generateJs() : "null", (adlContext != null) ? adlContext.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  ((fastMAContext1 != null) ? fastMAContext1.generateJs() : "null"), ((maType != null) ? maType.generateJs() : "null"), ((slowMAContext1 != null) ? slowMAContext1.generateJs() : "null"), ((adlContext != null) ? adlContext.generateJs() : "null")));
     }
     public ChoContext(SmaContext fastMAContext1, String maType1, EmaContext slowMAContext, AdlContext adlContext) {
         this.fastMAContext1 = fastMAContext1;
@@ -69,7 +69,7 @@ public class ChoContext extends JsObject  {
         this.slowMAContext = slowMAContext;
         this.adlContext = adlContext;
 
-        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  (fastMAContext1 != null) ? fastMAContext1.generateJs() : "null", maType1, (slowMAContext != null) ? slowMAContext.generateJs() : "null", (adlContext != null) ? adlContext.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  ((fastMAContext1 != null) ? fastMAContext1.generateJs() : "null"), wrapQuotes(maType1), ((slowMAContext != null) ? slowMAContext.generateJs() : "null"), ((adlContext != null) ? adlContext.generateJs() : "null")));
     }
     public ChoContext(SmaContext fastMAContext1, String maType1, SmaContext slowMAContext1, AdlContext adlContext) {
         this.fastMAContext1 = fastMAContext1;
@@ -77,7 +77,7 @@ public class ChoContext extends JsObject  {
         this.slowMAContext1 = slowMAContext1;
         this.adlContext = adlContext;
 
-        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  (fastMAContext1 != null) ? fastMAContext1.generateJs() : "null", maType1, (slowMAContext1 != null) ? slowMAContext1.generateJs() : "null", (adlContext != null) ? adlContext.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{fastMAContext: %s,maType: %s,slowMAContext: %s,adlContext: %s}",  ((fastMAContext1 != null) ? fastMAContext1.generateJs() : "null"), wrapQuotes(maType1), ((slowMAContext1 != null) ? slowMAContext1.generateJs() : "null"), ((adlContext != null) ? adlContext.generateJs() : "null")));
     }
 
     @Override

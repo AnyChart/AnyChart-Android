@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Point extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".get(%s);", field));
+            js.append(String.format(Locale.US, jsBase + ".get(%s);", wrapQuotes(field)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", field));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
                 js.setLength(0);
             }
         }
@@ -112,47 +114,29 @@ public class Point extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%s)", field1));
+            js.append(String.format(Locale.US, ".set(%s)", wrapQuotes(field1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", field1));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", wrapQuotes(field1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSSeparateChart getGetChart() {
+//        if (SeparateChart getGetChart != null) {
+//            return SeparateChart getGetChart.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetGetChart() {
         if (getGetChart != null) {
             return getGetChart.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSfield() {
-        if (field != null) {
-            return String.format(Locale.US, "field: %s,", field);
-        }
-        return "";
-    }
-
-    private String generateJShovered() {
-        if (hovered != null) {
-            return String.format(Locale.US, "hovered: %b,", hovered);
-        }
-        return "";
-    }
-
-    private String generateJSselected() {
-        if (selected != null) {
-            return String.format(Locale.US, "selected: %b,", selected);
-        }
-        return "";
-    }
-
-    private String generateJSfield1() {
-        if (field1 != null) {
-            return String.format(Locale.US, "field: %s,", field1);
+            //return String.format(Locale.US, "getGetChart: %s,", ((getGetChart != null) ? getGetChart.generateJs() : "null"));
         }
         return "";
     }
@@ -176,14 +160,19 @@ public class Point extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSfield());
-            js.append(generateJShovered());
-            js.append(generateJSselected());
-            js.append(generateJSfield1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSfield());
+////        
+//            js.append(generateJShovered());
+////        
+//            js.append(generateJSselected());
+////        
+//            js.append(generateJSfield1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

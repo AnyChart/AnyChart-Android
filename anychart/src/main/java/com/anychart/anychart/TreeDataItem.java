@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -39,10 +41,10 @@ public class TreeDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChild(%s)", child));
+            js.append(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", child));
+                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class TreeDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChild(%s)", (child1 != null) ? child1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".addChild(%s)", ((child1 != null) ? child1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", (child1 != null) ? child1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", ((child1 != null) ? child1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -96,10 +98,10 @@ public class TreeDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", child2, index));
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child2), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", child2, index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child2), index));
                 js.setLength(0);
             }
         }
@@ -125,10 +127,10 @@ public class TreeDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", (child3 != null) ? child3.generateJs() : "null", index));
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.generateJs() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", (child3 != null) ? child3.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.generateJs() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -154,23 +156,22 @@ public class TreeDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", (child4 != null) ? child4.generateJs() : "null", index));
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", (child4 != null) ? child4.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private TreeDataItem getGetChildAt;
+    private List<TreeDataItem> getGetChildAt = new ArrayList<>();
 
-    public TreeDataItem getGetChildAt() {
-        if (getGetChildAt == null)
-            getGetChildAt = new TreeDataItem(jsBase + ".getChildAt()");
-
-        return getGetChildAt;
+    public TreeDataItem getGetChildAt(Double index) {
+        TreeDataItem item = new TreeDataItem(jsBase + ".getChildAt(" + index + ")");
+        getGetChildAt.add(item);
+        return item;
     }
 
     private TreeDataItem getGetParent;
@@ -194,10 +195,10 @@ public class TreeDataItem extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".meta(%s);", key));
+            js.append(String.format(Locale.US, jsBase + ".meta(%s);", wrapQuotes(key)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
                 js.setLength(0);
             }
         }
@@ -222,10 +223,10 @@ public class TreeDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeChild(%s)", (child5 != null) ? child5.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".removeChild(%s)", ((child5 != null) ? child5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeChild(%s)", (child5 != null) ? child5.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".removeChild(%s)", ((child5 != null) ? child5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -257,79 +258,38 @@ public class TreeDataItem extends JsObject {
         return this;
     }
 
+
+//
+//    private String generateJSTreeDataItem getGetChildAt() {
+//        if (TreeDataItem getGetChildAt != null) {
+//            return TreeDataItem getGetChildAt.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSTreeDataItem getGetParent() {
+//        if (TreeDataItem getGetParent != null) {
+//            return TreeDataItem getGetParent.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetGetChildAt() {
-        if (getGetChildAt != null) {
-            return getGetChildAt.generateJs();
+        if (!getGetChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : getGetChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetGetParent() {
         if (getGetParent != null) {
             return getGetParent.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSchild() {
-        if (child != null) {
-            return String.format(Locale.US, "child: %s,", child);
-        }
-        return "";
-    }
-
-    private String generateJSchild1() {
-        if (child1 != null) {
-            return String.format(Locale.US, "child: %s,", (child1 != null) ? child1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchild2() {
-        if (child2 != null) {
-            return String.format(Locale.US, "child: %s,", child2);
-        }
-        return "";
-    }
-
-    private String generateJSchild3() {
-        if (child3 != null) {
-            return String.format(Locale.US, "child: %s,", (child3 != null) ? child3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchild4() {
-        if (child4 != null) {
-            return String.format(Locale.US, "child: %s,", (child4 != null) ? child4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
-    private String generateJSchild5() {
-        if (child5 != null) {
-            return String.format(Locale.US, "child: %s,", (child5 != null) ? child5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
+            //return String.format(Locale.US, "getGetParent: %s,", ((getGetParent != null) ? getGetParent.generateJs() : "null"));
         }
         return "";
     }
@@ -354,19 +314,29 @@ public class TreeDataItem extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSchild());
-            js.append(generateJSchild1());
-            js.append(generateJSchild2());
-            js.append(generateJSchild3());
-            js.append(generateJSchild4());
-            js.append(generateJSindex());
-            js.append(generateJSkey());
-            js.append(generateJSchild5());
-            js.append(generateJSindex1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSchild());
+////        
+//            js.append(generateJSchild1());
+////        
+//            js.append(generateJSchild2());
+////        
+//            js.append(generateJSchild3());
+////        
+//            js.append(generateJSchild4());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSkey());
+////        
+//            js.append(generateJSchild5());
+////        
+//            js.append(generateJSindex1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

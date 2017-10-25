@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,22 +37,17 @@ public class PointContext extends RenderingsettingsContext {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getDataValue(%s);", name));
+            js.append(String.format(Locale.US, jsBase + ".getDataValue(%s);", wrapQuotes(name)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getDataValue(%s)", name));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getDataValue(%s)", wrapQuotes(name)));
                 js.setLength(0);
             }
         }
     }
 
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
 
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -69,11 +66,13 @@ public class PointContext extends RenderingsettingsContext {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSname());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSname());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

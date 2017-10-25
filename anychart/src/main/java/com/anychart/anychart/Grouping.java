@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -79,10 +81,10 @@ public class Grouping extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".levels(%s)", Arrays.toString(levels)));
+            js.append(String.format(Locale.US, ".levels(%s)", arrayToStringWrapQuotes(levels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".levels(%s)", Arrays.toString(levels)));
+                onChangeListener.onChange(String.format(Locale.US, ".levels(%s)", arrayToStringWrapQuotes(levels)));
                 js.setLength(0);
             }
         }
@@ -133,41 +135,8 @@ public class Grouping extends CoreBase {
         return this;
     }
 
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
 
-    private String generateJSforced() {
-        if (forced != null) {
-            return String.format(Locale.US, "forced: %b,", forced);
-        }
-        return "";
-    }
-
-    private String generateJSlevels() {
-        if (levels != null) {
-            return String.format(Locale.US, "levels: %s,", Arrays.toString(levels));
-        }
-        return "";
-    }
-
-    private String generateJSmaxVisiblePoints() {
-        if (maxVisiblePoints != null) {
-            return String.format(Locale.US, "maxVisiblePoints: %f,", maxVisiblePoints);
-        }
-        return "";
-    }
-
-    private String generateJSminPixPerPoint() {
-        if (minPixPerPoint != null) {
-            return String.format(Locale.US, "minPixPerPoint: %f,", minPixPerPoint);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -186,15 +155,21 @@ public class Grouping extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSenabled());
-            js.append(generateJSforced());
-            js.append(generateJSlevels());
-            js.append(generateJSmaxVisiblePoints());
-            js.append(generateJSminPixPerPoint());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSenabled());
+////        
+//            js.append(generateJSforced());
+////        
+//            js.append(generateJSlevels());
+////        
+//            js.append(generateJSmaxVisiblePoints());
+////        
+//            js.append(generateJSminPixPerPoint());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

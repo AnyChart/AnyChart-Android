@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".addChild(%s);", child));
+            js.append(String.format(Locale.US, jsBase + ".addChild(%s);", wrapQuotes(child)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", child));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", wrapQuotes(child)));
                 js.setLength(0);
             }
         }
@@ -67,10 +69,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", child1, index));
+            js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", wrapQuotes(child1), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", child1, index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", wrapQuotes(child1), index));
                 js.setLength(0);
             }
         }
@@ -95,10 +97,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", (child2 != null) ? child2.generateJs() : "null", index));
+            js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child2 != null) ? child2.generateJs() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", (child2 != null) ? child2.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child2 != null) ? child2.generateJs() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -123,10 +125,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", (child3 != null) ? child3.generateJs() : "null", index));
+            js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child3 != null) ? child3.generateJs() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", (child3 != null) ? child3.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child3 != null) ? child3.generateJs() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -163,10 +165,10 @@ public class Tree extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", csvSettingsOrDeps));
+            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillingMethod != null) ? fillingMethod.generateJs() : "null"), wrapQuotes(csvSettingsOrDeps)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", csvSettingsOrDeps));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillingMethod != null) ? fillingMethod.generateJs() : "null"), wrapQuotes(csvSettingsOrDeps)));
                 js.setLength(0);
             }
         }
@@ -197,10 +199,10 @@ public class Tree extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", arrayToString(csvSettingsOrDeps1)));
+            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillingMethod != null) ? fillingMethod.generateJs() : "null"), arrayToString(csvSettingsOrDeps1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", arrayToString(csvSettingsOrDeps1)));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillingMethod != null) ? fillingMethod.generateJs() : "null"), arrayToString(csvSettingsOrDeps1)));
                 js.setLength(0);
             }
         }
@@ -231,10 +233,10 @@ public class Tree extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", data, fillingMethod1, csvSettingsOrDeps));
+            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillingMethod1), wrapQuotes(csvSettingsOrDeps)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", data, fillingMethod1, csvSettingsOrDeps));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillingMethod1), wrapQuotes(csvSettingsOrDeps)));
                 js.setLength(0);
             }
         }
@@ -265,10 +267,10 @@ public class Tree extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", data, fillingMethod1, arrayToString(csvSettingsOrDeps1)));
+            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillingMethod1), arrayToString(csvSettingsOrDeps1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", data, fillingMethod1, arrayToString(csvSettingsOrDeps1)));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillingMethod1), arrayToString(csvSettingsOrDeps1)));
                 js.setLength(0);
             }
         }
@@ -290,10 +292,10 @@ public class Tree extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".createIndexOn(%s, %b)", field, asString));
+            js.append(String.format(Locale.US, ".createIndexOn(%s, %b)", wrapQuotes(field), asString));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".createIndexOn(%s, %b)", field, asString));
+                onChangeListener.onChange(String.format(Locale.US, ".createIndexOn(%s, %b)", wrapQuotes(field), asString));
                 js.setLength(0);
             }
         }
@@ -322,13 +324,12 @@ public class Tree extends CoreBase {
         return this;
     }
 
-    private TreeDataItem getGetChildAt;
+    private List<TreeDataItem> getGetChildAt = new ArrayList<>();
 
-    public TreeDataItem getGetChildAt() {
-        if (getGetChildAt == null)
-            getGetChildAt = new TreeDataItem(jsBase + ".getChildAt()");
-
-        return getGetChildAt;
+    public TreeDataItem getGetChildAt(Double index) {
+        TreeDataItem item = new TreeDataItem(jsBase + ".getChildAt(" + index + ")");
+        getGetChildAt.add(item);
+        return item;
     }
 
     private String mapping;
@@ -343,10 +344,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", mapping));
+            js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", wrapQuotes(mapping)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", mapping));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(mapping)));
                 js.setLength(0);
             }
         }
@@ -371,10 +372,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".removeChild(%s);", (child4 != null) ? child4.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".removeChild(%s);", ((child4 != null) ? child4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", (child4 != null) ? child4.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((child4 != null) ? child4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -421,10 +422,10 @@ public class Tree extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeIndexOn(%s)", field1));
+            js.append(String.format(Locale.US, ".removeIndexOn(%s)", wrapQuotes(field1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeIndexOn(%s)", field1));
+                onChangeListener.onChange(String.format(Locale.US, ".removeIndexOn(%s)", wrapQuotes(field1)));
                 js.setLength(0);
             }
         }
@@ -452,10 +453,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".search(%s, %s);", search, soughtField));
+            js.append(String.format(Locale.US, jsBase + ".search(%s, %s);", wrapQuotes(search), wrapQuotes(soughtField)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s)", search, soughtField));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s)", wrapQuotes(search), wrapQuotes(soughtField)));
                 js.setLength(0);
             }
         }
@@ -479,10 +480,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".search(%f, %s);", search1, soughtField));
+            js.append(String.format(Locale.US, jsBase + ".search(%f, %s);", search1, wrapQuotes(soughtField)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s)", search1, soughtField));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s)", search1, wrapQuotes(soughtField)));
                 js.setLength(0);
             }
         }
@@ -506,10 +507,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".search(%b, %s);", search2, soughtField));
+            js.append(String.format(Locale.US, jsBase + ".search(%b, %s);", search2, wrapQuotes(soughtField)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%b, %s)", search2, soughtField));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%b, %s)", search2, wrapQuotes(soughtField)));
                 js.setLength(0);
             }
         }
@@ -540,10 +541,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".searchItems(%s, %s);", searchItems, soughtField1));
+            js.append(String.format(Locale.US, jsBase + ".searchItems(%s, %s);", wrapQuotes(searchItems), wrapQuotes(soughtField1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s)", searchItems, soughtField1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s)", wrapQuotes(searchItems), wrapQuotes(soughtField1)));
                 js.setLength(0);
             }
         }
@@ -569,10 +570,10 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".searchItems(%f, %s);", searchItems1, soughtField1));
+            js.append(String.format(Locale.US, jsBase + ".searchItems(%f, %s);", searchItems1, wrapQuotes(soughtField1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%f, %s)", searchItems1, soughtField1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%f, %s)", searchItems1, wrapQuotes(soughtField1)));
                 js.setLength(0);
             }
         }
@@ -598,203 +599,35 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".searchItems(%b, %s);", searchItems2, soughtField1));
+            js.append(String.format(Locale.US, jsBase + ".searchItems(%b, %s);", searchItems2, wrapQuotes(soughtField1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%b, %s)", searchItems2, soughtField1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%b, %s)", searchItems2, wrapQuotes(soughtField1)));
                 js.setLength(0);
             }
         }
     }
 
+
+//
+//    private String generateJSTreeDataItem getGetChildAt() {
+//        if (TreeDataItem getGetChildAt != null) {
+//            return TreeDataItem getGetChildAt.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetGetChildAt() {
-        if (getGetChildAt != null) {
-            return getGetChildAt.generateJs();
+        if (!getGetChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : getGetChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSchild() {
-        if (child != null) {
-            return String.format(Locale.US, "child: %s,", child);
-        }
-        return "";
-    }
-
-    private String generateJSchild1() {
-        if (child1 != null) {
-            return String.format(Locale.US, "child: %s,", child1);
-        }
-        return "";
-    }
-
-    private String generateJSchild2() {
-        if (child2 != null) {
-            return String.format(Locale.US, "child: %s,", (child2 != null) ? child2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchild3() {
-        if (child3 != null) {
-            return String.format(Locale.US, "child: %s,", (child3 != null) ? child3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJSdata() {
-        if (data != null) {
-            return String.format(Locale.US, "data: %s,", data);
-        }
-        return "";
-    }
-
-    private String generateJSdata1() {
-        if (data1 != null) {
-            return String.format(Locale.US, "data: %s,", data1);
-        }
-        return "";
-    }
-
-    private String generateJSfillingMethod() {
-        if (fillingMethod != null) {
-            return String.format(Locale.US, "fillingMethod: %s,", (fillingMethod != null) ? fillingMethod.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSfillingMethod1() {
-        if (fillingMethod1 != null) {
-            return String.format(Locale.US, "fillingMethod: %s,", fillingMethod1);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettingsOrDeps() {
-        if (csvSettingsOrDeps != null) {
-            return String.format(Locale.US, "csvSettingsOrDeps: %s,", csvSettingsOrDeps);
-        }
-        return "";
-    }
-
-    private String generateJScsvSettingsOrDeps1() {
-        if (csvSettingsOrDeps1 != null) {
-            return String.format(Locale.US, "csvSettingsOrDeps: %s,", arrayToString(csvSettingsOrDeps1));
-        }
-        return "";
-    }
-
-    private String generateJSfield() {
-        if (field != null) {
-            return String.format(Locale.US, "field: %s,", field);
-        }
-        return "";
-    }
-
-    private String generateJSasString() {
-        if (asString != null) {
-            return String.format(Locale.US, "asString: %b,", asString);
-        }
-        return "";
-    }
-
-    private String generateJSdispatchEvents() {
-        if (dispatchEvents != null) {
-            return String.format(Locale.US, "dispatchEvents: %b,", dispatchEvents);
-        }
-        return "";
-    }
-
-    private String generateJSmapping() {
-        if (mapping != null) {
-            return String.format(Locale.US, "mapping: %s,", mapping);
-        }
-        return "";
-    }
-
-    private String generateJSchild4() {
-        if (child4 != null) {
-            return String.format(Locale.US, "child: %s,", (child4 != null) ? child4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSfield1() {
-        if (field1 != null) {
-            return String.format(Locale.US, "field: %s,", field1);
-        }
-        return "";
-    }
-
-    private String generateJSsoughtField() {
-        if (soughtField != null) {
-            return String.format(Locale.US, "soughtField: %s,", soughtField);
-        }
-        return "";
-    }
-
-    private String generateJSsearch() {
-        if (search != null) {
-            return String.format(Locale.US, "search: %s,", search);
-        }
-        return "";
-    }
-
-    private String generateJSsearch1() {
-        if (search1 != null) {
-            return String.format(Locale.US, "search: %f,", search1);
-        }
-        return "";
-    }
-
-    private String generateJSsearch2() {
-        if (search2 != null) {
-            return String.format(Locale.US, "search: %b,", search2);
-        }
-        return "";
-    }
-
-    private String generateJSsoughtField1() {
-        if (soughtField1 != null) {
-            return String.format(Locale.US, "soughtField: %s,", soughtField1);
-        }
-        return "";
-    }
-
-    private String generateJSsearchItems() {
-        if (searchItems != null) {
-            return String.format(Locale.US, "searchItems: %s,", searchItems);
-        }
-        return "";
-    }
-
-    private String generateJSsearchItems1() {
-        if (searchItems1 != null) {
-            return String.format(Locale.US, "searchItems: %f,", searchItems1);
-        }
-        return "";
-    }
-
-    private String generateJSsearchItems2() {
-        if (searchItems2 != null) {
-            return String.format(Locale.US, "searchItems: %b,", searchItems2);
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -815,36 +648,63 @@ public class Tree extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSchild());
-            js.append(generateJSchild1());
-            js.append(generateJSchild2());
-            js.append(generateJSchild3());
-            js.append(generateJSindex());
-            js.append(generateJSdata());
-            js.append(generateJSdata1());
-            js.append(generateJSfillingMethod());
-            js.append(generateJSfillingMethod1());
-            js.append(generateJScsvSettingsOrDeps());
-            js.append(generateJScsvSettingsOrDeps1());
-            js.append(generateJSfield());
-            js.append(generateJSasString());
-            js.append(generateJSdispatchEvents());
-            js.append(generateJSmapping());
-            js.append(generateJSchild4());
-            js.append(generateJSindex1());
-            js.append(generateJSfield1());
-            js.append(generateJSsoughtField());
-            js.append(generateJSsearch());
-            js.append(generateJSsearch1());
-            js.append(generateJSsearch2());
-            js.append(generateJSsoughtField1());
-            js.append(generateJSsearchItems());
-            js.append(generateJSsearchItems1());
-            js.append(generateJSsearchItems2());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSchild());
+////        
+//            js.append(generateJSchild1());
+////        
+//            js.append(generateJSchild2());
+////        
+//            js.append(generateJSchild3());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSdata());
+////        
+//            js.append(generateJSdata1());
+////        
+//            js.append(generateJSfillingMethod());
+////        
+//            js.append(generateJSfillingMethod1());
+////        
+//            js.append(generateJScsvSettingsOrDeps());
+////        
+//            js.append(generateJScsvSettingsOrDeps1());
+////        
+//            js.append(generateJSfield());
+////        
+//            js.append(generateJSasString());
+////        
+//            js.append(generateJSdispatchEvents());
+////        
+//            js.append(generateJSmapping());
+////        
+//            js.append(generateJSchild4());
+////        
+//            js.append(generateJSindex1());
+////        
+//            js.append(generateJSfield1());
+////        
+//            js.append(generateJSsoughtField());
+////        
+//            js.append(generateJSsearch());
+////        
+//            js.append(generateJSsearch1());
+////        
+//            js.append(generateJSsearch2());
+////        
+//            js.append(generateJSsoughtField1());
+////        
+//            js.append(generateJSsearchItems());
+////        
+//            js.append(generateJSsearchItems1());
+////        
+//            js.append(generateJSsearchItems2());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

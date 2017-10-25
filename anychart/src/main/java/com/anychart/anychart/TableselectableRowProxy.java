@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class TableselectableRowProxy extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".get(%s);", field));
+            js.append(String.format(Locale.US, jsBase + ".get(%s);", wrapQuotes(field)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", field));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
                 js.setLength(0);
             }
         }
@@ -65,20 +67,8 @@ public class TableselectableRowProxy extends JsObject {
         }
     }
 
-    private String generateJSfield() {
-        if (field != null) {
-            return String.format(Locale.US, "field: %s,", field);
-        }
-        return "";
-    }
 
-    private String generateJScolumn() {
-        if (column != null) {
-            return String.format(Locale.US, "column: %f,", column);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -97,12 +87,15 @@ public class TableselectableRowProxy extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSfield());
-            js.append(generateJScolumn());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSfield());
+////        
+//            js.append(generateJScolumn());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

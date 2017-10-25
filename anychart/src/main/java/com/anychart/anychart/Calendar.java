@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -92,27 +94,8 @@ public class Calendar extends CoreBase {
         return this;
     }
 
-    private String generateJSavailabilities() {
-        if (availabilities != null) {
-            return String.format(Locale.US, "availabilities: %s,", arrayToString(availabilities));
-        }
-        return "";
-    }
 
-    private String generateJSvar_value() {
-        if (var_value != null) {
-            return String.format(Locale.US, "var_value: %f,", var_value);
-        }
-        return "";
-    }
-
-    private String generateJSvar_value1() {
-        if (var_value1 != null) {
-            return String.format(Locale.US, "var_value: %s,", Arrays.toString(var_value1));
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -131,13 +114,17 @@ public class Calendar extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSavailabilities());
-            js.append(generateJSvar_value());
-            js.append(generateJSvar_value1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSavailabilities());
+////        
+//            js.append(generateJSvar_value());
+////        
+//            js.append(generateJSvar_value1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -41,10 +43,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bottomStroke(%s)", (bottomStroke != null) ? bottomStroke.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".bottomStroke(%s)", ((bottomStroke != null) ? bottomStroke.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s)", (bottomStroke != null) ? bottomStroke.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s)", ((bottomStroke != null) ? bottomStroke.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -66,10 +68,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bottomStroke(%s)", (bottomStroke1 != null) ? bottomStroke1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".bottomStroke(%s)", ((bottomStroke1 != null) ? bottomStroke1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s)", (bottomStroke1 != null) ? bottomStroke1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s)", ((bottomStroke1 != null) ? bottomStroke1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -91,10 +93,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bottomStroke(%s)", bottomStroke2));
+            js.append(String.format(Locale.US, ".bottomStroke(%s)", wrapQuotes(bottomStroke2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s)", bottomStroke2));
+                onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s)", wrapQuotes(bottomStroke2)));
                 js.setLength(0);
             }
         }
@@ -132,10 +134,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", (bottomStroke3 != null) ? bottomStroke3.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", ((bottomStroke3 != null) ? bottomStroke3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", (bottomStroke3 != null) ? bottomStroke3.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", ((bottomStroke3 != null) ? bottomStroke3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -167,10 +169,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", bottomStroke4, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", wrapQuotes(bottomStroke4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", bottomStroke4, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", wrapQuotes(bottomStroke4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -193,10 +195,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".cornerType(%s)", (cornerType != null) ? cornerType.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".cornerType(%s)", ((cornerType != null) ? cornerType.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cornerType(%s)", (cornerType != null) ? cornerType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".cornerType(%s)", ((cornerType != null) ? cornerType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -217,10 +219,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".cornerType(%s)", cornerType1));
+            js.append(String.format(Locale.US, ".cornerType(%s)", wrapQuotes(cornerType1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cornerType(%s)", cornerType1));
+                onChangeListener.onChange(String.format(Locale.US, ".cornerType(%s)", wrapQuotes(cornerType1)));
                 js.setLength(0);
             }
         }
@@ -270,10 +272,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".corners(%s)", corners1));
+            js.append(String.format(Locale.US, ".corners(%s)", wrapQuotes(corners1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%s)", corners1));
+                onChangeListener.onChange(String.format(Locale.US, ".corners(%s)", wrapQuotes(corners1)));
                 js.setLength(0);
             }
         }
@@ -317,10 +319,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".corners(%s, %s, %s, %s)", topLeft1, topRight1, bottomRight1, bottomLeft1));
+            js.append(String.format(Locale.US, ".corners(%s, %s, %s, %s)", wrapQuotes(topLeft1), wrapQuotes(topRight1), wrapQuotes(bottomRight1), wrapQuotes(bottomLeft1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%s, %s, %s, %s)", topLeft1, topRight1, bottomRight1, bottomLeft1));
+                onChangeListener.onChange(String.format(Locale.US, ".corners(%s, %s, %s, %s)", wrapQuotes(topLeft1), wrapQuotes(topRight1), wrapQuotes(bottomRight1), wrapQuotes(bottomLeft1)));
                 js.setLength(0);
             }
         }
@@ -378,10 +380,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -403,10 +405,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+            js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -484,10 +486,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -521,10 +523,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -558,10 +560,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -595,10 +597,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -632,10 +634,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -687,10 +689,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -734,10 +736,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -760,10 +762,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".leftStroke(%s)", (leftStroke != null) ? leftStroke.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".leftStroke(%s)", ((leftStroke != null) ? leftStroke.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s)", (leftStroke != null) ? leftStroke.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s)", ((leftStroke != null) ? leftStroke.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -784,10 +786,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".leftStroke(%s)", leftStroke1));
+            js.append(String.format(Locale.US, ".leftStroke(%s)", wrapQuotes(leftStroke1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s)", leftStroke1));
+                onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s)", wrapQuotes(leftStroke1)));
                 js.setLength(0);
             }
         }
@@ -836,10 +838,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", (leftStroke2 != null) ? leftStroke2.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", ((leftStroke2 != null) ? leftStroke2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", (leftStroke2 != null) ? leftStroke2.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", ((leftStroke2 != null) ? leftStroke2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -882,10 +884,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", leftStroke3, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", wrapQuotes(leftStroke3), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", leftStroke3, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", wrapQuotes(leftStroke3), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -910,10 +912,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rightStroke(%s)", (rightStroke != null) ? rightStroke.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".rightStroke(%s)", ((rightStroke != null) ? rightStroke.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s)", (rightStroke != null) ? rightStroke.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s)", ((rightStroke != null) ? rightStroke.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -935,10 +937,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rightStroke(%s)", (rightStroke1 != null) ? rightStroke1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".rightStroke(%s)", ((rightStroke1 != null) ? rightStroke1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s)", (rightStroke1 != null) ? rightStroke1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s)", ((rightStroke1 != null) ? rightStroke1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -960,10 +962,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rightStroke(%s)", rightStroke2));
+            js.append(String.format(Locale.US, ".rightStroke(%s)", wrapQuotes(rightStroke2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s)", rightStroke2));
+                onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s)", wrapQuotes(rightStroke2)));
                 js.setLength(0);
             }
         }
@@ -1017,10 +1019,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", (rightStroke3 != null) ? rightStroke3.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", ((rightStroke3 != null) ? rightStroke3.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", (rightStroke3 != null) ? rightStroke3.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", ((rightStroke3 != null) ? rightStroke3.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1068,10 +1070,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", rightStroke4, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", wrapQuotes(rightStroke4), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", rightStroke4, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", wrapQuotes(rightStroke4), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1096,10 +1098,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s)", (stroke != null) ? stroke.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", (stroke != null) ? stroke.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1121,10 +1123,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s)", (stroke1 != null) ? stroke1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s)", ((stroke1 != null) ? stroke1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", (stroke1 != null) ? stroke1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", ((stroke1 != null) ? stroke1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1146,10 +1148,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s)", stroke2));
+            js.append(String.format(Locale.US, ".stroke(%s)", wrapQuotes(stroke2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", stroke2));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", wrapQuotes(stroke2)));
                 js.setLength(0);
             }
         }
@@ -1207,10 +1209,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke3 != null) ? stroke3.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke3 != null) ? stroke3.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke3 != null) ? stroke3.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke3 != null) ? stroke3.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1262,10 +1264,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke4, thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke4), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke4, thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke4), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1290,10 +1292,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".topStroke(%s)", (topStroke != null) ? topStroke.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".topStroke(%s)", ((topStroke != null) ? topStroke.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s)", (topStroke != null) ? topStroke.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s)", ((topStroke != null) ? topStroke.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1315,10 +1317,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".topStroke(%s)", (topStroke1 != null) ? topStroke1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".topStroke(%s)", ((topStroke1 != null) ? topStroke1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s)", (topStroke1 != null) ? topStroke1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s)", ((topStroke1 != null) ? topStroke1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1340,10 +1342,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".topStroke(%s)", topStroke2));
+            js.append(String.format(Locale.US, ".topStroke(%s)", wrapQuotes(topStroke2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s)", topStroke2));
+                onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s)", wrapQuotes(topStroke2)));
                 js.setLength(0);
             }
         }
@@ -1405,10 +1407,10 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", (topStroke3 != null) ? topStroke3.generateJs() : "null", thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", ((topStroke3 != null) ? topStroke3.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", (topStroke3 != null) ? topStroke3.generateJs() : "null", thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", ((topStroke3 != null) ? topStroke3.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1464,541 +1466,18 @@ public class UiBackground extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", topStroke4, thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", wrapQuotes(topStroke4), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", topStroke4, thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", wrapQuotes(topStroke4), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSbottomStroke() {
-        if (bottomStroke != null) {
-            return String.format(Locale.US, "bottomStroke: %s,", (bottomStroke != null) ? bottomStroke.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSbottomStroke1() {
-        if (bottomStroke1 != null) {
-            return String.format(Locale.US, "bottomStroke: %s,", (bottomStroke1 != null) ? bottomStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbottomStroke2() {
-        if (bottomStroke2 != null) {
-            return String.format(Locale.US, "bottomStroke: %s,", bottomStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSbottomStroke3() {
-        if (bottomStroke3 != null) {
-            return String.format(Locale.US, "bottomStroke: %s,", (bottomStroke3 != null) ? bottomStroke3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbottomStroke4() {
-        if (bottomStroke4 != null) {
-            return String.format(Locale.US, "bottomStroke: %s,", bottomStroke4);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScornerType() {
-        if (cornerType != null) {
-            return String.format(Locale.US, "cornerType: %s,", (cornerType != null) ? cornerType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScornerType1() {
-        if (cornerType1 != null) {
-            return String.format(Locale.US, "cornerType: %s,", cornerType1);
-        }
-        return "";
-    }
-
-    private String generateJScorners() {
-        if (corners != null) {
-            return String.format(Locale.US, "corners: %f,", corners);
-        }
-        return "";
-    }
-
-    private String generateJScorners1() {
-        if (corners1 != null) {
-            return String.format(Locale.US, "corners: %s,", corners1);
-        }
-        return "";
-    }
-
-    private String generateJScorners2() {
-        if (corners2 != null) {
-            return String.format(Locale.US, "corners: %s,", Arrays.toString(corners2));
-        }
-        return "";
-    }
-
-    private String generateJStopLeft() {
-        if (topLeft != null) {
-            return String.format(Locale.US, "topLeft: %f,", topLeft);
-        }
-        return "";
-    }
-
-    private String generateJStopLeft1() {
-        if (topLeft1 != null) {
-            return String.format(Locale.US, "topLeft: %s,", topLeft1);
-        }
-        return "";
-    }
-
-    private String generateJStopRight() {
-        if (topRight != null) {
-            return String.format(Locale.US, "topRight: %f,", topRight);
-        }
-        return "";
-    }
-
-    private String generateJStopRight1() {
-        if (topRight1 != null) {
-            return String.format(Locale.US, "topRight: %s,", topRight1);
-        }
-        return "";
-    }
-
-    private String generateJSbottomRight() {
-        if (bottomRight != null) {
-            return String.format(Locale.US, "bottomRight: %f,", bottomRight);
-        }
-        return "";
-    }
-
-    private String generateJSbottomRight1() {
-        if (bottomRight1 != null) {
-            return String.format(Locale.US, "bottomRight: %s,", bottomRight1);
-        }
-        return "";
-    }
-
-    private String generateJSbottomLeft() {
-        if (bottomLeft != null) {
-            return String.format(Locale.US, "bottomLeft: %f,", bottomLeft);
-        }
-        return "";
-    }
-
-    private String generateJSbottomLeft1() {
-        if (bottomLeft1 != null) {
-            return String.format(Locale.US, "bottomLeft: %s,", bottomLeft1);
-        }
-        return "";
-    }
-
-    private String generateJSfill() {
-        if (fill != null) {
-            return String.format(Locale.US, "fill: %s,", (fill != null) ? fill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSopacity() {
-        if (opacity != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity);
-        }
-        return "";
-    }
-
-    private String generateJSkeys() {
-        if (keys != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys));
-        }
-        return "";
-    }
-
-    private String generateJSkeys1() {
-        if (keys1 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys1));
-        }
-        return "";
-    }
-
-    private String generateJSangle() {
-        if (angle != null) {
-            return String.format(Locale.US, "angle: %f,", angle);
-        }
-        return "";
-    }
-
-    private String generateJSmode() {
-        if (mode != null) {
-            return String.format(Locale.US, "mode: %b,", mode);
-        }
-        return "";
-    }
-
-    private String generateJSmode1() {
-        if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode1 != null) ? mode1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode2() {
-        if (mode2 != null) {
-            return String.format(Locale.US, "mode: %s,", mode2);
-        }
-        return "";
-    }
-
-    private String generateJSopacity1() {
-        if (opacity1 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity1);
-        }
-        return "";
-    }
-
-    private String generateJSkeys2() {
-        if (keys2 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys2));
-        }
-        return "";
-    }
-
-    private String generateJSkeys3() {
-        if (keys3 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys3));
-        }
-        return "";
-    }
-
-    private String generateJScx() {
-        if (cx != null) {
-            return String.format(Locale.US, "cx: %f,", cx);
-        }
-        return "";
-    }
-
-    private String generateJScy() {
-        if (cy != null) {
-            return String.format(Locale.US, "cy: %f,", cy);
-        }
-        return "";
-    }
-
-    private String generateJSmode3() {
-        if (mode3 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity2() {
-        if (opacity2 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity2);
-        }
-        return "";
-    }
-
-    private String generateJSfx() {
-        if (fx != null) {
-            return String.format(Locale.US, "fx: %f,", fx);
-        }
-        return "";
-    }
-
-    private String generateJSfy() {
-        if (fy != null) {
-            return String.format(Locale.US, "fy: %f,", fy);
-        }
-        return "";
-    }
-
-    private String generateJSleftStroke() {
-        if (leftStroke != null) {
-            return String.format(Locale.US, "leftStroke: %s,", (leftStroke != null) ? leftStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSleftStroke1() {
-        if (leftStroke1 != null) {
-            return String.format(Locale.US, "leftStroke: %s,", leftStroke1);
-        }
-        return "";
-    }
-
-    private String generateJSleftStroke2() {
-        if (leftStroke2 != null) {
-            return String.format(Locale.US, "leftStroke: %s,", (leftStroke2 != null) ? leftStroke2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSleftStroke3() {
-        if (leftStroke3 != null) {
-            return String.format(Locale.US, "leftStroke: %s,", leftStroke3);
-        }
-        return "";
-    }
-
-    private String generateJSthickness1() {
-        if (thickness1 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness1);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern1() {
-        if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin1() {
-        if (lineJoin1 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin1 != null) ? lineJoin1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap1() {
-        if (lineCap1 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap1 != null) ? lineCap1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSrightStroke() {
-        if (rightStroke != null) {
-            return String.format(Locale.US, "rightStroke: %s,", (rightStroke != null) ? rightStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSrightStroke1() {
-        if (rightStroke1 != null) {
-            return String.format(Locale.US, "rightStroke: %s,", (rightStroke1 != null) ? rightStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSrightStroke2() {
-        if (rightStroke2 != null) {
-            return String.format(Locale.US, "rightStroke: %s,", rightStroke2);
-        }
-        return "";
-    }
-
-    private String generateJSrightStroke3() {
-        if (rightStroke3 != null) {
-            return String.format(Locale.US, "rightStroke: %s,", (rightStroke3 != null) ? rightStroke3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSrightStroke4() {
-        if (rightStroke4 != null) {
-            return String.format(Locale.US, "rightStroke: %s,", rightStroke4);
-        }
-        return "";
-    }
-
-    private String generateJSthickness2() {
-        if (thickness2 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness2);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern2() {
-        if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin2() {
-        if (lineJoin2 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin2 != null) ? lineJoin2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap2() {
-        if (lineCap2 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap2 != null) ? lineCap2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke() {
-        if (stroke != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke != null) ? stroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke1() {
-        if (stroke1 != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke1 != null) ? stroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke2() {
-        if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: %s,", stroke2);
-        }
-        return "";
-    }
-
-    private String generateJSstroke3() {
-        if (stroke3 != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke3 != null) ? stroke3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSstroke4() {
-        if (stroke4 != null) {
-            return String.format(Locale.US, "stroke: %s,", stroke4);
-        }
-        return "";
-    }
-
-    private String generateJSthickness3() {
-        if (thickness3 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness3);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern3() {
-        if (dashpattern3 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern3);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin3() {
-        if (lineJoin3 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin3 != null) ? lineJoin3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap3() {
-        if (lineCap3 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap3 != null) ? lineCap3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStopStroke() {
-        if (topStroke != null) {
-            return String.format(Locale.US, "topStroke: %s,", (topStroke != null) ? topStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStopStroke1() {
-        if (topStroke1 != null) {
-            return String.format(Locale.US, "topStroke: %s,", (topStroke1 != null) ? topStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStopStroke2() {
-        if (topStroke2 != null) {
-            return String.format(Locale.US, "topStroke: %s,", topStroke2);
-        }
-        return "";
-    }
-
-    private String generateJStopStroke3() {
-        if (topStroke3 != null) {
-            return String.format(Locale.US, "topStroke: %s,", (topStroke3 != null) ? topStroke3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStopStroke4() {
-        if (topStroke4 != null) {
-            return String.format(Locale.US, "topStroke: %s,", topStroke4);
-        }
-        return "";
-    }
-
-    private String generateJSthickness4() {
-        if (thickness4 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness4);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern4() {
-        if (dashpattern4 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern4);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin4() {
-        if (lineJoin4 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin4 != null) ? lineJoin4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap4() {
-        if (lineCap4 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap4 != null) ? lineCap4.generateJs() : "null");
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -2017,85 +1496,161 @@ public class UiBackground extends VisualBaseWithBounds {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSbottomStroke());
-            js.append(generateJSbottomStroke1());
-            js.append(generateJSbottomStroke2());
-            js.append(generateJSbottomStroke3());
-            js.append(generateJSbottomStroke4());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJScornerType());
-            js.append(generateJScornerType1());
-            js.append(generateJScorners());
-            js.append(generateJScorners1());
-            js.append(generateJScorners2());
-            js.append(generateJStopLeft());
-            js.append(generateJStopLeft1());
-            js.append(generateJStopRight());
-            js.append(generateJStopRight1());
-            js.append(generateJSbottomRight());
-            js.append(generateJSbottomRight1());
-            js.append(generateJSbottomLeft());
-            js.append(generateJSbottomLeft1());
-            js.append(generateJSfill());
-            js.append(generateJScolor());
-            js.append(generateJSopacity());
-            js.append(generateJSkeys());
-            js.append(generateJSkeys1());
-            js.append(generateJSangle());
-            js.append(generateJSmode());
-            js.append(generateJSmode1());
-            js.append(generateJSmode2());
-            js.append(generateJSopacity1());
-            js.append(generateJSkeys2());
-            js.append(generateJSkeys3());
-            js.append(generateJScx());
-            js.append(generateJScy());
-            js.append(generateJSmode3());
-            js.append(generateJSopacity2());
-            js.append(generateJSfx());
-            js.append(generateJSfy());
-            js.append(generateJSleftStroke());
-            js.append(generateJSleftStroke1());
-            js.append(generateJSleftStroke2());
-            js.append(generateJSleftStroke3());
-            js.append(generateJSthickness1());
-            js.append(generateJSdashpattern1());
-            js.append(generateJSlineJoin1());
-            js.append(generateJSlineCap1());
-            js.append(generateJSrightStroke());
-            js.append(generateJSrightStroke1());
-            js.append(generateJSrightStroke2());
-            js.append(generateJSrightStroke3());
-            js.append(generateJSrightStroke4());
-            js.append(generateJSthickness2());
-            js.append(generateJSdashpattern2());
-            js.append(generateJSlineJoin2());
-            js.append(generateJSlineCap2());
-            js.append(generateJSstroke());
-            js.append(generateJSstroke1());
-            js.append(generateJSstroke2());
-            js.append(generateJSstroke3());
-            js.append(generateJSstroke4());
-            js.append(generateJSthickness3());
-            js.append(generateJSdashpattern3());
-            js.append(generateJSlineJoin3());
-            js.append(generateJSlineCap3());
-            js.append(generateJStopStroke());
-            js.append(generateJStopStroke1());
-            js.append(generateJStopStroke2());
-            js.append(generateJStopStroke3());
-            js.append(generateJStopStroke4());
-            js.append(generateJSthickness4());
-            js.append(generateJSdashpattern4());
-            js.append(generateJSlineJoin4());
-            js.append(generateJSlineCap4());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSbottomStroke());
+////        
+//            js.append(generateJSbottomStroke1());
+////        
+//            js.append(generateJSbottomStroke2());
+////        
+//            js.append(generateJSbottomStroke3());
+////        
+//            js.append(generateJSbottomStroke4());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJScornerType());
+////        
+//            js.append(generateJScornerType1());
+////        
+//            js.append(generateJScorners());
+////        
+//            js.append(generateJScorners1());
+////        
+//            js.append(generateJScorners2());
+////        
+//            js.append(generateJStopLeft());
+////        
+//            js.append(generateJStopLeft1());
+////        
+//            js.append(generateJStopRight());
+////        
+//            js.append(generateJStopRight1());
+////        
+//            js.append(generateJSbottomRight());
+////        
+//            js.append(generateJSbottomRight1());
+////        
+//            js.append(generateJSbottomLeft());
+////        
+//            js.append(generateJSbottomLeft1());
+////        
+//            js.append(generateJSfill());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSopacity());
+////        
+//            js.append(generateJSkeys());
+////        
+//            js.append(generateJSkeys1());
+////        
+//            js.append(generateJSangle());
+////        
+//            js.append(generateJSmode());
+////        
+//            js.append(generateJSmode1());
+////        
+//            js.append(generateJSmode2());
+////        
+//            js.append(generateJSopacity1());
+////        
+//            js.append(generateJSkeys2());
+////        
+//            js.append(generateJSkeys3());
+////        
+//            js.append(generateJScx());
+////        
+//            js.append(generateJScy());
+////        
+//            js.append(generateJSmode3());
+////        
+//            js.append(generateJSopacity2());
+////        
+//            js.append(generateJSfx());
+////        
+//            js.append(generateJSfy());
+////        
+//            js.append(generateJSleftStroke());
+////        
+//            js.append(generateJSleftStroke1());
+////        
+//            js.append(generateJSleftStroke2());
+////        
+//            js.append(generateJSleftStroke3());
+////        
+//            js.append(generateJSthickness1());
+////        
+//            js.append(generateJSdashpattern1());
+////        
+//            js.append(generateJSlineJoin1());
+////        
+//            js.append(generateJSlineCap1());
+////        
+//            js.append(generateJSrightStroke());
+////        
+//            js.append(generateJSrightStroke1());
+////        
+//            js.append(generateJSrightStroke2());
+////        
+//            js.append(generateJSrightStroke3());
+////        
+//            js.append(generateJSrightStroke4());
+////        
+//            js.append(generateJSthickness2());
+////        
+//            js.append(generateJSdashpattern2());
+////        
+//            js.append(generateJSlineJoin2());
+////        
+//            js.append(generateJSlineCap2());
+////        
+//            js.append(generateJSstroke());
+////        
+//            js.append(generateJSstroke1());
+////        
+//            js.append(generateJSstroke2());
+////        
+//            js.append(generateJSstroke3());
+////        
+//            js.append(generateJSstroke4());
+////        
+//            js.append(generateJSthickness3());
+////        
+//            js.append(generateJSdashpattern3());
+////        
+//            js.append(generateJSlineJoin3());
+////        
+//            js.append(generateJSlineCap3());
+////        
+//            js.append(generateJStopStroke());
+////        
+//            js.append(generateJStopStroke1());
+////        
+//            js.append(generateJStopStroke2());
+////        
+//            js.append(generateJStopStroke3());
+////        
+//            js.append(generateJStopStroke4());
+////        
+//            js.append(generateJSthickness4());
+////        
+//            js.append(generateJSdashpattern4());
+////        
+//            js.append(generateJSlineJoin4());
+////        
+//            js.append(generateJSlineCap4());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

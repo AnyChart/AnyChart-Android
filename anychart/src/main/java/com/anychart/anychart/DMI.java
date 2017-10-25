@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -70,10 +72,10 @@ public class DMI extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".adxSeries(%s)", (type != null) ? type.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".adxSeries(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".adxSeries(%s)", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".adxSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -94,10 +96,10 @@ public class DMI extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".adxSeries(%s)", type1));
+            js.append(String.format(Locale.US, ".adxSeries(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".adxSeries(%s)", type1));
+                onChangeListener.onChange(String.format(Locale.US, ".adxSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
             }
         }
@@ -131,10 +133,10 @@ public class DMI extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".ndiSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".ndiSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ndiSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".ndiSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -157,10 +159,10 @@ public class DMI extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".ndiSeries(%s)", type3));
+            js.append(String.format(Locale.US, ".ndiSeries(%s)", wrapQuotes(type3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ndiSeries(%s)", type3));
+                onChangeListener.onChange(String.format(Locale.US, ".ndiSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);
             }
         }
@@ -196,10 +198,10 @@ public class DMI extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".pdiSeries(%s)", (type4 != null) ? type4.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".pdiSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pdiSeries(%s)", (type4 != null) ? type4.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".pdiSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -224,10 +226,10 @@ public class DMI extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".pdiSeries(%s)", type5));
+            js.append(String.format(Locale.US, ".pdiSeries(%s)", wrapQuotes(type5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pdiSeries(%s)", type5));
+                onChangeListener.onChange(String.format(Locale.US, ".pdiSeries(%s)", wrapQuotes(type5)));
                 js.setLength(0);
             }
         }
@@ -256,18 +258,48 @@ public class DMI extends JsObject {
         return this;
     }
 
-    private DMI getUseWildersSmoothing;
+    private List<DMI> getUseWildersSmoothing = new ArrayList<>();
 
-    public DMI getUseWildersSmoothing() {
-        if (getUseWildersSmoothing == null)
-            getUseWildersSmoothing = new DMI(jsBase + ".useWildersSmoothing()");
-
-        return getUseWildersSmoothing;
+    public DMI getUseWildersSmoothing(Boolean useWildersSmoothing) {
+        DMI item = new DMI(jsBase + ".useWildersSmoothing(" + useWildersSmoothing + ")");
+        getUseWildersSmoothing.add(item);
+        return item;
     }
 
+
+//
+//    private String generateJSStockSeriesBase getAdxSeries() {
+//        if (StockSeriesBase getAdxSeries != null) {
+//            return StockSeriesBase getAdxSeries.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockSeriesBase getNdiSeries() {
+//        if (StockSeriesBase getNdiSeries != null) {
+//            return StockSeriesBase getNdiSeries.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockSeriesBase getPdiSeries() {
+//        if (StockSeriesBase getPdiSeries != null) {
+//            return StockSeriesBase getPdiSeries.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSDMI getUseWildersSmoothing() {
+//        if (DMI getUseWildersSmoothing != null) {
+//            return DMI getUseWildersSmoothing.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetAdxSeries() {
         if (getAdxSeries != null) {
             return getAdxSeries.generateJs();
+            //return String.format(Locale.US, "getAdxSeries: %s,", ((getAdxSeries != null) ? getAdxSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -275,6 +307,7 @@ public class DMI extends JsObject {
     private String generateJSgetNdiSeries() {
         if (getNdiSeries != null) {
             return getNdiSeries.generateJs();
+            //return String.format(Locale.US, "getNdiSeries: %s,", ((getNdiSeries != null) ? getNdiSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -282,72 +315,22 @@ public class DMI extends JsObject {
     private String generateJSgetPdiSeries() {
         if (getPdiSeries != null) {
             return getPdiSeries.generateJs();
+            //return String.format(Locale.US, "getPdiSeries: %s,", ((getPdiSeries != null) ? getPdiSeries.generateJs() : "null"));
         }
         return "";
     }
 
     private String generateJSgetUseWildersSmoothing() {
-        if (getUseWildersSmoothing != null) {
-            return getUseWildersSmoothing.generateJs();
+        if (!getUseWildersSmoothing.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : getUseWildersSmoothing) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSadxPeriod() {
-        if (adxPeriod != null) {
-            return String.format(Locale.US, "adxPeriod: %f,", adxPeriod);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", (type2 != null) ? type2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJStype4() {
-        if (type4 != null) {
-            return String.format(Locale.US, "type: %s,", (type4 != null) ? type4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype5() {
-        if (type5 != null) {
-            return String.format(Locale.US, "type: %s,", type5);
-        }
-        return "";
-    }
-
-    private String generateJSperiod() {
-        if (period != null) {
-            return String.format(Locale.US, "period: %f,", period);
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -371,18 +354,27 @@ public class DMI extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSadxPeriod());
-            js.append(generateJStype());
-            js.append(generateJStype1());
-            js.append(generateJStype2());
-            js.append(generateJStype3());
-            js.append(generateJStype4());
-            js.append(generateJStype5());
-            js.append(generateJSperiod());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSadxPeriod());
+////        
+//            js.append(generateJStype());
+////        
+//            js.append(generateJStype1());
+////        
+//            js.append(generateJStype2());
+////        
+//            js.append(generateJStype3());
+////        
+//            js.append(generateJStype4());
+////        
+//            js.append(generateJStype5());
+////        
+//            js.append(generateJSperiod());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

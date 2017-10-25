@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -56,10 +58,10 @@ public class Ordinal extends ScalesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".names(%s)", names));
+            js.append(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".names(%s)", names));
+                onChangeListener.onChange(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
                 js.setLength(0);
             }
         }
@@ -91,10 +93,10 @@ public class Ordinal extends ScalesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".ticks(%s)", ticks));
+            js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", ticks));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -115,10 +117,10 @@ public class Ordinal extends ScalesBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".ticks(%s)", Arrays.toString(ticks1)));
+            js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", Arrays.toString(ticks1)));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
             }
         }
@@ -168,51 +170,19 @@ public class Ordinal extends ScalesBase {
         return this;
     }
 
+
+//
+//    private String generateJSOrdinalTicks getTicks() {
+//        if (OrdinalTicks getTicks != null) {
+//            return OrdinalTicks getTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSratio() {
-        if (ratio != null) {
-            return String.format(Locale.US, "ratio: %f,", ratio);
-        }
-        return "";
-    }
-
-    private String generateJSnames() {
-        if (names != null) {
-            return String.format(Locale.US, "names: %s,", names);
-        }
-        return "";
-    }
-
-    private String generateJSticks() {
-        if (ticks != null) {
-            return String.format(Locale.US, "ticks: %s,", ticks);
-        }
-        return "";
-    }
-
-    private String generateJSticks1() {
-        if (ticks1 != null) {
-            return String.format(Locale.US, "ticks: %s,", Arrays.toString(ticks1));
-        }
-        return "";
-    }
-
-    private String generateJSsubRangeRatio() {
-        if (subRangeRatio != null) {
-            return String.format(Locale.US, "subRangeRatio: %f,", subRangeRatio);
-        }
-        return "";
-    }
-
-    private String generateJSweights() {
-        if (weights != null) {
-            return String.format(Locale.US, "weights: %s,", Arrays.toString(weights));
+            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -236,16 +206,23 @@ public class Ordinal extends ScalesBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSratio());
-            js.append(generateJSnames());
-            js.append(generateJSticks());
-            js.append(generateJSticks1());
-            js.append(generateJSsubRangeRatio());
-            js.append(generateJSweights());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSratio());
+////        
+//            js.append(generateJSnames());
+////        
+//            js.append(generateJSticks());
+////        
+//            js.append(generateJSticks1());
+////        
+//            js.append(generateJSsubRangeRatio());
+////        
+//            js.append(generateJSweights());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

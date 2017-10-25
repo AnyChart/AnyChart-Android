@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -63,10 +65,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".cornersRounding(%s)", cornersRounding1));
+            js.append(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%s)", cornersRounding1));
+                onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
                 js.setLength(0);
             }
         }
@@ -133,10 +135,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -157,10 +159,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s)", fill1));
+            js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", fill1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
                 js.setLength(0);
             }
         }
@@ -182,10 +184,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+            js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -263,10 +265,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -300,10 +302,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -337,10 +339,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -374,10 +376,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -411,10 +413,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
@@ -466,10 +468,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -513,10 +515,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -549,10 +551,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".labels(%s)", labels));
+            js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
             }
         }
@@ -608,10 +610,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minorLabels(%s)", minorLabels));
+            js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", minorLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
                 js.setLength(0);
             }
         }
@@ -667,10 +669,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
+            js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -719,10 +721,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -744,10 +746,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+            js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
                 js.setLength(0);
             }
         }
@@ -819,10 +821,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".radius(%s)", radius1));
+            js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", radius1));
+                onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
                 js.setLength(0);
             }
         }
@@ -858,10 +860,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -884,10 +886,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", scale1));
+            js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale1));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
             }
         }
@@ -910,10 +912,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -936,10 +938,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".startAngle(%s)", startAngle));
+            js.append(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", startAngle));
+                onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
                 js.setLength(0);
             }
         }
@@ -986,10 +988,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".sweepAngle(%s)", sweepAngle));
+            js.append(String.format(Locale.US, ".sweepAngle(%s)", wrapQuotes(sweepAngle)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%s)", sweepAngle));
+                onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%s)", wrapQuotes(sweepAngle)));
                 js.setLength(0);
             }
         }
@@ -1045,10 +1047,10 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".ticks(%s)", ticks));
+            js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", ticks));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -1119,19 +1121,57 @@ public class Circular extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".width(%s)", width1));
+            js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width1));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSUiLabelsFactory getLabels() {
+//        if (UiLabelsFactory getLabels != null) {
+//            return UiLabelsFactory getLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSUiLabelsFactory getMinorLabels() {
+//        if (UiLabelsFactory getMinorLabels != null) {
+//            return UiLabelsFactory getMinorLabels.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSCircularTicks getMinorTicks() {
+//        if (CircularTicks getMinorTicks != null) {
+//            return CircularTicks getMinorTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSScalesLinear getScale() {
+//        if (ScalesLinear getScale != null) {
+//            return ScalesLinear getScale.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSCircularTicks getTicks() {
+//        if (CircularTicks getTicks != null) {
+//            return CircularTicks getTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
+            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1139,6 +1179,7 @@ public class Circular extends VisualBase {
     private String generateJSgetMinorLabels() {
         if (getMinorLabels != null) {
             return getMinorLabels.generateJs();
+            //return String.format(Locale.US, "getMinorLabels: %s,", ((getMinorLabels != null) ? getMinorLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1146,6 +1187,7 @@ public class Circular extends VisualBase {
     private String generateJSgetMinorTicks() {
         if (getMinorTicks != null) {
             return getMinorTicks.generateJs();
+            //return String.format(Locale.US, "getMinorTicks: %s,", ((getMinorTicks != null) ? getMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -1153,6 +1195,7 @@ public class Circular extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
+            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -1160,335 +1203,7 @@ public class Circular extends VisualBase {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJScornersRounding() {
-        if (cornersRounding != null) {
-            return String.format(Locale.US, "cornersRounding: %f,", cornersRounding);
-        }
-        return "";
-    }
-
-    private String generateJScornersRounding1() {
-        if (cornersRounding1 != null) {
-            return String.format(Locale.US, "cornersRounding: %s,", cornersRounding1);
-        }
-        return "";
-    }
-
-    private String generateJSdrawFirstLabel() {
-        if (drawFirstLabel != null) {
-            return String.format(Locale.US, "drawFirstLabel: %b,", drawFirstLabel);
-        }
-        return "";
-    }
-
-    private String generateJSdrawLastLabel() {
-        if (drawLastLabel != null) {
-            return String.format(Locale.US, "drawLastLabel: %b,", drawLastLabel);
-        }
-        return "";
-    }
-
-    private String generateJSfill() {
-        if (fill != null) {
-            return String.format(Locale.US, "fill: %s,", (fill != null) ? fill.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSfill1() {
-        if (fill1 != null) {
-            return String.format(Locale.US, "fill: %s,", fill1);
-        }
-        return "";
-    }
-
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
-        }
-        return "";
-    }
-
-    private String generateJSopacity() {
-        if (opacity != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity);
-        }
-        return "";
-    }
-
-    private String generateJSkeys() {
-        if (keys != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys));
-        }
-        return "";
-    }
-
-    private String generateJSkeys1() {
-        if (keys1 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys1));
-        }
-        return "";
-    }
-
-    private String generateJSangle() {
-        if (angle != null) {
-            return String.format(Locale.US, "angle: %f,", angle);
-        }
-        return "";
-    }
-
-    private String generateJSmode() {
-        if (mode != null) {
-            return String.format(Locale.US, "mode: %b,", mode);
-        }
-        return "";
-    }
-
-    private String generateJSmode1() {
-        if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode1 != null) ? mode1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode2() {
-        if (mode2 != null) {
-            return String.format(Locale.US, "mode: %s,", mode2);
-        }
-        return "";
-    }
-
-    private String generateJSopacity1() {
-        if (opacity1 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity1);
-        }
-        return "";
-    }
-
-    private String generateJSkeys2() {
-        if (keys2 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys2));
-        }
-        return "";
-    }
-
-    private String generateJSkeys3() {
-        if (keys3 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys3));
-        }
-        return "";
-    }
-
-    private String generateJScx() {
-        if (cx != null) {
-            return String.format(Locale.US, "cx: %f,", cx);
-        }
-        return "";
-    }
-
-    private String generateJScy() {
-        if (cy != null) {
-            return String.format(Locale.US, "cy: %f,", cy);
-        }
-        return "";
-    }
-
-    private String generateJSmode3() {
-        if (mode3 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity2() {
-        if (opacity2 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity2);
-        }
-        return "";
-    }
-
-    private String generateJSfx() {
-        if (fx != null) {
-            return String.format(Locale.US, "fx: %f,", fx);
-        }
-        return "";
-    }
-
-    private String generateJSfy() {
-        if (fy != null) {
-            return String.format(Locale.US, "fy: %f,", fy);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings() {
-        if (imageSettings != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings != null) ? imageSettings.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlabels() {
-        if (labels != null) {
-            return String.format(Locale.US, "labels: %s,", labels);
-        }
-        return "";
-    }
-
-    private String generateJSlabels1() {
-        if (labels1 != null) {
-            return String.format(Locale.US, "labels: %b,", labels1);
-        }
-        return "";
-    }
-
-    private String generateJSminorLabels() {
-        if (minorLabels != null) {
-            return String.format(Locale.US, "minorLabels: %s,", minorLabels);
-        }
-        return "";
-    }
-
-    private String generateJSminorLabels1() {
-        if (minorLabels1 != null) {
-            return String.format(Locale.US, "minorLabels: %b,", minorLabels1);
-        }
-        return "";
-    }
-
-    private String generateJSminorTicks() {
-        if (minorTicks != null) {
-            return String.format(Locale.US, "minorTicks: %s,", minorTicks);
-        }
-        return "";
-    }
-
-    private String generateJSminorTicks1() {
-        if (minorTicks1 != null) {
-            return String.format(Locale.US, "minorTicks: %b,", minorTicks1);
-        }
-        return "";
-    }
-
-    private String generateJSoverlapMode() {
-        if (overlapMode != null) {
-            return String.format(Locale.US, "overlapMode: %s,", (overlapMode != null) ? overlapMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSoverlapMode1() {
-        if (overlapMode1 != null) {
-            return String.format(Locale.US, "overlapMode: %s,", overlapMode1);
-        }
-        return "";
-    }
-
-    private String generateJSoverlapMode2() {
-        if (overlapMode2 != null) {
-            return String.format(Locale.US, "overlapMode: %b,", overlapMode2);
-        }
-        return "";
-    }
-
-    private String generateJSradius() {
-        if (radius != null) {
-            return String.format(Locale.US, "radius: %f,", radius);
-        }
-        return "";
-    }
-
-    private String generateJSradius1() {
-        if (radius1 != null) {
-            return String.format(Locale.US, "radius: %s,", radius1);
-        }
-        return "";
-    }
-
-    private String generateJSscale() {
-        if (scale != null) {
-            return String.format(Locale.US, "scale: %s,", (scale != null) ? scale.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSscale1() {
-        if (scale1 != null) {
-            return String.format(Locale.US, "scale: %s,", scale1);
-        }
-        return "";
-    }
-
-    private String generateJSscale2() {
-        if (scale2 != null) {
-            return String.format(Locale.US, "scale: %s,", (scale2 != null) ? scale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSscale3() {
-        if (scale3 != null) {
-            return String.format(Locale.US, "scale: %s,", scale3);
-        }
-        return "";
-    }
-
-    private String generateJSstartAngle() {
-        if (startAngle != null) {
-            return String.format(Locale.US, "startAngle: %s,", startAngle);
-        }
-        return "";
-    }
-
-    private String generateJSstartAngle1() {
-        if (startAngle1 != null) {
-            return String.format(Locale.US, "startAngle: %f,", startAngle1);
-        }
-        return "";
-    }
-
-    private String generateJSsweepAngle() {
-        if (sweepAngle != null) {
-            return String.format(Locale.US, "sweepAngle: %s,", sweepAngle);
-        }
-        return "";
-    }
-
-    private String generateJSsweepAngle1() {
-        if (sweepAngle1 != null) {
-            return String.format(Locale.US, "sweepAngle: %f,", sweepAngle1);
-        }
-        return "";
-    }
-
-    private String generateJSticks() {
-        if (ticks != null) {
-            return String.format(Locale.US, "ticks: %s,", ticks);
-        }
-        return "";
-    }
-
-    private String generateJSticks1() {
-        if (ticks1 != null) {
-            return String.format(Locale.US, "ticks: %b,", ticks1);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %s,", width1);
+            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -1516,57 +1231,105 @@ public class Circular extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJScornersRounding());
-            js.append(generateJScornersRounding1());
-            js.append(generateJSdrawFirstLabel());
-            js.append(generateJSdrawLastLabel());
-            js.append(generateJSfill());
-            js.append(generateJSfill1());
-            js.append(generateJScolor());
-            js.append(generateJSopacity());
-            js.append(generateJSkeys());
-            js.append(generateJSkeys1());
-            js.append(generateJSangle());
-            js.append(generateJSmode());
-            js.append(generateJSmode1());
-            js.append(generateJSmode2());
-            js.append(generateJSopacity1());
-            js.append(generateJSkeys2());
-            js.append(generateJSkeys3());
-            js.append(generateJScx());
-            js.append(generateJScy());
-            js.append(generateJSmode3());
-            js.append(generateJSopacity2());
-            js.append(generateJSfx());
-            js.append(generateJSfy());
-            js.append(generateJSimageSettings());
-            js.append(generateJSlabels());
-            js.append(generateJSlabels1());
-            js.append(generateJSminorLabels());
-            js.append(generateJSminorLabels1());
-            js.append(generateJSminorTicks());
-            js.append(generateJSminorTicks1());
-            js.append(generateJSoverlapMode());
-            js.append(generateJSoverlapMode1());
-            js.append(generateJSoverlapMode2());
-            js.append(generateJSradius());
-            js.append(generateJSradius1());
-            js.append(generateJSscale());
-            js.append(generateJSscale1());
-            js.append(generateJSscale2());
-            js.append(generateJSscale3());
-            js.append(generateJSstartAngle());
-            js.append(generateJSstartAngle1());
-            js.append(generateJSsweepAngle());
-            js.append(generateJSsweepAngle1());
-            js.append(generateJSticks());
-            js.append(generateJSticks1());
-            js.append(generateJSwidth());
-            js.append(generateJSwidth1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJScornersRounding());
+////        
+//            js.append(generateJScornersRounding1());
+////        
+//            js.append(generateJSdrawFirstLabel());
+////        
+//            js.append(generateJSdrawLastLabel());
+////        
+//            js.append(generateJSfill());
+////        
+//            js.append(generateJSfill1());
+////        
+//            js.append(generateJScolor());
+////        
+//            js.append(generateJSopacity());
+////        
+//            js.append(generateJSkeys());
+////        
+//            js.append(generateJSkeys1());
+////        
+//            js.append(generateJSangle());
+////        
+//            js.append(generateJSmode());
+////        
+//            js.append(generateJSmode1());
+////        
+//            js.append(generateJSmode2());
+////        
+//            js.append(generateJSopacity1());
+////        
+//            js.append(generateJSkeys2());
+////        
+//            js.append(generateJSkeys3());
+////        
+//            js.append(generateJScx());
+////        
+//            js.append(generateJScy());
+////        
+//            js.append(generateJSmode3());
+////        
+//            js.append(generateJSopacity2());
+////        
+//            js.append(generateJSfx());
+////        
+//            js.append(generateJSfy());
+////        
+//            js.append(generateJSimageSettings());
+////        
+//            js.append(generateJSlabels());
+////        
+//            js.append(generateJSlabels1());
+////        
+//            js.append(generateJSminorLabels());
+////        
+//            js.append(generateJSminorLabels1());
+////        
+//            js.append(generateJSminorTicks());
+////        
+//            js.append(generateJSminorTicks1());
+////        
+//            js.append(generateJSoverlapMode());
+////        
+//            js.append(generateJSoverlapMode1());
+////        
+//            js.append(generateJSoverlapMode2());
+////        
+//            js.append(generateJSradius());
+////        
+//            js.append(generateJSradius1());
+////        
+//            js.append(generateJSscale());
+////        
+//            js.append(generateJSscale1());
+////        
+//            js.append(generateJSscale2());
+////        
+//            js.append(generateJSscale3());
+////        
+//            js.append(generateJSstartAngle());
+////        
+//            js.append(generateJSstartAngle1());
+////        
+//            js.append(generateJSsweepAngle());
+////        
+//            js.append(generateJSsweepAngle1());
+////        
+//            js.append(generateJSticks());
+////        
+//            js.append(generateJSticks1());
+////        
+//            js.append(generateJSwidth());
+////        
+//            js.append(generateJSwidth1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

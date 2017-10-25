@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -35,10 +37,10 @@ public class ChartController extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeAnnotation(%s)", (annotation != null) ? annotation.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".removeAnnotation(%s)", ((annotation != null) ? annotation.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeAnnotation(%s)", (annotation != null) ? annotation.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".removeAnnotation(%s)", ((annotation != null) ? annotation.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -60,10 +62,10 @@ public class ChartController extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".select(%s)", (annotation1 != null) ? annotation1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".select(%s)", ((annotation1 != null) ? annotation1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%s)", (annotation1 != null) ? annotation1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s)", ((annotation1 != null) ? annotation1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -88,10 +90,10 @@ public class ChartController extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", (annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", (annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -113,10 +115,10 @@ public class ChartController extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", annotationTypeOrConfig1));
+            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", wrapQuotes(annotationTypeOrConfig1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", annotationTypeOrConfig1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", wrapQuotes(annotationTypeOrConfig1)));
                 js.setLength(0);
             }
         }
@@ -138,51 +140,18 @@ public class ChartController extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return new AnnotationsBase(jsBase);
     }
 
-    private String generateJSannotation() {
-        if (annotation != null) {
-            return String.format(Locale.US, "annotation: %s,", (annotation != null) ? annotation.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSannotation1() {
-        if (annotation1 != null) {
-            return String.format(Locale.US, "annotation: %s,", (annotation1 != null) ? annotation1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSannotationTypeOrConfig() {
-        if (annotationTypeOrConfig != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSannotationTypeOrConfig1() {
-        if (annotationTypeOrConfig1 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", annotationTypeOrConfig1);
-        }
-        return "";
-    }
-
-    private String generateJSannotationTypeOrConfig2() {
-        if (annotationTypeOrConfig2 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null");
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -201,15 +170,21 @@ public class ChartController extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSannotation());
-            js.append(generateJSannotation1());
-            js.append(generateJSannotationTypeOrConfig());
-            js.append(generateJSannotationTypeOrConfig1());
-            js.append(generateJSannotationTypeOrConfig2());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSannotation());
+////        
+//            js.append(generateJSannotation1());
+////        
+//            js.append(generateJSannotationTypeOrConfig());
+////        
+//            js.append(generateJSannotationTypeOrConfig1());
+////        
+//            js.append(generateJSannotationTypeOrConfig2());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

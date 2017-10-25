@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -57,10 +59,10 @@ public class OrdinalTicks extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".names(%s)", Arrays.toString(values)));
+            js.append(String.format(Locale.US, ".names(%s)", arrayToStringWrapQuotes(values)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".names(%s)", Arrays.toString(values)));
+                onChangeListener.onChange(String.format(Locale.US, ".names(%s)", arrayToStringWrapQuotes(values)));
                 js.setLength(0);
             }
         }
@@ -79,37 +81,18 @@ public class OrdinalTicks extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%s)", Arrays.toString(ticks)));
+            js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", Arrays.toString(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSinterval() {
-        if (interval != null) {
-            return String.format(Locale.US, "interval: %f,", interval);
-        }
-        return "";
-    }
 
-    private String generateJSvalues() {
-        if (values != null) {
-            return String.format(Locale.US, "values: %s,", Arrays.toString(values));
-        }
-        return "";
-    }
-
-    private String generateJSticks() {
-        if (ticks != null) {
-            return String.format(Locale.US, "ticks: %s,", Arrays.toString(ticks));
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -128,13 +111,17 @@ public class OrdinalTicks extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSinterval());
-            js.append(generateJSvalues());
-            js.append(generateJSticks());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSinterval());
+////        
+//            js.append(generateJSvalues());
+////        
+//            js.append(generateJSticks());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

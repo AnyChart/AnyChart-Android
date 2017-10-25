@@ -22,7 +22,7 @@ public class DataSettings extends JsObject  {
         this.rows = rows;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  (textSettings != null) ? textSettings.generateJs() : "null", caption, Arrays.toString(header), Arrays.toString(rows), text));
+        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  ((textSettings != null) ? textSettings.generateJs() : "null"), wrapQuotes(caption), arrayToStringWrapQuotes(header), arrayToStringWrapQuotes(rows), wrapQuotes(text)));
     }
     public DataSettings(String textSettings1, String caption, String[] header, String[] rows, String text) {
         this.textSettings1 = textSettings1;
@@ -31,7 +31,7 @@ public class DataSettings extends JsObject  {
         this.rows = rows;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  textSettings1, caption, Arrays.toString(header), Arrays.toString(rows), text));
+        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  wrapQuotes(textSettings1), wrapQuotes(caption), arrayToStringWrapQuotes(header), arrayToStringWrapQuotes(rows), wrapQuotes(text)));
     }
     public DataSettings(TextParsingSettings textSettings2, String caption, String[] header, String[] rows, String text) {
         this.textSettings2 = textSettings2;
@@ -40,7 +40,7 @@ public class DataSettings extends JsObject  {
         this.rows = rows;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  (textSettings2 != null) ? textSettings2.generateJs() : "null", caption, Arrays.toString(header), Arrays.toString(rows), text));
+        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  ((textSettings2 != null) ? textSettings2.generateJs() : "null"), wrapQuotes(caption), arrayToStringWrapQuotes(header), arrayToStringWrapQuotes(rows), wrapQuotes(text)));
     }
 
     @Override

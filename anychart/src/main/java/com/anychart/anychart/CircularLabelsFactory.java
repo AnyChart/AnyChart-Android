@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -45,13 +47,8 @@ public class CircularLabelsFactory extends UiLabelsFactory {
         return this;
     }
 
-    private String generateJSautoRotate() {
-        if (autoRotate != null) {
-            return String.format(Locale.US, "autoRotate: %b,", autoRotate);
-        }
-        return "";
-    }
 
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -70,11 +67,13 @@ public class CircularLabelsFactory extends UiLabelsFactory {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSautoRotate());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSautoRotate());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -39,10 +41,10 @@ public class Crosshair extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".displayMode(%s)", (displayMode != null) ? displayMode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".displayMode(%s)", ((displayMode != null) ? displayMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", (displayMode != null) ? displayMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", ((displayMode != null) ? displayMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class Crosshair extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".displayMode(%s)", displayMode1));
+            js.append(String.format(Locale.US, ".displayMode(%s)", wrapQuotes(displayMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", displayMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", wrapQuotes(displayMode1)));
                 js.setLength(0);
             }
         }
@@ -98,10 +100,10 @@ public class Crosshair extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xLabel(%s)", xLabel));
+            js.append(String.format(Locale.US, ".xLabel(%s)", wrapQuotes(xLabel)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xLabel(%s)", xLabel));
+                onChangeListener.onChange(String.format(Locale.US, ".xLabel(%s)", wrapQuotes(xLabel)));
                 js.setLength(0);
             }
         }
@@ -160,10 +162,10 @@ public class Crosshair extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", (xStroke != null) ? xStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", ((xStroke != null) ? xStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", (xStroke != null) ? xStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", ((xStroke != null) ? xStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -192,10 +194,10 @@ public class Crosshair extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", xStroke1, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", wrapQuotes(xStroke1), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", xStroke1, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", wrapQuotes(xStroke1), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -227,10 +229,10 @@ public class Crosshair extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yLabel(%s)", yLabel));
+            js.append(String.format(Locale.US, ".yLabel(%s)", wrapQuotes(yLabel)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yLabel(%s)", yLabel));
+                onChangeListener.onChange(String.format(Locale.US, ".yLabel(%s)", wrapQuotes(yLabel)));
                 js.setLength(0);
             }
         }
@@ -301,10 +303,10 @@ public class Crosshair extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", (yStroke != null) ? yStroke.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", ((yStroke != null) ? yStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", (yStroke != null) ? yStroke.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", ((yStroke != null) ? yStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -345,19 +347,36 @@ public class Crosshair extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", yStroke1, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", wrapQuotes(yStroke1), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", yStroke1, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", wrapQuotes(yStroke1), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSCrosshairLabel getXLabel() {
+//        if (CrosshairLabel getXLabel != null) {
+//            return CrosshairLabel getXLabel.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSCrosshairLabel getYLabel() {
+//        if (CrosshairLabel getYLabel != null) {
+//            return CrosshairLabel getYLabel.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetXLabel() {
         if (getXLabel != null) {
             return getXLabel.generateJs();
+            //return String.format(Locale.US, "getXLabel: %s,", ((getXLabel != null) ? getXLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -365,132 +384,7 @@ public class Crosshair extends VisualBase {
     private String generateJSgetYLabel() {
         if (getYLabel != null) {
             return getYLabel.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSdisplayMode() {
-        if (displayMode != null) {
-            return String.format(Locale.US, "displayMode: %s,", (displayMode != null) ? displayMode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdisplayMode1() {
-        if (displayMode1 != null) {
-            return String.format(Locale.US, "displayMode: %s,", displayMode1);
-        }
-        return "";
-    }
-
-    private String generateJSxLabel() {
-        if (xLabel != null) {
-            return String.format(Locale.US, "xLabel: %s,", xLabel);
-        }
-        return "";
-    }
-
-    private String generateJSxLabel1() {
-        if (xLabel1 != null) {
-            return String.format(Locale.US, "xLabel: %b,", xLabel1);
-        }
-        return "";
-    }
-
-    private String generateJSxStroke() {
-        if (xStroke != null) {
-            return String.format(Locale.US, "xStroke: %s,", (xStroke != null) ? xStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSxStroke1() {
-        if (xStroke1 != null) {
-            return String.format(Locale.US, "xStroke: %s,", xStroke1);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyLabel() {
-        if (yLabel != null) {
-            return String.format(Locale.US, "yLabel: %s,", yLabel);
-        }
-        return "";
-    }
-
-    private String generateJSyLabel1() {
-        if (yLabel1 != null) {
-            return String.format(Locale.US, "yLabel: %b,", yLabel1);
-        }
-        return "";
-    }
-
-    private String generateJSyStroke() {
-        if (yStroke != null) {
-            return String.format(Locale.US, "yStroke: %s,", (yStroke != null) ? yStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSyStroke1() {
-        if (yStroke1 != null) {
-            return String.format(Locale.US, "yStroke: %s,", yStroke1);
-        }
-        return "";
-    }
-
-    private String generateJSthickness1() {
-        if (thickness1 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness1);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern1() {
-        if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin1() {
-        if (lineJoin1 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin1 != null) ? lineJoin1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap1() {
-        if (lineCap1 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap1 != null) ? lineCap1.generateJs() : "null");
+            //return String.format(Locale.US, "getYLabel: %s,", ((getYLabel != null) ? getYLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -515,28 +409,47 @@ public class Crosshair extends VisualBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSdisplayMode());
-            js.append(generateJSdisplayMode1());
-            js.append(generateJSxLabel());
-            js.append(generateJSxLabel1());
-            js.append(generateJSxStroke());
-            js.append(generateJSxStroke1());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
-            js.append(generateJSyLabel());
-            js.append(generateJSyLabel1());
-            js.append(generateJSyStroke());
-            js.append(generateJSyStroke1());
-            js.append(generateJSthickness1());
-            js.append(generateJSdashpattern1());
-            js.append(generateJSlineJoin1());
-            js.append(generateJSlineCap1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSdisplayMode());
+////        
+//            js.append(generateJSdisplayMode1());
+////        
+//            js.append(generateJSxLabel());
+////        
+//            js.append(generateJSxLabel1());
+////        
+//            js.append(generateJSxStroke());
+////        
+//            js.append(generateJSxStroke1());
+////        
+//            js.append(generateJSthickness());
+////        
+//            js.append(generateJSdashpattern());
+////        
+//            js.append(generateJSlineJoin());
+////        
+//            js.append(generateJSlineCap());
+////        
+//            js.append(generateJSyLabel());
+////        
+//            js.append(generateJSyLabel1());
+////        
+//            js.append(generateJSyStroke());
+////        
+//            js.append(generateJSyStroke1());
+////        
+//            js.append(generateJSthickness1());
+////        
+//            js.append(generateJSdashpattern1());
+////        
+//            js.append(generateJSlineJoin1());
+////        
+//            js.append(generateJSlineCap1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

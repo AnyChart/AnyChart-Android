@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -39,10 +41,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".concat(%s)", (otherView != null) ? otherView.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".concat(%s)", ((otherView != null) ? otherView.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", (otherView != null) ? otherView.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", ((otherView != null) ? otherView.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".concat(%s)", Arrays.toString(otherView1)));
+            js.append(String.format(Locale.US, ".concat(%s)", arrayToStringWrapQuotes(otherView1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", Arrays.toString(otherView1)));
+                onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", arrayToStringWrapQuotes(otherView1)));
                 js.setLength(0);
             }
         }
@@ -85,10 +87,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".filter(%s)", fieldName));
+            js.append(String.format(Locale.US, ".filter(%s)", wrapQuotes(fieldName)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".filter(%s)", fieldName));
+                onChangeListener.onChange(String.format(Locale.US, ".filter(%s)", wrapQuotes(fieldName)));
                 js.setLength(0);
             }
         }
@@ -110,10 +112,10 @@ public class View extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".find(%s);", fieldName1));
+            js.append(String.format(Locale.US, jsBase + ".find(%s);", wrapQuotes(fieldName1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".find(%s)", fieldName1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".find(%s)", wrapQuotes(fieldName1)));
                 js.setLength(0);
             }
         }
@@ -134,10 +136,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".meta(%f, %s)", index, name));
+            js.append(String.format(Locale.US, ".meta(%f, %s)", index, wrapQuotes(name)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".meta(%f, %s)", index, name));
+                onChangeListener.onChange(String.format(Locale.US, ".meta(%f, %s)", index, wrapQuotes(name)));
                 js.setLength(0);
             }
         }
@@ -187,10 +189,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%f, %s)", rowIndex1, fieldName2));
+            js.append(String.format(Locale.US, ".set(%f, %s)", rowIndex1, wrapQuotes(fieldName2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%f, %s)", rowIndex1, fieldName2));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%f, %s)", rowIndex1, wrapQuotes(fieldName2)));
                 js.setLength(0);
             }
         }
@@ -214,10 +216,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".sort(%s)", fieldName3));
+            js.append(String.format(Locale.US, ".sort(%s)", wrapQuotes(fieldName3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", fieldName3));
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", wrapQuotes(fieldName3)));
                 js.setLength(0);
             }
         }
@@ -249,10 +251,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".sort(%s, %s)", (order != null) ? order.generateJs() : "null", fieldName4));
+            js.append(String.format(Locale.US, ".sort(%s, %s)", ((order != null) ? order.generateJs() : "null"), wrapQuotes(fieldName4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", (order != null) ? order.generateJs() : "null", fieldName4));
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", ((order != null) ? order.generateJs() : "null"), wrapQuotes(fieldName4)));
                 js.setLength(0);
             }
         }
@@ -281,107 +283,18 @@ public class View extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".sort(%s, %s)", order1, fieldName4));
+            js.append(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(order1), wrapQuotes(fieldName4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", order1, fieldName4));
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(order1), wrapQuotes(fieldName4)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSotherView() {
-        if (otherView != null) {
-            return String.format(Locale.US, "otherView: %s,", (otherView != null) ? otherView.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSotherView1() {
-        if (otherView1 != null) {
-            return String.format(Locale.US, "otherView: %s,", Arrays.toString(otherView1));
-        }
-        return "";
-    }
-
-    private String generateJSfieldName() {
-        if (fieldName != null) {
-            return String.format(Locale.US, "fieldName: %s,", fieldName);
-        }
-        return "";
-    }
-
-    private String generateJSfieldName1() {
-        if (fieldName1 != null) {
-            return String.format(Locale.US, "fieldName: %s,", fieldName1);
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
-
-    private String generateJSrowIndex() {
-        if (rowIndex != null) {
-            return String.format(Locale.US, "rowIndex: %f,", rowIndex);
-        }
-        return "";
-    }
-
-    private String generateJSrowIndex1() {
-        if (rowIndex1 != null) {
-            return String.format(Locale.US, "rowIndex: %f,", rowIndex1);
-        }
-        return "";
-    }
-
-    private String generateJSfieldName2() {
-        if (fieldName2 != null) {
-            return String.format(Locale.US, "fieldName: %s,", fieldName2);
-        }
-        return "";
-    }
-
-    private String generateJSfieldName3() {
-        if (fieldName3 != null) {
-            return String.format(Locale.US, "fieldName: %s,", fieldName3);
-        }
-        return "";
-    }
-
-    private String generateJSfieldName4() {
-        if (fieldName4 != null) {
-            return String.format(Locale.US, "fieldName: %s,", fieldName4);
-        }
-        return "";
-    }
-
-    private String generateJSorder() {
-        if (order != null) {
-            return String.format(Locale.US, "order: %s,", (order != null) ? order.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSorder1() {
-        if (order1 != null) {
-            return String.format(Locale.US, "order: %s,", order1);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -400,23 +313,37 @@ public class View extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSotherView());
-            js.append(generateJSotherView1());
-            js.append(generateJSfieldName());
-            js.append(generateJSfieldName1());
-            js.append(generateJSindex());
-            js.append(generateJSname());
-            js.append(generateJSrowIndex());
-            js.append(generateJSrowIndex1());
-            js.append(generateJSfieldName2());
-            js.append(generateJSfieldName3());
-            js.append(generateJSfieldName4());
-            js.append(generateJSorder());
-            js.append(generateJSorder1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSotherView());
+////        
+//            js.append(generateJSotherView1());
+////        
+//            js.append(generateJSfieldName());
+////        
+//            js.append(generateJSfieldName1());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSname());
+////        
+//            js.append(generateJSrowIndex());
+////        
+//            js.append(generateJSrowIndex1());
+////        
+//            js.append(generateJSfieldName2());
+////        
+//            js.append(generateJSfieldName3());
+////        
+//            js.append(generateJSfieldName4());
+////        
+//            js.append(generateJSorder());
+////        
+//            js.append(generateJSorder1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

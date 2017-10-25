@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -92,10 +94,10 @@ public class DateTime extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
+            js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -116,10 +118,10 @@ public class DateTime extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".minorTicks(%s)", Arrays.toString(minorTicks1)));
+            js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", Arrays.toString(minorTicks1)));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
                 js.setLength(0);
             }
         }
@@ -195,10 +197,10 @@ public class DateTime extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".ticks(%s)", ticks));
+            js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", ticks));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -219,19 +221,36 @@ public class DateTime extends ScatterBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".ticks(%s)", Arrays.toString(ticks1)));
+            js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", Arrays.toString(ticks1)));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSDateTimeTicks getMinorTicks() {
+//        if (DateTimeTicks getMinorTicks != null) {
+//            return DateTimeTicks getMinorTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSDateTimeTicks getTicks() {
+//        if (DateTimeTicks getTicks != null) {
+//            return DateTimeTicks getTicks.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetMinorTicks() {
         if (getMinorTicks != null) {
             return getMinorTicks.generateJs();
+            //return String.format(Locale.US, "getMinorTicks: %s,", ((getMinorTicks != null) ? getMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -239,62 +258,7 @@ public class DateTime extends ScatterBase {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSmaximumGap() {
-        if (maximumGap != null) {
-            return String.format(Locale.US, "maximumGap: %f,", maximumGap);
-        }
-        return "";
-    }
-
-    private String generateJSminimumGap() {
-        if (minimumGap != null) {
-            return String.format(Locale.US, "minimumGap: %f,", minimumGap);
-        }
-        return "";
-    }
-
-    private String generateJSminorTicks() {
-        if (minorTicks != null) {
-            return String.format(Locale.US, "minorTicks: %s,", minorTicks);
-        }
-        return "";
-    }
-
-    private String generateJSminorTicks1() {
-        if (minorTicks1 != null) {
-            return String.format(Locale.US, "minorTicks: %s,", Arrays.toString(minorTicks1));
-        }
-        return "";
-    }
-
-    private String generateJSsoftMaximum() {
-        if (softMaximum != null) {
-            return String.format(Locale.US, "softMaximum: %f,", softMaximum);
-        }
-        return "";
-    }
-
-    private String generateJSsoftMinimum() {
-        if (softMinimum != null) {
-            return String.format(Locale.US, "softMinimum: %f,", softMinimum);
-        }
-        return "";
-    }
-
-    private String generateJSticks() {
-        if (ticks != null) {
-            return String.format(Locale.US, "ticks: %s,", ticks);
-        }
-        return "";
-    }
-
-    private String generateJSticks1() {
-        if (ticks1 != null) {
-            return String.format(Locale.US, "ticks: %s,", Arrays.toString(ticks1));
+            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -319,18 +283,27 @@ public class DateTime extends ScatterBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSmaximumGap());
-            js.append(generateJSminimumGap());
-            js.append(generateJSminorTicks());
-            js.append(generateJSminorTicks1());
-            js.append(generateJSsoftMaximum());
-            js.append(generateJSsoftMinimum());
-            js.append(generateJSticks());
-            js.append(generateJSticks1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSmaximumGap());
+////        
+//            js.append(generateJSminimumGap());
+////        
+//            js.append(generateJSminorTicks());
+////        
+//            js.append(generateJSminorTicks1());
+////        
+//            js.append(generateJSsoftMaximum());
+////        
+//            js.append(generateJSsoftMinimum());
+////        
+//            js.append(generateJSticks());
+////        
+//            js.append(generateJSticks1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

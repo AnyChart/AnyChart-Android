@@ -15,13 +15,31 @@ public class Pie extends SeparateChart {
         jsBase = "chart";
     }
 
+    public Pie setData(List<DataEntry> data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("]);");
+        }
+
+        return this;
+    }
+
     
     private Double connectorLength;
     private String connectorLength1;
     private List<Pie> setConnectorLength = new ArrayList<>();
-
     public Pie setConnectorLength(Double connectorLength) {
-        this.connectorLength = connectorLength;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -46,17 +64,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setConnectorLength1 = new ArrayList<>();
-
     public Pie setConnectorLength(String connectorLength1) {
-        this.connectorLength1 = connectorLength1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorLength(%s)", connectorLength1));
+        js.append(String.format(Locale.US, ".connectorLength(%s)", wrapQuotes(connectorLength1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorLength(%s)", connectorLength1));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorLength(%s)", wrapQuotes(connectorLength1)));
             js.setLength(0);
         }
         return this;
@@ -80,21 +96,15 @@ public class Pie extends SeparateChart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<Pie> setConnectorStroke = new ArrayList<>();
-
     public Pie setConnectorStroke(Stroke connectorStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.connectorStroke = connectorStroke;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -111,21 +121,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setConnectorStroke1 = new ArrayList<>();
-
     public Pie setConnectorStroke(ColoredFill connectorStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.connectorStroke1 = connectorStroke1;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -142,21 +146,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setConnectorStroke2 = new ArrayList<>();
-
     public Pie setConnectorStroke(String connectorStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.connectorStroke2 = connectorStroke2;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -181,28 +179,23 @@ public class Pie extends SeparateChart {
 
         return getData;
     }
-    private View data;
-    private Mapping data1;
-    private Set data2;
-    private DataSettings data3;
-    private String[] data4;
-    private TextParsingMode csvSettings;
-    private String csvSettings1;
-    private TextParsingSettings csvSettings2;
     private List<Pie> setData = new ArrayList<>();
-
-    public Pie setData(View data, TextParsingMode csvSettings) {
-        this.data = data;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
+    public Pie data(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
         }
         return this;
     }
@@ -217,412 +210,18 @@ public class Pie extends SeparateChart {
         return "";
     }
 
-    private List<Pie> setData1 = new ArrayList<>();
-
-    public Pie setData(View data, String csvSettings1) {
-        this.data = data;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData2 = new ArrayList<>();
-
-    public Pie setData(View data, TextParsingSettings csvSettings2) {
-        this.data = data;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData3 = new ArrayList<>();
-
-    public Pie setData(Mapping data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData3() {
-        if (!setData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData4 = new ArrayList<>();
-
-    public Pie setData(Mapping data1, String csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData5 = new ArrayList<>();
-
-    public Pie setData(Mapping data1, TextParsingSettings csvSettings2) {
-        this.data1 = data1;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData6 = new ArrayList<>();
-
-    public Pie setData(Set data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData7 = new ArrayList<>();
-
-    public Pie setData(Set data2, String csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData8 = new ArrayList<>();
-
-    public Pie setData(Set data2, TextParsingSettings csvSettings2) {
-        this.data2 = data2;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData8() {
-        if (!setData8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData9 = new ArrayList<>();
-
-    public Pie setData(DataSettings data3, TextParsingMode csvSettings) {
-        this.data3 = data3;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData9() {
-        if (!setData9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData10 = new ArrayList<>();
-
-    public Pie setData(DataSettings data3, String csvSettings1) {
-        this.data3 = data3;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData10() {
-        if (!setData10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData11 = new ArrayList<>();
-
-    public Pie setData(DataSettings data3, TextParsingSettings csvSettings2) {
-        this.data3 = data3;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData11() {
-        if (!setData11.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData11) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData12 = new ArrayList<>();
-
-    public Pie setData(String[] data4, TextParsingMode csvSettings) {
-        this.data4 = data4;
-        this.csvSettings = csvSettings;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings != null) ? csvSettings.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData12() {
-        if (!setData12.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData12) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData13 = new ArrayList<>();
-
-    public Pie setData(String[] data4, String csvSettings1) {
-        this.data4 = data4;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), csvSettings1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), csvSettings1));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData13() {
-        if (!setData13.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData13) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData14 = new ArrayList<>();
-
-    public Pie setData(String[] data4, TextParsingSettings csvSettings2) {
-        this.data4 = data4;
-        this.csvSettings2 = csvSettings2;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData14() {
-        if (!setData14.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData14) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
     private String explode;
     private Double explode1;
     private List<Pie> setExplode = new ArrayList<>();
-
     public Pie setExplode(String explode) {
-        this.explode = explode;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".explode(%s)", explode));
+        js.append(String.format(Locale.US, ".explode(%s)", wrapQuotes(explode)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".explode(%s)", explode));
+            onChangeListener.onChange(String.format(Locale.US, ".explode(%s)", wrapQuotes(explode)));
             js.setLength(0);
         }
         return this;
@@ -639,9 +238,7 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setExplode1 = new ArrayList<>();
-
     public Pie setExplode(Double explode1) {
-        this.explode1 = explode1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -668,10 +265,7 @@ public class Pie extends SeparateChart {
     private Double index;
     private Boolean explode2;
     private List<Pie> setExplodeSlice = new ArrayList<>();
-
     public Pie explodeSlice(Double index, Boolean explode2) {
-        this.index = index;
-        this.explode2 = explode2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -697,9 +291,7 @@ public class Pie extends SeparateChart {
 
     private Boolean explodeSlices;
     private List<Pie> setExplodeSlices = new ArrayList<>();
-
     public Pie explodeSlices(Boolean explodeSlices) {
-        this.explodeSlices = explodeSlices;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -725,17 +317,15 @@ public class Pie extends SeparateChart {
 
     private Fill fill;
     private List<Pie> setFill = new ArrayList<>();
-
     public Pie setFill(Fill fill) {
-        this.fill = fill;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -754,18 +344,15 @@ public class Pie extends SeparateChart {
     private String color;
     private Double opacity;
     private List<Pie> setFill1 = new ArrayList<>();
-
     public Pie fill(String color, Double opacity) {
-        this.color = color;
-        this.opacity = opacity;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+        js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
             js.setLength(0);
         }
         return this;
@@ -789,12 +376,7 @@ public class Pie extends SeparateChart {
     private String mode2;
     private Double opacity1;
     private List<Pie> setFill2 = new ArrayList<>();
-
     public Pie fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
-        this.keys = keys;
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -819,20 +401,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill3 = new ArrayList<>();
-
     public Pie fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys = keys;
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -849,20 +426,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill4 = new ArrayList<>();
-
     public Pie fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
-        this.keys = keys;
-        this.mode2 = mode2;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -879,20 +451,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill5 = new ArrayList<>();
-
     public Pie fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
-        this.keys1 = keys1;
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -909,20 +476,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill6 = new ArrayList<>();
-
     public Pie fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys1 = keys1;
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -939,20 +501,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill7 = new ArrayList<>();
-
     public Pie fill(String[] keys1, String mode2, Double angle, Double opacity1) {
-        this.keys1 = keys1;
-        this.mode2 = mode2;
-        this.angle = angle;
-        this.opacity1 = opacity1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -977,23 +534,15 @@ public class Pie extends SeparateChart {
     private Double fx;
     private Double fy;
     private List<Pie> setFill8 = new ArrayList<>();
-
     public Pie fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
-        this.keys2 = keys2;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode3 = mode3;
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -1010,23 +559,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill9 = new ArrayList<>();
-
     public Pie fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
-        this.keys3 = keys3;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode3 = mode3;
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -1045,9 +586,7 @@ public class Pie extends SeparateChart {
     private Fill imageSettings;
     private Boolean forceHoverLabels;
     private List<Pie> setForceHoverLabels = new ArrayList<>();
-
     public Pie setForceHoverLabels(Boolean forceHoverLabels) {
-        this.forceHoverLabels = forceHoverLabels;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1082,17 +621,15 @@ public class Pie extends SeparateChart {
     }
     private String group;
     private List<Pie> setGroup = new ArrayList<>();
-
     public Pie setGroup(String group) {
-        this.group = group;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".group(%s)", group));
+        js.append(String.format(Locale.US, ".group(%s)", wrapQuotes(group)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".group(%s)", group));
+            onChangeListener.onChange(String.format(Locale.US, ".group(%s)", wrapQuotes(group)));
             js.setLength(0);
         }
         return this;
@@ -1126,20 +663,15 @@ public class Pie extends SeparateChart {
     private Double thickness1;
     private Double size;
     private List<Pie> setHatchFill = new ArrayList<>();
-
     public Pie setHatchFill(PatternFill patternFillOrType, String color1, Double thickness1, Double size) {
-        this.patternFillOrType = patternFillOrType;
-        this.color1 = color1;
-        this.thickness1 = thickness1;
-        this.size = size;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -1156,20 +688,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFill1 = new ArrayList<>();
-
     public Pie setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness1, Double size) {
-        this.patternFillOrType1 = patternFillOrType1;
-        this.color1 = color1;
-        this.thickness1 = thickness1;
-        this.size = size;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -1186,20 +713,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFill2 = new ArrayList<>();
-
     public Pie setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness1, Double size) {
-        this.patternFillOrType2 = patternFillOrType2;
-        this.color1 = color1;
-        this.thickness1 = thickness1;
-        this.size = size;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -1216,20 +738,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFill3 = new ArrayList<>();
-
     public Pie setHatchFill(String patternFillOrType3, String color1, Double thickness1, Double size) {
-        this.patternFillOrType3 = patternFillOrType3;
-        this.color1 = color1;
-        this.thickness1 = thickness1;
-        this.size = size;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType3, color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -1246,20 +763,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFill4 = new ArrayList<>();
-
     public Pie setHatchFill(Boolean patternFillOrType4, String color1, Double thickness1, Double size) {
-        this.patternFillOrType4 = patternFillOrType4;
-        this.color1 = color1;
-        this.thickness1 = thickness1;
-        this.size = size;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -1288,9 +800,7 @@ public class Pie extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<Pie> setHatchFillPalette = new ArrayList<>();
-
     public Pie setHatchFillPalette(HatchFillType[] hatchFillPalette) {
-        this.hatchFillPalette = hatchFillPalette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1315,17 +825,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFillPalette1 = new ArrayList<>();
-
     public Pie setHatchFillPalette(String hatchFillPalette1) {
-        this.hatchFillPalette1 = hatchFillPalette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", hatchFillPalette1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
             js.setLength(0);
         }
         return this;
@@ -1342,17 +850,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFillPalette2 = new ArrayList<>();
-
     public Pie setHatchFillPalette(HatchFills hatchFillPalette2) {
-        this.hatchFillPalette2 = hatchFillPalette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1370,9 +876,7 @@ public class Pie extends SeparateChart {
 
     private Double index1;
     private List<Pie> setHover = new ArrayList<>();
-
     public Pie setHover(Double index1) {
-        this.index1 = index1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1407,17 +911,15 @@ public class Pie extends SeparateChart {
     }
     private String hovered;
     private List<Pie> setHovered = new ArrayList<>();
-
     public Pie setHovered(String hovered) {
-        this.hovered = hovered;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hovered(%s)", hovered));
+        js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
+            onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
             js.setLength(0);
         }
         return this;
@@ -1436,17 +938,15 @@ public class Pie extends SeparateChart {
     private String innerRadius;
     private Double innerRadius1;
     private List<Pie> setInnerRadius = new ArrayList<>();
-
     public Pie setInnerRadius(String innerRadius) {
-        this.innerRadius = innerRadius;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".innerRadius(%s)", innerRadius));
+        js.append(String.format(Locale.US, ".innerRadius(%s)", wrapQuotes(innerRadius)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%s)", innerRadius));
+            onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%s)", wrapQuotes(innerRadius)));
             js.setLength(0);
         }
         return this;
@@ -1463,9 +963,7 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setInnerRadius1 = new ArrayList<>();
-
     public Pie setInnerRadius(Double innerRadius1) {
-        this.innerRadius1 = innerRadius1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1492,9 +990,7 @@ public class Pie extends SeparateChart {
     private Double insideLabelsOffset;
     private String insideLabelsOffset1;
     private List<Pie> setInsideLabelsOffset = new ArrayList<>();
-
     public Pie setInsideLabelsOffset(Double insideLabelsOffset) {
-        this.insideLabelsOffset = insideLabelsOffset;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1519,17 +1015,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setInsideLabelsOffset1 = new ArrayList<>();
-
     public Pie setInsideLabelsOffset(String insideLabelsOffset1) {
-        this.insideLabelsOffset1 = insideLabelsOffset1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".insideLabelsOffset(%s)", insideLabelsOffset1));
+        js.append(String.format(Locale.US, ".insideLabelsOffset(%s)", wrapQuotes(insideLabelsOffset1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".insideLabelsOffset(%s)", insideLabelsOffset1));
+            onChangeListener.onChange(String.format(Locale.US, ".insideLabelsOffset(%s)", wrapQuotes(insideLabelsOffset1)));
             js.setLength(0);
         }
         return this;
@@ -1557,17 +1051,15 @@ public class Pie extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Pie> setLabels = new ArrayList<>();
-
     public Pie setLabels(String labels) {
-        this.labels = labels;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".labels(%s)", labels));
+        js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
+            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
             js.setLength(0);
         }
         return this;
@@ -1584,9 +1076,7 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setLabels1 = new ArrayList<>();
-
     public Pie setLabels(Boolean labels1) {
-        this.labels1 = labels1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1621,17 +1111,15 @@ public class Pie extends SeparateChart {
     }
     private String normal;
     private List<Pie> setNormal = new ArrayList<>();
-
     public Pie setNormal(String normal) {
-        this.normal = normal;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".normal(%s)", normal));
+        js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+            onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
             js.setLength(0);
         }
         return this;
@@ -1650,9 +1138,7 @@ public class Pie extends SeparateChart {
     private Double outsideLabelsCriticalAngle;
     private String outsideLabelsCriticalAngle1;
     private List<Pie> setOutsideLabelsCriticalAngle = new ArrayList<>();
-
     public Pie setOutsideLabelsCriticalAngle(Double outsideLabelsCriticalAngle) {
-        this.outsideLabelsCriticalAngle = outsideLabelsCriticalAngle;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1677,17 +1163,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setOutsideLabelsCriticalAngle1 = new ArrayList<>();
-
     public Pie setOutsideLabelsCriticalAngle(String outsideLabelsCriticalAngle1) {
-        this.outsideLabelsCriticalAngle1 = outsideLabelsCriticalAngle1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".outsideLabelsCriticalAngle(%s)", outsideLabelsCriticalAngle1));
+        js.append(String.format(Locale.US, ".outsideLabelsCriticalAngle(%s)", wrapQuotes(outsideLabelsCriticalAngle1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsCriticalAngle(%s)", outsideLabelsCriticalAngle1));
+            onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsCriticalAngle(%s)", wrapQuotes(outsideLabelsCriticalAngle1)));
             js.setLength(0);
         }
         return this;
@@ -1706,9 +1190,7 @@ public class Pie extends SeparateChart {
     private Double outsideLabelsSpace;
     private String outsideLabelsSpace1;
     private List<Pie> setOutsideLabelsSpace = new ArrayList<>();
-
     public Pie setOutsideLabelsSpace(Double outsideLabelsSpace) {
-        this.outsideLabelsSpace = outsideLabelsSpace;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1733,17 +1215,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setOutsideLabelsSpace1 = new ArrayList<>();
-
     public Pie setOutsideLabelsSpace(String outsideLabelsSpace1) {
-        this.outsideLabelsSpace1 = outsideLabelsSpace1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".outsideLabelsSpace(%s)", outsideLabelsSpace1));
+        js.append(String.format(Locale.US, ".outsideLabelsSpace(%s)", wrapQuotes(outsideLabelsSpace1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsSpace(%s)", outsideLabelsSpace1));
+            onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsSpace(%s)", wrapQuotes(outsideLabelsSpace1)));
             js.setLength(0);
         }
         return this;
@@ -1763,17 +1243,15 @@ public class Pie extends SeparateChart {
     private String overlapMode1;
     private Boolean overlapMode2;
     private List<Pie> setOverlapMode = new ArrayList<>();
-
     public Pie setOverlapMode(LabelsOverlapMode overlapMode) {
-        this.overlapMode = overlapMode;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1790,17 +1268,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setOverlapMode1 = new ArrayList<>();
-
     public Pie setOverlapMode(String overlapMode1) {
-        this.overlapMode1 = overlapMode1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+        js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+            onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
             js.setLength(0);
         }
         return this;
@@ -1817,9 +1293,7 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setOverlapMode2 = new ArrayList<>();
-
     public Pie setOverlapMode(Boolean overlapMode2) {
-        this.overlapMode2 = overlapMode2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1857,17 +1331,15 @@ public class Pie extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<Pie> setPalette = new ArrayList<>();
-
     public Pie setPalette(RangeColors palette) {
-        this.palette = palette;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1884,17 +1356,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setPalette1 = new ArrayList<>();
-
     public Pie setPalette(DistinctColors palette1) {
-        this.palette1 = palette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1911,17 +1381,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setPalette2 = new ArrayList<>();
-
     public Pie setPalette(String palette2) {
-        this.palette2 = palette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", palette2));
+        js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
             js.setLength(0);
         }
         return this;
@@ -1938,17 +1406,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setPalette3 = new ArrayList<>();
-
     public Pie setPalette(String[] palette3) {
-        this.palette3 = palette3;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
+        js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
             js.setLength(0);
         }
         return this;
@@ -1967,17 +1433,15 @@ public class Pie extends SeparateChart {
     private String radius;
     private Double radius1;
     private List<Pie> setRadius = new ArrayList<>();
-
     public Pie setRadius(String radius) {
-        this.radius = radius;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".radius(%s)", radius));
+        js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", radius));
+            onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius)));
             js.setLength(0);
         }
         return this;
@@ -1994,9 +1458,7 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setRadius1 = new ArrayList<>();
-
     public Pie setRadius(Double radius1) {
-        this.radius1 = radius1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2023,17 +1485,15 @@ public class Pie extends SeparateChart {
     private Sort sort;
     private String sort1;
     private List<Pie> setSort = new ArrayList<>();
-
     public Pie setSort(Sort sort) {
-        this.sort = sort;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".sort(%s)", (sort != null) ? sort.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".sort(%s)", ((sort != null) ? sort.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", (sort != null) ? sort.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", ((sort != null) ? sort.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2050,17 +1510,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setSort1 = new ArrayList<>();
-
     public Pie setSort(String sort1) {
-        this.sort1 = sort1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".sort(%s)", sort1));
+        js.append(String.format(Locale.US, ".sort(%s)", wrapQuotes(sort1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", sort1));
+            onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", wrapQuotes(sort1)));
             js.setLength(0);
         }
         return this;
@@ -2079,17 +1537,15 @@ public class Pie extends SeparateChart {
     private String startAngle;
     private Double startAngle1;
     private List<Pie> setStartAngle = new ArrayList<>();
-
     public Pie setStartAngle(String startAngle) {
-        this.startAngle = startAngle;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".startAngle(%s)", startAngle));
+        js.append(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", startAngle));
+            onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
             js.setLength(0);
         }
         return this;
@@ -2106,9 +1562,7 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setStartAngle1 = new ArrayList<>();
-
     public Pie setStartAngle(Double startAngle1) {
-        this.startAngle1 = startAngle1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2140,21 +1594,15 @@ public class Pie extends SeparateChart {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
     private List<Pie> setStroke = new ArrayList<>();
-
     public Pie setStroke(Stroke stroke, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.stroke = stroke;
-        this.thickness2 = thickness2;
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin1 = lineJoin1;
-        this.lineCap1 = lineCap1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2171,21 +1619,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setStroke1 = new ArrayList<>();
-
     public Pie setStroke(ColoredFill stroke1, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.stroke1 = stroke1;
-        this.thickness2 = thickness2;
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin1 = lineJoin1;
-        this.lineCap1 = lineCap1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2202,21 +1644,15 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setStroke2 = new ArrayList<>();
-
     public Pie setStroke(String stroke2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.stroke2 = stroke2;
-        this.thickness2 = thickness2;
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin1 = lineJoin1;
-        this.lineCap1 = lineCap1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness2, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2309,20 +1745,6 @@ public class Pie extends SeparateChart {
         js.append(generateJSsetConnectorStroke1());
         js.append(generateJSsetConnectorStroke2());
         js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetData2());
-        js.append(generateJSsetData3());
-        js.append(generateJSsetData4());
-        js.append(generateJSsetData5());
-        js.append(generateJSsetData6());
-        js.append(generateJSsetData7());
-        js.append(generateJSsetData8());
-        js.append(generateJSsetData9());
-        js.append(generateJSsetData10());
-        js.append(generateJSsetData11());
-        js.append(generateJSsetData12());
-        js.append(generateJSsetData13());
-        js.append(generateJSsetData14());
         js.append(generateJSsetExplode());
         js.append(generateJSsetExplode1());
         js.append(generateJSsetExplodeSlice());

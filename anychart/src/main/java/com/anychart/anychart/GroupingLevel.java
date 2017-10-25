@@ -15,13 +15,13 @@ public class GroupingLevel extends JsObject  {
         this.unit = unit;
         this.count = count;
 
-        js.append(String.format(Locale.US, "{unit: %s,count: %f}",  (unit != null) ? unit.generateJs() : "null", count));
+        js.append(String.format(Locale.US, "{unit: %s,count: %f}",  ((unit != null) ? unit.generateJs() : "null"), count));
     }
     public GroupingLevel(String unit1, Double count) {
         this.unit1 = unit1;
         this.count = count;
 
-        js.append(String.format(Locale.US, "{unit: %s,count: %f}",  unit1, count));
+        js.append(String.format(Locale.US, "{unit: %s,count: %f}",  wrapQuotes(unit1), count));
     }
 
     @Override

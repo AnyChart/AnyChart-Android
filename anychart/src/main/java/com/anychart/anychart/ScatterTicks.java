@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -130,10 +132,10 @@ public class ScatterTicks extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -154,10 +156,10 @@ public class ScatterTicks extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".mode(%s)", mode1));
+            js.append(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", mode1));
+                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
                 js.setLength(0);
             }
         }
@@ -176,72 +178,18 @@ public class ScatterTicks extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%s)", Arrays.toString(ticks)));
+            js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", Arrays.toString(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSbase() {
-        if (base != null) {
-            return String.format(Locale.US, "base: %f,", base);
-        }
-        return "";
-    }
 
-    private String generateJScount() {
-        if (count != null) {
-            return String.format(Locale.US, "count: %f,", count);
-        }
-        return "";
-    }
-
-    private String generateJSminimumCount() {
-        if (minimumCount != null) {
-            return String.format(Locale.US, "minimumCount: %f,", minimumCount);
-        }
-        return "";
-    }
-
-    private String generateJSmaximumCount() {
-        if (maximumCount != null) {
-            return String.format(Locale.US, "maximumCount: %f,", maximumCount);
-        }
-        return "";
-    }
-
-    private String generateJSinterval() {
-        if (interval != null) {
-            return String.format(Locale.US, "interval: %f,", interval);
-        }
-        return "";
-    }
-
-    private String generateJSmode() {
-        if (mode != null) {
-            return String.format(Locale.US, "mode: %s,", (mode != null) ? mode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode1() {
-        if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", mode1);
-        }
-        return "";
-    }
-
-    private String generateJSticks() {
-        if (ticks != null) {
-            return String.format(Locale.US, "ticks: %s,", Arrays.toString(ticks));
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -260,18 +208,27 @@ public class ScatterTicks extends CoreBase {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSbase());
-            js.append(generateJScount());
-            js.append(generateJSminimumCount());
-            js.append(generateJSmaximumCount());
-            js.append(generateJSinterval());
-            js.append(generateJSmode());
-            js.append(generateJSmode1());
-            js.append(generateJSticks());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSbase());
+////        
+//            js.append(generateJScount());
+////        
+//            js.append(generateJSminimumCount());
+////        
+//            js.append(generateJSmaximumCount());
+////        
+//            js.append(generateJSinterval());
+////        
+//            js.append(generateJSmode());
+////        
+//            js.append(generateJSmode1());
+////        
+//            js.append(generateJSticks());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

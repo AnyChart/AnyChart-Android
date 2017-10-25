@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -39,10 +41,10 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dMAType(%s)", (dMAType != null) ? dMAType.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".dMAType(%s)", ((dMAType != null) ? dMAType.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", (dMAType != null) ? dMAType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", ((dMAType != null) ? dMAType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -63,10 +65,10 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dMAType(%s)", dMAType1));
+            js.append(String.format(Locale.US, ".dMAType(%s)", wrapQuotes(dMAType1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", dMAType1));
+                onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", wrapQuotes(dMAType1)));
                 js.setLength(0);
             }
         }
@@ -120,10 +122,10 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dSeries(%s)", (type != null) ? type.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".dSeries(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -144,10 +146,10 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".dSeries(%s)", type1));
+            js.append(String.format(Locale.US, ".dSeries(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", type1));
+                onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
             }
         }
@@ -192,10 +194,10 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".kMAType(%s)", (kMAType != null) ? kMAType.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".kMAType(%s)", ((kMAType != null) ? kMAType.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", (kMAType != null) ? kMAType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", ((kMAType != null) ? kMAType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -216,10 +218,10 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".kMAType(%s)", kMAType1));
+            js.append(String.format(Locale.US, ".kMAType(%s)", wrapQuotes(kMAType1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", kMAType1));
+                onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", wrapQuotes(kMAType1)));
                 js.setLength(0);
             }
         }
@@ -275,10 +277,10 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".kSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".kSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -301,19 +303,36 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".kSeries(%s)", type3));
+            js.append(String.format(Locale.US, ".kSeries(%s)", wrapQuotes(type3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", type3));
+                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
+
+//
+//    private String generateJSStockSeriesBase getDSeries() {
+//        if (StockSeriesBase getDSeries != null) {
+//            return StockSeriesBase getDSeries.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSStockSeriesBase getKSeries() {
+//        if (StockSeriesBase getKSeries != null) {
+//            return StockSeriesBase getKSeries.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetDSeries() {
         if (getDSeries != null) {
             return getDSeries.generateJs();
+            //return String.format(Locale.US, "getDSeries: %s,", ((getDSeries != null) ? getDSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -321,83 +340,7 @@ public class Stochastic extends JsObject {
     private String generateJSgetKSeries() {
         if (getKSeries != null) {
             return getKSeries.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSdMAType() {
-        if (dMAType != null) {
-            return String.format(Locale.US, "dMAType: %s,", (dMAType != null) ? dMAType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSdMAType1() {
-        if (dMAType1 != null) {
-            return String.format(Locale.US, "dMAType: %s,", dMAType1);
-        }
-        return "";
-    }
-
-    private String generateJSdPeriod() {
-        if (dPeriod != null) {
-            return String.format(Locale.US, "dPeriod: %f,", dPeriod);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSkMAPeriod() {
-        if (kMAPeriod != null) {
-            return String.format(Locale.US, "kMAPeriod: %f,", kMAPeriod);
-        }
-        return "";
-    }
-
-    private String generateJSkMAType() {
-        if (kMAType != null) {
-            return String.format(Locale.US, "kMAType: %s,", (kMAType != null) ? kMAType.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSkMAType1() {
-        if (kMAType1 != null) {
-            return String.format(Locale.US, "kMAType: %s,", kMAType1);
-        }
-        return "";
-    }
-
-    private String generateJSkPeriod() {
-        if (kPeriod != null) {
-            return String.format(Locale.US, "kPeriod: %f,", kPeriod);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", (type2 != null) ? type2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
+            //return String.format(Locale.US, "getKSeries: %s,", ((getKSeries != null) ? getKSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -422,21 +365,33 @@ public class Stochastic extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSdMAType());
-            js.append(generateJSdMAType1());
-            js.append(generateJSdPeriod());
-            js.append(generateJStype());
-            js.append(generateJStype1());
-            js.append(generateJSkMAPeriod());
-            js.append(generateJSkMAType());
-            js.append(generateJSkMAType1());
-            js.append(generateJSkPeriod());
-            js.append(generateJStype2());
-            js.append(generateJStype3());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSdMAType());
+////        
+//            js.append(generateJSdMAType1());
+////        
+//            js.append(generateJSdPeriod());
+////        
+//            js.append(generateJStype());
+////        
+//            js.append(generateJStype1());
+////        
+//            js.append(generateJSkMAPeriod());
+////        
+//            js.append(generateJSkMAType());
+////        
+//            js.append(generateJSkMAType1());
+////        
+//            js.append(generateJSkPeriod());
+////        
+//            js.append(generateJStype2());
+////        
+//            js.append(generateJStype3());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

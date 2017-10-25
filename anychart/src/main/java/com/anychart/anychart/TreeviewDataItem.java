@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -41,10 +43,10 @@ public class TreeviewDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChild(%s)", child));
+            js.append(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", child));
+                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
                 js.setLength(0);
             }
         }
@@ -66,10 +68,10 @@ public class TreeviewDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChild(%s)", (child1 != null) ? child1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".addChild(%s)", ((child1 != null) ? child1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", (child1 != null) ? child1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", ((child1 != null) ? child1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -91,10 +93,10 @@ public class TreeviewDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChild(%s)", (child2 != null) ? child2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".addChild(%s)", ((child2 != null) ? child2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", (child2 != null) ? child2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", ((child2 != null) ? child2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -125,10 +127,10 @@ public class TreeviewDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", child3, index));
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child3), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", child3, index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child3), index));
                 js.setLength(0);
             }
         }
@@ -155,10 +157,10 @@ public class TreeviewDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", (child4 != null) ? child4.generateJs() : "null", index));
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", (child4 != null) ? child4.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -185,23 +187,22 @@ public class TreeviewDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", (child5 != null) ? child5.generateJs() : "null", index));
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child5 != null) ? child5.generateJs() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", (child5 != null) ? child5.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child5 != null) ? child5.generateJs() : "null"), index));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private TreeviewDataItem getGetChildAt;
+    private List<TreeviewDataItem> getGetChildAt = new ArrayList<>();
 
-    public TreeviewDataItem getGetChildAt() {
-        if (getGetChildAt == null)
-            getGetChildAt = new TreeviewDataItem(jsBase + ".getChildAt()");
-
-        return getGetChildAt;
+    public TreeviewDataItem getGetChildAt(Double index) {
+        TreeviewDataItem item = new TreeviewDataItem(jsBase + ".getChildAt(" + index + ")");
+        getGetChildAt.add(item);
+        return item;
     }
 
     private TreeviewDataItem getGetParent;
@@ -225,10 +226,10 @@ public class TreeviewDataItem extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".meta(%s);", key));
+            js.append(String.format(Locale.US, jsBase + ".meta(%s);", wrapQuotes(key)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
                 js.setLength(0);
             }
         }
@@ -256,10 +257,10 @@ public class TreeviewDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeChild(%s)", (child6 != null) ? child6.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".removeChild(%s)", ((child6 != null) ? child6.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeChild(%s)", (child6 != null) ? child6.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".removeChild(%s)", ((child6 != null) ? child6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -286,10 +287,10 @@ public class TreeviewDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeChild(%s)", (child7 != null) ? child7.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".removeChild(%s)", ((child7 != null) ? child7.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeChild(%s)", (child7 != null) ? child7.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".removeChild(%s)", ((child7 != null) ? child7.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -321,93 +322,38 @@ public class TreeviewDataItem extends JsObject {
         return this;
     }
 
+
+//
+//    private String generateJSTreeviewDataItem getGetChildAt() {
+//        if (TreeviewDataItem getGetChildAt != null) {
+//            return TreeviewDataItem getGetChildAt.generateJs();
+//        }
+//        return "";
+//    }
+//
+//    private String generateJSTreeviewDataItem getGetParent() {
+//        if (TreeviewDataItem getGetParent != null) {
+//            return TreeviewDataItem getGetParent.generateJs();
+//        }
+//        return "";
+//    }
+//
     private String generateJSgetGetChildAt() {
-        if (getGetChildAt != null) {
-            return getGetChildAt.generateJs();
+        if (!getGetChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeviewDataItem item : getGetChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetGetParent() {
         if (getGetParent != null) {
             return getGetParent.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSchild() {
-        if (child != null) {
-            return String.format(Locale.US, "child: %s,", child);
-        }
-        return "";
-    }
-
-    private String generateJSchild1() {
-        if (child1 != null) {
-            return String.format(Locale.US, "child: %s,", (child1 != null) ? child1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchild2() {
-        if (child2 != null) {
-            return String.format(Locale.US, "child: %s,", (child2 != null) ? child2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchild3() {
-        if (child3 != null) {
-            return String.format(Locale.US, "child: %s,", child3);
-        }
-        return "";
-    }
-
-    private String generateJSchild4() {
-        if (child4 != null) {
-            return String.format(Locale.US, "child: %s,", (child4 != null) ? child4.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchild5() {
-        if (child5 != null) {
-            return String.format(Locale.US, "child: %s,", (child5 != null) ? child5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
-    private String generateJSchild6() {
-        if (child6 != null) {
-            return String.format(Locale.US, "child: %s,", (child6 != null) ? child6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSchild7() {
-        if (child7 != null) {
-            return String.format(Locale.US, "child: %s,", (child7 != null) ? child7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
+            //return String.format(Locale.US, "getGetParent: %s,", ((getGetParent != null) ? getGetParent.generateJs() : "null"));
         }
         return "";
     }
@@ -432,21 +378,33 @@ public class TreeviewDataItem extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSchild());
-            js.append(generateJSchild1());
-            js.append(generateJSchild2());
-            js.append(generateJSchild3());
-            js.append(generateJSchild4());
-            js.append(generateJSchild5());
-            js.append(generateJSindex());
-            js.append(generateJSkey());
-            js.append(generateJSchild6());
-            js.append(generateJSchild7());
-            js.append(generateJSindex1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSchild());
+////        
+//            js.append(generateJSchild1());
+////        
+//            js.append(generateJSchild2());
+////        
+//            js.append(generateJSchild3());
+////        
+//            js.append(generateJSchild4());
+////        
+//            js.append(generateJSchild5());
+////        
+//            js.append(generateJSindex());
+////        
+//            js.append(generateJSkey());
+////        
+//            js.append(generateJSchild6());
+////        
+//            js.append(generateJSchild7());
+////        
+//            js.append(generateJSindex1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 

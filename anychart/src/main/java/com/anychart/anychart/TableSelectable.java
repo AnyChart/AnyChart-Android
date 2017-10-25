@@ -2,6 +2,8 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import android.text.TextUtils;
 
@@ -42,10 +44,10 @@ public class TableSelectable extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".search(%s, %f);", (mode != null) ? mode.generateJs() : "null", key));
+            js.append(String.format(Locale.US, jsBase + ".search(%s, %f);", ((mode != null) ? mode.generateJs() : "null"), key));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", (mode != null) ? mode.generateJs() : "null", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", ((mode != null) ? mode.generateJs() : "null"), key));
                 js.setLength(0);
             }
         }
@@ -68,10 +70,10 @@ public class TableSelectable extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".search(%s, %f);", mode1, key));
+            js.append(String.format(Locale.US, jsBase + ".search(%s, %f);", wrapQuotes(mode1), key));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", mode1, key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", wrapQuotes(mode1), key));
                 js.setLength(0);
             }
         }
@@ -111,10 +113,10 @@ public class TableSelectable extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+            js.append(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
                 js.setLength(0);
             }
         }
@@ -147,10 +149,10 @@ public class TableSelectable extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, intervalUnit1, intervalCount));
+            js.append(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, wrapQuotes(intervalUnit1), intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, intervalUnit1, intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, wrapQuotes(intervalUnit1), intervalCount));
                 js.setLength(0);
             }
         }
@@ -183,10 +185,10 @@ public class TableSelectable extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+            js.append(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, wrapQuotes(endDate1), ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, wrapQuotes(endDate1), ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
                 js.setLength(0);
             }
         }
@@ -219,10 +221,10 @@ public class TableSelectable extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, endDate1, intervalUnit1, intervalCount));
+            js.append(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, wrapQuotes(endDate1), wrapQuotes(intervalUnit1), intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, endDate1, intervalUnit1, intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, wrapQuotes(endDate1), wrapQuotes(intervalUnit1), intervalCount));
                 js.setLength(0);
             }
         }
@@ -255,10 +257,10 @@ public class TableSelectable extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".select(%s, %f, %s, %f)", startDate1, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+            js.append(String.format(Locale.US, ".select(%s, %f, %s, %f)", wrapQuotes(startDate1), endDate, ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %f, %s, %f)", startDate1, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %f, %s, %f)", wrapQuotes(startDate1), endDate, ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
                 js.setLength(0);
             }
         }
@@ -291,10 +293,10 @@ public class TableSelectable extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".select(%s, %f, %s, %f)", startDate1, endDate, intervalUnit1, intervalCount));
+            js.append(String.format(Locale.US, ".select(%s, %f, %s, %f)", wrapQuotes(startDate1), endDate, wrapQuotes(intervalUnit1), intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %f, %s, %f)", startDate1, endDate, intervalUnit1, intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %f, %s, %f)", wrapQuotes(startDate1), endDate, wrapQuotes(intervalUnit1), intervalCount));
                 js.setLength(0);
             }
         }
@@ -327,10 +329,10 @@ public class TableSelectable extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".select(%s, %s, %s, %f)", startDate1, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+            js.append(String.format(Locale.US, ".select(%s, %s, %s, %f)", wrapQuotes(startDate1), wrapQuotes(endDate1), ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %s, %s, %f)", startDate1, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %s, %s, %f)", wrapQuotes(startDate1), wrapQuotes(endDate1), ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
                 js.setLength(0);
             }
         }
@@ -363,10 +365,10 @@ public class TableSelectable extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".select(%s, %s, %s, %f)", startDate1, endDate1, intervalUnit1, intervalCount));
+            js.append(String.format(Locale.US, ".select(%s, %s, %s, %f)", wrapQuotes(startDate1), wrapQuotes(endDate1), wrapQuotes(intervalUnit1), intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %s, %s, %f)", startDate1, endDate1, intervalUnit1, intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %s, %s, %f)", wrapQuotes(startDate1), wrapQuotes(endDate1), wrapQuotes(intervalUnit1), intervalCount));
                 js.setLength(0);
             }
         }
@@ -397,10 +399,10 @@ public class TableSelectable extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectAll(%s, %f)", (intervalUnit2 != null) ? intervalUnit2.generateJs() : "null", intervalCount1));
+            js.append(String.format(Locale.US, ".selectAll(%s, %f)", ((intervalUnit2 != null) ? intervalUnit2.generateJs() : "null"), intervalCount1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectAll(%s, %f)", (intervalUnit2 != null) ? intervalUnit2.generateJs() : "null", intervalCount1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectAll(%s, %f)", ((intervalUnit2 != null) ? intervalUnit2.generateJs() : "null"), intervalCount1));
                 js.setLength(0);
             }
         }
@@ -428,107 +430,18 @@ public class TableSelectable extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectAll(%s, %f)", intervalUnit3, intervalCount1));
+            js.append(String.format(Locale.US, ".selectAll(%s, %f)", wrapQuotes(intervalUnit3), intervalCount1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectAll(%s, %f)", intervalUnit3, intervalCount1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectAll(%s, %f)", wrapQuotes(intervalUnit3), intervalCount1));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %f,", key);
-        }
-        return "";
-    }
 
-    private String generateJSmode() {
-        if (mode != null) {
-            return String.format(Locale.US, "mode: %s,", (mode != null) ? mode.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode1() {
-        if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", mode1);
-        }
-        return "";
-    }
-
-    private String generateJSstartDate() {
-        if (startDate != null) {
-            return String.format(Locale.US, "startDate: %f,", startDate);
-        }
-        return "";
-    }
-
-    private String generateJSstartDate1() {
-        if (startDate1 != null) {
-            return String.format(Locale.US, "startDate: %s,", startDate1);
-        }
-        return "";
-    }
-
-    private String generateJSendDate() {
-        if (endDate != null) {
-            return String.format(Locale.US, "endDate: %f,", endDate);
-        }
-        return "";
-    }
-
-    private String generateJSendDate1() {
-        if (endDate1 != null) {
-            return String.format(Locale.US, "endDate: %s,", endDate1);
-        }
-        return "";
-    }
-
-    private String generateJSintervalUnit() {
-        if (intervalUnit != null) {
-            return String.format(Locale.US, "intervalUnit: %s,", (intervalUnit != null) ? intervalUnit.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSintervalUnit1() {
-        if (intervalUnit1 != null) {
-            return String.format(Locale.US, "intervalUnit: %s,", intervalUnit1);
-        }
-        return "";
-    }
-
-    private String generateJSintervalCount() {
-        if (intervalCount != null) {
-            return String.format(Locale.US, "intervalCount: %f,", intervalCount);
-        }
-        return "";
-    }
-
-    private String generateJSintervalUnit2() {
-        if (intervalUnit2 != null) {
-            return String.format(Locale.US, "intervalUnit: %s,", (intervalUnit2 != null) ? intervalUnit2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSintervalUnit3() {
-        if (intervalUnit3 != null) {
-            return String.format(Locale.US, "intervalUnit: %s,", intervalUnit3);
-        }
-        return "";
-    }
-
-    private String generateJSintervalCount1() {
-        if (intervalCount1 != null) {
-            return String.format(Locale.US, "intervalCount: %f,", intervalCount1);
-        }
-        return "";
-    }
-
+//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -547,23 +460,37 @@ public class TableSelectable extends JsObject {
             isChain = false;
         }
 
-        if (jsBase == null) {
-            js.append("{");
-            js.append(generateJSkey());
-            js.append(generateJSmode());
-            js.append(generateJSmode1());
-            js.append(generateJSstartDate());
-            js.append(generateJSstartDate1());
-            js.append(generateJSendDate());
-            js.append(generateJSendDate1());
-            js.append(generateJSintervalUnit());
-            js.append(generateJSintervalUnit1());
-            js.append(generateJSintervalCount());
-            js.append(generateJSintervalUnit2());
-            js.append(generateJSintervalUnit3());
-            js.append(generateJSintervalCount1());
-            js.append("}");
-        }
+//        if (jsBase == null) {
+//            js.append("{");
+////        
+//            js.append(generateJSkey());
+////        
+//            js.append(generateJSmode());
+////        
+//            js.append(generateJSmode1());
+////        
+//            js.append(generateJSstartDate());
+////        
+//            js.append(generateJSstartDate1());
+////        
+//            js.append(generateJSendDate());
+////        
+//            js.append(generateJSendDate1());
+////        
+//            js.append(generateJSintervalUnit());
+////        
+//            js.append(generateJSintervalUnit1());
+////        
+//            js.append(generateJSintervalCount());
+////        
+//            js.append(generateJSintervalUnit2());
+////        
+//            js.append(generateJSintervalUnit3());
+////        
+//            js.append(generateJSintervalCount1());
+//
+//            js.append("}");
+//        }
 
         js.append(generateJsGetters());
 
