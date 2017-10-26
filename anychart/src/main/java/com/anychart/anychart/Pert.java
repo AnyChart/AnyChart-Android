@@ -1,9 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 // chart class
 public class Pert extends SeparateChart {
@@ -29,7 +28,7 @@ public class Pert extends SeparateChart {
             }
             js.setLength(js.length() - 1);
 
-            js.append("]);");
+            js.append("], 'as-table');");
         }
 
         return this;

@@ -30,6 +30,14 @@ public class DataEntry {
         hashMap.put(key, (value != null) ? value.toString() : null);
     }
 
+    public void setValue(String key, DataEntry value) {
+        hashMap.put(key, value);
+    }
+
+    public void setValue(String key, DataEntry[] value) {
+        hashMap.put(key, value);
+    }
+
     protected String generateJs() {
         StringBuilder js = new StringBuilder();
 
@@ -39,6 +47,16 @@ public class DataEntry {
 
             if (value == null) {
                 js.append(String.format(Locale.US, "%s: %s,", key, "null"));
+                continue;
+            }
+
+            if (value instanceof DataEntry) {
+                js.append(String.format(Locale.US, "%s: %s,", key, ((DataEntry) value).generateJs()));
+                continue;
+            }
+
+            if (value instanceof DataEntry[]) {
+                js.append(String.format(Locale.US, "%s: %s,", key, toString((DataEntry[]) value)));
                 continue;
             }
 
@@ -85,6 +103,20 @@ public class DataEntry {
         result.append("[");
         for (Number item : array) {
             result.append(item).append(",");
+        }
+        if (array.length > 0)
+            result.setLength(result.length() - 1);
+        result.append("]");
+
+        return result.toString();
+    }
+
+    @NonNull
+    private String toString(DataEntry[] array) {
+        StringBuilder result = new StringBuilder();
+        result.append("[");
+        for (DataEntry item : array) {
+            result.append(item.generateJs()).append(",");
         }
         if (array.length > 0)
             result.setLength(result.length() - 1);
