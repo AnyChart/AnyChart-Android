@@ -27,7 +27,7 @@ public class AreaChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart_common);
 
-        AnyChartView anyChartView = (AnyChartView) findViewById(com.anychart.sample.R.id.any_chart_view);
+        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
         Cartesian areaChart = AnyChart.area();
 

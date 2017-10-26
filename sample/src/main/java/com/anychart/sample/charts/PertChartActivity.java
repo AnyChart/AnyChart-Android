@@ -5,12 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.Milestones;
 import com.anychart.anychart.Pert;
+import com.anychart.anychart.PertDataEntry;
 import com.anychart.anychart.Tasks;
 import com.anychart.anychart.Tooltip;
-import com.anychart.anychart.TreeFillingMethod;
 import com.anychart.sample.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PertChartActivity extends AppCompatActivity {
 
@@ -19,13 +23,26 @@ public class PertChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart_common);
 
-        AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
+        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
         Pert pert = AnyChart.pert();
 
-        pert.setData(getData(), TreeFillingMethod.AS_TABLE, null)
-                .setHorizontalSpacing("18.7%")
-                .setPadding(new Double[] { 25d, 50d, 0d, 50d });
+        List<DataEntry> data = new ArrayList<>();
+        data.add(new CustomPertDataEntry("1", 30, "1", "Aerodinamics"));
+        data.add(new CustomPertDataEntry("2", 50, "2", "Build & Test Model"));
+        data.add(new CustomPertDataEntry("3", 35, "3", "Structure"));
+        data.add(new CustomPertDataEntry("4", 50, "4", new String[]{"1"}, "Propulsion"));
+        data.add(new CustomPertDataEntry("5", 60, "5", new String[]{"2"}, "Build Prototype"));
+        data.add(new CustomPertDataEntry("6", 40, "6", new String[]{"3"}, "Control & Stability"));
+        data.add(new CustomPertDataEntry("7", 20, "7", new String[]{"4"}, "Wind Tunnel"));
+        data.add(new CustomPertDataEntry("8", 20, "8", new String[]{"6"}, "Computation"));
+        data.add(new CustomPertDataEntry("9", 45, "9", new String[]{"7"}, "Review"));
+        data.add(new CustomPertDataEntry("10", 30, "10", new String[]{"8"}, "Flight Simulation"));
+        data.add(new CustomPertDataEntry("11", 50, "11", new String[]{"9"}, "Research flights"));
+        data.add(new CustomPertDataEntry("12", 45, "12", new String[]{"10"}, "Revise & Review"));
+        data.add(new CustomPertDataEntry("13", 25, "13", new String[]{"5"}, "Finalize"));
+
+        pert.setData(data);
 
         // TODO problems with stat
 //        pert.setGetstat();
@@ -88,6 +105,18 @@ public class PertChartActivity extends AppCompatActivity {
 //        critMilestones.getHovered().setStroke();
 
         anyChartView.setChart(pert);
+    }
+
+    private class CustomPertDataEntry extends PertDataEntry {
+        CustomPertDataEntry(String id, int duration, String name, String fullName) {
+            super(id, name, fullName);
+            setValue("duration", duration);
+        }
+
+        CustomPertDataEntry(String id, int duration, String name, String[] dependsOn, String fullName) {
+            super(id, name, fullName, dependsOn);
+            setValue("duration", duration);
+        }
     }
 
     private String getData() {

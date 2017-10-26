@@ -20,7 +20,7 @@ public class WaterfallChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart_common);
 
-        AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
+        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
         ChartsWaterfall waterfall = AnyChart.waterfall();
 

@@ -23,7 +23,7 @@ public class CircularGaugeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart_common);
 
-        AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
+        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
         CircularGauge circularGauge = AnyChart.circular();
 //        circularGauge.setData(new String[] { "23", "34", "67", "93", "56", "100" }, TextParsingMode.CSV);
