@@ -12,7 +12,7 @@ import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.HoverMode;
 import com.anychart.anychart.MarkerType;
 import com.anychart.anychart.ScaleStackMode;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.Stroke;
 import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.sample.R;
@@ -46,14 +46,14 @@ public class AreaChartActivity extends AppCompatActivity {
 
         List<DataEntry> series1Data = new ArrayList<>();
 
-        series1Data.add(new SingleValueDataEntry("Q2 2014", 17.982));
-        series1Data.add(new SingleValueDataEntry("Q3 2014", 17.574));
-        series1Data.add(new SingleValueDataEntry("Q4 2014", 19.75));
-        series1Data.add(new SingleValueDataEntry("Q1 2015", 30.6));
-        series1Data.add(new SingleValueDataEntry("Q2 2015", 21.316));
-        series1Data.add(new SingleValueDataEntry("Q3 2015", 20.209));
-        series1Data.add(new SingleValueDataEntry("Q4 2015", 21.773));
-        series1Data.add(new SingleValueDataEntry("Q1 2016", 29.3));
+        series1Data.add(new ValueDataEntry("Q2 2014", 17.982));
+        series1Data.add(new ValueDataEntry("Q3 2014", 17.574));
+        series1Data.add(new ValueDataEntry("Q4 2014", 19.75));
+        series1Data.add(new ValueDataEntry("Q1 2015", 30.6));
+        series1Data.add(new ValueDataEntry("Q2 2015", 21.316));
+        series1Data.add(new ValueDataEntry("Q3 2015", 20.209));
+        series1Data.add(new ValueDataEntry("Q4 2015", 21.773));
+        series1Data.add(new ValueDataEntry("Q1 2016", 29.3));
 
         CartesianSeriesArea series1 = areaChart.area(series1Data);
         series1.setName("Americas");
@@ -71,14 +71,14 @@ public class AreaChartActivity extends AppCompatActivity {
 
         List<DataEntry> series2Data = new ArrayList<>();
 
-        series2Data.add(new SingleValueDataEntry("Q2 2014", 10.941));
-        series2Data.add(new SingleValueDataEntry("Q3 2014", 8.659));
-        series2Data.add(new SingleValueDataEntry("Q4 2014", 10.35));
-        series2Data.add(new SingleValueDataEntry("Q1 2015", 17.2));
-        series2Data.add(new SingleValueDataEntry("Q2 2015", 12.204));
-        series2Data.add(new SingleValueDataEntry("Q3 2015", 10.342));
-        series2Data.add(new SingleValueDataEntry("Q4 2015", 10.577));
-        series2Data.add(new SingleValueDataEntry("Q1 2016", 17.9));
+        series2Data.add(new ValueDataEntry("Q2 2014", 10.941));
+        series2Data.add(new ValueDataEntry("Q3 2014", 8.659));
+        series2Data.add(new ValueDataEntry("Q4 2014", 10.35));
+        series2Data.add(new ValueDataEntry("Q1 2015", 17.2));
+        series2Data.add(new ValueDataEntry("Q2 2015", 12.204));
+        series2Data.add(new ValueDataEntry("Q3 2015", 10.342));
+        series2Data.add(new ValueDataEntry("Q4 2015", 10.577));
+        series2Data.add(new ValueDataEntry("Q1 2016", 17.9));
 
         CartesianSeriesArea series2 = areaChart.area(series2Data);
         series2.setName("Europe");
@@ -93,14 +93,14 @@ public class AreaChartActivity extends AppCompatActivity {
 
         List<DataEntry> series3Data = new ArrayList<>();
 
-        series3Data.add(new SingleValueDataEntry("Q2 2014", 9.835));
-        series3Data.add(new SingleValueDataEntry("Q3 2014", 6.230));
-        series3Data.add(new SingleValueDataEntry("Q4 2014", 6.292));
-        series3Data.add(new SingleValueDataEntry("Q1 2015", 16.1));
-        series3Data.add(new SingleValueDataEntry("Q2 2015", 16.823));
-        series3Data.add(new SingleValueDataEntry("Q3 2015", 13.23));
-        series3Data.add(new SingleValueDataEntry("Q4 2015", 12.518));
-        series3Data.add(new SingleValueDataEntry("Q1 2016", 18.4));
+        series3Data.add(new ValueDataEntry("Q2 2014", 9.835));
+        series3Data.add(new ValueDataEntry("Q3 2014", 6.230));
+        series3Data.add(new ValueDataEntry("Q4 2014", 6.292));
+        series3Data.add(new ValueDataEntry("Q1 2015", 16.1));
+        series3Data.add(new ValueDataEntry("Q2 2015", 16.823));
+        series3Data.add(new ValueDataEntry("Q3 2015", 13.23));
+        series3Data.add(new ValueDataEntry("Q4 2015", 12.518));
+        series3Data.add(new ValueDataEntry("Q1 2016", 18.4));
 
         CartesianSeriesArea series3 = areaChart.area(series3Data);
         series3.setName("Greater China");
@@ -115,14 +115,14 @@ public class AreaChartActivity extends AppCompatActivity {
 
         List<DataEntry> series4Data = new ArrayList<>();
 
-        series4Data.add(new SingleValueDataEntry("Q2 2014", 4.047));
-        series4Data.add(new SingleValueDataEntry("Q3 2014", 2.627));
-        series4Data.add(new SingleValueDataEntry("Q4 2014", 3.595));
-        series4Data.add(new SingleValueDataEntry("Q1 2015", 5.4));
-        series4Data.add(new SingleValueDataEntry("Q2 2015", 3.457));
-        series4Data.add(new SingleValueDataEntry("Q3 2015", 2.872));
-        series4Data.add(new SingleValueDataEntry("Q4 2015", 3.929));
-        series4Data.add(new SingleValueDataEntry("Q1 2016", 4.8));
+        series4Data.add(new ValueDataEntry("Q2 2014", 4.047));
+        series4Data.add(new ValueDataEntry("Q3 2014", 2.627));
+        series4Data.add(new ValueDataEntry("Q4 2014", 3.595));
+        series4Data.add(new ValueDataEntry("Q1 2015", 5.4));
+        series4Data.add(new ValueDataEntry("Q2 2015", 3.457));
+        series4Data.add(new ValueDataEntry("Q3 2015", 2.872));
+        series4Data.add(new ValueDataEntry("Q4 2015", 3.929));
+        series4Data.add(new ValueDataEntry("Q1 2016", 4.8));
 
         CartesianSeriesArea series4 = areaChart.area(series4Data);
         series4.setName("Japan");
@@ -137,14 +137,14 @@ public class AreaChartActivity extends AppCompatActivity {
 
         List<DataEntry> series5Data = new ArrayList<>();
 
-        series5Data.add(new SingleValueDataEntry("Q2 2014", 2.841));
-        series5Data.add(new SingleValueDataEntry("Q3 2014", 2.242));
-        series5Data.add(new SingleValueDataEntry("Q4 2014", 2.136));
-        series5Data.add(new SingleValueDataEntry("Q1 2015", 5.2));
-        series5Data.add(new SingleValueDataEntry("Q2 2015", 4.210));
-        series5Data.add(new SingleValueDataEntry("Q3 2015", 2.959));
-        series5Data.add(new SingleValueDataEntry("Q4 2015", 2.704));
-        series5Data.add(new SingleValueDataEntry("Q1 2016", 5.4));
+        series5Data.add(new ValueDataEntry("Q2 2014", 2.841));
+        series5Data.add(new ValueDataEntry("Q3 2014", 2.242));
+        series5Data.add(new ValueDataEntry("Q4 2014", 2.136));
+        series5Data.add(new ValueDataEntry("Q1 2015", 5.2));
+        series5Data.add(new ValueDataEntry("Q2 2015", 4.210));
+        series5Data.add(new ValueDataEntry("Q3 2015", 2.959));
+        series5Data.add(new ValueDataEntry("Q4 2015", 2.704));
+        series5Data.add(new ValueDataEntry("Q1 2016", 5.4));
 
         CartesianSeriesArea series5 = areaChart.area(series5Data);
         series5.setName("Rest of Asia Pacific");

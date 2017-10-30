@@ -8,7 +8,7 @@ import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsMekko;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.Orientation;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -27,37 +27,37 @@ public class MekkoChartActivity extends AppCompatActivity {
 
         List<DataEntry> data = new ArrayList<>();
 
-        data.add(new SingleValueDataEntry("Acer", 2254));
-        data.add(new SingleValueDataEntry("Data Creative", 1010));
-        data.add(new SingleValueDataEntry("Data Developer", 417));
-        data.add(new SingleValueDataEntry("Data Researcher", 210));
+        data.add(new ValueDataEntry("Acer", 2254));
+        data.add(new ValueDataEntry("Data Creative", 1010));
+        data.add(new ValueDataEntry("Data Developer", 417));
+        data.add(new ValueDataEntry("Data Researcher", 210));
 
         mekkoChart.mekko(data)
                 .setName("Phone");
 
         data.clear();
-        data.add(new SingleValueDataEntry("Acer", 1274));
-        data.add(new SingleValueDataEntry("Data Creative", 950));
-        data.add(new SingleValueDataEntry("Data Developer", 631));
-        data.add(new SingleValueDataEntry("Data Researcher", 307));
+        data.add(new ValueDataEntry("Acer", 1274));
+        data.add(new ValueDataEntry("Data Creative", 950));
+        data.add(new ValueDataEntry("Data Developer", 631));
+        data.add(new ValueDataEntry("Data Researcher", 307));
 
         mekkoChart.mekko(data)
                 .setName("Tablet");
 
         data.clear();
-        data.add(new SingleValueDataEntry("Acer", 635));
-        data.add(new SingleValueDataEntry("Data Creative", 675));
-        data.add(new SingleValueDataEntry("Data Developer", 405));
-        data.add(new SingleValueDataEntry("Data Researcher", 450));
+        data.add(new ValueDataEntry("Acer", 635));
+        data.add(new ValueDataEntry("Data Creative", 675));
+        data.add(new ValueDataEntry("Data Developer", 405));
+        data.add(new ValueDataEntry("Data Researcher", 450));
 
         mekkoChart.mekko(data)
                 .setName("Desktop");
 
         data.clear();
-        data.add(new SingleValueDataEntry("Acer", 253));
-        data.add(new SingleValueDataEntry("Data Creative", 250));
-        data.add(new SingleValueDataEntry("Data Developer", 251));
-        data.add(new SingleValueDataEntry("Data Researcher", 257));
+        data.add(new ValueDataEntry("Acer", 253));
+        data.add(new ValueDataEntry("Data Creative", 250));
+        data.add(new ValueDataEntry("Data Developer", 251));
+        data.add(new ValueDataEntry("Data Researcher", 257));
 
         mekkoChart.mekko(data)
                 .setName("Laptop");

@@ -47,10 +47,12 @@ public class PertChartActivity extends AppCompatActivity {
         // TODO problems with stat
 //        pert.setGetstat();
 
+        pert.setPadding(50d, 0d, 0d, 50d);
+
         pert.getTitle().setEnabled(true);
         pert.getTitle().setUseHtml(true);
         pert.getTitle()
-                .setPadding(new Double[]{ 0d, 0d, 35d, 0d })
+                .setPadding(new Double[]{ 0d, 50d, 35d, 0d })
                 .setText("Airplane Design Process with PERT Chart");
 
         Tasks tasks = pert.getTasks();

@@ -9,7 +9,7 @@ import com.anychart.anychart.Cartesian3d;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAnchor;
 import com.anychart.anychart.HoverMode;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.TooltipPositionMode;
 import com.anychart.sample.R;
 
@@ -44,33 +44,33 @@ public class Bar3DChartActivity extends AppCompatActivity {
         bar3d.getYAxis().setTitle("Revenue in Dollars");
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new SingleValueDataEntry("Nail polish", 6229));
-        data.add(new SingleValueDataEntry("Eyebrow pencil", 9332));
-        data.add(new SingleValueDataEntry("Lipstick", 9256));
+        data.add(new ValueDataEntry("Nail polish", 6229));
+        data.add(new ValueDataEntry("Eyebrow pencil", 9332));
+        data.add(new ValueDataEntry("Lipstick", 9256));
 
         bar3d.bar(data)
                 .setName("Florida");
 
         data.clear();
-        data.add(new SingleValueDataEntry("Nail polish", 4376));
-        data.add(new SingleValueDataEntry("Eyebrow pencil", 8987));
-        data.add(new SingleValueDataEntry("Lipstick", 7376));
+        data.add(new ValueDataEntry("Nail polish", 4376));
+        data.add(new ValueDataEntry("Eyebrow pencil", 8987));
+        data.add(new ValueDataEntry("Lipstick", 7376));
 
         bar3d.bar(data)
                 .setName("Texas");
 
         data.clear();
-        data.add(new SingleValueDataEntry("Nail polish", 4054));
-        data.add(new SingleValueDataEntry("Eyebrow pencil", 5067));
-        data.add(new SingleValueDataEntry("Lipstick", 5054));
+        data.add(new ValueDataEntry("Nail polish", 4054));
+        data.add(new ValueDataEntry("Eyebrow pencil", 5067));
+        data.add(new ValueDataEntry("Lipstick", 5054));
 
         bar3d.bar(data)
                 .setName("Arizona");
 
         data.clear();
-        data.add(new SingleValueDataEntry("Nail polish", 2381));
-        data.add(new SingleValueDataEntry("Eyebrow pencil", 1401));
-        data.add(new SingleValueDataEntry("Lipstick", 981));
+        data.add(new ValueDataEntry("Nail polish", 2381));
+        data.add(new ValueDataEntry("Eyebrow pencil", 1401));
+        data.add(new ValueDataEntry("Lipstick", 981));
 
         bar3d.bar(data)
                 .setName("Nevada");

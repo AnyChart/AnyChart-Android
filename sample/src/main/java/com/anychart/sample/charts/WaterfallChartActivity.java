@@ -7,7 +7,7 @@ import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsWaterfall;
 import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -45,19 +45,19 @@ public class WaterfallChartActivity extends AppCompatActivity {
 
         List<DataEntry> data = new ArrayList<>();
 
-        data.add(new SingleValueDataEntry("Start", 23000000));
-        data.add(new SingleValueDataEntry("Jan", 2200000));
-        data.add(new SingleValueDataEntry("Feb", -4600000));
-        data.add(new SingleValueDataEntry("Mar", -9100000));
-        data.add(new SingleValueDataEntry("Apr", 3700000));
-        data.add(new SingleValueDataEntry("May", -2100000));
-        data.add(new SingleValueDataEntry("Jun", 5300000));
-        data.add(new SingleValueDataEntry("Jul", 3100000));
-        data.add(new SingleValueDataEntry("Aug", -1500000));
-        data.add(new SingleValueDataEntry("Sep", 4200000));
-        data.add(new SingleValueDataEntry("Oct", 5300000));
-        data.add(new SingleValueDataEntry("Nov", -1500000));
-        data.add(new SingleValueDataEntry("Dec", 5100000));
+        data.add(new ValueDataEntry("Start", 23000000));
+        data.add(new ValueDataEntry("Jan", 2200000));
+        data.add(new ValueDataEntry("Feb", -4600000));
+        data.add(new ValueDataEntry("Mar", -9100000));
+        data.add(new ValueDataEntry("Apr", 3700000));
+        data.add(new ValueDataEntry("May", -2100000));
+        data.add(new ValueDataEntry("Jun", 5300000));
+        data.add(new ValueDataEntry("Jul", 3100000));
+        data.add(new ValueDataEntry("Aug", -1500000));
+        data.add(new ValueDataEntry("Sep", 4200000));
+        data.add(new ValueDataEntry("Oct", 5300000));
+        data.add(new ValueDataEntry("Nov", -1500000));
+        data.add(new ValueDataEntry("Dec", 5100000));
         DataEntry end = new DataEntry();
         end.setValue("x", "End");
         end.setValue("isTotal", true);

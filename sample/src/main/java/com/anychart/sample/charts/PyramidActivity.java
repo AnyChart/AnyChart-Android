@@ -9,7 +9,7 @@ import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAlign;
 import com.anychart.anychart.LegendLayout;
 import com.anychart.anychart.Pyramid;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.UiLegend;
 import com.anychart.sample.R;
 
@@ -29,10 +29,10 @@ public class PyramidActivity extends AppCompatActivity {
 
         List<DataEntry> data = new ArrayList<>();
 
-        data.add(new SingleValueDataEntry("TV promotion", 6371664));
-        data.add(new SingleValueDataEntry("Radio promotion", 7216301));
-        data.add(new SingleValueDataEntry("Advertising leaflets", 1486621));
-        data.add(new SingleValueDataEntry("Before advertising started", 1386622));
+        data.add(new ValueDataEntry("TV promotion", 6371664));
+        data.add(new ValueDataEntry("Radio promotion", 7216301));
+        data.add(new ValueDataEntry("Advertising leaflets", 1486621));
+        data.add(new ValueDataEntry("Before advertising started", 1386622));
 
         pyramid.setData(data);
 

@@ -9,7 +9,7 @@ import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAlign;
 import com.anychart.anychart.LegendLayout;
 import com.anychart.anychart.Pie;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -28,11 +28,11 @@ public class PieChartActivity extends AppCompatActivity {
 
         List<DataEntry> data = new ArrayList<>();
 
-        data.add(new SingleValueDataEntry("Apples", 6371664));
-        data.add(new SingleValueDataEntry("Pears", 789622));
-        data.add(new SingleValueDataEntry("Bananas", 7216301));
-        data.add(new SingleValueDataEntry("Grapes", 1486621));
-        data.add(new SingleValueDataEntry("Oranges", 1200000));
+        data.add(new ValueDataEntry("Apples", 6371664));
+        data.add(new ValueDataEntry("Pears", 789622));
+        data.add(new ValueDataEntry("Bananas", 7216301));
+        data.add(new ValueDataEntry("Grapes", 1486621));
+        data.add(new ValueDataEntry("Oranges", 1200000));
 
         pie.setData(data);
 

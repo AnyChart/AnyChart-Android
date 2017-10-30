@@ -10,7 +10,7 @@ import com.anychart.anychart.CartesianSeriesJumpLine;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.HoverMode;
 import com.anychart.anychart.SeriesBar;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.anychart.TooltipPositionMode;
 import com.anychart.sample.R;
@@ -34,36 +34,36 @@ public class VerticalChartActivity extends AppCompatActivity {
 
         List<DataEntry> data = new ArrayList<>();
 
-        data.add(new SingleValueDataEntry("Jan", 11.5));
-        data.add(new SingleValueDataEntry("Feb", 12));
-        data.add(new SingleValueDataEntry("Mar", 11.7));
-        data.add(new SingleValueDataEntry("Apr", 12.4));
-        data.add(new SingleValueDataEntry("May", 13.5));
-        data.add(new SingleValueDataEntry("Jun", 11.9));
-        data.add(new SingleValueDataEntry("Jul", 14.6));
-        data.add(new SingleValueDataEntry("Aug", 17.2));
-        data.add(new SingleValueDataEntry("Sep", 16.9));
-        data.add(new SingleValueDataEntry("Oct", 15.4));
-        data.add(new SingleValueDataEntry("Nov", 16.9));
-        data.add(new SingleValueDataEntry("Dec", 17.2));
+        data.add(new ValueDataEntry("Jan", 11.5));
+        data.add(new ValueDataEntry("Feb", 12));
+        data.add(new ValueDataEntry("Mar", 11.7));
+        data.add(new ValueDataEntry("Apr", 12.4));
+        data.add(new ValueDataEntry("May", 13.5));
+        data.add(new ValueDataEntry("Jun", 11.9));
+        data.add(new ValueDataEntry("Jul", 14.6));
+        data.add(new ValueDataEntry("Aug", 17.2));
+        data.add(new ValueDataEntry("Sep", 16.9));
+        data.add(new ValueDataEntry("Oct", 15.4));
+        data.add(new ValueDataEntry("Nov", 16.9));
+        data.add(new ValueDataEntry("Dec", 17.2));
 
         SeriesBar bar = vertical.bar(data);
         bar.getLabels().setFormat("${%Value} mln");
 
         List<DataEntry> jumpLineData = new ArrayList<>();
 
-        jumpLineData.add(new SingleValueDataEntry("Jan", 9.3));
-        jumpLineData.add(new SingleValueDataEntry("Feb", 10.5));
-        jumpLineData.add(new SingleValueDataEntry("Mar", 11.2));
-        jumpLineData.add(new SingleValueDataEntry("Apr", 11.2));
-        jumpLineData.add(new SingleValueDataEntry("May", 12.7));
-        jumpLineData.add(new SingleValueDataEntry("Jun", 13.1));
-        jumpLineData.add(new SingleValueDataEntry("Jul", 12.2));
-        jumpLineData.add(new SingleValueDataEntry("Aug", 12.2));
-        jumpLineData.add(new SingleValueDataEntry("Sep", 10.1));
-        jumpLineData.add(new SingleValueDataEntry("Oct", 14.5));
-        jumpLineData.add(new SingleValueDataEntry("Nov", 14.5));
-        jumpLineData.add(new SingleValueDataEntry("Dec", 15.5));
+        jumpLineData.add(new ValueDataEntry("Jan", 9.3));
+        jumpLineData.add(new ValueDataEntry("Feb", 10.5));
+        jumpLineData.add(new ValueDataEntry("Mar", 11.2));
+        jumpLineData.add(new ValueDataEntry("Apr", 11.2));
+        jumpLineData.add(new ValueDataEntry("May", 12.7));
+        jumpLineData.add(new ValueDataEntry("Jun", 13.1));
+        jumpLineData.add(new ValueDataEntry("Jul", 12.2));
+        jumpLineData.add(new ValueDataEntry("Aug", 12.2));
+        jumpLineData.add(new ValueDataEntry("Sep", 10.1));
+        jumpLineData.add(new ValueDataEntry("Oct", 14.5));
+        jumpLineData.add(new ValueDataEntry("Nov", 14.5));
+        jumpLineData.add(new ValueDataEntry("Dec", 15.5));
 
         CartesianSeriesJumpLine jumpLine = vertical.jumpLine(jumpLineData);
         jumpLine.setStroke("#60727B", 2d, null, null, null);

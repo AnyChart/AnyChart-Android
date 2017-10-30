@@ -10,7 +10,7 @@ import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAlign;
 import com.anychart.anychart.MarkerType;
 import com.anychart.anychart.RadarSeriesLine;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -41,11 +41,11 @@ public class RadarChartActivity extends AppCompatActivity {
 
         List<DataEntry> shamanData = new ArrayList<>();
 
-        shamanData.add(new SingleValueDataEntry("Strength", 136));
-        shamanData.add(new SingleValueDataEntry("Agility", 79));
-        shamanData.add(new SingleValueDataEntry("Stamina", 149));
-        shamanData.add(new SingleValueDataEntry("Intellect", 135));
-        shamanData.add(new SingleValueDataEntry("Spirit", 158));
+        shamanData.add(new ValueDataEntry("Strength", 136));
+        shamanData.add(new ValueDataEntry("Agility", 79));
+        shamanData.add(new ValueDataEntry("Stamina", 149));
+        shamanData.add(new ValueDataEntry("Intellect", 135));
+        shamanData.add(new ValueDataEntry("Spirit", 158));
 
         RadarSeriesLine shamanLine = radar.line(shamanData);
         shamanLine.setName("Shaman");
@@ -56,11 +56,11 @@ public class RadarChartActivity extends AppCompatActivity {
 
         List<DataEntry> warriorData = new ArrayList<>();
 
-        warriorData.add(new SingleValueDataEntry("Strength", 199));
-        warriorData.add(new SingleValueDataEntry("Agility", 125));
-        warriorData.add(new SingleValueDataEntry("Stamina", 173));
-        warriorData.add(new SingleValueDataEntry("Intellect", 33));
-        warriorData.add(new SingleValueDataEntry("Spirit", 64));
+        warriorData.add(new ValueDataEntry("Strength", 199));
+        warriorData.add(new ValueDataEntry("Agility", 125));
+        warriorData.add(new ValueDataEntry("Stamina", 173));
+        warriorData.add(new ValueDataEntry("Intellect", 33));
+        warriorData.add(new ValueDataEntry("Spirit", 64));
 
         RadarSeriesLine warriorLine = radar.line(warriorData);
         warriorLine.setName("Warrior");
@@ -71,11 +71,11 @@ public class RadarChartActivity extends AppCompatActivity {
 
         List<DataEntry> priestData = new ArrayList<>();
 
-        priestData.add(new SingleValueDataEntry("Strength", 43));
-        priestData.add(new SingleValueDataEntry("Agility", 56));
-        priestData.add(new SingleValueDataEntry("Stamina", 101));
-        priestData.add(new SingleValueDataEntry("Intellect", 202));
-        priestData.add(new SingleValueDataEntry("Spirit", 196));
+        priestData.add(new ValueDataEntry("Strength", 43));
+        priestData.add(new ValueDataEntry("Agility", 56));
+        priestData.add(new ValueDataEntry("Stamina", 101));
+        priestData.add(new ValueDataEntry("Intellect", 202));
+        priestData.add(new ValueDataEntry("Spirit", 196));
 
         RadarSeriesLine priestLine = radar.line(priestData);
         priestLine.setName("Priest");

@@ -9,7 +9,7 @@ import com.anychart.anychart.CartesianSeriesBase;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAnchor;
 import com.anychart.anychart.Pareto;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.StrokeLineCap;
 import com.anychart.anychart.StrokeLineJoin;
 import com.anychart.sample.R;
@@ -30,16 +30,16 @@ public class ParetoChartActivity extends AppCompatActivity {
 
         List<DataEntry> data = new ArrayList<>();
 
-        data.add(new SingleValueDataEntry("Food is tasteless", 65));
-        data.add(new SingleValueDataEntry("Wait time", 109));
-        data.add(new SingleValueDataEntry("Unfriendly staff", 12.5));
-        data.add(new SingleValueDataEntry("Not clean", 45));
-        data.add(new SingleValueDataEntry("Overpriced", 250));
-        data.add(new SingleValueDataEntry("To noisy", 27));
-        data.add(new SingleValueDataEntry("Food not fresh", 35));
-        data.add(new SingleValueDataEntry("Small portions", 170));
-        data.add(new SingleValueDataEntry("Not atmosphere", 35));
-        data.add(new SingleValueDataEntry("Food is to salty", 35));
+        data.add(new ValueDataEntry("Food is tasteless", 65));
+        data.add(new ValueDataEntry("Wait time", 109));
+        data.add(new ValueDataEntry("Unfriendly staff", 12.5));
+        data.add(new ValueDataEntry("Not clean", 45));
+        data.add(new ValueDataEntry("Overpriced", 250));
+        data.add(new ValueDataEntry("To noisy", 27));
+        data.add(new ValueDataEntry("Food not fresh", 35));
+        data.add(new ValueDataEntry("Small portions", 170));
+        data.add(new ValueDataEntry("Not atmosphere", 35));
+        data.add(new ValueDataEntry("Food is to salty", 35));
 
         pareto.setData(data);
 

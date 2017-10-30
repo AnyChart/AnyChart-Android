@@ -11,7 +11,7 @@ import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAnchor;
 import com.anychart.anychart.HoverMode;
 import com.anychart.anychart.Position;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.TooltipPositionMode;
 import com.anychart.sample.R;
 
@@ -30,15 +30,15 @@ public class ColumnChartActivity extends AppCompatActivity {
         Cartesian cartesian = AnyChart.column();
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new SingleValueDataEntry("Rouge", 80540));
-        data.add(new SingleValueDataEntry("Foundation", 94190));
-        data.add(new SingleValueDataEntry("Mascara", 102610));
-        data.add(new SingleValueDataEntry("Lip gloss", 110430));
-        data.add(new SingleValueDataEntry("Lipstick", 128000));
-        data.add(new SingleValueDataEntry("Nail polish", 143760));
-        data.add(new SingleValueDataEntry("Eyebrow pencil", 170670));
-        data.add(new SingleValueDataEntry("Eyeliner", 213210));
-        data.add(new SingleValueDataEntry("Eyeshadows", 249980));
+        data.add(new ValueDataEntry("Rouge", 80540));
+        data.add(new ValueDataEntry("Foundation", 94190));
+        data.add(new ValueDataEntry("Mascara", 102610));
+        data.add(new ValueDataEntry("Lip gloss", 110430));
+        data.add(new ValueDataEntry("Lipstick", 128000));
+        data.add(new ValueDataEntry("Nail polish", 143760));
+        data.add(new ValueDataEntry("Eyebrow pencil", 170670));
+        data.add(new ValueDataEntry("Eyeliner", 213210));
+        data.add(new ValueDataEntry("Eyeshadows", 249980));
 
         CartesianSeriesColumn column = cartesian.column(data);
 

@@ -8,7 +8,7 @@ import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsMekko;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.Orientation;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.sample.R;
 
@@ -36,46 +36,46 @@ public class MosaicChartActivity extends AppCompatActivity {
 
         List<DataEntry> data = new ArrayList<>();
 
-        data.add(new SingleValueDataEntry("Data Businessperson", 50));
-        data.add(new SingleValueDataEntry("Data Creative", 17));
-        data.add(new SingleValueDataEntry("Data Developer", 17));
-        data.add(new SingleValueDataEntry("Data Researcher", 12));
+        data.add(new ValueDataEntry("Data Businessperson", 50));
+        data.add(new ValueDataEntry("Data Creative", 17));
+        data.add(new ValueDataEntry("Data Developer", 17));
+        data.add(new ValueDataEntry("Data Researcher", 12));
 
         mosaic.mekko(data)
                 .setName("Business");
 
         data.clear();
-        data.add(new SingleValueDataEntry("Data Businessperson", 15));
-        data.add(new SingleValueDataEntry("Data Creative", 23));
-        data.add(new SingleValueDataEntry("Data Developer", 25));
-        data.add(new SingleValueDataEntry("Data Researcher", 12));
+        data.add(new ValueDataEntry("Data Businessperson", 15));
+        data.add(new ValueDataEntry("Data Creative", 23));
+        data.add(new ValueDataEntry("Data Developer", 25));
+        data.add(new ValueDataEntry("Data Researcher", 12));
 
         mosaic.mekko(data)
                 .setName("ML/Big Data");
 
         data.clear();
-        data.add(new SingleValueDataEntry("Data Businessperson", 10));
-        data.add(new SingleValueDataEntry("Data Creative", 10));
-        data.add(new SingleValueDataEntry("Data Developer", 16));
-        data.add(new SingleValueDataEntry("Data Researcher", 17));
+        data.add(new ValueDataEntry("Data Businessperson", 10));
+        data.add(new ValueDataEntry("Data Creative", 10));
+        data.add(new ValueDataEntry("Data Developer", 16));
+        data.add(new ValueDataEntry("Data Researcher", 17));
 
         mosaic.mekko(data)
                 .setName("Math/OR");
 
         data.clear();
-        data.add(new SingleValueDataEntry("Data Businessperson", 5));
-        data.add(new SingleValueDataEntry("Data Creative", 20));
-        data.add(new SingleValueDataEntry("Data Developer", 27));
-        data.add(new SingleValueDataEntry("Data Researcher", 5));
+        data.add(new ValueDataEntry("Data Businessperson", 5));
+        data.add(new ValueDataEntry("Data Creative", 20));
+        data.add(new ValueDataEntry("Data Developer", 27));
+        data.add(new ValueDataEntry("Data Researcher", 5));
 
         mosaic.mekko(data)
                 .setName("Programming");
 
         data.clear();
-        data.add(new SingleValueDataEntry("Data Businessperson", 25));
-        data.add(new SingleValueDataEntry("Data Creative", 30));
-        data.add(new SingleValueDataEntry("Data Developer", 15));
-        data.add(new SingleValueDataEntry("Data Researcher", 51));
+        data.add(new ValueDataEntry("Data Businessperson", 25));
+        data.add(new ValueDataEntry("Data Creative", 30));
+        data.add(new ValueDataEntry("Data Developer", 15));
+        data.add(new ValueDataEntry("Data Researcher", 51));
 
         mosaic.mekko(data)
                 .setName("Statistics");

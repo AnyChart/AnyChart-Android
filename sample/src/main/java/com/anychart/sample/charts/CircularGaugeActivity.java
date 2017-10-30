@@ -10,6 +10,7 @@ import com.anychart.anychart.CircularGauge;
 import com.anychart.anychart.EnumsAnchor;
 import com.anychart.anychart.Fill;
 import com.anychart.anychart.GaugePointersBar;
+import com.anychart.anychart.SingleValueDataSet;
 import com.anychart.anychart.SolidFill;
 import com.anychart.anychart.Stroke;
 import com.anychart.anychart.TextHAlign;
@@ -26,7 +27,8 @@ public class CircularGaugeActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
         CircularGauge circularGauge = AnyChart.circular();
-//        circularGauge.setData(new String[] { "23", "34", "67", "93", "56", "100" }, TextParsingMode.CSV);
+        SingleValueDataSet singleValueDataSet = new SingleValueDataSet(new String[] { "23", "34", "67", "93", "56", "100"});
+        circularGauge.setData(singleValueDataSet);
         circularGauge.setFill("#fff")
                 .setStroke((Stroke) null, null, null, null, null)
                 .setPadding(0d, 0d, 0d, 0d)

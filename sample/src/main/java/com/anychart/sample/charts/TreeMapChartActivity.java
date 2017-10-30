@@ -11,6 +11,7 @@ import com.anychart.anychart.LegendLayout;
 import com.anychart.anychart.Orientation;
 import com.anychart.anychart.SelectionMode;
 import com.anychart.anychart.TreeDataEntry;
+import com.anychart.anychart.TreeFillingMethod;
 import com.anychart.anychart.TreeMap;
 import com.anychart.anychart.UiTitle;
 import com.anychart.sample.R;
@@ -63,7 +64,7 @@ public class TreeMapChartActivity extends AppCompatActivity {
         data.add(new CustomTreeDataEntry("Pork", "Meat", "Pork", 43000));
         data.add(new CustomTreeDataEntry("Veal", "Meat", "Veal", 38000));
 
-        treeMap.setData(data);
+        treeMap.setData(data, TreeFillingMethod.AS_TABLE);
 
         UiTitle title = treeMap.getTitle();
         title.setEnabled(true);

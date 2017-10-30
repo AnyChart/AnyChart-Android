@@ -7,7 +7,7 @@ import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.Funnel;
-import com.anychart.anychart.SingleValueDataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -26,11 +26,11 @@ public class FunnelChartActivity extends AppCompatActivity {
 
         List<DataEntry> data = new ArrayList<>();
 
-        data.add(new SingleValueDataEntry("Website Visits", 528756));
-        data.add(new SingleValueDataEntry("Downloads", 164052));
-        data.add(new SingleValueDataEntry("Valid Contacts", 112167));
-        data.add(new SingleValueDataEntry("Interested to Buy", 79128));
-        data.add(new SingleValueDataEntry("Purchased", 79128));
+        data.add(new ValueDataEntry("Website Visits", 528756));
+        data.add(new ValueDataEntry("Downloads", 164052));
+        data.add(new ValueDataEntry("Valid Contacts", 112167));
+        data.add(new ValueDataEntry("Interested to Buy", 79128));
+        data.add(new ValueDataEntry("Purchased", 79128));
 
         funnel.setData(data);
 
