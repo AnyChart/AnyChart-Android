@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Gantt line marker.
+ */
 public class GanttLine extends VisualBase {
 
     public GanttLine() {
-
+        js.setLength(0);
+        js.append("var ganttLine").append(++variableIndex).append(" = anychart.core.axisMarkers.ganttLine();");
+        jsBase = "ganttLine" + variableIndex;
     }
 
     protected GanttLine(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,18 @@ public class GanttLine extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Layout layout;
     private String layout1;
 
+    /**
+     * Setter for the Gantt chart line marker layout.<br/>
+<b>Note:</b> The layout method will not work here, only "vertical" layout are available in Gantt Chart.
+     */
     public GanttLine setLayout(Layout layout) {
         if (jsBase == null) {
             this.layout = null;
@@ -42,7 +56,6 @@ public class GanttLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +65,10 @@ public class GanttLine extends VisualBase {
     }
 
 
+    /**
+     * Setter for the Gantt chart line marker layout.<br/>
+<b>Note:</b> The layout method will not work here, only "vertical" layout are available in Gantt Chart.
+     */
     public GanttLine setLayout(String layout1) {
         if (jsBase == null) {
             this.layout = null;
@@ -66,7 +83,6 @@ public class GanttLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);
@@ -77,6 +93,9 @@ public class GanttLine extends VisualBase {
 
     private GanttDateTime getScale;
 
+    /**
+     * Getter for the Gantt chart line marker scale.
+     */
     public GanttDateTime getScale() {
         if (getScale == null)
             getScale = new GanttDateTime(jsBase + ".scale()");
@@ -86,20 +105,26 @@ public class GanttLine extends VisualBase {
 
     private GanttDateTime scale;
 
+    /**
+     * Setter for the Gantt chart line marker scale.<br/>
+<b>Note:</b> The scale() method will not work here, only "dateTime" scale are available in Gantt Chart.
+{docs:Gantt_Chart/Timeline#special_features}Learn more about scale.{docs}
+     */
     public GanttLine setScale(GanttDateTime scale) {
         if (jsBase == null) {
             this.scale = scale;
         } else {
             this.scale = scale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(scale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -114,6 +139,9 @@ public class GanttLine extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the Gantt chart line marker stroke.
+     */
     public GanttLine setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -137,7 +165,6 @@ public class GanttLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -147,6 +174,9 @@ public class GanttLine extends VisualBase {
     }
 
 
+    /**
+     * Setter for the Gantt chart line marker stroke.
+     */
     public GanttLine setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -170,7 +200,6 @@ public class GanttLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -180,6 +209,9 @@ public class GanttLine extends VisualBase {
     }
 
 
+    /**
+     * Setter for the Gantt chart line marker stroke.
+     */
     public GanttLine setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -203,7 +235,6 @@ public class GanttLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -216,6 +247,9 @@ public class GanttLine extends VisualBase {
     private GanttDateTimeMarkers value1;
     private String value2;
 
+    /**
+     * Setter for the Gantt chart line marker value.
+     */
     public GanttLine setValue(Double value) {
         if (jsBase == null) {
             this.value = null;
@@ -231,7 +265,6 @@ public class GanttLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".value(%f)", value));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".value(%f)", value));
                 js.setLength(0);
@@ -241,6 +274,9 @@ public class GanttLine extends VisualBase {
     }
 
 
+    /**
+     * Setter for the Gantt chart line marker value.
+     */
     public GanttLine setValue(GanttDateTimeMarkers value1) {
         if (jsBase == null) {
             this.value = null;
@@ -256,7 +292,6 @@ public class GanttLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".value(%s)", ((value1 != null) ? value1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".value(%s)", ((value1 != null) ? value1.generateJs() : "null")));
                 js.setLength(0);
@@ -266,6 +301,9 @@ public class GanttLine extends VisualBase {
     }
 
 
+    /**
+     * Setter for the Gantt chart line marker value.
+     */
     public GanttLine setValue(String value2) {
         if (jsBase == null) {
             this.value = null;
@@ -281,7 +319,6 @@ public class GanttLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".value(%s)", wrapQuotes(value2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".value(%s)", wrapQuotes(value2)));
                 js.setLength(0);
@@ -290,19 +327,9 @@ public class GanttLine extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSGanttDateTime getScale() {
-//        if (GanttDateTime getScale != null) {
-//            return GanttDateTime getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -325,38 +352,6 @@ public class GanttLine extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSlayout());
-////        
-//            js.append(generateJSlayout1());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

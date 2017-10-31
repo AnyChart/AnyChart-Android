@@ -6,13 +6,37 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Radar chart class.<br/>
+To get the chart use {@link anychart#radar} method.<br/>
+Chart can contain any number of series.<br/>
+Each series is interactive, you can customize click and hover behavior and other params.
+ */
 public class ChartsRadar extends SeparateChart {
 
     protected ChartsRadar(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public ChartsRadar setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public ChartsRadar setData(List<DataEntry> data) {
@@ -35,7 +59,31 @@ public class ChartsRadar extends SeparateChart {
         return this;
     }
 
+    public ChartsRadar setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
+
+    /**
+     * Add series to the chart.
+     */
     public void addSeries(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -56,6 +104,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<RadarSeriesArea> setArea = new ArrayList<>();
+
+    /**
+     * Adds Area series.
+     */
     public RadarSeriesArea area(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -91,6 +143,10 @@ public class ChartsRadar extends SeparateChart {
     private RadarSeriesType defaultSeriesType;
     private String defaultSeriesType1;
     private List<ChartsRadar> setDefaultSeriesType = new ArrayList<>();
+
+    /**
+     * Setter for the radar default series type.
+     */
     public ChartsRadar setDefaultSeriesType(RadarSeriesType defaultSeriesType) {
         if (!isChain) {
             js.append(jsBase);
@@ -116,6 +172,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setDefaultSeriesType1 = new ArrayList<>();
+
+    /**
+     * Setter for the radar default series type.
+     */
     public ChartsRadar setDefaultSeriesType(String defaultSeriesType1) {
         if (!isChain) {
             js.append(jsBase);
@@ -143,6 +203,10 @@ public class ChartsRadar extends SeparateChart {
 
     private AnychartMathRect getGetPlotBounds;
 
+    /**
+     * Getter for the current data bounds of the plot.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Radar#draw} is called.
+     */
     public AnychartMathRect getGetPlotBounds() {
         if (getGetPlotBounds == null)
             getGetPlotBounds = new AnychartMathRect(jsBase + ".getPlotBounds()");
@@ -152,6 +216,9 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesBase> getGetSeries = new ArrayList<>();
 
+    /**
+     * Getter for the series by its id.
+     */
     public RadarSeriesBase getGetSeries(Double id) {
         RadarSeriesBase item = new RadarSeriesBase(jsBase + ".getSeries("+ id+")");
         getGetSeries.add(item);
@@ -160,6 +227,9 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesBase> getGetSeries1 = new ArrayList<>();
 
+    /**
+     * Getter for the series by its id.
+     */
     public RadarSeriesBase getGetSeries(String id1) {
         RadarSeriesBase item = new RadarSeriesBase(jsBase + ".getSeries("+ wrapQuotes(id1)+")");
         getGetSeries1.add(item);
@@ -168,6 +238,9 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesBase> getGetSeriesAt = new ArrayList<>();
 
+    /**
+     * Gets the series by its index.
+     */
     public RadarSeriesBase getGetSeriesAt(Double index) {
         RadarSeriesBase item = new RadarSeriesBase(jsBase + ".getSeriesAt("+ index+")");
         getGetSeriesAt.add(item);
@@ -176,6 +249,9 @@ public class ChartsRadar extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -186,6 +262,10 @@ public class ChartsRadar extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<ChartsRadar> setHatchFillPalette = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public ChartsRadar setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -211,6 +291,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setHatchFillPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public ChartsRadar setHatchFillPalette(String hatchFillPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -236,17 +320,19 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setHatchFillPalette2 = new ArrayList<>();
-    public ChartsRadar setHatchFillPalette(HatchFills hatchFillPalette2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for hatch fill palette settings.
+     */
+    public ChartsRadar setHatchFillPalette(HatchFills hatchFillPalette2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetHatchFillPalette2() {
@@ -263,6 +349,9 @@ public class ChartsRadar extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -271,6 +360,10 @@ public class ChartsRadar extends SeparateChart {
     }
     private String hovered;
     private List<ChartsRadar> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public ChartsRadar setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -298,6 +391,10 @@ public class ChartsRadar extends SeparateChart {
     private Double innerRadius;
     private String innerRadius1;
     private List<ChartsRadar> setInnerRadius = new ArrayList<>();
+
+    /**
+     * Setter for the inner radius in pixels or percent of main radius.
+     */
     public ChartsRadar setInnerRadius(Double innerRadius) {
         if (!isChain) {
             js.append(jsBase);
@@ -323,6 +420,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setInnerRadius1 = new ArrayList<>();
+
+    /**
+     * Setter for the inner radius in pixels or percent of main radius.
+     */
     public ChartsRadar setInnerRadius(String innerRadius1) {
         if (!isChain) {
             js.append(jsBase);
@@ -350,6 +451,9 @@ public class ChartsRadar extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for series data labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -359,6 +463,10 @@ public class ChartsRadar extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<ChartsRadar> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for series data labels.
+     */
     public ChartsRadar setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -384,6 +492,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for series data labels.
+     */
     public ChartsRadar setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -409,6 +521,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<RadarSeriesLine> setLine = new ArrayList<>();
+
+    /**
+     * Adds Line series.
+     */
     public RadarSeriesLine line(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -442,6 +558,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<RadarSeriesMarker> setMarker = new ArrayList<>();
+
+    /**
+     * Adds Marker series.
+     */
     public RadarSeriesMarker marker(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -477,6 +597,9 @@ public class ChartsRadar extends SeparateChart {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -488,17 +611,19 @@ public class ChartsRadar extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<ChartsRadar> setMarkerPalette = new ArrayList<>();
-    public ChartsRadar setMarkerPalette(Markers markerPalette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for markers palette settings.
+     */
+    public ChartsRadar setMarkerPalette(Markers markerPalette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(markerPalette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetMarkerPalette() {
@@ -513,6 +638,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setMarkerPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for markers palette settings.
+     */
     public ChartsRadar setMarkerPalette(String markerPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -538,6 +667,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setMarkerPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for markers palette settings.
+     */
     public ChartsRadar setMarkerPalette(MarkerType[] markerPalette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -563,6 +696,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setMarkerPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for markers palette settings.
+     */
     public ChartsRadar setMarkerPalette(String[] markerPalette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -590,6 +727,9 @@ public class ChartsRadar extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -598,6 +738,10 @@ public class ChartsRadar extends SeparateChart {
     }
     private String normal;
     private List<ChartsRadar> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public ChartsRadar setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -625,6 +769,9 @@ public class ChartsRadar extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for series colors palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -636,17 +783,20 @@ public class ChartsRadar extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<ChartsRadar> setPalette = new ArrayList<>();
-    public ChartsRadar setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for series colors palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public ChartsRadar setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -661,17 +811,20 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setPalette1 = new ArrayList<>();
-    public ChartsRadar setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for series colors palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public ChartsRadar setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -686,6 +839,11 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for series colors palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public ChartsRadar setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -711,6 +869,11 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for series colors palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public ChartsRadar setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -738,6 +901,10 @@ public class ChartsRadar extends SeparateChart {
     private Double id2;
     private String id3;
     private List<ChartsRadar> setRemoveSeries = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public ChartsRadar removeSeries(Double id2) {
         if (!isChain) {
             js.append(jsBase);
@@ -763,6 +930,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setRemoveSeries1 = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public ChartsRadar removeSeries(String id3) {
         if (!isChain) {
             js.append(jsBase);
@@ -789,6 +960,10 @@ public class ChartsRadar extends SeparateChart {
 
     private Double index1;
     private List<ChartsRadar> setRemoveSeriesAt = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its index.
+     */
     public ChartsRadar removeSeriesAt(Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -816,6 +991,9 @@ public class ChartsRadar extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -824,6 +1002,10 @@ public class ChartsRadar extends SeparateChart {
     }
     private String selected;
     private List<ChartsRadar> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public ChartsRadar setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -851,6 +1033,10 @@ public class ChartsRadar extends SeparateChart {
     private String startAngle;
     private Double startAngle1;
     private List<ChartsRadar> setStartAngle = new ArrayList<>();
+
+    /**
+     * Setter for the chart start angle.
+     */
     public ChartsRadar setStartAngle(String startAngle) {
         if (!isChain) {
             js.append(jsBase);
@@ -876,6 +1062,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setStartAngle1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart start angle.
+     */
     public ChartsRadar setStartAngle(Double startAngle1) {
         if (!isChain) {
             js.append(jsBase);
@@ -903,6 +1093,9 @@ public class ChartsRadar extends SeparateChart {
 
     private CoreAxesRadar getXAxis;
 
+    /**
+     * Getter for the chart X-axis.
+     */
     public CoreAxesRadar getXAxis() {
         if (getXAxis == null)
             getXAxis = new CoreAxesRadar(jsBase + ".xAxis()");
@@ -912,6 +1105,10 @@ public class ChartsRadar extends SeparateChart {
     private String xAxis;
     private Boolean xAxis1;
     private List<ChartsRadar> setXAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public ChartsRadar setXAxis(String xAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -937,6 +1134,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setXAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public ChartsRadar setXAxis(Boolean xAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -964,6 +1165,9 @@ public class ChartsRadar extends SeparateChart {
 
     private CoreGridsRadar getXGrid;
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsRadar getXGrid() {
         if (getXGrid == null)
             getXGrid = new CoreGridsRadar(jsBase + ".xGrid()");
@@ -973,6 +1177,9 @@ public class ChartsRadar extends SeparateChart {
 
     private List<CoreGridsRadar> getXGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsRadar getXGrid(Double index2) {
         CoreGridsRadar item = new CoreGridsRadar(jsBase + ".xGrid("+ index2+")");
         getXGrid1.add(item);
@@ -981,6 +1188,10 @@ public class ChartsRadar extends SeparateChart {
     private String xGrid;
     private Boolean xGrid1;
     private List<ChartsRadar> setXGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public ChartsRadar setXGrid(String xGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1006,6 +1217,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setXGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public ChartsRadar setXGrid(Boolean xGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1034,6 +1249,10 @@ public class ChartsRadar extends SeparateChart {
     private String xGrid2;
     private Boolean xGrid3;
     private List<ChartsRadar> setXGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by index.
+     */
     public ChartsRadar setXGrid(String xGrid2, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1059,6 +1278,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setXGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by index.
+     */
     public ChartsRadar setXGrid(Boolean xGrid3, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1086,6 +1309,9 @@ public class ChartsRadar extends SeparateChart {
 
     private CoreGridsRadar getXMinorGrid;
 
+    /**
+     * Getter for the chart minor grid by X-scale.
+     */
     public CoreGridsRadar getXMinorGrid() {
         if (getXMinorGrid == null)
             getXMinorGrid = new CoreGridsRadar(jsBase + ".xMinorGrid()");
@@ -1095,6 +1321,9 @@ public class ChartsRadar extends SeparateChart {
 
     private List<CoreGridsRadar> getXMinorGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart minor grid by X-scale.
+     */
     public CoreGridsRadar getXMinorGrid(Double index4) {
         CoreGridsRadar item = new CoreGridsRadar(jsBase + ".xMinorGrid("+ index4+")");
         getXMinorGrid1.add(item);
@@ -1103,6 +1332,10 @@ public class ChartsRadar extends SeparateChart {
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<ChartsRadar> setXMinorGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public ChartsRadar setXMinorGrid(String xMinorGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1128,6 +1361,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setXMinorGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public ChartsRadar setXMinorGrid(Boolean xMinorGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1156,6 +1393,10 @@ public class ChartsRadar extends SeparateChart {
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
     private List<ChartsRadar> setXMinorGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsRadar setXMinorGrid(String xMinorGrid2, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -1181,6 +1422,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setXMinorGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsRadar setXMinorGrid(Boolean xMinorGrid3, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -1208,6 +1453,9 @@ public class ChartsRadar extends SeparateChart {
 
     private Ordinal getXScale;
 
+    /**
+     * Getter for the chart X scale.
+     */
     public Ordinal getXScale() {
         if (getXScale == null)
             getXScale = new Ordinal(jsBase + ".xScale()");
@@ -1216,17 +1464,20 @@ public class ChartsRadar extends SeparateChart {
     }
     private Ordinal xScale;
     private List<ChartsRadar> setXScale = new ArrayList<>();
-    public ChartsRadar setXScale(Ordinal xScale) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart X scale.<br/>
+<b>Note:</b> This scale will be passed to all scale dependent chart elements if they don't have their own scales.
+     */
+    public ChartsRadar setXScale(Ordinal xScale) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(xScale.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale != null) ? xScale.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetXScale() {
@@ -1243,6 +1494,9 @@ public class ChartsRadar extends SeparateChart {
 
     private CoreAxesRadar getYAxis;
 
+    /**
+     * Getter for the chart Y-axis.
+     */
     public CoreAxesRadar getYAxis() {
         if (getYAxis == null)
             getYAxis = new CoreAxesRadar(jsBase + ".yAxis()");
@@ -1252,6 +1506,10 @@ public class ChartsRadar extends SeparateChart {
     private String yAxis;
     private Boolean yAxis1;
     private List<ChartsRadar> setYAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public ChartsRadar setYAxis(String yAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -1277,6 +1535,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setYAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public ChartsRadar setYAxis(Boolean yAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1304,6 +1566,9 @@ public class ChartsRadar extends SeparateChart {
 
     private CoreGridsRadar getYGrid;
 
+    /**
+     * Getter for the chart grid by Y-scale.
+     */
     public CoreGridsRadar getYGrid() {
         if (getYGrid == null)
             getYGrid = new CoreGridsRadar(jsBase + ".yGrid()");
@@ -1313,6 +1578,9 @@ public class ChartsRadar extends SeparateChart {
 
     private List<CoreGridsRadar> getYGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by Y-scale.
+     */
     public CoreGridsRadar getYGrid(Double index6) {
         CoreGridsRadar item = new CoreGridsRadar(jsBase + ".yGrid("+ index6+")");
         getYGrid1.add(item);
@@ -1321,6 +1589,10 @@ public class ChartsRadar extends SeparateChart {
     private String yGrid;
     private Boolean yGrid1;
     private List<ChartsRadar> setYGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by Y-scale.
+     */
     public ChartsRadar setYGrid(String yGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1346,6 +1618,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setYGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by Y-scale.
+     */
     public ChartsRadar setYGrid(Boolean yGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1374,6 +1650,10 @@ public class ChartsRadar extends SeparateChart {
     private String yGrid2;
     private Boolean yGrid3;
     private List<ChartsRadar> setYGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by index.
+     */
     public ChartsRadar setYGrid(String yGrid2, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1399,6 +1679,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setYGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by index.
+     */
     public ChartsRadar setYGrid(Boolean yGrid3, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1426,6 +1710,9 @@ public class ChartsRadar extends SeparateChart {
 
     private CoreGridsRadar getYMinorGrid;
 
+    /**
+     * Getter for the chart minor grid by X-scale.
+     */
     public CoreGridsRadar getYMinorGrid() {
         if (getYMinorGrid == null)
             getYMinorGrid = new CoreGridsRadar(jsBase + ".yMinorGrid()");
@@ -1435,6 +1722,9 @@ public class ChartsRadar extends SeparateChart {
 
     private List<CoreGridsRadar> getYMinorGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart minor grid by X-scale.
+     */
     public CoreGridsRadar getYMinorGrid(Double index8) {
         CoreGridsRadar item = new CoreGridsRadar(jsBase + ".yMinorGrid("+ index8+")");
         getYMinorGrid1.add(item);
@@ -1443,6 +1733,10 @@ public class ChartsRadar extends SeparateChart {
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<ChartsRadar> setYMinorGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public ChartsRadar setYMinorGrid(String yMinorGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1468,6 +1762,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setYMinorGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public ChartsRadar setYMinorGrid(Boolean yMinorGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1496,6 +1794,10 @@ public class ChartsRadar extends SeparateChart {
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
     private List<ChartsRadar> setYMinorGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsRadar setYMinorGrid(String yMinorGrid2, Double index9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1521,6 +1823,10 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setYMinorGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsRadar setYMinorGrid(Boolean yMinorGrid3, Double index9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1548,6 +1854,9 @@ public class ChartsRadar extends SeparateChart {
 
     private ScalesLinear getYScale;
 
+    /**
+     * Getter for the chart Y scale.
+     */
     public ScalesLinear getYScale() {
         if (getYScale == null)
             getYScale = new ScalesLinear(jsBase + ".yScale()");
@@ -1559,6 +1868,11 @@ public class ChartsRadar extends SeparateChart {
     private ScalesBase yScale2;
     private ScaleTypes yScale3;
     private List<ChartsRadar> setYScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y scale.<br/>
+<b>Note:</b> This scale will be passed to all scale dependent chart elements if they don't have their own scales.
+     */
     public ChartsRadar setYScale(String yScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1584,17 +1898,20 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setYScale1 = new ArrayList<>();
-    public ChartsRadar setYScale(ScalesBase yScale2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart Y scale.<br/>
+<b>Note:</b> This scale will be passed to all scale dependent chart elements if they don't have their own scales.
+     */
+    public ChartsRadar setYScale(ScalesBase yScale2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(yScale2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetYScale1() {
@@ -1609,6 +1926,11 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private List<ChartsRadar> setYScale2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y scale.<br/>
+<b>Note:</b> This scale will be passed to all scale dependent chart elements if they don't have their own scales.
+     */
     public ChartsRadar setYScale(ScaleTypes yScale3) {
         if (!isChain) {
             js.append(jsBase);

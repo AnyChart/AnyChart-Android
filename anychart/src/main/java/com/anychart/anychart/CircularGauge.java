@@ -6,13 +6,34 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Circular gauge class.
+ */
 public class CircularGauge extends Chart {
 
     protected CircularGauge(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public CircularGauge setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public CircularGauge setData(List<DataEntry> data) {
@@ -35,10 +56,33 @@ public class CircularGauge extends Chart {
         return this;
     }
 
+    public CircularGauge setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
 
     private Circular getAxis;
 
+    /**
+     * Getter for default gauge axis settings.
+     */
     public Circular getAxis() {
         if (getAxis == null)
             getAxis = new Circular(jsBase + ".axis()");
@@ -48,6 +92,10 @@ public class CircularGauge extends Chart {
     private String axis;
     private Boolean axis1;
     private List<CircularGauge> setAxis = new ArrayList<>();
+
+    /**
+     * Setter for the gauge axis settings.
+     */
     public CircularGauge setAxis(String axis) {
         if (!isChain) {
             js.append(jsBase);
@@ -73,6 +121,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the gauge axis settings.
+     */
     public CircularGauge setAxis(Boolean axis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -101,6 +153,10 @@ public class CircularGauge extends Chart {
     private String axis2;
     private Boolean axis3;
     private List<CircularGauge> setAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for the gauge axis by index.
+     */
     public CircularGauge setAxis(String axis2, Double index) {
         if (!isChain) {
             js.append(jsBase);
@@ -126,6 +182,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for the gauge axis by index.
+     */
     public CircularGauge setAxis(Boolean axis3, Double index) {
         if (!isChain) {
             js.append(jsBase);
@@ -153,6 +213,9 @@ public class CircularGauge extends Chart {
 
     private GaugePointersBar getBar;
 
+    /**
+     * Getter for the bar pointer.
+     */
     public GaugePointersBar getBar() {
         if (getBar == null)
             getBar = new GaugePointersBar(jsBase + ".bar()");
@@ -162,6 +225,9 @@ public class CircularGauge extends Chart {
 
     private List<GaugePointersBar> getBar1 = new ArrayList<>();
 
+    /**
+     * Getter for the bar pointer.
+     */
     public GaugePointersBar getBar(Double index1) {
         GaugePointersBar item = new GaugePointersBar(jsBase + ".bar("+ index1+")");
         getBar1.add(item);
@@ -170,6 +236,10 @@ public class CircularGauge extends Chart {
     private String bar;
     private Boolean bar1;
     private List<CircularGauge> setBar = new ArrayList<>();
+
+    /**
+     * Setter for the first bar pointer.
+     */
     public CircularGauge setBar(String bar) {
         if (!isChain) {
             js.append(jsBase);
@@ -195,6 +265,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setBar1 = new ArrayList<>();
+
+    /**
+     * Setter for the first bar pointer.
+     */
     public CircularGauge setBar(Boolean bar1) {
         if (!isChain) {
             js.append(jsBase);
@@ -223,6 +297,10 @@ public class CircularGauge extends Chart {
     private String bar2;
     private Boolean bar3;
     private List<CircularGauge> setBar2 = new ArrayList<>();
+
+    /**
+     * Setter for the bar pointer by index.
+     */
     public CircularGauge setBar(String bar2, Double index2) {
         if (!isChain) {
             js.append(jsBase);
@@ -248,6 +326,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setBar3 = new ArrayList<>();
+
+    /**
+     * Setter for the bar pointer by index.
+     */
     public CircularGauge setBar(Boolean bar3, Double index2) {
         if (!isChain) {
             js.append(jsBase);
@@ -275,6 +357,9 @@ public class CircularGauge extends Chart {
 
     private Cap getCap;
 
+    /**
+     * Getter for the gauge cap.
+     */
     public Cap getCap() {
         if (getCap == null)
             getCap = new Cap(jsBase + ".cap()");
@@ -284,6 +369,10 @@ public class CircularGauge extends Chart {
     private String cap;
     private Boolean cap1;
     private List<CircularGauge> setCap = new ArrayList<>();
+
+    /**
+     * Setter for the gauge cap.
+     */
     public CircularGauge setCap(String cap) {
         if (!isChain) {
             js.append(jsBase);
@@ -309,6 +398,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setCap1 = new ArrayList<>();
+
+    /**
+     * Setter for the gauge cap.
+     */
     public CircularGauge setCap(Boolean cap1) {
         if (!isChain) {
             js.append(jsBase);
@@ -336,6 +429,10 @@ public class CircularGauge extends Chart {
     private Double circularPadding;
     private String circularPadding1;
     private List<CircularGauge> setCircularPadding = new ArrayList<>();
+
+    /**
+     * Setter for circular space around the gauge.
+     */
     public CircularGauge setCircularPadding(Double circularPadding) {
         if (!isChain) {
             js.append(jsBase);
@@ -361,6 +458,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setCircularPadding1 = new ArrayList<>();
+
+    /**
+     * Setter for circular space around the gauge.
+     */
     public CircularGauge setCircularPadding(String circularPadding1) {
         if (!isChain) {
             js.append(jsBase);
@@ -388,6 +489,9 @@ public class CircularGauge extends Chart {
 
     private View getData;
 
+    /**
+     * Getter for pointers mapping.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -395,6 +499,10 @@ public class CircularGauge extends Chart {
         return getData;
     }
     private List<CircularGauge> setData = new ArrayList<>();
+
+    /**
+     * Setter for pointers mapping
+     */
     public CircularGauge data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -427,6 +535,10 @@ public class CircularGauge extends Chart {
 
     private Boolean encloseWithStraightLine;
     private List<CircularGauge> setEncloseWithStraightLine = new ArrayList<>();
+
+    /**
+     * Setter for enclosing frame path with a straight line.
+     */
     public CircularGauge setEncloseWithStraightLine(Boolean encloseWithStraightLine) {
         if (!isChain) {
             js.append(jsBase);
@@ -454,6 +566,11 @@ public class CircularGauge extends Chart {
     private Fill fill;
     private String fill1;
     private List<CircularGauge> setFill = new ArrayList<>();
+
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CircularGauge setFill(Fill fill) {
         if (!isChain) {
             js.append(jsBase);
@@ -479,6 +596,11 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setFill1 = new ArrayList<>();
+
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CircularGauge setFill(String fill1) {
         if (!isChain) {
             js.append(jsBase);
@@ -506,6 +628,10 @@ public class CircularGauge extends Chart {
     private String color;
     private Double opacity;
     private List<CircularGauge> setFill2 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public CircularGauge fill(String color, Double opacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -538,6 +664,11 @@ public class CircularGauge extends Chart {
     private String mode2;
     private Double opacity1;
     private List<CircularGauge> setFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CircularGauge fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -563,6 +694,11 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CircularGauge fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -588,6 +724,11 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CircularGauge fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -613,6 +754,11 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CircularGauge fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -638,6 +784,11 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CircularGauge fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -663,6 +814,11 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setFill8 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CircularGauge fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -696,6 +852,11 @@ public class CircularGauge extends Chart {
     private Double fx;
     private Double fy;
     private List<CircularGauge> setFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CircularGauge fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -721,6 +882,11 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setFill10 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CircularGauge fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -749,6 +915,9 @@ public class CircularGauge extends Chart {
 
     private Knob getKnob;
 
+    /**
+     * Getter for the knob pointer.
+     */
     public Knob getKnob() {
         if (getKnob == null)
             getKnob = new Knob(jsBase + ".knob()");
@@ -758,6 +927,9 @@ public class CircularGauge extends Chart {
 
     private List<Knob> getKnob1 = new ArrayList<>();
 
+    /**
+     * Getter for the knob pointer.
+     */
     public Knob getKnob(Double index3) {
         Knob item = new Knob(jsBase + ".knob("+ index3+")");
         getKnob1.add(item);
@@ -766,6 +938,10 @@ public class CircularGauge extends Chart {
     private String knob;
     private Boolean knob1;
     private List<CircularGauge> setKnob = new ArrayList<>();
+
+    /**
+     * Setter for the first knob pointer.
+     */
     public CircularGauge setKnob(String knob) {
         if (!isChain) {
             js.append(jsBase);
@@ -791,6 +967,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setKnob1 = new ArrayList<>();
+
+    /**
+     * Setter for the first knob pointer.
+     */
     public CircularGauge setKnob(Boolean knob1) {
         if (!isChain) {
             js.append(jsBase);
@@ -819,6 +999,10 @@ public class CircularGauge extends Chart {
     private String knob2;
     private Boolean knob3;
     private List<CircularGauge> setKnob2 = new ArrayList<>();
+
+    /**
+     * Setter for the knob pointer by index.
+     */
     public CircularGauge setKnob(String knob2, Double index4) {
         if (!isChain) {
             js.append(jsBase);
@@ -844,6 +1028,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setKnob3 = new ArrayList<>();
+
+    /**
+     * Setter for the knob pointer by index.
+     */
     public CircularGauge setKnob(Boolean knob3, Double index4) {
         if (!isChain) {
             js.append(jsBase);
@@ -871,6 +1059,9 @@ public class CircularGauge extends Chart {
 
     private GaugePointersMarker getMarker;
 
+    /**
+     * Getter for the marker pointer.
+     */
     public GaugePointersMarker getMarker() {
         if (getMarker == null)
             getMarker = new GaugePointersMarker(jsBase + ".marker()");
@@ -880,6 +1071,9 @@ public class CircularGauge extends Chart {
 
     private List<GaugePointersMarker> getMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the marker pointer.
+     */
     public GaugePointersMarker getMarker(Double index5) {
         GaugePointersMarker item = new GaugePointersMarker(jsBase + ".marker("+ index5+")");
         getMarker1.add(item);
@@ -888,6 +1082,10 @@ public class CircularGauge extends Chart {
     private String marker;
     private Boolean marker1;
     private List<CircularGauge> setMarker = new ArrayList<>();
+
+    /**
+     * Setter for the first marker pointer.
+     */
     public CircularGauge setMarker(String marker) {
         if (!isChain) {
             js.append(jsBase);
@@ -913,6 +1111,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setMarker1 = new ArrayList<>();
+
+    /**
+     * Setter for the first marker pointer.
+     */
     public CircularGauge setMarker(Boolean marker1) {
         if (!isChain) {
             js.append(jsBase);
@@ -941,6 +1143,10 @@ public class CircularGauge extends Chart {
     private String marker2;
     private Boolean marker3;
     private List<CircularGauge> setMarker2 = new ArrayList<>();
+
+    /**
+     * Setter for the marker pointer by index.
+     */
     public CircularGauge setMarker(String marker2, Double index6) {
         if (!isChain) {
             js.append(jsBase);
@@ -966,6 +1172,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setMarker3 = new ArrayList<>();
+
+    /**
+     * Setter for the marker pointer by index.
+     */
     public CircularGauge setMarker(Boolean marker3, Double index6) {
         if (!isChain) {
             js.append(jsBase);
@@ -993,6 +1203,9 @@ public class CircularGauge extends Chart {
 
     private Needle getNeedle;
 
+    /**
+     * Getter for the needle pointer.
+     */
     public Needle getNeedle() {
         if (getNeedle == null)
             getNeedle = new Needle(jsBase + ".needle()");
@@ -1002,6 +1215,9 @@ public class CircularGauge extends Chart {
 
     private List<Needle> getNeedle1 = new ArrayList<>();
 
+    /**
+     * Getter for the needle pointer.
+     */
     public Needle getNeedle(Double index7) {
         Needle item = new Needle(jsBase + ".needle("+ index7+")");
         getNeedle1.add(item);
@@ -1010,6 +1226,10 @@ public class CircularGauge extends Chart {
     private String needle;
     private Boolean needle1;
     private List<CircularGauge> setNeedle = new ArrayList<>();
+
+    /**
+     * Setter for the first needle pointer.
+     */
     public CircularGauge setNeedle(String needle) {
         if (!isChain) {
             js.append(jsBase);
@@ -1035,6 +1255,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setNeedle1 = new ArrayList<>();
+
+    /**
+     * Setter for the first needle pointer.
+     */
     public CircularGauge setNeedle(Boolean needle1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1063,6 +1287,10 @@ public class CircularGauge extends Chart {
     private String needle2;
     private Boolean needle3;
     private List<CircularGauge> setNeedle2 = new ArrayList<>();
+
+    /**
+     * Setter for the needle pointer by index.
+     */
     public CircularGauge setNeedle(String needle2, Double index8) {
         if (!isChain) {
             js.append(jsBase);
@@ -1088,6 +1316,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setNeedle3 = new ArrayList<>();
+
+    /**
+     * Setter for the needle pointer by index.
+     */
     public CircularGauge setNeedle(Boolean needle3, Double index8) {
         if (!isChain) {
             js.append(jsBase);
@@ -1115,6 +1347,9 @@ public class CircularGauge extends Chart {
 
     private CircularRange getRange;
 
+    /**
+     * Getter for the circular range.
+     */
     public CircularRange getRange() {
         if (getRange == null)
             getRange = new CircularRange(jsBase + ".range()");
@@ -1124,6 +1359,9 @@ public class CircularGauge extends Chart {
 
     private List<CircularRange> getRange1 = new ArrayList<>();
 
+    /**
+     * Getter for the circular range.
+     */
     public CircularRange getRange(Double index9) {
         CircularRange item = new CircularRange(jsBase + ".range("+ index9+")");
         getRange1.add(item);
@@ -1132,6 +1370,10 @@ public class CircularGauge extends Chart {
     private String range;
     private Boolean range1;
     private List<CircularGauge> setRange = new ArrayList<>();
+
+    /**
+     * Setter for the circular first range settings.
+     */
     public CircularGauge setRange(String range) {
         if (!isChain) {
             js.append(jsBase);
@@ -1157,6 +1399,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setRange1 = new ArrayList<>();
+
+    /**
+     * Setter for the circular first range settings.
+     */
     public CircularGauge setRange(Boolean range1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1185,6 +1431,10 @@ public class CircularGauge extends Chart {
     private String range2;
     private Boolean range3;
     private List<CircularGauge> setRange2 = new ArrayList<>();
+
+    /**
+     * Setter for the circular range settings by index.
+     */
     public CircularGauge setRange(String range2, Double index10) {
         if (!isChain) {
             js.append(jsBase);
@@ -1210,6 +1460,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setRange3 = new ArrayList<>();
+
+    /**
+     * Setter for the circular range settings by index.
+     */
     public CircularGauge setRange(Boolean range3, Double index10) {
         if (!isChain) {
             js.append(jsBase);
@@ -1237,6 +1491,10 @@ public class CircularGauge extends Chart {
     private String startAngle;
     private Double startAngle1;
     private List<CircularGauge> setStartAngle = new ArrayList<>();
+
+    /**
+     * Setter for the start angle.
+     */
     public CircularGauge setStartAngle(String startAngle) {
         if (!isChain) {
             js.append(jsBase);
@@ -1262,6 +1520,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setStartAngle1 = new ArrayList<>();
+
+    /**
+     * Setter for the start angle.
+     */
     public CircularGauge setStartAngle(Double startAngle1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1294,6 +1556,11 @@ public class CircularGauge extends Chart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<CircularGauge> setStroke = new ArrayList<>();
+
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CircularGauge setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -1319,6 +1586,11 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CircularGauge setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -1344,6 +1616,11 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CircularGauge setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -1371,6 +1648,10 @@ public class CircularGauge extends Chart {
     private String sweepAngle;
     private Double sweepAngle1;
     private List<CircularGauge> setSweepAngle = new ArrayList<>();
+
+    /**
+     * Setter for the gauge sweep angle.
+     */
     public CircularGauge setSweepAngle(String sweepAngle) {
         if (!isChain) {
             js.append(jsBase);
@@ -1396,6 +1677,10 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setSweepAngle1 = new ArrayList<>();
+
+    /**
+     * Setter for the gauge sweep angle.
+     */
     public CircularGauge setSweepAngle(Double sweepAngle1) {
         if (!isChain) {
             js.append(jsBase);

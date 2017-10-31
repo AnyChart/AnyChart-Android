@@ -6,13 +6,35 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Bullet chart class.<br/>
+<b>Note:</b> Use {@link anychart#bullet} method to get an instance of this class.
+ */
 public class Bullet extends Chart {
 
     protected Bullet(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Bullet setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Bullet setData(List<DataEntry> data) {
@@ -35,10 +57,33 @@ public class Bullet extends Chart {
         return this;
     }
 
+    public Bullet setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
 
     private CoreAxesLinear getAxis;
 
+    /**
+     * Getter for the current bullet chart axis settings.
+     */
     public CoreAxesLinear getAxis() {
         if (getAxis == null)
             getAxis = new CoreAxesLinear(jsBase + ".axis()");
@@ -48,6 +93,10 @@ public class Bullet extends Chart {
     private String axis;
     private Boolean axis1;
     private List<Bullet> setAxis = new ArrayList<>();
+
+    /**
+     * Setter for the bullet chart axis settings.
+     */
     public Bullet setAxis(String axis) {
         if (!isChain) {
             js.append(jsBase);
@@ -73,6 +122,10 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the bullet chart axis settings.
+     */
     public Bullet setAxis(Boolean axis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -100,6 +153,9 @@ public class Bullet extends Chart {
 
     private View getData;
 
+    /**
+     * Getter for the current chart data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -107,6 +163,11 @@ public class Bullet extends Chart {
         return getData;
     }
     private List<Bullet> setData = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.<br/>
+<b>Note:</b> All data is markers values.
+     */
     public Bullet data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -140,6 +201,10 @@ public class Bullet extends Chart {
     private Layout layout;
     private String layout1;
     private List<Bullet> setLayout = new ArrayList<>();
+
+    /**
+     * Setter for the chart layout.
+     */
     public Bullet setLayout(Layout layout) {
         if (!isChain) {
             js.append(jsBase);
@@ -165,6 +230,10 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setLayout1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart layout.
+     */
     public Bullet setLayout(String layout1) {
         if (!isChain) {
             js.append(jsBase);
@@ -192,6 +261,9 @@ public class Bullet extends Chart {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for the current markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -203,6 +275,11 @@ public class Bullet extends Chart {
     private String markerPalette2;
     private Markers markerPalette3;
     private List<Bullet> setMarkerPalette = new ArrayList<>();
+
+    /**
+     * Setter for the markers palette settings.<br/>
+<b>Note:</b> Markers sets in data().
+     */
     public Bullet setMarkerPalette(MarkerType[] markerPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -228,6 +305,11 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setMarkerPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for the markers palette settings.<br/>
+<b>Note:</b> Markers sets in data().
+     */
     public Bullet setMarkerPalette(String[] markerPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -253,6 +335,11 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setMarkerPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the markers palette settings.<br/>
+<b>Note:</b> Markers sets in data().
+     */
     public Bullet setMarkerPalette(String markerPalette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -278,17 +365,20 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setMarkerPalette3 = new ArrayList<>();
-    public Bullet setMarkerPalette(Markers markerPalette3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette3 != null) ? markerPalette3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette3 != null) ? markerPalette3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the markers palette settings.<br/>
+<b>Note:</b> Markers sets in data().
+     */
+    public Bullet setMarkerPalette(Markers markerPalette3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(markerPalette3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette3 != null) ? markerPalette3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetMarkerPalette3() {
@@ -305,6 +395,9 @@ public class Bullet extends Chart {
 
     private CoreAxismarkersRange getRange;
 
+    /**
+     * Getter for the current bullet chart ranges settings.
+     */
     public CoreAxismarkersRange getRange() {
         if (getRange == null)
             getRange = new CoreAxismarkersRange(jsBase + ".range()");
@@ -314,6 +407,9 @@ public class Bullet extends Chart {
 
     private List<CoreAxismarkersRange> getRange1 = new ArrayList<>();
 
+    /**
+     * Getter for the current bullet chart ranges settings.
+     */
     public CoreAxismarkersRange getRange(Double index) {
         CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".range("+ index+")");
         getRange1.add(item);
@@ -322,6 +418,10 @@ public class Bullet extends Chart {
     private String range;
     private Boolean range1;
     private List<Bullet> setRange = new ArrayList<>();
+
+    /**
+     * Setter for the bullet chart first range settings.
+     */
     public Bullet setRange(String range) {
         if (!isChain) {
             js.append(jsBase);
@@ -347,6 +447,10 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setRange1 = new ArrayList<>();
+
+    /**
+     * Setter for the bullet chart first range settings.
+     */
     public Bullet setRange(Boolean range1) {
         if (!isChain) {
             js.append(jsBase);
@@ -375,6 +479,10 @@ public class Bullet extends Chart {
     private String range2;
     private Boolean range3;
     private List<Bullet> setRange2 = new ArrayList<>();
+
+    /**
+     * Setter for bullet chart ranges settings.
+     */
     public Bullet setRange(String range2, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -400,6 +508,10 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setRange3 = new ArrayList<>();
+
+    /**
+     * Setter for bullet chart ranges settings.
+     */
     public Bullet setRange(Boolean range3, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -427,6 +539,9 @@ public class Bullet extends Chart {
 
     private DistinctColors getRangePalette;
 
+    /**
+     * Getter for the current range palette settings.
+     */
     public DistinctColors getRangePalette() {
         if (getRangePalette == null)
             getRangePalette = new DistinctColors(jsBase + ".rangePalette()");
@@ -437,17 +552,19 @@ public class Bullet extends Chart {
     private String rangePalette1;
     private String[] rangePalette2;
     private List<Bullet> setRangePalette = new ArrayList<>();
-    public Bullet setRangePalette(DistinctColors rangePalette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".rangePalette(%s)", ((rangePalette != null) ? rangePalette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rangePalette(%s)", ((rangePalette != null) ? rangePalette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the range palette settings.
+     */
+    public Bullet setRangePalette(DistinctColors rangePalette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(rangePalette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".rangePalette(%s);",  ((rangePalette != null) ? rangePalette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetRangePalette() {
@@ -462,6 +579,10 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setRangePalette1 = new ArrayList<>();
+
+    /**
+     * Setter for the range palette settings.
+     */
     public Bullet setRangePalette(String rangePalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -487,6 +608,10 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setRangePalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the range palette settings.
+     */
     public Bullet setRangePalette(String[] rangePalette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -514,6 +639,9 @@ public class Bullet extends Chart {
 
     private ScalesBase getScale;
 
+    /**
+     * Getter for default bullet chart scale settings.
+     */
     public ScalesBase getScale() {
         if (getScale == null)
             getScale = new ScalesBase(jsBase + ".scale()");
@@ -525,17 +653,19 @@ public class Bullet extends Chart {
     private ScaleTypes scale2;
     private String scale3;
     private List<Bullet> setScale = new ArrayList<>();
-    public Bullet setScale(ScalesBase scale) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the bullet chart scale settings.
+     */
+    public Bullet setScale(ScalesBase scale) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(scale.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetScale() {
@@ -550,6 +680,10 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the bullet chart scale settings.
+     */
     public Bullet setScale(String scale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -575,6 +709,10 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setScale2 = new ArrayList<>();
+
+    /**
+     * Setter for the bullet chart scale settings.
+     */
     public Bullet setScale(ScaleTypes scale2) {
         if (!isChain) {
             js.append(jsBase);

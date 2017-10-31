@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesMarkersFactory extends UiMarkersFactory {
 
     public StandalonesMarkersFactory() {
-
+        js.setLength(0);
+        js.append("var standalonesMarkersFactory").append(++variableIndex).append(" = anychart.standalones.markersFactory();");
+        jsBase = "standalonesMarkersFactory" + variableIndex;
     }
 
     protected StandalonesMarkersFactory(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class StandalonesMarkersFactory extends UiMarkersFactory {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class StandalonesMarkersFactory extends UiMarkersFactory {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

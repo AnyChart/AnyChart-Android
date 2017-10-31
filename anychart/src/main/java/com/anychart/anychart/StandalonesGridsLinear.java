@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesGridsLinear extends CoreGridsLinear {
 
     public StandalonesGridsLinear() {
-
+        js.setLength(0);
+        js.append("var standalonesGridsLinear").append(++variableIndex).append(" = anychart.standalones.grids.linear();");
+        jsBase = "standalonesGridsLinear" + variableIndex;
     }
 
     protected StandalonesGridsLinear(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Layout layout;
     private String layout1;
 
+    /**
+     * Setter for the grid layout.
+     */
     public StandalonesGridsLinear setLayout(Layout layout) {
         if (jsBase == null) {
             this.layout = null;
@@ -42,7 +55,6 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
     }
 
 
+    /**
+     * Setter for the grid layout.
+     */
     public StandalonesGridsLinear setLayout(String layout1) {
         if (jsBase == null) {
             this.layout = null;
@@ -66,7 +81,6 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);
@@ -75,8 +89,6 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -94,16 +106,6 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSlayout());
-////        
-//            js.append(generateJSlayout1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Gantt date time scale.
+ */
 public class GanttDateTime extends CoreBase {
 
     public GanttDateTime() {
-
+        js.setLength(0);
+        js.append("var ganttDateTime").append(++variableIndex).append(" = anychart.scales.ganttDateTime();");
+        jsBase = "ganttDateTime" + variableIndex;
     }
 
     protected GanttDateTime(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class GanttDateTime extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double maximum;
 
+    /**
+     * Setter for the scale maximum.
+     */
     public GanttDateTime setMaximum(Double maximum) {
         if (jsBase == null) {
             this.maximum = maximum;
@@ -38,7 +51,6 @@ public class GanttDateTime extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".maximum(%f)", maximum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximum(%f)", maximum));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class GanttDateTime extends CoreBase {
 
     private Double maximumGap;
 
+    /**
+     * Setter for the maximum gap.
+     */
     public GanttDateTime setMaximumGap(Double maximumGap) {
         if (jsBase == null) {
             this.maximumGap = maximumGap;
@@ -60,7 +75,6 @@ public class GanttDateTime extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
                 js.setLength(0);
@@ -71,6 +85,9 @@ public class GanttDateTime extends CoreBase {
 
     private Double minimum;
 
+    /**
+     * Setter for the scale minimum.
+     */
     public GanttDateTime setMinimum(Double minimum) {
         if (jsBase == null) {
             this.minimum = minimum;
@@ -82,7 +99,6 @@ public class GanttDateTime extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minimum(%f)", minimum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimum(%f)", minimum));
                 js.setLength(0);
@@ -93,6 +109,9 @@ public class GanttDateTime extends CoreBase {
 
     private Double minimumGap;
 
+    /**
+     * Setter for the minimum gap.
+     */
     public GanttDateTime setMinimumGap(Double minimumGap) {
         if (jsBase == null) {
             this.minimumGap = minimumGap;
@@ -104,7 +123,6 @@ public class GanttDateTime extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
                 js.setLength(0);
@@ -115,6 +133,9 @@ public class GanttDateTime extends CoreBase {
 
     private Double softMaximum;
 
+    /**
+     * Setter for the scale soft maximum.
+     */
     public GanttDateTime setSoftMaximum(Double softMaximum) {
         if (jsBase == null) {
             this.softMaximum = softMaximum;
@@ -126,7 +147,6 @@ public class GanttDateTime extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
                 js.setLength(0);
@@ -137,6 +157,9 @@ public class GanttDateTime extends CoreBase {
 
     private Double softMinimum;
 
+    /**
+     * Setter for the scale soft minimum.
+     */
     public GanttDateTime setSoftMinimum(Double softMinimum) {
         if (jsBase == null) {
             this.softMinimum = softMinimum;
@@ -148,7 +171,6 @@ public class GanttDateTime extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
                 js.setLength(0);
@@ -157,8 +179,6 @@ public class GanttDateTime extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -176,24 +196,6 @@ public class GanttDateTime extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSmaximum());
-////        
-//            js.append(generateJSmaximumGap());
-////        
-//            js.append(generateJSminimum());
-////        
-//            js.append(generateJSminimumGap());
-////        
-//            js.append(generateJSsoftMaximum());
-////        
-//            js.append(generateJSsoftMinimum());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Text marker.
+ */
 public class CoreAxismarkersText extends CoreText {
 
     public CoreAxismarkersText() {
-
+        js.setLength(0);
+        js.append("var coreAxismarkersText").append(++variableIndex).append(" = anychart.core.axisMarkers.text();");
+        jsBase = "coreAxismarkersText" + variableIndex;
     }
 
     protected CoreAxismarkersText(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class CoreAxismarkersText extends CoreText {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private EnumsAlign align;
     private String align1;
 
+    /**
+     * Setter for the text marker align.
+     */
     public CoreAxismarkersText setAlign(EnumsAlign align) {
         if (jsBase == null) {
             this.align = null;
@@ -42,7 +55,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class CoreAxismarkersText extends CoreText {
     }
 
 
+    /**
+     * Setter for the text marker align.
+     */
     public CoreAxismarkersText setAlign(String align1) {
         if (jsBase == null) {
             this.align = null;
@@ -66,7 +81,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
                 js.setLength(0);
@@ -78,6 +92,9 @@ public class CoreAxismarkersText extends CoreText {
     private EnumsAnchor anchor;
     private String anchor1;
 
+    /**
+     * Setter for the text marker anchor settings.
+     */
     public CoreAxismarkersText setAnchor(EnumsAnchor anchor) {
         if (jsBase == null) {
             this.anchor = null;
@@ -92,7 +109,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
@@ -102,6 +118,9 @@ public class CoreAxismarkersText extends CoreText {
     }
 
 
+    /**
+     * Setter for the text marker anchor settings.
+     */
     public CoreAxismarkersText setAnchor(String anchor1) {
         if (jsBase == null) {
             this.anchor = null;
@@ -116,7 +135,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
                 js.setLength(0);
@@ -127,6 +145,9 @@ public class CoreAxismarkersText extends CoreText {
 
     private CoreAxesLinear getAxis;
 
+    /**
+     * Getter for the text marker axis.
+     */
     public CoreAxesLinear getAxis() {
         if (getAxis == null)
             getAxis = new CoreAxesLinear(jsBase + ".axis()");
@@ -136,6 +157,9 @@ public class CoreAxismarkersText extends CoreText {
 
     private CoreAxesLinear axis;
 
+    /**
+     * Setter for the text marker axis.
+     */
     public CoreAxismarkersLine setAxis(CoreAxesLinear axis) {
         if (jsBase == null) {
             this.axis = axis;
@@ -145,11 +169,12 @@ public class CoreAxismarkersText extends CoreText {
                 js.append(";");
                 isChain = false;
             }
+            js.append(axis.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".axis(%s);", ((axis != null) ? axis.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".axis(%s);",  ((axis != null) ? axis.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s)", ((axis != null) ? axis.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s)", ((axis != null) ? axis.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -159,6 +184,9 @@ public class CoreAxismarkersText extends CoreText {
     private Double height;
     private String height1;
 
+    /**
+     * Setter for the text marker height.
+     */
     public CoreAxismarkersText setHeight(Double height) {
         if (jsBase == null) {
             this.height = null;
@@ -173,7 +201,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -183,6 +210,9 @@ public class CoreAxismarkersText extends CoreText {
     }
 
 
+    /**
+     * Setter for the text marker height.
+     */
     public CoreAxismarkersText setHeight(String height1) {
         if (jsBase == null) {
             this.height = null;
@@ -197,7 +227,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
@@ -209,6 +238,9 @@ public class CoreAxismarkersText extends CoreText {
     private Layout layout;
     private String layout1;
 
+    /**
+     * Setter for text marker layout.
+     */
     public CoreAxismarkersText setLayout(Layout layout) {
         if (jsBase == null) {
             this.layout = null;
@@ -223,7 +255,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
@@ -233,6 +264,9 @@ public class CoreAxismarkersText extends CoreText {
     }
 
 
+    /**
+     * Setter for text marker layout.
+     */
     public CoreAxismarkersText setLayout(String layout1) {
         if (jsBase == null) {
             this.layout = null;
@@ -247,7 +281,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);
@@ -259,6 +292,9 @@ public class CoreAxismarkersText extends CoreText {
     private Double offsetX;
     private String offsetX1;
 
+    /**
+     * Setter for the text marker offset by x.
+     */
     public CoreAxismarkersText setOffsetX(Double offsetX) {
         if (jsBase == null) {
             this.offsetX = null;
@@ -273,7 +309,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetX(%f)", offsetX));
                 js.setLength(0);
@@ -283,6 +318,9 @@ public class CoreAxismarkersText extends CoreText {
     }
 
 
+    /**
+     * Setter for the text marker offset by x.
+     */
     public CoreAxismarkersText setOffsetX(String offsetX1) {
         if (jsBase == null) {
             this.offsetX = null;
@@ -297,7 +335,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
                 js.setLength(0);
@@ -309,6 +346,9 @@ public class CoreAxismarkersText extends CoreText {
     private Double offsetY;
     private String offsetY1;
 
+    /**
+     * Setter for the text marker offset by y.
+     */
     public CoreAxismarkersText setOffsetY(Double offsetY) {
         if (jsBase == null) {
             this.offsetY = null;
@@ -323,7 +363,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetY(%f)", offsetY));
                 js.setLength(0);
@@ -333,6 +372,9 @@ public class CoreAxismarkersText extends CoreText {
     }
 
 
+    /**
+     * Setter for the text marker offset by y.
+     */
     public CoreAxismarkersText setOffsetY(String offsetY1) {
         if (jsBase == null) {
             this.offsetY = null;
@@ -347,7 +389,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
                 js.setLength(0);
@@ -358,6 +399,9 @@ public class CoreAxismarkersText extends CoreText {
 
     private Double rotation;
 
+    /**
+     * Setter for the text marker rotation.
+     */
     public CoreAxismarkersText setRotation(Double rotation) {
         if (jsBase == null) {
             this.rotation = rotation;
@@ -369,7 +413,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".rotation(%f)", rotation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rotation(%f)", rotation));
                 js.setLength(0);
@@ -380,6 +423,9 @@ public class CoreAxismarkersText extends CoreText {
 
     private ScalesBase getScale;
 
+    /**
+     * Getter for the text marker scale.
+     */
     public ScalesBase getScale() {
         if (getScale == null)
             getScale = new ScalesBase(jsBase + ".scale()");
@@ -392,6 +438,9 @@ public class CoreAxismarkersText extends CoreText {
     private ScaleTypes scale2;
     private String scale3;
 
+    /**
+     * Setter for the text marker scale.
+     */
     public CoreAxismarkersText setScale(ScalesBase scale) {
         if (jsBase == null) {
             this.scale = null;
@@ -402,15 +451,16 @@ public class CoreAxismarkersText extends CoreText {
             this.scale = scale;
         } else {
             this.scale = scale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(scale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -418,6 +468,9 @@ public class CoreAxismarkersText extends CoreText {
     }
 
 
+    /**
+     * Setter for the text marker scale.
+     */
     public CoreAxismarkersText setScale(String scale1) {
         if (jsBase == null) {
             this.scale = null;
@@ -434,7 +487,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
@@ -444,6 +496,9 @@ public class CoreAxismarkersText extends CoreText {
     }
 
 
+    /**
+     * Setter for the text marker scale.
+     */
     public CoreAxismarkersText setScale(ScaleTypes scale2) {
         if (jsBase == null) {
             this.scale = null;
@@ -460,7 +515,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
                 js.setLength(0);
@@ -471,6 +525,9 @@ public class CoreAxismarkersText extends CoreText {
 
     private String text;
 
+    /**
+     * Setter for the text marker text settings.
+     */
     public CoreAxismarkersText setText(String text) {
         if (jsBase == null) {
             this.text = text;
@@ -482,7 +539,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
                 js.setLength(0);
@@ -493,6 +549,9 @@ public class CoreAxismarkersText extends CoreText {
 
     private Double value;
 
+    /**
+     * Setter for the text marker value.
+     */
     public CoreAxismarkersText setValue(Double value) {
         if (jsBase == null) {
             this.value = value;
@@ -504,7 +563,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".value(%f)", value));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".value(%f)", value));
                 js.setLength(0);
@@ -516,6 +574,9 @@ public class CoreAxismarkersText extends CoreText {
     private Double width;
     private String width1;
 
+    /**
+     * Setter for the text marker width.
+     */
     public CoreAxismarkersText setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
@@ -530,7 +591,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -540,6 +600,9 @@ public class CoreAxismarkersText extends CoreText {
     }
 
 
+    /**
+     * Setter for the text marker width.
+     */
     public CoreAxismarkersText setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
@@ -554,7 +617,6 @@ public class CoreAxismarkersText extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
@@ -563,26 +625,9 @@ public class CoreAxismarkersText extends CoreText {
         return this;
     }
 
-
-//
-//    private String generateJSCoreAxesLinear getAxis() {
-//        if (CoreAxesLinear getAxis != null) {
-//            return CoreAxesLinear getAxis.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesBase getScale() {
-//        if (ScalesBase getScale != null) {
-//            return ScalesBase getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetAxis() {
         if (getAxis != null) {
             return getAxis.generateJs();
-            //return String.format(Locale.US, "getAxis: %s,", ((getAxis != null) ? getAxis.generateJs() : "null"));
         }
         return "";
     }
@@ -590,7 +635,6 @@ public class CoreAxismarkersText extends CoreText {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -614,56 +658,6 @@ public class CoreAxismarkersText extends CoreText {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSalign());
-////        
-//            js.append(generateJSalign1());
-////        
-//            js.append(generateJSanchor());
-////        
-//            js.append(generateJSanchor1());
-////        
-//            js.append(generateJSaxis());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJSlayout());
-////        
-//            js.append(generateJSlayout1());
-////        
-//            js.append(generateJSoffsetX());
-////        
-//            js.append(generateJSoffsetX1());
-////        
-//            js.append(generateJSoffsetY());
-////        
-//            js.append(generateJSoffsetY1());
-////        
-//            js.append(generateJSrotation());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSscale1());
-////        
-//            js.append(generateJSscale2());
-////        
-//            js.append(generateJSscale3());
-////        
-//            js.append(generateJStext());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

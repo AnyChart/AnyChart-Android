@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Spline Series Class.<br/>
+{docs:Stock_Charts/Series/Spline}Learn more about Spline series{docs}
+ */
 public class StockSeriesSpline extends StockSeriesBase {
 
     public StockSeriesSpline() {
-
+        js.setLength(0);
+        js.append("var stockSeriesSpline").append(++variableIndex).append(" = anychart.core.stock.series.spline();");
+        jsBase = "stockSeriesSpline" + variableIndex;
     }
 
     protected StockSeriesSpline(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -22,6 +29,10 @@ public class StockSeriesSpline extends StockSeriesBase {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
+    }
+
+    protected String getJsBase() {
+        return jsBase;
     }
 
     
@@ -33,6 +44,10 @@ public class StockSeriesSpline extends StockSeriesBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StockSeriesSpline setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -56,7 +71,6 @@ public class StockSeriesSpline extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -66,6 +80,10 @@ public class StockSeriesSpline extends StockSeriesBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StockSeriesSpline setStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -89,7 +107,6 @@ public class StockSeriesSpline extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -99,6 +116,10 @@ public class StockSeriesSpline extends StockSeriesBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StockSeriesSpline setStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -122,7 +143,6 @@ public class StockSeriesSpline extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -131,8 +151,6 @@ public class StockSeriesSpline extends StockSeriesBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -150,26 +168,6 @@ public class StockSeriesSpline extends StockSeriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base class for scale bar.
+ */
 public class ScaleBar extends VisualBase {
 
     public ScaleBar() {
-
+        js.setLength(0);
+        js.append("var scaleBar").append(++variableIndex).append(" = anychart.core.linearGauge.scaleBar();");
+        jsBase = "scaleBar" + variableIndex;
     }
 
     protected ScaleBar(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class ScaleBar extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private LinearColor getColorScale;
 
+    /**
+     * Getter for the color scale.
+     */
     public LinearColor getColorScale() {
         if (getColorScale == null)
             getColorScale = new LinearColor(jsBase + ".colorScale()");
@@ -40,6 +53,9 @@ public class ScaleBar extends VisualBase {
     private ScaleTypes colorScale3;
     private String colorScale4;
 
+    /**
+     * Setter for the color scale.
+     */
     public ScaleBar setColorScale(LinearColor colorScale) {
         if (jsBase == null) {
             this.colorScale = null;
@@ -51,15 +67,16 @@ public class ScaleBar extends VisualBase {
             this.colorScale = colorScale;
         } else {
             this.colorScale = colorScale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(colorScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -67,6 +84,9 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Setter for the color scale.
+     */
     public ScaleBar setColorScale(OrdinalColor colorScale1) {
         if (jsBase == null) {
             this.colorScale = null;
@@ -78,15 +98,16 @@ public class ScaleBar extends VisualBase {
             this.colorScale1 = colorScale1;
         } else {
             this.colorScale1 = colorScale1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(colorScale1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -94,6 +115,9 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Setter for the color scale.
+     */
     public ScaleBar setColorScale(String colorScale2) {
         if (jsBase == null) {
             this.colorScale = null;
@@ -111,7 +135,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".colorScale(%s)", wrapQuotes(colorScale2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", wrapQuotes(colorScale2)));
                 js.setLength(0);
@@ -121,6 +144,9 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Setter for the color scale.
+     */
     public ScaleBar setColorScale(ScaleTypes colorScale3) {
         if (jsBase == null) {
             this.colorScale = null;
@@ -138,7 +164,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".colorScale(%s)", ((colorScale3 != null) ? colorScale3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale3 != null) ? colorScale3.generateJs() : "null")));
                 js.setLength(0);
@@ -149,6 +174,10 @@ public class ScaleBar extends VisualBase {
 
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScaleBar setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -160,7 +189,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -172,6 +200,9 @@ public class ScaleBar extends VisualBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity.
+     */
     public ScaleBar fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -185,7 +216,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -202,6 +232,10 @@ public class ScaleBar extends VisualBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScaleBar fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -229,7 +263,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -239,6 +272,10 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScaleBar fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -266,7 +303,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -276,6 +312,10 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScaleBar fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -303,7 +343,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -313,6 +352,10 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScaleBar fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -340,7 +383,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -350,6 +392,10 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScaleBar fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -377,7 +423,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -387,6 +432,10 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScaleBar fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -414,7 +463,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -432,6 +480,10 @@ public class ScaleBar extends VisualBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScaleBar fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -469,7 +521,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -479,6 +530,10 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScaleBar fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -516,7 +571,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -529,6 +583,9 @@ public class ScaleBar extends VisualBase {
     private String from;
     private Double from1;
 
+    /**
+     * Setter for the starting range value.
+     */
     public ScaleBar setFrom(String from) {
         if (jsBase == null) {
             this.from = null;
@@ -543,7 +600,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".from(%s)", wrapQuotes(from)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".from(%s)", wrapQuotes(from)));
                 js.setLength(0);
@@ -553,6 +609,9 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Setter for the starting range value.
+     */
     public ScaleBar setFrom(Double from1) {
         if (jsBase == null) {
             this.from = null;
@@ -567,7 +626,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".from(%f)", from1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".from(%f)", from1));
                 js.setLength(0);
@@ -578,6 +636,9 @@ public class ScaleBar extends VisualBase {
 
     private String offset;
 
+    /**
+     * Setter for scale bar offset.
+     */
     public ScaleBar setOffset(String offset) {
         if (jsBase == null) {
             this.offset = offset;
@@ -589,7 +650,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
                 js.setLength(0);
@@ -600,6 +660,9 @@ public class ScaleBar extends VisualBase {
 
     private ControlPoint[] points;
 
+    /**
+     * Setter for points.
+     */
     public ScaleBar setPoints(ControlPoint[] points) {
         if (jsBase == null) {
             this.points = points;
@@ -611,7 +674,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".points(%s)", arrayToString(points)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".points(%s)", arrayToString(points)));
                 js.setLength(0);
@@ -622,6 +684,9 @@ public class ScaleBar extends VisualBase {
 
     private ScalesBase getScale;
 
+    /**
+     * Getter for the scale bar scale.
+     */
     public ScalesBase getScale() {
         if (getScale == null)
             getScale = new ScalesBase(jsBase + ".scale()");
@@ -631,6 +696,9 @@ public class ScaleBar extends VisualBase {
 
     private ScalesBase scale;
 
+    /**
+     * Setter for the scale bar scale.
+     */
     public ScalesBase setScale(ScalesBase scale) {
         if (jsBase == null) {
             this.scale = scale;
@@ -640,11 +708,12 @@ public class ScaleBar extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(scale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".scale(%s);", ((scale != null) ? scale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -659,6 +728,10 @@ public class ScaleBar extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScaleBar setStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -683,7 +756,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -693,6 +765,10 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScaleBar setStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -717,7 +793,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -727,6 +802,10 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScaleBar setStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -751,7 +830,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -763,6 +841,9 @@ public class ScaleBar extends VisualBase {
     private String to;
     private Double to1;
 
+    /**
+     * Setter for the ending range value.
+     */
     public ScaleBar setTo(String to) {
         if (jsBase == null) {
             this.to = null;
@@ -777,7 +858,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".to(%s)", wrapQuotes(to)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".to(%s)", wrapQuotes(to)));
                 js.setLength(0);
@@ -787,6 +867,9 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    /**
+     * Setter for the ending range value.
+     */
     public ScaleBar setTo(Double to1) {
         if (jsBase == null) {
             this.to = null;
@@ -801,7 +884,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".to(%f)", to1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".to(%f)", to1));
                 js.setLength(0);
@@ -812,6 +894,9 @@ public class ScaleBar extends VisualBase {
 
     private String width;
 
+    /**
+     * Setter for the scale bar width.
+     */
     public ScaleBar setWidth(String width) {
         if (jsBase == null) {
             this.width = width;
@@ -823,7 +908,6 @@ public class ScaleBar extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
                 js.setLength(0);
@@ -832,26 +916,9 @@ public class ScaleBar extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSLinearColor getColorScale() {
-//        if (LinearColor getColorScale != null) {
-//            return LinearColor getColorScale.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesBase getScale() {
-//        if (ScalesBase getScale != null) {
-//            return ScalesBase getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetColorScale() {
         if (getColorScale != null) {
             return getColorScale.generateJs();
-            //return String.format(Locale.US, "getColorScale: %s,", ((getColorScale != null) ? getColorScale.generateJs() : "null"));
         }
         return "";
     }
@@ -859,7 +926,6 @@ public class ScaleBar extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -883,90 +949,6 @@ public class ScaleBar extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolorScale());
-////        
-//            js.append(generateJScolorScale1());
-////        
-//            js.append(generateJScolorScale2());
-////        
-//            js.append(generateJScolorScale3());
-////        
-//            js.append(generateJScolorScale4());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSfrom());
-////        
-//            js.append(generateJSfrom1());
-////        
-//            js.append(generateJSoffset());
-////        
-//            js.append(generateJSpoints());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSto());
-////        
-//            js.append(generateJSto1());
-////        
-//            js.append(generateJSwidth());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

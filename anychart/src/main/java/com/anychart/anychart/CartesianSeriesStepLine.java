@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * StepLine Series Class.<br/>
+<b>Note:</b> Use {@link anychart.charts.Cartesian#stepLine} method to get this series.<br/>
+{docs:Basic_Charts/Step_Line_Chart}Learn more about StepLine series{docs}
+ */
 public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
 
     public CartesianSeriesStepLine() {
-
+        js.setLength(0);
+        js.append("var cartesianSeriesStepLine").append(++variableIndex).append(" = anychart.core.cartesian.series.stepLine();");
+        jsBase = "cartesianSeriesStepLine" + variableIndex;
     }
 
     protected CartesianSeriesStepLine(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +32,17 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private StepDirection stepDirection;
     private String stepDirection1;
 
+    /**
+     * Setter for the step direction.
+     */
     public CartesianSeriesStepLine setStepDirection(StepDirection stepDirection) {
         if (jsBase == null) {
             this.stepDirection = null;
@@ -42,7 +57,6 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".stepDirection(%s)", ((stepDirection != null) ? stepDirection.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stepDirection(%s)", ((stepDirection != null) ? stepDirection.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +66,9 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
     }
 
 
+    /**
+     * Setter for the step direction.
+     */
     public CartesianSeriesStepLine setStepDirection(String stepDirection1) {
         if (jsBase == null) {
             this.stepDirection = null;
@@ -66,7 +83,6 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".stepDirection(%s)", wrapQuotes(stepDirection1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stepDirection(%s)", wrapQuotes(stepDirection1)));
                 js.setLength(0);
@@ -83,6 +99,10 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CartesianSeriesStepLine setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -106,7 +126,6 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -116,6 +135,10 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CartesianSeriesStepLine setStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -139,7 +162,6 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -149,6 +171,10 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CartesianSeriesStepLine setStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -172,7 +198,6 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -181,8 +206,6 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -200,30 +223,6 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSstepDirection());
-////        
-//            js.append(generateJSstepDirection1());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

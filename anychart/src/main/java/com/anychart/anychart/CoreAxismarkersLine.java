@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Line marker.
+ */
 public class CoreAxismarkersLine extends VisualBase {
 
     public CoreAxismarkersLine() {
-
+        js.setLength(0);
+        js.append("var coreAxismarkersLine").append(++variableIndex).append(" = anychart.core.axisMarkers.line();");
+        jsBase = "coreAxismarkersLine" + variableIndex;
     }
 
     protected CoreAxismarkersLine(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class CoreAxismarkersLine extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private CoreAxesLinear getAxis;
 
+    /**
+     * Getter for the line marker axis.
+     */
     public CoreAxesLinear getAxis() {
         if (getAxis == null)
             getAxis = new CoreAxesLinear(jsBase + ".axis()");
@@ -36,20 +49,24 @@ public class CoreAxismarkersLine extends VisualBase {
 
     private CoreAxesLinear axis;
 
+    /**
+     * Setter for the line marker axis.
+     */
     public CoreAxismarkersLine setAxis(CoreAxesLinear axis) {
         if (jsBase == null) {
             this.axis = axis;
         } else {
             this.axis = axis;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(axis.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".axis(%s)", ((axis != null) ? axis.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".axis(%s);",  ((axis != null) ? axis.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", ((axis != null) ? axis.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", ((axis != null) ? axis.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -59,6 +76,9 @@ public class CoreAxismarkersLine extends VisualBase {
     private Layout layout;
     private String layout1;
 
+    /**
+     * Setter for the line marker layout.
+     */
     public CoreAxismarkersLine setLayout(Layout layout) {
         if (jsBase == null) {
             this.layout = null;
@@ -73,7 +93,6 @@ public class CoreAxismarkersLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
@@ -83,6 +102,9 @@ public class CoreAxismarkersLine extends VisualBase {
     }
 
 
+    /**
+     * Setter for the line marker layout.
+     */
     public CoreAxismarkersLine setLayout(String layout1) {
         if (jsBase == null) {
             this.layout = null;
@@ -97,7 +119,6 @@ public class CoreAxismarkersLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);
@@ -108,6 +129,9 @@ public class CoreAxismarkersLine extends VisualBase {
 
     private ScalesBase getScale;
 
+    /**
+     * Getter for the line marker scale.
+     */
     public ScalesBase getScale() {
         if (getScale == null)
             getScale = new ScalesBase(jsBase + ".scale()");
@@ -120,6 +144,9 @@ public class CoreAxismarkersLine extends VisualBase {
     private ScaleTypes scale2;
     private String scale3;
 
+    /**
+     * Setter for the line marker scale.
+     */
     public CoreAxismarkersLine setScale(ScalesBase scale) {
         if (jsBase == null) {
             this.scale = null;
@@ -130,15 +157,16 @@ public class CoreAxismarkersLine extends VisualBase {
             this.scale = scale;
         } else {
             this.scale = scale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(scale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -146,6 +174,9 @@ public class CoreAxismarkersLine extends VisualBase {
     }
 
 
+    /**
+     * Setter for the line marker scale.
+     */
     public CoreAxismarkersLine setScale(String scale1) {
         if (jsBase == null) {
             this.scale = null;
@@ -162,7 +193,6 @@ public class CoreAxismarkersLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
@@ -172,6 +202,9 @@ public class CoreAxismarkersLine extends VisualBase {
     }
 
 
+    /**
+     * Setter for the line marker scale.
+     */
     public CoreAxismarkersLine setScale(ScaleTypes scale2) {
         if (jsBase == null) {
             this.scale = null;
@@ -188,7 +221,6 @@ public class CoreAxismarkersLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
                 js.setLength(0);
@@ -205,6 +237,9 @@ public class CoreAxismarkersLine extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the line marker stroke.
+     */
     public CoreAxismarkersLine setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -228,7 +263,6 @@ public class CoreAxismarkersLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -238,6 +272,9 @@ public class CoreAxismarkersLine extends VisualBase {
     }
 
 
+    /**
+     * Setter for the line marker stroke.
+     */
     public CoreAxismarkersLine setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -261,7 +298,6 @@ public class CoreAxismarkersLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -271,6 +307,9 @@ public class CoreAxismarkersLine extends VisualBase {
     }
 
 
+    /**
+     * Setter for the line marker stroke.
+     */
     public CoreAxismarkersLine setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -294,7 +333,6 @@ public class CoreAxismarkersLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -305,6 +343,9 @@ public class CoreAxismarkersLine extends VisualBase {
 
     private Double newValue;
 
+    /**
+     * Setter for the line marker value.
+     */
     public CoreAxismarkersLine setValue(Double newValue) {
         if (jsBase == null) {
             this.newValue = newValue;
@@ -316,7 +357,6 @@ public class CoreAxismarkersLine extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".value(%f)", newValue));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".value(%f)", newValue));
                 js.setLength(0);
@@ -325,26 +365,9 @@ public class CoreAxismarkersLine extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSCoreAxesLinear getAxis() {
-//        if (CoreAxesLinear getAxis != null) {
-//            return CoreAxesLinear getAxis.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesBase getScale() {
-//        if (ScalesBase getScale != null) {
-//            return ScalesBase getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetAxis() {
         if (getAxis != null) {
             return getAxis.generateJs();
-            //return String.format(Locale.US, "getAxis: %s,", ((getAxis != null) ? getAxis.generateJs() : "null"));
         }
         return "";
     }
@@ -352,7 +375,6 @@ public class CoreAxismarkersLine extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -376,42 +398,6 @@ public class CoreAxismarkersLine extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSaxis());
-////        
-//            js.append(generateJSlayout());
-////        
-//            js.append(generateJSlayout1());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSscale1());
-////        
-//            js.append(generateJSscale2());
-////        
-//            js.append(generateJSscale3());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSnewValue());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

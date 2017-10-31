@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Stock scatter datetime scale class.
+ */
 public class StockScatterDateTime extends CoreBase {
 
     public StockScatterDateTime() {
-
+        js.setLength(0);
+        js.append("var stockScatterDateTime").append(++variableIndex).append(" = anychart.scales.stockScatterDateTime();");
+        jsBase = "stockScatterDateTime" + variableIndex;
     }
 
     protected StockScatterDateTime(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class StockScatterDateTime extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double ratio;
 
+    /**
+     * Processes reverse transformation of the ratio backward to value.
+     */
     public void inverseTransform(Double ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
@@ -38,7 +51,6 @@ public class StockScatterDateTime extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class StockScatterDateTime extends CoreBase {
     private Double transform;
     private String transform1;
 
+    /**
+     * Transforms values to ratio.
+     */
     public void transform(Double transform) {
         if (jsBase == null) {
             this.transform = null;
@@ -63,7 +78,6 @@ public class StockScatterDateTime extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".transform(%f);", transform));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f)", transform));
                 js.setLength(0);
@@ -72,6 +86,9 @@ public class StockScatterDateTime extends CoreBase {
     }
 
 
+    /**
+     * Transforms values to ratio.
+     */
     public void transform(String transform1) {
         if (jsBase == null) {
             this.transform = null;
@@ -86,7 +103,6 @@ public class StockScatterDateTime extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".transform(%s);", wrapQuotes(transform1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%s)", wrapQuotes(transform1)));
                 js.setLength(0);
@@ -94,8 +110,6 @@ public class StockScatterDateTime extends CoreBase {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -113,18 +127,6 @@ public class StockScatterDateTime extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSratio());
-////        
-//            js.append(generateJStransform());
-////        
-//            js.append(generateJStransform1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

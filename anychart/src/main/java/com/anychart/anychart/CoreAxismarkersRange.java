@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Range marker.
+ */
 public class CoreAxismarkersRange extends VisualBase {
 
     public CoreAxismarkersRange() {
-
+        js.setLength(0);
+        js.append("var coreAxismarkersRange").append(++variableIndex).append(" = anychart.core.axisMarkers.range();");
+        jsBase = "coreAxismarkersRange" + variableIndex;
     }
 
     protected CoreAxismarkersRange(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class CoreAxismarkersRange extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private CoreAxesLinear getAxis;
 
+    /**
+     * Getter for the range marker axis.
+     */
     public CoreAxesLinear getAxis() {
         if (getAxis == null)
             getAxis = new CoreAxesLinear(jsBase + ".axis()");
@@ -36,6 +49,9 @@ public class CoreAxismarkersRange extends VisualBase {
 
     private CoreAxesLinear axis;
 
+    /**
+     * Setter for the range marker axis.
+     */
     public CoreAxismarkersLine setAxis(CoreAxesLinear axis) {
         if (jsBase == null) {
             this.axis = axis;
@@ -45,11 +61,12 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(axis.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".axis(%s);", ((axis != null) ? axis.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".axis(%s);",  ((axis != null) ? axis.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s)", ((axis != null) ? axis.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s)", ((axis != null) ? axis.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -58,6 +75,10 @@ public class CoreAxismarkersRange extends VisualBase {
 
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreAxismarkersRange setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -69,7 +90,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -81,6 +101,9 @@ public class CoreAxismarkersRange extends VisualBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public CoreAxismarkersRange fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -94,7 +117,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -111,6 +133,10 @@ public class CoreAxismarkersRange extends VisualBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreAxismarkersRange fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -138,7 +164,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -148,6 +173,10 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreAxismarkersRange fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -175,7 +204,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -185,6 +213,10 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreAxismarkersRange fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -212,7 +244,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -222,6 +253,10 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreAxismarkersRange fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -249,7 +284,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -259,6 +293,10 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreAxismarkersRange fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -286,7 +324,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -296,6 +333,10 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreAxismarkersRange fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -323,7 +364,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -341,6 +381,10 @@ public class CoreAxismarkersRange extends VisualBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreAxismarkersRange fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -378,7 +422,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -388,6 +431,10 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreAxismarkersRange fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -425,7 +472,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -437,6 +483,9 @@ public class CoreAxismarkersRange extends VisualBase {
     private Fill imageSettings;
     private Double from;
 
+    /**
+     * Setter for the starting range marker value.
+     */
     public CoreAxismarkersRange setFrom(Double from) {
         if (jsBase == null) {
             this.from = from;
@@ -448,7 +497,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".from(%f)", from));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".from(%f)", from));
                 js.setLength(0);
@@ -460,6 +508,9 @@ public class CoreAxismarkersRange extends VisualBase {
     private Layout layout;
     private String layout1;
 
+    /**
+     * Setter for the range marker layout.
+     */
     public CoreAxismarkersRange setLayout(Layout layout) {
         if (jsBase == null) {
             this.layout = null;
@@ -474,7 +525,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
@@ -484,6 +534,9 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the range marker layout.
+     */
     public CoreAxismarkersRange setLayout(String layout1) {
         if (jsBase == null) {
             this.layout = null;
@@ -498,7 +551,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);
@@ -509,6 +561,9 @@ public class CoreAxismarkersRange extends VisualBase {
 
     private ScalesBase getScale;
 
+    /**
+     * Getter for the range marker scale.
+     */
     public ScalesBase getScale() {
         if (getScale == null)
             getScale = new ScalesBase(jsBase + ".scale()");
@@ -521,6 +576,9 @@ public class CoreAxismarkersRange extends VisualBase {
     private ScaleTypes scale2;
     private String scale3;
 
+    /**
+     * Setter for the range marker scale.
+     */
     public CoreAxismarkersRange setScale(ScalesBase scale) {
         if (jsBase == null) {
             this.scale = null;
@@ -531,15 +589,16 @@ public class CoreAxismarkersRange extends VisualBase {
             this.scale = scale;
         } else {
             this.scale = scale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(scale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -547,6 +606,9 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the range marker scale.
+     */
     public CoreAxismarkersRange setScale(String scale1) {
         if (jsBase == null) {
             this.scale = null;
@@ -563,7 +625,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
@@ -573,6 +634,9 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the range marker scale.
+     */
     public CoreAxismarkersRange setScale(ScaleTypes scale2) {
         if (jsBase == null) {
             this.scale = null;
@@ -589,7 +653,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
                 js.setLength(0);
@@ -600,6 +663,9 @@ public class CoreAxismarkersRange extends VisualBase {
 
     private Double to;
 
+    /**
+     * Setter for the ending range marker value.
+     */
     public CoreAxismarkersRange setTo(Double to) {
         if (jsBase == null) {
             this.to = to;
@@ -611,7 +677,6 @@ public class CoreAxismarkersRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".to(%f)", to));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".to(%f)", to));
                 js.setLength(0);
@@ -620,26 +685,9 @@ public class CoreAxismarkersRange extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSCoreAxesLinear getAxis() {
-//        if (CoreAxesLinear getAxis != null) {
-//            return CoreAxesLinear getAxis.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesBase getScale() {
-//        if (ScalesBase getScale != null) {
-//            return ScalesBase getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetAxis() {
         if (getAxis != null) {
             return getAxis.generateJs();
-            //return String.format(Locale.US, "getAxis: %s,", ((getAxis != null) ? getAxis.generateJs() : "null"));
         }
         return "";
     }
@@ -647,7 +695,6 @@ public class CoreAxismarkersRange extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -671,68 +718,6 @@ public class CoreAxismarkersRange extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSaxis());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSfrom());
-////        
-//            js.append(generateJSlayout());
-////        
-//            js.append(generateJSlayout1());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSscale1());
-////        
-//            js.append(generateJSscale2());
-////        
-//            js.append(generateJSscale3());
-////        
-//            js.append(generateJSto());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Define Line series type.
+ */
 public class Polyline extends PolarSeriesContinuousBase {
 
     public Polyline() {
-
+        js.setLength(0);
+        js.append("var polyline").append(++variableIndex).append(" = anychart.core.polar.series.polyline();");
+        jsBase = "polyline" + variableIndex;
     }
 
     protected Polyline(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -22,6 +28,10 @@ public class Polyline extends PolarSeriesContinuousBase {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
+    }
+
+    protected String getJsBase() {
+        return jsBase;
     }
 
     
@@ -33,6 +43,10 @@ public class Polyline extends PolarSeriesContinuousBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Polyline setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -56,7 +70,6 @@ public class Polyline extends PolarSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -66,6 +79,10 @@ public class Polyline extends PolarSeriesContinuousBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Polyline setStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -89,7 +106,6 @@ public class Polyline extends PolarSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -99,6 +115,10 @@ public class Polyline extends PolarSeriesContinuousBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Polyline setStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -122,7 +142,6 @@ public class Polyline extends PolarSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -131,8 +150,6 @@ public class Polyline extends PolarSeriesContinuousBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -150,26 +167,6 @@ public class Polyline extends PolarSeriesContinuousBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

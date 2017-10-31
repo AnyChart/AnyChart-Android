@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * OHLC Series Class.<br/>
+<b>Note:</b> Use {@link anychart.charts.Cartesian#ohlc} method to get this series.<br/>
+{docs:Basic_Charts/OHLC_Chart}Learn more about OHLC series{docs}
+ */
 public class CartesianSeriesOHLC extends WidthBased {
 
     public CartesianSeriesOHLC() {
-
+        js.setLength(0);
+        js.append("var cartesianSeriesOHLC").append(++variableIndex).append(" = anychart.core.cartesian.series.oHLC();");
+        jsBase = "cartesianSeriesOHLC" + variableIndex;
     }
 
     protected CartesianSeriesOHLC(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -22,6 +30,10 @@ public class CartesianSeriesOHLC extends WidthBased {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
+    }
+
+    protected String getJsBase() {
+        return jsBase;
     }
 
     
@@ -33,6 +45,10 @@ public class CartesianSeriesOHLC extends WidthBased {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for falling stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CartesianSeriesOHLC setFallingStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -56,7 +72,6 @@ public class CartesianSeriesOHLC extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -66,6 +81,10 @@ public class CartesianSeriesOHLC extends WidthBased {
     }
 
 
+    /**
+     * Setter for falling stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CartesianSeriesOHLC setFallingStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -89,7 +108,6 @@ public class CartesianSeriesOHLC extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -99,6 +117,10 @@ public class CartesianSeriesOHLC extends WidthBased {
     }
 
 
+    /**
+     * Setter for falling stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CartesianSeriesOHLC setFallingStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -122,7 +144,6 @@ public class CartesianSeriesOHLC extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -139,6 +160,10 @@ public class CartesianSeriesOHLC extends WidthBased {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for rising stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CartesianSeriesOHLC setRisingStroke(Stroke color, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -174,7 +199,6 @@ public class CartesianSeriesOHLC extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -184,6 +208,10 @@ public class CartesianSeriesOHLC extends WidthBased {
     }
 
 
+    /**
+     * Setter for rising stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CartesianSeriesOHLC setRisingStroke(ColoredFill color1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -219,7 +247,6 @@ public class CartesianSeriesOHLC extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -229,6 +256,10 @@ public class CartesianSeriesOHLC extends WidthBased {
     }
 
 
+    /**
+     * Setter for rising stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CartesianSeriesOHLC setRisingStroke(String color2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -264,7 +295,6 @@ public class CartesianSeriesOHLC extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -273,8 +303,6 @@ public class CartesianSeriesOHLC extends WidthBased {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -292,40 +320,6 @@ public class CartesianSeriesOHLC extends WidthBased {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

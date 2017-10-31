@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Special event for changes in dirty states.
+ */
 public class SignalEvent extends JsObject {
 
     public SignalEvent() {
-
+        js.setLength(0);
+        js.append("var signalEvent").append(++variableIndex).append(" = anychart.signalEvent();");
+        jsBase = "signalEvent" + variableIndex;
     }
 
     protected SignalEvent(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class SignalEvent extends JsObject {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class SignalEvent extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

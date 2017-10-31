@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Border settings proxy. Doesn't store anything - just passes settings to and from the parent object.
+ */
 public class Border extends JsObject {
 
     public Border() {
-
+        js.setLength(0);
+        js.append("var border").append(++variableIndex).append(" = anychart.core.ui.table.border();");
+        jsBase = "border" + variableIndex;
     }
 
     protected Border(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -22,6 +28,10 @@ public class Border extends JsObject {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
+    }
+
+    protected String getJsBase() {
+        return jsBase;
     }
 
     
@@ -33,6 +43,10 @@ public class Border extends JsObject {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for bottom border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setBottom(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -56,7 +70,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -66,6 +79,10 @@ public class Border extends JsObject {
     }
 
 
+    /**
+     * Setter for bottom border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setBottom(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -89,7 +106,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -99,6 +115,10 @@ public class Border extends JsObject {
     }
 
 
+    /**
+     * Setter for bottom border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setBottom(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -122,7 +142,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -139,6 +158,10 @@ public class Border extends JsObject {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for left border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setLeft(Stroke color3, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -177,7 +200,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -187,6 +209,10 @@ public class Border extends JsObject {
     }
 
 
+    /**
+     * Setter for left border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setLeft(ColoredFill color4, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -225,7 +251,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -235,6 +260,10 @@ public class Border extends JsObject {
     }
 
 
+    /**
+     * Setter for left border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setLeft(String color5, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -273,7 +302,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -290,6 +318,10 @@ public class Border extends JsObject {
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
 
+    /**
+     * Setter for right border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setRight(Stroke color6, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.color = null;
@@ -335,7 +367,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", ((color6 != null) ? color6.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", ((color6 != null) ? color6.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -345,6 +376,10 @@ public class Border extends JsObject {
     }
 
 
+    /**
+     * Setter for right border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setRight(ColoredFill color7, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.color = null;
@@ -390,7 +425,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", ((color7 != null) ? color7.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", ((color7 != null) ? color7.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -400,6 +434,10 @@ public class Border extends JsObject {
     }
 
 
+    /**
+     * Setter for right border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setRight(String color8, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.color = null;
@@ -445,7 +483,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", wrapQuotes(color8), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%s, %f, %s, %s, %s)", wrapQuotes(color8), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -462,6 +499,10 @@ public class Border extends JsObject {
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
 
+    /**
+     * Setter for top border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setTop(Stroke color9, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
@@ -514,7 +555,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", ((color9 != null) ? color9.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", ((color9 != null) ? color9.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -524,6 +564,10 @@ public class Border extends JsObject {
     }
 
 
+    /**
+     * Setter for top border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setTop(ColoredFill color10, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
@@ -576,7 +620,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -586,6 +629,10 @@ public class Border extends JsObject {
     }
 
 
+    /**
+     * Setter for top border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Border setTop(String color11, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
@@ -638,7 +685,6 @@ public class Border extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", wrapQuotes(color11), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%s, %f, %s, %s, %s)", wrapQuotes(color11), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -647,8 +693,6 @@ public class Border extends JsObject {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -666,68 +710,6 @@ public class Border extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJScolor5());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-////        
-//            js.append(generateJScolor6());
-////        
-//            js.append(generateJScolor7());
-////        
-//            js.append(generateJScolor8());
-////        
-//            js.append(generateJSthickness2());
-////        
-//            js.append(generateJSdashpattern2());
-////        
-//            js.append(generateJSlineJoin2());
-////        
-//            js.append(generateJSlineCap2());
-////        
-//            js.append(generateJScolor9());
-////        
-//            js.append(generateJScolor10());
-////        
-//            js.append(generateJScolor11());
-////        
-//            js.append(generateJSthickness3());
-////        
-//            js.append(generateJSdashpattern3());
-////        
-//            js.append(generateJSlineJoin3());
-////        
-//            js.append(generateJSlineCap3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * TreeView. Class of mapped tree.
+ */
 public class TreeView extends CoreBase {
 
     public TreeView() {
-
+        js.setLength(0);
+        js.append("var treeView").append(++variableIndex).append(" = anychart.data.treeView();");
+        jsBase = "treeView" + variableIndex;
     }
 
     protected TreeView(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,11 +30,18 @@ public class TreeView extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String child;
     private TreeDataItem child1;
     private TreeviewDataItem child2;
 
+    /**
+     * Adds a child.
+     */
     public TreeviewDataItem addChild(String child) {
         if (jsBase == null) {
             this.child = null;
@@ -44,7 +57,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addChild(%s);", wrapQuotes(child)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", wrapQuotes(child)));
                 js.setLength(0);
@@ -54,6 +66,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Adds a child.
+     */
     public TreeviewDataItem addChild(TreeDataItem child1) {
         if (jsBase == null) {
             this.child = null;
@@ -67,11 +82,12 @@ public class TreeView extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(child1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".addChild(%s);", ((child1 != null) ? child1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".addChild(%s);",  ((child1 != null) ? child1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", ((child1 != null) ? child1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", ((child1 != null) ? child1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -79,6 +95,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Adds a child.
+     */
     public TreeviewDataItem addChild(TreeviewDataItem child2) {
         if (jsBase == null) {
             this.child = null;
@@ -92,11 +111,12 @@ public class TreeView extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(child2.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".addChild(%s);", ((child2 != null) ? child2.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".addChild(%s);",  ((child2 != null) ? child2.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", ((child2 != null) ? child2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", ((child2 != null) ? child2.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -108,6 +128,9 @@ public class TreeView extends CoreBase {
     private TreeviewDataItem child5;
     private Double index;
 
+    /**
+     * Inserts a child into a specified position.
+     */
     public TreeviewDataItem addChildAt(String child3, Double index) {
         if (jsBase == null) {
             this.child = null;
@@ -128,7 +151,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", wrapQuotes(child3), index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", wrapQuotes(child3), index));
                 js.setLength(0);
@@ -138,6 +160,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Inserts a child into a specified position.
+     */
     public TreeviewDataItem addChildAt(TreeDataItem child4, Double index) {
         if (jsBase == null) {
             this.child = null;
@@ -158,7 +183,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child4 != null) ? child4.generateJs() : "null"), index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
                 js.setLength(0);
@@ -168,6 +192,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Inserts a child into a specified position.
+     */
     public TreeviewDataItem addChildAt(TreeviewDataItem child5, Double index) {
         if (jsBase == null) {
             this.child = null;
@@ -188,7 +215,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child5 != null) ? child5.generateJs() : "null"), index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child5 != null) ? child5.generateJs() : "null"), index));
                 js.setLength(0);
@@ -205,6 +231,9 @@ public class TreeView extends CoreBase {
     private String csvSettingsOrDeps;
     private Dependency[] csvSettingsOrDeps1;
 
+    /**
+     * Adds a data.
+     */
     public TreeView addData(String data, TreeFillingMethod fillMethodOrCsvMapping, String csvSettingsOrDeps) {
         if (jsBase == null) {
             this.data = null;
@@ -230,7 +259,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillMethodOrCsvMapping != null) ? fillMethodOrCsvMapping.generateJs() : "null"), wrapQuotes(csvSettingsOrDeps)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillMethodOrCsvMapping != null) ? fillMethodOrCsvMapping.generateJs() : "null"), wrapQuotes(csvSettingsOrDeps)));
                 js.setLength(0);
@@ -240,6 +268,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Adds a data.
+     */
     public TreeView addData(String data, TreeFillingMethod fillMethodOrCsvMapping, Dependency[] csvSettingsOrDeps1) {
         if (jsBase == null) {
             this.data = null;
@@ -265,7 +296,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillMethodOrCsvMapping != null) ? fillMethodOrCsvMapping.generateJs() : "null"), arrayToString(csvSettingsOrDeps1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillMethodOrCsvMapping != null) ? fillMethodOrCsvMapping.generateJs() : "null"), arrayToString(csvSettingsOrDeps1)));
                 js.setLength(0);
@@ -275,6 +305,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Adds a data.
+     */
     public TreeView addData(String data, String fillMethodOrCsvMapping1, String csvSettingsOrDeps) {
         if (jsBase == null) {
             this.data = null;
@@ -300,7 +333,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillMethodOrCsvMapping1), wrapQuotes(csvSettingsOrDeps)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillMethodOrCsvMapping1), wrapQuotes(csvSettingsOrDeps)));
                 js.setLength(0);
@@ -310,6 +342,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Adds a data.
+     */
     public TreeView addData(String data, String fillMethodOrCsvMapping1, Dependency[] csvSettingsOrDeps1) {
         if (jsBase == null) {
             this.data = null;
@@ -335,7 +370,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillMethodOrCsvMapping1), arrayToString(csvSettingsOrDeps1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillMethodOrCsvMapping1), arrayToString(csvSettingsOrDeps1)));
                 js.setLength(0);
@@ -346,6 +380,9 @@ public class TreeView extends CoreBase {
 
     private List<TreeviewDataItem> getGetChildAt = new ArrayList<>();
 
+    /**
+     * Gets the child by index.
+     */
     public TreeviewDataItem getGetChildAt(Double index) {
         TreeviewDataItem item = new TreeviewDataItem(jsBase + ".getChildAt(" + index + ")");
         getGetChildAt.add(item);
@@ -355,6 +392,9 @@ public class TreeView extends CoreBase {
     private TreeDataItem child6;
     private TreeviewDataItem child7;
 
+    /**
+     * Removes data item's child.
+     */
     public TreeviewDataItem removeChild(TreeDataItem child6) {
         if (jsBase == null) {
             this.child = null;
@@ -373,11 +413,12 @@ public class TreeView extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(child6.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".removeChild(%s);", ((child6 != null) ? child6.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".removeChild(%s);",  ((child6 != null) ? child6.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((child6 != null) ? child6.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((child6 != null) ? child6.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -385,6 +426,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Removes data item's child.
+     */
     public TreeviewDataItem removeChild(TreeviewDataItem child7) {
         if (jsBase == null) {
             this.child = null;
@@ -403,11 +447,12 @@ public class TreeView extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(child7.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".removeChild(%s);", ((child7 != null) ? child7.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".removeChild(%s);",  ((child7 != null) ? child7.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((child7 != null) ? child7.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((child7 != null) ? child7.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -416,6 +461,9 @@ public class TreeView extends CoreBase {
 
     private Double index1;
 
+    /**
+     * Removes child at specified position.
+     */
     public TreeviewDataItem removeChildAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
@@ -430,7 +478,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index1));
                 js.setLength(0);
@@ -445,6 +492,9 @@ public class TreeView extends CoreBase {
     private Boolean search2;
     private String comparisonFn;
 
+    /**
+     * Performs a data search.
+     */
     public TreeviewDataItem search(String search, String soughtField, String comparisonFn) {
         if (jsBase == null) {
             this.search = null;
@@ -464,7 +514,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".search(%s, %s, %s);", wrapQuotes(search), wrapQuotes(soughtField), wrapQuotes(comparisonFn)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s, %s)", wrapQuotes(search), wrapQuotes(soughtField), wrapQuotes(comparisonFn)));
                 js.setLength(0);
@@ -474,6 +523,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Performs a data search.
+     */
     public TreeviewDataItem search(Double search1, String soughtField, String comparisonFn) {
         if (jsBase == null) {
             this.search = null;
@@ -493,7 +545,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".search(%f, %s, %s);", search1, wrapQuotes(soughtField), wrapQuotes(comparisonFn)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s, %s)", search1, wrapQuotes(soughtField), wrapQuotes(comparisonFn)));
                 js.setLength(0);
@@ -503,6 +554,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Performs a data search.
+     */
     public TreeviewDataItem search(Boolean search2, String soughtField, String comparisonFn) {
         if (jsBase == null) {
             this.search = null;
@@ -522,7 +576,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".search(%b, %s, %s);", search2, wrapQuotes(soughtField), wrapQuotes(comparisonFn)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%b, %s, %s)", search2, wrapQuotes(soughtField), wrapQuotes(comparisonFn)));
                 js.setLength(0);
@@ -537,6 +590,9 @@ public class TreeView extends CoreBase {
     private Boolean searchItems2;
     private String comparisonFn1;
 
+    /**
+     * Performs a data item search.
+     */
     public void searchItems(String searchItems, String soughtField1, String comparisonFn1) {
         if (jsBase == null) {
             this.searchItems = null;
@@ -562,7 +618,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".searchItems(%s, %s, %s);", wrapQuotes(searchItems), wrapQuotes(soughtField1), wrapQuotes(comparisonFn1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s, %s)", wrapQuotes(searchItems), wrapQuotes(soughtField1), wrapQuotes(comparisonFn1)));
                 js.setLength(0);
@@ -571,6 +626,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Performs a data item search.
+     */
     public void searchItems(Double searchItems1, String soughtField1, String comparisonFn1) {
         if (jsBase == null) {
             this.searchItems = null;
@@ -596,7 +654,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".searchItems(%f, %s, %s);", searchItems1, wrapQuotes(soughtField1), wrapQuotes(comparisonFn1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%f, %s, %s)", searchItems1, wrapQuotes(soughtField1), wrapQuotes(comparisonFn1)));
                 js.setLength(0);
@@ -605,6 +662,9 @@ public class TreeView extends CoreBase {
     }
 
 
+    /**
+     * Performs a data item search.
+     */
     public void searchItems(Boolean searchItems2, String soughtField1, String comparisonFn1) {
         if (jsBase == null) {
             this.searchItems = null;
@@ -630,7 +690,6 @@ public class TreeView extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".searchItems(%b, %s, %s);", searchItems2, wrapQuotes(soughtField1), wrapQuotes(comparisonFn1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%b, %s, %s)", searchItems2, wrapQuotes(soughtField1), wrapQuotes(comparisonFn1)));
                 js.setLength(0);
@@ -638,15 +697,6 @@ public class TreeView extends CoreBase {
         }
     }
 
-
-//
-//    private String generateJSTreeviewDataItem getGetChildAt() {
-//        if (TreeviewDataItem getGetChildAt != null) {
-//            return TreeviewDataItem getGetChildAt.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetGetChildAt() {
         if (!getGetChildAt.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -677,66 +727,6 @@ public class TreeView extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSchild());
-////        
-//            js.append(generateJSchild1());
-////        
-//            js.append(generateJSchild2());
-////        
-//            js.append(generateJSchild3());
-////        
-//            js.append(generateJSchild4());
-////        
-//            js.append(generateJSchild5());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSdata());
-////        
-//            js.append(generateJSdata1());
-////        
-//            js.append(generateJSfillMethodOrCsvMapping());
-////        
-//            js.append(generateJSfillMethodOrCsvMapping1());
-////        
-//            js.append(generateJSfillMethodOrCsvMapping2());
-////        
-//            js.append(generateJScsvSettingsOrDeps());
-////        
-//            js.append(generateJScsvSettingsOrDeps1());
-////        
-//            js.append(generateJSchild6());
-////        
-//            js.append(generateJSchild7());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSsoughtField());
-////        
-//            js.append(generateJSsearch());
-////        
-//            js.append(generateJSsearch1());
-////        
-//            js.append(generateJSsearch2());
-////        
-//            js.append(generateJScomparisonFn());
-////        
-//            js.append(generateJSsoughtField1());
-////        
-//            js.append(generateJSsearchItems());
-////        
-//            js.append(generateJSsearchItems1());
-////        
-//            js.append(generateJSsearchItems2());
-////        
-//            js.append(generateJScomparisonFn1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

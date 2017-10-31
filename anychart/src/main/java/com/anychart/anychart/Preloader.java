@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Preloader.
+ */
 public class Preloader extends JsObject {
 
     public Preloader() {
-
+        js.setLength(0);
+        js.append("var preloader").append(++variableIndex).append(" = anychart.ui.preloader();");
+        jsBase = "preloader" + variableIndex;
     }
 
     protected Preloader(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Preloader extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Element element;
 
+    /**
+     * Decorates the element for the preloader.
+     */
     public void decorate(Element element) {
         if (jsBase == null) {
             this.element = element;
@@ -36,11 +49,12 @@ public class Preloader extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(element.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".decorate(%s);", ((element != null) ? element.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".decorate(%s);",  ((element != null) ? element.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((element != null) ? element.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((element != null) ? element.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -48,6 +62,9 @@ public class Preloader extends JsObject {
 
     private Element parentElement;
 
+    /**
+     * Renders the preloader.
+     */
     public void render(Element parentElement) {
         if (jsBase == null) {
             this.parentElement = parentElement;
@@ -57,11 +74,12 @@ public class Preloader extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(parentElement.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement != null) ? parentElement.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".render(%s);",  ((parentElement != null) ? parentElement.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -69,6 +87,9 @@ public class Preloader extends JsObject {
 
     private Boolean visible;
 
+    /**
+     * Setter for the visibility of the preloader.
+     */
     public Preloader setVisible(Boolean visible) {
         if (jsBase == null) {
             this.visible = visible;
@@ -80,7 +101,6 @@ public class Preloader extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".visible(%b)", visible));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".visible(%b)", visible));
                 js.setLength(0);
@@ -89,8 +109,6 @@ public class Preloader extends JsObject {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -108,18 +126,6 @@ public class Preloader extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSelement());
-////        
-//            js.append(generateJSparentElement());
-////        
-//            js.append(generateJSvisible());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

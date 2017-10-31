@@ -6,13 +6,34 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Gantt chart class.
+ */
 public class Gantt extends SeparateChart {
 
     protected Gantt(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Gantt setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Gantt setData(List<DataEntry> data) {
@@ -35,9 +56,34 @@ public class Gantt extends SeparateChart {
         return this;
     }
 
+    public Gantt setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
     private String taskId;
     private List<Gantt> setCollapseTask = new ArrayList<>();
+
+    /**
+     * Collapses task by id.<br/>
+The collapseTask() method should be used after drawing a chart.
+     */
     public Gantt collapseTask(String taskId) {
         if (!isChain) {
             js.append(jsBase);
@@ -65,6 +111,10 @@ public class Gantt extends SeparateChart {
     private Stroke columnStroke;
     private String columnStroke1;
     private List<Gantt> setColumnStroke = new ArrayList<>();
+
+    /**
+     * Setter for the column stroke.
+     */
     public Gantt setColumnStroke(Stroke columnStroke) {
         if (!isChain) {
             js.append(jsBase);
@@ -90,6 +140,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setColumnStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the column stroke.
+     */
     public Gantt setColumnStroke(String columnStroke1) {
         if (!isChain) {
             js.append(jsBase);
@@ -117,6 +171,9 @@ public class Gantt extends SeparateChart {
 
     private Tree getData;
 
+    /**
+     * Getter for the chart data.
+     */
     public Tree getData() {
         if (getData == null)
             getData = new Tree(jsBase + ".data()");
@@ -129,6 +186,10 @@ public class Gantt extends SeparateChart {
     private TreeFillingMethod fillMethod;
     private String fillMethod1;
     private List<Gantt> setData = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Gantt setData(Tree data, TreeFillingMethod fillMethod) {
         if (!isChain) {
             js.append(jsBase);
@@ -154,6 +215,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setData1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Gantt setData(Tree data, String fillMethod1) {
         if (!isChain) {
             js.append(jsBase);
@@ -179,6 +244,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setData2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Gantt setData(TreeView data1, TreeFillingMethod fillMethod) {
         if (!isChain) {
             js.append(jsBase);
@@ -204,6 +273,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setData3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Gantt setData(TreeView data1, String fillMethod1) {
         if (!isChain) {
             js.append(jsBase);
@@ -229,6 +302,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setData4 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Gantt setData(String data2, TreeFillingMethod fillMethod) {
         if (!isChain) {
             js.append(jsBase);
@@ -254,6 +331,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setData5 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Gantt setData(String data2, String fillMethod1) {
         if (!isChain) {
             js.append(jsBase);
@@ -281,6 +362,9 @@ public class Gantt extends SeparateChart {
 
     private UiDataGrid getDataGrid;
 
+    /**
+     * Getter for the data grid.
+     */
     public UiDataGrid getDataGrid() {
         if (getDataGrid == null)
             getDataGrid = new UiDataGrid(jsBase + ".dataGrid()");
@@ -289,6 +373,10 @@ public class Gantt extends SeparateChart {
     }
     private Boolean enabled;
     private List<Gantt> setDataGrid = new ArrayList<>();
+
+    /**
+     * Setter for the data grid.
+     */
     public Gantt setDataGrid(Boolean enabled) {
         if (!isChain) {
             js.append(jsBase);
@@ -315,6 +403,10 @@ public class Gantt extends SeparateChart {
 
     private Double defaultRowHeight;
     private List<Gantt> setDefaultRowHeight = new ArrayList<>();
+
+    /**
+     * Setter for the default row height.
+     */
     public Gantt setDefaultRowHeight(Double defaultRowHeight) {
         if (!isChain) {
             js.append(jsBase);
@@ -341,6 +433,10 @@ public class Gantt extends SeparateChart {
 
     private Boolean editing;
     private List<Gantt> setEditing = new ArrayList<>();
+
+    /**
+     * Enables or disables the live edit mode.
+     */
     public Gantt editing(Boolean editing) {
         if (!isChain) {
             js.append(jsBase);
@@ -367,6 +463,11 @@ public class Gantt extends SeparateChart {
 
     private String taskId1;
     private List<Gantt> setExpandTask = new ArrayList<>();
+
+    /**
+     * Expands task by id.<br/>
+The expandTask() method should be used after drawing a chart.
+     */
     public Gantt expandTask(String taskId1) {
         if (!isChain) {
             js.append(jsBase);
@@ -393,6 +494,10 @@ public class Gantt extends SeparateChart {
 
     private String taskId2;
     private List<Gantt> setFitToTask = new ArrayList<>();
+
+    /**
+     * Fits the visible area of the timeline to the range of specified tasks.
+     */
     public Gantt fitToTask(String taskId2) {
         if (!isChain) {
             js.append(jsBase);
@@ -420,6 +525,9 @@ public class Gantt extends SeparateChart {
 
     private Timeline getGetTimeline;
 
+    /**
+     * Getter for the timeline.
+     */
     public Timeline getGetTimeline() {
         if (getGetTimeline == null)
             getGetTimeline = new Timeline(jsBase + ".getTimeline()");
@@ -429,6 +537,10 @@ public class Gantt extends SeparateChart {
     private Double headerHeight;
     private String headerHeight1;
     private List<Gantt> setHeaderHeight = new ArrayList<>();
+
+    /**
+     * Setter for the header height.
+     */
     public Gantt setHeaderHeight(Double headerHeight) {
         if (!isChain) {
             js.append(jsBase);
@@ -454,6 +566,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setHeaderHeight1 = new ArrayList<>();
+
+    /**
+     * Setter for the header height.
+     */
     public Gantt setHeaderHeight(String headerHeight1) {
         if (!isChain) {
             js.append(jsBase);
@@ -480,6 +596,11 @@ public class Gantt extends SeparateChart {
 
     private Fill rowHoverFill;
     private List<Gantt> setRowHoverFill = new ArrayList<>();
+
+    /**
+     * Sets row hover fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt setRowHoverFill(Fill rowHoverFill) {
         if (!isChain) {
             js.append(jsBase);
@@ -507,6 +628,11 @@ public class Gantt extends SeparateChart {
     private String color;
     private Double opacity;
     private List<Gantt> setRowHoverFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.<br/>
+Fill as a string or an object.
+     */
     public Gantt rowHoverFill(String color, Double opacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -539,6 +665,11 @@ public class Gantt extends SeparateChart {
     private String mode2;
     private Double opacity1;
     private List<Gantt> setRowHoverFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowHoverFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -564,6 +695,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowHoverFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -589,6 +725,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowHoverFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -614,6 +755,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowHoverFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -639,6 +785,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowHoverFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -664,6 +815,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowHoverFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -697,6 +853,11 @@ public class Gantt extends SeparateChart {
     private Double fx;
     private Double fy;
     private List<Gantt> setRowHoverFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowHoverFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -722,6 +883,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowHoverFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowHoverFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -748,6 +914,11 @@ public class Gantt extends SeparateChart {
 
     private Fill rowSelectedFill;
     private List<Gantt> setRowSelectedFill = new ArrayList<>();
+
+    /**
+     * Sets row selected fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt setRowSelectedFill(Fill rowSelectedFill) {
         if (!isChain) {
             js.append(jsBase);
@@ -775,6 +946,11 @@ public class Gantt extends SeparateChart {
     private String color1;
     private Double opacity3;
     private List<Gantt> setRowSelectedFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.<br/>
+Fill as a string or an object.
+     */
     public Gantt rowSelectedFill(String color1, Double opacity3) {
         if (!isChain) {
             js.append(jsBase);
@@ -807,6 +983,11 @@ public class Gantt extends SeparateChart {
     private String mode6;
     private Double opacity4;
     private List<Gantt> setRowSelectedFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowSelectedFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -832,6 +1013,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowSelectedFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -857,6 +1043,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowSelectedFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -882,6 +1073,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowSelectedFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -907,6 +1103,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowSelectedFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -932,6 +1133,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowSelectedFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -965,6 +1171,11 @@ public class Gantt extends SeparateChart {
     private Double fx1;
     private Double fy1;
     private List<Gantt> setRowSelectedFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowSelectedFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (!isChain) {
             js.append(jsBase);
@@ -990,6 +1201,11 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowSelectedFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Gantt rowSelectedFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1017,6 +1233,10 @@ public class Gantt extends SeparateChart {
     private Stroke rowStroke;
     private String rowStroke1;
     private List<Gantt> setRowStroke = new ArrayList<>();
+
+    /**
+     * Setter for the row stroke.
+     */
     public Gantt setRowStroke(Stroke rowStroke) {
         if (!isChain) {
             js.append(jsBase);
@@ -1042,6 +1262,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setRowStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the row stroke.
+     */
     public Gantt setRowStroke(String rowStroke1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1068,6 +1292,11 @@ public class Gantt extends SeparateChart {
 
     private Double pxOffset;
     private List<Gantt> setScrollTo = new ArrayList<>();
+
+    /**
+     * Performs vertical scrolling by pixel offset.<br/>
+The scrollTo() method should be used after drawing a chart.
+     */
     public Gantt scrollTo(Double pxOffset) {
         if (!isChain) {
             js.append(jsBase);
@@ -1094,6 +1323,11 @@ public class Gantt extends SeparateChart {
 
     private Double index;
     private List<Gantt> setScrollToEnd = new ArrayList<>();
+
+    /**
+     * Scrolls vertically to specified index.<br/>
+The scrollToEnd() method should be used after drawing a chart.
+     */
     public Gantt scrollToEnd(Double index) {
         if (!isChain) {
             js.append(jsBase);
@@ -1120,6 +1354,10 @@ public class Gantt extends SeparateChart {
 
     private Double rowIndex;
     private List<Gantt> setScrollToRow = new ArrayList<>();
+
+    /**
+     * Performs vertical scroll for a row at the specified index.
+     */
     public Gantt scrollToRow(Double rowIndex) {
         if (!isChain) {
             js.append(jsBase);
@@ -1147,6 +1385,10 @@ public class Gantt extends SeparateChart {
     private String splitterPosition;
     private Double splitterPosition1;
     private List<Gantt> setSplitterPosition = new ArrayList<>();
+
+    /**
+     * Setter for the splitter position.
+     */
     public Gantt setSplitterPosition(String splitterPosition) {
         if (!isChain) {
             js.append(jsBase);
@@ -1172,6 +1414,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setSplitterPosition1 = new ArrayList<>();
+
+    /**
+     * Setter for the splitter position.
+     */
     public Gantt setSplitterPosition(Double splitterPosition1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1199,6 +1445,9 @@ public class Gantt extends SeparateChart {
 
     private GanttDateTime getXScale;
 
+    /**
+     * Getter for the timeline X-scale.
+     */
     public GanttDateTime getXScale() {
         if (getXScale == null)
             getXScale = new GanttDateTime(jsBase + ".xScale()");
@@ -1207,6 +1456,10 @@ public class Gantt extends SeparateChart {
     }
     private String xScale;
     private List<Gantt> setXScale = new ArrayList<>();
+
+    /**
+     * Setter for the timeline X-scale.
+     */
     public Gantt setXScale(String xScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1233,6 +1486,10 @@ public class Gantt extends SeparateChart {
 
     private Double zoomFactor;
     private List<Gantt> setZoomIn = new ArrayList<>();
+
+    /**
+     * Timeline zoom in.
+     */
     public Gantt zoomIn(Double zoomFactor) {
         if (!isChain) {
             js.append(jsBase);
@@ -1259,6 +1516,10 @@ public class Gantt extends SeparateChart {
 
     private Double zoomFactor1;
     private List<Gantt> setZoomOut = new ArrayList<>();
+
+    /**
+     * Timeline zoom out.
+     */
     public Gantt zoomOut(Double zoomFactor1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1286,6 +1547,10 @@ public class Gantt extends SeparateChart {
     private Double startDate;
     private Double endDate;
     private List<Gantt> setZoomTo = new ArrayList<>();
+
+    /**
+     * Sets the timeline zoom to range using the date.
+     */
     public Gantt setZoomTo(Double startDate, Double endDate) {
         if (!isChain) {
             js.append(jsBase);
@@ -1316,6 +1581,10 @@ public class Gantt extends SeparateChart {
     private GanttRangeAnchor anchor;
     private String anchor1;
     private List<Gantt> setZoomTo1 = new ArrayList<>();
+
+    /**
+     * Sets the timeline zoom to range using the interval.
+     */
     public Gantt setZoomTo(Interval unit, GanttRangeAnchor anchor, Double count) {
         if (!isChain) {
             js.append(jsBase);
@@ -1341,6 +1610,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setZoomTo2 = new ArrayList<>();
+
+    /**
+     * Sets the timeline zoom to range using the interval.
+     */
     public Gantt setZoomTo(Interval unit, String anchor1, Double count) {
         if (!isChain) {
             js.append(jsBase);
@@ -1366,6 +1639,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setZoomTo3 = new ArrayList<>();
+
+    /**
+     * Sets the timeline zoom to range using the interval.
+     */
     public Gantt setZoomTo(String unit1, GanttRangeAnchor anchor, Double count) {
         if (!isChain) {
             js.append(jsBase);
@@ -1391,6 +1668,10 @@ public class Gantt extends SeparateChart {
     }
 
     private List<Gantt> setZoomTo4 = new ArrayList<>();
+
+    /**
+     * Sets the timeline zoom to range using the interval.
+     */
     public Gantt setZoomTo(String unit1, String anchor1, Double count) {
         if (!isChain) {
             js.append(jsBase);

@@ -8,13 +8,27 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Multiple markers class.<br/>
+Multiple markers are the set of markers with a common settings, such as type (predefined or
+custom), size, fill and position:
+<ul>
+  <li>{@link anychart.core.ui.MarkersFactory#anchor}</li>
+  <li>{@link anychart.core.ui.MarkersFactory#position}</li>
+  <li>{@link anychart.core.ui.MarkersFactory#offsetX} and {@link anychart.core.ui.MarkersFactory#offsetY}</li>
+</ul>
+Also you can access any marker from the set and change it.
+ */
 public class UiMarkersFactory extends VisualBase {
 
     public UiMarkersFactory() {
-
+        js.setLength(0);
+        js.append("var uiMarkersFactory").append(++variableIndex).append(" = anychart.core.ui.markersFactory();");
+        jsBase = "uiMarkersFactory" + variableIndex;
     }
 
     protected UiMarkersFactory(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +38,17 @@ public class UiMarkersFactory extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private EnumsAnchor anchor;
     private String anchor1;
 
+    /**
+     * Setter for anchor settings of all markers.
+     */
     public UiMarkersFactory setAnchor(EnumsAnchor anchor) {
         if (jsBase == null) {
             this.anchor = null;
@@ -42,7 +63,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +72,9 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Setter for anchor settings of all markers.
+     */
     public UiMarkersFactory setAnchor(String anchor1) {
         if (jsBase == null) {
             this.anchor = null;
@@ -66,7 +89,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
                 js.setLength(0);
@@ -78,6 +100,10 @@ public class UiMarkersFactory extends VisualBase {
     private Fill fill;
     private String fill1;
 
+    /**
+     * Setter for fill settings of all markers.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiMarkersFactory setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = null;
@@ -92,7 +118,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -102,6 +127,10 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Setter for fill settings of all markers.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiMarkersFactory setFill(String fill1) {
         if (jsBase == null) {
             this.fill = null;
@@ -116,7 +145,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
                 js.setLength(0);
@@ -128,6 +156,9 @@ public class UiMarkersFactory extends VisualBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public UiMarkersFactory fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -141,7 +172,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -158,6 +188,10 @@ public class UiMarkersFactory extends VisualBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiMarkersFactory fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -185,7 +219,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -195,6 +228,10 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiMarkersFactory fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -222,7 +259,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -232,6 +268,10 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiMarkersFactory fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -259,7 +299,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -269,6 +308,10 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiMarkersFactory fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -296,7 +339,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -306,6 +348,10 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiMarkersFactory fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -333,7 +379,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -343,6 +388,10 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiMarkersFactory fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -370,7 +419,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -388,6 +436,10 @@ public class UiMarkersFactory extends VisualBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiMarkersFactory fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -425,7 +477,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -435,6 +486,10 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiMarkersFactory fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -472,7 +527,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -485,6 +539,9 @@ public class UiMarkersFactory extends VisualBase {
     private Double offsetX;
     private String offsetX1;
 
+    /**
+     * Setter for the offset by X of all markers.
+     */
     public UiMarkersFactory setOffsetX(Double offsetX) {
         if (jsBase == null) {
             this.offsetX = null;
@@ -499,7 +556,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetX(%f)", offsetX));
                 js.setLength(0);
@@ -509,6 +565,9 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Setter for the offset by X of all markers.
+     */
     public UiMarkersFactory setOffsetX(String offsetX1) {
         if (jsBase == null) {
             this.offsetX = null;
@@ -523,7 +582,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
                 js.setLength(0);
@@ -535,6 +593,9 @@ public class UiMarkersFactory extends VisualBase {
     private Double offsetY;
     private String offsetY1;
 
+    /**
+     * Setter for the offset by Y of all markers.
+     */
     public UiMarkersFactory setOffsetY(Double offsetY) {
         if (jsBase == null) {
             this.offsetY = null;
@@ -549,7 +610,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetY(%f)", offsetY));
                 js.setLength(0);
@@ -559,6 +619,9 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Setter for the offset by Y of all markers.
+     */
     public UiMarkersFactory setOffsetY(String offsetY1) {
         if (jsBase == null) {
             this.offsetY = null;
@@ -573,7 +636,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
                 js.setLength(0);
@@ -584,6 +646,9 @@ public class UiMarkersFactory extends VisualBase {
 
     private String position;
 
+    /**
+     * Setter for position settings of all markers.
+     */
     public UiMarkersFactory setPosition(String position) {
         if (jsBase == null) {
             this.position = position;
@@ -595,7 +660,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position)));
                 js.setLength(0);
@@ -606,6 +670,10 @@ public class UiMarkersFactory extends VisualBase {
 
     private Double rotation;
 
+    /**
+     * Setter for the rotation angle around an anchor.
+({@link anychart.graphics.vector.Element}).
+     */
     public UiMarkersFactory setRotation(Double rotation) {
         if (jsBase == null) {
             this.rotation = rotation;
@@ -617,7 +685,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".rotation(%f)", rotation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rotation(%f)", rotation));
                 js.setLength(0);
@@ -628,6 +695,9 @@ public class UiMarkersFactory extends VisualBase {
 
     private Double size;
 
+    /**
+     * Setter for the size of all markers.
+     */
     public UiMarkersFactory setSize(Double size) {
         if (jsBase == null) {
             this.size = size;
@@ -639,7 +709,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".size(%f)", size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size));
                 js.setLength(0);
@@ -651,6 +720,10 @@ public class UiMarkersFactory extends VisualBase {
     private Stroke stroke;
     private String stroke1;
 
+    /**
+     * Setter for stroke settings of all markers.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public UiMarkersFactory setStroke(Stroke stroke) {
         if (jsBase == null) {
             this.stroke = null;
@@ -665,7 +738,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
@@ -675,6 +747,10 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Setter for stroke settings of all markers.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public UiMarkersFactory setStroke(String stroke1) {
         if (jsBase == null) {
             this.stroke = null;
@@ -689,7 +765,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s)", wrapQuotes(stroke1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", wrapQuotes(stroke1)));
                 js.setLength(0);
@@ -706,6 +781,10 @@ public class UiMarkersFactory extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for stroke settings of all markers.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public UiMarkersFactory setStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -730,7 +809,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -740,6 +818,10 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Setter for stroke settings of all markers.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public UiMarkersFactory setStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -764,7 +846,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -774,6 +855,10 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Setter for stroke settings of all markers.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public UiMarkersFactory setStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -798,7 +883,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -810,6 +894,9 @@ public class UiMarkersFactory extends VisualBase {
     private MarkerType type;
     private String type1;
 
+    /**
+     * Setter for type settings of all markers.
+     */
     public UiMarkersFactory setType(MarkerType type) {
         if (jsBase == null) {
             this.type = null;
@@ -824,7 +911,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -834,6 +920,9 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
+    /**
+     * Setter for type settings of all markers.
+     */
     public UiMarkersFactory setType(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -848,7 +937,6 @@ public class UiMarkersFactory extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -857,8 +945,6 @@ public class UiMarkersFactory extends VisualBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -876,92 +962,6 @@ public class UiMarkersFactory extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSanchor());
-////        
-//            js.append(generateJSanchor1());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJSfill1());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSoffsetX());
-////        
-//            js.append(generateJSoffsetX1());
-////        
-//            js.append(generateJSoffsetY());
-////        
-//            js.append(generateJSoffsetY1());
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSrotation());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

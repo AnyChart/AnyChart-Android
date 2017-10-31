@@ -8,13 +8,26 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Rectangle class<br/>
+<b>Do not invoke constructor directly.</b> Use {@link anychart.graphics.vector.Stage#rect} or
+{@link anychart.graphics.vector.Layer#rect} to create stage or layer bound rectangle.
+<br/> If you need unbound rectangle - use {@link anychart.graphics#rect}.<br/>
+See also:<br/>
+{@link anychart.graphics.vector.Stage#rect}<br/>
+{@link anychart.graphics.vector.Layer#rect}<br/>
+{@link anychart.graphics#rect}
+ */
 public class VectorRect extends Shape {
 
     public VectorRect() {
-
+        js.setLength(0);
+        js.append("var vectorRect").append(++variableIndex).append(" = anychart.graphics.vector.rect();");
+        jsBase = "vectorRect" + variableIndex;
     }
 
     protected VectorRect(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +37,17 @@ public class VectorRect extends Shape {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String radiusAll;
     private Double radiusAll1;
 
+    /**
+     * Sets cut corners.
+     */
     public VectorRect setCut(String radiusAll) {
         if (jsBase == null) {
             this.radiusAll = null;
@@ -42,7 +62,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".cut(%s)", wrapQuotes(radiusAll)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cut(%s)", wrapQuotes(radiusAll)));
                 js.setLength(0);
@@ -52,6 +71,9 @@ public class VectorRect extends Shape {
     }
 
 
+    /**
+     * Sets cut corners.
+     */
     public VectorRect setCut(Double radiusAll1) {
         if (jsBase == null) {
             this.radiusAll = null;
@@ -66,7 +88,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".cut(%f)", radiusAll1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cut(%f)", radiusAll1));
                 js.setLength(0);
@@ -80,6 +101,9 @@ public class VectorRect extends Shape {
     private Double radiusRightBottom;
     private Double radiusLeftBottom;
 
+    /**
+     * Sets cut corners.
+     */
     public VectorRect setCut(Double radiusLeftTop, Double radiusRightTop, Double radiusRightBottom, Double radiusLeftBottom) {
         if (jsBase == null) {
             this.radiusLeftTop = radiusLeftTop;
@@ -97,7 +121,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".cut(%f, %f, %f, %f)", radiusLeftTop, radiusRightTop, radiusRightBottom, radiusLeftBottom));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cut(%f, %f, %f, %f)", radiusLeftTop, radiusRightTop, radiusRightBottom, radiusLeftBottom));
                 js.setLength(0);
@@ -109,6 +132,9 @@ public class VectorRect extends Shape {
     private String radiusAll2;
     private Double radiusAll3;
 
+    /**
+     * Sets corners rounding using single value.
+     */
     public VectorRect setRound(String radiusAll2) {
         if (jsBase == null) {
             this.radiusAll = null;
@@ -125,7 +151,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".round(%s)", wrapQuotes(radiusAll2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".round(%s)", wrapQuotes(radiusAll2)));
                 js.setLength(0);
@@ -135,6 +160,9 @@ public class VectorRect extends Shape {
     }
 
 
+    /**
+     * Sets corners rounding using single value.
+     */
     public VectorRect setRound(Double radiusAll3) {
         if (jsBase == null) {
             this.radiusAll = null;
@@ -151,7 +179,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".round(%f)", radiusAll3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".round(%f)", radiusAll3));
                 js.setLength(0);
@@ -165,6 +192,9 @@ public class VectorRect extends Shape {
     private Double radiusRightBottom1;
     private Double radiusLeftBottom1;
 
+    /**
+     * Sets corners rounding using several value.
+     */
     public VectorRect setRound(Double radiusLeftTop1, Double radiusRightTop1, Double radiusRightBottom1, Double radiusLeftBottom1) {
         if (jsBase == null) {
             this.radiusLeftTop = null;
@@ -194,7 +224,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".round(%f, %f, %f, %f)", radiusLeftTop1, radiusRightTop1, radiusRightBottom1, radiusLeftBottom1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".round(%f, %f, %f, %f)", radiusLeftTop1, radiusRightTop1, radiusRightBottom1, radiusLeftBottom1));
                 js.setLength(0);
@@ -206,6 +235,9 @@ public class VectorRect extends Shape {
     private String radiusAll4;
     private Double radiusAll5;
 
+    /**
+     * Sets corners inner rounding.
+     */
     public VectorRect setRoundInner(String radiusAll4) {
         if (jsBase == null) {
             this.radiusAll = null;
@@ -224,7 +256,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".roundInner(%s)", wrapQuotes(radiusAll4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".roundInner(%s)", wrapQuotes(radiusAll4)));
                 js.setLength(0);
@@ -234,6 +265,9 @@ public class VectorRect extends Shape {
     }
 
 
+    /**
+     * Sets corners inner rounding.
+     */
     public VectorRect setRoundInner(Double radiusAll5) {
         if (jsBase == null) {
             this.radiusAll = null;
@@ -252,7 +286,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".roundInner(%f)", radiusAll5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".roundInner(%f)", radiusAll5));
                 js.setLength(0);
@@ -266,6 +299,9 @@ public class VectorRect extends Shape {
     private Double radiusRightBottom2;
     private Double radiusLeftBottom2;
 
+    /**
+     * Sets corners inner rounding.
+     */
     public VectorRect setRoundInner(Double radiusLeftTop2, Double radiusRightTop2, Double radiusRightBottom2, Double radiusLeftBottom2) {
         if (jsBase == null) {
             this.radiusLeftTop = null;
@@ -299,7 +335,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".roundInner(%f, %f, %f, %f)", radiusLeftTop2, radiusRightTop2, radiusRightBottom2, radiusLeftBottom2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".roundInner(%f, %f, %f, %f)", radiusLeftTop2, radiusRightTop2, radiusRightBottom2, radiusLeftBottom2));
                 js.setLength(0);
@@ -310,20 +345,24 @@ public class VectorRect extends Shape {
 
     private GraphicsMathRect setBounds;
 
+    /**
+     * Sets bounds.
+     */
     public VectorRect setSetBounds(GraphicsMathRect setBounds) {
         if (jsBase == null) {
             this.setBounds = setBounds;
         } else {
             this.setBounds = setBounds;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(setBounds.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".setBounds(%s)", ((setBounds != null) ? setBounds.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".setBounds(%s);",  ((setBounds != null) ? setBounds.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setBounds(%s)", ((setBounds != null) ? setBounds.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".setBounds(%s)", ((setBounds != null) ? setBounds.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -332,6 +371,9 @@ public class VectorRect extends Shape {
 
     private Double setHeight;
 
+    /**
+     * Sets a height.
+     */
     public VectorRect setSetHeight(Double setHeight) {
         if (jsBase == null) {
             this.setHeight = setHeight;
@@ -343,7 +385,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".setHeight(%f)", setHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setHeight(%f)", setHeight));
                 js.setLength(0);
@@ -354,6 +395,9 @@ public class VectorRect extends Shape {
 
     private Double setWidth;
 
+    /**
+     * Sets a width.
+     */
     public VectorRect setSetWidth(Double setWidth) {
         if (jsBase == null) {
             this.setWidth = setWidth;
@@ -365,7 +409,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".setWidth(%f)", setWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setWidth(%f)", setWidth));
                 js.setLength(0);
@@ -376,6 +419,9 @@ public class VectorRect extends Shape {
 
     private Double setX;
 
+    /**
+     * Sets X in parent container.
+     */
     public VectorRect setSetX(Double setX) {
         if (jsBase == null) {
             this.setX = setX;
@@ -387,7 +433,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".setX(%f)", setX));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setX(%f)", setX));
                 js.setLength(0);
@@ -398,6 +443,9 @@ public class VectorRect extends Shape {
 
     private Double setY;
 
+    /**
+     * Sets Y in parent container.
+     */
     public VectorRect setSetY(Double setY) {
         if (jsBase == null) {
             this.setY = setY;
@@ -409,7 +457,6 @@ public class VectorRect extends Shape {
             }
 
             js.append(String.format(Locale.US, ".setY(%f)", setY));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setY(%f)", setY));
                 js.setLength(0);
@@ -418,8 +465,6 @@ public class VectorRect extends Shape {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -437,58 +482,6 @@ public class VectorRect extends Shape {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSradiusAll());
-////        
-//            js.append(generateJSradiusAll1());
-////        
-//            js.append(generateJSradiusLeftTop());
-////        
-//            js.append(generateJSradiusRightTop());
-////        
-//            js.append(generateJSradiusRightBottom());
-////        
-//            js.append(generateJSradiusLeftBottom());
-////        
-//            js.append(generateJSradiusAll2());
-////        
-//            js.append(generateJSradiusAll3());
-////        
-//            js.append(generateJSradiusLeftTop1());
-////        
-//            js.append(generateJSradiusRightTop1());
-////        
-//            js.append(generateJSradiusRightBottom1());
-////        
-//            js.append(generateJSradiusLeftBottom1());
-////        
-//            js.append(generateJSradiusAll4());
-////        
-//            js.append(generateJSradiusAll5());
-////        
-//            js.append(generateJSradiusLeftTop2());
-////        
-//            js.append(generateJSradiusRightTop2());
-////        
-//            js.append(generateJSradiusRightBottom2());
-////        
-//            js.append(generateJSradiusLeftBottom2());
-////        
-//            js.append(generateJSsetBounds());
-////        
-//            js.append(generateJSsetHeight());
-////        
-//            js.append(generateJSsetWidth());
-////        
-//            js.append(generateJSsetX());
-////        
-//            js.append(generateJSsetY());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

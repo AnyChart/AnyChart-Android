@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Rendering functions context.
+ */
 public class PointContext extends RenderingsettingsContext {
 
     public PointContext() {
-
+        js.setLength(0);
+        js.append("var pointContext").append(++variableIndex).append(" = anychart.core.series.RenderingSettings.pointContext();");
+        jsBase = "pointContext" + variableIndex;
     }
 
     protected PointContext(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class PointContext extends RenderingsettingsContext {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String name;
 
+    /**
+     * Returns data value by name.
+     */
     public void getDataValue(String name) {
         if (jsBase == null) {
             this.name = name;
@@ -38,7 +51,6 @@ public class PointContext extends RenderingsettingsContext {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getDataValue(%s);", wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getDataValue(%s)", wrapQuotes(name)));
                 js.setLength(0);
@@ -46,8 +58,6 @@ public class PointContext extends RenderingsettingsContext {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -65,14 +75,6 @@ public class PointContext extends RenderingsettingsContext {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSname());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

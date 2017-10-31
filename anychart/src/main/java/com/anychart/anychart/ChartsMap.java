@@ -6,13 +6,34 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * AnyChart map class.
+ */
 public class ChartsMap extends SeparateChart {
 
     protected ChartsMap(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public ChartsMap setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public ChartsMap setData(List<DataEntry> data) {
@@ -35,7 +56,31 @@ public class ChartsMap extends SeparateChart {
         return this;
     }
 
+    public ChartsMap setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
+
+    /**
+     * Add series to the chart.
+     */
     public void addSeries(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -58,6 +103,9 @@ public class ChartsMap extends SeparateChart {
 
     private AxesMapSettings getAxes;
 
+    /**
+     * Getter for map axes.
+     */
     public AxesMapSettings getAxes() {
         if (getAxes == null)
             getAxes = new AxesMapSettings(jsBase + ".axes()");
@@ -67,6 +115,10 @@ public class ChartsMap extends SeparateChart {
     private String axes;
     private Boolean axes1;
     private List<ChartsMap> setAxes = new ArrayList<>();
+
+    /**
+     * Setter for map axes.
+     */
     public ChartsMap setAxes(String axes) {
         if (!isChain) {
             js.append(jsBase);
@@ -92,6 +144,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setAxes1 = new ArrayList<>();
+
+    /**
+     * Setter for map axes.
+     */
     public ChartsMap setAxes(Boolean axes1) {
         if (!isChain) {
             js.append(jsBase);
@@ -117,6 +173,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<MapSeriesBubble> setBubble = new ArrayList<>();
+
+    /**
+     * Creates a Bubble series.
+     */
     public MapSeriesBubble bubble(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -152,6 +212,9 @@ public class ChartsMap extends SeparateChart {
 
     private Callout getCallout;
 
+    /**
+     * Getter for callout elements.
+     */
     public Callout getCallout() {
         if (getCallout == null)
             getCallout = new Callout(jsBase + ".callout()");
@@ -161,6 +224,9 @@ public class ChartsMap extends SeparateChart {
 
     private List<Callout> getCallout1 = new ArrayList<>();
 
+    /**
+     * Getter for callout elements.
+     */
     public Callout getCallout(Double index) {
         Callout item = new Callout(jsBase + ".callout("+ index+")");
         getCallout1.add(item);
@@ -169,6 +235,10 @@ public class ChartsMap extends SeparateChart {
     private String callout;
     private Boolean callout1;
     private List<ChartsMap> setCallout = new ArrayList<>();
+
+    /**
+     * Setter for callout elements.
+     */
     public ChartsMap setCallout(String callout) {
         if (!isChain) {
             js.append(jsBase);
@@ -194,6 +264,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setCallout1 = new ArrayList<>();
+
+    /**
+     * Setter for callout elements.
+     */
     public ChartsMap setCallout(Boolean callout1) {
         if (!isChain) {
             js.append(jsBase);
@@ -222,6 +296,10 @@ public class ChartsMap extends SeparateChart {
     private String callout2;
     private Boolean callout3;
     private List<ChartsMap> setCallout2 = new ArrayList<>();
+
+    /**
+     * Setter for callout elements by index.
+     */
     public ChartsMap setCallout(String callout2, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -247,6 +325,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setCallout3 = new ArrayList<>();
+
+    /**
+     * Setter for callout elements by index.
+     */
     public ChartsMap setCallout(Boolean callout3, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -272,6 +354,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<Choropleth> setChoropleth = new ArrayList<>();
+
+    /**
+     * Creates a Choropleth series.
+     */
     public Choropleth choropleth(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -307,6 +393,9 @@ public class ChartsMap extends SeparateChart {
 
     private UiColorRange getColorRange;
 
+    /**
+     * Getter for the current color range.
+     */
     public UiColorRange getColorRange() {
         if (getColorRange == null)
             getColorRange = new UiColorRange(jsBase + ".colorRange()");
@@ -315,6 +404,10 @@ public class ChartsMap extends SeparateChart {
     }
     private String colorRange;
     private List<ChartsMap> setColorRange = new ArrayList<>();
+
+    /**
+     * Setter for the color range.
+     */
     public ChartsMap setColorRange(String colorRange) {
         if (!isChain) {
             js.append(jsBase);
@@ -340,6 +433,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<Connector> setConnector = new ArrayList<>();
+
+    /**
+     * Creates connector series.
+     */
     public Connector connector(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -375,6 +472,9 @@ public class ChartsMap extends SeparateChart {
 
     private Crosshair getCrosshair;
 
+    /**
+     * Getter for map crosshair settings.
+     */
     public Crosshair getCrosshair() {
         if (getCrosshair == null)
             getCrosshair = new Crosshair(jsBase + ".crosshair()");
@@ -384,6 +484,10 @@ public class ChartsMap extends SeparateChart {
     private String crosshair;
     private Boolean crosshair1;
     private List<ChartsMap> setCrosshair = new ArrayList<>();
+
+    /**
+     * Setter for map crosshair settings.
+     */
     public ChartsMap setCrosshair(String crosshair) {
         if (!isChain) {
             js.append(jsBase);
@@ -409,6 +513,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setCrosshair1 = new ArrayList<>();
+
+    /**
+     * Setter for map crosshair settings.
+     */
     public ChartsMap setCrosshair(Boolean crosshair1) {
         if (!isChain) {
             js.append(jsBase);
@@ -436,6 +544,10 @@ public class ChartsMap extends SeparateChart {
     private String crs;
     private MapProjections crs1;
     private String crs2;
+
+    /**
+     * Sets the crs (coordinate system) to map.
+     */
     public void setCrs(String crs) {
         if (isChain) {
             js.append(";");
@@ -449,6 +561,10 @@ public class ChartsMap extends SeparateChart {
         }
     }
 
+
+    /**
+     * Sets the crs (coordinate system) to map.
+     */
     public void setCrs(MapProjections crs1) {
         if (isChain) {
             js.append(";");
@@ -465,6 +581,9 @@ public class ChartsMap extends SeparateChart {
 
     private Animation getCrsAnimation;
 
+    /**
+     * Getter for animation settings.
+     */
     public Animation getCrsAnimation() {
         if (getCrsAnimation == null)
             getCrsAnimation = new Animation(jsBase + ".crsAnimation()");
@@ -475,6 +594,10 @@ public class ChartsMap extends SeparateChart {
     private String crsAnimation1;
     private Double duration;
     private List<ChartsMap> setCrsAnimation = new ArrayList<>();
+
+    /**
+     * Setter for animation settings.
+     */
     public ChartsMap setCrsAnimation(Boolean crsAnimation, Double duration) {
         if (!isChain) {
             js.append(jsBase);
@@ -500,6 +623,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setCrsAnimation1 = new ArrayList<>();
+
+    /**
+     * Setter for animation settings.
+     */
     public ChartsMap setCrsAnimation(String crsAnimation1, Double duration) {
         if (!isChain) {
             js.append(jsBase);
@@ -527,6 +654,10 @@ public class ChartsMap extends SeparateChart {
     private MapSeriesType defaultSeriesType;
     private String defaultSeriesType1;
     private List<ChartsMap> setDefaultSeriesType = new ArrayList<>();
+
+    /**
+     * Setter for the map default series type.
+     */
     public ChartsMap setDefaultSeriesType(MapSeriesType defaultSeriesType) {
         if (!isChain) {
             js.append(jsBase);
@@ -552,6 +683,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setDefaultSeriesType1 = new ArrayList<>();
+
+    /**
+     * Setter for the map default series type.
+     */
     public ChartsMap setDefaultSeriesType(String defaultSeriesType1) {
         if (!isChain) {
             js.append(jsBase);
@@ -577,6 +712,11 @@ public class ChartsMap extends SeparateChart {
     }
 
     private String drillDownMap;
+
+    /**
+     * Drills down a map.<br/>
+Set the transitions to drill down.
+     */
     public void drillDownMap(String drillDownMap) {
         if (isChain) {
             js.append(";");
@@ -593,6 +733,10 @@ public class ChartsMap extends SeparateChart {
     private String id;
     private ChartsMap map;
     private List<ChartsMap> setDrillTo = new ArrayList<>();
+
+    /**
+     * Drills down to a map.
+     */
     public ChartsMap drillTo(String id, ChartsMap map) {
         if (!isChain) {
             js.append(jsBase);
@@ -620,6 +764,11 @@ public class ChartsMap extends SeparateChart {
     private String id2;
     private String crs3;
     private List<ChartsMap> setFeatureCrs = new ArrayList<>();
+
+    /**
+     * Setter for the crs of the feature.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public ChartsMap setFeatureCrs(String id2, String crs3) {
         if (!isChain) {
             js.append(jsBase);
@@ -647,6 +796,11 @@ public class ChartsMap extends SeparateChart {
     private String id4;
     private Double ratio;
     private List<ChartsMap> setFeatureScaleFactor = new ArrayList<>();
+
+    /**
+     * Setter for the feature scale factor.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public ChartsMap setFeatureScaleFactor(String id4, Double ratio) {
         if (!isChain) {
             js.append(jsBase);
@@ -675,6 +829,11 @@ public class ChartsMap extends SeparateChart {
     private Double dx;
     private Double dy;
     private List<ChartsMap> setFeatureTranslation = new ArrayList<>();
+
+    /**
+     * Setter for the translation feature.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public ChartsMap setFeatureTranslation(String id6, Double dx, Double dy) {
         if (!isChain) {
             js.append(jsBase);
@@ -701,6 +860,10 @@ public class ChartsMap extends SeparateChart {
 
     private String data;
     private String data1;
+
+    /**
+     * Setter for the geo data.
+     */
     public void setGeoData(String data, String data1) {
         if (isChain) {
             js.append(";");
@@ -716,6 +879,10 @@ public class ChartsMap extends SeparateChart {
 
     private String geoIdField;
     private List<ChartsMap> setGeoIdField = new ArrayList<>();
+
+    /**
+     * Setter for the geo id field.
+     */
     public ChartsMap setGeoIdField(String geoIdField) {
         if (!isChain) {
             js.append(jsBase);
@@ -743,6 +910,10 @@ public class ChartsMap extends SeparateChart {
 
     private AnychartMathRect getGetPlotBounds;
 
+    /**
+     * Getter for the current data bounds of the chart.
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public AnychartMathRect getGetPlotBounds() {
         if (getGetPlotBounds == null)
             getGetPlotBounds = new AnychartMathRect(jsBase + ".getPlotBounds()");
@@ -752,6 +923,9 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesBase> getGetSeries = new ArrayList<>();
 
+    /**
+     * Getter for the series by its id.
+     */
     public MapSeriesBase getGetSeries(Double id7) {
         MapSeriesBase item = new MapSeriesBase(jsBase + ".getSeries("+ id7+")");
         getGetSeries.add(item);
@@ -760,6 +934,9 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesBase> getGetSeries1 = new ArrayList<>();
 
+    /**
+     * Getter for the series by its id.
+     */
     public MapSeriesBase getGetSeries(String id8) {
         MapSeriesBase item = new MapSeriesBase(jsBase + ".getSeries("+ wrapQuotes(id8)+")");
         getGetSeries1.add(item);
@@ -768,6 +945,9 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesBase> getGetSeriesAt = new ArrayList<>();
 
+    /**
+     * Getter for the series by its index.
+     */
     public MapSeriesBase getGetSeriesAt(Double index2) {
         MapSeriesBase item = new MapSeriesBase(jsBase + ".getSeriesAt("+ index2+")");
         getGetSeriesAt.add(item);
@@ -776,6 +956,9 @@ public class ChartsMap extends SeparateChart {
 
     private GridsMapSettings getGrids;
 
+    /**
+     * Getter for map grids.
+     */
     public GridsMapSettings getGrids() {
         if (getGrids == null)
             getGrids = new GridsMapSettings(jsBase + ".grids()");
@@ -785,6 +968,10 @@ public class ChartsMap extends SeparateChart {
     private String grids;
     private Boolean grids1;
     private List<ChartsMap> setGrids = new ArrayList<>();
+
+    /**
+     * Setter for map grids.
+     */
     public ChartsMap setGrids(String grids) {
         if (!isChain) {
             js.append(jsBase);
@@ -810,6 +997,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setGrids1 = new ArrayList<>();
+
+    /**
+     * Setter for map grids.
+     */
     public ChartsMap setGrids(Boolean grids1) {
         if (!isChain) {
             js.append(jsBase);
@@ -837,6 +1028,9 @@ public class ChartsMap extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for the current map hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -847,6 +1041,10 @@ public class ChartsMap extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<ChartsMap> setHatchFillPalette = new ArrayList<>();
+
+    /**
+     * Setter for the map hatch fill palette settings.
+     */
     public ChartsMap setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -872,6 +1070,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setHatchFillPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for the map hatch fill palette settings.
+     */
     public ChartsMap setHatchFillPalette(String hatchFillPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -897,17 +1099,19 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setHatchFillPalette2 = new ArrayList<>();
-    public ChartsMap setHatchFillPalette(HatchFills hatchFillPalette2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the map hatch fill palette settings.
+     */
+    public ChartsMap setHatchFillPalette(HatchFills hatchFillPalette2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetHatchFillPalette2() {
@@ -924,6 +1128,9 @@ public class ChartsMap extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -932,6 +1139,10 @@ public class ChartsMap extends SeparateChart {
     }
     private String hovered;
     private List<ChartsMap> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public ChartsMap setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -958,6 +1169,10 @@ public class ChartsMap extends SeparateChart {
 
     private Double x;
     private Double y;
+
+    /**
+     * Transforms local pixel coordinates to latitude/longitude values.
+     */
     public void inverseTransform(Double x, Double y) {
         if (isChain) {
             js.append(";");
@@ -974,6 +1189,9 @@ public class ChartsMap extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for series data labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -983,6 +1201,10 @@ public class ChartsMap extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<ChartsMap> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for series data labels.
+     */
     public ChartsMap setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -1008,6 +1230,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for series data labels.
+     */
     public ChartsMap setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1033,6 +1259,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<MapSeriesMarker> setMarker = new ArrayList<>();
+
+    /**
+     * Creates a Marker series.
+     */
     public MapSeriesMarker marker(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -1068,6 +1298,9 @@ public class ChartsMap extends SeparateChart {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for the current map markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -1079,17 +1312,19 @@ public class ChartsMap extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<ChartsMap> setMarkerPalette = new ArrayList<>();
-    public ChartsMap setMarkerPalette(Markers markerPalette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the map markers palette settings.
+     */
+    public ChartsMap setMarkerPalette(Markers markerPalette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(markerPalette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetMarkerPalette() {
@@ -1104,6 +1339,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setMarkerPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for the map markers palette settings.
+     */
     public ChartsMap setMarkerPalette(String markerPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1129,6 +1368,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setMarkerPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the map markers palette settings.
+     */
     public ChartsMap setMarkerPalette(MarkerType[] markerPalette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1154,6 +1397,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setMarkerPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the map markers palette settings.
+     */
     public ChartsMap setMarkerPalette(String[] markerPalette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1181,6 +1428,10 @@ public class ChartsMap extends SeparateChart {
     private Double maxBubbleSize;
     private String maxBubbleSize1;
     private List<ChartsMap> setMaxBubbleSize = new ArrayList<>();
+
+    /**
+     * Setter for the maximum size for all bubbles on the charts.
+     */
     public ChartsMap setMaxBubbleSize(Double maxBubbleSize) {
         if (!isChain) {
             js.append(jsBase);
@@ -1206,6 +1457,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setMaxBubbleSize1 = new ArrayList<>();
+
+    /**
+     * Setter for the maximum size for all bubbles on the charts.
+     */
     public ChartsMap setMaxBubbleSize(String maxBubbleSize1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1232,6 +1487,10 @@ public class ChartsMap extends SeparateChart {
 
     private Double maxZoomLevel;
     private List<ChartsMap> setMaxZoomLevel = new ArrayList<>();
+
+    /**
+     * Setter for the maximum zoom level.
+     */
     public ChartsMap setMaxZoomLevel(Double maxZoomLevel) {
         if (!isChain) {
             js.append(jsBase);
@@ -1259,6 +1518,10 @@ public class ChartsMap extends SeparateChart {
     private Double minBubbleSize;
     private String minBubbleSize1;
     private List<ChartsMap> setMinBubbleSize = new ArrayList<>();
+
+    /**
+     * Setter for the minimum size for all bubbles on the charts.
+     */
     public ChartsMap setMinBubbleSize(Double minBubbleSize) {
         if (!isChain) {
             js.append(jsBase);
@@ -1284,6 +1547,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setMinBubbleSize1 = new ArrayList<>();
+
+    /**
+     * Setter for the minimum size for all bubbles on the charts.
+     */
     public ChartsMap setMinBubbleSize(String minBubbleSize1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1311,6 +1578,11 @@ public class ChartsMap extends SeparateChart {
     private Double dx1;
     private Double dy1;
     private List<ChartsMap> setMove = new ArrayList<>();
+
+    /**
+     * Moves focus point for the map.<br/>
+<b>Note:</b> Works only with {@link anychart.charts.Map#zoom}
+     */
     public ChartsMap move(Double dx1, Double dy1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1338,6 +1610,9 @@ public class ChartsMap extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -1346,6 +1621,10 @@ public class ChartsMap extends SeparateChart {
     }
     private String normal;
     private List<ChartsMap> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public ChartsMap setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -1374,6 +1653,10 @@ public class ChartsMap extends SeparateChart {
     private String overlapMode1;
     private Boolean overlapMode2;
     private List<ChartsMap> setOverlapMode = new ArrayList<>();
+
+    /**
+     * Setter for labels overlap mode.
+     */
     public ChartsMap setOverlapMode(LabelsOverlapMode overlapMode) {
         if (!isChain) {
             js.append(jsBase);
@@ -1399,6 +1682,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setOverlapMode1 = new ArrayList<>();
+
+    /**
+     * Setter for labels overlap mode.
+     */
     public ChartsMap setOverlapMode(String overlapMode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1424,6 +1711,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setOverlapMode2 = new ArrayList<>();
+
+    /**
+     * Setter for labels overlap mode.
+     */
     public ChartsMap setOverlapMode(Boolean overlapMode2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1451,6 +1742,9 @@ public class ChartsMap extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the current map palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -1462,17 +1756,19 @@ public class ChartsMap extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<ChartsMap> setPalette = new ArrayList<>();
-    public ChartsMap setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the map palette.
+     */
+    public ChartsMap setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -1487,17 +1783,19 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setPalette1 = new ArrayList<>();
-    public ChartsMap setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the map palette.
+     */
+    public ChartsMap setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -1512,6 +1810,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the map palette.
+     */
     public ChartsMap setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1537,6 +1839,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the map palette.
+     */
     public ChartsMap setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1564,6 +1870,10 @@ public class ChartsMap extends SeparateChart {
     private Double id9;
     private String id10;
     private List<ChartsMap> setRemoveSeries = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public ChartsMap removeSeries(Double id9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1589,6 +1899,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setRemoveSeries1 = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public ChartsMap removeSeries(String id10) {
         if (!isChain) {
             js.append(jsBase);
@@ -1615,6 +1929,10 @@ public class ChartsMap extends SeparateChart {
 
     private Double index3;
     private List<ChartsMap> setRemoveSeriesAt = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its index.
+     */
     public ChartsMap removeSeriesAt(Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1642,6 +1960,9 @@ public class ChartsMap extends SeparateChart {
 
     private Geo getScale;
 
+    /**
+     * Getter for the map geo scale.
+     */
     public Geo getScale() {
         if (getScale == null)
             getScale = new Geo(jsBase + ".scale()");
@@ -1651,17 +1972,19 @@ public class ChartsMap extends SeparateChart {
     private Geo scale;
     private String scale1;
     private List<Geo> setScale = new ArrayList<>();
+
+    /**
+     * Setter for the map geo scale.
+     */
     public Geo setScale(Geo scale) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setScale" + ++variableIndex + " = " + jsBase + ".scale(%s);", ((scale != null) ? scale.generateJs() : "null")));
+        js.append(scale.generateJs());
+        js.append(jsBase);
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
-            js.setLength(0);
-        }
+        js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
         Geo item = new Geo("setScale" + variableIndex);
         setScale.add(item);
         return item;
@@ -1678,6 +2001,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<Geo> setScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the map geo scale.
+     */
     public Geo setScale(String scale1) {
         if (isChain) {
             js.append(";");
@@ -1707,6 +2034,9 @@ public class ChartsMap extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -1715,6 +2045,10 @@ public class ChartsMap extends SeparateChart {
     }
     private String selected;
     private List<ChartsMap> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public ChartsMap setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -1741,6 +2075,11 @@ public class ChartsMap extends SeparateChart {
 
     private Double xLong;
     private Double yLat;
+
+    /**
+     * Returns coordinate at given latitude and longitude as pixel values relative to a map bounds.<br/>
+<b>Note:</b> Returns correct values only after {@link anychart.charts.Map#draw} is called.
+     */
     public void transform(Double xLong, Double yLat) {
         if (isChain) {
             js.append(";");
@@ -1758,6 +2097,11 @@ public class ChartsMap extends SeparateChart {
     private Double dx2;
     private Double dy2;
     private List<ChartsMap> setTranslateFeature = new ArrayList<>();
+
+    /**
+     * Translates feature on passed dx and dy.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public ChartsMap translateFeature(String id11, Double dx2, Double dy2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1785,6 +2129,9 @@ public class ChartsMap extends SeparateChart {
 
     private UnboundRegionsSettings getUnboundRegions;
 
+    /**
+     * Getter for the current settings for the unbound regions.
+     */
     public UnboundRegionsSettings getUnboundRegions() {
         if (getUnboundRegions == null)
             getUnboundRegions = new UnboundRegionsSettings(jsBase + ".unboundRegions()");
@@ -1796,6 +2143,10 @@ public class ChartsMap extends SeparateChart {
     private String unboundRegions2;
     private Boolean unboundRegions3;
     private List<ChartsMap> setUnboundRegions = new ArrayList<>();
+
+    /**
+     * Setter for the settings for regions that are not linked to any series data.
+     */
     public ChartsMap setUnboundRegions(String unboundRegions) {
         if (!isChain) {
             js.append(jsBase);
@@ -1821,6 +2172,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setUnboundRegions1 = new ArrayList<>();
+
+    /**
+     * Setter for the settings for regions that are not linked to any series data.
+     */
     public ChartsMap setUnboundRegions(MapUnboundRegionsMode unboundRegions1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1846,6 +2201,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private List<ChartsMap> setUnboundRegions2 = new ArrayList<>();
+
+    /**
+     * Setter for the settings for regions that are not linked to any series data.
+     */
     public ChartsMap setUnboundRegions(Boolean unboundRegions3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1875,6 +2234,10 @@ public class ChartsMap extends SeparateChart {
     private Double cy;
     private Double duration1;
     private List<ChartsMap> setZoom = new ArrayList<>();
+
+    /**
+     * Zooms a map.
+     */
     public ChartsMap zoom(Double zoom, Double cx, Double cy, Double duration1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1903,6 +2266,10 @@ public class ChartsMap extends SeparateChart {
     private Double cx1;
     private Double cy1;
     private List<ChartsMap> setZoomTo = new ArrayList<>();
+
+    /**
+     * Zooms the map to passed zoom level and coordinates.
+     */
     public ChartsMap zoomTo(Double zoomTo, Double cx1, Double cy1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1928,6 +2295,10 @@ public class ChartsMap extends SeparateChart {
     }
 
     private String id12;
+
+    /**
+     * Zoom to feature by passed id.
+     */
     public void zoomToFeature(String id12) {
         if (isChain) {
             js.append(";");

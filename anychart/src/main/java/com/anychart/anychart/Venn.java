@@ -6,13 +6,34 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Venn chart class.
+ */
 public class Venn extends SeparateChart {
 
     protected Venn(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Venn setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Venn setData(List<DataEntry> data) {
@@ -35,10 +56,33 @@ public class Venn extends SeparateChart {
         return this;
     }
 
+    public Venn setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
 
     private View getData;
 
+    /**
+     * Getter for the chart data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -46,6 +90,10 @@ public class Venn extends SeparateChart {
         return getData;
     }
     private List<Venn> setData = new ArrayList<>();
+
+    /**
+     * Setter for the data for the chart.
+     */
     public Venn data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -78,6 +126,10 @@ public class Venn extends SeparateChart {
 
     private String dataSeparator;
     private List<Venn> setDataSeparator = new ArrayList<>();
+
+    /**
+     * Setter for the data separator.
+     */
     public Venn setDataSeparator(String dataSeparator) {
         if (!isChain) {
             js.append(jsBase);
@@ -104,6 +156,11 @@ public class Venn extends SeparateChart {
 
     private Fill fill;
     private List<Venn> setFill = new ArrayList<>();
+
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Venn setFill(Fill fill) {
         if (!isChain) {
             js.append(jsBase);
@@ -131,6 +188,10 @@ public class Venn extends SeparateChart {
     private String color;
     private Double opacity;
     private List<Venn> setFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Venn fill(String color, Double opacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -163,6 +224,11 @@ public class Venn extends SeparateChart {
     private String mode2;
     private Double opacity1;
     private List<Venn> setFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Venn fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -188,6 +254,11 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Venn fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -213,6 +284,11 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Venn fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -238,6 +314,11 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Venn fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -263,6 +344,11 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Venn fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -288,6 +374,11 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Venn fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -321,6 +412,11 @@ public class Venn extends SeparateChart {
     private Double fx;
     private Double fy;
     private List<Venn> setFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Venn fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -346,6 +442,11 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Venn fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -374,6 +475,9 @@ public class Venn extends SeparateChart {
 
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -389,6 +493,10 @@ public class Venn extends SeparateChart {
     private Double thickness;
     private Double size;
     private List<Venn> setHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings.
+     */
     public Venn setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -414,6 +522,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings.
+     */
     public Venn setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -439,6 +551,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings.
+     */
     public Venn setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -464,6 +580,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings.
+     */
     public Venn setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -489,6 +609,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setHatchFill4 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings.
+     */
     public Venn setHatchFill(Boolean patternFillOrType4, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -516,6 +640,9 @@ public class Venn extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for chart hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -526,6 +653,10 @@ public class Venn extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<Venn> setHatchFillPalette = new ArrayList<>();
+
+    /**
+     * Setter for the chart hatch fill palette settings.
+     */
     public Venn setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -551,6 +682,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setHatchFillPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart hatch fill palette settings.
+     */
     public Venn setHatchFillPalette(String hatchFillPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -576,17 +711,19 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setHatchFillPalette2 = new ArrayList<>();
-    public Venn setHatchFillPalette(HatchFills hatchFillPalette2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart hatch fill palette settings.
+     */
+    public Venn setHatchFillPalette(HatchFills hatchFillPalette2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetHatchFillPalette2() {
@@ -602,6 +739,10 @@ public class Venn extends SeparateChart {
 
     private Double index;
     private List<Venn> setHover = new ArrayList<>();
+
+    /**
+     * Hovers point by index.
+     */
     public Venn hover(Double index) {
         if (!isChain) {
             js.append(jsBase);
@@ -628,6 +769,10 @@ public class Venn extends SeparateChart {
 
     private Double[] indexes;
     private List<Venn> setHover1 = new ArrayList<>();
+
+    /**
+     * Hovers points by indexes.
+     */
     public Venn hover(Double[] indexes) {
         if (!isChain) {
             js.append(jsBase);
@@ -655,6 +800,9 @@ public class Venn extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -663,6 +811,10 @@ public class Venn extends SeparateChart {
     }
     private String hovered;
     private List<Venn> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public Venn setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -690,6 +842,9 @@ public class Venn extends SeparateChart {
 
     private Intersections getIntersections;
 
+    /**
+     * Getter for intersections settings.
+     */
     public Intersections getIntersections() {
         if (getIntersections == null)
             getIntersections = new Intersections(jsBase + ".intersections()");
@@ -698,6 +853,10 @@ public class Venn extends SeparateChart {
     }
     private String intersections;
     private List<Venn> setIntersections = new ArrayList<>();
+
+    /**
+     * Setter for intersections settings.
+     */
     public Venn setIntersections(String intersections) {
         if (!isChain) {
             js.append(jsBase);
@@ -725,6 +884,9 @@ public class Venn extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for venn labels settings.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -734,6 +896,10 @@ public class Venn extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Venn> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for venn labels settings.
+     */
     public Venn setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -759,6 +925,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for venn labels settings.
+     */
     public Venn setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -786,6 +956,9 @@ public class Venn extends SeparateChart {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for chart markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -797,17 +970,19 @@ public class Venn extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<Venn> setMarkerPalette = new ArrayList<>();
-    public Venn setMarkerPalette(Markers markerPalette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for chart markers palette settings.
+     */
+    public Venn setMarkerPalette(Markers markerPalette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(markerPalette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetMarkerPalette() {
@@ -822,6 +997,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setMarkerPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for chart markers palette settings.
+     */
     public Venn setMarkerPalette(String markerPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -847,6 +1026,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setMarkerPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for chart markers palette settings.
+     */
     public Venn setMarkerPalette(MarkerType[] markerPalette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -872,6 +1055,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setMarkerPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for chart markers palette settings.
+     */
     public Venn setMarkerPalette(String[] markerPalette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -899,6 +1086,9 @@ public class Venn extends SeparateChart {
 
     private UiMarkersFactory getMarkers;
 
+    /**
+     * Getter for data markers.
+     */
     public UiMarkersFactory getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersFactory(jsBase + ".markers()");
@@ -909,6 +1099,10 @@ public class Venn extends SeparateChart {
     private Boolean markers1;
     private String markers2;
     private List<Venn> setMarkers = new ArrayList<>();
+
+    /**
+     * Setter for data markers.
+     */
     public Venn setMarkers(String markers) {
         if (!isChain) {
             js.append(jsBase);
@@ -934,6 +1128,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for data markers.
+     */
     public Venn setMarkers(Boolean markers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -961,6 +1159,9 @@ public class Venn extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -969,6 +1170,10 @@ public class Venn extends SeparateChart {
     }
     private String normal;
     private List<Venn> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public Venn setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -996,6 +1201,9 @@ public class Venn extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the venn palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -1007,17 +1215,20 @@ public class Venn extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<Venn> setPalette = new ArrayList<>();
-    public Venn setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the venn palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public Venn setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -1032,17 +1243,20 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setPalette1 = new ArrayList<>();
-    public Venn setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the venn palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public Venn setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -1057,6 +1271,11 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the venn palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public Venn setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1082,6 +1301,11 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the venn palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public Venn setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1108,6 +1332,10 @@ public class Venn extends SeparateChart {
 
     private Double index1;
     private List<Venn> setSelect = new ArrayList<>();
+
+    /**
+     * Selects point by index.
+     */
     public Venn select(Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1135,6 +1363,10 @@ public class Venn extends SeparateChart {
     private Double indexes1;
     private Double[] indexes2;
     private List<Venn> setSelect1 = new ArrayList<>();
+
+    /**
+     * Selects point by indexes.
+     */
     public Venn select(Double[] indexes2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1162,6 +1394,9 @@ public class Venn extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -1170,6 +1405,10 @@ public class Venn extends SeparateChart {
     }
     private String selected;
     private List<Venn> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public Venn setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -1202,6 +1441,11 @@ public class Venn extends SeparateChart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<Venn> setStroke = new ArrayList<>();
+
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Venn setStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -1227,6 +1471,11 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Venn setStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -1252,6 +1501,11 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Venn setStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -1279,6 +1533,10 @@ public class Venn extends SeparateChart {
     private Double indexOrIndexes;
     private Double[] indexOrIndexes1;
     private List<Venn> setUnhover = new ArrayList<>();
+
+    /**
+     * Removes hover from the series point or series.
+     */
     public Venn unhover(Double indexOrIndexes) {
         if (!isChain) {
             js.append(jsBase);
@@ -1304,6 +1562,10 @@ public class Venn extends SeparateChart {
     }
 
     private List<Venn> setUnhover1 = new ArrayList<>();
+
+    /**
+     * Removes hover from the series point or series.
+     */
     public Venn unhover(Double[] indexOrIndexes1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1330,6 +1592,10 @@ public class Venn extends SeparateChart {
 
     private Double index2;
     private List<Venn> setUnselect = new ArrayList<>();
+
+    /**
+     * Deselects selected point by index.
+     */
     public Venn unselect(Double index2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1356,6 +1622,10 @@ public class Venn extends SeparateChart {
 
     private Double[] indexes3;
     private List<Venn> setUnselect1 = new ArrayList<>();
+
+    /**
+     * Deselects selected points by indexes.
+     */
     public Venn unselect(Double[] indexes3) {
         if (!isChain) {
             js.append(jsBase);

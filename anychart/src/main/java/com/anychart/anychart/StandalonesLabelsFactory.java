@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesLabelsFactory extends UiLabelsFactory {
 
     public StandalonesLabelsFactory() {
-
+        js.setLength(0);
+        js.append("var standalonesLabelsFactory").append(++variableIndex).append(" = anychart.standalones.labelsFactory();");
+        jsBase = "standalonesLabelsFactory" + variableIndex;
     }
 
     protected StandalonesLabelsFactory(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class StandalonesLabelsFactory extends UiLabelsFactory {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class StandalonesLabelsFactory extends UiLabelsFactory {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

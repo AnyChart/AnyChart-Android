@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Stock current price indicator class.
+ */
 public class CurrentPriceIndicator extends VisualBase {
 
     public CurrentPriceIndicator() {
-
+        js.setLength(0);
+        js.append("var currentPriceIndicator").append(++variableIndex).append(" = anychart.core.axisMarkers.currentPriceIndicator();");
+        jsBase = "currentPriceIndicator" + variableIndex;
     }
 
     protected CurrentPriceIndicator(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class CurrentPriceIndicator extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private CoreAxesLinear getAxis;
 
+    /**
+     * Getter for the target axis.
+     */
     public CoreAxesLinear getAxis() {
         if (getAxis == null)
             getAxis = new CoreAxesLinear(jsBase + ".axis()");
@@ -37,6 +50,9 @@ public class CurrentPriceIndicator extends VisualBase {
     private Double axis;
     private CoreAxesLinear axis1;
 
+    /**
+     * Setter for the target axis.
+     */
     public CurrentPriceIndicator setAxis(Double axis) {
         if (jsBase == null) {
             this.axis = null;
@@ -51,7 +67,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".axis(%f)", axis));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".axis(%f)", axis));
                 js.setLength(0);
@@ -61,6 +76,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the target axis.
+     */
     public CurrentPriceIndicator setAxis(CoreAxesLinear axis1) {
         if (jsBase == null) {
             this.axis = null;
@@ -69,15 +87,16 @@ public class CurrentPriceIndicator extends VisualBase {
             this.axis1 = axis1;
         } else {
             this.axis1 = axis1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(axis1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".axis(%s)", ((axis1 != null) ? axis1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".axis(%s);",  ((axis1 != null) ? axis1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", ((axis1 != null) ? axis1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", ((axis1 != null) ? axis1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -86,6 +105,9 @@ public class CurrentPriceIndicator extends VisualBase {
 
     private UiLabel getFallingLabel;
 
+    /**
+     * Getter for the price indicator falling label.
+     */
     public UiLabel getFallingLabel() {
         if (getFallingLabel == null)
             getFallingLabel = new UiLabel(jsBase + ".fallingLabel()");
@@ -98,6 +120,9 @@ public class CurrentPriceIndicator extends VisualBase {
     private Boolean fallingLabel;
     private String fallingLabel1;
 
+    /**
+     * Setter for the price indicator falling label.
+     */
     public CurrentPriceIndicator setFallingLabel(String index, Boolean fallingLabel) {
         if (jsBase == null) {
             this.index = null;
@@ -117,7 +142,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fallingLabel(%s, %b)", wrapQuotes(index), fallingLabel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingLabel(%s, %b)", wrapQuotes(index), fallingLabel));
                 js.setLength(0);
@@ -127,6 +151,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator falling label.
+     */
     public CurrentPriceIndicator setFallingLabel(String index, String fallingLabel1) {
         if (jsBase == null) {
             this.index = null;
@@ -146,7 +173,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fallingLabel(%s, %s)", wrapQuotes(index), wrapQuotes(fallingLabel1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingLabel(%s, %s)", wrapQuotes(index), wrapQuotes(fallingLabel1)));
                 js.setLength(0);
@@ -156,6 +182,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator falling label.
+     */
     public CurrentPriceIndicator setFallingLabel(Double index1, Boolean fallingLabel) {
         if (jsBase == null) {
             this.index = null;
@@ -175,7 +204,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fallingLabel(%f, %b)", index1, fallingLabel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingLabel(%f, %b)", index1, fallingLabel));
                 js.setLength(0);
@@ -185,6 +213,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator falling label.
+     */
     public CurrentPriceIndicator setFallingLabel(Double index1, String fallingLabel1) {
         if (jsBase == null) {
             this.index = null;
@@ -204,7 +235,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fallingLabel(%f, %s)", index1, wrapQuotes(fallingLabel1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingLabel(%f, %s)", index1, wrapQuotes(fallingLabel1)));
                 js.setLength(0);
@@ -221,6 +251,9 @@ public class CurrentPriceIndicator extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the price indicator falling stroke.
+     */
     public CurrentPriceIndicator setFallingStroke(Stroke fallingStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
@@ -244,7 +277,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((fallingStroke != null) ? fallingStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((fallingStroke != null) ? fallingStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -254,6 +286,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator falling stroke.
+     */
     public CurrentPriceIndicator setFallingStroke(ColoredFill fallingStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
@@ -277,7 +312,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((fallingStroke1 != null) ? fallingStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((fallingStroke1 != null) ? fallingStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -287,6 +321,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator falling stroke.
+     */
     public CurrentPriceIndicator setFallingStroke(String fallingStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
@@ -310,7 +347,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(fallingStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(fallingStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -321,6 +357,9 @@ public class CurrentPriceIndicator extends VisualBase {
 
     private UiLabelsFactory getLabel;
 
+    /**
+     * Getter for the price indicator label.
+     */
     public UiLabelsFactory getLabel() {
         if (getLabel == null)
             getLabel = new UiLabelsFactory(jsBase + ".label()");
@@ -333,6 +372,9 @@ public class CurrentPriceIndicator extends VisualBase {
     private Boolean label;
     private String label1;
 
+    /**
+     * Setter for the price indicator label.
+     */
     public CurrentPriceIndicator setLabel(String index2, Boolean label) {
         if (jsBase == null) {
             this.index = null;
@@ -354,7 +396,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".label(%s, %b)", wrapQuotes(index2), label));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%s, %b)", wrapQuotes(index2), label));
                 js.setLength(0);
@@ -364,6 +405,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator label.
+     */
     public CurrentPriceIndicator setLabel(String index2, String label1) {
         if (jsBase == null) {
             this.index = null;
@@ -385,7 +429,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".label(%s, %s)", wrapQuotes(index2), wrapQuotes(label1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%s, %s)", wrapQuotes(index2), wrapQuotes(label1)));
                 js.setLength(0);
@@ -395,6 +438,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator label.
+     */
     public CurrentPriceIndicator setLabel(Double index3, Boolean label) {
         if (jsBase == null) {
             this.index = null;
@@ -416,7 +462,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".label(%f, %b)", index3, label));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%f, %b)", index3, label));
                 js.setLength(0);
@@ -426,6 +471,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator label.
+     */
     public CurrentPriceIndicator setLabel(Double index3, String label1) {
         if (jsBase == null) {
             this.index = null;
@@ -447,7 +495,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".label(%f, %s)", index3, wrapQuotes(label1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%f, %s)", index3, wrapQuotes(label1)));
                 js.setLength(0);
@@ -458,6 +505,9 @@ public class CurrentPriceIndicator extends VisualBase {
 
     private UiLabel getRisingLabel;
 
+    /**
+     * Getter for the price indicator rising label.
+     */
     public UiLabel getRisingLabel() {
         if (getRisingLabel == null)
             getRisingLabel = new UiLabel(jsBase + ".risingLabel()");
@@ -470,6 +520,9 @@ public class CurrentPriceIndicator extends VisualBase {
     private Boolean risingLabel;
     private String risingLabel1;
 
+    /**
+     * Setter for the price indicator rising label.
+     */
     public CurrentPriceIndicator setRisingLabel(String index4, Boolean risingLabel) {
         if (jsBase == null) {
             this.index = null;
@@ -493,7 +546,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".risingLabel(%s, %b)", wrapQuotes(index4), risingLabel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingLabel(%s, %b)", wrapQuotes(index4), risingLabel));
                 js.setLength(0);
@@ -503,6 +555,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator rising label.
+     */
     public CurrentPriceIndicator setRisingLabel(String index4, String risingLabel1) {
         if (jsBase == null) {
             this.index = null;
@@ -526,7 +581,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".risingLabel(%s, %s)", wrapQuotes(index4), wrapQuotes(risingLabel1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingLabel(%s, %s)", wrapQuotes(index4), wrapQuotes(risingLabel1)));
                 js.setLength(0);
@@ -536,6 +590,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator rising label.
+     */
     public CurrentPriceIndicator setRisingLabel(Double index5, Boolean risingLabel) {
         if (jsBase == null) {
             this.index = null;
@@ -559,7 +616,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".risingLabel(%f, %b)", index5, risingLabel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingLabel(%f, %b)", index5, risingLabel));
                 js.setLength(0);
@@ -569,6 +625,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator rising label.
+     */
     public CurrentPriceIndicator setRisingLabel(Double index5, String risingLabel1) {
         if (jsBase == null) {
             this.index = null;
@@ -592,7 +651,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".risingLabel(%f, %s)", index5, wrapQuotes(risingLabel1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingLabel(%f, %s)", index5, wrapQuotes(risingLabel1)));
                 js.setLength(0);
@@ -609,6 +667,9 @@ public class CurrentPriceIndicator extends VisualBase {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for the price indicator rising stroke.<br/>
+     */
     public CurrentPriceIndicator setRisingStroke(Stroke risingStroke, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
@@ -644,7 +705,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((risingStroke != null) ? risingStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((risingStroke != null) ? risingStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -654,6 +714,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator rising stroke.<br/>
+     */
     public CurrentPriceIndicator setRisingStroke(ColoredFill risingStroke1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
@@ -689,7 +752,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((risingStroke1 != null) ? risingStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((risingStroke1 != null) ? risingStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -699,6 +761,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator rising stroke.<br/>
+     */
     public CurrentPriceIndicator setRisingStroke(String risingStroke2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
@@ -734,7 +799,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(risingStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(risingStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -745,6 +809,9 @@ public class CurrentPriceIndicator extends VisualBase {
 
     private StockSeriesBase getSeries;
 
+    /**
+     * Getter for the target series.
+     */
     public StockSeriesBase getSeries() {
         if (getSeries == null)
             getSeries = new StockSeriesBase(jsBase + ".series()");
@@ -755,6 +822,9 @@ public class CurrentPriceIndicator extends VisualBase {
     private Double series;
     private StockSeriesBase series1;
 
+    /**
+     * Setter for the target series.
+     */
     public CurrentPriceIndicator setSeries(Double series) {
         if (jsBase == null) {
             this.series = null;
@@ -769,7 +839,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".series(%f)", series));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".series(%f)", series));
                 js.setLength(0);
@@ -779,6 +848,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the target series.
+     */
     public CurrentPriceIndicator setSeries(StockSeriesBase series1) {
         if (jsBase == null) {
             this.series = null;
@@ -787,15 +859,16 @@ public class CurrentPriceIndicator extends VisualBase {
             this.series1 = series1;
         } else {
             this.series1 = series1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(series1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".series(%s)", ((series1 != null) ? series1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".series(%s);",  ((series1 != null) ? series1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", ((series1 != null) ? series1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", ((series1 != null) ? series1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -810,6 +883,10 @@ public class CurrentPriceIndicator extends VisualBase {
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
 
+    /**
+     * Setter for the price indicator stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CurrentPriceIndicator setStroke(Stroke stroke, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.stroke = null;
@@ -849,7 +926,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -859,6 +935,10 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CurrentPriceIndicator setStroke(ColoredFill stroke1, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.stroke = null;
@@ -898,7 +978,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -908,6 +987,10 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the price indicator stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CurrentPriceIndicator setStroke(String stroke2, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.stroke = null;
@@ -947,7 +1030,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -960,6 +1042,9 @@ public class CurrentPriceIndicator extends VisualBase {
     private String value1;
     private Double value2;
 
+    /**
+     * Setter for the stock price indicator.
+     */
     public CurrentPriceIndicator setValue(PriceIndicatorDataSource value) {
         if (jsBase == null) {
             this.value = null;
@@ -975,7 +1060,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".value(%s)", ((value != null) ? value.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".value(%s)", ((value != null) ? value.generateJs() : "null")));
                 js.setLength(0);
@@ -985,6 +1069,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the stock price indicator.
+     */
     public CurrentPriceIndicator setValue(String value1) {
         if (jsBase == null) {
             this.value = null;
@@ -1000,7 +1087,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".value(%s)", wrapQuotes(value1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".value(%s)", wrapQuotes(value1)));
                 js.setLength(0);
@@ -1010,6 +1096,9 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the stock price indicator.
+     */
     public CurrentPriceIndicator setValue(Double value2) {
         if (jsBase == null) {
             this.value = null;
@@ -1025,7 +1114,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".value(%f)", value2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".value(%f)", value2));
                 js.setLength(0);
@@ -1036,6 +1124,11 @@ public class CurrentPriceIndicator extends VisualBase {
 
     private String valueField;
 
+    /**
+     * Setter for the price indicator value field.<br/>
+valueField() method use with {@link anychart.core.axisMarkers.CurrentPriceIndicator#value} method.
+This method sets the field to be used as the value for the price indicator
+     */
     public void setValueField(String valueField) {
         if (jsBase == null) {
             this.valueField = valueField;
@@ -1047,7 +1140,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".valueField(%s);", wrapQuotes(valueField)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueField(%s)", wrapQuotes(valueField)));
                 js.setLength(0);
@@ -1055,47 +1147,9 @@ public class CurrentPriceIndicator extends VisualBase {
         }
     }
 
-
-//
-//    private String generateJSCoreAxesLinear getAxis() {
-//        if (CoreAxesLinear getAxis != null) {
-//            return CoreAxesLinear getAxis.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabel getFallingLabel() {
-//        if (UiLabel getFallingLabel != null) {
-//            return UiLabel getFallingLabel.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLabel() {
-//        if (UiLabelsFactory getLabel != null) {
-//            return UiLabelsFactory getLabel.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabel getRisingLabel() {
-//        if (UiLabel getRisingLabel != null) {
-//            return UiLabel getRisingLabel.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getSeries() {
-//        if (StockSeriesBase getSeries != null) {
-//            return StockSeriesBase getSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetAxis() {
         if (getAxis != null) {
             return getAxis.generateJs();
-            //return String.format(Locale.US, "getAxis: %s,", ((getAxis != null) ? getAxis.generateJs() : "null"));
         }
         return "";
     }
@@ -1103,7 +1157,6 @@ public class CurrentPriceIndicator extends VisualBase {
     private String generateJSgetFallingLabel() {
         if (getFallingLabel != null) {
             return getFallingLabel.generateJs();
-            //return String.format(Locale.US, "getFallingLabel: %s,", ((getFallingLabel != null) ? getFallingLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -1111,7 +1164,6 @@ public class CurrentPriceIndicator extends VisualBase {
     private String generateJSgetLabel() {
         if (getLabel != null) {
             return getLabel.generateJs();
-            //return String.format(Locale.US, "getLabel: %s,", ((getLabel != null) ? getLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -1119,7 +1171,6 @@ public class CurrentPriceIndicator extends VisualBase {
     private String generateJSgetRisingLabel() {
         if (getRisingLabel != null) {
             return getRisingLabel.generateJs();
-            //return String.format(Locale.US, "getRisingLabel: %s,", ((getRisingLabel != null) ? getRisingLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -1127,7 +1178,6 @@ public class CurrentPriceIndicator extends VisualBase {
     private String generateJSgetSeries() {
         if (getSeries != null) {
             return getSeries.generateJs();
-            //return String.format(Locale.US, "getSeries: %s,", ((getSeries != null) ? getSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -1154,94 +1204,6 @@ public class CurrentPriceIndicator extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSaxis());
-////        
-//            js.append(generateJSaxis1());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSfallingLabel());
-////        
-//            js.append(generateJSfallingLabel1());
-////        
-//            js.append(generateJSfallingStroke());
-////        
-//            js.append(generateJSfallingStroke1());
-////        
-//            js.append(generateJSfallingStroke2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSindex2());
-////        
-//            js.append(generateJSindex3());
-////        
-//            js.append(generateJSlabel());
-////        
-//            js.append(generateJSlabel1());
-////        
-//            js.append(generateJSindex4());
-////        
-//            js.append(generateJSindex5());
-////        
-//            js.append(generateJSrisingLabel());
-////        
-//            js.append(generateJSrisingLabel1());
-////        
-//            js.append(generateJSrisingStroke());
-////        
-//            js.append(generateJSrisingStroke1());
-////        
-//            js.append(generateJSrisingStroke2());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-////        
-//            js.append(generateJSseries());
-////        
-//            js.append(generateJSseries1());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSthickness2());
-////        
-//            js.append(generateJSdashpattern2());
-////        
-//            js.append(generateJSlineJoin2());
-////        
-//            js.append(generateJSlineCap2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalueField());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

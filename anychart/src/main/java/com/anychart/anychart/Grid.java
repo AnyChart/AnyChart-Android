@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Resource Chart grid.
+ */
 public class Grid extends VisualBaseWithBounds {
 
     public Grid() {
-
+        js.setLength(0);
+        js.append("var grid").append(++variableIndex).append(" = anychart.core.resource.grid();");
+        jsBase = "grid" + variableIndex;
     }
 
     protected Grid(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Grid extends VisualBaseWithBounds {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private UiBackground getBackground;
 
+    /**
+     * Getter for the background.
+     */
     public UiBackground getBackground() {
         if (getBackground == null)
             getBackground = new UiBackground(jsBase + ".background()");
@@ -38,6 +51,9 @@ public class Grid extends VisualBaseWithBounds {
     private String background1;
     private Boolean background2;
 
+    /**
+     * Setter for the background.
+     */
     public Grid setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
@@ -53,7 +69,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -63,6 +78,9 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the background.
+     */
     public Grid setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
@@ -78,7 +96,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -89,6 +106,9 @@ public class Grid extends VisualBaseWithBounds {
 
     private Boolean drawBottomLine;
 
+    /**
+     * Setter for the bottom line drawing flag.
+     */
     public Grid setDrawBottomLine(Boolean drawBottomLine) {
         if (jsBase == null) {
             this.drawBottomLine = drawBottomLine;
@@ -100,7 +120,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".drawBottomLine(%b)", drawBottomLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawBottomLine(%b)", drawBottomLine));
                 js.setLength(0);
@@ -111,6 +130,9 @@ public class Grid extends VisualBaseWithBounds {
 
     private Boolean drawLeftLine;
 
+    /**
+     * Setter for the left line drawing flag.
+     */
     public Grid setDrawLeftLine(Boolean drawLeftLine) {
         if (jsBase == null) {
             this.drawLeftLine = drawLeftLine;
@@ -122,7 +144,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".drawLeftLine(%b)", drawLeftLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawLeftLine(%b)", drawLeftLine));
                 js.setLength(0);
@@ -133,6 +154,9 @@ public class Grid extends VisualBaseWithBounds {
 
     private Boolean drawRightLine;
 
+    /**
+     * Setter for the right line drawing flag.
+     */
     public Grid setDrawRightLine(Boolean drawRightLine) {
         if (jsBase == null) {
             this.drawRightLine = drawRightLine;
@@ -144,7 +168,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".drawRightLine(%b)", drawRightLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawRightLine(%b)", drawRightLine));
                 js.setLength(0);
@@ -155,6 +178,9 @@ public class Grid extends VisualBaseWithBounds {
 
     private Boolean drawTopLine;
 
+    /**
+     * Setter for the top line drawing flag.
+     */
     public Grid setDrawTopLine(Boolean drawTopLine) {
         if (jsBase == null) {
             this.drawTopLine = drawTopLine;
@@ -166,7 +192,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".drawTopLine(%b)", drawTopLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawTopLine(%b)", drawTopLine));
                 js.setLength(0);
@@ -177,6 +202,10 @@ public class Grid extends VisualBaseWithBounds {
 
     private Fill evenFill;
 
+    /**
+     * Setter for even fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid setEvenFill(Fill evenFill) {
         if (jsBase == null) {
             this.evenFill = evenFill;
@@ -188,7 +217,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s)", ((evenFill != null) ? evenFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s)", ((evenFill != null) ? evenFill.generateJs() : "null")));
                 js.setLength(0);
@@ -200,6 +228,9 @@ public class Grid extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
+    /**
+     * Even fill color with opacity.
+     */
     public Grid evenFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -213,7 +244,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -230,6 +260,10 @@ public class Grid extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -257,7 +291,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -267,6 +300,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -294,7 +331,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -304,6 +340,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -331,7 +371,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -341,6 +380,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -368,7 +411,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -378,6 +420,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -405,7 +451,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -415,6 +460,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -442,7 +491,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -460,6 +508,10 @@ public class Grid extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -497,7 +549,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -507,6 +558,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -544,7 +599,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -556,6 +610,9 @@ public class Grid extends VisualBaseWithBounds {
     private Fill imageSettings;
     private PatternFill getEvenHatchFill;
 
+    /**
+     * Getter for even hatch fill settings.
+     */
     public PatternFill getEvenHatchFill() {
         if (getEvenHatchFill == null)
             getEvenHatchFill = new PatternFill(jsBase + ".evenHatchFill()");
@@ -571,6 +628,10 @@ public class Grid extends VisualBaseWithBounds {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for even hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setEvenHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -596,7 +657,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -606,6 +666,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for even hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setEvenHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -631,7 +695,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -641,6 +704,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for even hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setEvenHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -666,7 +733,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -676,6 +742,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for even hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setEvenHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -701,7 +771,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -712,6 +781,10 @@ public class Grid extends VisualBaseWithBounds {
 
     private Fill evenHolidayFill;
 
+    /**
+     * Setter for even holiday fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid setEvenHolidayFill(Fill evenHolidayFill) {
         if (jsBase == null) {
             this.evenHolidayFill = evenHolidayFill;
@@ -723,7 +796,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayFill(%s)", ((evenHolidayFill != null) ? evenHolidayFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayFill(%s)", ((evenHolidayFill != null) ? evenHolidayFill.generateJs() : "null")));
                 js.setLength(0);
@@ -735,6 +807,9 @@ public class Grid extends VisualBaseWithBounds {
     private String color2;
     private Double opacity3;
 
+    /**
+     * Odd holiday fill color with opacity.
+     */
     public Grid evenHolidayFill(String color2, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
@@ -757,7 +832,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f)", wrapQuotes(color2), opacity3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayFill(%s, %f)", wrapQuotes(color2), opacity3));
                 js.setLength(0);
@@ -774,6 +848,10 @@ public class Grid extends VisualBaseWithBounds {
     private String mode6;
     private Double opacity4;
 
+    /**
+     * Linear gradient even holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenHolidayFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -815,7 +893,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -825,6 +902,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenHolidayFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -866,7 +947,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -876,6 +956,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenHolidayFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -917,7 +1001,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -927,6 +1010,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenHolidayFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -968,7 +1055,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -978,6 +1064,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenHolidayFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -1019,7 +1109,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -1029,6 +1118,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenHolidayFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -1070,7 +1163,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -1088,6 +1180,10 @@ public class Grid extends VisualBaseWithBounds {
     private Double fx1;
     private Double fy1;
 
+    /**
+     * Radial gradient even holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenHolidayFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1148,7 +1244,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1158,6 +1253,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient even holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid evenHolidayFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1218,7 +1317,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1230,6 +1328,9 @@ public class Grid extends VisualBaseWithBounds {
     private Fill imageSettings1;
     private PatternFill getEvenHolidayHatchFill;
 
+    /**
+     * Getter for even holiday hatch fill settings.
+     */
     public PatternFill getEvenHolidayHatchFill() {
         if (getEvenHolidayHatchFill == null)
             getEvenHolidayHatchFill = new PatternFill(jsBase + ".evenHolidayHatchFill()");
@@ -1245,6 +1346,10 @@ public class Grid extends VisualBaseWithBounds {
     private Double thickness1;
     private Double size1;
 
+    /**
+     * Setter for even holiday hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setEvenHolidayHatchFill(PatternFill patternFillOrType4, String color3, Double thickness1, Double size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -1282,7 +1387,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1292,6 +1396,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for even holiday hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setEvenHolidayHatchFill(HatchFill patternFillOrType5, String color3, Double thickness1, Double size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -1329,7 +1437,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1339,6 +1446,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for even holiday hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setEvenHolidayHatchFill(HatchFillType patternFillOrType6, String color3, Double thickness1, Double size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -1376,7 +1487,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1386,6 +1496,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for even holiday hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setEvenHolidayHatchFill(String patternFillOrType7, String color3, Double thickness1, Double size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -1423,7 +1537,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1440,6 +1553,10 @@ public class Grid extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the horizontal stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Grid setHorizontalStroke(Stroke color4, Double thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1471,7 +1588,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".horizontalStroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".horizontalStroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1481,6 +1597,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the horizontal stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Grid setHorizontalStroke(ColoredFill color5, Double thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1512,7 +1632,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".horizontalStroke(%s, %f, %s, %s, %s)", ((color5 != null) ? color5.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".horizontalStroke(%s, %f, %s, %s, %s)", ((color5 != null) ? color5.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1522,6 +1641,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the horizontal stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Grid setHorizontalStroke(String color6, Double thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1553,7 +1676,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".horizontalStroke(%s, %f, %s, %s, %s)", wrapQuotes(color6), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".horizontalStroke(%s, %f, %s, %s, %s)", wrapQuotes(color6), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1564,6 +1686,10 @@ public class Grid extends VisualBaseWithBounds {
 
     private Fill oddFill;
 
+    /**
+     * Setter for odd fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid setOddFill(Fill oddFill) {
         if (jsBase == null) {
             this.oddFill = oddFill;
@@ -1575,7 +1701,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s)", ((oddFill != null) ? oddFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s)", ((oddFill != null) ? oddFill.generateJs() : "null")));
                 js.setLength(0);
@@ -1587,6 +1712,9 @@ public class Grid extends VisualBaseWithBounds {
     private String color7;
     private Double opacity6;
 
+    /**
+     * Odd fill color with opacity.
+     */
     public Grid oddFill(String color7, Double opacity6) {
         if (jsBase == null) {
             this.color = null;
@@ -1617,7 +1745,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %f)", wrapQuotes(color7), opacity6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f)", wrapQuotes(color7), opacity6));
                 js.setLength(0);
@@ -1634,6 +1761,10 @@ public class Grid extends VisualBaseWithBounds {
     private String mode10;
     private Double opacity7;
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1687,7 +1818,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
                 js.setLength(0);
@@ -1697,6 +1827,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1750,7 +1884,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
@@ -1760,6 +1893,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1813,7 +1950,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
@@ -1823,6 +1959,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1876,7 +2016,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
                 js.setLength(0);
@@ -1886,6 +2025,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1939,7 +2082,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
@@ -1949,6 +2091,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -2002,7 +2148,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
@@ -2020,6 +2165,10 @@ public class Grid extends VisualBaseWithBounds {
     private Double fx2;
     private Double fy2;
 
+    /**
+     * Radial gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
@@ -2095,7 +2244,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
@@ -2105,6 +2253,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
@@ -2180,7 +2332,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
@@ -2192,6 +2343,9 @@ public class Grid extends VisualBaseWithBounds {
     private Fill imageSettings2;
     private PatternFill getOddHatchFill;
 
+    /**
+     * Getter for odd hatch fill settings.
+     */
     public PatternFill getOddHatchFill() {
         if (getOddHatchFill == null)
             getOddHatchFill = new PatternFill(jsBase + ".oddHatchFill()");
@@ -2207,6 +2361,10 @@ public class Grid extends VisualBaseWithBounds {
     private Double thickness3;
     private Double size2;
 
+    /**
+     * Setter for odd hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setOddHatchFill(PatternFill patternFillOrType8, String color8, Double thickness3, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -2256,7 +2414,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", ((patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null"), wrapQuotes(color8), thickness3, size2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", ((patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null"), wrapQuotes(color8), thickness3, size2));
                 js.setLength(0);
@@ -2266,6 +2423,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for odd hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setOddHatchFill(HatchFill patternFillOrType9, String color8, Double thickness3, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -2315,7 +2476,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color8), thickness3, size2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color8), thickness3, size2));
                 js.setLength(0);
@@ -2325,6 +2485,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for odd hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setOddHatchFill(HatchFillType patternFillOrType10, String color8, Double thickness3, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -2374,7 +2538,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color8), thickness3, size2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color8), thickness3, size2));
                 js.setLength(0);
@@ -2384,6 +2547,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for odd hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setOddHatchFill(String patternFillOrType11, String color8, Double thickness3, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -2433,7 +2600,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType11), wrapQuotes(color8), thickness3, size2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType11), wrapQuotes(color8), thickness3, size2));
                 js.setLength(0);
@@ -2444,6 +2610,10 @@ public class Grid extends VisualBaseWithBounds {
 
     private Fill oddHolidayFill;
 
+    /**
+     * Setter for odd holiday fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid setOddHolidayFill(Fill oddHolidayFill) {
         if (jsBase == null) {
             this.oddHolidayFill = oddHolidayFill;
@@ -2455,7 +2625,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayFill(%s)", ((oddHolidayFill != null) ? oddHolidayFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayFill(%s)", ((oddHolidayFill != null) ? oddHolidayFill.generateJs() : "null")));
                 js.setLength(0);
@@ -2467,6 +2636,9 @@ public class Grid extends VisualBaseWithBounds {
     private String color9;
     private Double opacity9;
 
+    /**
+     * Odd holiday fill color with opacity.
+     */
     public Grid oddHolidayFill(String color9, Double opacity9) {
         if (jsBase == null) {
             this.color = null;
@@ -2502,7 +2674,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f)", wrapQuotes(color9), opacity9));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayFill(%s, %f)", wrapQuotes(color9), opacity9));
                 js.setLength(0);
@@ -2519,6 +2690,10 @@ public class Grid extends VisualBaseWithBounds {
     private String mode14;
     private Double opacity10;
 
+    /**
+     * Linear gradient odd holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddHolidayFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2584,7 +2759,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
                 js.setLength(0);
@@ -2594,6 +2768,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddHolidayFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2659,7 +2837,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
                 js.setLength(0);
@@ -2669,6 +2846,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddHolidayFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2734,7 +2915,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity10));
                 js.setLength(0);
@@ -2744,6 +2924,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddHolidayFill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2809,7 +2993,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity10));
                 js.setLength(0);
@@ -2819,6 +3002,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddHolidayFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2884,7 +3071,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
                 js.setLength(0);
@@ -2894,6 +3080,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddHolidayFill(String[] keys13, String mode14, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2959,7 +3149,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity10));
                 js.setLength(0);
@@ -2977,6 +3166,10 @@ public class Grid extends VisualBaseWithBounds {
     private Double fx3;
     private Double fy3;
 
+    /**
+     * Radial gradient odd holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddHolidayFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
@@ -3067,7 +3260,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
                 js.setLength(0);
@@ -3077,6 +3269,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient odd holiday fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Grid oddHolidayFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
@@ -3167,7 +3363,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
                 js.setLength(0);
@@ -3179,6 +3374,9 @@ public class Grid extends VisualBaseWithBounds {
     private Fill imageSettings3;
     private PatternFill getOddHolidayHatchFill;
 
+    /**
+     * Getter for odd holiday hatch fill settings.
+     */
     public PatternFill getOddHolidayHatchFill() {
         if (getOddHolidayHatchFill == null)
             getOddHolidayHatchFill = new PatternFill(jsBase + ".oddHolidayHatchFill()");
@@ -3194,6 +3392,10 @@ public class Grid extends VisualBaseWithBounds {
     private Double thickness4;
     private Double size3;
 
+    /**
+     * Setter for odd holiday hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setOddHolidayHatchFill(PatternFill patternFillOrType12, String color10, Double thickness4, Double size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -3251,7 +3453,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null"), wrapQuotes(color10), thickness4, size3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null"), wrapQuotes(color10), thickness4, size3));
                 js.setLength(0);
@@ -3261,6 +3462,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for odd holiday hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setOddHolidayHatchFill(HatchFill patternFillOrType13, String color10, Double thickness4, Double size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -3318,7 +3523,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null"), wrapQuotes(color10), thickness4, size3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null"), wrapQuotes(color10), thickness4, size3));
                 js.setLength(0);
@@ -3328,6 +3532,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for odd holiday hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setOddHolidayHatchFill(HatchFillType patternFillOrType14, String color10, Double thickness4, Double size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -3385,7 +3593,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null"), wrapQuotes(color10), thickness4, size3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null"), wrapQuotes(color10), thickness4, size3));
                 js.setLength(0);
@@ -3395,6 +3602,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for odd holiday hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Grid setOddHolidayHatchFill(String patternFillOrType15, String color10, Double thickness4, Double size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -3452,7 +3663,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType15), wrapQuotes(color10), thickness4, size3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType15), wrapQuotes(color10), thickness4, size3));
                 js.setLength(0);
@@ -3463,6 +3673,9 @@ public class Grid extends VisualBaseWithBounds {
 
     private Overlay getOverlay;
 
+    /**
+     * Getter for the overlay element.
+     */
     public Overlay getOverlay() {
         if (getOverlay == null)
             getOverlay = new Overlay(jsBase + ".overlay()");
@@ -3473,6 +3686,9 @@ public class Grid extends VisualBaseWithBounds {
     private String overlay;
     private Boolean overlay1;
 
+    /**
+     * Setter for the overlay element.
+     */
     public Grid setOverlay(String overlay) {
         if (jsBase == null) {
             this.overlay = null;
@@ -3487,7 +3703,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
                 js.setLength(0);
@@ -3497,6 +3712,9 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the overlay element.
+     */
     public Grid setOverlay(Boolean overlay1) {
         if (jsBase == null) {
             this.overlay = null;
@@ -3511,7 +3729,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".overlay(%b)", overlay1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlay(%b)", overlay1));
                 js.setLength(0);
@@ -3528,6 +3745,10 @@ public class Grid extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for the vertical stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Grid setVerticalStroke(Stroke color11, Double thickness5, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -3578,7 +3799,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".verticalStroke(%s, %f, %s, %s, %s)", ((color11 != null) ? color11.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".verticalStroke(%s, %f, %s, %s, %s)", ((color11 != null) ? color11.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -3588,6 +3808,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the vertical stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Grid setVerticalStroke(ColoredFill color12, Double thickness5, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -3638,7 +3862,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".verticalStroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".verticalStroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -3648,6 +3871,10 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the vertical stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Grid setVerticalStroke(String color13, Double thickness5, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -3698,7 +3925,6 @@ public class Grid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".verticalStroke(%s, %f, %s, %s, %s)", wrapQuotes(color13), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".verticalStroke(%s, %f, %s, %s, %s)", wrapQuotes(color13), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -3707,54 +3933,9 @@ public class Grid extends VisualBaseWithBounds {
         return this;
     }
 
-
-//
-//    private String generateJSUiBackground getBackground() {
-//        if (UiBackground getBackground != null) {
-//            return UiBackground getBackground.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPatternFill getEvenHatchFill() {
-//        if (PatternFill getEvenHatchFill != null) {
-//            return PatternFill getEvenHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPatternFill getEvenHolidayHatchFill() {
-//        if (PatternFill getEvenHolidayHatchFill != null) {
-//            return PatternFill getEvenHolidayHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPatternFill getOddHatchFill() {
-//        if (PatternFill getOddHatchFill != null) {
-//            return PatternFill getOddHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPatternFill getOddHolidayHatchFill() {
-//        if (PatternFill getOddHolidayHatchFill != null) {
-//            return PatternFill getOddHolidayHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSOverlay getOverlay() {
-//        if (Overlay getOverlay != null) {
-//            return Overlay getOverlay.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -3762,7 +3943,6 @@ public class Grid extends VisualBaseWithBounds {
     private String generateJSgetEvenHatchFill() {
         if (getEvenHatchFill != null) {
             return getEvenHatchFill.generateJs();
-            //return String.format(Locale.US, "getEvenHatchFill: %s,", ((getEvenHatchFill != null) ? getEvenHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -3770,7 +3950,6 @@ public class Grid extends VisualBaseWithBounds {
     private String generateJSgetEvenHolidayHatchFill() {
         if (getEvenHolidayHatchFill != null) {
             return getEvenHolidayHatchFill.generateJs();
-            //return String.format(Locale.US, "getEvenHolidayHatchFill: %s,", ((getEvenHolidayHatchFill != null) ? getEvenHolidayHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -3778,7 +3957,6 @@ public class Grid extends VisualBaseWithBounds {
     private String generateJSgetOddHatchFill() {
         if (getOddHatchFill != null) {
             return getOddHatchFill.generateJs();
-            //return String.format(Locale.US, "getOddHatchFill: %s,", ((getOddHatchFill != null) ? getOddHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -3786,7 +3964,6 @@ public class Grid extends VisualBaseWithBounds {
     private String generateJSgetOddHolidayHatchFill() {
         if (getOddHolidayHatchFill != null) {
             return getOddHolidayHatchFill.generateJs();
-            //return String.format(Locale.US, "getOddHolidayHatchFill: %s,", ((getOddHolidayHatchFill != null) ? getOddHolidayHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -3794,7 +3971,6 @@ public class Grid extends VisualBaseWithBounds {
     private String generateJSgetOverlay() {
         if (getOverlay != null) {
             return getOverlay.generateJs();
-            //return String.format(Locale.US, "getOverlay: %s,", ((getOverlay != null) ? getOverlay.generateJs() : "null"));
         }
         return "";
     }
@@ -3822,266 +3998,6 @@ public class Grid extends VisualBaseWithBounds {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJSdrawBottomLine());
-////        
-//            js.append(generateJSdrawLeftLine());
-////        
-//            js.append(generateJSdrawRightLine());
-////        
-//            js.append(generateJSdrawTopLine());
-////        
-//            js.append(generateJSevenFill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSevenHolidayFill());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSopacity3());
-////        
-//            js.append(generateJSkeys4());
-////        
-//            js.append(generateJSkeys5());
-////        
-//            js.append(generateJSangle1());
-////        
-//            js.append(generateJSmode4());
-////        
-//            js.append(generateJSmode5());
-////        
-//            js.append(generateJSmode6());
-////        
-//            js.append(generateJSopacity4());
-////        
-//            js.append(generateJSkeys6());
-////        
-//            js.append(generateJSkeys7());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSmode7());
-////        
-//            js.append(generateJSopacity5());
-////        
-//            js.append(generateJSfx1());
-////        
-//            js.append(generateJSfy1());
-////        
-//            js.append(generateJSimageSettings1());
-////        
-//            js.append(generateJSpatternFillOrType4());
-////        
-//            js.append(generateJSpatternFillOrType5());
-////        
-//            js.append(generateJSpatternFillOrType6());
-////        
-//            js.append(generateJSpatternFillOrType7());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSsize1());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJScolor5());
-////        
-//            js.append(generateJScolor6());
-////        
-//            js.append(generateJSthickness2());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSoddFill());
-////        
-//            js.append(generateJScolor7());
-////        
-//            js.append(generateJSopacity6());
-////        
-//            js.append(generateJSkeys8());
-////        
-//            js.append(generateJSkeys9());
-////        
-//            js.append(generateJSangle2());
-////        
-//            js.append(generateJSmode8());
-////        
-//            js.append(generateJSmode9());
-////        
-//            js.append(generateJSmode10());
-////        
-//            js.append(generateJSopacity7());
-////        
-//            js.append(generateJSkeys10());
-////        
-//            js.append(generateJSkeys11());
-////        
-//            js.append(generateJScx2());
-////        
-//            js.append(generateJScy2());
-////        
-//            js.append(generateJSmode11());
-////        
-//            js.append(generateJSopacity8());
-////        
-//            js.append(generateJSfx2());
-////        
-//            js.append(generateJSfy2());
-////        
-//            js.append(generateJSimageSettings2());
-////        
-//            js.append(generateJSpatternFillOrType8());
-////        
-//            js.append(generateJSpatternFillOrType9());
-////        
-//            js.append(generateJSpatternFillOrType10());
-////        
-//            js.append(generateJSpatternFillOrType11());
-////        
-//            js.append(generateJScolor8());
-////        
-//            js.append(generateJSthickness3());
-////        
-//            js.append(generateJSsize2());
-////        
-//            js.append(generateJSoddHolidayFill());
-////        
-//            js.append(generateJScolor9());
-////        
-//            js.append(generateJSopacity9());
-////        
-//            js.append(generateJSkeys12());
-////        
-//            js.append(generateJSkeys13());
-////        
-//            js.append(generateJSangle3());
-////        
-//            js.append(generateJSmode12());
-////        
-//            js.append(generateJSmode13());
-////        
-//            js.append(generateJSmode14());
-////        
-//            js.append(generateJSopacity10());
-////        
-//            js.append(generateJSkeys14());
-////        
-//            js.append(generateJSkeys15());
-////        
-//            js.append(generateJScx3());
-////        
-//            js.append(generateJScy3());
-////        
-//            js.append(generateJSmode15());
-////        
-//            js.append(generateJSopacity11());
-////        
-//            js.append(generateJSfx3());
-////        
-//            js.append(generateJSfy3());
-////        
-//            js.append(generateJSimageSettings3());
-////        
-//            js.append(generateJSpatternFillOrType12());
-////        
-//            js.append(generateJSpatternFillOrType13());
-////        
-//            js.append(generateJSpatternFillOrType14());
-////        
-//            js.append(generateJSpatternFillOrType15());
-////        
-//            js.append(generateJScolor10());
-////        
-//            js.append(generateJSthickness4());
-////        
-//            js.append(generateJSsize3());
-////        
-//            js.append(generateJSoverlay());
-////        
-//            js.append(generateJSoverlay1());
-////        
-//            js.append(generateJScolor11());
-////        
-//            js.append(generateJScolor12());
-////        
-//            js.append(generateJScolor13());
-////        
-//            js.append(generateJSthickness5());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Point representing all points that belongs to series-based chart.
+ */
 public class SeriesPoint extends Point {
 
     public SeriesPoint() {
-
+        js.setLength(0);
+        js.append("var seriesPoint").append(++variableIndex).append(" = anychart.core.seriesPoint();");
+        jsBase = "seriesPoint" + variableIndex;
     }
 
     protected SeriesPoint(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class SeriesPoint extends Point {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private AnychartSeriesBase getGetSeries;
 
+    /**
+     * Getter for series which current point belongs to.
+     */
     public AnychartSeriesBase getGetSeries() {
         if (getGetSeries == null)
             getGetSeries = new AnychartSeriesBase(jsBase + ".getSeries()");
@@ -34,19 +47,9 @@ public class SeriesPoint extends Point {
         return getGetSeries;
     }
 
-
-//
-//    private String generateJSAnychartSeriesBase getGetSeries() {
-//        if (AnychartSeriesBase getGetSeries != null) {
-//            return AnychartSeriesBase getGetSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetGetSeries() {
         if (getGetSeries != null) {
             return getGetSeries.generateJs();
-            //return String.format(Locale.US, "getGetSeries: %s,", ((getGetSeries != null) ? getGetSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -69,12 +72,6 @@ public class SeriesPoint extends Point {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

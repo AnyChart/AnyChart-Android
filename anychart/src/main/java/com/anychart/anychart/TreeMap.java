@@ -1,17 +1,39 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 // chart class
+/**
+ * AnyChart TreeMap class.
+ */
 public class TreeMap extends SeparateChart {
 
     protected TreeMap(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public TreeMap setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public TreeMap setData(List<DataEntry> data) {
@@ -28,7 +50,27 @@ public class TreeMap extends SeparateChart {
             }
             js.setLength(js.length() - 1);
 
-            js.append("], 'as-table');");
+            js.append("]);");
+        }
+
+        return this;
+    }
+
+    public TreeMap setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
         }
 
         return this;
@@ -38,6 +80,9 @@ public class TreeMap extends SeparateChart {
 
     private UiColorRange getColorRange;
 
+    /**
+     * Getter for the current color range.
+     */
     public UiColorRange getColorRange() {
         if (getColorRange == null)
             getColorRange = new UiColorRange(jsBase + ".colorRange()");
@@ -46,6 +91,10 @@ public class TreeMap extends SeparateChart {
     }
     private String colorRange;
     private List<TreeMap> setColorRange = new ArrayList<>();
+
+    /**
+     * Setter for the color range.
+     */
     public TreeMap setColorRange(String colorRange) {
         if (!isChain) {
             js.append(jsBase);
@@ -73,6 +122,9 @@ public class TreeMap extends SeparateChart {
 
     private OrdinalColor getColorScale;
 
+    /**
+     * Getter for the color scale.
+     */
     public OrdinalColor getColorScale() {
         if (getColorScale == null)
             getColorScale = new OrdinalColor(jsBase + ".colorScale()");
@@ -85,17 +137,19 @@ public class TreeMap extends SeparateChart {
     private ScaleTypes colorScale3;
     private String colorScale4;
     private List<LinearColor> setColorScale = new ArrayList<>();
+
+    /**
+     * Setter for the color scale.
+     */
     public LinearColor setColorScale(OrdinalColor colorScale) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColorScale" + ++variableIndex + " = " + jsBase + ".colorScale(%s);", ((colorScale != null) ? colorScale.generateJs() : "null")));
+        js.append(colorScale.generateJs());
+        js.append(jsBase);
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", ((colorScale != null) ? colorScale.generateJs() : "null")));
-            js.setLength(0);
-        }
+        js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
         LinearColor item = new LinearColor("setColorScale" + variableIndex);
         setColorScale.add(item);
         return item;
@@ -112,17 +166,19 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<LinearColor> setColorScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the color scale.
+     */
     public LinearColor setColorScale(LinearColor colorScale1) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColorScale1" + ++variableIndex + " = " + jsBase + ".colorScale(%s);", ((colorScale1 != null) ? colorScale1.generateJs() : "null")));
+        js.append(colorScale1.generateJs());
+        js.append(jsBase);
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.generateJs() : "null")));
-            js.setLength(0);
-        }
+        js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
         LinearColor item = new LinearColor("setColorScale1" + variableIndex);
         setColorScale1.add(item);
         return item;
@@ -139,6 +195,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<LinearColor> setColorScale2 = new ArrayList<>();
+
+    /**
+     * Setter for the color scale.
+     */
     public LinearColor setColorScale(String colorScale2) {
         if (isChain) {
             js.append(";");
@@ -166,6 +226,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<LinearColor> setColorScale3 = new ArrayList<>();
+
+    /**
+     * Setter for the color scale.
+     */
     public LinearColor setColorScale(ScaleTypes colorScale3) {
         if (isChain) {
             js.append(";");
@@ -195,6 +259,9 @@ public class TreeMap extends SeparateChart {
 
     private Tree getData;
 
+    /**
+     * Getter for the current data.
+     */
     public Tree getData() {
         if (getData == null)
             getData = new Tree(jsBase + ".data()");
@@ -207,6 +274,10 @@ public class TreeMap extends SeparateChart {
     private TreeFillingMethod fillMethod;
     private String fillMethod1;
     private List<TreeMap> setData = new ArrayList<>();
+
+    /**
+     * Setter for the data.
+     */
     public TreeMap setData(Tree data, TreeFillingMethod fillMethod) {
         if (!isChain) {
             js.append(jsBase);
@@ -232,6 +303,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setData1 = new ArrayList<>();
+
+    /**
+     * Setter for the data.
+     */
     public TreeMap setData(Tree data, String fillMethod1) {
         if (!isChain) {
             js.append(jsBase);
@@ -257,6 +332,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setData2 = new ArrayList<>();
+
+    /**
+     * Setter for the data.
+     */
     public TreeMap setData(TreeView data1, TreeFillingMethod fillMethod) {
         if (!isChain) {
             js.append(jsBase);
@@ -282,6 +361,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setData3 = new ArrayList<>();
+
+    /**
+     * Setter for the data.
+     */
     public TreeMap setData(TreeView data1, String fillMethod1) {
         if (!isChain) {
             js.append(jsBase);
@@ -307,6 +390,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setData4 = new ArrayList<>();
+
+    /**
+     * Setter for the data.
+     */
     public TreeMap setData(String data2, TreeFillingMethod fillMethod) {
         if (!isChain) {
             js.append(jsBase);
@@ -332,6 +419,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setData5 = new ArrayList<>();
+
+    /**
+     * Setter for the data.
+     */
     public TreeMap setData(String data2, String fillMethod1) {
         if (!isChain) {
             js.append(jsBase);
@@ -359,19 +450,25 @@ public class TreeMap extends SeparateChart {
     private TreeDataItem target;
     private String[] target1;
     private String target2;
+
+    /**
+     * Drills down to target.
+     */
     public void drillTo(TreeDataItem target) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".drillTo(%s);", ((target != null) ? target.generateJs() : "null")));
+        js.append(target.generateJs());
+        js.append(jsBase);
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".drillTo(%s)", ((target != null) ? target.generateJs() : "null")));
-            js.setLength(0);
-        }
+        js.append(String.format(Locale.US, ".drillTo(%s);",  ((target != null) ? target.getJsBase() : "null")));
     }
 
+
+    /**
+     * Drills down to target.
+     */
     public void drillTo(String[] target1) {
         if (isChain) {
             js.append(";");
@@ -385,6 +482,10 @@ public class TreeMap extends SeparateChart {
         }
     }
 
+
+    /**
+     * Drills down to target.
+     */
     public void drillTo(String target2) {
         if (isChain) {
             js.append(";");
@@ -400,6 +501,11 @@ public class TreeMap extends SeparateChart {
 
     private Fill fill;
     private List<TreeMap> setFill = new ArrayList<>();
+
+    /**
+     * Sets fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TreeMap setFill(Fill fill) {
         if (!isChain) {
             js.append(jsBase);
@@ -427,6 +533,10 @@ public class TreeMap extends SeparateChart {
     private String color;
     private Double opacity;
     private List<TreeMap> setFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public TreeMap fill(String color, Double opacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -459,6 +569,11 @@ public class TreeMap extends SeparateChart {
     private String mode2;
     private Double opacity1;
     private List<TreeMap> setFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TreeMap fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -484,6 +599,11 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TreeMap fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -509,6 +629,11 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TreeMap fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -534,6 +659,11 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TreeMap fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -559,6 +689,11 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TreeMap fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -584,6 +719,11 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TreeMap fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -617,6 +757,11 @@ public class TreeMap extends SeparateChart {
     private Double fx;
     private Double fy;
     private List<TreeMap> setFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TreeMap fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -642,6 +787,11 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TreeMap fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -670,6 +820,9 @@ public class TreeMap extends SeparateChart {
 
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for current hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -685,6 +838,10 @@ public class TreeMap extends SeparateChart {
     private Double thickness;
     private Double size;
     private List<TreeMap> setHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public TreeMap setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -710,6 +867,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public TreeMap setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -735,6 +896,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public TreeMap setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -760,6 +925,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public TreeMap setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -785,6 +954,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setHatchFill4 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public TreeMap setHatchFill(Boolean patternFillOrType4, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -812,6 +985,9 @@ public class TreeMap extends SeparateChart {
 
     private UiLabelsFactory getHeaders;
 
+    /**
+     * Getter for the current point header labels.
+     */
     public UiLabelsFactory getHeaders() {
         if (getHeaders == null)
             getHeaders = new UiLabelsFactory(jsBase + ".headers()");
@@ -821,6 +997,10 @@ public class TreeMap extends SeparateChart {
     private String headers;
     private Boolean headers1;
     private List<TreeMap> setHeaders = new ArrayList<>();
+
+    /**
+     * Setter for the point header labels.
+     */
     public TreeMap setHeaders(String headers) {
         if (!isChain) {
             js.append(jsBase);
@@ -846,6 +1026,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setHeaders1 = new ArrayList<>();
+
+    /**
+     * Setter for the point header labels.
+     */
     public TreeMap setHeaders(Boolean headers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -873,6 +1057,10 @@ public class TreeMap extends SeparateChart {
     private LabelsDisplayMode headersDisplayMode;
     private String headersDisplayMode1;
     private List<TreeMap> setHeadersDisplayMode = new ArrayList<>();
+
+    /**
+     * Setter for the headers display mode.
+     */
     public TreeMap setHeadersDisplayMode(LabelsDisplayMode headersDisplayMode) {
         if (!isChain) {
             js.append(jsBase);
@@ -898,6 +1086,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setHeadersDisplayMode1 = new ArrayList<>();
+
+    /**
+     * Setter for the headers display mode.
+     */
     public TreeMap setHeadersDisplayMode(String headersDisplayMode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -924,6 +1116,10 @@ public class TreeMap extends SeparateChart {
 
     private Double hintDepth;
     private List<TreeMap> setHintDepth = new ArrayList<>();
+
+    /**
+     * Setter for the additional segmentation of treeMap points.
+     */
     public TreeMap setHintDepth(Double hintDepth) {
         if (!isChain) {
             js.append(jsBase);
@@ -950,6 +1146,10 @@ public class TreeMap extends SeparateChart {
 
     private Double hintOpacity;
     private List<TreeMap> setHintOpacity = new ArrayList<>();
+
+    /**
+     * Setter for current hint opacity.
+     */
     public TreeMap setHintOpacity(Double hintOpacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -977,6 +1177,9 @@ public class TreeMap extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -985,6 +1188,10 @@ public class TreeMap extends SeparateChart {
     }
     private String hovered;
     private List<TreeMap> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public TreeMap setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -1012,6 +1219,9 @@ public class TreeMap extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for the current point labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -1021,6 +1231,10 @@ public class TreeMap extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<TreeMap> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for the point labels.
+     */
     public TreeMap setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -1046,6 +1260,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for the point labels.
+     */
     public TreeMap setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1073,6 +1291,9 @@ public class TreeMap extends SeparateChart {
 
     private UiMarkersFactory getMarkers;
 
+    /**
+     * Getter for the current point markers.
+     */
     public UiMarkersFactory getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersFactory(jsBase + ".markers()");
@@ -1083,6 +1304,10 @@ public class TreeMap extends SeparateChart {
     private Boolean markers1;
     private String markers2;
     private List<TreeMap> setMarkers = new ArrayList<>();
+
+    /**
+     * Setter for the point markers.
+     */
     public TreeMap setMarkers(String markers) {
         if (!isChain) {
             js.append(jsBase);
@@ -1108,6 +1333,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for the point markers.
+     */
     public TreeMap setMarkers(Boolean markers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1134,6 +1363,10 @@ public class TreeMap extends SeparateChart {
 
     private Double maxDepth;
     private List<TreeMap> setMaxDepth = new ArrayList<>();
+
+    /**
+     * Setter for the maximal drawing depth.
+     */
     public TreeMap setMaxDepth(Double maxDepth) {
         if (!isChain) {
             js.append(jsBase);
@@ -1161,6 +1394,10 @@ public class TreeMap extends SeparateChart {
     private Double maxHeadersHeight;
     private String maxHeadersHeight1;
     private List<TreeMap> setMaxHeadersHeight = new ArrayList<>();
+
+    /**
+     * Setter for the maximum headers height.
+     */
     public TreeMap setMaxHeadersHeight(Double maxHeadersHeight) {
         if (!isChain) {
             js.append(jsBase);
@@ -1186,6 +1423,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setMaxHeadersHeight1 = new ArrayList<>();
+
+    /**
+     * Setter for the maximum headers height.
+     */
     public TreeMap setMaxHeadersHeight(String maxHeadersHeight1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1213,6 +1454,9 @@ public class TreeMap extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -1221,6 +1465,10 @@ public class TreeMap extends SeparateChart {
     }
     private String normal;
     private List<TreeMap> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public TreeMap setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -1248,6 +1496,9 @@ public class TreeMap extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -1256,6 +1507,10 @@ public class TreeMap extends SeparateChart {
     }
     private String selected;
     private List<TreeMap> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public TreeMap setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -1283,6 +1538,10 @@ public class TreeMap extends SeparateChart {
     private SelectionMode selectionMode;
     private String selectionMode1;
     private List<TreeMap> setSelectionMode = new ArrayList<>();
+
+    /**
+     * Setter for the selection mode.
+     */
     public TreeMap setSelectionMode(SelectionMode selectionMode) {
         if (!isChain) {
             js.append(jsBase);
@@ -1308,6 +1567,10 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setSelectionMode1 = new ArrayList<>();
+
+    /**
+     * Setter for the selection mode.
+     */
     public TreeMap setSelectionMode(String selectionMode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1335,6 +1598,11 @@ public class TreeMap extends SeparateChart {
     private Sort sort;
     private String sort1;
     private List<TreeMap> setSort = new ArrayList<>();
+
+    /**
+     * Setter for the sort settings.<br/>
+Ascending, Descending and No sorting is supported.
+     */
     public TreeMap setSort(Sort sort) {
         if (!isChain) {
             js.append(jsBase);
@@ -1360,6 +1628,11 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setSort1 = new ArrayList<>();
+
+    /**
+     * Setter for the sort settings.<br/>
+Ascending, Descending and No sorting is supported.
+     */
     public TreeMap setSort(String sort1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1392,6 +1665,11 @@ public class TreeMap extends SeparateChart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<TreeMap> setStroke = new ArrayList<>();
+
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TreeMap setStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -1417,6 +1695,11 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TreeMap setStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -1442,6 +1725,11 @@ public class TreeMap extends SeparateChart {
     }
 
     private List<TreeMap> setStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TreeMap setStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);

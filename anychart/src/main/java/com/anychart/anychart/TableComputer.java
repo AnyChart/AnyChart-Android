@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Stock table computer constructor.
+ */
 public class TableComputer extends JsObject {
 
     public TableComputer() {
-
+        js.setLength(0);
+        js.append("var tableComputer").append(++variableIndex).append(" = anychart.data.tableComputer();");
+        jsBase = "tableComputer" + variableIndex;
     }
 
     protected TableComputer(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class TableComputer extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String name;
     private String uid;
 
+    /**
+     * Adds output field to the computer with the given name.
+     */
     public void addOutputField(String name, String uid) {
         if (jsBase == null) {
             this.name = name;
@@ -41,7 +54,6 @@ public class TableComputer extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addOutputField(%s, %s);", wrapQuotes(name), wrapQuotes(uid)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addOutputField(%s, %s)", wrapQuotes(name), wrapQuotes(uid)));
                 js.setLength(0);
@@ -51,6 +63,9 @@ public class TableComputer extends JsObject {
 
     private String name1;
 
+    /**
+     * Returns field index by the field name.
+     */
     public void getFieldIndex(String name1) {
         if (jsBase == null) {
             this.name = null;
@@ -65,7 +80,6 @@ public class TableComputer extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getFieldIndex(%s);", wrapQuotes(name1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getFieldIndex(%s)", wrapQuotes(name1)));
                 js.setLength(0);
@@ -75,6 +89,9 @@ public class TableComputer extends JsObject {
 
     private String setContext;
 
+    /**
+     * Sets computer context. If not set - defaults to Window.
+     */
     public void setSetContext(String setContext) {
         if (jsBase == null) {
             this.setContext = setContext;
@@ -86,7 +103,6 @@ public class TableComputer extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".setContext(%s);", wrapQuotes(setContext)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".setContext(%s)", wrapQuotes(setContext)));
                 js.setLength(0);
@@ -94,8 +110,6 @@ public class TableComputer extends JsObject {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -113,20 +127,6 @@ public class TableComputer extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSname());
-////        
-//            js.append(generateJSuid());
-////        
-//            js.append(generateJSname1());
-////        
-//            js.append(generateJSsetContext());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Marker Series Class.<br/>
+{docs:Stock_Charts/Series/Marker}Learn more about Marker series{docs}
+ */
 public class StockSeriesMarker extends StockSeriesBase {
 
     public StockSeriesMarker() {
-
+        js.setLength(0);
+        js.append("var stockSeriesMarker").append(++variableIndex).append(" = anychart.core.stock.series.marker();");
+        jsBase = "stockSeriesMarker" + variableIndex;
     }
 
     protected StockSeriesMarker(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,17 @@ public class StockSeriesMarker extends StockSeriesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill fill;
 
+    /**
+     * Setter for fill settings using a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StockSeriesMarker setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -38,7 +53,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -49,6 +63,9 @@ public class StockSeriesMarker extends StockSeriesBase {
 
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for current hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -64,6 +81,10 @@ public class StockSeriesMarker extends StockSeriesBase {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StockSeriesMarker setHatchFill(PatternFill patternFillOrType, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -86,7 +107,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -96,6 +116,10 @@ public class StockSeriesMarker extends StockSeriesBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StockSeriesMarker setHatchFill(HatchFill patternFillOrType1, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -118,7 +142,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -128,6 +151,10 @@ public class StockSeriesMarker extends StockSeriesBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StockSeriesMarker setHatchFill(HatchFillType patternFillOrType2, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -150,7 +177,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -160,6 +186,10 @@ public class StockSeriesMarker extends StockSeriesBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StockSeriesMarker setHatchFill(String patternFillOrType3, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -182,7 +212,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -193,6 +222,9 @@ public class StockSeriesMarker extends StockSeriesBase {
 
     private Double size1;
 
+    /**
+     * Setter for marker size.
+     */
     public StockSeriesMarker setSize(Double size1) {
         if (jsBase == null) {
             this.size = null;
@@ -207,7 +239,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".size(%f)", size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size1));
                 js.setLength(0);
@@ -224,6 +255,10 @@ public class StockSeriesMarker extends StockSeriesBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StockSeriesMarker setStroke(Stroke color1, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -251,7 +286,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -261,6 +295,10 @@ public class StockSeriesMarker extends StockSeriesBase {
     }
 
 
+    /**
+     * Setter for the stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StockSeriesMarker setStroke(ColoredFill color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -288,7 +326,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -298,6 +335,10 @@ public class StockSeriesMarker extends StockSeriesBase {
     }
 
 
+    /**
+     * Setter for the stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StockSeriesMarker setStroke(String color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -325,7 +366,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -337,6 +377,9 @@ public class StockSeriesMarker extends StockSeriesBase {
     private MarkerType type;
     private String type1;
 
+    /**
+     * Setter for marker type settings.
+     */
     public StockSeriesMarker setType(MarkerType type) {
         if (jsBase == null) {
             this.type = null;
@@ -351,7 +394,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -361,6 +403,9 @@ public class StockSeriesMarker extends StockSeriesBase {
     }
 
 
+    /**
+     * Setter for marker type settings.
+     */
     public StockSeriesMarker setType(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -375,7 +420,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -384,19 +428,9 @@ public class StockSeriesMarker extends StockSeriesBase {
         return this;
     }
 
-
-//
-//    private String generateJSPatternFill getHatchFill() {
-//        if (PatternFill getHatchFill != null) {
-//            return PatternFill getHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
-            //return String.format(Locale.US, "getHatchFill: %s,", ((getHatchFill != null) ? getHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -419,48 +453,6 @@ public class StockSeriesMarker extends StockSeriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSsize1());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

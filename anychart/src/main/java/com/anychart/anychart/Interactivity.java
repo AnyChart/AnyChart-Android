@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Interactivity class for charts.<br/>
+{docs:Common_Settings/Interactivity}Learn more about the interactivity.{docs}
+ */
 public class Interactivity extends CoreBase {
 
     public Interactivity() {
-
+        js.setLength(0);
+        js.append("var interactivity").append(++variableIndex).append(" = anychart.core.utils.interactivity();");
+        jsBase = "interactivity" + variableIndex;
     }
 
     protected Interactivity(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +31,17 @@ public class Interactivity extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private HoverMode hoverMode;
     private String hoverMode1;
 
+    /**
+     * Setter for the hover mode.
+     */
     public Interactivity setHoverMode(HoverMode hoverMode) {
         if (jsBase == null) {
             this.hoverMode = null;
@@ -42,7 +56,6 @@ public class Interactivity extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hoverMode(%s)", ((hoverMode != null) ? hoverMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hoverMode(%s)", ((hoverMode != null) ? hoverMode.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +65,9 @@ public class Interactivity extends CoreBase {
     }
 
 
+    /**
+     * Setter for the hover mode.
+     */
     public Interactivity setHoverMode(String hoverMode1) {
         if (jsBase == null) {
             this.hoverMode = null;
@@ -66,7 +82,6 @@ public class Interactivity extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hoverMode(%s)", wrapQuotes(hoverMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hoverMode(%s)", wrapQuotes(hoverMode1)));
                 js.setLength(0);
@@ -78,6 +93,9 @@ public class Interactivity extends CoreBase {
     private SelectionMode selectionMode;
     private String selectionMode1;
 
+    /**
+     * Setter for the selection mode.
+     */
     public Interactivity setSelectionMode(SelectionMode selectionMode) {
         if (jsBase == null) {
             this.selectionMode = null;
@@ -92,7 +110,6 @@ public class Interactivity extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
                 js.setLength(0);
@@ -102,6 +119,9 @@ public class Interactivity extends CoreBase {
     }
 
 
+    /**
+     * Setter for the selection mode.
+     */
     public Interactivity setSelectionMode(String selectionMode1) {
         if (jsBase == null) {
             this.selectionMode = null;
@@ -116,7 +136,6 @@ public class Interactivity extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
                 js.setLength(0);
@@ -127,6 +146,10 @@ public class Interactivity extends CoreBase {
 
     private Double spotRadius;
 
+    /**
+     * Setter for the spot radius.
+Size of the area under cursor in pixels for radius hovering.
+     */
     public Interactivity setSpotRadius(Double spotRadius) {
         if (jsBase == null) {
             this.spotRadius = spotRadius;
@@ -138,7 +161,6 @@ public class Interactivity extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".spotRadius(%f)", spotRadius));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".spotRadius(%f)", spotRadius));
                 js.setLength(0);
@@ -147,8 +169,6 @@ public class Interactivity extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -166,22 +186,6 @@ public class Interactivity extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJShoverMode());
-////        
-//            js.append(generateJShoverMode1());
-////        
-//            js.append(generateJSselectionMode());
-////        
-//            js.append(generateJSselectionMode1());
-////        
-//            js.append(generateJSspotRadius());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

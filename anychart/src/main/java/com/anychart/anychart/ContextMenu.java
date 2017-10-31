@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Context Menu class.
+ */
 public class ContextMenu extends JsObject {
 
     public ContextMenu() {
-
+        js.setLength(0);
+        js.append("var contextMenu").append(++variableIndex).append(" = anychart.ui.contextMenu();");
+        jsBase = "contextMenu" + variableIndex;
     }
 
     protected ContextMenu(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class ContextMenu extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String className;
 
+    /**
+     * Setter for the class name.
+     */
     public void setAddClassName(String className) {
         if (jsBase == null) {
             this.className = className;
@@ -38,7 +51,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addClassName(%s);", wrapQuotes(className)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addClassName(%s)", wrapQuotes(className)));
                 js.setLength(0);
@@ -50,6 +62,9 @@ public class ContextMenu extends JsObject {
     private Chart target1;
     private Boolean capture;
 
+    /**
+     * Attaches the context menu to a chart or DOM element.
+     */
     public ContextMenu attach(Element target, Boolean capture) {
         if (jsBase == null) {
             this.target = null;
@@ -66,7 +81,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".attach(%s, %b)", ((target != null) ? target.generateJs() : "null"), capture));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".attach(%s, %b)", ((target != null) ? target.generateJs() : "null"), capture));
                 js.setLength(0);
@@ -76,6 +90,9 @@ public class ContextMenu extends JsObject {
     }
 
 
+    /**
+     * Attaches the context menu to a chart or DOM element.
+     */
     public ContextMenu attach(Chart target1, Boolean capture) {
         if (jsBase == null) {
             this.target = null;
@@ -92,7 +109,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".attach(%s, %b)", ((target1 != null) ? target1.generateJs() : "null"), capture));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".attach(%s, %b)", ((target1 != null) ? target1.generateJs() : "null"), capture));
                 js.setLength(0);
@@ -104,6 +120,9 @@ public class ContextMenu extends JsObject {
     private Element target2;
     private Boolean capture1;
 
+    /**
+     * Detaches the context menu from a given element or chart.
+     */
     public ContextMenu detach(Element target2, Boolean capture1) {
         if (jsBase == null) {
             this.target = null;
@@ -124,7 +143,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".detach(%s, %b)", ((target2 != null) ? target2.generateJs() : "null"), capture1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".detach(%s, %b)", ((target2 != null) ? target2.generateJs() : "null"), capture1));
                 js.setLength(0);
@@ -135,6 +153,9 @@ public class ContextMenu extends JsObject {
 
     private Boolean enabled;
 
+    /**
+     * Setter for the context menu enabled state.
+     */
     public ContextMenu setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
@@ -146,7 +167,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -157,6 +177,9 @@ public class ContextMenu extends JsObject {
 
     private Item[] items;
 
+    /**
+     * Setter for the current context menu items.
+     */
     public ContextMenu setItems(Item[] items) {
         if (jsBase == null) {
             this.items = items;
@@ -168,7 +191,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".items(%s)", arrayToString(items)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s)", arrayToString(items)));
                 js.setLength(0);
@@ -181,6 +203,9 @@ public class ContextMenu extends JsObject {
     private Boolean useCapture;
     private String listenerScope;
 
+    /**
+     * Adds an event listener for an event to a context menu.
+     */
     public void listen(String type, Boolean useCapture, String listenerScope) {
         if (jsBase == null) {
             this.type = type;
@@ -196,7 +221,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
                 js.setLength(0);
@@ -206,6 +230,9 @@ public class ContextMenu extends JsObject {
 
     private String className1;
 
+    /**
+     * Removes the class name.
+     */
     public void removeClassName(String className1) {
         if (jsBase == null) {
             this.className = null;
@@ -220,7 +247,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".removeClassName(%s);", wrapQuotes(className1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeClassName(%s)", wrapQuotes(className1)));
                 js.setLength(0);
@@ -234,6 +260,9 @@ public class ContextMenu extends JsObject {
     private String var_args3;
     private Boolean var_args4;
 
+    /**
+     * Setups the element using passed configuration value.
+     */
     public ContextMenu setup(String var_args) {
         if (jsBase == null) {
             this.var_args = null;
@@ -251,7 +280,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setup(%s)", wrapQuotes(var_args)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setup(%s)", wrapQuotes(var_args)));
                 js.setLength(0);
@@ -261,6 +289,9 @@ public class ContextMenu extends JsObject {
     }
 
 
+    /**
+     * Setups the element using passed configuration value.
+     */
     public ContextMenu setup(String[] var_args1) {
         if (jsBase == null) {
             this.var_args = null;
@@ -278,7 +309,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setup(%s)", arrayToStringWrapQuotes(var_args1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setup(%s)", arrayToStringWrapQuotes(var_args1)));
                 js.setLength(0);
@@ -288,6 +318,9 @@ public class ContextMenu extends JsObject {
     }
 
 
+    /**
+     * Setups the element using passed configuration value.
+     */
     public ContextMenu setup(Double var_args2) {
         if (jsBase == null) {
             this.var_args = null;
@@ -305,7 +338,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setup(%f)", var_args2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setup(%f)", var_args2));
                 js.setLength(0);
@@ -315,6 +347,9 @@ public class ContextMenu extends JsObject {
     }
 
 
+    /**
+     * Setups the element using passed configuration value.
+     */
     public ContextMenu setup(Boolean var_args4) {
         if (jsBase == null) {
             this.var_args = null;
@@ -332,7 +367,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setup(%b)", var_args4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setup(%b)", var_args4));
                 js.setLength(0);
@@ -344,6 +378,9 @@ public class ContextMenu extends JsObject {
     private Double x;
     private Double y;
 
+    /**
+     * Shows the menu immediately at the given client coordinates.<br/>
+     */
     public void show(Double x, Double y) {
         if (jsBase == null) {
             this.x = x;
@@ -357,7 +394,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".show(%f, %f);", x, y));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".show(%f, %f)", x, y));
                 js.setLength(0);
@@ -369,6 +405,9 @@ public class ContextMenu extends JsObject {
     private Boolean useCapture1;
     private String listenerScope1;
 
+    /**
+     * Removes a listener added using listen() or listenOnce() methods.
+     */
     public void unlisten(String type1, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
@@ -393,7 +432,6 @@ public class ContextMenu extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
                 js.setLength(0);
@@ -401,8 +439,6 @@ public class ContextMenu extends JsObject {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -420,56 +456,6 @@ public class ContextMenu extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSclassName());
-////        
-//            js.append(generateJStarget());
-////        
-//            js.append(generateJStarget1());
-////        
-//            js.append(generateJScapture());
-////        
-//            js.append(generateJStarget2());
-////        
-//            js.append(generateJScapture1());
-////        
-//            js.append(generateJSenabled());
-////        
-//            js.append(generateJSitems());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJSuseCapture());
-////        
-//            js.append(generateJSlistenerScope());
-////        
-//            js.append(generateJSclassName1());
-////        
-//            js.append(generateJSvar_args());
-////        
-//            js.append(generateJSvar_args1());
-////        
-//            js.append(generateJSvar_args2());
-////        
-//            js.append(generateJSvar_args3());
-////        
-//            js.append(generateJSvar_args4());
-////        
-//            js.append(generateJSx());
-////        
-//            js.append(generateJSy());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJSuseCapture1());
-////        
-//            js.append(generateJSlistenerScope1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

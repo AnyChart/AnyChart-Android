@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * DMI indicator class.
+ */
 public class DMI extends JsObject {
 
     public DMI() {
-
+        js.setLength(0);
+        js.append("var dMI").append(++variableIndex).append(" = anychart.core.stock.indicators.dMI();");
+        jsBase = "dMI" + variableIndex;
     }
 
     protected DMI(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class DMI extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double adxPeriod;
 
+    /**
+     * Setter for the ADX period.
+     */
     public DMI setAdxPeriod(Double adxPeriod) {
         if (jsBase == null) {
             this.adxPeriod = adxPeriod;
@@ -38,7 +51,6 @@ public class DMI extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".adxPeriod(%f)", adxPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adxPeriod(%f)", adxPeriod));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class DMI extends JsObject {
 
     private StockSeriesBase getAdxSeries;
 
+    /**
+     * Getter for the indicator ADX series.
+     */
     public StockSeriesBase getAdxSeries() {
         if (getAdxSeries == null)
             getAdxSeries = new StockSeriesBase(jsBase + ".adxSeries()");
@@ -59,6 +74,9 @@ public class DMI extends JsObject {
     private StockSeriesType type;
     private String type1;
 
+    /**
+     * Setter for the indicator ADX series.
+     */
     public DMI setAdxSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
@@ -73,7 +91,6 @@ public class DMI extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".adxSeries(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adxSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -83,6 +100,9 @@ public class DMI extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator ADX series.
+     */
     public DMI setAdxSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -97,7 +117,6 @@ public class DMI extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".adxSeries(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adxSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -108,6 +127,9 @@ public class DMI extends JsObject {
 
     private StockSeriesBase getNdiSeries;
 
+    /**
+     * Getter for the indicator -DI series.
+     */
     public StockSeriesBase getNdiSeries() {
         if (getNdiSeries == null)
             getNdiSeries = new StockSeriesBase(jsBase + ".ndiSeries()");
@@ -118,6 +140,9 @@ public class DMI extends JsObject {
     private StockSeriesType type2;
     private String type3;
 
+    /**
+     * Setter for the indicator -DI series.
+     */
     public DMI setNdiSeries(StockSeriesType type2) {
         if (jsBase == null) {
             this.type = null;
@@ -134,7 +159,6 @@ public class DMI extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".ndiSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ndiSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
@@ -144,6 +168,9 @@ public class DMI extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator -DI series.
+     */
     public DMI setNdiSeries(String type3) {
         if (jsBase == null) {
             this.type = null;
@@ -160,7 +187,6 @@ public class DMI extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".ndiSeries(%s)", wrapQuotes(type3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ndiSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);
@@ -171,6 +197,9 @@ public class DMI extends JsObject {
 
     private StockSeriesBase getPdiSeries;
 
+    /**
+     * Getter for the indicator +DI series.
+     */
     public StockSeriesBase getPdiSeries() {
         if (getPdiSeries == null)
             getPdiSeries = new StockSeriesBase(jsBase + ".pdiSeries()");
@@ -181,6 +210,9 @@ public class DMI extends JsObject {
     private StockSeriesType type4;
     private String type5;
 
+    /**
+     * Setter for the indicator +DI series.
+     */
     public DMI setPdiSeries(StockSeriesType type4) {
         if (jsBase == null) {
             this.type = null;
@@ -199,7 +231,6 @@ public class DMI extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".pdiSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pdiSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
                 js.setLength(0);
@@ -209,6 +240,9 @@ public class DMI extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator +DI series.
+     */
     public DMI setPdiSeries(String type5) {
         if (jsBase == null) {
             this.type = null;
@@ -227,7 +261,6 @@ public class DMI extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".pdiSeries(%s)", wrapQuotes(type5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pdiSeries(%s)", wrapQuotes(type5)));
                 js.setLength(0);
@@ -238,6 +271,9 @@ public class DMI extends JsObject {
 
     private Double period;
 
+    /**
+     * Setter for the period.
+     */
     public DMI setPeriod(Double period) {
         if (jsBase == null) {
             this.period = period;
@@ -249,7 +285,6 @@ public class DMI extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".period(%f)", period));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
                 js.setLength(0);
@@ -260,46 +295,18 @@ public class DMI extends JsObject {
 
     private List<DMI> getUseWildersSmoothing = new ArrayList<>();
 
+    /**
+     * Getter and setter for the Wilders smoothing.
+     */
     public DMI getUseWildersSmoothing(Boolean useWildersSmoothing) {
         DMI item = new DMI(jsBase + ".useWildersSmoothing(" + useWildersSmoothing + ")");
         getUseWildersSmoothing.add(item);
         return item;
     }
 
-
-//
-//    private String generateJSStockSeriesBase getAdxSeries() {
-//        if (StockSeriesBase getAdxSeries != null) {
-//            return StockSeriesBase getAdxSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getNdiSeries() {
-//        if (StockSeriesBase getNdiSeries != null) {
-//            return StockSeriesBase getNdiSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getPdiSeries() {
-//        if (StockSeriesBase getPdiSeries != null) {
-//            return StockSeriesBase getPdiSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSDMI getUseWildersSmoothing() {
-//        if (DMI getUseWildersSmoothing != null) {
-//            return DMI getUseWildersSmoothing.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetAdxSeries() {
         if (getAdxSeries != null) {
             return getAdxSeries.generateJs();
-            //return String.format(Locale.US, "getAdxSeries: %s,", ((getAdxSeries != null) ? getAdxSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -307,7 +314,6 @@ public class DMI extends JsObject {
     private String generateJSgetNdiSeries() {
         if (getNdiSeries != null) {
             return getNdiSeries.generateJs();
-            //return String.format(Locale.US, "getNdiSeries: %s,", ((getNdiSeries != null) ? getNdiSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -315,7 +321,6 @@ public class DMI extends JsObject {
     private String generateJSgetPdiSeries() {
         if (getPdiSeries != null) {
             return getPdiSeries.generateJs();
-            //return String.format(Locale.US, "getPdiSeries: %s,", ((getPdiSeries != null) ? getPdiSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -353,28 +358,6 @@ public class DMI extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSadxPeriod());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJStype2());
-////        
-//            js.append(generateJStype3());
-////        
-//            js.append(generateJStype4());
-////        
-//            js.append(generateJStype5());
-////        
-//            js.append(generateJSperiod());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

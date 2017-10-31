@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base class for Row, Column and Cell. Contains text settings and lazy settings object initialization.
+Also knows about table, so it can send messages to the table.
+ */
 public class TableBase extends JsObject {
 
     public TableBase() {
-
+        js.setLength(0);
+        js.append("var tableBase").append(++variableIndex).append(" = anychart.core.ui.table.base();");
+        jsBase = "tableBase" + variableIndex;
     }
 
     protected TableBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,16 @@ public class TableBase extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Border getBorder;
 
+    /**
+     * Getter for border settings object.
+     */
     public Border getBorder() {
         if (getBorder == null)
             getBorder = new Border(jsBase + ".border()");
@@ -42,6 +56,10 @@ public class TableBase extends JsObject {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for cell border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TableBase setBorder(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -65,7 +83,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -75,6 +92,10 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for cell border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TableBase setBorder(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -98,7 +119,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -108,6 +128,10 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for cell border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TableBase setBorder(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -131,7 +155,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -142,6 +165,9 @@ public class TableBase extends JsObject {
 
     private Boolean disablePointerEvents;
 
+    /**
+     * Setter for the text disablePointerEvents option.
+     */
     public TableBase setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
@@ -153,7 +179,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
@@ -164,6 +189,9 @@ public class TableBase extends JsObject {
 
     private String fontColor;
 
+    /**
+     * Setter for the text font color. {@link https://www.w3schools.com/html/html_colors.asp}
+     */
     public TableBase setFontColor(String fontColor) {
         if (jsBase == null) {
             this.fontColor = fontColor;
@@ -175,7 +203,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
                 js.setLength(0);
@@ -187,6 +214,9 @@ public class TableBase extends JsObject {
     private Decoration fontDecoration;
     private String fontDecoration1;
 
+    /**
+     * Setter for the text font decoration.
+     */
     public TableBase setFontDecoration(Decoration fontDecoration) {
         if (jsBase == null) {
             this.fontDecoration = null;
@@ -201,7 +231,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
                 js.setLength(0);
@@ -211,6 +240,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the text font decoration.
+     */
     public TableBase setFontDecoration(String fontDecoration1) {
         if (jsBase == null) {
             this.fontDecoration = null;
@@ -225,7 +257,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
                 js.setLength(0);
@@ -236,6 +267,9 @@ public class TableBase extends JsObject {
 
     private String fontFamily;
 
+    /**
+     * Setter for the font family.
+     */
     public TableBase setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
@@ -247,7 +281,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
                 js.setLength(0);
@@ -258,6 +291,9 @@ public class TableBase extends JsObject {
 
     private Double fontOpacity;
 
+    /**
+     * Setter for the text font opacity. Double value from 0 to 1.
+     */
     public TableBase setFontOpacity(Double fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
@@ -269,7 +305,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
                 js.setLength(0);
@@ -281,6 +316,9 @@ public class TableBase extends JsObject {
     private String fontSize;
     private Double fontSize1;
 
+    /**
+     * Setter for text font size.
+     */
     public TableBase setFontSize(String fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -295,7 +333,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
                 js.setLength(0);
@@ -305,6 +342,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for text font size.
+     */
     public TableBase setFontSize(Double fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -319,7 +359,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize1));
                 js.setLength(0);
@@ -331,6 +370,9 @@ public class TableBase extends JsObject {
     private TextFontStyle fontStyle;
     private String fontStyle1;
 
+    /**
+     * Setter for the text font style.
+     */
     public TableBase setFontStyle(TextFontStyle fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -345,7 +387,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
                 js.setLength(0);
@@ -355,6 +396,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the text font style.
+     */
     public TableBase setFontStyle(String fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -369,7 +413,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
                 js.setLength(0);
@@ -381,6 +424,9 @@ public class TableBase extends JsObject {
     private TextFontVariant fontVariant;
     private String fontVariant1;
 
+    /**
+     * Setter for the text font variant.
+     */
     public TableBase setFontVariant(TextFontVariant fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -395,7 +441,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
                 js.setLength(0);
@@ -405,6 +450,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the text font variant.
+     */
     public TableBase setFontVariant(String fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -419,7 +467,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
                 js.setLength(0);
@@ -431,6 +478,9 @@ public class TableBase extends JsObject {
     private String fontWeight;
     private Double fontWeight1;
 
+    /**
+     * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
+     */
     public TableBase setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -445,7 +495,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
                 js.setLength(0);
@@ -455,6 +504,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
+     */
     public TableBase setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -469,7 +521,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
@@ -481,6 +532,9 @@ public class TableBase extends JsObject {
     private TextHAlign hAlign;
     private String hAlign1;
 
+    /**
+     * Setter for the text horizontal align.
+     */
     public TableBase setHAlign(TextHAlign hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
@@ -495,7 +549,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
                 js.setLength(0);
@@ -505,6 +558,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the text horizontal align.
+     */
     public TableBase setHAlign(String hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
@@ -519,7 +575,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
                 js.setLength(0);
@@ -531,6 +586,9 @@ public class TableBase extends JsObject {
     private String letterSpacing;
     private Double letterSpacing1;
 
+    /**
+     * Setter for the text letter spacing. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
+     */
     public TableBase setLetterSpacing(String letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = null;
@@ -545,7 +603,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
                 js.setLength(0);
@@ -555,6 +612,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the text letter spacing. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
+     */
     public TableBase setLetterSpacing(Double letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
@@ -569,7 +629,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
                 js.setLength(0);
@@ -581,6 +640,9 @@ public class TableBase extends JsObject {
     private String lineHeight;
     private Double lineHeight1;
 
+    /**
+     * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
+     */
     public TableBase setLineHeight(String lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
@@ -595,7 +657,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
                 js.setLength(0);
@@ -605,6 +666,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
+     */
     public TableBase setLineHeight(Double lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
@@ -619,7 +683,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
                 js.setLength(0);
@@ -630,6 +693,9 @@ public class TableBase extends JsObject {
 
     private Boolean selectable;
 
+    /**
+     * Setter for the text selectable.
+     */
     public TableBase setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
@@ -641,7 +707,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
@@ -653,6 +718,9 @@ public class TableBase extends JsObject {
     private Direction textDirection;
     private String textDirection1;
 
+    /**
+     * Setter for the text direction.
+     */
     public TableBase setTextDirection(Direction textDirection) {
         if (jsBase == null) {
             this.textDirection = null;
@@ -667,7 +735,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection != null) ? textDirection.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", ((textDirection != null) ? textDirection.generateJs() : "null")));
                 js.setLength(0);
@@ -677,6 +744,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the text direction.
+     */
     public TableBase setTextDirection(String textDirection1) {
         if (jsBase == null) {
             this.textDirection = null;
@@ -691,7 +761,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection1)));
                 js.setLength(0);
@@ -702,6 +771,9 @@ public class TableBase extends JsObject {
 
     private Double textIndent;
 
+    /**
+     * Setter for the text indent.
+     */
     public TableBase setTextIndent(Double textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
@@ -713,7 +785,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
@@ -725,6 +796,9 @@ public class TableBase extends JsObject {
     private TextOverflow textOverflow;
     private String textOverflow1;
 
+    /**
+     * Setter for the text overflow settings.
+     */
     public TableBase setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
@@ -739,7 +813,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
                 js.setLength(0);
@@ -749,6 +822,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the text overflow settings.
+     */
     public TableBase setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
@@ -763,7 +839,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
                 js.setLength(0);
@@ -774,6 +849,9 @@ public class TableBase extends JsObject {
 
     private Boolean useHtml;
 
+    /**
+     * Setter for flag useHtml.
+     */
     public TableBase setUseHtml(Boolean useHtml) {
         if (jsBase == null) {
             this.useHtml = useHtml;
@@ -785,7 +863,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
                 js.setLength(0);
@@ -797,6 +874,9 @@ public class TableBase extends JsObject {
     private TextVAlign vAlign;
     private String vAlign1;
 
+    /**
+     * Setter for the text vertical align.
+     */
     public TableBase setVAlign(TextVAlign vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
@@ -811,7 +891,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
                 js.setLength(0);
@@ -821,6 +900,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the text vertical align.
+     */
     public TableBase setVAlign(String vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
@@ -835,7 +917,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
                 js.setLength(0);
@@ -847,6 +928,9 @@ public class TableBase extends JsObject {
     private EnumsWordBreak wordBreak;
     private String wordBreak1;
 
+    /**
+     * Setter for the word-break mode.
+     */
     public TableBase setWordBreak(EnumsWordBreak wordBreak) {
         if (jsBase == null) {
             this.wordBreak = null;
@@ -861,7 +945,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
                 js.setLength(0);
@@ -871,6 +954,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the word-break mode.
+     */
     public TableBase setWordBreak(String wordBreak1) {
         if (jsBase == null) {
             this.wordBreak = null;
@@ -885,7 +971,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
                 js.setLength(0);
@@ -897,6 +982,9 @@ public class TableBase extends JsObject {
     private EnumsWordWrap wordWrap;
     private String wordWrap1;
 
+    /**
+     * Setter for the word-wrap mode.
+     */
     public TableBase setWordWrap(EnumsWordWrap wordWrap) {
         if (jsBase == null) {
             this.wordWrap = null;
@@ -911,7 +999,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
                 js.setLength(0);
@@ -921,6 +1008,9 @@ public class TableBase extends JsObject {
     }
 
 
+    /**
+     * Setter for the word-wrap mode.
+     */
     public TableBase setWordWrap(String wordWrap1) {
         if (jsBase == null) {
             this.wordWrap = null;
@@ -935,7 +1025,6 @@ public class TableBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
                 js.setLength(0);
@@ -944,19 +1033,9 @@ public class TableBase extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSBorder getBorder() {
-//        if (Border getBorder != null) {
-//            return Border getBorder.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBorder() {
         if (getBorder != null) {
             return getBorder.generateJs();
-            //return String.format(Locale.US, "getBorder: %s,", ((getBorder != null) ? getBorder.generateJs() : "null"));
         }
         return "";
     }
@@ -979,92 +1058,6 @@ public class TableBase extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSdisablePointerEvents());
-////        
-//            js.append(generateJSfontColor());
-////        
-//            js.append(generateJSfontDecoration());
-////        
-//            js.append(generateJSfontDecoration1());
-////        
-//            js.append(generateJSfontFamily());
-////        
-//            js.append(generateJSfontOpacity());
-////        
-//            js.append(generateJSfontSize());
-////        
-//            js.append(generateJSfontSize1());
-////        
-//            js.append(generateJSfontStyle());
-////        
-//            js.append(generateJSfontStyle1());
-////        
-//            js.append(generateJSfontVariant());
-////        
-//            js.append(generateJSfontVariant1());
-////        
-//            js.append(generateJSfontWeight());
-////        
-//            js.append(generateJSfontWeight1());
-////        
-//            js.append(generateJShAlign());
-////        
-//            js.append(generateJShAlign1());
-////        
-//            js.append(generateJSletterSpacing());
-////        
-//            js.append(generateJSletterSpacing1());
-////        
-//            js.append(generateJSlineHeight());
-////        
-//            js.append(generateJSlineHeight1());
-////        
-//            js.append(generateJSselectable());
-////        
-//            js.append(generateJStextDirection());
-////        
-//            js.append(generateJStextDirection1());
-////        
-//            js.append(generateJStextIndent());
-////        
-//            js.append(generateJStextOverflow());
-////        
-//            js.append(generateJStextOverflow1());
-////        
-//            js.append(generateJSuseHtml());
-////        
-//            js.append(generateJSvAlign());
-////        
-//            js.append(generateJSvAlign1());
-////        
-//            js.append(generateJSwordBreak());
-////        
-//            js.append(generateJSwordBreak1());
-////        
-//            js.append(generateJSwordWrap());
-////        
-//            js.append(generateJSwordWrap1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

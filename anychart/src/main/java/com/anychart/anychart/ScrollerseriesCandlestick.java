@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Candlestick Series Class.<br/>
+{docs:Stock_Charts/Series/Japanese_Candlestick}Learn more about Candlestick series{docs}
+ */
 public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
 
     public ScrollerseriesCandlestick() {
-
+        js.setLength(0);
+        js.append("var scrollerseriesCandlestick").append(++variableIndex).append(" = anychart.core.stock.scrollerSeries.candlestick();");
+        jsBase = "scrollerseriesCandlestick" + variableIndex;
     }
 
     protected ScrollerseriesCandlestick(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,17 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill fallingFill;
 
+    /**
+     * Setter for the falling fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick setFallingFill(Fill fallingFill) {
         if (jsBase == null) {
             this.fallingFill = fallingFill;
@@ -38,7 +53,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +64,9 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private String color;
     private Double opacity;
 
+    /**
+     * Falling fill color with opacity.
+     */
     public ScrollerseriesCandlestick fallingFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -63,7 +80,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -80,6 +96,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick fallingFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -107,7 +127,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -117,6 +136,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick fallingFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -144,7 +167,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -154,6 +176,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick fallingFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -181,7 +207,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -191,6 +216,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick fallingFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -218,7 +247,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -228,6 +256,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick fallingFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -255,7 +287,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -265,6 +296,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick fallingFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -292,7 +327,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -310,6 +344,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick fallingFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -347,7 +385,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -357,6 +394,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Radial gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick fallingFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +435,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -406,6 +446,9 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private Fill imageSettings;
     private PatternFill getFallingHatchFill;
 
+    /**
+     * Getter for the falling hatch fill settings.
+     */
     public PatternFill getFallingHatchFill() {
         if (getFallingHatchFill == null)
             getFallingHatchFill = new PatternFill(jsBase + ".fallingHatchFill()");
@@ -422,6 +465,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setFallingHatchFill(PatternFill patternFillOrTypeOrState, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -448,7 +495,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -458,6 +504,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setFallingHatchFill(HatchFill patternFillOrTypeOrState1, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -484,7 +534,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -494,6 +543,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setFallingHatchFill(HatchFillType patternFillOrTypeOrState2, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -520,7 +573,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -530,6 +582,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setFallingHatchFill(String patternFillOrTypeOrState3, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -556,7 +612,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -566,6 +621,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setFallingHatchFill(Boolean patternFillOrTypeOrState4, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -592,7 +651,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -603,6 +661,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
 
     private Fill risingFill;
 
+    /**
+     * Setter for the rising fill settings using an object or a string.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingFill(Fill risingFill) {
         if (jsBase == null) {
             this.risingFill = risingFill;
@@ -614,7 +676,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s);", ((risingFill != null) ? risingFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
                 js.setLength(0);
@@ -626,6 +687,9 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private String color2;
     private Double opacity3;
 
+    /**
+     * Rising fill color with opacity.
+     */
     public ScrollerseriesBase risingFill(String color2, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
@@ -648,7 +712,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %f);", wrapQuotes(color2), opacity3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f)", wrapQuotes(color2), opacity3));
                 js.setLength(0);
@@ -665,6 +728,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private String mode6;
     private Double opacity4;
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -706,7 +773,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -716,6 +782,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -757,7 +827,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -767,6 +836,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -808,7 +881,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -818,6 +890,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -859,7 +935,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f);", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -869,6 +944,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -910,7 +989,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -920,6 +998,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -961,7 +1043,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -979,6 +1060,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private Double fx1;
     private Double fy1;
 
+    /**
+     * Radial gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick risingFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1039,7 +1124,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1049,6 +1133,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Radial gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesCandlestick risingFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1109,7 +1197,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1121,6 +1208,9 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private Fill imageSettings1;
     private PatternFill getRisingHatchFill;
 
+    /**
+     * Getter for the rising hatch fill settings.
+     */
     public PatternFill getRisingHatchFill() {
         if (getRisingHatchFill == null)
             getRisingHatchFill = new PatternFill(jsBase + ".risingHatchFill()");
@@ -1137,6 +1227,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private Double thickness1;
     private Double size1;
 
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingHatchFill(PatternFill patternFillOrTypeOrState5, String color3, Double thickness1, Double size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -1176,7 +1270,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1186,6 +1279,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingHatchFill(HatchFill patternFillOrTypeOrState6, String color3, Double thickness1, Double size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -1225,7 +1322,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1235,6 +1331,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingHatchFill(HatchFillType patternFillOrTypeOrState7, String color3, Double thickness1, Double size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -1274,7 +1374,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1284,6 +1383,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingHatchFill(String patternFillOrTypeOrState8, String color3, Double thickness1, Double size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -1323,7 +1426,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color3), thickness1, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1333,6 +1435,10 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     }
 
 
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingHatchFill(Boolean patternFillOrTypeOrState9, String color3, Double thickness1, Double size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -1372,7 +1478,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState9, wrapQuotes(color3), thickness1, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1381,26 +1486,9 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         return new ScrollerseriesBase(jsBase);
     }
 
-
-//
-//    private String generateJSPatternFill getFallingHatchFill() {
-//        if (PatternFill getFallingHatchFill != null) {
-//            return PatternFill getFallingHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPatternFill getRisingHatchFill() {
-//        if (PatternFill getRisingHatchFill != null) {
-//            return PatternFill getRisingHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetFallingHatchFill() {
         if (getFallingHatchFill != null) {
             return getFallingHatchFill.generateJs();
-            //return String.format(Locale.US, "getFallingHatchFill: %s,", ((getFallingHatchFill != null) ? getFallingHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -1408,7 +1496,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private String generateJSgetRisingHatchFill() {
         if (getRisingHatchFill != null) {
             return getRisingHatchFill.generateJs();
-            //return String.format(Locale.US, "getRisingHatchFill: %s,", ((getRisingHatchFill != null) ? getRisingHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -1432,120 +1519,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfallingFill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState1());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState2());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState3());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState4());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSrisingFill());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSopacity3());
-////        
-//            js.append(generateJSkeys4());
-////        
-//            js.append(generateJSkeys5());
-////        
-//            js.append(generateJSangle1());
-////        
-//            js.append(generateJSmode4());
-////        
-//            js.append(generateJSmode5());
-////        
-//            js.append(generateJSmode6());
-////        
-//            js.append(generateJSopacity4());
-////        
-//            js.append(generateJSkeys6());
-////        
-//            js.append(generateJSkeys7());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSmode7());
-////        
-//            js.append(generateJSopacity5());
-////        
-//            js.append(generateJSfx1());
-////        
-//            js.append(generateJSfy1());
-////        
-//            js.append(generateJSimageSettings1());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState5());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState6());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState7());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState8());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState9());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSsize1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

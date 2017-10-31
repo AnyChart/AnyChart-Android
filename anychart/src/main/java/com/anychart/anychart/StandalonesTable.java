@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesTable extends UiTable {
 
     public StandalonesTable() {
-
+        js.setLength(0);
+        js.append("var standalonesTable").append(++variableIndex).append(" = anychart.standalones.table();");
+        jsBase = "standalonesTable" + variableIndex;
     }
 
     protected StandalonesTable(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class StandalonesTable extends UiTable {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String csvSettings;
     private String filename;
 
+    /**
+     * Saves table data as CSV.
+     */
     public void saveAsCsv(String csvSettings, String filename) {
         if (jsBase == null) {
             this.csvSettings = csvSettings;
@@ -41,7 +54,6 @@ public class StandalonesTable extends UiTable {
             }
 
             js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s);", wrapQuotes(csvSettings), wrapQuotes(filename)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s)", wrapQuotes(csvSettings), wrapQuotes(filename)));
                 js.setLength(0);
@@ -51,6 +63,9 @@ public class StandalonesTable extends UiTable {
 
     private String filename1;
 
+    /**
+     * Saves table data as an Excel document.
+     */
     public void saveAsXlsx(String filename1) {
         if (jsBase == null) {
             this.filename = null;
@@ -65,7 +80,6 @@ public class StandalonesTable extends UiTable {
             }
 
             js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s);", wrapQuotes(filename1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s)", wrapQuotes(filename1)));
                 js.setLength(0);
@@ -75,6 +89,9 @@ public class StandalonesTable extends UiTable {
 
     private String csvSettings1;
 
+    /**
+     * Returns CSV string with series data.
+     */
     public void toCsv(String csvSettings1) {
         if (jsBase == null) {
             this.csvSettings = null;
@@ -89,7 +106,6 @@ public class StandalonesTable extends UiTable {
             }
 
             js.append(String.format(Locale.US, jsBase + ".toCsv(%s);", wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s)", wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -97,8 +113,6 @@ public class StandalonesTable extends UiTable {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -116,20 +130,6 @@ public class StandalonesTable extends UiTable {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScsvSettings());
-////        
-//            js.append(generateJSfilename());
-////        
-//            js.append(generateJSfilename1());
-////        
-//            js.append(generateJScsvSettings1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

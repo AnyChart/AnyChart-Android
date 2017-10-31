@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Zoom settings aggregate.
+ */
 public class OrdinalZoom extends JsObject {
 
     public OrdinalZoom() {
-
+        js.setLength(0);
+        js.append("var ordinalZoom").append(++variableIndex).append(" = anychart.core.utils.ordinalZoom();");
+        jsBase = "ordinalZoom" + variableIndex;
     }
 
     protected OrdinalZoom(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class OrdinalZoom extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean continuous;
 
+    /**
+     * Whether to zoom on moving of the scroller or only on mouseUp.
+     */
     public OrdinalZoom continuous(Boolean continuous) {
         if (jsBase == null) {
             this.continuous = continuous;
@@ -38,7 +51,6 @@ public class OrdinalZoom extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".continuous(%b)", continuous));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".continuous(%b)", continuous));
                 js.setLength(0);
@@ -50,6 +62,9 @@ public class OrdinalZoom extends JsObject {
     private Double startRatio;
     private Double endRatio;
 
+    /**
+     * Sets zoom to passed start and end ratios.
+     */
     public OrdinalZoom setSetTo(Double startRatio, Double endRatio) {
         if (jsBase == null) {
             this.startRatio = startRatio;
@@ -63,7 +78,6 @@ public class OrdinalZoom extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setTo(%f, %f)", startRatio, endRatio));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setTo(%f, %f)", startRatio, endRatio));
                 js.setLength(0);
@@ -76,6 +90,9 @@ public class OrdinalZoom extends JsObject {
     private Boolean fromEnd;
     private ScalesBase scale;
 
+    /**
+     * Setups zoom by passed values.
+     */
     public OrdinalZoom setToPointsCount(Double pointsCount, Boolean fromEnd, ScalesBase scale) {
         if (jsBase == null) {
             this.pointsCount = pointsCount;
@@ -91,7 +108,6 @@ public class OrdinalZoom extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setToPointsCount(%f, %b, %s)", pointsCount, fromEnd, ((scale != null) ? scale.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setToPointsCount(%f, %b, %s)", pointsCount, fromEnd, ((scale != null) ? scale.generateJs() : "null")));
                 js.setLength(0);
@@ -102,6 +118,9 @@ public class OrdinalZoom extends JsObject {
 
     private ScalesBase scale1;
 
+    /**
+     * Setups zoom by passed values.
+     */
     public OrdinalZoom setToValues(ScalesBase scale1) {
         if (jsBase == null) {
             this.scale = null;
@@ -110,23 +129,22 @@ public class OrdinalZoom extends JsObject {
             this.scale1 = scale1;
         } else {
             this.scale1 = scale1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(scale1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".setToValues(%s)", ((scale1 != null) ? scale1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".setToValues(%s);",  ((scale1 != null) ? scale1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setToValues(%s)", ((scale1 != null) ? scale1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".setToValues(%s)", ((scale1 != null) ? scale1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -144,26 +162,6 @@ public class OrdinalZoom extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScontinuous());
-////        
-//            js.append(generateJSstartRatio());
-////        
-//            js.append(generateJSendRatio());
-////        
-//            js.append(generateJSpointsCount());
-////        
-//            js.append(generateJSfromEnd());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSscale1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

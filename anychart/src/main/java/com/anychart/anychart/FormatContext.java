@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Common format context class.
+ */
 public class FormatContext extends JsObject {
 
     public FormatContext() {
-
+        js.setLength(0);
+        js.append("var formatContext").append(++variableIndex).append(" = anychart.format.context();");
+        jsBase = "formatContext" + variableIndex;
     }
 
     protected FormatContext(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class FormatContext extends JsObject {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class FormatContext extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Color range.
+ */
 public class UiColorRange extends CoreAxesLinear {
 
     public UiColorRange() {
-
+        js.setLength(0);
+        js.append("var uiColorRange").append(++variableIndex).append(" = anychart.core.ui.colorRange();");
+        jsBase = "uiColorRange" + variableIndex;
     }
 
     protected UiColorRange(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class UiColorRange extends CoreAxesLinear {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private EnumsAlign align;
     private String align1;
 
+    /**
+     * Setter for color range align settings.
+     */
     public UiColorRange setAlign(EnumsAlign align) {
         if (jsBase == null) {
             this.align = null;
@@ -42,7 +55,6 @@ public class UiColorRange extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class UiColorRange extends CoreAxesLinear {
     }
 
 
+    /**
+     * Setter for color range align settings.
+     */
     public UiColorRange setAlign(String align1) {
         if (jsBase == null) {
             this.align = null;
@@ -66,7 +81,6 @@ public class UiColorRange extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
                 js.setLength(0);
@@ -77,6 +91,9 @@ public class UiColorRange extends CoreAxesLinear {
 
     private Double colorLineSize;
 
+    /**
+     * Setter for the color line size.
+     */
     public UiColorRange setColorLineSize(Double colorLineSize) {
         if (jsBase == null) {
             this.colorLineSize = colorLineSize;
@@ -88,7 +105,6 @@ public class UiColorRange extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".colorLineSize(%f)", colorLineSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colorLineSize(%f)", colorLineSize));
                 js.setLength(0);
@@ -100,6 +116,9 @@ public class UiColorRange extends CoreAxesLinear {
     private String length;
     private Double length1;
 
+    /**
+     * Setter for the current color range line length.
+     */
     public UiColorRange setLength(String length) {
         if (jsBase == null) {
             this.length = null;
@@ -114,7 +133,6 @@ public class UiColorRange extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".length(%s)", wrapQuotes(length)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%s)", wrapQuotes(length)));
                 js.setLength(0);
@@ -124,6 +142,9 @@ public class UiColorRange extends CoreAxesLinear {
     }
 
 
+    /**
+     * Setter for the current color range line length.
+     */
     public UiColorRange setLength(Double length1) {
         if (jsBase == null) {
             this.length = null;
@@ -138,7 +159,6 @@ public class UiColorRange extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".length(%f)", length1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%f)", length1));
                 js.setLength(0);
@@ -149,6 +169,9 @@ public class UiColorRange extends CoreAxesLinear {
 
     private UiMarkersfactoryMarker getMarker;
 
+    /**
+     * Getter for the color range marker.
+     */
     public UiMarkersfactoryMarker getMarker() {
         if (getMarker == null)
             getMarker = new UiMarkersfactoryMarker(jsBase + ".marker()");
@@ -158,6 +181,9 @@ public class UiColorRange extends CoreAxesLinear {
 
     private List<UiColorRange> getMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the color range marker.
+     */
     public UiColorRange getMarker(UiMarkersfactoryMarker marker) {
         UiColorRange item = new UiColorRange(jsBase + ".marker(" + ((marker != null) ? marker.generateJs() : "null") + ")");
         getMarker1.add(item);
@@ -166,39 +192,18 @@ public class UiColorRange extends CoreAxesLinear {
 
     private List<UiColorRange> getMarker2 = new ArrayList<>();
 
+    /**
+     * Getter for the color range marker.
+     */
     public UiColorRange getMarker(String marker) {
         UiColorRange item = new UiColorRange(jsBase + ".marker(" + wrapQuotes(marker) + ")");
         getMarker2.add(item);
         return item;
     }
 
-
-//
-//    private String generateJSUiMarkersfactoryMarker getMarker() {
-//        if (UiMarkersfactoryMarker getMarker != null) {
-//            return UiMarkersfactoryMarker getMarker.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiColorRange getMarker1() {
-//        if (UiColorRange getMarker1 != null) {
-//            return UiColorRange getMarker1.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiColorRange getMarker2() {
-//        if (UiColorRange getMarker2 != null) {
-//            return UiColorRange getMarker2.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetMarker() {
         if (getMarker != null) {
             return getMarker.generateJs();
-            //return String.format(Locale.US, "getMarker: %s,", ((getMarker != null) ? getMarker.generateJs() : "null"));
         }
         return "";
     }
@@ -247,22 +252,6 @@ public class UiColorRange extends CoreAxesLinear {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSalign());
-////        
-//            js.append(generateJSalign1());
-////        
-//            js.append(generateJScolorLineSize());
-////        
-//            js.append(generateJSlength());
-////        
-//            js.append(generateJSlength1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

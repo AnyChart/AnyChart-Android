@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Axis radar ticks class.<br/>
+You can change position, length and line features.
+ */
 public class RadialTicks extends VisualBase {
 
     public RadialTicks() {
-
+        js.setLength(0);
+        js.append("var radialTicks").append(++variableIndex).append(" = anychart.core.axes.radialTicks();");
+        jsBase = "radialTicks" + variableIndex;
     }
 
     protected RadialTicks(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,17 @@ public class RadialTicks extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double length;
 
+    /**
+     * Setter for ticks length.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.axes.RadialTicks.length.png' height='77' width='412'/>
+     */
     public RadialTicks setLength(Double length) {
         if (jsBase == null) {
             this.length = length;
@@ -38,7 +53,6 @@ public class RadialTicks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".length(%f)", length));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%f)", length));
                 js.setLength(0);
@@ -49,6 +63,10 @@ public class RadialTicks extends VisualBase {
 
     private Stroke stroke;
 
+    /**
+     * Setter for stroke settings via single parameter.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
+     */
     public Ticks setStroke(Stroke stroke) {
         if (jsBase == null) {
             this.stroke = stroke;
@@ -60,7 +78,6 @@ public class RadialTicks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stroke(%s);", ((stroke != null) ? stroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
@@ -75,6 +92,24 @@ public class RadialTicks extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for stroke settings via several parameter.<br/>
+The following options are acceptable:
+<ul>
+ <li>String formatted as '[thickness ]color[ opacity]':
+   <ol>
+     <li><b>'color'</b> - {@link https://www.w3schools.com/html/html_colors.asp}.</li>
+     <li><b>'thickness color'</b> - like a css border, e.g. '3 red' or '3px red'</li>
+     <li><b>'color opacity'</b> - as a fill string, e.g. '#fff 0.5'</li>
+     <li><b>'thickness color opacity'</b> - as a complex string, e.g. '3px #00ff00 0.5'</li>
+   </ol>
+ </li>
+ <li>{@link anychart.graphics.vector.Stroke} object</li>
+ <li>Keys array {@link anychart.graphics.vector.GradientKey}</li>
+ <li><b>null</b> - reset current stroke settings.</li>
+</ul>
+<b>Note:</b> String parts order is significant and '3px red' is not the same as 'red 3px'.
+     */
     public RadialTicks setStroke(String color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = color;
@@ -94,7 +129,6 @@ public class RadialTicks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -103,8 +137,6 @@ public class RadialTicks extends VisualBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -122,26 +154,6 @@ public class RadialTicks extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSlength());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

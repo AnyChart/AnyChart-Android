@@ -6,13 +6,35 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Stock chart class.<br/>
+<b>Note:</b> Use {@link anychart#stock} method to get an instance of this class.
+ */
 public class ChartsStock extends Chart {
 
     protected ChartsStock(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public ChartsStock setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public ChartsStock setData(List<DataEntry> data) {
@@ -35,10 +57,33 @@ public class ChartsStock extends Chart {
         return this;
     }
 
+    public ChartsStock setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
 
     private Crosshair getCrosshair;
 
+    /**
+     * Getter for crosshair settings.
+     */
     public Crosshair getCrosshair() {
         if (getCrosshair == null)
             getCrosshair = new Crosshair(jsBase + ".crosshair()");
@@ -48,6 +93,11 @@ public class ChartsStock extends Chart {
     private String crosshair;
     private Boolean crosshair1;
     private List<ChartsStock> setCrosshair = new ArrayList<>();
+
+    /**
+     * Setter for crosshair settings.<br/>
+The plot crosshair settings have a higher priority than the chart crosshair settings.
+     */
     public ChartsStock setCrosshair(String crosshair) {
         if (!isChain) {
             js.append(jsBase);
@@ -73,6 +123,11 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setCrosshair1 = new ArrayList<>();
+
+    /**
+     * Setter for crosshair settings.<br/>
+The plot crosshair settings have a higher priority than the chart crosshair settings.
+     */
     public ChartsStock setCrosshair(Boolean crosshair1) {
         if (!isChain) {
             js.append(jsBase);
@@ -100,6 +155,9 @@ public class ChartsStock extends Chart {
 
     private Grouping getGrouping;
 
+    /**
+     * Getter for the current data grouping settings.
+     */
     public Grouping getGrouping() {
         if (getGrouping == null)
             getGrouping = new Grouping(jsBase + ".grouping()");
@@ -110,6 +168,10 @@ public class ChartsStock extends Chart {
     private String[] grouping1;
     private String grouping2;
     private List<ChartsStock> setGrouping = new ArrayList<>();
+
+    /**
+     * Setter for the data grouping settings.
+     */
     public ChartsStock setGrouping(Boolean grouping) {
         if (!isChain) {
             js.append(jsBase);
@@ -135,6 +197,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setGrouping1 = new ArrayList<>();
+
+    /**
+     * Setter for the data grouping settings.
+     */
     public ChartsStock setGrouping(String[] grouping1) {
         if (!isChain) {
             js.append(jsBase);
@@ -160,6 +226,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setGrouping2 = new ArrayList<>();
+
+    /**
+     * Setter for the data grouping settings.
+     */
     public ChartsStock setGrouping(String grouping2) {
         if (!isChain) {
             js.append(jsBase);
@@ -187,6 +257,9 @@ public class ChartsStock extends Chart {
 
     private StockInteractivity getInteractivity;
 
+    /**
+     * Getter for interactivity settings.
+     */
     public StockInteractivity getInteractivity() {
         if (getInteractivity == null)
             getInteractivity = new StockInteractivity(jsBase + ".interactivity()");
@@ -197,6 +270,10 @@ public class ChartsStock extends Chart {
     private HoverMode interactivity1;
     private String interactivity2;
     private List<SeparateChart> setInteractivity = new ArrayList<>();
+
+    /**
+     * Setter for interactivity settings.
+     */
     public SeparateChart setInteractivity(String interactivity) {
         if (isChain) {
             js.append(";");
@@ -224,6 +301,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<SeparateChart> setInteractivity1 = new ArrayList<>();
+
+    /**
+     * Setter for interactivity settings.
+     */
     public SeparateChart setInteractivity(HoverMode interactivity1) {
         if (isChain) {
             js.append(";");
@@ -253,6 +334,9 @@ public class ChartsStock extends Chart {
 
     private Plot getPlot;
 
+    /**
+     * Getter for the current plots.
+     */
     public Plot getPlot() {
         if (getPlot == null)
             getPlot = new Plot(jsBase + ".plot()");
@@ -262,6 +346,9 @@ public class ChartsStock extends Chart {
 
     private List<Plot> getPlot1 = new ArrayList<>();
 
+    /**
+     * Getter for the current plots.
+     */
     public Plot getPlot(Double index) {
         Plot item = new Plot(jsBase + ".plot("+ index+")");
         getPlot1.add(item);
@@ -270,6 +357,10 @@ public class ChartsStock extends Chart {
     private String plot;
     private Boolean plot1;
     private List<ChartsStock> setPlot = new ArrayList<>();
+
+    /**
+     * Setter for the plots.
+     */
     public ChartsStock setPlot(String plot) {
         if (!isChain) {
             js.append(jsBase);
@@ -295,6 +386,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setPlot1 = new ArrayList<>();
+
+    /**
+     * Setter for the plots.
+     */
     public ChartsStock setPlot(Boolean plot1) {
         if (!isChain) {
             js.append(jsBase);
@@ -323,6 +418,10 @@ public class ChartsStock extends Chart {
     private String plot2;
     private Boolean plot3;
     private List<ChartsStock> setPlot2 = new ArrayList<>();
+
+    /**
+     * Setter for the plots by index.
+     */
     public ChartsStock setPlot(String plot2, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -348,6 +447,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setPlot3 = new ArrayList<>();
+
+    /**
+     * Setter for the plots by index.
+     */
     public ChartsStock setPlot(Boolean plot3, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -374,6 +477,10 @@ public class ChartsStock extends Chart {
 
     private Boolean preserveSelectedRangeOnDataUpdate;
     private List<ChartsStock> setPreserveSelectedRangeOnDataUpdate = new ArrayList<>();
+
+    /**
+     * Setter for the Selected Range Change Behaviour.
+     */
     public ChartsStock setPreserveSelectedRangeOnDataUpdate(Boolean preserveSelectedRangeOnDataUpdate) {
         if (!isChain) {
             js.append(jsBase);
@@ -401,6 +508,9 @@ public class ChartsStock extends Chart {
 
     private StockScroller getScroller;
 
+    /**
+     * Getter for the current scroller.
+     */
     public StockScroller getScroller() {
         if (getScroller == null)
             getScroller = new StockScroller(jsBase + ".scroller()");
@@ -410,6 +520,10 @@ public class ChartsStock extends Chart {
     private String scroller;
     private Boolean scroller1;
     private List<ChartsStock> setScroller = new ArrayList<>();
+
+    /**
+     * Setter for the scroller.
+     */
     public ChartsStock setScroller(String scroller) {
         if (!isChain) {
             js.append(jsBase);
@@ -435,6 +549,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setScroller1 = new ArrayList<>();
+
+    /**
+     * Setter for the scroller.
+     */
     public ChartsStock setScroller(Boolean scroller1) {
         if (!isChain) {
             js.append(jsBase);
@@ -462,6 +580,9 @@ public class ChartsStock extends Chart {
 
     private Grouping getScrollerGrouping;
 
+    /**
+     * Getter for the current scroller data grouping settings.
+     */
     public Grouping getScrollerGrouping() {
         if (getScrollerGrouping == null)
             getScrollerGrouping = new Grouping(jsBase + ".scrollerGrouping()");
@@ -472,6 +593,10 @@ public class ChartsStock extends Chart {
     private String[] scrollerGrouping1;
     private String scrollerGrouping2;
     private List<ChartsStock> setScrollerGrouping = new ArrayList<>();
+
+    /**
+     * Setter for the scroller data grouping settings.
+     */
     public ChartsStock setScrollerGrouping(Boolean scrollerGrouping) {
         if (!isChain) {
             js.append(jsBase);
@@ -497,6 +622,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setScrollerGrouping1 = new ArrayList<>();
+
+    /**
+     * Setter for the scroller data grouping settings.
+     */
     public ChartsStock setScrollerGrouping(String[] scrollerGrouping1) {
         if (!isChain) {
             js.append(jsBase);
@@ -522,6 +651,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setScrollerGrouping2 = new ArrayList<>();
+
+    /**
+     * Setter for the scroller data grouping settings.
+     */
     public ChartsStock setScrollerGrouping(String scrollerGrouping2) {
         if (!isChain) {
             js.append(jsBase);
@@ -559,6 +692,10 @@ public class ChartsStock extends Chart {
     private Boolean anchorOrDispatchEvent2;
     private Boolean dispatchEvent;
     private List<ChartsStock> setSelectRange = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Double typeOrUnitOrStart, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -584,6 +721,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange1 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Double typeOrUnitOrStart, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -609,6 +750,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange2 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Double typeOrUnitOrStart, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -634,6 +779,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange3 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Double typeOrUnitOrStart, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -659,6 +808,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange4 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Double typeOrUnitOrStart, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -684,6 +837,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange5 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Double typeOrUnitOrStart, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -709,6 +866,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange6 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Double typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -734,6 +895,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange7 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Double typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -759,6 +924,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange8 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Double typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -784,6 +953,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange9 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(String typeOrUnitOrStart1, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -809,6 +982,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange10 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(String typeOrUnitOrStart1, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -834,6 +1011,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange11 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(String typeOrUnitOrStart1, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -859,6 +1040,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange12 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(String typeOrUnitOrStart1, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -884,6 +1069,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange13 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(String typeOrUnitOrStart1, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -909,6 +1098,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange14 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(String typeOrUnitOrStart1, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -934,6 +1127,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange15 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(String typeOrUnitOrStart1, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -959,6 +1156,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange16 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(String typeOrUnitOrStart1, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -984,6 +1185,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange17 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(String typeOrUnitOrStart1, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1009,6 +1214,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange18 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1034,6 +1243,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange19 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1059,6 +1272,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange20 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1084,6 +1301,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange21 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1109,6 +1330,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange22 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1134,6 +1359,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange23 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1159,6 +1388,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange24 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1184,6 +1417,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange25 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1209,6 +1446,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange26 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1234,6 +1475,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange27 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Interval typeOrUnitOrStart4, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1259,6 +1504,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange28 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Interval typeOrUnitOrStart4, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1284,6 +1533,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange29 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Interval typeOrUnitOrStart4, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1309,6 +1562,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange30 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Interval typeOrUnitOrStart4, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1334,6 +1591,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange31 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Interval typeOrUnitOrStart4, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1359,6 +1620,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange32 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Interval typeOrUnitOrStart4, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1384,6 +1649,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange33 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Interval typeOrUnitOrStart4, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1409,6 +1678,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange34 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Interval typeOrUnitOrStart4, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1434,6 +1707,10 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange35 = new ArrayList<>();
+
+    /**
+     * Selects passed range and initiates data redraw.
+     */
     public ChartsStock selectRange(Interval typeOrUnitOrStart4, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
@@ -1461,6 +1738,10 @@ public class ChartsStock extends Chart {
     private Boolean repeat;
     private Boolean asRect;
     private List<ChartsStock> setStartZoomMarquee = new ArrayList<>();
+
+    /**
+     * Starts zoom marquee.
+     */
     public ChartsStock startZoomMarquee(Boolean repeat, Boolean asRect) {
         if (!isChain) {
             js.append(jsBase);
@@ -1488,6 +1769,9 @@ public class ChartsStock extends Chart {
 
     private StockScatterDateTime getXScale;
 
+    /**
+     * Getter for the current stock chart X-scale.
+     */
     public StockScatterDateTime getXScale() {
         if (getXScale == null)
             getXScale = new StockScatterDateTime(jsBase + ".xScale()");
@@ -1497,6 +1781,10 @@ public class ChartsStock extends Chart {
     private String xScale;
     private String xScale1;
     private List<ChartsStock> setXScale = new ArrayList<>();
+
+    /**
+     * Setter for stock chart X-scale.
+     */
     public ChartsStock setXScale(String xScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1523,6 +1811,11 @@ public class ChartsStock extends Chart {
 
     private Fill zoomMarqueeFill;
     private List<ChartsStock> setZoomMarqueeFill = new ArrayList<>();
+
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ChartsStock setZoomMarqueeFill(Fill zoomMarqueeFill) {
         if (!isChain) {
             js.append(jsBase);
@@ -1550,6 +1843,10 @@ public class ChartsStock extends Chart {
     private String color;
     private Double opacity;
     private List<ChartsStock> setZoomMarqueeFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public ChartsStock zoomMarqueeFill(String color, Double opacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -1582,6 +1879,11 @@ public class ChartsStock extends Chart {
     private String mode2;
     private Double opacity1;
     private List<ChartsStock> setZoomMarqueeFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ChartsStock zoomMarqueeFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1607,6 +1909,11 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setZoomMarqueeFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ChartsStock zoomMarqueeFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1632,6 +1939,11 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setZoomMarqueeFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ChartsStock zoomMarqueeFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1657,6 +1969,11 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setZoomMarqueeFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ChartsStock zoomMarqueeFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1682,6 +1999,11 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setZoomMarqueeFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ChartsStock zoomMarqueeFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1707,6 +2029,11 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setZoomMarqueeFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ChartsStock zoomMarqueeFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1740,6 +2067,11 @@ public class ChartsStock extends Chart {
     private Double fx;
     private Double fy;
     private List<ChartsStock> setZoomMarqueeFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ChartsStock zoomMarqueeFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -1765,6 +2097,11 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setZoomMarqueeFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ChartsStock zoomMarqueeFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -1798,6 +2135,11 @@ public class ChartsStock extends Chart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<Chart> setZoomMarqueeStroke = new ArrayList<>();
+
+    /**
+     * Setter for the zoom marquee stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Chart setZoomMarqueeStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (isChain) {
             js.append(";");
@@ -1825,6 +2167,11 @@ public class ChartsStock extends Chart {
     }
 
     private List<Chart> setZoomMarqueeStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the zoom marquee stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Chart setZoomMarqueeStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (isChain) {
             js.append(";");
@@ -1852,6 +2199,11 @@ public class ChartsStock extends Chart {
     }
 
     private List<Chart> setZoomMarqueeStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for the zoom marquee stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Chart setZoomMarqueeStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (isChain) {
             js.append(";");

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Basic methods for scales.
+ */
 public class ScalesBase extends CoreBase {
 
     public ScalesBase() {
-
+        js.setLength(0);
+        js.append("var scalesBase").append(++variableIndex).append(" = anychart.scales.base();");
+        jsBase = "scalesBase" + variableIndex;
     }
 
     protected ScalesBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class ScalesBase extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean silently;
 
+    /**
+     * Informs the scale that an auto range calculation started for the chart in past was ended.
+     */
     public void finishAutoCalc(Boolean silently) {
         if (jsBase == null) {
             this.silently = silently;
@@ -38,7 +51,6 @@ public class ScalesBase extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".finishAutoCalc(%b);", silently));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".finishAutoCalc(%b)", silently));
                 js.setLength(0);
@@ -48,6 +60,10 @@ public class ScalesBase extends CoreBase {
 
     private Boolean inverted;
 
+    /**
+     * Setter for scale inversion. If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
+instead of bottom-to-top and left-to-right.
+     */
     public ScalesBase setInverted(Boolean inverted) {
         if (jsBase == null) {
             this.inverted = inverted;
@@ -59,7 +75,6 @@ public class ScalesBase extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".inverted(%b)", inverted));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".inverted(%b)", inverted));
                 js.setLength(0);
@@ -68,8 +83,6 @@ public class ScalesBase extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -87,16 +100,6 @@ public class ScalesBase extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSsilently());
-////        
-//            js.append(generateJSinverted());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesAxesLinear extends CoreAxesLinear {
 
     public StandalonesAxesLinear() {
-
+        js.setLength(0);
+        js.append("var standalonesAxesLinear").append(++variableIndex).append(" = anychart.standalones.axes.linear();");
+        jsBase = "standalonesAxesLinear" + variableIndex;
     }
 
     protected StandalonesAxesLinear(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Layer getContainer;
 
+    /**
+     * Getter for the axis current container.
+     */
     public Layer getContainer() {
         if (getContainer == null)
             getContainer = new Layer(jsBase + ".container()");
@@ -39,6 +52,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private String container2;
     private Element container3;
 
+    /**
+     * Setter for the axis container.
+     */
     public StandalonesAxesLinear setContainer(Layer container) {
         if (jsBase == null) {
             this.container = null;
@@ -49,15 +65,16 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             this.container = container;
         } else {
             this.container = container;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container != null) ? container.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -65,6 +82,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     }
 
 
+    /**
+     * Setter for the axis container.
+     */
     public StandalonesAxesLinear setContainer(Stage container1) {
         if (jsBase == null) {
             this.container = null;
@@ -75,15 +95,16 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -91,6 +112,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     }
 
 
+    /**
+     * Setter for the axis container.
+     */
     public StandalonesAxesLinear setContainer(String container2) {
         if (jsBase == null) {
             this.container = null;
@@ -107,7 +131,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
                 js.setLength(0);
@@ -117,6 +140,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     }
 
 
+    /**
+     * Setter for the axis container.
+     */
     public StandalonesAxesLinear setContainer(Element container3) {
         if (jsBase == null) {
             this.container = null;
@@ -127,15 +153,16 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             this.container3 = container3;
         } else {
             this.container3 = container3;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container3.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container3 != null) ? container3.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -144,6 +171,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
 
     private UtilsPadding getPadding;
 
+    /**
+     * Getter for the current chart padding.
+     */
     public UtilsPadding getPadding() {
         if (getPadding == null)
             getPadding = new UtilsPadding(jsBase + ".padding()");
@@ -155,6 +185,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private String[] padding1;
     private String padding2;
 
+    /**
+     * Setter for the axis paddings in pixels using a single value.
+     */
     public StandalonesAxesLinear setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
@@ -170,7 +203,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -180,6 +212,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     }
 
 
+    /**
+     * Setter for the axis paddings in pixels using a single value.
+     */
     public StandalonesAxesLinear setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
@@ -195,7 +230,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -205,6 +239,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     }
 
 
+    /**
+     * Setter for the axis paddings in pixels using a single value.
+     */
     public StandalonesAxesLinear setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
@@ -220,7 +257,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -238,6 +274,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for the axis paddings in pixels using several numbers.
+     */
     public StandalonesAxesLinear setPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -291,7 +330,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -301,6 +339,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     }
 
 
+    /**
+     * Setter for the axis paddings in pixels using several numbers.
+     */
     public StandalonesAxesLinear setPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -354,7 +395,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -365,6 +405,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
 
     private AnychartMathRect getParentBounds;
 
+    /**
+     * Getter for bounds.
+     */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
             getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
@@ -375,6 +418,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private AnychartMathRect parentBounds;
     private String parentBounds1;
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesAxesLinear setParentBounds(AnychartMathRect parentBounds) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -383,15 +429,16 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             this.parentBounds = parentBounds;
         } else {
             this.parentBounds = parentBounds;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(parentBounds.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".parentBounds(%s);",  ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -399,6 +446,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     }
 
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesAxesLinear setParentBounds(String parentBounds1) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -413,7 +463,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
@@ -427,6 +476,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private Double width;
     private Double height;
 
+    /**
+     * Setter for bounds using several values.
+     */
     public StandalonesAxesLinear setParentBounds(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
@@ -444,7 +496,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
@@ -453,33 +504,9 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         return this;
     }
 
-
-//
-//    private String generateJSLayer getContainer() {
-//        if (Layer getContainer != null) {
-//            return Layer getContainer.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUtilsPadding getPadding() {
-//        if (UtilsPadding getPadding != null) {
-//            return UtilsPadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAnychartMathRect getParentBounds() {
-//        if (AnychartMathRect getParentBounds != null) {
-//            return AnychartMathRect getParentBounds.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
-            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -487,7 +514,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -495,7 +521,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private String generateJSgetParentBounds() {
         if (getParentBounds != null) {
             return getParentBounds.generateJs();
-            //return String.format(Locale.US, "getParentBounds: %s,", ((getParentBounds != null) ? getParentBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -520,54 +545,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScontainer());
-////        
-//            js.append(generateJScontainer1());
-////        
-//            js.append(generateJScontainer2());
-////        
-//            js.append(generateJScontainer3());
-////        
-//            js.append(generateJSpadding());
-////        
-//            js.append(generateJSpadding1());
-////        
-//            js.append(generateJSpadding2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSparentBounds());
-////        
-//            js.append(generateJSparentBounds1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSheight());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

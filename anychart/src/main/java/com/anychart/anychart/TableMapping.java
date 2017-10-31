@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Table mapping constructor.
+ */
 public class TableMapping extends CoreBase {
 
     public TableMapping() {
-
+        js.setLength(0);
+        js.append("var tableMapping").append(++variableIndex).append(" = anychart.data.tableMapping();");
+        jsBase = "tableMapping" + variableIndex;
     }
 
     protected TableMapping(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,6 +30,10 @@ public class TableMapping extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String name;
     private Double column;
@@ -31,6 +41,9 @@ public class TableMapping extends CoreBase {
     private String type1;
     private Double weightsColumn;
 
+    /**
+     * Adds a field to the mapping.
+     */
     public TableMapping addField(AggregationType type, String name, Double column, Double weightsColumn) {
         if (jsBase == null) {
             this.type = null;
@@ -51,7 +64,6 @@ public class TableMapping extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(name), column, weightsColumn));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(name), column, weightsColumn));
                 js.setLength(0);
@@ -61,6 +73,9 @@ public class TableMapping extends CoreBase {
     }
 
 
+    /**
+     * Adds a field to the mapping.
+     */
     public TableMapping addField(String type1, String name, Double column, Double weightsColumn) {
         if (jsBase == null) {
             this.type = null;
@@ -81,7 +96,6 @@ public class TableMapping extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", wrapQuotes(type1), wrapQuotes(name), column, weightsColumn));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", wrapQuotes(type1), wrapQuotes(name), column, weightsColumn));
                 js.setLength(0);
@@ -90,8 +104,6 @@ public class TableMapping extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -109,22 +121,6 @@ public class TableMapping extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSname());
-////        
-//            js.append(generateJScolumn());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJSweightsColumn());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

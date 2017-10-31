@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesLegend extends UiLegend {
 
     public StandalonesLegend() {
-
+        js.setLength(0);
+        js.append("var standalonesLegend").append(++variableIndex).append(" = anychart.standalones.legend();");
+        jsBase = "standalonesLegend" + variableIndex;
     }
 
     protected StandalonesLegend(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class StandalonesLegend extends UiLegend {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Element getContainer;
 
+    /**
+     * Getter for the legend current container.
+     */
     public Element getContainer() {
         if (getContainer == null)
             getContainer = new Element(jsBase + ".container()");
@@ -37,6 +50,9 @@ public class StandalonesLegend extends UiLegend {
     private String container;
     private Element container1;
 
+    /**
+     * Setter for the legend container.
+     */
     public StandalonesLegend setContainer(String container) {
         if (jsBase == null) {
             this.container = null;
@@ -51,7 +67,6 @@ public class StandalonesLegend extends UiLegend {
             }
 
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
                 js.setLength(0);
@@ -61,6 +76,9 @@ public class StandalonesLegend extends UiLegend {
     }
 
 
+    /**
+     * Setter for the legend container.
+     */
     public StandalonesLegend setContainer(Element container1) {
         if (jsBase == null) {
             this.container = null;
@@ -69,15 +87,16 @@ public class StandalonesLegend extends UiLegend {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -86,6 +105,9 @@ public class StandalonesLegend extends UiLegend {
 
     private SeparateChart getItemsSource;
 
+    /**
+     * Getter for items source.
+     */
     public SeparateChart getItemsSource() {
         if (getItemsSource == null)
             getItemsSource = new SeparateChart(jsBase + ".itemsSource()");
@@ -96,6 +118,9 @@ public class StandalonesLegend extends UiLegend {
     private SeparateChart itemsSource;
     private SeparateChart[] itemsSource1;
 
+    /**
+     * Setter for items source.
+     */
     public StandalonesLegend setItemsSource(SeparateChart itemsSource) {
         if (jsBase == null) {
             this.itemsSource = null;
@@ -104,15 +129,16 @@ public class StandalonesLegend extends UiLegend {
             this.itemsSource = itemsSource;
         } else {
             this.itemsSource = itemsSource;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(itemsSource.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".itemsSource(%s)", ((itemsSource != null) ? itemsSource.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".itemsSource(%s);",  ((itemsSource != null) ? itemsSource.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsSource(%s)", ((itemsSource != null) ? itemsSource.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsSource(%s)", ((itemsSource != null) ? itemsSource.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -120,6 +146,9 @@ public class StandalonesLegend extends UiLegend {
     }
 
 
+    /**
+     * Setter for items source.
+     */
     public StandalonesLegend setItemsSource(SeparateChart[] itemsSource1) {
         if (jsBase == null) {
             this.itemsSource = null;
@@ -134,7 +163,6 @@ public class StandalonesLegend extends UiLegend {
             }
 
             js.append(String.format(Locale.US, ".itemsSource(%s)", arrayToString(itemsSource1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsSource(%s)", arrayToString(itemsSource1)));
                 js.setLength(0);
@@ -145,6 +173,9 @@ public class StandalonesLegend extends UiLegend {
 
     private AnychartMathRect getParentBounds;
 
+    /**
+     * Getter for bounds. As a getter falls back to stage bounds.
+     */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
             getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
@@ -155,6 +186,9 @@ public class StandalonesLegend extends UiLegend {
     private AnychartMathRect parentBounds;
     private String parentBounds1;
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesLegend setParentBounds(AnychartMathRect parentBounds) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -163,15 +197,16 @@ public class StandalonesLegend extends UiLegend {
             this.parentBounds = parentBounds;
         } else {
             this.parentBounds = parentBounds;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(parentBounds.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".parentBounds(%s);",  ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -179,6 +214,9 @@ public class StandalonesLegend extends UiLegend {
     }
 
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesLegend setParentBounds(String parentBounds1) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -193,7 +231,6 @@ public class StandalonesLegend extends UiLegend {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
@@ -207,6 +244,9 @@ public class StandalonesLegend extends UiLegend {
     private Double width;
     private Double height;
 
+    /**
+     * Setter for bounds using several value.
+     */
     public StandalonesLegend setParentBounds(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
@@ -224,7 +264,6 @@ public class StandalonesLegend extends UiLegend {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
@@ -233,33 +272,9 @@ public class StandalonesLegend extends UiLegend {
         return this;
     }
 
-
-//
-//    private String generateJSElement getContainer() {
-//        if (Element getContainer != null) {
-//            return Element getContainer.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSSeparateChart getItemsSource() {
-//        if (SeparateChart getItemsSource != null) {
-//            return SeparateChart getItemsSource.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAnychartMathRect getParentBounds() {
-//        if (AnychartMathRect getParentBounds != null) {
-//            return AnychartMathRect getParentBounds.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
-            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -267,7 +282,6 @@ public class StandalonesLegend extends UiLegend {
     private String generateJSgetItemsSource() {
         if (getItemsSource != null) {
             return getItemsSource.generateJs();
-            //return String.format(Locale.US, "getItemsSource: %s,", ((getItemsSource != null) ? getItemsSource.generateJs() : "null"));
         }
         return "";
     }
@@ -275,7 +289,6 @@ public class StandalonesLegend extends UiLegend {
     private String generateJSgetParentBounds() {
         if (getParentBounds != null) {
             return getParentBounds.generateJs();
-            //return String.format(Locale.US, "getParentBounds: %s,", ((getParentBounds != null) ? getParentBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -300,32 +313,6 @@ public class StandalonesLegend extends UiLegend {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScontainer());
-////        
-//            js.append(generateJScontainer1());
-////        
-//            js.append(generateJSitemsSource());
-////        
-//            js.append(generateJSitemsSource1());
-////        
-//            js.append(generateJSparentBounds());
-////        
-//            js.append(generateJSparentBounds1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSheight());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

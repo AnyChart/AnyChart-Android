@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Row proxy for computational functions.
+ */
 public class TablecomputerRowProxy extends TableselectableRowProxy {
 
     public TablecomputerRowProxy() {
-
+        js.setLength(0);
+        js.append("var tablecomputerRowProxy").append(++variableIndex).append(" = anychart.data.TableComputer.rowProxy();");
+        jsBase = "tablecomputerRowProxy" + variableIndex;
     }
 
     protected TablecomputerRowProxy(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String name;
 
+    /**
+     * Sets field value by field name.
+     */
     public void setSet(String name) {
         if (jsBase == null) {
             this.name = name;
@@ -38,7 +51,6 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
             }
 
             js.append(String.format(Locale.US, jsBase + ".set(%s);", wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s)", wrapQuotes(name)));
                 js.setLength(0);
@@ -48,6 +60,9 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
 
     private Double index;
 
+    /**
+     * Sets value by column.
+     */
     public void setSetColumn(Double index) {
         if (jsBase == null) {
             this.index = index;
@@ -59,7 +74,6 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
             }
 
             js.append(String.format(Locale.US, jsBase + ".setColumn(%f);", index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".setColumn(%f)", index));
                 js.setLength(0);
@@ -67,8 +81,6 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -86,16 +98,6 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSname());
-////        
-//            js.append(generateJSindex());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

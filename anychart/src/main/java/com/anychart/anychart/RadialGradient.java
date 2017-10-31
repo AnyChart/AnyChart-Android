@@ -8,13 +8,24 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Radial gradient.<br/>
+<b>Do not invoke constructor directly.</b> Use {@link anychart.graphics.vector.Shape#fill}
+to create linear gradient.<br/>
+See also:<br/>
+{@link anychart.graphics.vector.Circle#fill}<br/>
+{@link anychart.graphics.vector.Ellipse#fill}
+ */
 public class RadialGradient extends JsObject {
 
     public RadialGradient() {
-
+        js.setLength(0);
+        js.append("var radialGradient").append(++variableIndex).append(" = anychart.graphics.vector.radialGradient();");
+        jsBase = "radialGradient" + variableIndex;
     }
 
     protected RadialGradient(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +35,11 @@ public class RadialGradient extends JsObject {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +57,6 @@ public class RadialGradient extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

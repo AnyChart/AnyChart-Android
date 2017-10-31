@@ -6,13 +6,35 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Sparkline chart class.<br/>
+To get the chart use {@link anychart#sparkline} method.
+ */
 public class Sparkline extends Chart {
 
     protected Sparkline(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Sparkline setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Sparkline setData(List<DataEntry> data) {
@@ -35,10 +57,33 @@ public class Sparkline extends Chart {
         return this;
     }
 
+    public Sparkline setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
 
     private AnychartMathRect getClip;
 
+    /**
+     * Getter for series clip settings.
+     */
     public AnychartMathRect getClip() {
         if (getClip == null)
             getClip = new AnychartMathRect(jsBase + ".clip()");
@@ -47,17 +92,20 @@ public class Sparkline extends Chart {
     }
     private AnychartMathRect clip;
     private List<Sparkline> setClip = new ArrayList<>();
-    public Sparkline setClip(AnychartMathRect clip) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".clip(%s)", ((clip != null) ? clip.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", ((clip != null) ? clip.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for series clip settings. Clips visible part of a series by a rectangle (or chart).<br/>
+False, if series is created manually. True, if created via the chart.
+     */
+    public Sparkline setClip(AnychartMathRect clip) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(clip.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".clip(%s);",  ((clip != null) ? clip.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetClip() {
@@ -73,6 +121,10 @@ public class Sparkline extends Chart {
 
     private Boolean connectMissingPoints;
     private List<Sparkline> setConnectMissingPoints = new ArrayList<>();
+
+    /**
+     * Setter for connecting missing points settings.
+     */
     public Sparkline setConnectMissingPoints(Boolean connectMissingPoints) {
         if (!isChain) {
             js.append(jsBase);
@@ -100,6 +152,9 @@ public class Sparkline extends Chart {
 
     private View getData;
 
+    /**
+     * Getter for the series mapping.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -107,6 +162,10 @@ public class Sparkline extends Chart {
         return getData;
     }
     private List<Sparkline> setData = new ArrayList<>();
+
+    /**
+     * Setter for the series mapping.
+     */
     public Sparkline data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -139,6 +198,11 @@ public class Sparkline extends Chart {
 
     private Fill fill;
     private List<Sparkline> setFill = new ArrayList<>();
+
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline setFill(Fill fill) {
         if (!isChain) {
             js.append(jsBase);
@@ -166,6 +230,11 @@ public class Sparkline extends Chart {
     private String color;
     private Double opacity;
     private List<Sparkline> setFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.<br/>
+Fill as a string or an object.
+     */
     public Sparkline fill(String color, Double opacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -198,6 +267,11 @@ public class Sparkline extends Chart {
     private String mode2;
     private Double opacity1;
     private List<Sparkline> setFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -223,6 +297,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -248,6 +327,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -273,6 +357,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -298,6 +387,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -323,6 +417,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -356,6 +455,11 @@ public class Sparkline extends Chart {
     private Double fx;
     private Double fy;
     private List<Sparkline> setFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -381,6 +485,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -408,6 +517,11 @@ public class Sparkline extends Chart {
     private Fill imageSettings;
     private Fill firstFill;
     private List<Sparkline> setFirstFill = new ArrayList<>();
+
+    /**
+     * Setter for first fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline setFirstFill(Fill firstFill) {
         if (!isChain) {
             js.append(jsBase);
@@ -435,6 +549,11 @@ public class Sparkline extends Chart {
     private String color1;
     private Double opacity3;
     private List<Sparkline> setFirstFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.<br/>
+Fill as a string or an object.
+     */
     public Sparkline firstFill(String color1, Double opacity3) {
         if (!isChain) {
             js.append(jsBase);
@@ -467,6 +586,11 @@ public class Sparkline extends Chart {
     private String mode6;
     private Double opacity4;
     private List<Sparkline> setFirstFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline firstFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -492,6 +616,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline firstFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -517,6 +646,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline firstFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -542,6 +676,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline firstFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -567,6 +706,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline firstFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -592,6 +736,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline firstFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (!isChain) {
             js.append(jsBase);
@@ -625,6 +774,11 @@ public class Sparkline extends Chart {
     private Double fx1;
     private Double fy1;
     private List<Sparkline> setFirstFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline firstFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (!isChain) {
             js.append(jsBase);
@@ -650,6 +804,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline firstFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (!isChain) {
             js.append(jsBase);
@@ -678,6 +837,9 @@ public class Sparkline extends Chart {
 
     private PatternFill getFirstHatchFill;
 
+    /**
+     * Getter for first hatch fill settings.
+     */
     public PatternFill getFirstHatchFill() {
         if (getFirstHatchFill == null)
             getFirstHatchFill = new PatternFill(jsBase + ".firstHatchFill()");
@@ -692,6 +854,11 @@ public class Sparkline extends Chart {
     private Double thickness;
     private Double size;
     private List<Sparkline> setFirstHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for first hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setFirstHatchFill(PatternFill patternFillOrType, String color2, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -717,6 +884,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for first hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setFirstHatchFill(HatchFill patternFillOrType1, String color2, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -742,6 +914,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for first hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setFirstHatchFill(HatchFillType patternFillOrType2, String color2, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -767,6 +944,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for first hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setFirstHatchFill(String patternFillOrType3, String color2, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -794,6 +976,9 @@ public class Sparkline extends Chart {
 
     private LabelsfactoryLabel getFirstLabels;
 
+    /**
+     * Getter for data labels of first point.
+     */
     public LabelsfactoryLabel getFirstLabels() {
         if (getFirstLabels == null)
             getFirstLabels = new LabelsfactoryLabel(jsBase + ".firstLabels()");
@@ -803,6 +988,10 @@ public class Sparkline extends Chart {
     private String firstLabels;
     private Boolean firstLabels1;
     private List<Sparkline> setFirstLabels = new ArrayList<>();
+
+    /**
+     * Setter for data labels of first point.
+     */
     public Sparkline setFirstLabels(String firstLabels) {
         if (!isChain) {
             js.append(jsBase);
@@ -828,6 +1017,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for data labels of first point.
+     */
     public Sparkline setFirstLabels(Boolean firstLabels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -855,6 +1048,9 @@ public class Sparkline extends Chart {
 
     private UiMarkersfactoryMarker getFirstMarkers;
 
+    /**
+     * Getter for data markers of the first point.
+     */
     public UiMarkersfactoryMarker getFirstMarkers() {
         if (getFirstMarkers == null)
             getFirstMarkers = new UiMarkersfactoryMarker(jsBase + ".firstMarkers()");
@@ -864,6 +1060,10 @@ public class Sparkline extends Chart {
     private String firstMarkers;
     private Boolean firstMarkers1;
     private List<Sparkline> setFirstMarkers = new ArrayList<>();
+
+    /**
+     * Setter for data markers of the first point.
+     */
     public Sparkline setFirstMarkers(String firstMarkers) {
         if (!isChain) {
             js.append(jsBase);
@@ -889,6 +1089,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setFirstMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for data markers of the first point.
+     */
     public Sparkline setFirstMarkers(Boolean firstMarkers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -916,6 +1120,9 @@ public class Sparkline extends Chart {
 
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -930,6 +1137,11 @@ public class Sparkline extends Chart {
     private Double thickness1;
     private Double size1;
     private List<Sparkline> setHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setHatchFill(PatternFill patternFillOrType4, String color3, Double thickness1, Double size1) {
         if (!isChain) {
             js.append(jsBase);
@@ -955,6 +1167,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setHatchFill(HatchFill patternFillOrType5, String color3, Double thickness1, Double size1) {
         if (!isChain) {
             js.append(jsBase);
@@ -980,6 +1197,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setHatchFill(HatchFillType patternFillOrType6, String color3, Double thickness1, Double size1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1005,6 +1227,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setHatchFill(String patternFillOrType7, String color3, Double thickness1, Double size1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1032,6 +1259,9 @@ public class Sparkline extends Chart {
 
     private LabelsfactoryLabel getLabels;
 
+    /**
+     * Getter for data labels.
+     */
     public LabelsfactoryLabel getLabels() {
         if (getLabels == null)
             getLabels = new LabelsfactoryLabel(jsBase + ".labels()");
@@ -1041,6 +1271,10 @@ public class Sparkline extends Chart {
     private String labels;
     private Boolean labels1;
     private List<Sparkline> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for data labels.
+     */
     public Sparkline setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -1066,6 +1300,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for data labels.
+     */
     public Sparkline setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1092,6 +1330,11 @@ public class Sparkline extends Chart {
 
     private Fill lastFill;
     private List<Sparkline> setLastFill = new ArrayList<>();
+
+    /**
+     * Setter for last fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline setLastFill(Fill lastFill) {
         if (!isChain) {
             js.append(jsBase);
@@ -1119,6 +1362,11 @@ public class Sparkline extends Chart {
     private String color4;
     private Double opacity6;
     private List<Sparkline> setLastFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.<br/>
+Fill as a string or an object.
+     */
     public Sparkline lastFill(String color4, Double opacity6) {
         if (!isChain) {
             js.append(jsBase);
@@ -1151,6 +1399,11 @@ public class Sparkline extends Chart {
     private String mode10;
     private Double opacity7;
     private List<Sparkline> setLastFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline lastFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1176,6 +1429,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline lastFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1201,6 +1459,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline lastFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1226,6 +1489,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline lastFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1251,6 +1519,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline lastFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1276,6 +1549,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline lastFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1309,6 +1587,11 @@ public class Sparkline extends Chart {
     private Double fx2;
     private Double fy2;
     private List<Sparkline> setLastFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline lastFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1334,6 +1617,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline lastFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1362,6 +1650,9 @@ public class Sparkline extends Chart {
 
     private PatternFill getLastHatchFill;
 
+    /**
+     * Getter for last hatch fill settings.
+     */
     public PatternFill getLastHatchFill() {
         if (getLastHatchFill == null)
             getLastHatchFill = new PatternFill(jsBase + ".lastHatchFill()");
@@ -1376,6 +1667,11 @@ public class Sparkline extends Chart {
     private Double thickness2;
     private Double size2;
     private List<Sparkline> setLastHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for last hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setLastHatchFill(PatternFill patternFillOrType8, String color5, Double thickness2, Double size2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1401,6 +1697,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for last hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setLastHatchFill(HatchFill patternFillOrType9, String color5, Double thickness2, Double size2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1426,6 +1727,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for last hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setLastHatchFill(HatchFillType patternFillOrType10, String color5, Double thickness2, Double size2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1451,6 +1757,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for last hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setLastHatchFill(String patternFillOrType11, String color5, Double thickness2, Double size2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1478,6 +1789,9 @@ public class Sparkline extends Chart {
 
     private LabelsfactoryLabel getLastLabels;
 
+    /**
+     * Getter for data labels of the last point.
+     */
     public LabelsfactoryLabel getLastLabels() {
         if (getLastLabels == null)
             getLastLabels = new LabelsfactoryLabel(jsBase + ".lastLabels()");
@@ -1487,6 +1801,10 @@ public class Sparkline extends Chart {
     private String lastLabels;
     private Boolean lastLabels1;
     private List<Sparkline> setLastLabels = new ArrayList<>();
+
+    /**
+     * Setter for data labels of the last point.
+     */
     public Sparkline setLastLabels(String lastLabels) {
         if (!isChain) {
             js.append(jsBase);
@@ -1512,6 +1830,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for data labels of the last point.
+     */
     public Sparkline setLastLabels(Boolean lastLabels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1539,6 +1861,9 @@ public class Sparkline extends Chart {
 
     private UiMarkersfactoryMarker getLastMarkers;
 
+    /**
+     * Getter for data markers of the last point.
+     */
     public UiMarkersfactoryMarker getLastMarkers() {
         if (getLastMarkers == null)
             getLastMarkers = new UiMarkersfactoryMarker(jsBase + ".lastMarkers()");
@@ -1548,6 +1873,10 @@ public class Sparkline extends Chart {
     private String lastMarkers;
     private Boolean lastMarkers1;
     private List<Sparkline> setLastMarkers = new ArrayList<>();
+
+    /**
+     * Setter for data markers of the last point.
+     */
     public Sparkline setLastMarkers(String lastMarkers) {
         if (!isChain) {
             js.append(jsBase);
@@ -1573,6 +1902,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLastMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for data markers of the last point.
+     */
     public Sparkline setLastMarkers(Boolean lastMarkers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1600,6 +1933,9 @@ public class Sparkline extends Chart {
 
     private CoreAxismarkersLine getLineMarker;
 
+    /**
+     * Getter for the chart line marker.
+     */
     public CoreAxismarkersLine getLineMarker() {
         if (getLineMarker == null)
             getLineMarker = new CoreAxismarkersLine(jsBase + ".lineMarker()");
@@ -1609,6 +1945,9 @@ public class Sparkline extends Chart {
 
     private List<CoreAxismarkersLine> getLineMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart line marker.
+     */
     public CoreAxismarkersLine getLineMarker(Double index) {
         CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index+")");
         getLineMarker1.add(item);
@@ -1617,6 +1956,10 @@ public class Sparkline extends Chart {
     private String lineMarker;
     private Boolean lineMarker1;
     private List<Sparkline> setLineMarker = new ArrayList<>();
+
+    /**
+     * Setter for the chart line marker.
+     */
     public Sparkline setLineMarker(String lineMarker) {
         if (!isChain) {
             js.append(jsBase);
@@ -1642,6 +1985,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLineMarker1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart line marker.
+     */
     public Sparkline setLineMarker(Boolean lineMarker1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1670,6 +2017,10 @@ public class Sparkline extends Chart {
     private String lineMarker2;
     private Boolean lineMarker3;
     private List<Sparkline> setLineMarker2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart line marker by index.
+     */
     public Sparkline setLineMarker(String lineMarker2, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1695,6 +2046,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setLineMarker3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart line marker by index.
+     */
     public Sparkline setLineMarker(Boolean lineMarker3, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1722,6 +2077,9 @@ public class Sparkline extends Chart {
 
     private UiMarkersfactoryMarker getMarkers;
 
+    /**
+     * Getter for data markers.
+     */
     public UiMarkersfactoryMarker getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersfactoryMarker(jsBase + ".markers()");
@@ -1731,6 +2089,10 @@ public class Sparkline extends Chart {
     private String markers;
     private Boolean markers1;
     private List<Sparkline> setMarkers = new ArrayList<>();
+
+    /**
+     * Setter for data markers.
+     */
     public Sparkline setMarkers(String markers) {
         if (!isChain) {
             js.append(jsBase);
@@ -1756,6 +2118,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for data markers.
+     */
     public Sparkline setMarkers(Boolean markers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1782,6 +2148,11 @@ public class Sparkline extends Chart {
 
     private Fill maxFill;
     private List<Sparkline> setMaxFill = new ArrayList<>();
+
+    /**
+     * Setter for maximum fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline setMaxFill(Fill maxFill) {
         if (!isChain) {
             js.append(jsBase);
@@ -1809,6 +2180,11 @@ public class Sparkline extends Chart {
     private String color6;
     private Double opacity9;
     private List<Sparkline> setMaxFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.<br/>
+Fill as a string or an object.
+     */
     public Sparkline maxFill(String color6, Double opacity9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1841,6 +2217,11 @@ public class Sparkline extends Chart {
     private String mode14;
     private Double opacity10;
     private List<Sparkline> setMaxFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline maxFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
         if (!isChain) {
             js.append(jsBase);
@@ -1866,6 +2247,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline maxFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
         if (!isChain) {
             js.append(jsBase);
@@ -1891,6 +2277,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline maxFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
         if (!isChain) {
             js.append(jsBase);
@@ -1916,6 +2307,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline maxFill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
         if (!isChain) {
             js.append(jsBase);
@@ -1941,6 +2337,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline maxFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
         if (!isChain) {
             js.append(jsBase);
@@ -1966,6 +2367,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline maxFill(String[] keys13, String mode14, Double angle3, Double opacity10) {
         if (!isChain) {
             js.append(jsBase);
@@ -1999,6 +2405,11 @@ public class Sparkline extends Chart {
     private Double fx3;
     private Double fy3;
     private List<Sparkline> setMaxFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline maxFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         if (!isChain) {
             js.append(jsBase);
@@ -2024,6 +2435,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline maxFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         if (!isChain) {
             js.append(jsBase);
@@ -2052,6 +2468,9 @@ public class Sparkline extends Chart {
 
     private PatternFill getMaxHatchFill;
 
+    /**
+     * Getter for hatch fill settings of maximum point.
+     */
     public PatternFill getMaxHatchFill() {
         if (getMaxHatchFill == null)
             getMaxHatchFill = new PatternFill(jsBase + ".maxHatchFill()");
@@ -2066,6 +2485,11 @@ public class Sparkline extends Chart {
     private Double thickness3;
     private Double size3;
     private List<Sparkline> setMaxHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings of maximum point.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setMaxHatchFill(PatternFill patternFillOrType12, String color7, Double thickness3, Double size3) {
         if (!isChain) {
             js.append(jsBase);
@@ -2091,6 +2515,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings of maximum point.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setMaxHatchFill(HatchFill patternFillOrType13, String color7, Double thickness3, Double size3) {
         if (!isChain) {
             js.append(jsBase);
@@ -2116,6 +2545,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings of maximum point.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setMaxHatchFill(HatchFillType patternFillOrType14, String color7, Double thickness3, Double size3) {
         if (!isChain) {
             js.append(jsBase);
@@ -2141,6 +2575,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings of maximum point.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setMaxHatchFill(String patternFillOrType15, String color7, Double thickness3, Double size3) {
         if (!isChain) {
             js.append(jsBase);
@@ -2168,6 +2607,9 @@ public class Sparkline extends Chart {
 
     private LabelsfactoryLabel getMaxLabels;
 
+    /**
+     * Getter for data labels of maximum point.
+     */
     public LabelsfactoryLabel getMaxLabels() {
         if (getMaxLabels == null)
             getMaxLabels = new LabelsfactoryLabel(jsBase + ".maxLabels()");
@@ -2177,6 +2619,10 @@ public class Sparkline extends Chart {
     private String maxLabels;
     private Boolean maxLabels1;
     private List<Sparkline> setMaxLabels = new ArrayList<>();
+
+    /**
+     * Setter for data labels of maximum point.
+     */
     public Sparkline setMaxLabels(String maxLabels) {
         if (!isChain) {
             js.append(jsBase);
@@ -2202,6 +2648,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for data labels of maximum point.
+     */
     public Sparkline setMaxLabels(Boolean maxLabels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2229,6 +2679,9 @@ public class Sparkline extends Chart {
 
     private UiMarkersfactoryMarker getMaxMarkers;
 
+    /**
+     * Getter for data markers of maximum point.
+     */
     public UiMarkersfactoryMarker getMaxMarkers() {
         if (getMaxMarkers == null)
             getMaxMarkers = new UiMarkersfactoryMarker(jsBase + ".maxMarkers()");
@@ -2238,6 +2691,10 @@ public class Sparkline extends Chart {
     private String maxMarkers;
     private Boolean maxMarkers1;
     private List<Sparkline> setMaxMarkers = new ArrayList<>();
+
+    /**
+     * Setter for data markers of maximum point.
+     */
     public Sparkline setMaxMarkers(String maxMarkers) {
         if (!isChain) {
             js.append(jsBase);
@@ -2263,6 +2720,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMaxMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for data markers of maximum point.
+     */
     public Sparkline setMaxMarkers(Boolean maxMarkers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2289,6 +2750,11 @@ public class Sparkline extends Chart {
 
     private Fill minFill;
     private List<Sparkline> setMinFill = new ArrayList<>();
+
+    /**
+     * Setter for minimum fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline setMinFill(Fill minFill) {
         if (!isChain) {
             js.append(jsBase);
@@ -2316,6 +2782,11 @@ public class Sparkline extends Chart {
     private String color8;
     private Double opacity12;
     private List<Sparkline> setMinFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.<br/>
+Fill as a string or an object.
+     */
     public Sparkline minFill(String color8, Double opacity12) {
         if (!isChain) {
             js.append(jsBase);
@@ -2348,6 +2819,11 @@ public class Sparkline extends Chart {
     private String mode18;
     private Double opacity13;
     private List<Sparkline> setMinFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline minFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity13) {
         if (!isChain) {
             js.append(jsBase);
@@ -2373,6 +2849,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline minFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity13) {
         if (!isChain) {
             js.append(jsBase);
@@ -2398,6 +2879,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline minFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity13) {
         if (!isChain) {
             js.append(jsBase);
@@ -2423,6 +2909,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline minFill(String[] keys17, Boolean mode16, Double angle4, Double opacity13) {
         if (!isChain) {
             js.append(jsBase);
@@ -2448,6 +2939,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline minFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity13) {
         if (!isChain) {
             js.append(jsBase);
@@ -2473,6 +2969,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline minFill(String[] keys17, String mode18, Double angle4, Double opacity13) {
         if (!isChain) {
             js.append(jsBase);
@@ -2506,6 +3007,11 @@ public class Sparkline extends Chart {
     private Double fx4;
     private Double fy4;
     private List<Sparkline> setMinFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline minFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
         if (!isChain) {
             js.append(jsBase);
@@ -2531,6 +3037,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline minFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
         if (!isChain) {
             js.append(jsBase);
@@ -2559,6 +3070,9 @@ public class Sparkline extends Chart {
 
     private PatternFill getMinHatchFill;
 
+    /**
+     * Getter for hatch fill settings of minimum point.
+     */
     public PatternFill getMinHatchFill() {
         if (getMinHatchFill == null)
             getMinHatchFill = new PatternFill(jsBase + ".minHatchFill()");
@@ -2573,6 +3087,11 @@ public class Sparkline extends Chart {
     private Double thickness4;
     private Double size4;
     private List<Sparkline> setMinHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings of minimum point.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setMinHatchFill(PatternFill patternFillOrType16, String color9, Double thickness4, Double size4) {
         if (!isChain) {
             js.append(jsBase);
@@ -2598,6 +3117,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings of minimum point.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setMinHatchFill(HatchFill patternFillOrType17, String color9, Double thickness4, Double size4) {
         if (!isChain) {
             js.append(jsBase);
@@ -2623,6 +3147,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings of minimum point.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setMinHatchFill(HatchFillType patternFillOrType18, String color9, Double thickness4, Double size4) {
         if (!isChain) {
             js.append(jsBase);
@@ -2648,6 +3177,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill settings of minimum point.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setMinHatchFill(String patternFillOrType19, String color9, Double thickness4, Double size4) {
         if (!isChain) {
             js.append(jsBase);
@@ -2675,6 +3209,9 @@ public class Sparkline extends Chart {
 
     private LabelsfactoryLabel getMinLabels;
 
+    /**
+     * Getter for data labels of minimum point.
+     */
     public LabelsfactoryLabel getMinLabels() {
         if (getMinLabels == null)
             getMinLabels = new LabelsfactoryLabel(jsBase + ".minLabels()");
@@ -2684,6 +3221,10 @@ public class Sparkline extends Chart {
     private String minLabels;
     private Boolean minLabels1;
     private List<Sparkline> setMinLabels = new ArrayList<>();
+
+    /**
+     * Setter for data labels of minimum point.
+     */
     public Sparkline setMinLabels(String minLabels) {
         if (!isChain) {
             js.append(jsBase);
@@ -2709,6 +3250,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for data labels of minimum point.
+     */
     public Sparkline setMinLabels(Boolean minLabels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2736,6 +3281,9 @@ public class Sparkline extends Chart {
 
     private UiMarkersfactoryMarker getMinMarkers;
 
+    /**
+     * Getter for data markers of minimum point.
+     */
     public UiMarkersfactoryMarker getMinMarkers() {
         if (getMinMarkers == null)
             getMinMarkers = new UiMarkersfactoryMarker(jsBase + ".minMarkers()");
@@ -2745,6 +3293,10 @@ public class Sparkline extends Chart {
     private String minMarkers;
     private Boolean minMarkers1;
     private List<Sparkline> setMinMarkers = new ArrayList<>();
+
+    /**
+     * Setter for data markers of minimum point.
+     */
     public Sparkline setMinMarkers(String minMarkers) {
         if (!isChain) {
             js.append(jsBase);
@@ -2770,6 +3322,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setMinMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for data markers of minimum point.
+     */
     public Sparkline setMinMarkers(Boolean minMarkers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2796,6 +3352,11 @@ public class Sparkline extends Chart {
 
     private Fill negativeFill;
     private List<Sparkline> setNegativeFill = new ArrayList<>();
+
+    /**
+     * Setter for the negative fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline setNegativeFill(Fill negativeFill) {
         if (!isChain) {
             js.append(jsBase);
@@ -2823,6 +3384,11 @@ public class Sparkline extends Chart {
     private String color10;
     private Double opacity15;
     private List<Sparkline> setNegativeFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.<br/>
+Fill as a string or an object.
+     */
     public Sparkline negativeFill(String color10, Double opacity15) {
         if (!isChain) {
             js.append(jsBase);
@@ -2855,6 +3421,11 @@ public class Sparkline extends Chart {
     private String mode22;
     private Double opacity16;
     private List<Sparkline> setNegativeFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline negativeFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity16) {
         if (!isChain) {
             js.append(jsBase);
@@ -2880,6 +3451,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline negativeFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity16) {
         if (!isChain) {
             js.append(jsBase);
@@ -2905,6 +3481,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline negativeFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity16) {
         if (!isChain) {
             js.append(jsBase);
@@ -2930,6 +3511,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline negativeFill(String[] keys21, Boolean mode20, Double angle5, Double opacity16) {
         if (!isChain) {
             js.append(jsBase);
@@ -2955,6 +3541,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline negativeFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity16) {
         if (!isChain) {
             js.append(jsBase);
@@ -2980,6 +3571,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline negativeFill(String[] keys21, String mode22, Double angle5, Double opacity16) {
         if (!isChain) {
             js.append(jsBase);
@@ -3013,6 +3609,11 @@ public class Sparkline extends Chart {
     private Double fx5;
     private Double fy5;
     private List<Sparkline> setNegativeFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline negativeFill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
         if (!isChain) {
             js.append(jsBase);
@@ -3038,6 +3639,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Sparkline negativeFill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
         if (!isChain) {
             js.append(jsBase);
@@ -3066,6 +3672,9 @@ public class Sparkline extends Chart {
 
     private PatternFill getNegativeHatchFill;
 
+    /**
+     * Getter for negative hatch fill settings.
+     */
     public PatternFill getNegativeHatchFill() {
         if (getNegativeHatchFill == null)
             getNegativeHatchFill = new PatternFill(jsBase + ".negativeHatchFill()");
@@ -3080,6 +3689,11 @@ public class Sparkline extends Chart {
     private Double thickness5;
     private Double size5;
     private List<Sparkline> setNegativeHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setNegativeHatchFill(PatternFill patternFillOrType20, String color11, Double thickness5, Double size5) {
         if (!isChain) {
             js.append(jsBase);
@@ -3105,6 +3719,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setNegativeHatchFill(HatchFill patternFillOrType21, String color11, Double thickness5, Double size5) {
         if (!isChain) {
             js.append(jsBase);
@@ -3130,6 +3749,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setNegativeHatchFill(HatchFillType patternFillOrType22, String color11, Double thickness5, Double size5) {
         if (!isChain) {
             js.append(jsBase);
@@ -3155,6 +3779,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Sparkline setNegativeHatchFill(String patternFillOrType23, String color11, Double thickness5, Double size5) {
         if (!isChain) {
             js.append(jsBase);
@@ -3182,6 +3811,9 @@ public class Sparkline extends Chart {
 
     private LabelsfactoryLabel getNegativeLabels;
 
+    /**
+     * Getter for data labels of negative points.
+     */
     public LabelsfactoryLabel getNegativeLabels() {
         if (getNegativeLabels == null)
             getNegativeLabels = new LabelsfactoryLabel(jsBase + ".negativeLabels()");
@@ -3191,6 +3823,10 @@ public class Sparkline extends Chart {
     private String negativeLabels;
     private Boolean negativeLabels1;
     private List<Sparkline> setNegativeLabels = new ArrayList<>();
+
+    /**
+     * Setter for data labels of negative points.
+     */
     public Sparkline setNegativeLabels(String negativeLabels) {
         if (!isChain) {
             js.append(jsBase);
@@ -3216,6 +3852,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for data labels of negative points.
+     */
     public Sparkline setNegativeLabels(Boolean negativeLabels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -3243,6 +3883,9 @@ public class Sparkline extends Chart {
 
     private UiMarkersfactoryMarker getNegativeMarkers;
 
+    /**
+     * Getter for data negative markers.
+     */
     public UiMarkersfactoryMarker getNegativeMarkers() {
         if (getNegativeMarkers == null)
             getNegativeMarkers = new UiMarkersfactoryMarker(jsBase + ".negativeMarkers()");
@@ -3252,6 +3895,10 @@ public class Sparkline extends Chart {
     private String negativeMarkers;
     private Boolean negativeMarkers1;
     private List<Sparkline> setNegativeMarkers = new ArrayList<>();
+
+    /**
+     * Setter for data negative markers.
+     */
     public Sparkline setNegativeMarkers(String negativeMarkers) {
         if (!isChain) {
             js.append(jsBase);
@@ -3277,6 +3924,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setNegativeMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for data negative markers.
+     */
     public Sparkline setNegativeMarkers(Boolean negativeMarkers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -3304,6 +3955,10 @@ public class Sparkline extends Chart {
     private Double pointWidth;
     private String pointWidth1;
     private List<Sparkline> setPointWidth = new ArrayList<>();
+
+    /**
+     * Setter for point width settings.
+     */
     public Sparkline setPointWidth(Double pointWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -3329,6 +3984,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setPointWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for point width settings.
+     */
     public Sparkline setPointWidth(String pointWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -3356,6 +4015,9 @@ public class Sparkline extends Chart {
 
     private CoreAxismarkersRange getRangeMarker;
 
+    /**
+     * Getter for the chart range marker.
+     */
     public CoreAxismarkersRange getRangeMarker() {
         if (getRangeMarker == null)
             getRangeMarker = new CoreAxismarkersRange(jsBase + ".rangeMarker()");
@@ -3365,6 +4027,9 @@ public class Sparkline extends Chart {
 
     private List<CoreAxismarkersRange> getRangeMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart range marker.
+     */
     public CoreAxismarkersRange getRangeMarker(Double index2) {
         CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index2+")");
         getRangeMarker1.add(item);
@@ -3373,6 +4038,10 @@ public class Sparkline extends Chart {
     private String rangeMarker;
     private Boolean rangeMarker1;
     private List<Sparkline> setRangeMarker = new ArrayList<>();
+
+    /**
+     * Setter for the chart range marker.
+     */
     public Sparkline setRangeMarker(String rangeMarker) {
         if (!isChain) {
             js.append(jsBase);
@@ -3398,6 +4067,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setRangeMarker1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart range marker.
+     */
     public Sparkline setRangeMarker(Boolean rangeMarker1) {
         if (!isChain) {
             js.append(jsBase);
@@ -3426,6 +4099,10 @@ public class Sparkline extends Chart {
     private String rangeMarker2;
     private Boolean rangeMarker3;
     private List<Sparkline> setRangeMarker2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart range marker by index.
+     */
     public Sparkline setRangeMarker(String rangeMarker2, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -3451,6 +4128,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setRangeMarker3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart range marker by index.
+     */
     public Sparkline setRangeMarker(Boolean rangeMarker3, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -3478,6 +4159,10 @@ public class Sparkline extends Chart {
     private SparklineSeriesType type;
     private String type1;
     private List<Sparkline> setSeriesType = new ArrayList<>();
+
+    /**
+     * Setter for the sparkline series type.
+     */
     public Sparkline setSeriesType(SparklineSeriesType type) {
         if (!isChain) {
             js.append(jsBase);
@@ -3503,6 +4188,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setSeriesType1 = new ArrayList<>();
+
+    /**
+     * Setter for the sparkline series type.
+     */
     public Sparkline setSeriesType(String type1) {
         if (!isChain) {
             js.append(jsBase);
@@ -3535,6 +4224,11 @@ public class Sparkline extends Chart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<Sparkline> setStroke = new ArrayList<>();
+
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Sparkline setStroke(Stroke color12, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -3560,6 +4254,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Sparkline setStroke(ColoredFill color13, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -3585,6 +4284,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Sparkline setStroke(String color14, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -3612,6 +4316,9 @@ public class Sparkline extends Chart {
 
     private CoreAxismarkersText getTextMarker;
 
+    /**
+     * Getter for the chart text marker.
+     */
     public CoreAxismarkersText getTextMarker() {
         if (getTextMarker == null)
             getTextMarker = new CoreAxismarkersText(jsBase + ".textMarker()");
@@ -3621,6 +4328,9 @@ public class Sparkline extends Chart {
 
     private List<CoreAxismarkersText> getTextMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart text marker.
+     */
     public CoreAxismarkersText getTextMarker(Double index4) {
         CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index4+")");
         getTextMarker1.add(item);
@@ -3629,6 +4339,10 @@ public class Sparkline extends Chart {
     private String textMarker;
     private Boolean textMarker1;
     private List<Sparkline> setTextMarker = new ArrayList<>();
+
+    /**
+     * Setter for the chart text marker.
+     */
     public Sparkline setTextMarker(String textMarker) {
         if (!isChain) {
             js.append(jsBase);
@@ -3654,6 +4368,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setTextMarker1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart text marker.
+     */
     public Sparkline setTextMarker(Boolean textMarker1) {
         if (!isChain) {
             js.append(jsBase);
@@ -3682,6 +4400,10 @@ public class Sparkline extends Chart {
     private String textMarker2;
     private Boolean textMarker3;
     private List<Sparkline> setTextMarker2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart text marker by index.
+     */
     public Sparkline setTextMarker(String textMarker2, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -3707,6 +4429,10 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setTextMarker3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart text marker by index.
+     */
     public Sparkline setTextMarker(Boolean textMarker3, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -3734,6 +4460,9 @@ public class Sparkline extends Chart {
 
     private Ordinal getXScale;
 
+    /**
+     * Getter for the chart X scale.
+     */
     public Ordinal getXScale() {
         if (getXScale == null)
             getXScale = new Ordinal(jsBase + ".xScale()");
@@ -3745,6 +4474,11 @@ public class Sparkline extends Chart {
     private ScalesBase xScale2;
     private String xScale3;
     private List<Sparkline> setXScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart X scale.<br/>
+<b>Note:</b> This scale will be passed to all scale dependent chart elements if they don't have their own scales.
+     */
     public Sparkline setXScale(ScaleTypes xScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -3770,6 +4504,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setXScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X scale.<br/>
+<b>Note:</b> This scale will be passed to all scale dependent chart elements if they don't have their own scales.
+     */
     public Sparkline setXScale(String xScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -3795,17 +4534,20 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setXScale2 = new ArrayList<>();
-    public Sparkline setXScale(ScalesBase xScale2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart X scale.<br/>
+<b>Note:</b> This scale will be passed to all scale dependent chart elements if they don't have their own scales.
+     */
+    public Sparkline setXScale(ScalesBase xScale2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(xScale2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale2 != null) ? xScale2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetXScale2() {
@@ -3822,6 +4564,9 @@ public class Sparkline extends Chart {
 
     private ScalesBase getYScale;
 
+    /**
+     * Getter for the chart Y scale.
+     */
     public ScalesBase getYScale() {
         if (getYScale == null)
             getYScale = new ScalesBase(jsBase + ".yScale()");
@@ -3833,6 +4578,11 @@ public class Sparkline extends Chart {
     private ScalesBase yScale2;
     private String yScale3;
     private List<Sparkline> setYScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y scale.<br/>
+<b>Note:</b> This scale will be passed to all scale dependent chart elements if they don't have their own scales.
+     */
     public Sparkline setYScale(ScaleTypes yScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -3858,6 +4608,11 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setYScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y scale.<br/>
+<b>Note:</b> This scale will be passed to all scale dependent chart elements if they don't have their own scales.
+     */
     public Sparkline setYScale(String yScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -3883,17 +4638,20 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setYScale2 = new ArrayList<>();
-    public Sparkline setYScale(ScalesBase yScale2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart Y scale.<br/>
+<b>Note:</b> This scale will be passed to all scale dependent chart elements if they don't have their own scales.
+     */
+    public Sparkline setYScale(ScalesBase yScale2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(yScale2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetYScale2() {

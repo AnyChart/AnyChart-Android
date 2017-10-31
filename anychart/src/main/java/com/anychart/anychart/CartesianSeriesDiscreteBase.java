@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * A base for all series with discrete points, like bars, sticks, columns, OHLC, etc.
+ */
 public class CartesianSeriesDiscreteBase extends CartesianSeriesBaseWithMarkers {
 
     public CartesianSeriesDiscreteBase() {
-
+        js.setLength(0);
+        js.append("var cartesianSeriesDiscreteBase").append(++variableIndex).append(" = anychart.core.cartesian.series.discreteBase();");
+        jsBase = "cartesianSeriesDiscreteBase" + variableIndex;
     }
 
     protected CartesianSeriesDiscreteBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class CartesianSeriesDiscreteBase extends CartesianSeriesBaseWithMarkers 
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class CartesianSeriesDiscreteBase extends CartesianSeriesBaseWithMarkers 
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,26 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Linear data storage.<br/>
+Data is stored as an array or rows where each row contains several columns (see Listing 1 below).
+To start working with this storage you need to map columns using
+{@link anychart.data.Set#mapAs} method (you can create as many mappings as you like).<br/>
+Each field can be a number, a string, a function, an array or an object.
+Data fields can of any type and they way you read them depends on mapping only:
+{@link anychart.data.Set#mapAs}. Sample mappings are shown in code samples 3, 4 and 5.<br/>
+<b>Note:</b> To create an instance of this class use {@link anychart.data#set} method.
+ */
 public class Set extends CoreBase {
 
     public Set() {
-
+        js.setLength(0);
+        js.append("var set").append(++variableIndex).append(" = anychart.data.set();");
+        jsBase = "set" + variableIndex;
     }
 
     protected Set(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,6 +37,10 @@ public class Set extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String[] data;
     private String data1;
@@ -31,6 +48,9 @@ public class Set extends CoreBase {
     private String settings1;
     private TextParsingSettings settings2;
 
+    /**
+     * Setter for Set data.
+     */
     public Set setData(String[] data, TextParsingMode settings) {
         if (jsBase == null) {
             this.data = null;
@@ -51,7 +71,6 @@ public class Set extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings != null) ? settings.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings != null) ? settings.generateJs() : "null")));
                 js.setLength(0);
@@ -61,6 +80,9 @@ public class Set extends CoreBase {
     }
 
 
+    /**
+     * Setter for Set data.
+     */
     public Set setData(String[] data, String settings1) {
         if (jsBase == null) {
             this.data = null;
@@ -81,7 +103,6 @@ public class Set extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), wrapQuotes(settings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), wrapQuotes(settings1)));
                 js.setLength(0);
@@ -91,6 +112,9 @@ public class Set extends CoreBase {
     }
 
 
+    /**
+     * Setter for Set data.
+     */
     public Set setData(String[] data, TextParsingSettings settings2) {
         if (jsBase == null) {
             this.data = null;
@@ -111,7 +135,6 @@ public class Set extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings2 != null) ? settings2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings2 != null) ? settings2.generateJs() : "null")));
                 js.setLength(0);
@@ -121,6 +144,9 @@ public class Set extends CoreBase {
     }
 
 
+    /**
+     * Setter for Set data.
+     */
     public Set setData(String data1, TextParsingMode settings) {
         if (jsBase == null) {
             this.data = null;
@@ -141,7 +167,6 @@ public class Set extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings != null) ? settings.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings != null) ? settings.generateJs() : "null")));
                 js.setLength(0);
@@ -151,6 +176,9 @@ public class Set extends CoreBase {
     }
 
 
+    /**
+     * Setter for Set data.
+     */
     public Set setData(String data1, String settings1) {
         if (jsBase == null) {
             this.data = null;
@@ -171,7 +199,6 @@ public class Set extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), wrapQuotes(settings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), wrapQuotes(settings1)));
                 js.setLength(0);
@@ -181,6 +208,9 @@ public class Set extends CoreBase {
     }
 
 
+    /**
+     * Setter for Set data.
+     */
     public Set setData(String data1, TextParsingSettings settings2) {
         if (jsBase == null) {
             this.data = null;
@@ -201,7 +231,6 @@ public class Set extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings2 != null) ? settings2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings2 != null) ? settings2.generateJs() : "null")));
                 js.setLength(0);
@@ -212,6 +241,9 @@ public class Set extends CoreBase {
 
     private Double index;
 
+    /**
+     * Inserts the row to the set at the specified position.
+     */
     public Set insert(Double index) {
         if (jsBase == null) {
             this.index = index;
@@ -223,7 +255,6 @@ public class Set extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".insert(%f)", index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".insert(%f)", index));
                 js.setLength(0);
@@ -234,6 +265,11 @@ public class Set extends CoreBase {
 
     private String mapping;
 
+    /**
+     * Defines mapping for the chart data.<br/>
+The mapping object selects and gives names fields from the data set.
+Default mapping is shown in {@link anychart.data.Set} constructor samples.
+     */
     public Mapping mapAs(String mapping) {
         if (jsBase == null) {
             this.mapping = mapping;
@@ -245,7 +281,6 @@ public class Set extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", wrapQuotes(mapping)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(mapping)));
                 js.setLength(0);
@@ -256,6 +291,9 @@ public class Set extends CoreBase {
 
     private Double index1;
 
+    /**
+     * Removes the row by index.
+     */
     public Set remove(Double index1) {
         if (jsBase == null) {
             this.index = null;
@@ -270,7 +308,6 @@ public class Set extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".remove(%f)", index1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".remove(%f)", index1));
                 js.setLength(0);
@@ -281,6 +318,9 @@ public class Set extends CoreBase {
 
     private Double rowIndex;
 
+    /**
+     * Sets the row in the set by the index.
+     */
     public void setRow(Double rowIndex) {
         if (jsBase == null) {
             this.rowIndex = rowIndex;
@@ -292,7 +332,6 @@ public class Set extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".row(%f);", rowIndex));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f)", rowIndex));
                 js.setLength(0);
@@ -300,8 +339,6 @@ public class Set extends CoreBase {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -319,30 +356,6 @@ public class Set extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdata());
-////        
-//            js.append(generateJSdata1());
-////        
-//            js.append(generateJSsettings());
-////        
-//            js.append(generateJSsettings1());
-////        
-//            js.append(generateJSsettings2());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSmapping());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSrowIndex());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

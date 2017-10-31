@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Marker Series Class.<br/>
+{docs:Stock_Charts/Series/Marker}Learn more about Marker series{docs}
+ */
 public class ScrollerseriesMarker extends ScrollerseriesBase {
 
     public ScrollerseriesMarker() {
-
+        js.setLength(0);
+        js.append("var scrollerseriesMarker").append(++variableIndex).append(" = anychart.core.stock.scrollerSeries.marker();");
+        jsBase = "scrollerseriesMarker" + variableIndex;
     }
 
     protected ScrollerseriesMarker(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,17 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesMarker setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -38,7 +53,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +64,9 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity.
+     */
     public ScrollerseriesMarker fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -63,7 +80,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -80,6 +96,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesMarker fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -107,7 +127,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -117,6 +136,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesMarker fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -144,7 +167,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -154,6 +176,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesMarker fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -181,7 +207,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -191,6 +216,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesMarker fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -218,7 +247,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -228,6 +256,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesMarker fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -255,7 +287,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -265,6 +296,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesMarker fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -292,7 +327,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -310,6 +344,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesMarker fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -347,7 +385,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -357,6 +394,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesMarker fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +435,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -406,6 +446,9 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private Fill imageSettings;
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for the hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -421,6 +464,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for the hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesMarker setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -446,7 +493,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -456,6 +502,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Setter for the hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesMarker setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -481,7 +531,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -491,6 +540,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Setter for the hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesMarker setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -516,7 +569,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -526,6 +578,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Setter for the hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesMarker setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -551,7 +607,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -562,6 +617,9 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
 
     private Double size1;
 
+    /**
+     * Setter for the marker size.
+     */
     public ScrollerseriesMarker setSize(Double size1) {
         if (jsBase == null) {
             this.size = null;
@@ -576,7 +634,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".size(%f)", size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size1));
                 js.setLength(0);
@@ -593,6 +650,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScrollerseriesMarker setStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -621,7 +682,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -631,6 +691,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Setter for the stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScrollerseriesMarker setStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -659,7 +723,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -669,6 +732,10 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Setter for the stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScrollerseriesMarker setStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -697,7 +764,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -709,6 +775,9 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private MarkerType type;
     private String type1;
 
+    /**
+     * Setter for the marker type settings.
+     */
     public ScrollerseriesMarker setType(MarkerType type) {
         if (jsBase == null) {
             this.type = null;
@@ -723,7 +792,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -733,6 +801,9 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Setter for the marker type settings.
+     */
     public ScrollerseriesMarker setType(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -747,7 +818,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -756,19 +826,9 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         return this;
     }
 
-
-//
-//    private String generateJSPatternFill getHatchFill() {
-//        if (PatternFill getHatchFill != null) {
-//            return PatternFill getHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
-            //return String.format(Locale.US, "getHatchFill: %s,", ((getHatchFill != null) ? getHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -791,84 +851,6 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSsize1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Date scale with calendar support.
+ */
 public class DateTimeWithCalendar extends ScatterBase {
 
     public DateTimeWithCalendar() {
-
+        js.setLength(0);
+        js.append("var dateTimeWithCalendar").append(++variableIndex).append(" = anychart.scales.dateTimeWithCalendar();");
+        jsBase = "dateTimeWithCalendar" + variableIndex;
     }
 
     protected DateTimeWithCalendar(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class DateTimeWithCalendar extends ScatterBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Calendar getCalendar;
 
+    /**
+     * Getter for the scale calendar.
+     */
     public Calendar getCalendar() {
         if (getCalendar == null)
             getCalendar = new Calendar(jsBase + ".calendar()");
@@ -36,6 +49,9 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double count;
 
+    /**
+     * Setter for the unit count.
+     */
     public DateTimeWithCalendar setCount(Double count) {
         if (jsBase == null) {
             this.count = count;
@@ -47,7 +63,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".count(%f)", count));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
                 js.setLength(0);
@@ -58,6 +73,9 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double date;
 
+    /**
+     * Transforms date to pixels.
+     */
     public void dateToPix(Double date) {
         if (jsBase == null) {
             this.date = date;
@@ -69,7 +87,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dateToPix(%f);", date));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateToPix(%f)", date));
                 js.setLength(0);
@@ -83,6 +100,10 @@ public class DateTimeWithCalendar extends ScatterBase {
     private String unit1;
     private Double count1;
 
+    /**
+     * Returns ticks array (even indexes are left borders, odd indexes are right borders of the tick)
+with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel (if available).
+     */
     public void getTicks(Interval unit, Double fromPix, Double toPix, Double count1) {
         if (jsBase == null) {
             this.unit = null;
@@ -106,7 +127,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", ((unit != null) ? unit.generateJs() : "null"), fromPix, toPix, count1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", ((unit != null) ? unit.generateJs() : "null"), fromPix, toPix, count1));
                 js.setLength(0);
@@ -115,6 +135,10 @@ public class DateTimeWithCalendar extends ScatterBase {
     }
 
 
+    /**
+     * Returns ticks array (even indexes are left borders, odd indexes are right borders of the tick)
+with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel (if available).
+     */
     public void getTicks(String unit1, Double fromPix, Double toPix, Double count1) {
         if (jsBase == null) {
             this.unit = null;
@@ -138,7 +162,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", wrapQuotes(unit1), fromPix, toPix, count1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", wrapQuotes(unit1), fromPix, toPix, count1));
                 js.setLength(0);
@@ -148,6 +171,9 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double maximumGap;
 
+    /**
+     * Setter for the scale maximum gap.
+     */
     public DateTime setMaximumGap(Double maximumGap) {
         if (jsBase == null) {
             this.maximumGap = maximumGap;
@@ -159,7 +185,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".maximumGap(%f);", maximumGap));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f)", maximumGap));
                 js.setLength(0);
@@ -170,6 +195,9 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double minimumGap;
 
+    /**
+     * Setter for the scale minimum gap.
+     */
     public DateTime setMinimumGap(Double minimumGap) {
         if (jsBase == null) {
             this.minimumGap = minimumGap;
@@ -181,7 +209,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".minimumGap(%f);", minimumGap));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f)", minimumGap));
                 js.setLength(0);
@@ -192,6 +219,9 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double pix;
 
+    /**
+     * Transforms pixels to date.
+     */
     public void pixToDate(Double pix) {
         if (jsBase == null) {
             this.pix = pix;
@@ -203,7 +233,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".pixToDate(%f);", pix));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".pixToDate(%f)", pix));
                 js.setLength(0);
@@ -213,6 +242,9 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Boolean skipHolidays;
 
+    /**
+     * Setter for skipping holidays.
+     */
     public DateTimeWithCalendar setSkipHolidays(Boolean skipHolidays) {
         if (jsBase == null) {
             this.skipHolidays = skipHolidays;
@@ -224,7 +256,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".skipHolidays(%b)", skipHolidays));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".skipHolidays(%b)", skipHolidays));
                 js.setLength(0);
@@ -235,6 +266,9 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double softMaximum;
 
+    /**
+     * Setter for the soft maximum.
+     */
     public DateTime setSoftMaximum(Double softMaximum) {
         if (jsBase == null) {
             this.softMaximum = softMaximum;
@@ -246,7 +280,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".softMaximum(%f);", softMaximum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f)", softMaximum));
                 js.setLength(0);
@@ -257,6 +290,9 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double softMinimum;
 
+    /**
+     * Setter for the soft minimum.
+     */
     public DateTime setSoftMinimum(Double softMinimum) {
         if (jsBase == null) {
             this.softMinimum = softMinimum;
@@ -268,7 +304,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".softMinimum(%f);", softMinimum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f)", softMinimum));
                 js.setLength(0);
@@ -280,6 +315,9 @@ public class DateTimeWithCalendar extends ScatterBase {
     private Interval unit2;
     private String unit3;
 
+    /**
+     * Setter for the unit interval.
+     */
     public DateTimeWithCalendar setUnit(Interval unit2) {
         if (jsBase == null) {
             this.unit = null;
@@ -296,7 +334,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".unit(%s)", ((unit2 != null) ? unit2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", ((unit2 != null) ? unit2.generateJs() : "null")));
                 js.setLength(0);
@@ -306,6 +343,9 @@ public class DateTimeWithCalendar extends ScatterBase {
     }
 
 
+    /**
+     * Setter for the unit interval.
+     */
     public DateTimeWithCalendar setUnit(String unit3) {
         if (jsBase == null) {
             this.unit = null;
@@ -322,7 +362,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".unit(%s)", wrapQuotes(unit3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", wrapQuotes(unit3)));
                 js.setLength(0);
@@ -334,6 +373,9 @@ public class DateTimeWithCalendar extends ScatterBase {
     private Double unitPixSize;
     private String unitPixSize1;
 
+    /**
+     * Setter for unit size.
+     */
     public DateTimeWithCalendar setUnitPixSize(Double unitPixSize) {
         if (jsBase == null) {
             this.unitPixSize = null;
@@ -348,7 +390,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".unitPixSize(%f)", unitPixSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unitPixSize(%f)", unitPixSize));
                 js.setLength(0);
@@ -358,6 +399,9 @@ public class DateTimeWithCalendar extends ScatterBase {
     }
 
 
+    /**
+     * Setter for unit size.
+     */
     public DateTimeWithCalendar setUnitPixSize(String unitPixSize1) {
         if (jsBase == null) {
             this.unitPixSize = null;
@@ -372,7 +416,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".unitPixSize(%s)", wrapQuotes(unitPixSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unitPixSize(%s)", wrapQuotes(unitPixSize1)));
                 js.setLength(0);
@@ -381,19 +424,9 @@ public class DateTimeWithCalendar extends ScatterBase {
         return this;
     }
 
-
-//
-//    private String generateJSCalendar getCalendar() {
-//        if (Calendar getCalendar != null) {
-//            return Calendar getCalendar.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetCalendar() {
         if (getCalendar != null) {
             return getCalendar.generateJs();
-            //return String.format(Locale.US, "getCalendar: %s,", ((getCalendar != null) ? getCalendar.generateJs() : "null"));
         }
         return "";
     }
@@ -416,46 +449,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScount());
-////        
-//            js.append(generateJSdate());
-////        
-//            js.append(generateJSfromPix());
-////        
-//            js.append(generateJStoPix());
-////        
-//            js.append(generateJSunit());
-////        
-//            js.append(generateJSunit1());
-////        
-//            js.append(generateJScount1());
-////        
-//            js.append(generateJSmaximumGap());
-////        
-//            js.append(generateJSminimumGap());
-////        
-//            js.append(generateJSpix());
-////        
-//            js.append(generateJSskipHolidays());
-////        
-//            js.append(generateJSsoftMaximum());
-////        
-//            js.append(generateJSsoftMinimum());
-////        
-//            js.append(generateJSunit2());
-////        
-//            js.append(generateJSunit3());
-////        
-//            js.append(generateJSunitPixSize());
-////        
-//            js.append(generateJSunitPixSize1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

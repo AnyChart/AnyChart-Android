@@ -1,17 +1,40 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 // chart class
+/**
+ * Pert chart class.<br/>
+<b>Note:</b> Use {@link anychart#pert} method to get an instance of this class.
+ */
 public class Pert extends SeparateChart {
 
     protected Pert(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Pert setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Pert setData(List<DataEntry> data) {
@@ -28,7 +51,27 @@ public class Pert extends SeparateChart {
             }
             js.setLength(js.length() - 1);
 
-            js.append("], 'as-table');");
+            js.append("]);");
+        }
+
+        return this;
+    }
+
+    public Pert setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
         }
 
         return this;
@@ -38,6 +81,9 @@ public class Pert extends SeparateChart {
 
     private CriticalPath getCriticalPath;
 
+    /**
+     * Getter for the critical path settings.
+     */
     public CriticalPath getCriticalPath() {
         if (getCriticalPath == null)
             getCriticalPath = new CriticalPath(jsBase + ".criticalPath()");
@@ -46,6 +92,10 @@ public class Pert extends SeparateChart {
     }
     private String criticalPath;
     private List<Pert> setCriticalPath = new ArrayList<>();
+
+    /**
+     * Setter for the critical path settings.
+     */
     public Pert setCriticalPath(String criticalPath) {
         if (!isChain) {
             js.append(jsBase);
@@ -73,6 +123,9 @@ public class Pert extends SeparateChart {
 
     private Tree getData;
 
+    /**
+     * Getter for the chart data.
+     */
     public Tree getData() {
         if (getData == null)
             getData = new Tree(jsBase + ".data()");
@@ -86,6 +139,10 @@ public class Pert extends SeparateChart {
     private String fillMethod1;
     private Dependency[] deps;
     private List<Pert> setData = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Pert setData(Tree data, TreeFillingMethod fillMethod, Dependency[] deps) {
         if (!isChain) {
             js.append(jsBase);
@@ -111,6 +168,10 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setData1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Pert setData(Tree data, String fillMethod1, Dependency[] deps) {
         if (!isChain) {
             js.append(jsBase);
@@ -136,6 +197,10 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setData2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Pert setData(TreeView data1, TreeFillingMethod fillMethod, Dependency[] deps) {
         if (!isChain) {
             js.append(jsBase);
@@ -161,6 +226,10 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setData3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Pert setData(TreeView data1, String fillMethod1, Dependency[] deps) {
         if (!isChain) {
             js.append(jsBase);
@@ -186,6 +255,10 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setData4 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Pert setData(String data2, TreeFillingMethod fillMethod, Dependency[] deps) {
         if (!isChain) {
             js.append(jsBase);
@@ -211,6 +284,10 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setData5 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Pert setData(String data2, String fillMethod1, Dependency[] deps) {
         if (!isChain) {
             js.append(jsBase);
@@ -238,6 +315,10 @@ public class Pert extends SeparateChart {
     private Double horizontalSpacing;
     private String horizontalSpacing1;
     private List<Pert> setHorizontalSpacing = new ArrayList<>();
+
+    /**
+     * Setter for milestones horizontal spacing.
+     */
     public Pert setHorizontalSpacing(Double horizontalSpacing) {
         if (!isChain) {
             js.append(jsBase);
@@ -263,6 +344,10 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setHorizontalSpacing1 = new ArrayList<>();
+
+    /**
+     * Setter for milestones horizontal spacing.
+     */
     public Pert setHorizontalSpacing(String horizontalSpacing1) {
         if (!isChain) {
             js.append(jsBase);
@@ -290,6 +375,9 @@ public class Pert extends SeparateChart {
 
     private Milestones getMilestones;
 
+    /**
+     * Getter for milestones settings.
+     */
     public Milestones getMilestones() {
         if (getMilestones == null)
             getMilestones = new Milestones(jsBase + ".milestones()");
@@ -298,6 +386,10 @@ public class Pert extends SeparateChart {
     }
     private String milestones;
     private List<Pert> setMilestones = new ArrayList<>();
+
+    /**
+     * Setter for milestones settings object.
+     */
     public Pert setMilestones(String milestones) {
         if (!isChain) {
             js.append(jsBase);
@@ -325,6 +417,9 @@ public class Pert extends SeparateChart {
 
     private Tasks getTasks;
 
+    /**
+     * Getter for the tasks settings.
+     */
     public Tasks getTasks() {
         if (getTasks == null)
             getTasks = new Tasks(jsBase + ".tasks()");
@@ -333,6 +428,10 @@ public class Pert extends SeparateChart {
     }
     private String tasks;
     private List<Pert> setTasks = new ArrayList<>();
+
+    /**
+     * Setter for the tasks settings.
+     */
     public Pert setTasks(String tasks) {
         if (!isChain) {
             js.append(jsBase);
@@ -360,6 +459,10 @@ public class Pert extends SeparateChart {
     private Double verticalSpacing;
     private String verticalSpacing1;
     private List<Pert> setVerticalSpacing = new ArrayList<>();
+
+    /**
+     * Setter for milestones vertical spacing.
+     */
     public Pert setVerticalSpacing(Double verticalSpacing) {
         if (!isChain) {
             js.append(jsBase);
@@ -385,6 +488,10 @@ public class Pert extends SeparateChart {
     }
 
     private List<Pert> setVerticalSpacing1 = new ArrayList<>();
+
+    /**
+     * Setter for milestones vertical spacing.
+     */
     public Pert setVerticalSpacing(String verticalSpacing1) {
         if (!isChain) {
             js.append(jsBase);

@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Axis ticks class.<br/>
+You can change position, length and line features.
+ */
 public class Ticks extends VisualBase {
 
     public Ticks() {
-
+        js.setLength(0);
+        js.append("var ticks").append(++variableIndex).append(" = anychart.core.axes.ticks();");
+        jsBase = "ticks" + variableIndex;
     }
 
     protected Ticks(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,17 @@ public class Ticks extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double length;
 
+    /**
+     * Setter for ticks length.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.axes.Ticks.length.png' height='77' width='412'/>
+     */
     public Ticks setLength(Double length) {
         if (jsBase == null) {
             this.length = length;
@@ -38,7 +53,6 @@ public class Ticks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".length(%f)", length));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%f)", length));
                 js.setLength(0);
@@ -50,6 +64,11 @@ public class Ticks extends VisualBase {
     private SidePosition position;
     private String position1;
 
+    /**
+     * Setter for ticks position.<br/>
+You can set ticks inside of a chart area or outside its position.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
+     */
     public Ticks setPosition(SidePosition position) {
         if (jsBase == null) {
             this.position = null;
@@ -64,7 +83,6 @@ public class Ticks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -74,6 +92,11 @@ public class Ticks extends VisualBase {
     }
 
 
+    /**
+     * Setter for ticks position.<br/>
+You can set ticks inside of a chart area or outside its position.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
+     */
     public Ticks setPosition(String position1) {
         if (jsBase == null) {
             this.position = null;
@@ -88,7 +111,6 @@ public class Ticks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -99,6 +121,10 @@ public class Ticks extends VisualBase {
 
     private Stroke stroke;
 
+    /**
+     * Setter for stroke settings via single parameter.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
+     */
     public Ticks setStroke(Stroke stroke) {
         if (jsBase == null) {
             this.stroke = stroke;
@@ -110,7 +136,6 @@ public class Ticks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
@@ -125,6 +150,24 @@ public class Ticks extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for stroke settings via several parameter.<br/>
+The following options are acceptable:
+<ul>
+ <li>String formatted as '[thickness ]color[ opacity]':
+   <ol>
+     <li><b>'color'</b> - {@link https://www.w3schools.com/html/html_colors.asp}.</li>
+     <li><b>'thickness color'</b> - like a CSS border, e.g. '3 red' or '3px red'</li>
+     <li><b>'color opacity'</b> - as a fill string, e.g. '#fff 0.5'</li>
+     <li><b>'thickness color opacity'</b> - as a complex string, e.g. '3px #00ff00 0.5'</li>
+   </ol>
+ </li>
+ <li>{@link anychart.graphics.vector.Stroke} object</li>
+ <li>Keys array {@link anychart.graphics.vector.GradientKey}</li>
+ <li><b>null</b> - reset current stroke settings.</li>
+</ul>
+<b>Note:</b> String parts order is significant and '3px red' is not the same as 'red 3px'.
+     */
     public Ticks setStroke(String color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = color;
@@ -144,7 +187,6 @@ public class Ticks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -153,8 +195,6 @@ public class Ticks extends VisualBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -172,30 +212,6 @@ public class Ticks extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSlength());
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSposition1());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

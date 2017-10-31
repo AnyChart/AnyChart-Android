@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Fibonacci Arc annotation.
+ */
 public class FibonacciArc extends FibonacciBase {
 
     public FibonacciArc() {
-
+        js.setLength(0);
+        js.append("var fibonacciArc").append(++variableIndex).append(" = anychart.core.annotations.fibonacciArc();");
+        jsBase = "fibonacciArc" + variableIndex;
     }
 
     protected FibonacciArc(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class FibonacciArc extends FibonacciBase {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class FibonacciArc extends FibonacciBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Cap class.
+ */
 public class Cap extends VisualBase {
 
     public Cap() {
-
+        js.setLength(0);
+        js.append("var cap").append(++variableIndex).append(" = anychart.core.gauge.cap();");
+        jsBase = "cap" + variableIndex;
     }
 
     protected Cap(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,17 @@ public class Cap extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill fill;
 
+    /**
+     * Setter for cap fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Cap setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -38,7 +52,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +63,10 @@ public class Cap extends VisualBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Cap fill color with opacity.<br/>
+Fill as a string or an object.
+     */
     public Cap fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -63,7 +80,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -80,6 +96,10 @@ public class Cap extends VisualBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient cap fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Cap fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -107,7 +127,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -117,6 +136,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient cap fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Cap fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -144,7 +167,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -154,6 +176,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient cap fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Cap fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -181,7 +207,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -191,6 +216,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient cap fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Cap fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -218,7 +247,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -228,6 +256,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient cap fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Cap fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -255,7 +287,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -265,6 +296,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient cap fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Cap fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -292,7 +327,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -310,6 +344,10 @@ public class Cap extends VisualBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial cap fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Cap fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -347,7 +385,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -357,6 +394,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Radial cap fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Cap fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +435,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -406,6 +446,9 @@ public class Cap extends VisualBase {
     private Fill imageSettings;
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for cap hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -422,6 +465,10 @@ public class Cap extends VisualBase {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for cap hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Cap setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -448,7 +495,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -458,6 +504,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Setter for cap hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Cap setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -484,7 +534,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -494,6 +543,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Setter for cap hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Cap setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -520,7 +573,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -530,6 +582,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Setter for cap hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Cap setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -556,7 +612,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -566,6 +621,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Setter for cap hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Cap setHatchFill(Boolean patternFillOrType4, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -592,7 +651,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -604,6 +662,9 @@ public class Cap extends VisualBase {
     private Double radius;
     private String radius1;
 
+    /**
+     * Setter for the cap radius.
+     */
     public Cap setRadius(Double radius) {
         if (jsBase == null) {
             this.radius = null;
@@ -618,7 +679,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".radius(%f)", radius));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
                 js.setLength(0);
@@ -628,6 +688,9 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Setter for the cap radius.
+     */
     public Cap setRadius(String radius1) {
         if (jsBase == null) {
             this.radius = null;
@@ -642,7 +705,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
                 js.setLength(0);
@@ -659,6 +721,10 @@ public class Cap extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for cap stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Cap setStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -687,7 +753,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -697,6 +762,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Setter for cap stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Cap setStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -725,7 +794,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -735,6 +803,10 @@ public class Cap extends VisualBase {
     }
 
 
+    /**
+     * Setter for cap stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Cap setStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -763,7 +835,6 @@ public class Cap extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -772,19 +843,9 @@ public class Cap extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSPatternFill getHatchFill() {
-//        if (PatternFill getHatchFill != null) {
-//            return PatternFill getHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
-            //return String.format(Locale.US, "getHatchFill: %s,", ((getHatchFill != null) ? getHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -807,84 +868,6 @@ public class Cap extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJSpatternFillOrType4());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSradius());
-////        
-//            js.append(generateJSradius1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

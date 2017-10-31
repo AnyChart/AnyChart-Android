@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Animation class. The animation class is used in maps.
+ */
 public class Animation extends CoreBase {
 
     public Animation() {
-
+        js.setLength(0);
+        js.append("var animation").append(++variableIndex).append(" = anychart.core.utils.animation();");
+        jsBase = "animation" + variableIndex;
     }
 
     protected Animation(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,17 @@ public class Animation extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double duration;
 
+    /**
+     * Setter for animation duration in milliseconds.
+See sample at {@link anychart.core.Chart#animation}.
+     */
     public Animation setDuration(Double duration) {
         if (jsBase == null) {
             this.duration = duration;
@@ -38,7 +52,6 @@ public class Animation extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".duration(%f)", duration));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".duration(%f)", duration));
                 js.setLength(0);
@@ -49,6 +62,10 @@ public class Animation extends CoreBase {
 
     private Boolean enabled;
 
+    /**
+     * Setter for the animation enabled state.<br/>
+See sample at {@link anychart.core.Chart#animation}.
+     */
     public Animation setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
@@ -60,7 +77,6 @@ public class Animation extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -69,8 +85,6 @@ public class Animation extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -88,16 +102,6 @@ public class Animation extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSduration());
-////        
-//            js.append(generateJSenabled());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

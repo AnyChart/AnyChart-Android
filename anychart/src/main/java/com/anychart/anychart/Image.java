@@ -8,13 +8,24 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Image primitive.
+<b>Do not invoke constructor directly.</b> Use {@link anychart.graphics.vector.Stage#image} or
+{@link anychart.graphics.vector.Layer#image} to make stage or layer bound image.<br/>
+See also:<br/>
+{@link anychart.graphics.vector.Stage#image},<br/>
+{@link anychart.graphics.vector.Layer#image}
+ */
 public class Image extends Element {
 
     public Image() {
-
+        js.setLength(0);
+        js.append("var image").append(++variableIndex).append(" = anychart.graphics.vector.image();");
+        jsBase = "image" + variableIndex;
     }
 
     protected Image(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +35,16 @@ public class Image extends Element {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private ImageAlign align;
 
+    /**
+     * Setter for the align.
+     */
     public Image setAlign(ImageAlign align) {
         if (jsBase == null) {
             this.align = align;
@@ -38,7 +56,6 @@ public class Image extends Element {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +67,9 @@ public class Image extends Element {
     private Fitting fittingMode;
     private String fittingMode1;
 
+    /**
+     * Setter for the fitting mode.
+     */
     public Image setFittingMode(Fitting fittingMode) {
         if (jsBase == null) {
             this.fittingMode = null;
@@ -64,7 +84,6 @@ public class Image extends Element {
             }
 
             js.append(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode != null) ? fittingMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode != null) ? fittingMode.generateJs() : "null")));
                 js.setLength(0);
@@ -74,6 +93,9 @@ public class Image extends Element {
     }
 
 
+    /**
+     * Setter for the fitting mode.
+     */
     public Image setFittingMode(String fittingMode1) {
         if (jsBase == null) {
             this.fittingMode = null;
@@ -88,7 +110,6 @@ public class Image extends Element {
             }
 
             js.append(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode1)));
                 js.setLength(0);
@@ -99,6 +120,9 @@ public class Image extends Element {
 
     private Double height;
 
+    /**
+     * Setter for the image height.
+     */
     public Image setHeight(Double height) {
         if (jsBase == null) {
             this.height = height;
@@ -110,7 +134,6 @@ public class Image extends Element {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -121,6 +144,10 @@ public class Image extends Element {
 
     private String src;
 
+    /**
+     * Setter for the image source.<br/>
+Set null value for non-display image.
+     */
     public Image setSrc(String src) {
         if (jsBase == null) {
             this.src = src;
@@ -132,7 +159,6 @@ public class Image extends Element {
             }
 
             js.append(String.format(Locale.US, ".src(%s)", wrapQuotes(src)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".src(%s)", wrapQuotes(src)));
                 js.setLength(0);
@@ -143,6 +169,9 @@ public class Image extends Element {
 
     private Double width;
 
+    /**
+     * Setter for the image width.
+     */
     public Image setWidth(Double width) {
         if (jsBase == null) {
             this.width = width;
@@ -154,7 +183,6 @@ public class Image extends Element {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -165,6 +193,9 @@ public class Image extends Element {
 
     private Double x;
 
+    /**
+     * Setter for X coordinate.
+     */
     public Image setX(Double x) {
         if (jsBase == null) {
             this.x = x;
@@ -176,7 +207,6 @@ public class Image extends Element {
             }
 
             js.append(String.format(Locale.US, ".x(%f)", x));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".x(%f)", x));
                 js.setLength(0);
@@ -187,6 +217,9 @@ public class Image extends Element {
 
     private Double y;
 
+    /**
+     * Setter for the Y coordinate.
+     */
     public Image setY(Double y) {
         if (jsBase == null) {
             this.y = y;
@@ -198,7 +231,6 @@ public class Image extends Element {
             }
 
             js.append(String.format(Locale.US, ".y(%f)", y));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".y(%f)", y));
                 js.setLength(0);
@@ -207,8 +239,6 @@ public class Image extends Element {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -226,28 +256,6 @@ public class Image extends Element {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSalign());
-////        
-//            js.append(generateJSfittingMode());
-////        
-//            js.append(generateJSfittingMode1());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSsrc());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSx());
-////        
-//            js.append(generateJSy());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

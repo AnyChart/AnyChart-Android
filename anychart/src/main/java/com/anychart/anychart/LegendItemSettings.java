@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Legend items are child elements of a legend.<br/>
+The LegendItemSettings class contains different settings for an icon in the legend item.<br/>
+Such as text spacing, type, fill, stroke, hatch fill, size, icon marker settings, etc.<br/>
+ */
 public class LegendItemSettings extends CoreText {
 
     public LegendItemSettings() {
-
+        js.setLength(0);
+        js.append("var legendItemSettings").append(++variableIndex).append(" = anychart.core.utils.legendItemSettings();");
+        jsBase = "legendItemSettings" + variableIndex;
     }
 
     protected LegendItemSettings(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +32,16 @@ public class LegendItemSettings extends CoreText {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean disabled;
 
+    /**
+     * Setter for disabled settings.
+     */
     public LegendItemSettings setDisabled(Boolean disabled) {
         if (jsBase == null) {
             this.disabled = disabled;
@@ -38,7 +53,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".disabled(%b)", disabled));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".disabled(%b)", disabled));
                 js.setLength(0);
@@ -49,6 +63,10 @@ public class LegendItemSettings extends CoreText {
 
     private String format;
 
+    /**
+     * Setter for legend item format settings.<br/>
+{docs:Common_Settings/Text_Formatters}Learn more about using format() method.{docs}
+     */
     public LegendItemSettings setFormat(String format) {
         if (jsBase == null) {
             this.format = format;
@@ -60,7 +78,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".format(%s)", wrapQuotes(format)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".format(%s)", wrapQuotes(format)));
                 js.setLength(0);
@@ -71,6 +88,9 @@ public class LegendItemSettings extends CoreText {
 
     private Boolean iconEnabled;
 
+    /**
+     * Setter for settings showing icons.
+     */
     public LegendItemSettings setIconEnabled(Boolean iconEnabled) {
         if (jsBase == null) {
             this.iconEnabled = iconEnabled;
@@ -82,7 +102,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconEnabled(%b)", iconEnabled));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconEnabled(%b)", iconEnabled));
                 js.setLength(0);
@@ -93,6 +112,10 @@ public class LegendItemSettings extends CoreText {
 
     private Fill iconFill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings setIconFill(Fill iconFill) {
         if (jsBase == null) {
             this.iconFill = iconFill;
@@ -104,7 +127,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconFill(%s)", ((iconFill != null) ? iconFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s)", ((iconFill != null) ? iconFill.generateJs() : "null")));
                 js.setLength(0);
@@ -116,6 +138,9 @@ public class LegendItemSettings extends CoreText {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity.
+     */
     public LegendItemSettings iconFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -129,7 +154,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -146,6 +170,10 @@ public class LegendItemSettings extends CoreText {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -173,7 +201,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -183,6 +210,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -210,7 +241,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -220,6 +250,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -247,7 +281,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -257,6 +290,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -284,7 +321,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -294,6 +330,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -321,7 +361,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -331,6 +370,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -358,7 +401,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -376,6 +418,10 @@ public class LegendItemSettings extends CoreText {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -413,7 +459,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -423,6 +468,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -460,7 +509,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -471,6 +519,9 @@ public class LegendItemSettings extends CoreText {
 
     private PatternFill getIconHatchFill;
 
+    /**
+     * Getter for icon hatch fill settings.
+     */
     public PatternFill getIconHatchFill() {
         if (getIconHatchFill == null)
             getIconHatchFill = new PatternFill(jsBase + ".iconHatchFill()");
@@ -486,6 +537,9 @@ public class LegendItemSettings extends CoreText {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for icon hatch fill settings.
+     */
     public LegendItemSettings setIconHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -511,7 +565,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -521,6 +574,9 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Setter for icon hatch fill settings.
+     */
     public LegendItemSettings setIconHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -546,7 +602,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -556,6 +611,9 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Setter for icon hatch fill settings.
+     */
     public LegendItemSettings setIconHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -581,7 +639,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -591,6 +648,9 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Setter for icon hatch fill settings.
+     */
     public LegendItemSettings setIconHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -616,7 +676,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -627,6 +686,10 @@ public class LegendItemSettings extends CoreText {
 
     private Fill iconMarkerFill;
 
+    /**
+     * Setter for icon marker fill settings using a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings setIconMarkerFill(Fill iconMarkerFill) {
         if (jsBase == null) {
             this.iconMarkerFill = iconMarkerFill;
@@ -638,7 +701,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerFill(%s)", ((iconMarkerFill != null) ? iconMarkerFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s)", ((iconMarkerFill != null) ? iconMarkerFill.generateJs() : "null")));
                 js.setLength(0);
@@ -650,6 +712,9 @@ public class LegendItemSettings extends CoreText {
     private String color2;
     private Double opacity3;
 
+    /**
+     * Icon marker fill color with opacity.
+     */
     public LegendItemSettings iconMarkerFill(String color2, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
@@ -672,7 +737,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %f)", wrapQuotes(color2), opacity3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %f)", wrapQuotes(color2), opacity3));
                 js.setLength(0);
@@ -689,6 +753,10 @@ public class LegendItemSettings extends CoreText {
     private String mode6;
     private Double opacity4;
 
+    /**
+     * Linear gradient fill for icon marker.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconMarkerFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -730,7 +798,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -740,6 +807,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Linear gradient fill for icon marker.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconMarkerFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -781,7 +852,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -791,6 +861,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Linear gradient fill for icon marker.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconMarkerFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -832,7 +906,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -842,6 +915,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Linear gradient fill for icon marker.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconMarkerFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -883,7 +960,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -893,6 +969,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Linear gradient fill for icon marker.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconMarkerFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -934,7 +1014,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -944,6 +1023,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Linear gradient fill for icon marker.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconMarkerFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -985,7 +1068,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -1003,6 +1085,10 @@ public class LegendItemSettings extends CoreText {
     private Double fx1;
     private Double fy1;
 
+    /**
+     * Radial gradient fill for icon marker.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconMarkerFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1063,7 +1149,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1073,6 +1158,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Radial gradient fill for icon marker.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LegendItemSettings iconMarkerFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1133,7 +1222,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1151,6 +1239,9 @@ public class LegendItemSettings extends CoreText {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for icon marker stroke settings.
+     */
     public LegendItemSettings setIconMarkerStroke(Stroke color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1180,7 +1271,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1190,6 +1280,9 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Setter for icon marker stroke settings.
+     */
     public LegendItemSettings setIconMarkerStroke(ColoredFill color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1219,7 +1312,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1229,6 +1321,9 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Setter for icon marker stroke settings.
+     */
     public LegendItemSettings setIconMarkerStroke(String color5, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1258,7 +1353,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1270,6 +1364,9 @@ public class LegendItemSettings extends CoreText {
     private MarkerType iconMarkerType;
     private String iconMarkerType1;
 
+    /**
+     * Setter for the marker type.
+     */
     public LegendItemSettings setIconMarkerType(MarkerType iconMarkerType) {
         if (jsBase == null) {
             this.iconMarkerType = null;
@@ -1284,7 +1381,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerType(%s)", ((iconMarkerType != null) ? iconMarkerType.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerType(%s)", ((iconMarkerType != null) ? iconMarkerType.generateJs() : "null")));
                 js.setLength(0);
@@ -1294,6 +1390,9 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Setter for the marker type.
+     */
     public LegendItemSettings setIconMarkerType(String iconMarkerType1) {
         if (jsBase == null) {
             this.iconMarkerType = null;
@@ -1308,7 +1407,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconMarkerType(%s)", wrapQuotes(iconMarkerType1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerType(%s)", wrapQuotes(iconMarkerType1)));
                 js.setLength(0);
@@ -1320,6 +1418,9 @@ public class LegendItemSettings extends CoreText {
     private Double iconSize;
     private String iconSize1;
 
+    /**
+     * Setter for the icon size of legend item.
+     */
     public LegendItemSettings setIconSize(Double iconSize) {
         if (jsBase == null) {
             this.iconSize = null;
@@ -1334,7 +1435,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconSize(%f)", iconSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconSize(%f)", iconSize));
                 js.setLength(0);
@@ -1344,6 +1444,9 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Setter for the icon size of legend item.
+     */
     public LegendItemSettings setIconSize(String iconSize1) {
         if (jsBase == null) {
             this.iconSize = null;
@@ -1358,7 +1461,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconSize(%s)", wrapQuotes(iconSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconSize(%s)", wrapQuotes(iconSize1)));
                 js.setLength(0);
@@ -1375,6 +1477,10 @@ public class LegendItemSettings extends CoreText {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for legend item icon stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public LegendItemSettings setIconStroke(Stroke iconStroke, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.iconStroke = null;
@@ -1411,7 +1517,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", ((iconStroke != null) ? iconStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", ((iconStroke != null) ? iconStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1421,6 +1526,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Setter for legend item icon stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public LegendItemSettings setIconStroke(ColoredFill iconStroke1, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.iconStroke = null;
@@ -1457,7 +1566,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", ((iconStroke1 != null) ? iconStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", ((iconStroke1 != null) ? iconStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1467,6 +1575,10 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Setter for legend item icon stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public LegendItemSettings setIconStroke(String iconStroke2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.iconStroke = null;
@@ -1503,7 +1615,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", wrapQuotes(iconStroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", wrapQuotes(iconStroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1514,6 +1625,9 @@ public class LegendItemSettings extends CoreText {
 
     private Double iconTextSpacing;
 
+    /**
+     * Setter for a spacing between icon and text.
+     */
     public LegendItemSettings setIconTextSpacing(Double iconTextSpacing) {
         if (jsBase == null) {
             this.iconTextSpacing = iconTextSpacing;
@@ -1525,7 +1639,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconTextSpacing(%f)", iconTextSpacing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconTextSpacing(%f)", iconTextSpacing));
                 js.setLength(0);
@@ -1537,6 +1650,9 @@ public class LegendItemSettings extends CoreText {
     private LegendItemIconType iconType;
     private String iconType1;
 
+    /**
+     * Setter for the icon type.
+     */
     public LegendItemSettings setIconType(LegendItemIconType iconType) {
         if (jsBase == null) {
             this.iconType = null;
@@ -1551,7 +1667,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconType(%s)", ((iconType != null) ? iconType.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconType(%s)", ((iconType != null) ? iconType.generateJs() : "null")));
                 js.setLength(0);
@@ -1561,6 +1676,9 @@ public class LegendItemSettings extends CoreText {
     }
 
 
+    /**
+     * Setter for the icon type.
+     */
     public LegendItemSettings setIconType(String iconType1) {
         if (jsBase == null) {
             this.iconType = null;
@@ -1575,7 +1693,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconType(%s)", wrapQuotes(iconType1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconType(%s)", wrapQuotes(iconType1)));
                 js.setLength(0);
@@ -1586,6 +1703,9 @@ public class LegendItemSettings extends CoreText {
 
     private String text;
 
+    /**
+     * Setter for the legend item text.
+     */
     public LegendItemSettings setText(String text) {
         if (jsBase == null) {
             this.text = text;
@@ -1597,7 +1717,6 @@ public class LegendItemSettings extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
                 js.setLength(0);
@@ -1606,19 +1725,9 @@ public class LegendItemSettings extends CoreText {
         return this;
     }
 
-
-//
-//    private String generateJSPatternFill getIconHatchFill() {
-//        if (PatternFill getIconHatchFill != null) {
-//            return PatternFill getIconHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetIconHatchFill() {
         if (getIconHatchFill != null) {
             return getIconHatchFill.generateJs();
-            //return String.format(Locale.US, "getIconHatchFill: %s,", ((getIconHatchFill != null) ? getIconHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -1641,150 +1750,6 @@ public class LegendItemSettings extends CoreText {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdisabled());
-////        
-//            js.append(generateJSformat());
-////        
-//            js.append(generateJSiconEnabled());
-////        
-//            js.append(generateJSiconFill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSiconMarkerFill());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSopacity3());
-////        
-//            js.append(generateJSkeys4());
-////        
-//            js.append(generateJSkeys5());
-////        
-//            js.append(generateJSangle1());
-////        
-//            js.append(generateJSmode4());
-////        
-//            js.append(generateJSmode5());
-////        
-//            js.append(generateJSmode6());
-////        
-//            js.append(generateJSopacity4());
-////        
-//            js.append(generateJSkeys6());
-////        
-//            js.append(generateJSkeys7());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSmode7());
-////        
-//            js.append(generateJSopacity5());
-////        
-//            js.append(generateJSfx1());
-////        
-//            js.append(generateJSfy1());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJScolor5());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSiconMarkerType());
-////        
-//            js.append(generateJSiconMarkerType1());
-////        
-//            js.append(generateJSiconSize());
-////        
-//            js.append(generateJSiconSize1());
-////        
-//            js.append(generateJSiconStroke());
-////        
-//            js.append(generateJSiconStroke1());
-////        
-//            js.append(generateJSiconStroke2());
-////        
-//            js.append(generateJSthickness2());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-////        
-//            js.append(generateJSiconTextSpacing());
-////        
-//            js.append(generateJSiconType());
-////        
-//            js.append(generateJSiconType1());
-////        
-//            js.append(generateJStext());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

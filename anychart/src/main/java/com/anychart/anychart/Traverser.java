@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Tree data traverser.
+ */
 public class Traverser extends JsObject {
 
     public Traverser() {
-
+        js.setLength(0);
+        js.append("var traverser").append(++variableIndex).append(" = anychart.data.traverser();");
+        jsBase = "traverser" + variableIndex;
     }
 
     protected Traverser(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Traverser extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private TreeDataItem getCurrent;
 
+    /**
+     * Gets current tree data item.
+     */
     public TreeDataItem getCurrent() {
         if (getCurrent == null)
             getCurrent = new TreeDataItem(jsBase + ".current()");
@@ -36,6 +49,9 @@ public class Traverser extends JsObject {
 
     private String key;
 
+    /**
+     * Setter for a meta value.
+     */
     public void setMeta(String key) {
         if (jsBase == null) {
             this.key = key;
@@ -47,7 +63,6 @@ public class Traverser extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".meta(%s);", wrapQuotes(key)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
                 js.setLength(0);
@@ -57,6 +72,9 @@ public class Traverser extends JsObject {
 
     private String key1;
 
+    /**
+     * Sets current item's value by key specified.
+     */
     public Traverser setSet(String key1) {
         if (jsBase == null) {
             this.key = null;
@@ -71,7 +89,6 @@ public class Traverser extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".set(%s)", wrapQuotes(key1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", wrapQuotes(key1)));
                 js.setLength(0);
@@ -80,19 +97,9 @@ public class Traverser extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSTreeDataItem getCurrent() {
-//        if (TreeDataItem getCurrent != null) {
-//            return TreeDataItem getCurrent.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetCurrent() {
         if (getCurrent != null) {
             return getCurrent.generateJs();
-            //return String.format(Locale.US, "getCurrent: %s,", ((getCurrent != null) ? getCurrent.generateJs() : "null"));
         }
         return "";
     }
@@ -115,16 +122,6 @@ public class Traverser extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSkey());
-////        
-//            js.append(generateJSkey1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

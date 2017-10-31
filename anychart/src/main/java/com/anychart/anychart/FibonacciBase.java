@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Fibonacci annotations base.
+ */
 public class FibonacciBase extends AnnotationsBase {
 
     public FibonacciBase() {
-
+        js.setLength(0);
+        js.append("var fibonacciBase").append(++variableIndex).append(" = anychart.core.annotations.fibonacciBase();");
+        jsBase = "fibonacciBase" + variableIndex;
     }
 
     protected FibonacciBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class FibonacciBase extends AnnotationsBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for labels settings.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -37,6 +50,9 @@ public class FibonacciBase extends AnnotationsBase {
     private String labels;
     private Boolean labels1;
 
+    /**
+     * Setter for labels settings.
+     */
     public FibonacciBase setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
@@ -51,7 +67,6 @@ public class FibonacciBase extends AnnotationsBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -61,6 +76,9 @@ public class FibonacciBase extends AnnotationsBase {
     }
 
 
+    /**
+     * Setter for labels settings.
+     */
     public FibonacciBase setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
@@ -75,7 +93,6 @@ public class FibonacciBase extends AnnotationsBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -92,6 +109,10 @@ public class FibonacciBase extends AnnotationsBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for annotation stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public FibonacciBase setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -115,7 +136,6 @@ public class FibonacciBase extends AnnotationsBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -125,6 +145,10 @@ public class FibonacciBase extends AnnotationsBase {
     }
 
 
+    /**
+     * Setter for annotation stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public FibonacciBase setStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -148,7 +172,6 @@ public class FibonacciBase extends AnnotationsBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -158,6 +181,10 @@ public class FibonacciBase extends AnnotationsBase {
     }
 
 
+    /**
+     * Setter for annotation stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public FibonacciBase setStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -181,7 +208,6 @@ public class FibonacciBase extends AnnotationsBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -198,6 +224,10 @@ public class FibonacciBase extends AnnotationsBase {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for annotation trend settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public FibonacciBase setTrend(Stroke trend, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.trend = null;
@@ -233,7 +263,6 @@ public class FibonacciBase extends AnnotationsBase {
             }
 
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend != null) ? trend.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend != null) ? trend.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -243,6 +272,10 @@ public class FibonacciBase extends AnnotationsBase {
     }
 
 
+    /**
+     * Setter for annotation trend settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public FibonacciBase setTrend(ColoredFill trend1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.trend = null;
@@ -278,7 +311,6 @@ public class FibonacciBase extends AnnotationsBase {
             }
 
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend1 != null) ? trend1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend1 != null) ? trend1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -288,6 +320,10 @@ public class FibonacciBase extends AnnotationsBase {
     }
 
 
+    /**
+     * Setter for annotation trend settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public FibonacciBase setTrend(String trend2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.trend = null;
@@ -323,7 +359,6 @@ public class FibonacciBase extends AnnotationsBase {
             }
 
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", wrapQuotes(trend2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", wrapQuotes(trend2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -332,19 +367,9 @@ public class FibonacciBase extends AnnotationsBase {
         return this;
     }
 
-
-//
-//    private String generateJSUiLabelsFactory getLabels() {
-//        if (UiLabelsFactory getLabels != null) {
-//            return UiLabelsFactory getLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
-            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -367,44 +392,6 @@ public class FibonacciBase extends AnnotationsBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSlabels());
-////        
-//            js.append(generateJSlabels1());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJStrend());
-////        
-//            js.append(generateJStrend1());
-////        
-//            js.append(generateJStrend2());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

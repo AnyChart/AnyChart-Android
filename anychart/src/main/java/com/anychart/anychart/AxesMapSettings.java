@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Map axes settings class.
+ */
 public class AxesMapSettings extends VisualBase {
 
     public AxesMapSettings() {
-
+        js.setLength(0);
+        js.append("var axesMapSettings").append(++variableIndex).append(" = anychart.core.axes.mapSettings();");
+        jsBase = "axesMapSettings" + variableIndex;
     }
 
     protected AxesMapSettings(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class AxesMapSettings extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private AxesMap getBottom;
 
+    /**
+     * Getter for the bottom axis.
+     */
     public AxesMap getBottom() {
         if (getBottom == null)
             getBottom = new AxesMap(jsBase + ".bottom()");
@@ -37,6 +50,9 @@ public class AxesMapSettings extends VisualBase {
     private Boolean bottom;
     private String bottom1;
 
+    /**
+     * Setter for the bottom axis.
+     */
     public AxesMapSettings setBottom(Boolean bottom) {
         if (jsBase == null) {
             this.bottom = null;
@@ -51,7 +67,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".bottom(%b)", bottom));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%b)", bottom));
                 js.setLength(0);
@@ -61,6 +76,9 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for the bottom axis.
+     */
     public AxesMapSettings setBottom(String bottom1) {
         if (jsBase == null) {
             this.bottom = null;
@@ -75,7 +93,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
                 js.setLength(0);
@@ -86,6 +103,9 @@ public class AxesMapSettings extends VisualBase {
 
     private Boolean drawFirstLabel;
 
+    /**
+     * Setter for the first label drawing flag.
+     */
     public AxesMapSettings setDrawFirstLabel(Boolean drawFirstLabel) {
         if (jsBase == null) {
             this.drawFirstLabel = drawFirstLabel;
@@ -97,7 +117,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
                 js.setLength(0);
@@ -108,6 +127,9 @@ public class AxesMapSettings extends VisualBase {
 
     private Boolean drawLastLabel;
 
+    /**
+     * Setter for the last label drawing flag.
+     */
     public AxesMapSettings setDrawLastLabel(Boolean drawLastLabel) {
         if (jsBase == null) {
             this.drawLastLabel = drawLastLabel;
@@ -119,7 +141,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
                 js.setLength(0);
@@ -130,6 +151,9 @@ public class AxesMapSettings extends VisualBase {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for axis labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -140,6 +164,9 @@ public class AxesMapSettings extends VisualBase {
     private String labels;
     private Boolean labels1;
 
+    /**
+     * Setter for axis labels.
+     */
     public AxesMapSettings setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
@@ -154,7 +181,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -164,6 +190,9 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for axis labels.
+     */
     public AxesMapSettings setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
@@ -178,7 +207,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -189,6 +217,9 @@ public class AxesMapSettings extends VisualBase {
 
     private AxesMap getLeft;
 
+    /**
+     * Getter for the left axis.
+     */
     public AxesMap getLeft() {
         if (getLeft == null)
             getLeft = new AxesMap(jsBase + ".left()");
@@ -199,6 +230,9 @@ public class AxesMapSettings extends VisualBase {
     private Boolean left;
     private String left1;
 
+    /**
+     * Setter for the left axis.
+     */
     public AxesMapSettings setLeft(Boolean left) {
         if (jsBase == null) {
             this.left = null;
@@ -213,7 +247,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".left(%b)", left));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%b)", left));
                 js.setLength(0);
@@ -223,6 +256,9 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for the left axis.
+     */
     public AxesMapSettings setLeft(String left1) {
         if (jsBase == null) {
             this.left = null;
@@ -237,7 +273,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
                 js.setLength(0);
@@ -248,6 +283,9 @@ public class AxesMapSettings extends VisualBase {
 
     private UiLabelsFactory getMinorLabels;
 
+    /**
+     * Getter for axis minor labels.
+     */
     public UiLabelsFactory getMinorLabels() {
         if (getMinorLabels == null)
             getMinorLabels = new UiLabelsFactory(jsBase + ".minorLabels()");
@@ -258,6 +296,9 @@ public class AxesMapSettings extends VisualBase {
     private String minorLabels;
     private Boolean minorLabels1;
 
+    /**
+     * Setter for axis minor labels.
+     */
     public AxesMapSettings setMinorLabels(String minorLabels) {
         if (jsBase == null) {
             this.minorLabels = null;
@@ -272,7 +313,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
                 js.setLength(0);
@@ -282,6 +322,9 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for axis minor labels.
+     */
     public AxesMapSettings setMinorLabels(Boolean minorLabels1) {
         if (jsBase == null) {
             this.minorLabels = null;
@@ -296,7 +339,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
                 js.setLength(0);
@@ -307,6 +349,9 @@ public class AxesMapSettings extends VisualBase {
 
     private MapTicks getMinorTicks;
 
+    /**
+     * Getter for minor axis ticks.
+     */
     public MapTicks getMinorTicks() {
         if (getMinorTicks == null)
             getMinorTicks = new MapTicks(jsBase + ".minorTicks()");
@@ -317,6 +362,9 @@ public class AxesMapSettings extends VisualBase {
     private String minorTicks;
     private Boolean minorTicks1;
 
+    /**
+     * Setter for minor axis ticks.
+     */
     public AxesMapSettings setMinorTicks(String minorTicks) {
         if (jsBase == null) {
             this.minorTicks = null;
@@ -331,7 +379,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
@@ -341,6 +388,9 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for minor axis ticks.
+     */
     public AxesMapSettings setMinorTicks(Boolean minorTicks1) {
         if (jsBase == null) {
             this.minorTicks = null;
@@ -355,7 +405,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
                 js.setLength(0);
@@ -367,6 +416,9 @@ public class AxesMapSettings extends VisualBase {
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
 
+    /**
+     * Setter for labels overlap mode.
+     */
     public AxesMapSettings setOverlapMode(LabelsOverlapMode overlapMode) {
         if (jsBase == null) {
             this.overlapMode = null;
@@ -381,7 +433,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
@@ -391,6 +442,9 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for labels overlap mode.
+     */
     public AxesMapSettings setOverlapMode(String overlapMode1) {
         if (jsBase == null) {
             this.overlapMode = null;
@@ -405,7 +459,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
                 js.setLength(0);
@@ -416,6 +469,9 @@ public class AxesMapSettings extends VisualBase {
 
     private AxesMap getRight;
 
+    /**
+     * Getter for the right axis.
+     */
     public AxesMap getRight() {
         if (getRight == null)
             getRight = new AxesMap(jsBase + ".right()");
@@ -426,6 +482,9 @@ public class AxesMapSettings extends VisualBase {
     private Boolean right;
     private String right1;
 
+    /**
+     * Setter for the right axis.
+     */
     public AxesMapSettings setRight(Boolean right) {
         if (jsBase == null) {
             this.right = null;
@@ -440,7 +499,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".right(%b)", right));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%b)", right));
                 js.setLength(0);
@@ -450,6 +508,9 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for the right axis.
+     */
     public AxesMapSettings setRight(String right1) {
         if (jsBase == null) {
             this.right = null;
@@ -464,7 +525,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
                 js.setLength(0);
@@ -481,6 +541,10 @@ public class AxesMapSettings extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for axis stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public AxesMapSettings setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -504,7 +568,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -514,6 +577,10 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for axis stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public AxesMapSettings setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -537,7 +604,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -547,6 +613,10 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for axis stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public AxesMapSettings setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -570,7 +640,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -581,6 +650,9 @@ public class AxesMapSettings extends VisualBase {
 
     private MapTicks getTicks;
 
+    /**
+     * Getter for axis ticks.
+     */
     public MapTicks getTicks() {
         if (getTicks == null)
             getTicks = new MapTicks(jsBase + ".ticks()");
@@ -591,6 +663,9 @@ public class AxesMapSettings extends VisualBase {
     private String ticks;
     private Boolean ticks1;
 
+    /**
+     * Setter for axis ticks.
+     */
     public AxesMapSettings setTicks(String ticks) {
         if (jsBase == null) {
             this.ticks = null;
@@ -605,7 +680,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
@@ -615,6 +689,9 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for axis ticks.
+     */
     public AxesMapSettings setTicks(Boolean ticks1) {
         if (jsBase == null) {
             this.ticks = null;
@@ -629,7 +706,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%b)", ticks1));
                 js.setLength(0);
@@ -640,6 +716,9 @@ public class AxesMapSettings extends VisualBase {
 
     private UiTitle getTitle;
 
+    /**
+     * Getter for the axis title.
+     */
     public UiTitle getTitle() {
         if (getTitle == null)
             getTitle = new UiTitle(jsBase + ".title()");
@@ -651,6 +730,9 @@ public class AxesMapSettings extends VisualBase {
     private String title1;
     private String title2;
 
+    /**
+     * Setter for the axis title.
+     */
     public AxesMapSettings setTitle(Boolean title) {
         if (jsBase == null) {
             this.title = null;
@@ -666,7 +748,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".title(%b)", title));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
@@ -676,6 +757,9 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for the axis title.
+     */
     public AxesMapSettings setTitle(String title1) {
         if (jsBase == null) {
             this.title = null;
@@ -691,7 +775,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
@@ -702,6 +785,9 @@ public class AxesMapSettings extends VisualBase {
 
     private AxesMap getTop;
 
+    /**
+     * Getter for the top axis.
+     */
     public AxesMap getTop() {
         if (getTop == null)
             getTop = new AxesMap(jsBase + ".top()");
@@ -712,6 +798,9 @@ public class AxesMapSettings extends VisualBase {
     private Boolean top;
     private String top1;
 
+    /**
+     * Setter for the top axis.
+     */
     public AxesMapSettings setTop(Boolean top) {
         if (jsBase == null) {
             this.top = null;
@@ -726,7 +815,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".top(%b)", top));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%b)", top));
                 js.setLength(0);
@@ -736,6 +824,9 @@ public class AxesMapSettings extends VisualBase {
     }
 
 
+    /**
+     * Setter for the top axis.
+     */
     public AxesMapSettings setTop(String top1) {
         if (jsBase == null) {
             this.top = null;
@@ -750,7 +841,6 @@ public class AxesMapSettings extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
                 js.setLength(0);
@@ -759,75 +849,9 @@ public class AxesMapSettings extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSAxesMap getBottom() {
-//        if (AxesMap getBottom != null) {
-//            return AxesMap getBottom.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLabels() {
-//        if (UiLabelsFactory getLabels != null) {
-//            return UiLabelsFactory getLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAxesMap getLeft() {
-//        if (AxesMap getLeft != null) {
-//            return AxesMap getLeft.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getMinorLabels() {
-//        if (UiLabelsFactory getMinorLabels != null) {
-//            return UiLabelsFactory getMinorLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSMapTicks getMinorTicks() {
-//        if (MapTicks getMinorTicks != null) {
-//            return MapTicks getMinorTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAxesMap getRight() {
-//        if (AxesMap getRight != null) {
-//            return AxesMap getRight.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSMapTicks getTicks() {
-//        if (MapTicks getTicks != null) {
-//            return MapTicks getTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiTitle getTitle() {
-//        if (UiTitle getTitle != null) {
-//            return UiTitle getTitle.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAxesMap getTop() {
-//        if (AxesMap getTop != null) {
-//            return AxesMap getTop.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBottom() {
         if (getBottom != null) {
             return getBottom.generateJs();
-            //return String.format(Locale.US, "getBottom: %s,", ((getBottom != null) ? getBottom.generateJs() : "null"));
         }
         return "";
     }
@@ -835,7 +859,6 @@ public class AxesMapSettings extends VisualBase {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
-            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -843,7 +866,6 @@ public class AxesMapSettings extends VisualBase {
     private String generateJSgetLeft() {
         if (getLeft != null) {
             return getLeft.generateJs();
-            //return String.format(Locale.US, "getLeft: %s,", ((getLeft != null) ? getLeft.generateJs() : "null"));
         }
         return "";
     }
@@ -851,7 +873,6 @@ public class AxesMapSettings extends VisualBase {
     private String generateJSgetMinorLabels() {
         if (getMinorLabels != null) {
             return getMinorLabels.generateJs();
-            //return String.format(Locale.US, "getMinorLabels: %s,", ((getMinorLabels != null) ? getMinorLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -859,7 +880,6 @@ public class AxesMapSettings extends VisualBase {
     private String generateJSgetMinorTicks() {
         if (getMinorTicks != null) {
             return getMinorTicks.generateJs();
-            //return String.format(Locale.US, "getMinorTicks: %s,", ((getMinorTicks != null) ? getMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -867,7 +887,6 @@ public class AxesMapSettings extends VisualBase {
     private String generateJSgetRight() {
         if (getRight != null) {
             return getRight.generateJs();
-            //return String.format(Locale.US, "getRight: %s,", ((getRight != null) ? getRight.generateJs() : "null"));
         }
         return "";
     }
@@ -875,7 +894,6 @@ public class AxesMapSettings extends VisualBase {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -883,7 +901,6 @@ public class AxesMapSettings extends VisualBase {
     private String generateJSgetTitle() {
         if (getTitle != null) {
             return getTitle.generateJs();
-            //return String.format(Locale.US, "getTitle: %s,", ((getTitle != null) ? getTitle.generateJs() : "null"));
         }
         return "";
     }
@@ -891,7 +908,6 @@ public class AxesMapSettings extends VisualBase {
     private String generateJSgetTop() {
         if (getTop != null) {
             return getTop.generateJs();
-            //return String.format(Locale.US, "getTop: %s,", ((getTop != null) ? getTop.generateJs() : "null"));
         }
         return "";
     }
@@ -922,72 +938,6 @@ public class AxesMapSettings extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbottom());
-////        
-//            js.append(generateJSbottom1());
-////        
-//            js.append(generateJSdrawFirstLabel());
-////        
-//            js.append(generateJSdrawLastLabel());
-////        
-//            js.append(generateJSlabels());
-////        
-//            js.append(generateJSlabels1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJSleft1());
-////        
-//            js.append(generateJSminorLabels());
-////        
-//            js.append(generateJSminorLabels1());
-////        
-//            js.append(generateJSminorTicks());
-////        
-//            js.append(generateJSminorTicks1());
-////        
-//            js.append(generateJSoverlapMode());
-////        
-//            js.append(generateJSoverlapMode1());
-////        
-//            js.append(generateJSright());
-////        
-//            js.append(generateJSright1());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSticks());
-////        
-//            js.append(generateJSticks1());
-////        
-//            js.append(generateJStitle());
-////        
-//            js.append(generateJStitle1());
-////        
-//            js.append(generateJStitle2());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJStop1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

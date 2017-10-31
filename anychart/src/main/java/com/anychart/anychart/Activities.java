@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Activity settings representation class.
+ */
 public class Activities extends CoreBase {
 
     public Activities() {
-
+        js.setLength(0);
+        js.append("var activities").append(++variableIndex).append(" = anychart.core.resource.activities();");
+        jsBase = "activities" + variableIndex;
     }
 
     protected Activities(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Activities extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String color;
 
+    /**
+     * Setter for the activities color.
+     */
     public Activities setColor(String color) {
         if (jsBase == null) {
             this.color = color;
@@ -38,7 +51,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
@@ -49,6 +61,10 @@ public class Activities extends CoreBase {
 
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Activities setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -60,7 +76,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -72,6 +87,9 @@ public class Activities extends CoreBase {
     private String color1;
     private Double opacity;
 
+    /**
+     * Fill color with opacity.
+     */
     public Activities fill(String color1, Double opacity) {
         if (jsBase == null) {
             this.color = null;
@@ -88,7 +106,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity));
                 js.setLength(0);
@@ -105,6 +122,10 @@ public class Activities extends CoreBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Activities fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -132,7 +153,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -142,6 +162,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Activities fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -169,7 +193,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -179,6 +202,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Activities fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -206,7 +233,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -216,6 +242,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Activities fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -243,7 +273,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -253,6 +282,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Activities fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -280,7 +313,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -290,6 +322,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Activities fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -317,7 +353,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -335,6 +370,10 @@ public class Activities extends CoreBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Activities fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -372,7 +411,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -382,6 +420,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Activities fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -419,7 +461,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -431,6 +472,9 @@ public class Activities extends CoreBase {
     private Fill imageSettings;
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -446,6 +490,10 @@ public class Activities extends CoreBase {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Activities setHatchFill(PatternFill patternFillOrType, String color2, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -472,7 +520,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color2), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
@@ -482,6 +529,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Activities setHatchFill(HatchFill patternFillOrType1, String color2, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -508,7 +559,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color2), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
@@ -518,6 +568,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Activities setHatchFill(HatchFillType patternFillOrType2, String color2, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -544,7 +598,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color2), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
@@ -554,6 +607,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Activities setHatchFill(String patternFillOrType3, String color2, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -580,7 +637,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color2), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
@@ -591,6 +647,9 @@ public class Activities extends CoreBase {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -600,6 +659,9 @@ public class Activities extends CoreBase {
 
     private String hovered;
 
+    /**
+     * Setter for hovered state settings.
+     */
     public Activities setHovered(String hovered) {
         if (jsBase == null) {
             this.hovered = hovered;
@@ -611,7 +673,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
@@ -622,6 +683,9 @@ public class Activities extends CoreBase {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -632,6 +696,9 @@ public class Activities extends CoreBase {
     private String labels;
     private Boolean labels1;
 
+    /**
+     * Setter for labels settings.
+     */
     public Activities setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
@@ -646,7 +713,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -656,6 +722,9 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Setter for labels settings.
+     */
     public Activities setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
@@ -670,7 +739,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -681,6 +749,9 @@ public class Activities extends CoreBase {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -690,6 +761,9 @@ public class Activities extends CoreBase {
 
     private String normal;
 
+    /**
+     * Setter for normal state settings.
+     */
     public Activities setNormal(String normal) {
         if (jsBase == null) {
             this.normal = normal;
@@ -701,7 +775,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
@@ -712,6 +785,9 @@ public class Activities extends CoreBase {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -721,6 +797,9 @@ public class Activities extends CoreBase {
 
     private String selected;
 
+    /**
+     * Setter for selected state settings.
+     */
     public Activities setSelected(String selected) {
         if (jsBase == null) {
             this.selected = selected;
@@ -732,7 +811,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
@@ -749,6 +827,10 @@ public class Activities extends CoreBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Activities setStroke(Stroke color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -778,7 +860,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -788,6 +869,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Activities setStroke(ColoredFill color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -817,7 +902,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -827,6 +911,10 @@ public class Activities extends CoreBase {
     }
 
 
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Activities setStroke(String color5, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -856,7 +944,6 @@ public class Activities extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -865,47 +952,9 @@ public class Activities extends CoreBase {
         return this;
     }
 
-
-//
-//    private String generateJSPatternFill getHatchFill() {
-//        if (PatternFill getHatchFill != null) {
-//            return PatternFill getHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getHovered() {
-//        if (StateSettings getHovered != null) {
-//            return StateSettings getHovered.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLabels() {
-//        if (UiLabelsFactory getLabels != null) {
-//            return UiLabelsFactory getLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getNormal() {
-//        if (StateSettings getNormal != null) {
-//            return StateSettings getNormal.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getSelected() {
-//        if (StateSettings getSelected != null) {
-//            return StateSettings getSelected.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
-            //return String.format(Locale.US, "getHatchFill: %s,", ((getHatchFill != null) ? getHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -913,7 +962,6 @@ public class Activities extends CoreBase {
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
-            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -921,7 +969,6 @@ public class Activities extends CoreBase {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
-            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -929,7 +976,6 @@ public class Activities extends CoreBase {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
-            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -937,7 +983,6 @@ public class Activities extends CoreBase {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
-            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -964,90 +1009,6 @@ public class Activities extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJShovered());
-////        
-//            js.append(generateJSlabels());
-////        
-//            js.append(generateJSlabels1());
-////        
-//            js.append(generateJSnormal());
-////        
-//            js.append(generateJSselected());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJScolor5());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Callout class.
+ */
 public class Callout extends VisualBase {
 
     public Callout() {
-
+        js.setLength(0);
+        js.append("var callout").append(++variableIndex).append(" = anychart.core.ui.callout();");
+        jsBase = "callout" + variableIndex;
     }
 
     protected Callout(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class Callout extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private EnumsAlign align;
     private String align1;
 
+    /**
+     * Setter for callout align setting.
+     */
     public Callout setAlign(EnumsAlign align) {
         if (jsBase == null) {
             this.align = null;
@@ -42,7 +55,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for callout align setting.
+     */
     public Callout setAlign(String align1) {
         if (jsBase == null) {
             this.align = null;
@@ -66,7 +81,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
                 js.setLength(0);
@@ -77,6 +91,9 @@ public class Callout extends VisualBase {
 
     private UiBackground getBackground;
 
+    /**
+     * Getter for the callout background.
+     */
     public UiBackground getBackground() {
         if (getBackground == null)
             getBackground = new UiBackground(jsBase + ".background()");
@@ -88,6 +105,9 @@ public class Callout extends VisualBase {
     private String background1;
     private Boolean background2;
 
+    /**
+     * Setter for the callout background.
+     */
     public Callout setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
@@ -103,7 +123,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -113,6 +132,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout background.
+     */
     public Callout setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
@@ -128,7 +150,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -139,6 +160,9 @@ public class Callout extends VisualBase {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -148,6 +172,9 @@ public class Callout extends VisualBase {
 
     private String hovered;
 
+    /**
+     * Setter for hovered state settings.
+     */
     public Callout setHovered(String hovered) {
         if (jsBase == null) {
             this.hovered = hovered;
@@ -159,7 +186,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
@@ -170,6 +196,9 @@ public class Callout extends VisualBase {
 
     private String[] items;
 
+    /**
+     * Setter for callout items.
+     */
     public Callout setItems(String[] items) {
         if (jsBase == null) {
             this.items = items;
@@ -181,7 +210,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s)", arrayToStringWrapQuotes(items)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s)", arrayToStringWrapQuotes(items)));
                 js.setLength(0);
@@ -192,6 +220,9 @@ public class Callout extends VisualBase {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for callout labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -202,6 +233,9 @@ public class Callout extends VisualBase {
     private String labels;
     private Boolean labels1;
 
+    /**
+     * Setter for callout labels.
+     */
     public Callout setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
@@ -216,7 +250,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -226,6 +259,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for callout labels.
+     */
     public Callout setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
@@ -240,7 +276,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -252,6 +287,9 @@ public class Callout extends VisualBase {
     private String length;
     private Double length1;
 
+    /**
+     * Setter for the callout length.
+     */
     public Callout setLength(String length) {
         if (jsBase == null) {
             this.length = null;
@@ -266,7 +304,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".length(%s)", wrapQuotes(length)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%s)", wrapQuotes(length)));
                 js.setLength(0);
@@ -276,6 +313,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout length.
+     */
     public Callout setLength(Double length1) {
         if (jsBase == null) {
             this.length = null;
@@ -290,7 +330,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".length(%f)", length1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%f)", length1));
                 js.setLength(0);
@@ -301,6 +340,9 @@ public class Callout extends VisualBase {
 
     private Margin getMargin;
 
+    /**
+     * Getter for the callout margin.
+     */
     public Margin getMargin() {
         if (getMargin == null)
             getMargin = new Margin(jsBase + ".margin()");
@@ -312,6 +354,9 @@ public class Callout extends VisualBase {
     private String[] margin1;
     private String margin2;
 
+    /**
+     * Setter for the callout margin using a single value.
+     */
     public Callout setMargin(Double[] margin) {
         if (jsBase == null) {
             this.margin = null;
@@ -327,7 +372,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
                 js.setLength(0);
@@ -337,6 +381,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout margin using a single value.
+     */
     public Callout setMargin(String[] margin1) {
         if (jsBase == null) {
             this.margin = null;
@@ -352,7 +399,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
@@ -362,6 +408,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout margin using a single value.
+     */
     public Callout setMargin(String margin2) {
         if (jsBase == null) {
             this.margin = null;
@@ -377,7 +426,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
                 js.setLength(0);
@@ -395,6 +443,9 @@ public class Callout extends VisualBase {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for the callout margin using several values.
+     */
     public Callout setMargin(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -448,7 +499,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -458,6 +508,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout margin using several values.
+     */
     public Callout setMargin(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -511,7 +564,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -522,6 +574,9 @@ public class Callout extends VisualBase {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -531,6 +586,9 @@ public class Callout extends VisualBase {
 
     private String normal;
 
+    /**
+     * Setter for normal state settings.
+     */
     public Callout setNormal(String normal) {
         if (jsBase == null) {
             this.normal = normal;
@@ -542,7 +600,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
@@ -554,6 +611,9 @@ public class Callout extends VisualBase {
     private Orientation orientation;
     private String orientation1;
 
+    /**
+     * Setter for the callout orientation.
+     */
     public Callout setOrientation(Orientation orientation) {
         if (jsBase == null) {
             this.orientation = null;
@@ -568,7 +628,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
                 js.setLength(0);
@@ -578,6 +637,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout orientation.
+     */
     public Callout setOrientation(String orientation1) {
         if (jsBase == null) {
             this.orientation = null;
@@ -592,7 +654,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
                 js.setLength(0);
@@ -603,6 +664,9 @@ public class Callout extends VisualBase {
 
     private UtilsPadding getPadding;
 
+    /**
+     * Getter for the callout padding.
+     */
     public UtilsPadding getPadding() {
         if (getPadding == null)
             getPadding = new UtilsPadding(jsBase + ".padding()");
@@ -614,6 +678,9 @@ public class Callout extends VisualBase {
     private String[] padding1;
     private String padding2;
 
+    /**
+     * Setter for the callout padding using a single value.
+     */
     public Callout setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
@@ -629,7 +696,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -639,6 +705,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout padding using a single value.
+     */
     public Callout setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
@@ -654,7 +723,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -664,6 +732,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout padding using a single value.
+     */
     public Callout setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
@@ -679,7 +750,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -697,6 +767,9 @@ public class Callout extends VisualBase {
     private String value14;
     private Double value15;
 
+    /**
+     * Setter for the callout padding using several numbers.
+     */
     public Callout setPadding(String value8, String value10, String value12, String value14) {
         if (jsBase == null) {
             this.value = null;
@@ -782,7 +855,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
@@ -792,6 +864,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout padding using several numbers.
+     */
     public Callout setPadding(Double value9, Double value11, Double value13, Double value15) {
         if (jsBase == null) {
             this.value = null;
@@ -877,7 +952,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
                 js.setLength(0);
@@ -888,6 +962,9 @@ public class Callout extends VisualBase {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -897,6 +974,9 @@ public class Callout extends VisualBase {
 
     private String selected;
 
+    /**
+     * Setter for selected state settings.
+     */
     public Callout setSelected(String selected) {
         if (jsBase == null) {
             this.selected = selected;
@@ -908,7 +988,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
@@ -919,6 +998,9 @@ public class Callout extends VisualBase {
 
     private UiTitle getTitle;
 
+    /**
+     * Getter for the callout title.
+     */
     public UiTitle getTitle() {
         if (getTitle == null)
             getTitle = new UiTitle(jsBase + ".title()");
@@ -930,6 +1012,9 @@ public class Callout extends VisualBase {
     private String title1;
     private String title2;
 
+    /**
+     * Setter for the callout title.
+     */
     public Callout setTitle(Boolean title) {
         if (jsBase == null) {
             this.title = null;
@@ -945,7 +1030,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".title(%b)", title));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
@@ -955,6 +1039,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout title.
+     */
     public Callout setTitle(String title1) {
         if (jsBase == null) {
             this.title = null;
@@ -970,7 +1057,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
@@ -982,6 +1068,9 @@ public class Callout extends VisualBase {
     private Double width;
     private String width1;
 
+    /**
+     * Setter for the callout width.
+     */
     public Callout setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
@@ -996,7 +1085,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -1006,6 +1094,9 @@ public class Callout extends VisualBase {
     }
 
 
+    /**
+     * Setter for the callout width.
+     */
     public Callout setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
@@ -1020,7 +1111,6 @@ public class Callout extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
@@ -1029,68 +1119,9 @@ public class Callout extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSUiBackground getBackground() {
-//        if (UiBackground getBackground != null) {
-//            return UiBackground getBackground.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getHovered() {
-//        if (StateSettings getHovered != null) {
-//            return StateSettings getHovered.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLabels() {
-//        if (UiLabelsFactory getLabels != null) {
-//            return UiLabelsFactory getLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSMargin getMargin() {
-//        if (Margin getMargin != null) {
-//            return Margin getMargin.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getNormal() {
-//        if (StateSettings getNormal != null) {
-//            return StateSettings getNormal.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUtilsPadding getPadding() {
-//        if (UtilsPadding getPadding != null) {
-//            return UtilsPadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getSelected() {
-//        if (StateSettings getSelected != null) {
-//            return StateSettings getSelected.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiTitle getTitle() {
-//        if (UiTitle getTitle != null) {
-//            return UiTitle getTitle.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -1098,7 +1129,6 @@ public class Callout extends VisualBase {
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
-            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -1106,7 +1136,6 @@ public class Callout extends VisualBase {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
-            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1114,7 +1143,6 @@ public class Callout extends VisualBase {
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
-            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -1122,7 +1150,6 @@ public class Callout extends VisualBase {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
-            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -1130,7 +1157,6 @@ public class Callout extends VisualBase {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -1138,7 +1164,6 @@ public class Callout extends VisualBase {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
-            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -1146,7 +1171,6 @@ public class Callout extends VisualBase {
     private String generateJSgetTitle() {
         if (getTitle != null) {
             return getTitle.generateJs();
-            //return String.format(Locale.US, "getTitle: %s,", ((getTitle != null) ? getTitle.generateJs() : "null"));
         }
         return "";
     }
@@ -1176,96 +1200,6 @@ public class Callout extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSalign());
-////        
-//            js.append(generateJSalign1());
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJShovered());
-////        
-//            js.append(generateJSitems());
-////        
-//            js.append(generateJSlabels());
-////        
-//            js.append(generateJSlabels1());
-////        
-//            js.append(generateJSlength());
-////        
-//            js.append(generateJSlength1());
-////        
-//            js.append(generateJSmargin());
-////        
-//            js.append(generateJSmargin1());
-////        
-//            js.append(generateJSmargin2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSnormal());
-////        
-//            js.append(generateJSorientation());
-////        
-//            js.append(generateJSorientation1());
-////        
-//            js.append(generateJSpadding());
-////        
-//            js.append(generateJSpadding1());
-////        
-//            js.append(generateJSpadding2());
-////        
-//            js.append(generateJSvalue8());
-////        
-//            js.append(generateJSvalue9());
-////        
-//            js.append(generateJSvalue10());
-////        
-//            js.append(generateJSvalue11());
-////        
-//            js.append(generateJSvalue12());
-////        
-//            js.append(generateJSvalue13());
-////        
-//            js.append(generateJSvalue14());
-////        
-//            js.append(generateJSvalue15());
-////        
-//            js.append(generateJSselected());
-////        
-//            js.append(generateJStitle());
-////        
-//            js.append(generateJStitle1());
-////        
-//            js.append(generateJStitle2());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Zoom ui element (for zoomable chart).
+ */
 public class Zoom extends JsObject {
 
     public Zoom() {
-
+        js.setLength(0);
+        js.append("var zoom").append(++variableIndex).append(" = anychart.ui.zoom();");
+        jsBase = "zoom" + variableIndex;
     }
 
     protected Zoom(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Zoom extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Element decorate;
 
+    /**
+     * Decorates the container for the zoom controller.
+     */
     public void decorate(Element decorate) {
         if (jsBase == null) {
             this.decorate = decorate;
@@ -36,11 +49,12 @@ public class Zoom extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(decorate.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".decorate(%s);", ((decorate != null) ? decorate.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".decorate(%s);",  ((decorate != null) ? decorate.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((decorate != null) ? decorate.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((decorate != null) ? decorate.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -49,6 +63,9 @@ public class Zoom extends JsObject {
     private ChartsMap parentElement;
     private Element parentElement1;
 
+    /**
+     * Renders the zoom controller.
+     */
     public void render(ChartsMap parentElement) {
         if (jsBase == null) {
             this.parentElement = null;
@@ -61,17 +78,21 @@ public class Zoom extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(parentElement.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement != null) ? parentElement.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".render(%s);",  ((parentElement != null) ? parentElement.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
     }
 
 
+    /**
+     * Renders the zoom controller.
+     */
     public void render(Element parentElement1) {
         if (jsBase == null) {
             this.parentElement = null;
@@ -84,11 +105,12 @@ public class Zoom extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(parentElement1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement1 != null) ? parentElement1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".render(%s);",  ((parentElement1 != null) ? parentElement1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement1 != null) ? parentElement1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement1 != null) ? parentElement1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -96,6 +118,9 @@ public class Zoom extends JsObject {
 
     private ChartsMap chart;
 
+    /**
+     * Set Map chart for zoom controller.
+     */
     public void target(ChartsMap chart) {
         if (jsBase == null) {
             this.chart = chart;
@@ -105,18 +130,17 @@ public class Zoom extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(chart.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".target(%s);", ((chart != null) ? chart.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".target(%s);",  ((chart != null) ? chart.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", ((chart != null) ? chart.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", ((chart != null) ? chart.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -134,20 +158,6 @@ public class Zoom extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdecorate());
-////        
-//            js.append(generateJSparentElement());
-////        
-//            js.append(generateJSparentElement1());
-////        
-//            js.append(generateJSchart());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

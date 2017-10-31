@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Define geo scale.
+ */
 public class Geo extends CoreBase {
 
     public Geo() {
-
+        js.setLength(0);
+        js.append("var geo").append(++variableIndex).append(" = anychart.scales.geo();");
+        jsBase = "geo" + variableIndex;
     }
 
     protected Geo(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class Geo extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double x;
     private Double y;
 
+    /**
+     * Extends the current input domain with the passed values (if such don't exist in the domain).
+     */
     public Geo extendDataRange(Double x, Double y) {
         if (jsBase == null) {
             this.x = x;
@@ -41,7 +54,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".extendDataRange(%f, %f)", x, y));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".extendDataRange(%f, %f)", x, y));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class Geo extends CoreBase {
 
     private Double gap;
 
+    /**
+     * Setter for the gap setting.
+     */
     public Geo setGap(Double gap) {
         if (jsBase == null) {
             this.gap = gap;
@@ -63,7 +78,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".gap(%f)", gap));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".gap(%f)", gap));
                 js.setLength(0);
@@ -74,6 +88,11 @@ public class Geo extends CoreBase {
 
     private Double maxTicksCount;
 
+    /**
+     * Setter for maximum ticks count.<br/>
+Use the maxTicksCount() method for interval-mode ticks calculation.<br/>
+If the number of ticks is greater than set in maxTicksCount(), the scale calculates from 4 to 6 ticks.
+     */
     public Geo setMaxTicksCount(Double maxTicksCount) {
         if (jsBase == null) {
             this.maxTicksCount = maxTicksCount;
@@ -85,7 +104,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
                 js.setLength(0);
@@ -96,6 +114,9 @@ public class Geo extends CoreBase {
 
     private Double maximumX;
 
+    /**
+     * Setter for the maximum X.
+     */
     public Geo setMaximumX(Double maximumX) {
         if (jsBase == null) {
             this.maximumX = maximumX;
@@ -107,7 +128,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".maximumX(%f)", maximumX));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximumX(%f)", maximumX));
                 js.setLength(0);
@@ -118,6 +138,9 @@ public class Geo extends CoreBase {
 
     private Double maximumY;
 
+    /**
+     * Setter for the maximum Y.
+     */
     public Geo setMaximumY(Double maximumY) {
         if (jsBase == null) {
             this.maximumY = maximumY;
@@ -129,7 +152,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".maximumY(%f)", maximumY));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximumY(%f)", maximumY));
                 js.setLength(0);
@@ -140,6 +162,9 @@ public class Geo extends CoreBase {
 
     private Double minimumX;
 
+    /**
+     * Setter for the minimum X.
+     */
     public Geo setMinimumX(Double minimumX) {
         if (jsBase == null) {
             this.minimumX = minimumX;
@@ -151,7 +176,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minimumX(%f)", minimumX));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimumX(%f)", minimumX));
                 js.setLength(0);
@@ -162,6 +186,9 @@ public class Geo extends CoreBase {
 
     private Double minimumY;
 
+    /**
+     * Setter for the minimum Y.
+     */
     public Geo setMinimumY(Double minimumY) {
         if (jsBase == null) {
             this.minimumY = minimumY;
@@ -173,7 +200,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minimumY(%f)", minimumY));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimumY(%f)", minimumY));
                 js.setLength(0);
@@ -184,6 +210,9 @@ public class Geo extends CoreBase {
 
     private Double[] precision;
 
+    /**
+     * Setter for the precision using one value.
+     */
     public Geo setPrecision(Double[] precision) {
         if (jsBase == null) {
             this.precision = precision;
@@ -195,7 +224,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".precision(%s)", Arrays.toString(precision)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".precision(%s)", Arrays.toString(precision)));
                 js.setLength(0);
@@ -207,6 +235,9 @@ public class Geo extends CoreBase {
     private Double xPrecision;
     private Double yPrecision;
 
+    /**
+     * Setter for the precision using several values.
+     */
     public Geo setPrecision(Double xPrecision, Double yPrecision) {
         if (jsBase == null) {
             this.xPrecision = xPrecision;
@@ -220,7 +251,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".precision(%f, %f)", xPrecision, yPrecision));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".precision(%f, %f)", xPrecision, yPrecision));
                 js.setLength(0);
@@ -231,6 +261,9 @@ public class Geo extends CoreBase {
 
     private GeoTicks getXMinorTicks;
 
+    /**
+     * Getter for the set of scale x minor ticks.
+     */
     public GeoTicks getXMinorTicks() {
         if (getXMinorTicks == null)
             getXMinorTicks = new GeoTicks(jsBase + ".xMinorTicks()");
@@ -241,6 +274,9 @@ public class Geo extends CoreBase {
     private String xMinorTicks;
     private String[] xMinorTicks1;
 
+    /**
+     * Setter for the set of scale x minor ticks.
+     */
     public Geo setXMinorTicks(String xMinorTicks) {
         if (jsBase == null) {
             this.xMinorTicks = null;
@@ -255,7 +291,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xMinorTicks(%s)", wrapQuotes(xMinorTicks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorTicks(%s)", wrapQuotes(xMinorTicks)));
                 js.setLength(0);
@@ -265,6 +300,9 @@ public class Geo extends CoreBase {
     }
 
 
+    /**
+     * Setter for the set of scale x minor ticks.
+     */
     public Geo setXMinorTicks(String[] xMinorTicks1) {
         if (jsBase == null) {
             this.xMinorTicks = null;
@@ -279,7 +317,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xMinorTicks(%s)", arrayToStringWrapQuotes(xMinorTicks1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorTicks(%s)", arrayToStringWrapQuotes(xMinorTicks1)));
                 js.setLength(0);
@@ -290,6 +327,9 @@ public class Geo extends CoreBase {
 
     private GeoTicks getXTicks;
 
+    /**
+     * Getter for the set of scale x ticks.
+     */
     public GeoTicks getXTicks() {
         if (getXTicks == null)
             getXTicks = new GeoTicks(jsBase + ".xTicks()");
@@ -300,6 +340,9 @@ public class Geo extends CoreBase {
     private String xTicks;
     private String[] xTicks1;
 
+    /**
+     * Setter for the set of scale x ticks.
+     */
     public Geo setXTicks(String xTicks) {
         if (jsBase == null) {
             this.xTicks = null;
@@ -314,7 +357,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xTicks(%s)", wrapQuotes(xTicks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xTicks(%s)", wrapQuotes(xTicks)));
                 js.setLength(0);
@@ -324,6 +366,9 @@ public class Geo extends CoreBase {
     }
 
 
+    /**
+     * Setter for the set of scale x ticks.
+     */
     public Geo setXTicks(String[] xTicks1) {
         if (jsBase == null) {
             this.xTicks = null;
@@ -338,7 +383,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xTicks(%s)", arrayToStringWrapQuotes(xTicks1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xTicks(%s)", arrayToStringWrapQuotes(xTicks1)));
                 js.setLength(0);
@@ -349,6 +393,9 @@ public class Geo extends CoreBase {
 
     private GeoTicks getYMinorTicks;
 
+    /**
+     * Getter for the set of scale y minor ticks.
+     */
     public GeoTicks getYMinorTicks() {
         if (getYMinorTicks == null)
             getYMinorTicks = new GeoTicks(jsBase + ".yMinorTicks()");
@@ -359,6 +406,9 @@ public class Geo extends CoreBase {
     private String yMinorTicks;
     private String[] yMinorTicks1;
 
+    /**
+     * Setter for the set of scale y minor ticks.
+     */
     public Geo setYMinorTicks(String yMinorTicks) {
         if (jsBase == null) {
             this.yMinorTicks = null;
@@ -373,7 +423,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".yMinorTicks(%s)", wrapQuotes(yMinorTicks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorTicks(%s)", wrapQuotes(yMinorTicks)));
                 js.setLength(0);
@@ -383,6 +432,9 @@ public class Geo extends CoreBase {
     }
 
 
+    /**
+     * Setter for the set of scale y minor ticks.
+     */
     public Geo setYMinorTicks(String[] yMinorTicks1) {
         if (jsBase == null) {
             this.yMinorTicks = null;
@@ -397,7 +449,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".yMinorTicks(%s)", arrayToStringWrapQuotes(yMinorTicks1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorTicks(%s)", arrayToStringWrapQuotes(yMinorTicks1)));
                 js.setLength(0);
@@ -408,6 +459,9 @@ public class Geo extends CoreBase {
 
     private GeoTicks getYTicks;
 
+    /**
+     * Getter for the set of scale y ticks.
+     */
     public GeoTicks getYTicks() {
         if (getYTicks == null)
             getYTicks = new GeoTicks(jsBase + ".yTicks()");
@@ -418,6 +472,9 @@ public class Geo extends CoreBase {
     private String yTicks;
     private String[] yTicks1;
 
+    /**
+     * Setter for the set of scale y ticks.
+     */
     public Geo setYTicks(String yTicks) {
         if (jsBase == null) {
             this.yTicks = null;
@@ -432,7 +489,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".yTicks(%s)", wrapQuotes(yTicks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yTicks(%s)", wrapQuotes(yTicks)));
                 js.setLength(0);
@@ -442,6 +498,9 @@ public class Geo extends CoreBase {
     }
 
 
+    /**
+     * Setter for the set of scale y ticks.
+     */
     public Geo setYTicks(String[] yTicks1) {
         if (jsBase == null) {
             this.yTicks = null;
@@ -456,7 +515,6 @@ public class Geo extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".yTicks(%s)", arrayToStringWrapQuotes(yTicks1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yTicks(%s)", arrayToStringWrapQuotes(yTicks1)));
                 js.setLength(0);
@@ -465,40 +523,9 @@ public class Geo extends CoreBase {
         return this;
     }
 
-
-//
-//    private String generateJSGeoTicks getXMinorTicks() {
-//        if (GeoTicks getXMinorTicks != null) {
-//            return GeoTicks getXMinorTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGeoTicks getXTicks() {
-//        if (GeoTicks getXTicks != null) {
-//            return GeoTicks getXTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGeoTicks getYMinorTicks() {
-//        if (GeoTicks getYMinorTicks != null) {
-//            return GeoTicks getYMinorTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGeoTicks getYTicks() {
-//        if (GeoTicks getYTicks != null) {
-//            return GeoTicks getYTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetXMinorTicks() {
         if (getXMinorTicks != null) {
             return getXMinorTicks.generateJs();
-            //return String.format(Locale.US, "getXMinorTicks: %s,", ((getXMinorTicks != null) ? getXMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -506,7 +533,6 @@ public class Geo extends CoreBase {
     private String generateJSgetXTicks() {
         if (getXTicks != null) {
             return getXTicks.generateJs();
-            //return String.format(Locale.US, "getXTicks: %s,", ((getXTicks != null) ? getXTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -514,7 +540,6 @@ public class Geo extends CoreBase {
     private String generateJSgetYMinorTicks() {
         if (getYMinorTicks != null) {
             return getYMinorTicks.generateJs();
-            //return String.format(Locale.US, "getYMinorTicks: %s,", ((getYMinorTicks != null) ? getYMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -522,7 +547,6 @@ public class Geo extends CoreBase {
     private String generateJSgetYTicks() {
         if (getYTicks != null) {
             return getYTicks.generateJs();
-            //return String.format(Locale.US, "getYTicks: %s,", ((getYTicks != null) ? getYTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -548,50 +572,6 @@ public class Geo extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSx());
-////        
-//            js.append(generateJSy());
-////        
-//            js.append(generateJSgap());
-////        
-//            js.append(generateJSmaxTicksCount());
-////        
-//            js.append(generateJSmaximumX());
-////        
-//            js.append(generateJSmaximumY());
-////        
-//            js.append(generateJSminimumX());
-////        
-//            js.append(generateJSminimumY());
-////        
-//            js.append(generateJSprecision());
-////        
-//            js.append(generateJSxPrecision());
-////        
-//            js.append(generateJSyPrecision());
-////        
-//            js.append(generateJSxMinorTicks());
-////        
-//            js.append(generateJSxMinorTicks1());
-////        
-//            js.append(generateJSxTicks());
-////        
-//            js.append(generateJSxTicks1());
-////        
-//            js.append(generateJSyMinorTicks());
-////        
-//            js.append(generateJSyMinorTicks1());
-////        
-//            js.append(generateJSyTicks());
-////        
-//            js.append(generateJSyTicks1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

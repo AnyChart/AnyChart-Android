@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Represents simple linear scale that transforms values from domain [a, b] to domain [0, 1].
+Note that a can be greater than b. The only condition for the scale is that a != b.<br/>
+<b>Note:</b> To create instance use {@link anychart.scales#linear} method.
+ */
 public class ScalesLinear extends ScatterBase {
 
     public ScalesLinear() {
-
+        js.setLength(0);
+        js.append("var scalesLinear").append(++variableIndex).append(" = anychart.scales.linear();");
+        jsBase = "scalesLinear" + variableIndex;
     }
 
     protected ScalesLinear(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,11 +32,18 @@ public class ScalesLinear extends ScatterBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private ScaleCompareWithMode compareWith;
     private String compareWith1;
     private Double compareWith2;
 
+    /**
+     * Setter for the date which should be used as a changes zero for series.
+     */
     public ScalesLinear setCompareWith(ScaleCompareWithMode compareWith) {
         if (jsBase == null) {
             this.compareWith = null;
@@ -44,7 +59,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".compareWith(%s)", ((compareWith != null) ? compareWith.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", ((compareWith != null) ? compareWith.generateJs() : "null")));
                 js.setLength(0);
@@ -54,6 +68,9 @@ public class ScalesLinear extends ScatterBase {
     }
 
 
+    /**
+     * Setter for the date which should be used as a changes zero for series.
+     */
     public ScalesLinear setCompareWith(String compareWith1) {
         if (jsBase == null) {
             this.compareWith = null;
@@ -69,7 +86,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".compareWith(%s)", wrapQuotes(compareWith1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", wrapQuotes(compareWith1)));
                 js.setLength(0);
@@ -79,6 +95,9 @@ public class ScalesLinear extends ScatterBase {
     }
 
 
+    /**
+     * Setter for the date which should be used as a changes zero for series.
+     */
     public ScalesLinear setCompareWith(Double compareWith2) {
         if (jsBase == null) {
             this.compareWith = null;
@@ -94,7 +113,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".compareWith(%f)", compareWith2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".compareWith(%f)", compareWith2));
                 js.setLength(0);
@@ -106,6 +124,9 @@ public class ScalesLinear extends ScatterBase {
     private ScaleComparisonMode comparisonMode;
     private String comparisonMode1;
 
+    /**
+     * Setter for the scale changes mode.
+     */
     public ScalesLinear setComparisonMode(ScaleComparisonMode comparisonMode) {
         if (jsBase == null) {
             this.comparisonMode = null;
@@ -120,7 +141,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".comparisonMode(%s)", ((comparisonMode != null) ? comparisonMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", ((comparisonMode != null) ? comparisonMode.generateJs() : "null")));
                 js.setLength(0);
@@ -130,6 +150,9 @@ public class ScalesLinear extends ScatterBase {
     }
 
 
+    /**
+     * Setter for the scale changes mode.
+     */
     public ScalesLinear setComparisonMode(String comparisonMode1) {
         if (jsBase == null) {
             this.comparisonMode = null;
@@ -144,7 +167,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".comparisonMode(%s)", wrapQuotes(comparisonMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", wrapQuotes(comparisonMode1)));
                 js.setLength(0);
@@ -155,6 +177,9 @@ public class ScalesLinear extends ScatterBase {
 
     private Double maximumGap;
 
+    /**
+     * Setter for the scale maximum gap.
+     */
     public ScalesLinear setMaximumGap(Double maximumGap) {
         if (jsBase == null) {
             this.maximumGap = maximumGap;
@@ -166,7 +191,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
                 js.setLength(0);
@@ -177,6 +201,9 @@ public class ScalesLinear extends ScatterBase {
 
     private Double minimumGap;
 
+    /**
+     * Setter for the scale minimum gap.
+     */
     public ScalesLinear setMinimumGap(Double minimumGap) {
         if (jsBase == null) {
             this.minimumGap = minimumGap;
@@ -188,7 +215,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
                 js.setLength(0);
@@ -199,6 +225,9 @@ public class ScalesLinear extends ScatterBase {
 
     private ScatterTicks getMinorTicks;
 
+    /**
+     * Getter for set of scale minor ticks in terms of data values.
+     */
     public ScatterTicks getMinorTicks() {
         if (getMinorTicks == null)
             getMinorTicks = new ScatterTicks(jsBase + ".minorTicks()");
@@ -209,6 +238,9 @@ public class ScalesLinear extends ScatterBase {
     private String minorTicks;
     private String[] minorTicks1;
 
+    /**
+     * Setter for set of scale minor ticks in terms of data values.
+     */
     public ScalesLinear setMinorTicks(String minorTicks) {
         if (jsBase == null) {
             this.minorTicks = null;
@@ -223,7 +255,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
@@ -233,6 +264,9 @@ public class ScalesLinear extends ScatterBase {
     }
 
 
+    /**
+     * Setter for set of scale minor ticks in terms of data values.
+     */
     public ScalesLinear setMinorTicks(String[] minorTicks1) {
         if (jsBase == null) {
             this.minorTicks = null;
@@ -247,7 +281,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
                 js.setLength(0);
@@ -258,6 +291,9 @@ public class ScalesLinear extends ScatterBase {
 
     private Double softMaximum;
 
+    /**
+     * Setter for soft maximum.
+     */
     public ScalesLinear setSoftMaximum(Double softMaximum) {
         if (jsBase == null) {
             this.softMaximum = softMaximum;
@@ -269,7 +305,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
                 js.setLength(0);
@@ -280,6 +315,9 @@ public class ScalesLinear extends ScatterBase {
 
     private Double softMinimum;
 
+    /**
+     * Setter for soft minimum.
+     */
     public ScalesLinear setSoftMinimum(Double softMinimum) {
         if (jsBase == null) {
             this.softMinimum = softMinimum;
@@ -291,7 +329,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
                 js.setLength(0);
@@ -303,6 +340,9 @@ public class ScalesLinear extends ScatterBase {
     private ScaleStackDirection stackDirection;
     private String stackDirection1;
 
+    /**
+     * Setter for the stacking direction.
+     */
     public ScalesLinear setStackDirection(ScaleStackDirection stackDirection) {
         if (jsBase == null) {
             this.stackDirection = null;
@@ -317,7 +357,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".stackDirection(%s)", ((stackDirection != null) ? stackDirection.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stackDirection(%s)", ((stackDirection != null) ? stackDirection.generateJs() : "null")));
                 js.setLength(0);
@@ -327,6 +366,9 @@ public class ScalesLinear extends ScatterBase {
     }
 
 
+    /**
+     * Setter for the stacking direction.
+     */
     public ScalesLinear setStackDirection(String stackDirection1) {
         if (jsBase == null) {
             this.stackDirection = null;
@@ -341,7 +383,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".stackDirection(%s)", wrapQuotes(stackDirection1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stackDirection(%s)", wrapQuotes(stackDirection1)));
                 js.setLength(0);
@@ -353,6 +394,9 @@ public class ScalesLinear extends ScatterBase {
     private ScaleStackMode stackMode;
     private String stackMode1;
 
+    /**
+     * Setter for stacked mode.
+     */
     public ScalesLinear setStackMode(ScaleStackMode stackMode) {
         if (jsBase == null) {
             this.stackMode = null;
@@ -367,7 +411,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".stackMode(%s)", ((stackMode != null) ? stackMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stackMode(%s)", ((stackMode != null) ? stackMode.generateJs() : "null")));
                 js.setLength(0);
@@ -377,6 +420,9 @@ public class ScalesLinear extends ScatterBase {
     }
 
 
+    /**
+     * Setter for stacked mode.
+     */
     public ScalesLinear setStackMode(String stackMode1) {
         if (jsBase == null) {
             this.stackMode = null;
@@ -391,7 +437,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".stackMode(%s)", wrapQuotes(stackMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stackMode(%s)", wrapQuotes(stackMode1)));
                 js.setLength(0);
@@ -402,6 +447,10 @@ public class ScalesLinear extends ScatterBase {
 
     private Boolean stickToZero;
 
+    /**
+     * Setter for stick to zero.
+Flag to stick to zero value on auto calc if gaps lead to zero crossing.
+     */
     public ScalesLinear setStickToZero(Boolean stickToZero) {
         if (jsBase == null) {
             this.stickToZero = stickToZero;
@@ -413,7 +462,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".stickToZero(%b)", stickToZero));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stickToZero(%b)", stickToZero));
                 js.setLength(0);
@@ -424,6 +472,9 @@ public class ScalesLinear extends ScatterBase {
 
     private ScatterTicks getTicks;
 
+    /**
+     * Getter for set of scale ticks in terms of data values.
+     */
     public ScatterTicks getTicks() {
         if (getTicks == null)
             getTicks = new ScatterTicks(jsBase + ".ticks()");
@@ -434,6 +485,9 @@ public class ScalesLinear extends ScatterBase {
     private String ticks;
     private String[] ticks1;
 
+    /**
+     * Setter for set of scale ticks in terms of data values.
+     */
     public ScalesLinear setTicks(String ticks) {
         if (jsBase == null) {
             this.ticks = null;
@@ -448,7 +502,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
@@ -458,6 +511,9 @@ public class ScalesLinear extends ScatterBase {
     }
 
 
+    /**
+     * Setter for set of scale ticks in terms of data values.
+     */
     public ScalesLinear setTicks(String[] ticks1) {
         if (jsBase == null) {
             this.ticks = null;
@@ -472,7 +528,6 @@ public class ScalesLinear extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
@@ -481,26 +536,9 @@ public class ScalesLinear extends ScatterBase {
         return this;
     }
 
-
-//
-//    private String generateJSScatterTicks getMinorTicks() {
-//        if (ScatterTicks getMinorTicks != null) {
-//            return ScatterTicks getMinorTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScatterTicks getTicks() {
-//        if (ScatterTicks getTicks != null) {
-//            return ScatterTicks getTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetMinorTicks() {
         if (getMinorTicks != null) {
             return getMinorTicks.generateJs();
-            //return String.format(Locale.US, "getMinorTicks: %s,", ((getMinorTicks != null) ? getMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -508,7 +546,6 @@ public class ScalesLinear extends ScatterBase {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -532,48 +569,6 @@ public class ScalesLinear extends ScatterBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScompareWith());
-////        
-//            js.append(generateJScompareWith1());
-////        
-//            js.append(generateJScompareWith2());
-////        
-//            js.append(generateJScomparisonMode());
-////        
-//            js.append(generateJScomparisonMode1());
-////        
-//            js.append(generateJSmaximumGap());
-////        
-//            js.append(generateJSminimumGap());
-////        
-//            js.append(generateJSminorTicks());
-////        
-//            js.append(generateJSminorTicks1());
-////        
-//            js.append(generateJSsoftMaximum());
-////        
-//            js.append(generateJSsoftMinimum());
-////        
-//            js.append(generateJSstackDirection());
-////        
-//            js.append(generateJSstackDirection1());
-////        
-//            js.append(generateJSstackMode());
-////        
-//            js.append(generateJSstackMode1());
-////        
-//            js.append(generateJSstickToZero());
-////        
-//            js.append(generateJSticks());
-////        
-//            js.append(generateJSticks1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

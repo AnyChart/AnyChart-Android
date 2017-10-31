@@ -8,13 +8,25 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base class for all polar series.<br/>
+Base class defines common methods, such as those for:
+<ul>
+  <li>Binding series to a scale: <i>xScale, yScale</i></li>
+  <li>Base color settings: <i>color</i></li>
+</ul>
+You can also obtain <i>getIterator, getResetIterator</i> iterators here
+ */
 public class PolarSeriesBase extends AnychartSeriesBase {
 
     public PolarSeriesBase() {
-
+        js.setLength(0);
+        js.append("var polarSeriesBase").append(++variableIndex).append(" = anychart.core.polar.series.base();");
+        jsBase = "polarSeriesBase" + variableIndex;
     }
 
     protected PolarSeriesBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +36,17 @@ public class PolarSeriesBase extends AnychartSeriesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double indexes;
     private Double[] indexes1;
 
+    /**
+     * Excludes points at the specified index.
+     */
     public void excludePoint(Double indexes) {
         if (jsBase == null) {
             this.indexes = null;
@@ -42,7 +61,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".excludePoint(%f);", indexes));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f)", indexes));
                 js.setLength(0);
@@ -51,6 +69,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Excludes points at the specified index.
+     */
     public void excludePoint(Double[] indexes1) {
         if (jsBase == null) {
             this.indexes = null;
@@ -65,7 +86,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".excludePoint(%s);", Arrays.toString(indexes1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s)", Arrays.toString(indexes1)));
                 js.setLength(0);
@@ -76,6 +96,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     private Double indexes2;
     private Double[] indexes3;
 
+    /**
+     * Includes excluded points with the specified indexes.
+     */
     public void includePoint(Double indexes2) {
         if (jsBase == null) {
             this.indexes = null;
@@ -92,7 +115,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".includePoint(%f);", indexes2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f)", indexes2));
                 js.setLength(0);
@@ -101,6 +123,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Includes excluded points with the specified indexes.
+     */
     public void includePoint(Double[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
@@ -117,7 +142,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".includePoint(%s);", Arrays.toString(indexes3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s)", Arrays.toString(indexes3)));
                 js.setLength(0);
@@ -128,6 +152,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     private Double indexes4;
     private Double[] indexes5;
 
+    /**
+     * Keep only the specified points.
+     */
     public void keepOnlyPoints(Double indexes4) {
         if (jsBase == null) {
             this.indexes = null;
@@ -146,7 +173,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f);", indexes4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f)", indexes4));
                 js.setLength(0);
@@ -155,6 +181,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Keep only the specified points.
+     */
     public void keepOnlyPoints(Double[] indexes5) {
         if (jsBase == null) {
             this.indexes = null;
@@ -173,7 +202,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", Arrays.toString(indexes5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s)", Arrays.toString(indexes5)));
                 js.setLength(0);
@@ -184,6 +212,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     private Double maxPointWidth;
     private String maxPointWidth1;
 
+    /**
+     * Setter for the maximum point width.
+     */
     public PolarSeriesBase setMaxPointWidth(Double maxPointWidth) {
         if (jsBase == null) {
             this.maxPointWidth = null;
@@ -198,7 +229,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
                 js.setLength(0);
@@ -208,6 +238,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the maximum point width.
+     */
     public PolarSeriesBase setMaxPointWidth(String maxPointWidth1) {
         if (jsBase == null) {
             this.maxPointWidth = null;
@@ -222,7 +255,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
@@ -234,6 +266,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     private Double pointWidth;
     private String pointWidth1;
 
+    /**
+     * Setter for the point width settings.
+     */
     public PolarSeriesBase setPointWidth(Double pointWidth) {
         if (jsBase == null) {
             this.pointWidth = null;
@@ -248,7 +283,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
                 js.setLength(0);
@@ -258,6 +292,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the point width settings.
+     */
     public PolarSeriesBase setPointWidth(String pointWidth1) {
         if (jsBase == null) {
             this.pointWidth = null;
@@ -272,7 +309,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
                 js.setLength(0);
@@ -283,6 +319,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
 
     private ScalesLinear getXScale;
 
+    /**
+     * Getter for the series X scale.
+     */
     public ScalesLinear getXScale() {
         if (getXScale == null)
             getXScale = new ScalesLinear(jsBase + ".xScale()");
@@ -295,6 +334,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     private ScaleTypes xScale2;
     private String xScale3;
 
+    /**
+     * Setter for the series X scale.
+     */
     public PolarSeriesBase setXScale(ScalesBase xScale) {
         if (jsBase == null) {
             this.xScale = null;
@@ -305,15 +347,16 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             this.xScale = xScale;
         } else {
             this.xScale = xScale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(xScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale != null) ? xScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -321,6 +364,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series X scale.
+     */
     public PolarSeriesBase setXScale(String xScale1) {
         if (jsBase == null) {
             this.xScale = null;
@@ -337,7 +383,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale1)));
                 js.setLength(0);
@@ -347,6 +392,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series X scale.
+     */
     public PolarSeriesBase setXScale(ScaleTypes xScale2) {
         if (jsBase == null) {
             this.xScale = null;
@@ -363,7 +411,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.generateJs() : "null")));
                 js.setLength(0);
@@ -374,6 +421,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
 
     private ScalesBase getYScale;
 
+    /**
+     * Getter for the series Y scale.
+     */
     public ScalesBase getYScale() {
         if (getYScale == null)
             getYScale = new ScalesBase(jsBase + ".yScale()");
@@ -386,6 +436,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     private ScaleTypes yScale2;
     private String yScale3;
 
+    /**
+     * Setter for the series Y scale.
+     */
     public PolarSeriesBase setYScale(ScalesBase yScale) {
         if (jsBase == null) {
             this.yScale = null;
@@ -396,15 +449,16 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             this.yScale = yScale;
         } else {
             this.yScale = yScale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(yScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale != null) ? yScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -412,6 +466,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series Y scale.
+     */
     public PolarSeriesBase setYScale(String yScale1) {
         if (jsBase == null) {
             this.yScale = null;
@@ -428,7 +485,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
@@ -438,6 +494,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series Y scale.
+     */
     public PolarSeriesBase setYScale(ScaleTypes yScale2) {
         if (jsBase == null) {
             this.yScale = null;
@@ -454,7 +513,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
@@ -463,26 +521,9 @@ public class PolarSeriesBase extends AnychartSeriesBase {
         return this;
     }
 
-
-//
-//    private String generateJSScalesLinear getXScale() {
-//        if (ScalesLinear getXScale != null) {
-//            return ScalesLinear getXScale.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesBase getYScale() {
-//        if (ScalesBase getYScale != null) {
-//            return ScalesBase getYScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetXScale() {
         if (getXScale != null) {
             return getXScale.generateJs();
-            //return String.format(Locale.US, "getXScale: %s,", ((getXScale != null) ? getXScale.generateJs() : "null"));
         }
         return "";
     }
@@ -490,7 +531,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -514,48 +554,6 @@ public class PolarSeriesBase extends AnychartSeriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSindexes());
-////        
-//            js.append(generateJSindexes1());
-////        
-//            js.append(generateJSindexes2());
-////        
-//            js.append(generateJSindexes3());
-////        
-//            js.append(generateJSindexes4());
-////        
-//            js.append(generateJSindexes5());
-////        
-//            js.append(generateJSmaxPointWidth());
-////        
-//            js.append(generateJSmaxPointWidth1());
-////        
-//            js.append(generateJSpointWidth());
-////        
-//            js.append(generateJSpointWidth1());
-////        
-//            js.append(generateJSxScale());
-////        
-//            js.append(generateJSxScale1());
-////        
-//            js.append(generateJSxScale2());
-////        
-//            js.append(generateJSxScale3());
-////        
-//            js.append(generateJSyScale());
-////        
-//            js.append(generateJSyScale1());
-////        
-//            js.append(generateJSyScale2());
-////        
-//            js.append(generateJSyScale3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

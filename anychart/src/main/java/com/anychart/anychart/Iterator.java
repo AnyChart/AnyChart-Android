@@ -8,13 +8,22 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * <b>anychart.data.Iterator</b> class is used to work with data in a View.<br/>
+Iterator allows to get data from a {@link anychart.data.View} by crawling through rows. Iterator
+can be obtained using {@link anychart.data.View#getIterator} method and has methods to control current
+index and get values from data/metadata fields in a current row.
+ */
 public class Iterator extends JsObject {
 
     public Iterator() {
-
+        js.setLength(0);
+        js.append("var iterator").append(++variableIndex).append(" = anychart.data.iterator();");
+        jsBase = "iterator" + variableIndex;
     }
 
     protected Iterator(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +33,16 @@ public class Iterator extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String name;
 
+    /**
+     * Sets metadata value by the field name.
+     */
     public Iterator setMeta(String name) {
         if (jsBase == null) {
             this.name = name;
@@ -38,7 +54,6 @@ public class Iterator extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".meta(%s)", wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".meta(%s)", wrapQuotes(name)));
                 js.setLength(0);
@@ -49,6 +64,9 @@ public class Iterator extends JsObject {
 
     private Double index;
 
+    /**
+     * Sets a passed index as the current index and returns it in case of success.
+     */
     public void setSelect(Double index) {
         if (jsBase == null) {
             this.index = index;
@@ -60,7 +78,6 @@ public class Iterator extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".select(%f);", index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f)", index));
                 js.setLength(0);
@@ -68,8 +85,6 @@ public class Iterator extends JsObject {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -87,16 +102,6 @@ public class Iterator extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSname());
-////        
-//            js.append(generateJSindex());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

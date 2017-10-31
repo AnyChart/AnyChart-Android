@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * An extended base element that understands bounds settings and can handle percent values in it.
+ */
 public class VisualBaseWithBounds extends VisualBase {
 
     public VisualBaseWithBounds() {
-
+        js.setLength(0);
+        js.append("var visualBaseWithBounds").append(++variableIndex).append(" = anychart.core.visualBaseWithBounds();");
+        jsBase = "visualBaseWithBounds" + variableIndex;
     }
 
     protected VisualBaseWithBounds(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class VisualBaseWithBounds extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double bottom;
     private String bottom1;
 
+    /**
+     * Sets element bottom bound setting.
+     */
     public VisualBaseWithBounds setBottom(Double bottom) {
         if (jsBase == null) {
             this.bottom = null;
@@ -42,7 +55,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".bottom(%f)", bottom));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%f)", bottom));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Sets element bottom bound setting.
+     */
     public VisualBaseWithBounds setBottom(String bottom1) {
         if (jsBase == null) {
             this.bottom = null;
@@ -66,7 +81,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
                 js.setLength(0);
@@ -77,6 +91,9 @@ public class VisualBaseWithBounds extends VisualBase {
 
     private Bounds getBounds;
 
+    /**
+     * Getter for the element bounds settings.
+     */
     public Bounds getBounds() {
         if (getBounds == null)
             getBounds = new Bounds(jsBase + ".bounds()");
@@ -88,6 +105,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private AnychartMathRect bounds1;
     private Bounds bounds2;
 
+    /**
+     * Sets bounds of the element using one parameter.
+     */
     public VisualBase setBounds(RectObj bounds) {
         if (jsBase == null) {
             this.bounds = null;
@@ -103,7 +123,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s);", ((bounds != null) ? bounds.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds != null) ? bounds.generateJs() : "null")));
                 js.setLength(0);
@@ -113,6 +132,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Sets bounds of the element using one parameter.
+     */
     public VisualBase setBounds(AnychartMathRect bounds1) {
         if (jsBase == null) {
             this.bounds = null;
@@ -126,11 +148,12 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(bounds1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", ((bounds1 != null) ? bounds1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".bounds(%s);",  ((bounds1 != null) ? bounds1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds1 != null) ? bounds1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds1 != null) ? bounds1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -138,6 +161,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Sets bounds of the element using one parameter.
+     */
     public VisualBase setBounds(Bounds bounds2) {
         if (jsBase == null) {
             this.bounds = null;
@@ -151,11 +177,12 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(bounds2.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", ((bounds2 != null) ? bounds2.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".bounds(%s);",  ((bounds2 != null) ? bounds2.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds2 != null) ? bounds2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds2 != null) ? bounds2.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -171,6 +198,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double height;
     private String height1;
 
+    /**
+     * Setter for the element bounds settings.
+     */
     public VisualBase setBounds(String x1, String y1, String width1, String height1) {
         if (jsBase == null) {
             this.x = null;
@@ -200,7 +230,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", wrapQuotes(x1), wrapQuotes(y1), wrapQuotes(width1), wrapQuotes(height1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s)", wrapQuotes(x1), wrapQuotes(y1), wrapQuotes(width1), wrapQuotes(height1)));
                 js.setLength(0);
@@ -210,6 +239,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Setter for the element bounds settings.
+     */
     public VisualBase setBounds(Double x, Double y, Double width, Double height) {
         if (jsBase == null) {
             this.x = null;
@@ -239,7 +271,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f)", x, y, width, height));
                 js.setLength(0);
@@ -251,6 +282,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double height2;
     private String height3;
 
+    /**
+     * Sets element height setting.
+     */
     public VisualBaseWithBounds setHeight(Double height2) {
         if (jsBase == null) {
             this.height = null;
@@ -267,7 +301,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height2));
                 js.setLength(0);
@@ -277,6 +310,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Sets element height setting.
+     */
     public VisualBaseWithBounds setHeight(String height3) {
         if (jsBase == null) {
             this.height = null;
@@ -293,7 +329,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height3)));
                 js.setLength(0);
@@ -305,6 +340,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double left;
     private String left1;
 
+    /**
+     * Sets element left bound setting.
+     */
     public VisualBaseWithBounds setLeft(Double left) {
         if (jsBase == null) {
             this.left = null;
@@ -319,7 +357,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".left(%f)", left));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%f)", left));
                 js.setLength(0);
@@ -329,6 +366,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Sets element left bound setting.
+     */
     public VisualBaseWithBounds setLeft(String left1) {
         if (jsBase == null) {
             this.left = null;
@@ -343,7 +383,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
                 js.setLength(0);
@@ -355,6 +394,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double maxHeight;
     private String maxHeight1;
 
+    /**
+     * Setter for maximum height.
+     */
     public VisualBase setMaxHeight(Double maxHeight) {
         if (jsBase == null) {
             this.maxHeight = null;
@@ -369,7 +411,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f)", maxHeight));
                 js.setLength(0);
@@ -379,6 +420,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Setter for maximum height.
+     */
     public VisualBase setMaxHeight(String maxHeight1) {
         if (jsBase == null) {
             this.maxHeight = null;
@@ -393,7 +437,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(maxHeight1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s)", wrapQuotes(maxHeight1)));
                 js.setLength(0);
@@ -405,6 +448,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double maxWidth;
     private String maxWidth1;
 
+    /**
+     * Setter for maximum width.
+     */
     public VisualBase setMaxWidth(Double maxWidth) {
         if (jsBase == null) {
             this.maxWidth = null;
@@ -419,7 +465,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f)", maxWidth));
                 js.setLength(0);
@@ -429,6 +474,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Setter for maximum width.
+     */
     public VisualBase setMaxWidth(String maxWidth1) {
         if (jsBase == null) {
             this.maxWidth = null;
@@ -443,7 +491,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(maxWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s)", wrapQuotes(maxWidth1)));
                 js.setLength(0);
@@ -455,6 +502,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double minHeight;
     private String minHeight1;
 
+    /**
+     * Setter for minimum height.
+     */
     public VisualBase setMinHeight(Double minHeight) {
         if (jsBase == null) {
             this.minHeight = null;
@@ -469,7 +519,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f)", minHeight));
                 js.setLength(0);
@@ -479,6 +528,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Setter for minimum height.
+     */
     public VisualBase setMinHeight(String minHeight1) {
         if (jsBase == null) {
             this.minHeight = null;
@@ -493,7 +545,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(minHeight1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s)", wrapQuotes(minHeight1)));
                 js.setLength(0);
@@ -505,6 +556,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double minWidth;
     private String minWidth1;
 
+    /**
+     * Setter for minimum width.
+     */
     public VisualBase setMinWidth(Double minWidth) {
         if (jsBase == null) {
             this.minWidth = null;
@@ -519,7 +573,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f)", minWidth));
                 js.setLength(0);
@@ -529,6 +582,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Setter for minimum width.
+     */
     public VisualBase setMinWidth(String minWidth1) {
         if (jsBase == null) {
             this.minWidth = null;
@@ -543,7 +599,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(minWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s)", wrapQuotes(minWidth1)));
                 js.setLength(0);
@@ -555,6 +610,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double right;
     private String right1;
 
+    /**
+     * Sets element right bound setting.
+     */
     public VisualBaseWithBounds setRight(Double right) {
         if (jsBase == null) {
             this.right = null;
@@ -569,7 +627,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".right(%f)", right));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%f)", right));
                 js.setLength(0);
@@ -579,6 +636,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Sets element right bound setting.
+     */
     public VisualBaseWithBounds setRight(String right1) {
         if (jsBase == null) {
             this.right = null;
@@ -593,7 +653,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
                 js.setLength(0);
@@ -605,6 +664,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double top;
     private String top1;
 
+    /**
+     * Sets element top bound setting.
+     */
     public VisualBaseWithBounds setTop(Double top) {
         if (jsBase == null) {
             this.top = null;
@@ -619,7 +681,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".top(%f)", top));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%f)", top));
                 js.setLength(0);
@@ -629,6 +690,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Sets element top bound setting.
+     */
     public VisualBaseWithBounds setTop(String top1) {
         if (jsBase == null) {
             this.top = null;
@@ -643,7 +707,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
                 js.setLength(0);
@@ -655,6 +718,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double width2;
     private String width3;
 
+    /**
+     * Sets element width setting.
+     */
     public VisualBaseWithBounds setWidth(Double width2) {
         if (jsBase == null) {
             this.width = null;
@@ -671,7 +737,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width2));
                 js.setLength(0);
@@ -681,6 +746,9 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
 
+    /**
+     * Sets element width setting.
+     */
     public VisualBaseWithBounds setWidth(String width3) {
         if (jsBase == null) {
             this.width = null;
@@ -697,7 +765,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width3)));
                 js.setLength(0);
@@ -706,19 +773,9 @@ public class VisualBaseWithBounds extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSBounds getBounds() {
-//        if (Bounds getBounds != null) {
-//            return Bounds getBounds.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBounds() {
         if (getBounds != null) {
             return getBounds.generateJs();
-            //return String.format(Locale.US, "getBounds: %s,", ((getBounds != null) ? getBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -741,74 +798,6 @@ public class VisualBaseWithBounds extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbottom());
-////        
-//            js.append(generateJSbottom1());
-////        
-//            js.append(generateJSbounds());
-////        
-//            js.append(generateJSbounds1());
-////        
-//            js.append(generateJSbounds2());
-////        
-//            js.append(generateJSx());
-////        
-//            js.append(generateJSx1());
-////        
-//            js.append(generateJSy());
-////        
-//            js.append(generateJSy1());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJSheight2());
-////        
-//            js.append(generateJSheight3());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJSleft1());
-////        
-//            js.append(generateJSmaxHeight());
-////        
-//            js.append(generateJSmaxHeight1());
-////        
-//            js.append(generateJSmaxWidth());
-////        
-//            js.append(generateJSmaxWidth1());
-////        
-//            js.append(generateJSminHeight());
-////        
-//            js.append(generateJSminHeight1());
-////        
-//            js.append(generateJSminWidth());
-////        
-//            js.append(generateJSminWidth1());
-////        
-//            js.append(generateJSright());
-////        
-//            js.append(generateJSright1());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJStop1());
-////        
-//            js.append(generateJSwidth2());
-////        
-//            js.append(generateJSwidth3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

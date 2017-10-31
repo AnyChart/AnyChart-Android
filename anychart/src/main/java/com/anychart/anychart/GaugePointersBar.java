@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Bar pointer class.
+ */
 public class GaugePointersBar extends GaugePointersBase {
 
     public GaugePointersBar() {
-
+        js.setLength(0);
+        js.append("var gaugePointersBar").append(++variableIndex).append(" = anychart.core.gauge.pointers.bar();");
+        jsBase = "gaugePointersBar" + variableIndex;
     }
 
     protected GaugePointersBar(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class GaugePointersBar extends GaugePointersBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private GaugeSidePosition position;
     private String position1;
 
+    /**
+     * Setter for the bar position.
+     */
     public GaugePointersBar setPosition(GaugeSidePosition position) {
         if (jsBase == null) {
             this.position = null;
@@ -42,7 +55,6 @@ public class GaugePointersBar extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class GaugePointersBar extends GaugePointersBase {
     }
 
 
+    /**
+     * Setter for the bar position.
+     */
     public GaugePointersBar setPosition(String position1) {
         if (jsBase == null) {
             this.position = null;
@@ -66,7 +81,6 @@ public class GaugePointersBar extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -78,6 +92,9 @@ public class GaugePointersBar extends GaugePointersBase {
     private Double radius;
     private String radius1;
 
+    /**
+     * Setter for the bar pointer radius.
+     */
     public GaugePointersBar setRadius(Double radius) {
         if (jsBase == null) {
             this.radius = null;
@@ -92,7 +109,6 @@ public class GaugePointersBar extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".radius(%f)", radius));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
                 js.setLength(0);
@@ -102,6 +118,9 @@ public class GaugePointersBar extends GaugePointersBase {
     }
 
 
+    /**
+     * Setter for the bar pointer radius.
+     */
     public GaugePointersBar setRadius(String radius1) {
         if (jsBase == null) {
             this.radius = null;
@@ -116,7 +135,6 @@ public class GaugePointersBar extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
                 js.setLength(0);
@@ -128,6 +146,9 @@ public class GaugePointersBar extends GaugePointersBase {
     private Double width;
     private String width1;
 
+    /**
+     * Setter for the bar width.
+     */
     public GaugePointersBar setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
@@ -142,7 +163,6 @@ public class GaugePointersBar extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -152,6 +172,9 @@ public class GaugePointersBar extends GaugePointersBase {
     }
 
 
+    /**
+     * Setter for the bar width.
+     */
     public GaugePointersBar setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
@@ -166,7 +189,6 @@ public class GaugePointersBar extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
@@ -175,8 +197,6 @@ public class GaugePointersBar extends GaugePointersBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -194,24 +214,6 @@ public class GaugePointersBar extends GaugePointersBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSposition1());
-////        
-//            js.append(generateJSradius());
-////        
-//            js.append(generateJSradius1());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

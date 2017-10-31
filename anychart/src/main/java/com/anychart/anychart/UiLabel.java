@@ -8,13 +8,28 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Label element class.<br/>
+Label can be a part of another element (such as chart, legend, axis, etc) or it can
+be used independently.<br/>
+Label has a background and a large number of positioning options:
+<ul>
+  <li>{@link anychart.core.ui.Label#anchor}</li>
+  <li>{@link anychart.core.ui.Label#position}</li>
+  <li>{@link anychart.core.ui.Label#offsetX} and {@link anychart.core.ui.Label#offsetY}</li>
+  <li>{@link anychart.core.ui.Label#parentBounds}</li>
+</ul>
+ */
 public class UiLabel extends CoreText {
 
     public UiLabel() {
-
+        js.setLength(0);
+        js.append("var uiLabel").append(++variableIndex).append(" = anychart.core.ui.label();");
+        jsBase = "uiLabel" + variableIndex;
     }
 
     protected UiLabel(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,12 +39,19 @@ public class UiLabel extends CoreText {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String bothOrByWidth;
     private Boolean[] bothOrByWidth1;
     private Boolean bothOrByWidth2;
     private Boolean byHeight;
 
+    /**
+     * Setter for the adjust font settings.
+     */
     public UiLabel setAdjustFontSize(String bothOrByWidth, Boolean byHeight) {
         if (jsBase == null) {
             this.bothOrByWidth = null;
@@ -47,7 +69,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(bothOrByWidth), byHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(bothOrByWidth), byHeight));
                 js.setLength(0);
@@ -57,6 +78,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for the adjust font settings.
+     */
     public UiLabel setAdjustFontSize(Boolean[] bothOrByWidth1, Boolean byHeight) {
         if (jsBase == null) {
             this.bothOrByWidth = null;
@@ -74,7 +98,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(bothOrByWidth1), byHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(bothOrByWidth1), byHeight));
                 js.setLength(0);
@@ -84,6 +107,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for the adjust font settings.
+     */
     public UiLabel setAdjustFontSize(Boolean bothOrByWidth2, Boolean byHeight) {
         if (jsBase == null) {
             this.bothOrByWidth = null;
@@ -101,7 +127,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", bothOrByWidth2, byHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%b, %b)", bothOrByWidth2, byHeight));
                 js.setLength(0);
@@ -113,6 +138,9 @@ public class UiLabel extends CoreText {
     private EnumsAnchor anchor;
     private String anchor1;
 
+    /**
+     * Setter for label anchor settings.
+     */
     public UiLabel setAnchor(EnumsAnchor anchor) {
         if (jsBase == null) {
             this.anchor = null;
@@ -127,7 +155,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
@@ -137,6 +164,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for label anchor settings.
+     */
     public UiLabel setAnchor(String anchor1) {
         if (jsBase == null) {
             this.anchor = null;
@@ -151,7 +181,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
                 js.setLength(0);
@@ -162,6 +191,9 @@ public class UiLabel extends CoreText {
 
     private UiBackground getBackground;
 
+    /**
+     * Getter for label background settings.
+     */
     public UiBackground getBackground() {
         if (getBackground == null)
             getBackground = new UiBackground(jsBase + ".background()");
@@ -173,6 +205,9 @@ public class UiLabel extends CoreText {
     private String background1;
     private Boolean background2;
 
+    /**
+     * Setter for label background settings.
+     */
     public UiLabel setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
@@ -188,7 +223,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -198,6 +232,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for label background settings.
+     */
     public UiLabel setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
@@ -213,7 +250,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -225,6 +261,9 @@ public class UiLabel extends CoreText {
     private Double height;
     private String height1;
 
+    /**
+     * Setter for the label height.
+     */
     public UiLabel setHeight(Double height) {
         if (jsBase == null) {
             this.height = null;
@@ -239,7 +278,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -249,6 +287,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for the label height.
+     */
     public UiLabel setHeight(String height1) {
         if (jsBase == null) {
             this.height = null;
@@ -263,7 +304,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
@@ -275,6 +315,9 @@ public class UiLabel extends CoreText {
     private Double maxFontSize;
     private String maxFontSize1;
 
+    /**
+     * Setter for maximum font size settings for adjust text to.
+     */
     public UiLabel setMaxFontSize(Double maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
@@ -289,7 +332,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
                 js.setLength(0);
@@ -299,6 +341,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for maximum font size settings for adjust text to.
+     */
     public UiLabel setMaxFontSize(String maxFontSize1) {
         if (jsBase == null) {
             this.maxFontSize = null;
@@ -313,7 +358,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
                 js.setLength(0);
@@ -325,6 +369,9 @@ public class UiLabel extends CoreText {
     private Double minFontSize;
     private String minFontSize1;
 
+    /**
+     * Setter for minimum font size settings for adjust text from.
+     */
     public UiLabel setMinFontSize(Double minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
@@ -339,7 +386,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
                 js.setLength(0);
@@ -349,6 +395,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for minimum font size settings for adjust text from.
+     */
     public UiLabel setMinFontSize(String minFontSize1) {
         if (jsBase == null) {
             this.minFontSize = null;
@@ -363,7 +412,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
                 js.setLength(0);
@@ -375,6 +423,11 @@ public class UiLabel extends CoreText {
     private Double offsetX;
     private String offsetX1;
 
+    /**
+     * Setter for label offsetX settings.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+Arrows show offsets layout.
+     */
     public UiLabel setOffsetX(Double offsetX) {
         if (jsBase == null) {
             this.offsetX = null;
@@ -389,7 +442,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetX(%f)", offsetX));
                 js.setLength(0);
@@ -399,6 +451,11 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for label offsetX settings.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+Arrows show offsets layout.
+     */
     public UiLabel setOffsetX(String offsetX1) {
         if (jsBase == null) {
             this.offsetX = null;
@@ -413,7 +470,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
                 js.setLength(0);
@@ -425,6 +481,11 @@ public class UiLabel extends CoreText {
     private Double offsetY;
     private String offsetY1;
 
+    /**
+     * Setter for label offsetY settings.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+Arrows show offsets layout.
+     */
     public UiLabel setOffsetY(Double offsetY) {
         if (jsBase == null) {
             this.offsetY = null;
@@ -439,7 +500,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetY(%f)", offsetY));
                 js.setLength(0);
@@ -449,6 +509,11 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for label offsetY settings.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+Arrows show offsets layout.
+     */
     public UiLabel setOffsetY(String offsetY1) {
         if (jsBase == null) {
             this.offsetY = null;
@@ -463,7 +528,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
                 js.setLength(0);
@@ -474,6 +538,9 @@ public class UiLabel extends CoreText {
 
     private UtilsPadding getPadding;
 
+    /**
+     * Getter for the label padding.
+     */
     public UtilsPadding getPadding() {
         if (getPadding == null)
             getPadding = new UtilsPadding(jsBase + ".padding()");
@@ -485,6 +552,9 @@ public class UiLabel extends CoreText {
     private String[] padding1;
     private String padding2;
 
+    /**
+     * Setter for the label padding in pixels by one value.
+     */
     public UiLabel setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
@@ -500,7 +570,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -510,6 +579,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for the label padding in pixels by one value.
+     */
     public UiLabel setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
@@ -525,7 +597,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -535,6 +606,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for the label padding in pixels by one value.
+     */
     public UiLabel setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
@@ -550,7 +624,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -568,6 +641,9 @@ public class UiLabel extends CoreText {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for the label padding in pixels.
+     */
     public UiLabel setPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -621,7 +697,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -631,6 +706,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for the label padding in pixels.
+     */
     public UiLabel setPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -684,7 +762,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -696,6 +773,9 @@ public class UiLabel extends CoreText {
     private Position position;
     private String position1;
 
+    /**
+     * Setter for label position settings.
+     */
     public UiLabel setPosition(Position position) {
         if (jsBase == null) {
             this.position = null;
@@ -710,7 +790,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -720,6 +799,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for label position settings.
+     */
     public UiLabel setPosition(String position1) {
         if (jsBase == null) {
             this.position = null;
@@ -734,7 +816,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -745,6 +826,9 @@ public class UiLabel extends CoreText {
 
     private String text;
 
+    /**
+     * Setter for text content for a label.
+     */
     public UiLabel setText(String text) {
         if (jsBase == null) {
             this.text = text;
@@ -756,7 +840,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
                 js.setLength(0);
@@ -768,6 +851,9 @@ public class UiLabel extends CoreText {
     private Double width;
     private String width1;
 
+    /**
+     * Setter for the label width.
+     */
     public UiLabel setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
@@ -782,7 +868,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -792,6 +877,9 @@ public class UiLabel extends CoreText {
     }
 
 
+    /**
+     * Setter for the label width.
+     */
     public UiLabel setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
@@ -806,7 +894,6 @@ public class UiLabel extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
@@ -815,26 +902,9 @@ public class UiLabel extends CoreText {
         return this;
     }
 
-
-//
-//    private String generateJSUiBackground getBackground() {
-//        if (UiBackground getBackground != null) {
-//            return UiBackground getBackground.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUtilsPadding getPadding() {
-//        if (UtilsPadding getPadding != null) {
-//            return UtilsPadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -842,7 +912,6 @@ public class UiLabel extends CoreText {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -866,82 +935,6 @@ public class UiLabel extends CoreText {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbothOrByWidth());
-////        
-//            js.append(generateJSbothOrByWidth1());
-////        
-//            js.append(generateJSbothOrByWidth2());
-////        
-//            js.append(generateJSbyHeight());
-////        
-//            js.append(generateJSanchor());
-////        
-//            js.append(generateJSanchor1());
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJSmaxFontSize());
-////        
-//            js.append(generateJSmaxFontSize1());
-////        
-//            js.append(generateJSminFontSize());
-////        
-//            js.append(generateJSminFontSize1());
-////        
-//            js.append(generateJSoffsetX());
-////        
-//            js.append(generateJSoffsetX1());
-////        
-//            js.append(generateJSoffsetY());
-////        
-//            js.append(generateJSoffsetY1());
-////        
-//            js.append(generateJSpadding());
-////        
-//            js.append(generateJSpadding1());
-////        
-//            js.append(generateJSpadding2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSposition1());
-////        
-//            js.append(generateJStext());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

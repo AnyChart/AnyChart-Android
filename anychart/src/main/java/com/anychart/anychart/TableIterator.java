@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Table iterator class. Assumes iterator (if any) to return not less keys than the table has.
+ */
 public class TableIterator extends JsObject {
 
     public TableIterator() {
-
+        js.setLength(0);
+        js.append("var tableIterator").append(++variableIndex).append(" = anychart.data.tableIterator();");
+        jsBase = "tableIterator" + variableIndex;
     }
 
     protected TableIterator(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class TableIterator extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String field;
 
+    /**
+     * Returns current field values.
+     */
     public void get(String field) {
         if (jsBase == null) {
             this.field = field;
@@ -38,7 +51,6 @@ public class TableIterator extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".get(%s);", wrapQuotes(field)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
                 js.setLength(0);
@@ -46,8 +58,6 @@ public class TableIterator extends JsObject {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -65,14 +75,6 @@ public class TableIterator extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfield());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

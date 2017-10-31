@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Tags settings class.
+ */
 public class TagsSettings extends TextSettings {
 
     public TagsSettings() {
-
+        js.setLength(0);
+        js.append("var tagsSettings").append(++variableIndex).append(" = anychart.core.resource.resourceList.tagsSettings();");
+        jsBase = "tagsSettings" + variableIndex;
     }
 
     protected TagsSettings(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class TagsSettings extends TextSettings {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private UiBackground getBackground;
 
+    /**
+     * Getter for tags background.
+     */
     public UiBackground getBackground() {
         if (getBackground == null)
             getBackground = new UiBackground(jsBase + ".background()");
@@ -38,6 +51,9 @@ public class TagsSettings extends TextSettings {
     private String background1;
     private Boolean background2;
 
+    /**
+     * Setter for tags background.
+     */
     public TagsSettings setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
@@ -53,7 +69,6 @@ public class TagsSettings extends TextSettings {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -63,6 +78,9 @@ public class TagsSettings extends TextSettings {
     }
 
 
+    /**
+     * Setter for tags background.
+     */
     public TagsSettings setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
@@ -78,7 +96,6 @@ public class TagsSettings extends TextSettings {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -89,6 +106,9 @@ public class TagsSettings extends TextSettings {
 
     private UtilsPadding getPadding;
 
+    /**
+     * Getter for tags padding.
+     */
     public UtilsPadding getPadding() {
         if (getPadding == null)
             getPadding = new UtilsPadding(jsBase + ".padding()");
@@ -100,6 +120,9 @@ public class TagsSettings extends TextSettings {
     private String[] padding1;
     private String padding2;
 
+    /**
+     * Setter for padding in pixels by one value.
+     */
     public TagsSettings setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
@@ -115,7 +138,6 @@ public class TagsSettings extends TextSettings {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -125,6 +147,9 @@ public class TagsSettings extends TextSettings {
     }
 
 
+    /**
+     * Setter for padding in pixels by one value.
+     */
     public TagsSettings setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
@@ -140,7 +165,6 @@ public class TagsSettings extends TextSettings {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -150,6 +174,9 @@ public class TagsSettings extends TextSettings {
     }
 
 
+    /**
+     * Setter for padding in pixels by one value.
+     */
     public TagsSettings setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
@@ -165,7 +192,6 @@ public class TagsSettings extends TextSettings {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -183,6 +209,9 @@ public class TagsSettings extends TextSettings {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for tags padding in pixels.
+     */
     public TagsSettings setPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -236,7 +265,6 @@ public class TagsSettings extends TextSettings {
             }
 
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -246,6 +274,9 @@ public class TagsSettings extends TextSettings {
     }
 
 
+    /**
+     * Setter for tags padding in pixels.
+     */
     public TagsSettings setPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -299,7 +330,6 @@ public class TagsSettings extends TextSettings {
             }
 
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -308,26 +338,9 @@ public class TagsSettings extends TextSettings {
         return this;
     }
 
-
-//
-//    private String generateJSUiBackground getBackground() {
-//        if (UiBackground getBackground != null) {
-//            return UiBackground getBackground.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUtilsPadding getPadding() {
-//        if (UtilsPadding getPadding != null) {
-//            return UtilsPadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -335,7 +348,6 @@ public class TagsSettings extends TextSettings {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -359,40 +371,6 @@ public class TagsSettings extends TextSettings {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJSpadding());
-////        
-//            js.append(generateJSpadding1());
-////        
-//            js.append(generateJSpadding2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

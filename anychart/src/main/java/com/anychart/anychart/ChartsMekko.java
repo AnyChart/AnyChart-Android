@@ -6,13 +6,40 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Mekko chart class.<br/>
+To get the chart use any of these methods:
+ <ul>
+     <li>{@link anychart#mosaic}</li>
+     <li>{@link anychart#mekko}</li>
+     <li>{@link anychart#barmekko}</li>
+ </ul>
+ */
 public class ChartsMekko extends SeparateChart {
 
     protected ChartsMekko(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public ChartsMekko setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public ChartsMekko setData(List<DataEntry> data) {
@@ -35,7 +62,31 @@ public class ChartsMekko extends SeparateChart {
         return this;
     }
 
+    public ChartsMekko setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
+
+    /**
+     * Adds series to the chart.
+     */
     public void addSeries(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -58,6 +109,9 @@ public class ChartsMekko extends SeparateChart {
 
     private PlotController getAnnotations;
 
+    /**
+     * Getter for the annotations.
+     */
     public PlotController getAnnotations() {
         if (getAnnotations == null)
             getAnnotations = new PlotController(jsBase + ".annotations()");
@@ -66,6 +120,10 @@ public class ChartsMekko extends SeparateChart {
     }
     private String[] annotationsList;
     private List<ChartsMekko> setAnnotations = new ArrayList<>();
+
+    /**
+     * Setter for the annotations.
+     */
     public ChartsMekko setAnnotations(String[] annotationsList) {
         if (!isChain) {
             js.append(jsBase);
@@ -93,6 +151,9 @@ public class ChartsMekko extends SeparateChart {
 
     private Crosshair getCrosshair;
 
+    /**
+     * Getter for crosshair settings.
+     */
     public Crosshair getCrosshair() {
         if (getCrosshair == null)
             getCrosshair = new Crosshair(jsBase + ".crosshair()");
@@ -102,6 +163,10 @@ public class ChartsMekko extends SeparateChart {
     private String crosshair;
     private Boolean crosshair1;
     private List<ChartsMekko> setCrosshair = new ArrayList<>();
+
+    /**
+     * Setter for crosshair settings.
+     */
     public ChartsMekko setCrosshair(String crosshair) {
         if (!isChain) {
             js.append(jsBase);
@@ -127,6 +192,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setCrosshair1 = new ArrayList<>();
+
+    /**
+     * Setter for crosshair settings.
+     */
     public ChartsMekko setCrosshair(Boolean crosshair1) {
         if (!isChain) {
             js.append(jsBase);
@@ -154,6 +223,9 @@ public class ChartsMekko extends SeparateChart {
 
     private View getData;
 
+    /**
+     * Getter for the data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -161,6 +233,10 @@ public class ChartsMekko extends SeparateChart {
         return getData;
     }
     private List<ChartsMekko> setData = new ArrayList<>();
+
+    /**
+     * Setter for the data.
+     */
     public ChartsMekko data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -194,6 +270,10 @@ public class ChartsMekko extends SeparateChart {
 
     private AnychartMathRect getGetPlotBounds;
 
+    /**
+     * Gets data bounds of the chart.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Mekko#draw} is called.
+     */
     public AnychartMathRect getGetPlotBounds() {
         if (getGetPlotBounds == null)
             getGetPlotBounds = new AnychartMathRect(jsBase + ".getPlotBounds()");
@@ -203,6 +283,9 @@ public class ChartsMekko extends SeparateChart {
 
     private List<SeriesMekko> getGetSeries = new ArrayList<>();
 
+    /**
+     * Gets series by its id.
+     */
     public SeriesMekko getGetSeries(Double id) {
         SeriesMekko item = new SeriesMekko(jsBase + ".getSeries("+ id+")");
         getGetSeries.add(item);
@@ -211,6 +294,9 @@ public class ChartsMekko extends SeparateChart {
 
     private List<SeriesMekko> getGetSeries1 = new ArrayList<>();
 
+    /**
+     * Gets series by its id.
+     */
     public SeriesMekko getGetSeries(String id1) {
         SeriesMekko item = new SeriesMekko(jsBase + ".getSeries("+ wrapQuotes(id1)+")");
         getGetSeries1.add(item);
@@ -219,6 +305,9 @@ public class ChartsMekko extends SeparateChart {
 
     private List<SeriesMekko> getGetSeriesAt = new ArrayList<>();
 
+    /**
+     * Getter for the series by its index.
+     */
     public SeriesMekko getGetSeriesAt(Double index) {
         SeriesMekko item = new SeriesMekko(jsBase + ".getSeriesAt("+ index+")");
         getGetSeriesAt.add(item);
@@ -227,6 +316,9 @@ public class ChartsMekko extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -237,6 +329,10 @@ public class ChartsMekko extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<ChartsMekko> setHatchFillPalette = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public ChartsMekko setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -262,6 +358,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setHatchFillPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public ChartsMekko setHatchFillPalette(String hatchFillPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -287,17 +387,19 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setHatchFillPalette2 = new ArrayList<>();
-    public ChartsMekko setHatchFillPalette(HatchFills hatchFillPalette2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for hatch fill palette settings.
+     */
+    public ChartsMekko setHatchFillPalette(HatchFills hatchFillPalette2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetHatchFillPalette2() {
@@ -314,6 +416,9 @@ public class ChartsMekko extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for chart data labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -323,6 +428,10 @@ public class ChartsMekko extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Cartesian> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for chart data labels.
+     */
     public Cartesian setLabels(String labels) {
         if (isChain) {
             js.append(";");
@@ -350,6 +459,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<Cartesian> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for chart data labels.
+     */
     public Cartesian setLabels(Boolean labels1) {
         if (isChain) {
             js.append(";");
@@ -377,6 +490,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<SeriesMekko> setMekko = new ArrayList<>();
+
+    /**
+     * Adds Mekko series.
+     */
     public SeriesMekko mekko(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -412,6 +529,9 @@ public class ChartsMekko extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the series colors palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -423,17 +543,20 @@ public class ChartsMekko extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<ChartsMekko> setPalette = new ArrayList<>();
-    public ChartsMekko setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the series colors palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public ChartsMekko setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -448,17 +571,20 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setPalette1 = new ArrayList<>();
-    public ChartsMekko setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the series colors palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public ChartsMekko setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -473,6 +599,11 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the series colors palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public ChartsMekko setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -498,6 +629,11 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the series colors palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public ChartsMekko setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -524,6 +660,10 @@ public class ChartsMekko extends SeparateChart {
 
     private Double pointsPadding;
     private List<ChartsMekko> setPointsPadding = new ArrayList<>();
+
+    /**
+     * Setter for points padding.
+     */
     public ChartsMekko setPointsPadding(Double pointsPadding) {
         if (!isChain) {
             js.append(jsBase);
@@ -551,6 +691,10 @@ public class ChartsMekko extends SeparateChart {
     private Double id2;
     private String id3;
     private List<ChartsMekko> setRemoveSeries = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public ChartsMekko removeSeries(Double id2) {
         if (!isChain) {
             js.append(jsBase);
@@ -576,6 +720,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setRemoveSeries1 = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public ChartsMekko removeSeries(String id3) {
         if (!isChain) {
             js.append(jsBase);
@@ -602,6 +750,10 @@ public class ChartsMekko extends SeparateChart {
 
     private Double index1;
     private List<ChartsMekko> setRemoveSeriesAt = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its index.
+     */
     public ChartsMekko removeSeriesAt(Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -629,6 +781,9 @@ public class ChartsMekko extends SeparateChart {
 
     private CoreAxesLinear getXAxis;
 
+    /**
+     * Getter for chart X-axis.
+     */
     public CoreAxesLinear getXAxis() {
         if (getXAxis == null)
             getXAxis = new CoreAxesLinear(jsBase + ".xAxis()");
@@ -638,6 +793,9 @@ public class ChartsMekko extends SeparateChart {
 
     private List<CoreAxesLinear> getXAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for chart X-axis.
+     */
     public CoreAxesLinear getXAxis(Double index2) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index2+")");
         getXAxis1.add(item);
@@ -646,6 +804,10 @@ public class ChartsMekko extends SeparateChart {
     private String xAxis;
     private Boolean xAxis1;
     private List<ChartsMekko> setXAxis = new ArrayList<>();
+
+    /**
+     * Setter for chart X-axis.
+     */
     public ChartsMekko setXAxis(String xAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -671,6 +833,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setXAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for chart X-axis.
+     */
     public ChartsMekko setXAxis(Boolean xAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -699,6 +865,10 @@ public class ChartsMekko extends SeparateChart {
     private String xAxis2;
     private Boolean xAxis3;
     private List<ChartsMekko> setXAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for chart X-axis by index.
+     */
     public ChartsMekko setXAxis(String xAxis2, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -724,6 +894,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setXAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for chart X-axis by index.
+     */
     public ChartsMekko setXAxis(Boolean xAxis3, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -751,6 +925,9 @@ public class ChartsMekko extends SeparateChart {
 
     private Ordinal getXScale;
 
+    /**
+     * Getter for default chart X scale.
+     */
     public Ordinal getXScale() {
         if (getXScale == null)
             getXScale = new Ordinal(jsBase + ".xScale()");
@@ -762,6 +939,10 @@ public class ChartsMekko extends SeparateChart {
     private String xScale2;
     private Ordinal xScale3;
     private List<ChartsMekko> setXScale = new ArrayList<>();
+
+    /**
+     * Setter for default chart X scale.
+     */
     public ChartsMekko setXScale(String xScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -787,6 +968,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setXScale1 = new ArrayList<>();
+
+    /**
+     * Setter for default chart X scale.
+     */
     public ChartsMekko setXScale(ScaleTypes xScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -812,17 +997,19 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setXScale2 = new ArrayList<>();
-    public ChartsMekko setXScale(Ordinal xScale3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for default chart X scale.
+     */
+    public ChartsMekko setXScale(Ordinal xScale3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(xScale3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetXScale2() {
@@ -839,6 +1026,9 @@ public class ChartsMekko extends SeparateChart {
 
     private CoreAxesLinear getYAxis;
 
+    /**
+     * Getter for chart Y-axis.
+     */
     public CoreAxesLinear getYAxis() {
         if (getYAxis == null)
             getYAxis = new CoreAxesLinear(jsBase + ".yAxis()");
@@ -848,6 +1038,9 @@ public class ChartsMekko extends SeparateChart {
 
     private List<CoreAxesLinear> getYAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for chart Y-axis.
+     */
     public CoreAxesLinear getYAxis(Double index4) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index4+")");
         getYAxis1.add(item);
@@ -856,6 +1049,10 @@ public class ChartsMekko extends SeparateChart {
     private String yAxis;
     private Boolean yAxis1;
     private List<ChartsMekko> setYAxis = new ArrayList<>();
+
+    /**
+     * Setter for chart Y-axis.
+     */
     public ChartsMekko setYAxis(String yAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -881,6 +1078,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setYAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for chart Y-axis.
+     */
     public ChartsMekko setYAxis(Boolean yAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -909,6 +1110,10 @@ public class ChartsMekko extends SeparateChart {
     private String yAxis2;
     private Boolean yAxis3;
     private List<ChartsMekko> setYAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for chart Y-axis by index.
+     */
     public ChartsMekko setYAxis(String yAxis2, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -934,6 +1139,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setYAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for chart Y-axis by index.
+     */
     public ChartsMekko setYAxis(Boolean yAxis3, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -961,6 +1170,9 @@ public class ChartsMekko extends SeparateChart {
 
     private ScalesBase getYScale;
 
+    /**
+     * Getter for default chart Y scale.
+     */
     public ScalesBase getYScale() {
         if (getYScale == null)
             getYScale = new ScalesBase(jsBase + ".yScale()");
@@ -972,6 +1184,10 @@ public class ChartsMekko extends SeparateChart {
     private String yScale2;
     private ScalesBase yScale3;
     private List<ChartsMekko> setYScale = new ArrayList<>();
+
+    /**
+     * Setter for default chart Y scale.
+     */
     public ChartsMekko setYScale(String yScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -997,6 +1213,10 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setYScale1 = new ArrayList<>();
+
+    /**
+     * Setter for default chart Y scale.
+     */
     public ChartsMekko setYScale(ScaleTypes yScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1022,17 +1242,19 @@ public class ChartsMekko extends SeparateChart {
     }
 
     private List<ChartsMekko> setYScale2 = new ArrayList<>();
-    public ChartsMekko setYScale(ScalesBase yScale3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for default chart Y scale.
+     */
+    public ChartsMekko setYScale(ScalesBase yScale3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(yScale3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetYScale2() {

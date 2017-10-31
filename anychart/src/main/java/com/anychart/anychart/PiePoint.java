@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Point representing pie point.
+ */
 public class PiePoint extends Point {
 
     public PiePoint() {
-
+        js.setLength(0);
+        js.append("var piePoint").append(++variableIndex).append(" = anychart.core.piePoint();");
+        jsBase = "piePoint" + variableIndex;
     }
 
     protected PiePoint(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class PiePoint extends Point {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class PiePoint extends Point {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

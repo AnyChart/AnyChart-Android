@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Define Datetime scale.<br/>
+<b>Note:</b> To create instance use {@link anychart.scales#dateTime} method.
+ */
 public class DateTime extends ScatterBase {
 
     public DateTime() {
-
+        js.setLength(0);
+        js.append("var dateTime").append(++variableIndex).append(" = anychart.scales.dateTime();");
+        jsBase = "dateTime" + variableIndex;
     }
 
     protected DateTime(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,16 @@ public class DateTime extends ScatterBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double maximumGap;
 
+    /**
+     * Setter for the scale maximum gap.
+     */
     public DateTime setMaximumGap(Double maximumGap) {
         if (jsBase == null) {
             this.maximumGap = maximumGap;
@@ -38,7 +52,6 @@ public class DateTime extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
                 js.setLength(0);
@@ -49,6 +62,9 @@ public class DateTime extends ScatterBase {
 
     private Double minimumGap;
 
+    /**
+     * Setter for the scale minimum gap.
+     */
     public DateTime setMinimumGap(Double minimumGap) {
         if (jsBase == null) {
             this.minimumGap = minimumGap;
@@ -60,7 +76,6 @@ public class DateTime extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
                 js.setLength(0);
@@ -71,6 +86,9 @@ public class DateTime extends ScatterBase {
 
     private DateTimeTicks getMinorTicks;
 
+    /**
+     * Getter for set of scale ticks in terms of data values.
+     */
     public DateTimeTicks getMinorTicks() {
         if (getMinorTicks == null)
             getMinorTicks = new DateTimeTicks(jsBase + ".minorTicks()");
@@ -81,6 +99,9 @@ public class DateTime extends ScatterBase {
     private String minorTicks;
     private String[] minorTicks1;
 
+    /**
+     * Setter for set of scale ticks in terms of data values.
+     */
     public DateTime setMinorTicks(String minorTicks) {
         if (jsBase == null) {
             this.minorTicks = null;
@@ -95,7 +116,6 @@ public class DateTime extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
@@ -105,6 +125,9 @@ public class DateTime extends ScatterBase {
     }
 
 
+    /**
+     * Setter for set of scale ticks in terms of data values.
+     */
     public DateTime setMinorTicks(String[] minorTicks1) {
         if (jsBase == null) {
             this.minorTicks = null;
@@ -119,7 +142,6 @@ public class DateTime extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
                 js.setLength(0);
@@ -130,6 +152,9 @@ public class DateTime extends ScatterBase {
 
     private Double softMaximum;
 
+    /**
+     * Setter for soft maximum.
+     */
     public DateTime setSoftMaximum(Double softMaximum) {
         if (jsBase == null) {
             this.softMaximum = softMaximum;
@@ -141,7 +166,6 @@ public class DateTime extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
                 js.setLength(0);
@@ -152,6 +176,9 @@ public class DateTime extends ScatterBase {
 
     private Double softMinimum;
 
+    /**
+     * Setter for soft minimum.
+     */
     public DateTime setSoftMinimum(Double softMinimum) {
         if (jsBase == null) {
             this.softMinimum = softMinimum;
@@ -163,7 +190,6 @@ public class DateTime extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
                 js.setLength(0);
@@ -174,6 +200,9 @@ public class DateTime extends ScatterBase {
 
     private DateTimeTicks getTicks;
 
+    /**
+     * Getter for set of scale ticks in terms of data values.
+     */
     public DateTimeTicks getTicks() {
         if (getTicks == null)
             getTicks = new DateTimeTicks(jsBase + ".ticks()");
@@ -184,6 +213,9 @@ public class DateTime extends ScatterBase {
     private String ticks;
     private String[] ticks1;
 
+    /**
+     * Setter for set of scale ticks in terms of data values.
+     */
     public DateTime setTicks(String ticks) {
         if (jsBase == null) {
             this.ticks = null;
@@ -198,7 +230,6 @@ public class DateTime extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
@@ -208,6 +239,9 @@ public class DateTime extends ScatterBase {
     }
 
 
+    /**
+     * Setter for set of scale ticks in terms of data values.
+     */
     public DateTime setTicks(String[] ticks1) {
         if (jsBase == null) {
             this.ticks = null;
@@ -222,7 +256,6 @@ public class DateTime extends ScatterBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
@@ -231,26 +264,9 @@ public class DateTime extends ScatterBase {
         return this;
     }
 
-
-//
-//    private String generateJSDateTimeTicks getMinorTicks() {
-//        if (DateTimeTicks getMinorTicks != null) {
-//            return DateTimeTicks getMinorTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSDateTimeTicks getTicks() {
-//        if (DateTimeTicks getTicks != null) {
-//            return DateTimeTicks getTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetMinorTicks() {
         if (getMinorTicks != null) {
             return getMinorTicks.generateJs();
-            //return String.format(Locale.US, "getMinorTicks: %s,", ((getMinorTicks != null) ? getMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -258,7 +274,6 @@ public class DateTime extends ScatterBase {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -282,28 +297,6 @@ public class DateTime extends ScatterBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSmaximumGap());
-////        
-//            js.append(generateJSminimumGap());
-////        
-//            js.append(generateJSminorTicks());
-////        
-//            js.append(generateJSminorTicks1());
-////        
-//            js.append(generateJSsoftMaximum());
-////        
-//            js.append(generateJSsoftMinimum());
-////        
-//            js.append(generateJSticks());
-////        
-//            js.append(generateJSticks1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

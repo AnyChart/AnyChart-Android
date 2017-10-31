@@ -10,10 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
-/**
- * Created by arseny on 8/9/17.
- */
-
 abstract class JsObject {
 
     interface JsObjectInterface {
@@ -32,6 +28,8 @@ abstract class JsObject {
 
     protected static int variableIndex = 0;
 
+    protected boolean isCreated = false;
+
     protected String jsBase;
 
     protected boolean isChain = false;
@@ -39,6 +37,14 @@ abstract class JsObject {
     OnChange onChangeListener;
 
     boolean isRendered = false;
+
+    protected JsObject() {
+
+    }
+
+    protected JsObject(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     interface OnChange {
         void onChange(String jsChange);

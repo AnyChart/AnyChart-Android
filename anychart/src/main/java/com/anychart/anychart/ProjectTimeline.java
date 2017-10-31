@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class ProjectTimeline extends Timeline {
 
     public ProjectTimeline() {
-
+        js.setLength(0);
+        js.append("var projectTimeline").append(++variableIndex).append(" = anychart.standalones.projectTimeline();");
+        jsBase = "projectTimeline" + variableIndex;
     }
 
     protected ProjectTimeline(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class ProjectTimeline extends Timeline {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double defaultRowHeight;
 
+    /**
+     * Setter for the default row height.
+     */
     public ProjectTimeline setDefaultRowHeight(Double defaultRowHeight) {
         if (jsBase == null) {
             this.defaultRowHeight = defaultRowHeight;
@@ -38,7 +51,6 @@ public class ProjectTimeline extends Timeline {
             }
 
             js.append(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
                 js.setLength(0);
@@ -47,8 +59,6 @@ public class ProjectTimeline extends Timeline {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -66,14 +76,6 @@ public class ProjectTimeline extends Timeline {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdefaultRowHeight());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

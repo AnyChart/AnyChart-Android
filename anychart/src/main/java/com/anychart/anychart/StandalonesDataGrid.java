@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesDataGrid extends UiDataGrid {
 
     public StandalonesDataGrid() {
-
+        js.setLength(0);
+        js.append("var standalonesDataGrid").append(++variableIndex).append(" = anychart.standalones.dataGrid();");
+        jsBase = "standalonesDataGrid" + variableIndex;
     }
 
     protected StandalonesDataGrid(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class StandalonesDataGrid extends UiDataGrid {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Element getContainer;
 
+    /**
+     * Getter for the data grid current container.
+     */
     public Element getContainer() {
         if (getContainer == null)
             getContainer = new Element(jsBase + ".container()");
@@ -37,6 +50,9 @@ public class StandalonesDataGrid extends UiDataGrid {
     private String container;
     private Element container1;
 
+    /**
+     * Setter for the data grid container.
+     */
     public StandalonesDataGrid setContainer(String container) {
         if (jsBase == null) {
             this.container = null;
@@ -51,7 +67,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             }
 
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
                 js.setLength(0);
@@ -61,6 +76,9 @@ public class StandalonesDataGrid extends UiDataGrid {
     }
 
 
+    /**
+     * Setter for the data grid container.
+     */
     public StandalonesDataGrid setContainer(Element container1) {
         if (jsBase == null) {
             this.container = null;
@@ -69,15 +87,16 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -86,6 +105,9 @@ public class StandalonesDataGrid extends UiDataGrid {
 
     private Double defaultRowHeight;
 
+    /**
+     * Setter for the default row height.
+     */
     public StandalonesDataGrid setDefaultRowHeight(Double defaultRowHeight) {
         if (jsBase == null) {
             this.defaultRowHeight = defaultRowHeight;
@@ -97,7 +119,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             }
 
             js.append(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
                 js.setLength(0);
@@ -108,6 +129,9 @@ public class StandalonesDataGrid extends UiDataGrid {
 
     private Double headerHeight;
 
+    /**
+     * Setter for the header height.
+     */
     public StandalonesDataGrid setHeaderHeight(Double headerHeight) {
         if (jsBase == null) {
             this.headerHeight = headerHeight;
@@ -119,7 +143,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             }
 
             js.append(String.format(Locale.US, ".headerHeight(%f)", headerHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".headerHeight(%f)", headerHeight));
                 js.setLength(0);
@@ -130,6 +153,9 @@ public class StandalonesDataGrid extends UiDataGrid {
 
     private AnychartMathRect getParentBounds;
 
+    /**
+     * Getter for bounds. As a getter falls back to stage bounds.
+     */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
             getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
@@ -140,6 +166,9 @@ public class StandalonesDataGrid extends UiDataGrid {
     private AnychartMathRect parentBounds;
     private String parentBounds1;
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesDataGrid setParentBounds(AnychartMathRect parentBounds) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -148,15 +177,16 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.parentBounds = parentBounds;
         } else {
             this.parentBounds = parentBounds;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(parentBounds.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".parentBounds(%s);",  ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -164,6 +194,9 @@ public class StandalonesDataGrid extends UiDataGrid {
     }
 
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesDataGrid setParentBounds(String parentBounds1) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -178,7 +211,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
@@ -192,6 +224,9 @@ public class StandalonesDataGrid extends UiDataGrid {
     private Double width;
     private Double height;
 
+    /**
+     * Setter for bounds using several value.
+     */
     public StandalonesDataGrid setParentBounds(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
@@ -209,7 +244,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
@@ -221,6 +255,9 @@ public class StandalonesDataGrid extends UiDataGrid {
     private Stroke rowStroke;
     private String rowStroke1;
 
+    /**
+     * Setter for the row stroke.
+     */
     public StandalonesDataGrid setRowStroke(Stroke rowStroke) {
         if (jsBase == null) {
             this.rowStroke = null;
@@ -235,7 +272,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             }
 
             js.append(String.format(Locale.US, ".rowStroke(%s)", ((rowStroke != null) ? rowStroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowStroke(%s)", ((rowStroke != null) ? rowStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -245,6 +281,9 @@ public class StandalonesDataGrid extends UiDataGrid {
     }
 
 
+    /**
+     * Setter for the row stroke.
+     */
     public StandalonesDataGrid setRowStroke(String rowStroke1) {
         if (jsBase == null) {
             this.rowStroke = null;
@@ -259,7 +298,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             }
 
             js.append(String.format(Locale.US, ".rowStroke(%s)", wrapQuotes(rowStroke1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowStroke(%s)", wrapQuotes(rowStroke1)));
                 js.setLength(0);
@@ -270,6 +308,9 @@ public class StandalonesDataGrid extends UiDataGrid {
 
     private ScrollBar getVerticalScrollBar;
 
+    /**
+     * Getter for the vertical scroll bar.
+     */
     public ScrollBar getVerticalScrollBar() {
         if (getVerticalScrollBar == null)
             getVerticalScrollBar = new ScrollBar(jsBase + ".verticalScrollBar()");
@@ -279,6 +320,9 @@ public class StandalonesDataGrid extends UiDataGrid {
 
     private String verticalScrollBar;
 
+    /**
+     * Setter for the vertical scroll bar.
+     */
     public StandalonesDataGrid setVerticalScrollBar(String verticalScrollBar) {
         if (jsBase == null) {
             this.verticalScrollBar = verticalScrollBar;
@@ -290,7 +334,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             }
 
             js.append(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
                 js.setLength(0);
@@ -299,33 +342,9 @@ public class StandalonesDataGrid extends UiDataGrid {
         return this;
     }
 
-
-//
-//    private String generateJSElement getContainer() {
-//        if (Element getContainer != null) {
-//            return Element getContainer.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAnychartMathRect getParentBounds() {
-//        if (AnychartMathRect getParentBounds != null) {
-//            return AnychartMathRect getParentBounds.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScrollBar getVerticalScrollBar() {
-//        if (ScrollBar getVerticalScrollBar != null) {
-//            return ScrollBar getVerticalScrollBar.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
-            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -333,7 +352,6 @@ public class StandalonesDataGrid extends UiDataGrid {
     private String generateJSgetParentBounds() {
         if (getParentBounds != null) {
             return getParentBounds.generateJs();
-            //return String.format(Locale.US, "getParentBounds: %s,", ((getParentBounds != null) ? getParentBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -341,7 +359,6 @@ public class StandalonesDataGrid extends UiDataGrid {
     private String generateJSgetVerticalScrollBar() {
         if (getVerticalScrollBar != null) {
             return getVerticalScrollBar.generateJs();
-            //return String.format(Locale.US, "getVerticalScrollBar: %s,", ((getVerticalScrollBar != null) ? getVerticalScrollBar.generateJs() : "null"));
         }
         return "";
     }
@@ -366,38 +383,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScontainer());
-////        
-//            js.append(generateJScontainer1());
-////        
-//            js.append(generateJSdefaultRowHeight());
-////        
-//            js.append(generateJSheaderHeight());
-////        
-//            js.append(generateJSparentBounds());
-////        
-//            js.append(generateJSparentBounds1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSrowStroke());
-////        
-//            js.append(generateJSrowStroke1());
-////        
-//            js.append(generateJSverticalScrollBar());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

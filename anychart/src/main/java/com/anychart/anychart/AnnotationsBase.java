@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base annotations class.
+ */
 public class AnnotationsBase extends VisualBaseWithBounds {
 
     public AnnotationsBase() {
-
+        js.setLength(0);
+        js.append("var annotationsBase").append(++variableIndex).append(" = anychart.core.annotations.base();");
+        jsBase = "annotationsBase" + variableIndex;
     }
 
     protected AnnotationsBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String color;
 
+    /**
+     * Setter for the annotation color.
+     */
     public AnnotationsBase setColor(String color) {
         if (jsBase == null) {
             this.color = color;
@@ -38,7 +51,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -58,6 +73,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
 
     private String hovered;
 
+    /**
+     * Setter for hovered state settings.
+     */
     public AnnotationsBase setHovered(String hovered) {
         if (jsBase == null) {
             this.hovered = hovered;
@@ -69,7 +87,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
@@ -80,6 +97,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
 
     private UiMarkersFactory getMarkers;
 
+    /**
+     * Getter for data markers.
+     */
     public UiMarkersFactory getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersFactory(jsBase + ".markers()");
@@ -91,6 +111,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private Boolean markers1;
     private String markers2;
 
+    /**
+     * Setter for data markers.
+     */
     public AnnotationsBase setMarkers(String markers) {
         if (jsBase == null) {
             this.markers = null;
@@ -106,7 +129,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
@@ -116,6 +138,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for data markers.
+     */
     public AnnotationsBase setMarkers(Boolean markers1) {
         if (jsBase == null) {
             this.markers = null;
@@ -131,7 +156,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
                 js.setLength(0);
@@ -142,6 +166,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -151,6 +178,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
 
     private String normal;
 
+    /**
+     * Setter for normal state settings.
+     */
     public AnnotationsBase setNormal(String normal) {
         if (jsBase == null) {
             this.normal = normal;
@@ -162,7 +192,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
@@ -173,6 +202,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -182,6 +214,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
 
     private String selected;
 
+    /**
+     * Setter for selected state settings.
+     */
     public AnnotationsBase setSelected(String selected) {
         if (jsBase == null) {
             this.selected = selected;
@@ -193,7 +228,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
@@ -204,6 +238,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
 
     private Ordinal getXScale;
 
+    /**
+     * Getter for the X-scale.
+     */
     public Ordinal getXScale() {
         if (getXScale == null)
             getXScale = new Ordinal(jsBase + ".xScale()");
@@ -217,6 +254,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private ScaleTypes xScale3;
     private String xScale4;
 
+    /**
+     * Setter for the X-scale.
+     */
     public AnnotationsBase setXScale(ScalesBase xScale) {
         if (jsBase == null) {
             this.xScale = null;
@@ -228,15 +268,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.xScale = xScale;
         } else {
             this.xScale = xScale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(xScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale != null) ? xScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -244,6 +285,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the X-scale.
+     */
     public AnnotationsBase setXScale(StockScatterDateTime xScale1) {
         if (jsBase == null) {
             this.xScale = null;
@@ -255,15 +299,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.xScale1 = xScale1;
         } else {
             this.xScale1 = xScale1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(xScale1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale1 != null) ? xScale1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale1 != null) ? xScale1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -271,6 +316,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the X-scale.
+     */
     public AnnotationsBase setXScale(String xScale2) {
         if (jsBase == null) {
             this.xScale = null;
@@ -288,7 +336,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale2)));
                 js.setLength(0);
@@ -298,6 +345,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the X-scale.
+     */
     public AnnotationsBase setXScale(ScaleTypes xScale3) {
         if (jsBase == null) {
             this.xScale = null;
@@ -315,7 +365,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
                 js.setLength(0);
@@ -326,6 +375,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
 
     private ScalesBase getYScale;
 
+    /**
+     * Getter for the Y-scale.
+     */
     public ScalesBase getYScale() {
         if (getYScale == null)
             getYScale = new ScalesBase(jsBase + ".yScale()");
@@ -338,6 +390,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private ScaleTypes yScale2;
     private String yScale3;
 
+    /**
+     * Setter for the Y-scale.
+     */
     public AnnotationsBase setYScale(ScalesBase yScale) {
         if (jsBase == null) {
             this.yScale = null;
@@ -348,15 +403,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.yScale = yScale;
         } else {
             this.yScale = yScale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(yScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale != null) ? yScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -364,6 +420,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the Y-scale.
+     */
     public AnnotationsBase setYScale(String yScale1) {
         if (jsBase == null) {
             this.yScale = null;
@@ -380,7 +439,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
@@ -390,6 +448,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the Y-scale.
+     */
     public AnnotationsBase setYScale(ScaleTypes yScale2) {
         if (jsBase == null) {
             this.yScale = null;
@@ -406,7 +467,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
@@ -415,54 +475,9 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         return this;
     }
 
-
-//
-//    private String generateJSStateSettings getHovered() {
-//        if (StateSettings getHovered != null) {
-//            return StateSettings getHovered.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiMarkersFactory getMarkers() {
-//        if (UiMarkersFactory getMarkers != null) {
-//            return UiMarkersFactory getMarkers.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getNormal() {
-//        if (StateSettings getNormal != null) {
-//            return StateSettings getNormal.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getSelected() {
-//        if (StateSettings getSelected != null) {
-//            return StateSettings getSelected.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSOrdinal getXScale() {
-//        if (Ordinal getXScale != null) {
-//            return Ordinal getXScale.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesBase getYScale() {
-//        if (ScalesBase getYScale != null) {
-//            return ScalesBase getYScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
-            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -470,7 +485,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
-            //return String.format(Locale.US, "getMarkers: %s,", ((getMarkers != null) ? getMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -478,7 +492,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
-            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -486,7 +499,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
-            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -494,7 +506,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSgetXScale() {
         if (getXScale != null) {
             return getXScale.generateJs();
-            //return String.format(Locale.US, "getXScale: %s,", ((getXScale != null) ? getXScale.generateJs() : "null"));
         }
         return "";
     }
@@ -502,7 +513,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -530,44 +540,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJShovered());
-////        
-//            js.append(generateJSmarkers());
-////        
-//            js.append(generateJSmarkers1());
-////        
-//            js.append(generateJSmarkers2());
-////        
-//            js.append(generateJSnormal());
-////        
-//            js.append(generateJSselected());
-////        
-//            js.append(generateJSxScale());
-////        
-//            js.append(generateJSxScale1());
-////        
-//            js.append(generateJSxScale2());
-////        
-//            js.append(generateJSxScale3());
-////        
-//            js.append(generateJSxScale4());
-////        
-//            js.append(generateJSyScale());
-////        
-//            js.append(generateJSyScale1());
-////        
-//            js.append(generateJSyScale2());
-////        
-//            js.append(generateJSyScale3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

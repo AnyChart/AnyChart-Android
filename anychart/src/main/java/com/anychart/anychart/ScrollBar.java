@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Scroll bar.
+ */
 public class ScrollBar extends VisualBaseWithBounds {
 
     public ScrollBar() {
-
+        js.setLength(0);
+        js.append("var scrollBar").append(++variableIndex).append(" = anychart.core.ui.scrollBar();");
+        jsBase = "scrollBar" + variableIndex;
     }
 
     protected ScrollBar(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,17 @@ public class ScrollBar extends VisualBaseWithBounds {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill backgroundFill;
 
+    /**
+     * Setter for background fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar setBackgroundFill(Fill backgroundFill) {
         if (jsBase == null) {
             this.backgroundFill = backgroundFill;
@@ -38,7 +52,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +63,9 @@ public class ScrollBar extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
+    /**
+     * Background fill color with opacity.
+     */
     public ScrollBar backgroundFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -63,7 +79,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -80,6 +95,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill for background.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar backgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -107,7 +126,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -117,6 +135,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill for background.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar backgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -144,7 +166,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -154,6 +175,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill for background.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar backgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -181,7 +206,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -191,6 +215,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill for background.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar backgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -218,7 +246,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -228,6 +255,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill for background.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar backgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -255,7 +286,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -265,6 +295,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill for background.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar backgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -292,7 +326,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -310,6 +343,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill for background.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar backgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -347,7 +384,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -357,6 +393,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient fill for background.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar backgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +434,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -412,6 +451,9 @@ public class ScrollBar extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the background stroke.
+     */
     public ScrollBar setBackgroundStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -435,7 +477,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -445,6 +486,9 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the background stroke.
+     */
     public ScrollBar setBackgroundStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -468,7 +512,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -478,6 +521,9 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the background stroke.
+     */
     public ScrollBar setBackgroundStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -501,7 +547,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -512,6 +557,9 @@ public class ScrollBar extends VisualBaseWithBounds {
 
     private Double barSize;
 
+    /**
+     * Setter for the bar size.
+     */
     public ScrollBar setBarSize(Double barSize) {
         if (jsBase == null) {
             this.barSize = barSize;
@@ -523,7 +571,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".barSize(%f)", barSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".barSize(%f)", barSize));
                 js.setLength(0);
@@ -534,6 +581,9 @@ public class ScrollBar extends VisualBaseWithBounds {
 
     private Boolean buttonsVisible;
 
+    /**
+     * Setter for the adding/removing the scroll button from the scroll bar.
+     */
     public ScrollBar setButtonsVisible(Boolean buttonsVisible) {
         if (jsBase == null) {
             this.buttonsVisible = buttonsVisible;
@@ -545,7 +595,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".buttonsVisible(%b)", buttonsVisible));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".buttonsVisible(%b)", buttonsVisible));
                 js.setLength(0);
@@ -556,6 +605,9 @@ public class ScrollBar extends VisualBaseWithBounds {
 
     private Double mouseOutOpacity;
 
+    /**
+     * Setter for the mouse out opacity.
+     */
     public ScrollBar setMouseOutOpacity(Double mouseOutOpacity) {
         if (jsBase == null) {
             this.mouseOutOpacity = mouseOutOpacity;
@@ -567,7 +619,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".mouseOutOpacity(%f)", mouseOutOpacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".mouseOutOpacity(%f)", mouseOutOpacity));
                 js.setLength(0);
@@ -578,6 +629,9 @@ public class ScrollBar extends VisualBaseWithBounds {
 
     private Double mouseOverOpacity;
 
+    /**
+     * Setter for the mouse over opacity.
+     */
     public ScrollBar setMouseOverOpacity(Double mouseOverOpacity) {
         if (jsBase == null) {
             this.mouseOverOpacity = mouseOverOpacity;
@@ -589,7 +643,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".mouseOverOpacity(%f)", mouseOverOpacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".mouseOverOpacity(%f)", mouseOverOpacity));
                 js.setLength(0);
@@ -600,6 +653,10 @@ public class ScrollBar extends VisualBaseWithBounds {
 
     private Fill sliderFill;
 
+    /**
+     * Setter for slider fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar setSliderFill(Fill sliderFill) {
         if (jsBase == null) {
             this.sliderFill = sliderFill;
@@ -611,7 +668,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderFill(%s)", ((sliderFill != null) ? sliderFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s)", ((sliderFill != null) ? sliderFill.generateJs() : "null")));
                 js.setLength(0);
@@ -623,6 +679,9 @@ public class ScrollBar extends VisualBaseWithBounds {
     private String color1;
     private Double opacity3;
 
+    /**
+     * Slider fill color with opacity.
+     */
     public ScrollBar sliderFill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
@@ -644,7 +703,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderFill(%s, %f)", wrapQuotes(color1), opacity3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f)", wrapQuotes(color1), opacity3));
                 js.setLength(0);
@@ -661,6 +719,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     private String mode6;
     private Double opacity4;
 
+    /**
+     * Linear gradient fill for slider.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar sliderFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -702,7 +764,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -712,6 +773,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill for slider.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar sliderFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -753,7 +818,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -763,6 +827,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill for slider.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar sliderFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -804,7 +872,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -814,6 +881,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill for slider.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar sliderFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -855,7 +926,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -865,6 +935,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill for slider.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar sliderFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -906,7 +980,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -916,6 +989,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill for slider.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar sliderFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -957,7 +1034,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -975,6 +1051,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     private Double fx1;
     private Double fy1;
 
+    /**
+     * Radial gradient fill for slider.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar sliderFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1035,7 +1115,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1045,6 +1124,10 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient fill for slider.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollBar sliderFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1105,7 +1188,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1123,6 +1205,9 @@ public class ScrollBar extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for the slider stroke.
+     */
     public ScrollBar setSliderStroke(Stroke stroke3, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1161,7 +1246,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", ((stroke3 != null) ? stroke3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", ((stroke3 != null) ? stroke3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1171,6 +1255,9 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the slider stroke.
+     */
     public ScrollBar setSliderStroke(ColoredFill stroke4, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1209,7 +1296,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", ((stroke4 != null) ? stroke4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", ((stroke4 != null) ? stroke4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1219,6 +1305,9 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the slider stroke.
+     */
     public ScrollBar setSliderStroke(String stroke5, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1257,7 +1346,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1266,8 +1354,6 @@ public class ScrollBar extends VisualBaseWithBounds {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -1285,124 +1371,6 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbackgroundFill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSbarSize());
-////        
-//            js.append(generateJSbuttonsVisible());
-////        
-//            js.append(generateJSmouseOutOpacity());
-////        
-//            js.append(generateJSmouseOverOpacity());
-////        
-//            js.append(generateJSsliderFill());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSopacity3());
-////        
-//            js.append(generateJSkeys4());
-////        
-//            js.append(generateJSkeys5());
-////        
-//            js.append(generateJSangle1());
-////        
-//            js.append(generateJSmode4());
-////        
-//            js.append(generateJSmode5());
-////        
-//            js.append(generateJSmode6());
-////        
-//            js.append(generateJSopacity4());
-////        
-//            js.append(generateJSkeys6());
-////        
-//            js.append(generateJSkeys7());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSmode7());
-////        
-//            js.append(generateJSopacity5());
-////        
-//            js.append(generateJSfx1());
-////        
-//            js.append(generateJSfy1());
-////        
-//            js.append(generateJSimageSettings1());
-////        
-//            js.append(generateJSstroke3());
-////        
-//            js.append(generateJSstroke4());
-////        
-//            js.append(generateJSstroke5());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

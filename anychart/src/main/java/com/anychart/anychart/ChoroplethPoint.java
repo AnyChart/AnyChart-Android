@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Point representing choropleth points that belongs to map.
+ */
 public class ChoroplethPoint extends SeriesPoint {
 
     public ChoroplethPoint() {
-
+        js.setLength(0);
+        js.append("var choroplethPoint").append(++variableIndex).append(" = anychart.core.choroplethPoint();");
+        jsBase = "choroplethPoint" + variableIndex;
     }
 
     protected ChoroplethPoint(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,17 @@ public class ChoroplethPoint extends SeriesPoint {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String crs;
 
+    /**
+     * Changes crs (coordinate system) of the point.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public ChoroplethPoint crs(String crs) {
         if (jsBase == null) {
             this.crs = crs;
@@ -38,7 +52,6 @@ public class ChoroplethPoint extends SeriesPoint {
             }
 
             js.append(String.format(Locale.US, ".crs(%s)", wrapQuotes(crs)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".crs(%s)", wrapQuotes(crs)));
                 js.setLength(0);
@@ -49,6 +62,10 @@ public class ChoroplethPoint extends SeriesPoint {
 
     private AnychartMathRect getGetFeatureBounds;
 
+    /**
+     * Getter for the current point bounds.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public AnychartMathRect getGetFeatureBounds() {
         if (getGetFeatureBounds == null)
             getGetFeatureBounds = new AnychartMathRect(jsBase + ".getFeatureBounds()");
@@ -58,6 +75,10 @@ public class ChoroplethPoint extends SeriesPoint {
 
     private Double middleX;
 
+    /**
+     * Setter for the X center of the point label.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public ChoroplethPoint setMiddleX(Double middleX) {
         if (jsBase == null) {
             this.middleX = middleX;
@@ -69,7 +90,6 @@ public class ChoroplethPoint extends SeriesPoint {
             }
 
             js.append(String.format(Locale.US, ".middleX(%f)", middleX));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".middleX(%f)", middleX));
                 js.setLength(0);
@@ -80,6 +100,10 @@ public class ChoroplethPoint extends SeriesPoint {
 
     private Double middleY;
 
+    /**
+     * Setter for the Y center of the point label.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public ChoroplethPoint setMiddleY(Double middleY) {
         if (jsBase == null) {
             this.middleY = middleY;
@@ -91,7 +115,6 @@ public class ChoroplethPoint extends SeriesPoint {
             }
 
             js.append(String.format(Locale.US, ".middleY(%f)", middleY));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".middleY(%f)", middleY));
                 js.setLength(0);
@@ -102,6 +125,10 @@ public class ChoroplethPoint extends SeriesPoint {
 
     private Double scale;
 
+    /**
+     * Scales point.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public ChoroplethPoint scaleFactor(Double scale) {
         if (jsBase == null) {
             this.scale = scale;
@@ -113,7 +140,6 @@ public class ChoroplethPoint extends SeriesPoint {
             }
 
             js.append(String.format(Locale.US, ".scaleFactor(%f)", scale));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scaleFactor(%f)", scale));
                 js.setLength(0);
@@ -125,6 +151,10 @@ public class ChoroplethPoint extends SeriesPoint {
     private Double dx;
     private Double dy;
 
+    /**
+     * Moves point.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public ChoroplethPoint translate(Double dx, Double dy) {
         if (jsBase == null) {
             this.dx = dx;
@@ -138,7 +168,6 @@ public class ChoroplethPoint extends SeriesPoint {
             }
 
             js.append(String.format(Locale.US, ".translate(%f, %f)", dx, dy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".translate(%f, %f)", dx, dy));
                 js.setLength(0);
@@ -150,6 +179,10 @@ public class ChoroplethPoint extends SeriesPoint {
     private Double dx1;
     private Double dy1;
 
+    /**
+     * Setter for the point translation.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public ChoroplethPoint setTranslation(Double dx1, Double dy1) {
         if (jsBase == null) {
             this.dx = null;
@@ -169,7 +202,6 @@ public class ChoroplethPoint extends SeriesPoint {
             }
 
             js.append(String.format(Locale.US, ".translation(%f, %f)", dx1, dy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".translation(%f, %f)", dx1, dy1));
                 js.setLength(0);
@@ -178,19 +210,9 @@ public class ChoroplethPoint extends SeriesPoint {
         return this;
     }
 
-
-//
-//    private String generateJSAnychartMathRect getGetFeatureBounds() {
-//        if (AnychartMathRect getGetFeatureBounds != null) {
-//            return AnychartMathRect getGetFeatureBounds.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetGetFeatureBounds() {
         if (getGetFeatureBounds != null) {
             return getGetFeatureBounds.generateJs();
-            //return String.format(Locale.US, "getGetFeatureBounds: %s,", ((getGetFeatureBounds != null) ? getGetFeatureBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -213,28 +235,6 @@ public class ChoroplethPoint extends SeriesPoint {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScrs());
-////        
-//            js.append(generateJSmiddleX());
-////        
-//            js.append(generateJSmiddleY());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSdx());
-////        
-//            js.append(generateJSdy());
-////        
-//            js.append(generateJSdx1());
-////        
-//            js.append(generateJSdy1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

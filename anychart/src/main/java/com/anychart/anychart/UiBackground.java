@@ -8,13 +8,23 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Background element class.<br/>
+Background can be a part of another complex element (chart, legend, title and so on),
+or used separately.<br/>
+Background has a fill, a border and corner shape settings.<br/>
+<b>Note:</b> Always specify display bounds if you use Background separately.
+ */
 public class UiBackground extends VisualBaseWithBounds {
 
     public UiBackground() {
-
+        js.setLength(0);
+        js.append("var uiBackground").append(++variableIndex).append(" = anychart.core.ui.background();");
+        jsBase = "uiBackground" + variableIndex;
     }
 
     protected UiBackground(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,11 +34,18 @@ public class UiBackground extends VisualBaseWithBounds {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Stroke bottomStroke;
     private ColoredFill bottomStroke1;
     private String bottomStroke2;
 
+    /**
+     * Setter for bottom stroke settings using one parameter.
+     */
     public UiBackground setBottomStroke(Stroke bottomStroke) {
         if (jsBase == null) {
             this.bottomStroke = null;
@@ -44,7 +61,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".bottomStroke(%s)", ((bottomStroke != null) ? bottomStroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s)", ((bottomStroke != null) ? bottomStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -54,6 +70,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for bottom stroke settings using one parameter.
+     */
     public UiBackground setBottomStroke(ColoredFill bottomStroke1) {
         if (jsBase == null) {
             this.bottomStroke = null;
@@ -69,7 +88,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".bottomStroke(%s)", ((bottomStroke1 != null) ? bottomStroke1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s)", ((bottomStroke1 != null) ? bottomStroke1.generateJs() : "null")));
                 js.setLength(0);
@@ -79,6 +97,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for bottom stroke settings using one parameter.
+     */
     public UiBackground setBottomStroke(String bottomStroke2) {
         if (jsBase == null) {
             this.bottomStroke = null;
@@ -94,7 +115,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".bottomStroke(%s)", wrapQuotes(bottomStroke2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s)", wrapQuotes(bottomStroke2)));
                 js.setLength(0);
@@ -110,6 +130,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for bottom stroke settings.
+     */
     public UiBackground setBottomStroke(Stroke bottomStroke3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.bottomStroke = null;
@@ -135,7 +158,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", ((bottomStroke3 != null) ? bottomStroke3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", ((bottomStroke3 != null) ? bottomStroke3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -145,6 +167,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for bottom stroke settings.
+     */
     public UiBackground setBottomStroke(String bottomStroke4, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.bottomStroke = null;
@@ -170,7 +195,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", wrapQuotes(bottomStroke4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottomStroke(%s, %f, %s, %s, %s)", wrapQuotes(bottomStroke4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -182,6 +206,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private BackgroundCornersType cornerType;
     private String cornerType1;
 
+    /**
+     * Setter for the corner type.
+     */
     public UiBackground setCornerType(BackgroundCornersType cornerType) {
         if (jsBase == null) {
             this.cornerType = null;
@@ -196,7 +223,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".cornerType(%s)", ((cornerType != null) ? cornerType.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cornerType(%s)", ((cornerType != null) ? cornerType.generateJs() : "null")));
                 js.setLength(0);
@@ -206,6 +232,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the corner type.
+     */
     public UiBackground setCornerType(String cornerType1) {
         if (jsBase == null) {
             this.cornerType = null;
@@ -220,7 +249,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".cornerType(%s)", wrapQuotes(cornerType1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cornerType(%s)", wrapQuotes(cornerType1)));
                 js.setLength(0);
@@ -233,6 +261,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private String corners1;
     private Double[] corners2;
 
+    /**
+     * Setter for the corner radius by one value.
+     */
     public UiBackground setCorners(Double[] corners2) {
         if (jsBase == null) {
             this.corners = null;
@@ -248,7 +279,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".corners(%s)", Arrays.toString(corners2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".corners(%s)", Arrays.toString(corners2)));
                 js.setLength(0);
@@ -258,6 +288,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the corner radius by one value.
+     */
     public UiBackground setCorners(String corners1) {
         if (jsBase == null) {
             this.corners = null;
@@ -273,7 +306,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".corners(%s)", wrapQuotes(corners1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".corners(%s)", wrapQuotes(corners1)));
                 js.setLength(0);
@@ -291,6 +323,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private Double bottomLeft;
     private String bottomLeft1;
 
+    /**
+     * Setter for the corner radius by each value.
+     */
     public UiBackground setCorners(String topLeft1, String topRight1, String bottomRight1, String bottomLeft1) {
         if (jsBase == null) {
             this.topLeft = null;
@@ -320,7 +355,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".corners(%s, %s, %s, %s)", wrapQuotes(topLeft1), wrapQuotes(topRight1), wrapQuotes(bottomRight1), wrapQuotes(bottomLeft1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".corners(%s, %s, %s, %s)", wrapQuotes(topLeft1), wrapQuotes(topRight1), wrapQuotes(bottomRight1), wrapQuotes(bottomLeft1)));
                 js.setLength(0);
@@ -330,6 +364,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the corner radius by each value.
+     */
     public UiBackground setCorners(Double topLeft, Double topRight, Double bottomRight, Double bottomLeft) {
         if (jsBase == null) {
             this.topLeft = null;
@@ -359,7 +396,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".corners(%f, %f, %f, %f)", topLeft, topRight, bottomRight, bottomLeft));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".corners(%f, %f, %f, %f)", topLeft, topRight, bottomRight, bottomLeft));
                 js.setLength(0);
@@ -370,6 +406,18 @@ public class UiBackground extends VisualBaseWithBounds {
 
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an object or a string.<br/>
+Accepts:
+<ul>
+<li>{@link anychart.graphics.vector.LinearGradientFill}</li>
+<li>{@link anychart.graphics.vector.RadialGradientFill}</li>
+<li>{@link anychart.graphics.vector.Fill}</li>
+<li>{@link anychart.graphics.vector.ImageFill}</li>
+</ul>
+or a color as a string, along with opacity, if needed, format is "<b>Color Opacity</b>",
+e.g. "red 0.5".
+     */
     public UiBackground setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -381,7 +429,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -393,6 +440,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill as a color with opacity.
+     */
     public UiBackground fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -406,7 +456,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -423,6 +472,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+     */
     public UiBackground fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -450,7 +502,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -460,6 +511,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+     */
     public UiBackground fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -487,7 +541,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -497,6 +550,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+     */
     public UiBackground fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -524,7 +580,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -534,6 +589,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+     */
     public UiBackground fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -561,7 +619,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -571,6 +628,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+     */
     public UiBackground fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -598,7 +658,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -608,6 +667,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+     */
     public UiBackground fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -635,7 +697,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -653,6 +714,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+     */
     public UiBackground fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -690,7 +754,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -700,6 +763,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient fill.
+     */
     public UiBackground fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -737,7 +803,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -749,6 +814,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private Stroke leftStroke;
     private String leftStroke1;
 
+    /**
+     * Setter for left stroke settings using one parameter.
+     */
     public UiBackground setLeftStroke(Stroke leftStroke) {
         if (jsBase == null) {
             this.leftStroke = null;
@@ -763,7 +831,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".leftStroke(%s)", ((leftStroke != null) ? leftStroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s)", ((leftStroke != null) ? leftStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -773,6 +840,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for left stroke settings using one parameter.
+     */
     public UiBackground setLeftStroke(String leftStroke1) {
         if (jsBase == null) {
             this.leftStroke = null;
@@ -787,7 +857,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".leftStroke(%s)", wrapQuotes(leftStroke1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s)", wrapQuotes(leftStroke1)));
                 js.setLength(0);
@@ -803,6 +872,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for left stroke settings.
+     */
     public UiBackground setLeftStroke(Stroke leftStroke2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.leftStroke = null;
@@ -839,7 +911,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", ((leftStroke2 != null) ? leftStroke2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", ((leftStroke2 != null) ? leftStroke2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -849,6 +920,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for left stroke settings.
+     */
     public UiBackground setLeftStroke(String leftStroke3, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.leftStroke = null;
@@ -885,7 +959,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", wrapQuotes(leftStroke3), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".leftStroke(%s, %f, %s, %s, %s)", wrapQuotes(leftStroke3), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -898,6 +971,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private ColoredFill rightStroke1;
     private String rightStroke2;
 
+    /**
+     * Setter for right stroke settings using one parameter.
+     */
     public UiBackground setRightStroke(Stroke rightStroke) {
         if (jsBase == null) {
             this.rightStroke = null;
@@ -913,7 +989,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rightStroke(%s)", ((rightStroke != null) ? rightStroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s)", ((rightStroke != null) ? rightStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -923,6 +998,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for right stroke settings using one parameter.
+     */
     public UiBackground setRightStroke(ColoredFill rightStroke1) {
         if (jsBase == null) {
             this.rightStroke = null;
@@ -938,7 +1016,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rightStroke(%s)", ((rightStroke1 != null) ? rightStroke1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s)", ((rightStroke1 != null) ? rightStroke1.generateJs() : "null")));
                 js.setLength(0);
@@ -948,6 +1025,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for right stroke settings using one parameter.
+     */
     public UiBackground setRightStroke(String rightStroke2) {
         if (jsBase == null) {
             this.rightStroke = null;
@@ -963,7 +1043,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rightStroke(%s)", wrapQuotes(rightStroke2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s)", wrapQuotes(rightStroke2)));
                 js.setLength(0);
@@ -979,6 +1058,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
 
+    /**
+     * Setter for right stroke settings.
+     */
     public UiBackground setRightStroke(Stroke rightStroke3, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.rightStroke = null;
@@ -1020,7 +1102,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", ((rightStroke3 != null) ? rightStroke3.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", ((rightStroke3 != null) ? rightStroke3.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -1030,6 +1111,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for right stroke settings.
+     */
     public UiBackground setRightStroke(String rightStroke4, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.rightStroke = null;
@@ -1071,7 +1155,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", wrapQuotes(rightStroke4), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rightStroke(%s, %f, %s, %s, %s)", wrapQuotes(rightStroke4), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -1084,6 +1167,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private ColoredFill stroke1;
     private String stroke2;
 
+    /**
+     * Setter for stroke settings using one parameter.
+     */
     public UiBackground setStroke(Stroke stroke) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1099,7 +1185,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
@@ -1109,6 +1194,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for stroke settings using one parameter.
+     */
     public UiBackground setStroke(ColoredFill stroke1) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1124,7 +1212,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s)", ((stroke1 != null) ? stroke1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", ((stroke1 != null) ? stroke1.generateJs() : "null")));
                 js.setLength(0);
@@ -1134,6 +1221,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for stroke settings using one parameter.
+     */
     public UiBackground setStroke(String stroke2) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1149,7 +1239,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s)", wrapQuotes(stroke2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", wrapQuotes(stroke2)));
                 js.setLength(0);
@@ -1165,6 +1254,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
 
+    /**
+     * Setter for stroke settings.
+     */
     public UiBackground setStroke(Stroke stroke3, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1210,7 +1302,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke3 != null) ? stroke3.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke3 != null) ? stroke3.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -1220,6 +1311,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for stroke settings.
+     */
     public UiBackground setStroke(String stroke4, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1265,7 +1359,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke4), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke4), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -1278,6 +1371,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private ColoredFill topStroke1;
     private String topStroke2;
 
+    /**
+     * Setter for top stroke settings using one parameter.
+     */
     public UiBackground setTopStroke(Stroke topStroke) {
         if (jsBase == null) {
             this.topStroke = null;
@@ -1293,7 +1389,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".topStroke(%s)", ((topStroke != null) ? topStroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s)", ((topStroke != null) ? topStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -1303,6 +1398,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for top stroke settings using one parameter.
+     */
     public UiBackground setTopStroke(ColoredFill topStroke1) {
         if (jsBase == null) {
             this.topStroke = null;
@@ -1318,7 +1416,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".topStroke(%s)", ((topStroke1 != null) ? topStroke1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s)", ((topStroke1 != null) ? topStroke1.generateJs() : "null")));
                 js.setLength(0);
@@ -1328,6 +1425,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for top stroke settings using one parameter.
+     */
     public UiBackground setTopStroke(String topStroke2) {
         if (jsBase == null) {
             this.topStroke = null;
@@ -1343,7 +1443,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".topStroke(%s)", wrapQuotes(topStroke2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s)", wrapQuotes(topStroke2)));
                 js.setLength(0);
@@ -1359,6 +1458,9 @@ public class UiBackground extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin4;
     private StrokeLineCap lineCap4;
 
+    /**
+     * Setter for top stroke settings.
+     */
     public UiBackground setTopStroke(Stroke topStroke3, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.topStroke = null;
@@ -1408,7 +1510,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", ((topStroke3 != null) ? topStroke3.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", ((topStroke3 != null) ? topStroke3.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -1418,6 +1519,9 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for top stroke settings.
+     */
     public UiBackground setTopStroke(String topStroke4, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.topStroke = null;
@@ -1467,7 +1571,6 @@ public class UiBackground extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", wrapQuotes(topStroke4), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".topStroke(%s, %f, %s, %s, %s)", wrapQuotes(topStroke4), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -1476,8 +1579,6 @@ public class UiBackground extends VisualBaseWithBounds {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -1495,162 +1596,6 @@ public class UiBackground extends VisualBaseWithBounds {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbottomStroke());
-////        
-//            js.append(generateJSbottomStroke1());
-////        
-//            js.append(generateJSbottomStroke2());
-////        
-//            js.append(generateJSbottomStroke3());
-////        
-//            js.append(generateJSbottomStroke4());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJScornerType());
-////        
-//            js.append(generateJScornerType1());
-////        
-//            js.append(generateJScorners());
-////        
-//            js.append(generateJScorners1());
-////        
-//            js.append(generateJScorners2());
-////        
-//            js.append(generateJStopLeft());
-////        
-//            js.append(generateJStopLeft1());
-////        
-//            js.append(generateJStopRight());
-////        
-//            js.append(generateJStopRight1());
-////        
-//            js.append(generateJSbottomRight());
-////        
-//            js.append(generateJSbottomRight1());
-////        
-//            js.append(generateJSbottomLeft());
-////        
-//            js.append(generateJSbottomLeft1());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSleftStroke());
-////        
-//            js.append(generateJSleftStroke1());
-////        
-//            js.append(generateJSleftStroke2());
-////        
-//            js.append(generateJSleftStroke3());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-////        
-//            js.append(generateJSrightStroke());
-////        
-//            js.append(generateJSrightStroke1());
-////        
-//            js.append(generateJSrightStroke2());
-////        
-//            js.append(generateJSrightStroke3());
-////        
-//            js.append(generateJSrightStroke4());
-////        
-//            js.append(generateJSthickness2());
-////        
-//            js.append(generateJSdashpattern2());
-////        
-//            js.append(generateJSlineJoin2());
-////        
-//            js.append(generateJSlineCap2());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSstroke3());
-////        
-//            js.append(generateJSstroke4());
-////        
-//            js.append(generateJSthickness3());
-////        
-//            js.append(generateJSdashpattern3());
-////        
-//            js.append(generateJSlineJoin3());
-////        
-//            js.append(generateJSlineCap3());
-////        
-//            js.append(generateJStopStroke());
-////        
-//            js.append(generateJStopStroke1());
-////        
-//            js.append(generateJStopStroke2());
-////        
-//            js.append(generateJStopStroke3());
-////        
-//            js.append(generateJStopStroke4());
-////        
-//            js.append(generateJSthickness4());
-////        
-//            js.append(generateJSdashpattern4());
-////        
-//            js.append(generateJSlineJoin4());
-////        
-//            js.append(generateJSlineCap4());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

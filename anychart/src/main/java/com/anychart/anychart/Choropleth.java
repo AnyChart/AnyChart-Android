@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Choropleth series. Read more about choropleth <a href='https://en.wikipedia.org/wiki/Choropleth_map'>here</a>.
+ */
 public class Choropleth extends MapSeriesBaseWithMarkers {
 
     public Choropleth() {
-
+        js.setLength(0);
+        js.append("var choropleth").append(++variableIndex).append(" = anychart.core.map.series.choropleth();");
+        jsBase = "choropleth" + variableIndex;
     }
 
     protected Choropleth(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private OrdinalColor getColorScale;
 
+    /**
+     * Getter for the color scale.
+     */
     public OrdinalColor getColorScale() {
         if (getColorScale == null)
             getColorScale = new OrdinalColor(jsBase + ".colorScale()");
@@ -37,6 +50,9 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
     private LinearColor colorScale;
     private OrdinalColor colorScale1;
 
+    /**
+     * Setter for the color scale.
+     */
     public MapSeriesBase setColorScale(LinearColor colorScale) {
         if (jsBase == null) {
             this.colorScale = null;
@@ -49,11 +65,12 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
                 js.append(";");
                 isChain = false;
             }
+            js.append(colorScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".colorScale(%s);", ((colorScale != null) ? colorScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", ((colorScale != null) ? colorScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", ((colorScale != null) ? colorScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -61,6 +78,9 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for the color scale.
+     */
     public MapSeriesBase setColorScale(OrdinalColor colorScale1) {
         if (jsBase == null) {
             this.colorScale = null;
@@ -73,30 +93,21 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
                 js.append(";");
                 isChain = false;
             }
+            js.append(colorScale1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".colorScale(%s);", ((colorScale1 != null) ? colorScale1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
         return new MapSeriesBase(jsBase);
     }
 
-
-//
-//    private String generateJSOrdinalColor getColorScale() {
-//        if (OrdinalColor getColorScale != null) {
-//            return OrdinalColor getColorScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetColorScale() {
         if (getColorScale != null) {
             return getColorScale.generateJs();
-            //return String.format(Locale.US, "getColorScale: %s,", ((getColorScale != null) ? getColorScale.generateJs() : "null"));
         }
         return "";
     }
@@ -119,16 +130,6 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolorScale());
-////        
-//            js.append(generateJScolorScale1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,24 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Title element class.<br/>
+Title can be a part of an other complex element, such as a chart, a legend or an axis,
+as well a self-sufficient element.<br/>
+A title have a orientation, text alignment and a background.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.ui.Title.png' height='287' width='444'/><br/>
+Title occupies the whole part of a container (depending on the orientation by the width or the height).
+ */
 public class UiTitle extends CoreText {
 
     public UiTitle() {
-
+        js.setLength(0);
+        js.append("var uiTitle").append(++variableIndex).append(" = anychart.core.ui.title();");
+        jsBase = "uiTitle" + variableIndex;
     }
 
     protected UiTitle(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +35,17 @@ public class UiTitle extends CoreText {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private EnumsAlign align;
     private String align1;
 
+    /**
+     * Setter for the title align.
+     */
     public UiTitle setAlign(EnumsAlign align) {
         if (jsBase == null) {
             this.align = null;
@@ -42,7 +60,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +69,9 @@ public class UiTitle extends CoreText {
     }
 
 
+    /**
+     * Setter for the title align.
+     */
     public UiTitle setAlign(String align1) {
         if (jsBase == null) {
             this.align = null;
@@ -66,7 +86,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
                 js.setLength(0);
@@ -77,6 +96,9 @@ public class UiTitle extends CoreText {
 
     private UiBackground getBackground;
 
+    /**
+     * Getter for the title background.
+     */
     public UiBackground getBackground() {
         if (getBackground == null)
             getBackground = new UiBackground(jsBase + ".background()");
@@ -88,6 +110,9 @@ public class UiTitle extends CoreText {
     private String background1;
     private Boolean background2;
 
+    /**
+     * Setter for the title background.
+     */
     public UiTitle setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
@@ -103,7 +128,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -113,6 +137,9 @@ public class UiTitle extends CoreText {
     }
 
 
+    /**
+     * Setter for the title background.
+     */
     public UiTitle setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
@@ -128,7 +155,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -140,6 +166,9 @@ public class UiTitle extends CoreText {
     private Double height;
     private String height1;
 
+    /**
+     * Setter for the title height.
+     */
     public UiTitle setHeight(Double height) {
         if (jsBase == null) {
             this.height = null;
@@ -154,7 +183,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -164,6 +192,9 @@ public class UiTitle extends CoreText {
     }
 
 
+    /**
+     * Setter for the title height.
+     */
     public UiTitle setHeight(String height1) {
         if (jsBase == null) {
             this.height = null;
@@ -178,7 +209,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
@@ -189,6 +219,10 @@ public class UiTitle extends CoreText {
 
     private Margin getMargin;
 
+    /**
+     * Getter for the title margin.
+Learn more about margins at {@link anychart.core.Chart#margin}.
+     */
     public Margin getMargin() {
         if (getMargin == null)
             getMargin = new Margin(jsBase + ".margin()");
@@ -202,6 +236,9 @@ public class UiTitle extends CoreText {
     private String[] allValues3;
     private String allValues4;
 
+    /**
+     * Setter for the title margin in pixels using one complex value.
+     */
     public UiTitle setMargin(Double[] allValues2) {
         if (jsBase == null) {
             this.allValues = null;
@@ -219,7 +256,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(allValues2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(allValues2)));
                 js.setLength(0);
@@ -229,6 +265,9 @@ public class UiTitle extends CoreText {
     }
 
 
+    /**
+     * Setter for the title margin in pixels using one complex value.
+     */
     public UiTitle setMargin(String[] allValues3) {
         if (jsBase == null) {
             this.allValues = null;
@@ -246,7 +285,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(allValues3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(allValues3)));
                 js.setLength(0);
@@ -264,6 +302,9 @@ public class UiTitle extends CoreText {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for the title margin in pixels using several numbers.
+     */
     public UiTitle setMargin(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -317,7 +358,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -327,6 +367,9 @@ public class UiTitle extends CoreText {
     }
 
 
+    /**
+     * Setter for the title margin in pixels using several numbers.
+     */
     public UiTitle setMargin(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -380,7 +423,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -392,6 +434,9 @@ public class UiTitle extends CoreText {
     private Orientation orientation;
     private String orientation1;
 
+    /**
+     * Setter for the title orientation.
+     */
     public UiTitle setOrientation(Orientation orientation) {
         if (jsBase == null) {
             this.orientation = null;
@@ -406,7 +451,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
                 js.setLength(0);
@@ -416,6 +460,9 @@ public class UiTitle extends CoreText {
     }
 
 
+    /**
+     * Setter for the title orientation.
+     */
     public UiTitle setOrientation(String orientation1) {
         if (jsBase == null) {
             this.orientation = null;
@@ -430,7 +477,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
                 js.setLength(0);
@@ -441,6 +487,10 @@ public class UiTitle extends CoreText {
 
     private UtilsPadding getPadding;
 
+    /**
+     * Getter for the title padding.<br/>
+Learn more about paddings at {@link anychart.core.Chart#padding}.
+     */
     public UtilsPadding getPadding() {
         if (getPadding == null)
             getPadding = new UtilsPadding(jsBase + ".padding()");
@@ -454,6 +504,9 @@ public class UiTitle extends CoreText {
     private String[] padding3;
     private String padding4;
 
+    /**
+     * Setter for the title padding in pixels using single value.
+     */
     public UiTitle setPadding(Double[] padding2) {
         if (jsBase == null) {
             this.padding = null;
@@ -471,7 +524,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding2)));
                 js.setLength(0);
@@ -481,6 +533,9 @@ public class UiTitle extends CoreText {
     }
 
 
+    /**
+     * Setter for the title padding in pixels using single value.
+     */
     public UiTitle setPadding(String[] padding3) {
         if (jsBase == null) {
             this.padding = null;
@@ -498,7 +553,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding3)));
                 js.setLength(0);
@@ -516,6 +570,9 @@ public class UiTitle extends CoreText {
     private String value14;
     private Double value15;
 
+    /**
+     * Setter for the title padding in pixels using several numbers.
+     */
     public UiTitle setPadding(String value8, String value10, String value12, String value14) {
         if (jsBase == null) {
             this.value = null;
@@ -601,7 +658,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
@@ -611,6 +667,9 @@ public class UiTitle extends CoreText {
     }
 
 
+    /**
+     * Setter for the title padding in pixels using several numbers.
+     */
     public UiTitle setPadding(Double value9, Double value11, Double value13, Double value15) {
         if (jsBase == null) {
             this.value = null;
@@ -696,7 +755,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
                 js.setLength(0);
@@ -707,6 +765,9 @@ public class UiTitle extends CoreText {
 
     private Double rotation;
 
+    /**
+     * Setter for the title rotation.
+     */
     public UiTitle setRotation(Double rotation) {
         if (jsBase == null) {
             this.rotation = rotation;
@@ -718,7 +779,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".rotation(%f)", rotation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rotation(%f)", rotation));
                 js.setLength(0);
@@ -729,6 +789,9 @@ public class UiTitle extends CoreText {
 
     private String text;
 
+    /**
+     * Setter for the text content for the title.
+     */
     public UiTitle setText(String text) {
         if (jsBase == null) {
             this.text = text;
@@ -740,7 +803,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
                 js.setLength(0);
@@ -752,6 +814,9 @@ public class UiTitle extends CoreText {
     private Double width;
     private String width1;
 
+    /**
+     * Setter for the title width.
+     */
     public UiTitle setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
@@ -766,7 +831,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -776,6 +840,9 @@ public class UiTitle extends CoreText {
     }
 
 
+    /**
+     * Setter for the title width.
+     */
     public UiTitle setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
@@ -790,7 +857,6 @@ public class UiTitle extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
@@ -799,33 +865,9 @@ public class UiTitle extends CoreText {
         return this;
     }
 
-
-//
-//    private String generateJSUiBackground getBackground() {
-//        if (UiBackground getBackground != null) {
-//            return UiBackground getBackground.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSMargin getMargin() {
-//        if (Margin getMargin != null) {
-//            return Margin getMargin.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUtilsPadding getPadding() {
-//        if (UtilsPadding getPadding != null) {
-//            return UtilsPadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -833,7 +875,6 @@ public class UiTitle extends CoreText {
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
-            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -841,7 +882,6 @@ public class UiTitle extends CoreText {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -866,90 +906,6 @@ public class UiTitle extends CoreText {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSalign());
-////        
-//            js.append(generateJSalign1());
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJSallValues());
-////        
-//            js.append(generateJSallValues1());
-////        
-//            js.append(generateJSallValues2());
-////        
-//            js.append(generateJSallValues3());
-////        
-//            js.append(generateJSallValues4());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSorientation());
-////        
-//            js.append(generateJSorientation1());
-////        
-//            js.append(generateJSpadding());
-////        
-//            js.append(generateJSpadding1());
-////        
-//            js.append(generateJSpadding2());
-////        
-//            js.append(generateJSpadding3());
-////        
-//            js.append(generateJSpadding4());
-////        
-//            js.append(generateJSvalue8());
-////        
-//            js.append(generateJSvalue9());
-////        
-//            js.append(generateJSvalue10());
-////        
-//            js.append(generateJSvalue11());
-////        
-//            js.append(generateJSvalue12());
-////        
-//            js.append(generateJSvalue13());
-////        
-//            js.append(generateJSvalue14());
-////        
-//            js.append(generateJSvalue15());
-////        
-//            js.append(generateJSrotation());
-////        
-//            js.append(generateJStext());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

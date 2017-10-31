@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesAxesRadial extends CoreAxesRadial {
 
     public StandalonesAxesRadial() {
-
+        js.setLength(0);
+        js.append("var standalonesAxesRadial").append(++variableIndex).append(" = anychart.standalones.axes.radial();");
+        jsBase = "standalonesAxesRadial" + variableIndex;
     }
 
     protected StandalonesAxesRadial(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Layer getContainer;
 
+    /**
+     * Getter for the axis current container.
+     */
     public Layer getContainer() {
         if (getContainer == null)
             getContainer = new Layer(jsBase + ".container()");
@@ -39,6 +52,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     private String container2;
     private Element container3;
 
+    /**
+     * Setter for the axis container.
+     */
     public StandalonesAxesRadial setContainer(Layer container) {
         if (jsBase == null) {
             this.container = null;
@@ -49,15 +65,16 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             this.container = container;
         } else {
             this.container = container;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container != null) ? container.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -65,6 +82,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     }
 
 
+    /**
+     * Setter for the axis container.
+     */
     public StandalonesAxesRadial setContainer(Stage container1) {
         if (jsBase == null) {
             this.container = null;
@@ -75,15 +95,16 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -91,6 +112,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     }
 
 
+    /**
+     * Setter for the axis container.
+     */
     public StandalonesAxesRadial setContainer(String container2) {
         if (jsBase == null) {
             this.container = null;
@@ -107,7 +131,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             }
 
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
                 js.setLength(0);
@@ -117,6 +140,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     }
 
 
+    /**
+     * Setter for the axis container.
+     */
     public StandalonesAxesRadial setContainer(Element container3) {
         if (jsBase == null) {
             this.container = null;
@@ -127,15 +153,16 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             this.container3 = container3;
         } else {
             this.container3 = container3;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container3.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container3 != null) ? container3.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -145,6 +172,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     private String innerRadius;
     private Double innerRadius1;
 
+    /**
+     * Setter for the inner radius.
+     */
     public StandalonesAxesRadial setInnerRadius(String innerRadius) {
         if (jsBase == null) {
             this.innerRadius = null;
@@ -159,7 +189,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             }
 
             js.append(String.format(Locale.US, ".innerRadius(%s)", wrapQuotes(innerRadius)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%s)", wrapQuotes(innerRadius)));
                 js.setLength(0);
@@ -169,6 +198,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     }
 
 
+    /**
+     * Setter for the inner radius.
+     */
     public StandalonesAxesRadial setInnerRadius(Double innerRadius1) {
         if (jsBase == null) {
             this.innerRadius = null;
@@ -183,7 +215,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             }
 
             js.append(String.format(Locale.US, ".innerRadius(%f)", innerRadius1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%f)", innerRadius1));
                 js.setLength(0);
@@ -194,6 +225,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
 
     private AnychartMathRect getParentBounds;
 
+    /**
+     * Getter for bounds.
+     */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
             getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
@@ -204,6 +238,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     private AnychartMathRect parentBounds;
     private String parentBounds1;
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesAxesRadial setParentBounds(AnychartMathRect parentBounds) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -212,15 +249,16 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             this.parentBounds = parentBounds;
         } else {
             this.parentBounds = parentBounds;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(parentBounds.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".parentBounds(%s);",  ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -228,6 +266,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     }
 
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesAxesRadial setParentBounds(String parentBounds1) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -242,7 +283,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
@@ -256,6 +296,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     private Double width;
     private Double height;
 
+    /**
+     * Setter for bounds using several values.
+     */
     public StandalonesAxesRadial setParentBounds(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
@@ -273,7 +316,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
@@ -285,6 +327,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     private String startAngle;
     private Double startAngle1;
 
+    /**
+     * Setter for a start angle.
+     */
     public StandalonesAxesRadial setStartAngle(String startAngle) {
         if (jsBase == null) {
             this.startAngle = null;
@@ -299,7 +344,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             }
 
             js.append(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
                 js.setLength(0);
@@ -309,6 +353,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     }
 
 
+    /**
+     * Setter for a start angle.
+     */
     public StandalonesAxesRadial setStartAngle(Double startAngle1) {
         if (jsBase == null) {
             this.startAngle = null;
@@ -323,7 +370,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             }
 
             js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startAngle(%f)", startAngle1));
                 js.setLength(0);
@@ -332,26 +378,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         return this;
     }
 
-
-//
-//    private String generateJSLayer getContainer() {
-//        if (Layer getContainer != null) {
-//            return Layer getContainer.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAnychartMathRect getParentBounds() {
-//        if (AnychartMathRect getParentBounds != null) {
-//            return AnychartMathRect getParentBounds.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
-            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -359,7 +388,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     private String generateJSgetParentBounds() {
         if (getParentBounds != null) {
             return getParentBounds.generateJs();
-            //return String.format(Locale.US, "getParentBounds: %s,", ((getParentBounds != null) ? getParentBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -383,40 +411,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScontainer());
-////        
-//            js.append(generateJScontainer1());
-////        
-//            js.append(generateJScontainer2());
-////        
-//            js.append(generateJScontainer3());
-////        
-//            js.append(generateJSinnerRadius());
-////        
-//            js.append(generateJSinnerRadius1());
-////        
-//            js.append(generateJSparentBounds());
-////        
-//            js.append(generateJSparentBounds1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSstartAngle());
-////        
-//            js.append(generateJSstartAngle1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

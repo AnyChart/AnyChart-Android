@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Chart scroller class that also exposes position method that is used by chart.
+ */
 public class ChartScroller extends UiScroller {
 
     public ChartScroller() {
-
+        js.setLength(0);
+        js.append("var chartScroller").append(++variableIndex).append(" = anychart.core.ui.chartScroller();");
+        jsBase = "chartScroller" + variableIndex;
     }
 
     protected ChartScroller(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class ChartScroller extends UiScroller {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean inverted;
 
+    /**
+     * Setter for the scroller inversion.
+     */
     public ChartScroller setInverted(Boolean inverted) {
         if (jsBase == null) {
             this.inverted = inverted;
@@ -38,7 +51,6 @@ public class ChartScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".inverted(%b)", inverted));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".inverted(%b)", inverted));
                 js.setLength(0);
@@ -50,6 +62,9 @@ public class ChartScroller extends UiScroller {
     private ChartScrollerPosition position;
     private String position1;
 
+    /**
+     * Setter for the scroller position.
+     */
     public ChartScroller setPosition(ChartScrollerPosition position) {
         if (jsBase == null) {
             this.position = null;
@@ -64,7 +79,6 @@ public class ChartScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -74,6 +88,9 @@ public class ChartScroller extends UiScroller {
     }
 
 
+    /**
+     * Setter for the scroller position.
+     */
     public ChartScroller setPosition(String position1) {
         if (jsBase == null) {
             this.position = null;
@@ -88,7 +105,6 @@ public class ChartScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -97,8 +113,6 @@ public class ChartScroller extends UiScroller {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -116,18 +130,6 @@ public class ChartScroller extends UiScroller {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSinverted());
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSposition1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

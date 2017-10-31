@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Map axis ticks class.
+ */
 public class MapTicks extends VisualBase {
 
     public MapTicks() {
-
+        js.setLength(0);
+        js.append("var mapTicks").append(++variableIndex).append(" = anychart.core.axes.mapTicks();");
+        jsBase = "mapTicks" + variableIndex;
     }
 
     protected MapTicks(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class MapTicks extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double length;
     private String length1;
 
+    /**
+     * Setter for ticks length.
+     */
     public MapTicks setLength(Double length) {
         if (jsBase == null) {
             this.length = null;
@@ -42,7 +55,6 @@ public class MapTicks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".length(%f)", length));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%f)", length));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class MapTicks extends VisualBase {
     }
 
 
+    /**
+     * Setter for ticks length.
+     */
     public MapTicks setLength(String length1) {
         if (jsBase == null) {
             this.length = null;
@@ -66,7 +81,6 @@ public class MapTicks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".length(%s)", wrapQuotes(length1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%s)", wrapQuotes(length1)));
                 js.setLength(0);
@@ -78,6 +92,9 @@ public class MapTicks extends VisualBase {
     private SidePosition position;
     private String position1;
 
+    /**
+     * Setter for ticks position.
+     */
     public MapTicks setPosition(SidePosition position) {
         if (jsBase == null) {
             this.position = null;
@@ -92,7 +109,6 @@ public class MapTicks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -102,6 +118,9 @@ public class MapTicks extends VisualBase {
     }
 
 
+    /**
+     * Setter for ticks position.
+     */
     public MapTicks setPosition(String position1) {
         if (jsBase == null) {
             this.position = null;
@@ -116,7 +135,6 @@ public class MapTicks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -132,6 +150,9 @@ public class MapTicks extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for ticks stroke settings.
+     */
     public MapTicks setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -154,7 +175,6 @@ public class MapTicks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -164,6 +184,9 @@ public class MapTicks extends VisualBase {
     }
 
 
+    /**
+     * Setter for ticks stroke settings.
+     */
     public MapTicks setStroke(String color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -186,7 +209,6 @@ public class MapTicks extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color1), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color1), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -195,8 +217,6 @@ public class MapTicks extends VisualBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -214,32 +234,6 @@ public class MapTicks extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSlength());
-////        
-//            js.append(generateJSlength1());
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSposition1());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

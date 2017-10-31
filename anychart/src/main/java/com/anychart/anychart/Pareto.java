@@ -6,13 +6,34 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Pareto chart class.
+ */
 public class Pareto extends SeparateChart {
 
     protected Pareto(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Pareto setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Pareto setData(List<DataEntry> data) {
@@ -35,7 +56,31 @@ public class Pareto extends SeparateChart {
         return this;
     }
 
+    public Pareto setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
+
+    /**
+     * Adds series to the chart.
+     */
     public void addSeries(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -58,6 +103,9 @@ public class Pareto extends SeparateChart {
 
     private PlotController getAnnotations;
 
+    /**
+     * Getter for annotations.
+     */
     public PlotController getAnnotations() {
         if (getAnnotations == null)
             getAnnotations = new PlotController(jsBase + ".annotations()");
@@ -66,6 +114,10 @@ public class Pareto extends SeparateChart {
     }
     private String[] annotationsList;
     private List<Pareto> setAnnotations = new ArrayList<>();
+
+    /**
+     * Setter for annotations.
+     */
     public Pareto setAnnotations(String[] annotationsList) {
         if (!isChain) {
             js.append(jsBase);
@@ -92,6 +144,11 @@ public class Pareto extends SeparateChart {
 
     private Double barGroupsPadding;
     private List<Pareto> setBarGroupsPadding = new ArrayList<>();
+
+    /**
+     * Setter for space between bar groups on the ordinal scale by a ratio of bars width.<br/>
+See illustration at {@link anychart.charts.Pareto#barsPadding}.
+     */
     public Pareto setBarGroupsPadding(Double barGroupsPadding) {
         if (!isChain) {
             js.append(jsBase);
@@ -118,6 +175,11 @@ public class Pareto extends SeparateChart {
 
     private Double barsPadding;
     private List<Pareto> setBarsPadding = new ArrayList<>();
+
+    /**
+     * Setter for space between bars on the ordinal scale by ratio of bars width.</br>
+<img src='/si/special-hotfixes-typescript/anychart.charts.Pareto.barsPadding.png' width='396' height='294'/>
+     */
     public Pareto setBarsPadding(Double barsPadding) {
         if (!isChain) {
             js.append(jsBase);
@@ -145,6 +207,9 @@ public class Pareto extends SeparateChart {
 
     private Crosshair getCrosshair;
 
+    /**
+     * Getter for crosshair settings.
+     */
     public Crosshair getCrosshair() {
         if (getCrosshair == null)
             getCrosshair = new Crosshair(jsBase + ".crosshair()");
@@ -154,6 +219,10 @@ public class Pareto extends SeparateChart {
     private String crosshair;
     private Boolean crosshair1;
     private List<Pareto> setCrosshair = new ArrayList<>();
+
+    /**
+     * Setter for crosshair settings.
+     */
     public Pareto setCrosshair(String crosshair) {
         if (!isChain) {
             js.append(jsBase);
@@ -179,6 +248,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setCrosshair1 = new ArrayList<>();
+
+    /**
+     * Setter for crosshair settings.
+     */
     public Pareto setCrosshair(Boolean crosshair1) {
         if (!isChain) {
             js.append(jsBase);
@@ -206,6 +279,9 @@ public class Pareto extends SeparateChart {
 
     private View getData;
 
+    /**
+     * Getter for the data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -213,6 +289,10 @@ public class Pareto extends SeparateChart {
         return getData;
     }
     private List<Pareto> setData = new ArrayList<>();
+
+    /**
+     * Setter for the data.
+     */
     public Pareto data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -246,6 +326,10 @@ public class Pareto extends SeparateChart {
     private CartesianSeriesType defaultSeriesType;
     private String defaultSeriesType1;
     private List<Pareto> setDefaultSeriesType = new ArrayList<>();
+
+    /**
+     * Setter for the series type.
+     */
     public Pareto setDefaultSeriesType(CartesianSeriesType defaultSeriesType) {
         if (!isChain) {
             js.append(jsBase);
@@ -271,6 +355,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setDefaultSeriesType1 = new ArrayList<>();
+
+    /**
+     * Setter for the series type.
+     */
     public Pareto setDefaultSeriesType(String defaultSeriesType1) {
         if (!isChain) {
             js.append(jsBase);
@@ -298,6 +386,10 @@ public class Pareto extends SeparateChart {
 
     private AnychartMathRect getGetPlotBounds;
 
+    /**
+     * Getter for data bounds of the chart.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Pareto#draw} is called.
+     */
     public AnychartMathRect getGetPlotBounds() {
         if (getGetPlotBounds == null)
             getGetPlotBounds = new AnychartMathRect(jsBase + ".getPlotBounds()");
@@ -307,6 +399,9 @@ public class Pareto extends SeparateChart {
 
     private List<CartesianSeriesBase> getGetSeries = new ArrayList<>();
 
+    /**
+     * Getter for the series by its id.
+     */
     public CartesianSeriesBase getGetSeries(Double id) {
         CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeries("+ id+")");
         getGetSeries.add(item);
@@ -315,6 +410,9 @@ public class Pareto extends SeparateChart {
 
     private List<CartesianSeriesBase> getGetSeries1 = new ArrayList<>();
 
+    /**
+     * Getter for the series by its id.
+     */
     public CartesianSeriesBase getGetSeries(String id1) {
         CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeries("+ wrapQuotes(id1)+")");
         getGetSeries1.add(item);
@@ -323,6 +421,9 @@ public class Pareto extends SeparateChart {
 
     private List<CartesianSeriesBase> getGetSeriesAt = new ArrayList<>();
 
+    /**
+     * Getter for the series by its index.
+     */
     public CartesianSeriesBase getGetSeriesAt(Double index) {
         CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeriesAt("+ index+")");
         getGetSeriesAt.add(item);
@@ -331,6 +432,9 @@ public class Pareto extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -341,6 +445,10 @@ public class Pareto extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<Pareto> setHatchFillPalette = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public Pareto setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -366,6 +474,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setHatchFillPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public Pareto setHatchFillPalette(String hatchFillPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -391,17 +503,19 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setHatchFillPalette2 = new ArrayList<>();
-    public Pareto setHatchFillPalette(HatchFills hatchFillPalette2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for hatch fill palette settings.
+     */
+    public Pareto setHatchFillPalette(HatchFills hatchFillPalette2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetHatchFillPalette2() {
@@ -418,6 +532,9 @@ public class Pareto extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -426,6 +543,10 @@ public class Pareto extends SeparateChart {
     }
     private String hovered;
     private List<Pareto> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public Pareto setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -453,6 +574,9 @@ public class Pareto extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for series data labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -462,6 +586,10 @@ public class Pareto extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Pareto> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for series data labels.
+     */
     public Pareto setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -487,6 +615,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for series data labels.
+     */
     public Pareto setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -514,6 +646,9 @@ public class Pareto extends SeparateChart {
 
     private CoreAxismarkersLine getLineMarker;
 
+    /**
+     * Getter for the current line marker.
+     */
     public CoreAxismarkersLine getLineMarker() {
         if (getLineMarker == null)
             getLineMarker = new CoreAxismarkersLine(jsBase + ".lineMarker()");
@@ -523,6 +658,9 @@ public class Pareto extends SeparateChart {
 
     private List<CoreAxismarkersLine> getLineMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the current line marker.
+     */
     public CoreAxismarkersLine getLineMarker(Double index1) {
         CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
         getLineMarker1.add(item);
@@ -531,6 +669,10 @@ public class Pareto extends SeparateChart {
     private String lineMarker;
     private Boolean lineMarker1;
     private List<Pareto> setLineMarker = new ArrayList<>();
+
+    /**
+     * Setter for the line marker settings.
+     */
     public Pareto setLineMarker(String lineMarker) {
         if (!isChain) {
             js.append(jsBase);
@@ -556,6 +698,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setLineMarker1 = new ArrayList<>();
+
+    /**
+     * Setter for the line marker settings.
+     */
     public Pareto setLineMarker(Boolean lineMarker1) {
         if (!isChain) {
             js.append(jsBase);
@@ -584,6 +730,10 @@ public class Pareto extends SeparateChart {
     private String lineMarker2;
     private Boolean lineMarker3;
     private List<Pareto> setLineMarker2 = new ArrayList<>();
+
+    /**
+     * Setter for the line marker settings by index.
+     */
     public Pareto setLineMarker(String lineMarker2, Double index2) {
         if (!isChain) {
             js.append(jsBase);
@@ -609,6 +759,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setLineMarker3 = new ArrayList<>();
+
+    /**
+     * Setter for the line marker settings by index.
+     */
     public Pareto setLineMarker(Boolean lineMarker3, Double index2) {
         if (!isChain) {
             js.append(jsBase);
@@ -636,6 +790,9 @@ public class Pareto extends SeparateChart {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for chart markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -647,17 +804,19 @@ public class Pareto extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<Pareto> setMarkerPalette = new ArrayList<>();
-    public Pareto setMarkerPalette(Markers markerPalette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for chart markers palette settings.
+     */
+    public Pareto setMarkerPalette(Markers markerPalette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(markerPalette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetMarkerPalette() {
@@ -672,6 +831,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMarkerPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for chart markers palette settings.
+     */
     public Pareto setMarkerPalette(String markerPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -697,6 +860,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMarkerPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for chart markers palette settings.
+     */
     public Pareto setMarkerPalette(MarkerType[] markerPalette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -722,6 +889,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMarkerPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for chart markers palette settings.
+     */
     public Pareto setMarkerPalette(String[] markerPalette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -749,6 +920,10 @@ public class Pareto extends SeparateChart {
     private Double maxBubbleSize;
     private String maxBubbleSize1;
     private List<Pareto> setMaxBubbleSize = new ArrayList<>();
+
+    /**
+     * Setter for the maximum size for all bubbles on the charts.
+     */
     public Pareto setMaxBubbleSize(Double maxBubbleSize) {
         if (!isChain) {
             js.append(jsBase);
@@ -774,6 +949,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMaxBubbleSize1 = new ArrayList<>();
+
+    /**
+     * Setter for the maximum size for all bubbles on the charts.
+     */
     public Pareto setMaxBubbleSize(String maxBubbleSize1) {
         if (!isChain) {
             js.append(jsBase);
@@ -801,6 +980,10 @@ public class Pareto extends SeparateChart {
     private Double maxPointWidth;
     private String maxPointWidth1;
     private List<Pareto> setMaxPointWidth = new ArrayList<>();
+
+    /**
+     * Setter for the maximum point width.
+     */
     public Pareto setMaxPointWidth(Double maxPointWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -826,6 +1009,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMaxPointWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the maximum point width.
+     */
     public Pareto setMaxPointWidth(String maxPointWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -853,6 +1040,10 @@ public class Pareto extends SeparateChart {
     private Double minBubbleSize;
     private String minBubbleSize1;
     private List<Pareto> setMinBubbleSize = new ArrayList<>();
+
+    /**
+     * Setter for the minimum size for all bubbles on the charts.
+     */
     public Pareto setMinBubbleSize(Double minBubbleSize) {
         if (!isChain) {
             js.append(jsBase);
@@ -878,6 +1069,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMinBubbleSize1 = new ArrayList<>();
+
+    /**
+     * Setter for the minimum size for all bubbles on the charts.
+     */
     public Pareto setMinBubbleSize(String minBubbleSize1) {
         if (!isChain) {
             js.append(jsBase);
@@ -905,6 +1100,10 @@ public class Pareto extends SeparateChart {
     private Double minPointLength;
     private String minPointLength1;
     private List<Pareto> setMinPointLength = new ArrayList<>();
+
+    /**
+     * Setter for the minimum point length.
+     */
     public Pareto setMinPointLength(Double minPointLength) {
         if (!isChain) {
             js.append(jsBase);
@@ -930,6 +1129,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setMinPointLength1 = new ArrayList<>();
+
+    /**
+     * Setter for the minimum point length.
+     */
     public Pareto setMinPointLength(String minPointLength1) {
         if (!isChain) {
             js.append(jsBase);
@@ -957,6 +1160,9 @@ public class Pareto extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -965,6 +1171,10 @@ public class Pareto extends SeparateChart {
     }
     private String normal;
     private List<Pareto> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public Pareto setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -992,6 +1202,9 @@ public class Pareto extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the series colors palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -1003,17 +1216,19 @@ public class Pareto extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<Pareto> setPalette = new ArrayList<>();
-    public Pareto setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the series colors palette.
+     */
+    public Pareto setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -1028,17 +1243,19 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setPalette1 = new ArrayList<>();
-    public Pareto setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the series colors palette.
+     */
+    public Pareto setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -1053,6 +1270,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the series colors palette.
+     */
     public Pareto setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1078,6 +1299,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the series colors palette.
+     */
     public Pareto setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1105,6 +1330,10 @@ public class Pareto extends SeparateChart {
     private Double pointWidth;
     private String pointWidth1;
     private List<Pareto> setPointWidth = new ArrayList<>();
+
+    /**
+     * Setter for the point width settings.
+     */
     public Pareto setPointWidth(Double pointWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -1130,6 +1359,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setPointWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the point width settings.
+     */
     public Pareto setPointWidth(String pointWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1157,6 +1390,9 @@ public class Pareto extends SeparateChart {
 
     private CoreAxismarkersRange getRangeMarker;
 
+    /**
+     * Getter for the current range marker.
+     */
     public CoreAxismarkersRange getRangeMarker() {
         if (getRangeMarker == null)
             getRangeMarker = new CoreAxismarkersRange(jsBase + ".rangeMarker()");
@@ -1166,6 +1402,9 @@ public class Pareto extends SeparateChart {
 
     private List<CoreAxismarkersRange> getRangeMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the current range marker.
+     */
     public CoreAxismarkersRange getRangeMarker(Double index3) {
         CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
         getRangeMarker1.add(item);
@@ -1174,6 +1413,10 @@ public class Pareto extends SeparateChart {
     private String rangeMarker;
     private Boolean rangeMarker1;
     private List<Pareto> setRangeMarker = new ArrayList<>();
+
+    /**
+     * Setter for the range marker.
+     */
     public Pareto setRangeMarker(String rangeMarker) {
         if (!isChain) {
             js.append(jsBase);
@@ -1199,6 +1442,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setRangeMarker1 = new ArrayList<>();
+
+    /**
+     * Setter for the range marker.
+     */
     public Pareto setRangeMarker(Boolean rangeMarker1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1227,6 +1474,10 @@ public class Pareto extends SeparateChart {
     private String rangeMarker2;
     private Boolean rangeMarker3;
     private List<Pareto> setRangeMarker2 = new ArrayList<>();
+
+    /**
+     * Setter for the range marker by index.
+     */
     public Pareto setRangeMarker(String rangeMarker2, Double index4) {
         if (!isChain) {
             js.append(jsBase);
@@ -1252,6 +1503,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setRangeMarker3 = new ArrayList<>();
+
+    /**
+     * Setter for the range marker by index.
+     */
     public Pareto setRangeMarker(Boolean rangeMarker3, Double index4) {
         if (!isChain) {
             js.append(jsBase);
@@ -1279,6 +1534,10 @@ public class Pareto extends SeparateChart {
     private Double id2;
     private String id3;
     private List<Pareto> setRemoveSeries = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public Pareto removeSeries(Double id2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1304,6 +1563,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setRemoveSeries1 = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public Pareto removeSeries(String id3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1330,6 +1593,10 @@ public class Pareto extends SeparateChart {
 
     private Double index5;
     private List<Pareto> setRemoveSeriesAt = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its index.
+     */
     public Pareto removeSeriesAt(Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -1357,6 +1624,9 @@ public class Pareto extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -1365,6 +1635,10 @@ public class Pareto extends SeparateChart {
     }
     private String selected;
     private List<Pareto> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public Pareto setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -1392,6 +1666,9 @@ public class Pareto extends SeparateChart {
 
     private CoreAxismarkersText getTextMarker;
 
+    /**
+     * Getter for the text marker.
+     */
     public CoreAxismarkersText getTextMarker() {
         if (getTextMarker == null)
             getTextMarker = new CoreAxismarkersText(jsBase + ".textMarker()");
@@ -1401,6 +1678,9 @@ public class Pareto extends SeparateChart {
 
     private List<CoreAxismarkersText> getTextMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the text marker.
+     */
     public CoreAxismarkersText getTextMarker(Double index6) {
         CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
         getTextMarker1.add(item);
@@ -1409,6 +1689,10 @@ public class Pareto extends SeparateChart {
     private String textMarker;
     private Boolean textMarker1;
     private List<Pareto> setTextMarker = new ArrayList<>();
+
+    /**
+     * Setter for the text marker.
+     */
     public Pareto setTextMarker(String textMarker) {
         if (!isChain) {
             js.append(jsBase);
@@ -1434,6 +1718,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setTextMarker1 = new ArrayList<>();
+
+    /**
+     * Setter for the text marker.
+     */
     public Pareto setTextMarker(Boolean textMarker1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1462,6 +1750,10 @@ public class Pareto extends SeparateChart {
     private String textMarker2;
     private Boolean textMarker3;
     private List<Pareto> setTextMarker2 = new ArrayList<>();
+
+    /**
+     * Setter for the text marker by index.
+     */
     public Pareto setTextMarker(String textMarker2, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1487,6 +1779,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setTextMarker3 = new ArrayList<>();
+
+    /**
+     * Setter for the text marker by index.
+     */
     public Pareto setTextMarker(Boolean textMarker3, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1514,6 +1810,9 @@ public class Pareto extends SeparateChart {
 
     private CoreAxesLinear getXAxis;
 
+    /**
+     * Getter for the chart X-axis.
+     */
     public CoreAxesLinear getXAxis() {
         if (getXAxis == null)
             getXAxis = new CoreAxesLinear(jsBase + ".xAxis()");
@@ -1523,6 +1822,9 @@ public class Pareto extends SeparateChart {
 
     private List<CoreAxesLinear> getXAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart X-axis.
+     */
     public CoreAxesLinear getXAxis(Double index8) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
         getXAxis1.add(item);
@@ -1531,6 +1833,10 @@ public class Pareto extends SeparateChart {
     private String xAxis;
     private Boolean xAxis1;
     private List<Pareto> setXAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public Pareto setXAxis(String xAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -1556,6 +1862,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public Pareto setXAxis(Boolean xAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1584,6 +1894,10 @@ public class Pareto extends SeparateChart {
     private String xAxis2;
     private Boolean xAxis3;
     private List<Pareto> setXAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis by index.
+     */
     public Pareto setXAxis(String xAxis2, Double index9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1609,6 +1923,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis by index.
+     */
     public Pareto setXAxis(Boolean xAxis3, Double index9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1636,6 +1954,9 @@ public class Pareto extends SeparateChart {
 
     private CoreGridsLinear getXGrid;
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsLinear getXGrid() {
         if (getXGrid == null)
             getXGrid = new CoreGridsLinear(jsBase + ".xGrid()");
@@ -1645,6 +1966,9 @@ public class Pareto extends SeparateChart {
 
     private List<CoreGridsLinear> getXGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsLinear getXGrid(Double index10) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
         getXGrid1.add(item);
@@ -1653,6 +1977,10 @@ public class Pareto extends SeparateChart {
     private String xGrid;
     private Boolean xGrid1;
     private List<Pareto> setXGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public Pareto setXGrid(String xGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1678,6 +2006,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public Pareto setXGrid(Boolean xGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1706,6 +2038,10 @@ public class Pareto extends SeparateChart {
     private String xGrid2;
     private Boolean xGrid3;
     private List<Pareto> setXGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public Pareto setXGrid(String xGrid2, Double index11) {
         if (!isChain) {
             js.append(jsBase);
@@ -1731,6 +2067,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public Pareto setXGrid(Boolean xGrid3, Double index11) {
         if (!isChain) {
             js.append(jsBase);
@@ -1758,6 +2098,9 @@ public class Pareto extends SeparateChart {
 
     private CoreGridsLinear getXMinorGrid;
 
+    /**
+     * Getter for the chart minor grid by X-scale.
+     */
     public CoreGridsLinear getXMinorGrid() {
         if (getXMinorGrid == null)
             getXMinorGrid = new CoreGridsLinear(jsBase + ".xMinorGrid()");
@@ -1767,6 +2110,9 @@ public class Pareto extends SeparateChart {
 
     private List<CoreGridsLinear> getXMinorGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart minor grid by X-scale.
+     */
     public CoreGridsLinear getXMinorGrid(Double index12) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
         getXMinorGrid1.add(item);
@@ -1775,6 +2121,10 @@ public class Pareto extends SeparateChart {
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<Pareto> setXMinorGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public Pareto setXMinorGrid(String xMinorGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1800,6 +2150,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXMinorGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public Pareto setXMinorGrid(Boolean xMinorGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1828,6 +2182,10 @@ public class Pareto extends SeparateChart {
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
     private List<Pareto> setXMinorGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public Pareto setXMinorGrid(String xMinorGrid2, Double index13) {
         if (!isChain) {
             js.append(jsBase);
@@ -1853,6 +2211,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXMinorGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public Pareto setXMinorGrid(Boolean xMinorGrid3, Double index13) {
         if (!isChain) {
             js.append(jsBase);
@@ -1880,6 +2242,9 @@ public class Pareto extends SeparateChart {
 
     private ScalesBase getXScale;
 
+    /**
+     * Getter for the chart X-scale.
+     */
     public ScalesBase getXScale() {
         if (getXScale == null)
             getXScale = new ScalesBase(jsBase + ".xScale()");
@@ -1891,6 +2256,10 @@ public class Pareto extends SeparateChart {
     private String xScale2;
     private ScalesBase xScale3;
     private List<Pareto> setXScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-scale.
+     */
     public Pareto setXScale(String xScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1916,6 +2285,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-scale.
+     */
     public Pareto setXScale(ScaleTypes xScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1941,17 +2314,19 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXScale2 = new ArrayList<>();
-    public Pareto setXScale(ScalesBase xScale3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart X-scale.
+     */
+    public Pareto setXScale(ScalesBase xScale3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(xScale3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetXScale2() {
@@ -1968,6 +2343,9 @@ public class Pareto extends SeparateChart {
 
     private ChartScroller getXScroller;
 
+    /**
+     * Getter for the scroller.
+     */
     public ChartScroller getXScroller() {
         if (getXScroller == null)
             getXScroller = new ChartScroller(jsBase + ".xScroller()");
@@ -1977,6 +2355,10 @@ public class Pareto extends SeparateChart {
     private String xScroller;
     private Boolean xScroller1;
     private List<Pareto> setXScroller = new ArrayList<>();
+
+    /**
+     * Setter for the scroller.
+     */
     public Pareto setXScroller(String xScroller) {
         if (!isChain) {
             js.append(jsBase);
@@ -2002,6 +2384,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXScroller1 = new ArrayList<>();
+
+    /**
+     * Setter for the scroller.
+     */
     public Pareto setXScroller(Boolean xScroller1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2029,6 +2415,9 @@ public class Pareto extends SeparateChart {
 
     private OrdinalZoom getXZoom;
 
+    /**
+     * Getter for zoom settings.
+     */
     public OrdinalZoom getXZoom() {
         if (getXZoom == null)
             getXZoom = new OrdinalZoom(jsBase + ".xZoom()");
@@ -2039,6 +2428,10 @@ public class Pareto extends SeparateChart {
     private Boolean xZoom1;
     private String xZoom2;
     private List<Pareto> setXZoom = new ArrayList<>();
+
+    /**
+     * Setter for the zoom settings.
+     */
     public Pareto setXZoom(Double xZoom) {
         if (!isChain) {
             js.append(jsBase);
@@ -2064,6 +2457,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXZoom1 = new ArrayList<>();
+
+    /**
+     * Setter for the zoom settings.
+     */
     public Pareto setXZoom(Boolean xZoom1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2089,6 +2486,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setXZoom2 = new ArrayList<>();
+
+    /**
+     * Setter for the zoom settings.
+     */
     public Pareto setXZoom(String xZoom2) {
         if (!isChain) {
             js.append(jsBase);
@@ -2116,6 +2517,9 @@ public class Pareto extends SeparateChart {
 
     private CoreAxesLinear getYAxis;
 
+    /**
+     * Getter for the chart Y-axis.
+     */
     public CoreAxesLinear getYAxis() {
         if (getYAxis == null)
             getYAxis = new CoreAxesLinear(jsBase + ".yAxis()");
@@ -2125,6 +2529,9 @@ public class Pareto extends SeparateChart {
 
     private List<CoreAxesLinear> getYAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart Y-axis.
+     */
     public CoreAxesLinear getYAxis(Double index14) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
         getYAxis1.add(item);
@@ -2133,6 +2540,10 @@ public class Pareto extends SeparateChart {
     private String yAxis;
     private Boolean yAxis1;
     private List<Pareto> setYAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public Pareto setYAxis(String yAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -2158,6 +2569,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public Pareto setYAxis(Boolean yAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2186,6 +2601,10 @@ public class Pareto extends SeparateChart {
     private String yAxis2;
     private Boolean yAxis3;
     private List<Pareto> setYAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis by index.
+     */
     public Pareto setYAxis(String yAxis2, Double index15) {
         if (!isChain) {
             js.append(jsBase);
@@ -2211,6 +2630,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis by index.
+     */
     public Pareto setYAxis(Boolean yAxis3, Double index15) {
         if (!isChain) {
             js.append(jsBase);
@@ -2238,6 +2661,9 @@ public class Pareto extends SeparateChart {
 
     private CoreGridsLinear getYGrid;
 
+    /**
+     * Getter for the chart grid by Y-scale.
+     */
     public CoreGridsLinear getYGrid() {
         if (getYGrid == null)
             getYGrid = new CoreGridsLinear(jsBase + ".yGrid()");
@@ -2247,6 +2673,9 @@ public class Pareto extends SeparateChart {
 
     private List<CoreGridsLinear> getYGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by Y-scale.
+     */
     public CoreGridsLinear getYGrid(Double index16) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
         getYGrid1.add(item);
@@ -2255,6 +2684,10 @@ public class Pareto extends SeparateChart {
     private String yGrid;
     private Boolean yGrid1;
     private List<Pareto> setYGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by Y-scale.
+     */
     public Pareto setYGrid(String yGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -2280,6 +2713,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by Y-scale.
+     */
     public Pareto setYGrid(Boolean yGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2308,6 +2745,10 @@ public class Pareto extends SeparateChart {
     private String yGrid2;
     private Boolean yGrid3;
     private List<Pareto> setYGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public Pareto setYGrid(String yGrid2, Double index17) {
         if (!isChain) {
             js.append(jsBase);
@@ -2333,6 +2774,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public Pareto setYGrid(Boolean yGrid3, Double index17) {
         if (!isChain) {
             js.append(jsBase);
@@ -2360,6 +2805,9 @@ public class Pareto extends SeparateChart {
 
     private CoreGridsLinear getYMinorGrid;
 
+    /**
+     * Getter for the chart minor grid by Y-scale.
+     */
     public CoreGridsLinear getYMinorGrid() {
         if (getYMinorGrid == null)
             getYMinorGrid = new CoreGridsLinear(jsBase + ".yMinorGrid()");
@@ -2369,6 +2817,9 @@ public class Pareto extends SeparateChart {
 
     private List<CoreGridsLinear> getYMinorGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart minor grid by Y-scale.
+     */
     public CoreGridsLinear getYMinorGrid(Double index18) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
         getYMinorGrid1.add(item);
@@ -2377,6 +2828,10 @@ public class Pareto extends SeparateChart {
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<Pareto> setYMinorGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by Y-scale.
+     */
     public Pareto setYMinorGrid(String yMinorGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -2402,6 +2857,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYMinorGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by Y-scale.
+     */
     public Pareto setYMinorGrid(Boolean yMinorGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2430,6 +2889,10 @@ public class Pareto extends SeparateChart {
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
     private List<Pareto> setYMinorGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public Pareto setYMinorGrid(String yMinorGrid2, Double index19) {
         if (!isChain) {
             js.append(jsBase);
@@ -2455,6 +2918,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYMinorGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public Pareto setYMinorGrid(Boolean yMinorGrid3, Double index19) {
         if (!isChain) {
             js.append(jsBase);
@@ -2482,6 +2949,9 @@ public class Pareto extends SeparateChart {
 
     private ScalesBase getYScale;
 
+    /**
+     * Getter for the chart Y-scale.
+     */
     public ScalesBase getYScale() {
         if (getYScale == null)
             getYScale = new ScalesBase(jsBase + ".yScale()");
@@ -2493,6 +2963,10 @@ public class Pareto extends SeparateChart {
     private String yScale2;
     private ScalesBase yScale3;
     private List<Pareto> setYScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-scale.
+     */
     public Pareto setYScale(String yScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -2518,6 +2992,10 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-scale.
+     */
     public Pareto setYScale(ScaleTypes yScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2543,17 +3021,19 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setYScale2 = new ArrayList<>();
-    public Pareto setYScale(ScalesBase yScale3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart Y-scale.
+     */
+    public Pareto setYScale(ScalesBase yScale3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(yScale3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetYScale2() {

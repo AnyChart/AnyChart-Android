@@ -6,13 +6,34 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * TagCloud chart class.
+ */
 public class TagCloud extends SeparateChart {
 
     protected TagCloud(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public TagCloud setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public TagCloud setData(List<DataEntry> data) {
@@ -35,9 +56,33 @@ public class TagCloud extends SeparateChart {
         return this;
     }
 
+    public TagCloud setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
     private Double[] angles;
     private List<TagCloud> setAngles = new ArrayList<>();
+
+    /**
+     * Setter for tags rotation angles.
+     */
     public TagCloud setAngles(Double[] angles) {
         if (!isChain) {
             js.append(jsBase);
@@ -64,6 +109,10 @@ public class TagCloud extends SeparateChart {
 
     private Double anglesCount;
     private List<TagCloud> setAnglesCount = new ArrayList<>();
+
+    /**
+     * Setter for the angles count.
+     */
     public TagCloud setAnglesCount(Double anglesCount) {
         if (!isChain) {
             js.append(jsBase);
@@ -91,6 +140,9 @@ public class TagCloud extends SeparateChart {
 
     private UiColorRange getColorRange;
 
+    /**
+     * Getter for color range.
+     */
     public UiColorRange getColorRange() {
         if (getColorRange == null)
             getColorRange = new UiColorRange(jsBase + ".colorRange()");
@@ -100,6 +152,10 @@ public class TagCloud extends SeparateChart {
     private String colorRange;
     private Boolean colorRange1;
     private List<TagCloud> setColorRange = new ArrayList<>();
+
+    /**
+     * Setter for color range.
+     */
     public TagCloud setColorRange(String colorRange) {
         if (!isChain) {
             js.append(jsBase);
@@ -125,6 +181,10 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setColorRange1 = new ArrayList<>();
+
+    /**
+     * Setter for color range.
+     */
     public TagCloud setColorRange(Boolean colorRange1) {
         if (!isChain) {
             js.append(jsBase);
@@ -152,6 +212,9 @@ public class TagCloud extends SeparateChart {
 
     private OrdinalColor getColorScale;
 
+    /**
+     * Getter for the color scale.
+     */
     public OrdinalColor getColorScale() {
         if (getColorScale == null)
             getColorScale = new OrdinalColor(jsBase + ".colorScale()");
@@ -164,17 +227,19 @@ public class TagCloud extends SeparateChart {
     private ScaleTypes colorScale3;
     private String colorScale4;
     private List<TagCloud> setColorScale = new ArrayList<>();
-    public TagCloud setColorScale(LinearColor colorScale) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the color scale.
+     */
+    public TagCloud setColorScale(LinearColor colorScale) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(colorScale.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetColorScale() {
@@ -189,17 +254,19 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setColorScale1 = new ArrayList<>();
-    public TagCloud setColorScale(OrdinalColor colorScale1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the color scale.
+     */
+    public TagCloud setColorScale(OrdinalColor colorScale1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(colorScale1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetColorScale1() {
@@ -214,6 +281,10 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setColorScale2 = new ArrayList<>();
+
+    /**
+     * Setter for the color scale.
+     */
     public TagCloud setColorScale(String colorScale2) {
         if (!isChain) {
             js.append(jsBase);
@@ -239,6 +310,10 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setColorScale3 = new ArrayList<>();
+
+    /**
+     * Setter for the color scale.
+     */
     public TagCloud setColorScale(ScaleTypes colorScale3) {
         if (!isChain) {
             js.append(jsBase);
@@ -266,6 +341,9 @@ public class TagCloud extends SeparateChart {
 
     private View getData;
 
+    /**
+     * Getter for chart data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -273,6 +351,11 @@ public class TagCloud extends SeparateChart {
         return getData;
     }
     private List<TagCloud> setData = new ArrayList<>();
+
+    /**
+     * Setter for chart data.
+<b>Note:</b> All data is words values.
+     */
     public TagCloud data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -305,6 +388,10 @@ public class TagCloud extends SeparateChart {
 
     private Double fromAngle;
     private List<TagCloud> setFromAngle = new ArrayList<>();
+
+    /**
+     * Setter for the starting angle.
+     */
     public TagCloud setFromAngle(Double fromAngle) {
         if (!isChain) {
             js.append(jsBase);
@@ -332,6 +419,9 @@ public class TagCloud extends SeparateChart {
 
     private List<Point> getGetPoint = new ArrayList<>();
 
+    /**
+     * Gets wrapped point by index.
+     */
     public Point getGetPoint(Double index) {
         Point item = new Point(jsBase + ".getPoint("+ index+")");
         getGetPoint.add(item);
@@ -340,6 +430,10 @@ public class TagCloud extends SeparateChart {
     private Double index1;
     private Double[] index2;
     private List<TagCloud> setHover = new ArrayList<>();
+
+    /**
+     * Hovers a point by its index.
+     */
     public TagCloud hover(Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -365,6 +459,10 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setHover1 = new ArrayList<>();
+
+    /**
+     * Hovers a point by its index.
+     */
     public TagCloud hover(Double[] index2) {
         if (!isChain) {
             js.append(jsBase);
@@ -392,6 +490,9 @@ public class TagCloud extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for the hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -400,6 +501,10 @@ public class TagCloud extends SeparateChart {
     }
     private String hovered;
     private List<TagCloud> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for the hovered state settings.
+     */
     public TagCloud setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -427,6 +532,10 @@ public class TagCloud extends SeparateChart {
     private TagCloudMode mode;
     private String mode1;
     private List<TagCloud> setMode = new ArrayList<>();
+
+    /**
+     * Setter for the tag cloud mode.
+     */
     public TagCloud setMode(TagCloudMode mode) {
         if (!isChain) {
             js.append(jsBase);
@@ -452,6 +561,10 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setMode1 = new ArrayList<>();
+
+    /**
+     * Setter for the tag cloud mode.
+     */
     public TagCloud setMode(String mode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -479,6 +592,9 @@ public class TagCloud extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -487,6 +603,10 @@ public class TagCloud extends SeparateChart {
     }
     private String normal;
     private List<TagCloud> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public TagCloud setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -514,6 +634,9 @@ public class TagCloud extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the  palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -525,17 +648,20 @@ public class TagCloud extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<TagCloud> setPalette = new ArrayList<>();
-    public TagCloud setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public TagCloud setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -550,17 +676,20 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setPalette1 = new ArrayList<>();
-    public TagCloud setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public TagCloud setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -575,6 +704,11 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public TagCloud setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -600,6 +734,11 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public TagCloud setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -627,6 +766,9 @@ public class TagCloud extends SeparateChart {
 
     private ScalesBase getScale;
 
+    /**
+     * Getter for the font scale.
+     */
     public ScalesBase getScale() {
         if (getScale == null)
             getScale = new ScalesBase(jsBase + ".scale()");
@@ -638,6 +780,10 @@ public class TagCloud extends SeparateChart {
     private ScalesBase scale2;
     private String scale3;
     private List<TagCloud> setScale = new ArrayList<>();
+
+    /**
+     * Setter for the font scale.
+     */
     public TagCloud setScale(ScaleTypes scale) {
         if (!isChain) {
             js.append(jsBase);
@@ -663,6 +809,10 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the font scale.
+     */
     public TagCloud setScale(String scale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -688,17 +838,19 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setScale2 = new ArrayList<>();
-    public TagCloud setScale(ScalesBase scale2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the font scale.
+     */
+    public TagCloud setScale(ScalesBase scale2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(scale2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".scale(%s);",  ((scale2 != null) ? scale2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetScale2() {
@@ -714,6 +866,11 @@ public class TagCloud extends SeparateChart {
 
     private Double index3;
     private List<TagCloud> setSelect = new ArrayList<>();
+
+    /**
+     * Selects points by index.
+<b>Note:</b> Works only after {@link anychart.charts.TagCloud#draw} is called.
+     */
     public TagCloud select(Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -740,6 +897,11 @@ public class TagCloud extends SeparateChart {
 
     private Double[] indexes;
     private List<TagCloud> setSelect1 = new ArrayList<>();
+
+    /**
+     * Selects points by indexes.
+<b>Note:</b> Works only after {@link anychart.charts.TagCloud#draw} is called.
+     */
     public TagCloud select(Double[] indexes) {
         if (!isChain) {
             js.append(jsBase);
@@ -767,6 +929,9 @@ public class TagCloud extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -775,6 +940,10 @@ public class TagCloud extends SeparateChart {
     }
     private String selected;
     private List<TagCloud> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public TagCloud setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -801,6 +970,10 @@ public class TagCloud extends SeparateChart {
 
     private Double textSpacing;
     private List<TagCloud> setTextSpacing = new ArrayList<>();
+
+    /**
+     * Setter for text spacing.
+     */
     public TagCloud setTextSpacing(Double textSpacing) {
         if (!isChain) {
             js.append(jsBase);
@@ -827,6 +1000,10 @@ public class TagCloud extends SeparateChart {
 
     private Double toAngle;
     private List<TagCloud> setToAngle = new ArrayList<>();
+
+    /**
+     * Setter for the end angle.
+     */
     public TagCloud setToAngle(Double toAngle) {
         if (!isChain) {
             js.append(jsBase);
@@ -853,6 +1030,10 @@ public class TagCloud extends SeparateChart {
 
     private Double indexOrIndexes;
     private Double[] indexOrIndexes1;
+
+    /**
+     * Deselects all points or points by index.
+     */
     public void unselect(Double indexOrIndexes) {
         if (isChain) {
             js.append(";");
@@ -866,6 +1047,10 @@ public class TagCloud extends SeparateChart {
         }
     }
 
+
+    /**
+     * Deselects all points or points by index.
+     */
     public void unselect(Double[] indexOrIndexes1) {
         if (isChain) {
             js.append(";");

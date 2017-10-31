@@ -8,13 +8,26 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Ellipse Class.<br>
+<b>Do not invoke constructor directly.</b> Use {@link anychart.graphics.vector.Stage#ellipse} or
+{@link anychart.graphics.vector.Layer#ellipse} to make stage or layer bound ellipse.
+<br/> Use {@link anychart.graphics#ellipse} to create an unbound ellipse.<br/>
+See also:<br/>
+{@link anychart.graphics.vector.Stage#ellipse},<br/>
+{@link anychart.graphics.vector.Layer#ellipse},<br/>
+{@link anychart.graphics#ellipse}
+ */
 public class VectorEllipse extends Shape {
 
     public VectorEllipse() {
-
+        js.setLength(0);
+        js.append("var vectorEllipse").append(++variableIndex).append(" = anychart.graphics.vector.ellipse();");
+        jsBase = "vectorEllipse" + variableIndex;
     }
 
     protected VectorEllipse(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,18 +37,16 @@ public class VectorEllipse extends Shape {
         this.isChain = isChain;
     }
 
-    
-    private Coordinate getCenter;
-
-    public Coordinate getCenter() {
-        if (getCenter == null)
-            getCenter = new Coordinate(jsBase + ".center()");
-
-        return getCenter;
+    protected String getJsBase() {
+        return jsBase;
     }
 
+    
     private Coordinate center;
 
+    /**
+     * Sets center coordinates.
+     */
     public VectorEllipse setCenter(Coordinate center) {
         if (jsBase == null) {
             this.center = center;
@@ -47,7 +58,6 @@ public class VectorEllipse extends Shape {
             }
 
             js.append(String.format(Locale.US, ".center(%s)", ((center != null) ? center.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".center(%s)", ((center != null) ? center.generateJs() : "null")));
                 js.setLength(0);
@@ -58,6 +68,9 @@ public class VectorEllipse extends Shape {
 
     private Double centerX;
 
+    /**
+     * Sets a center X.
+     */
     public VectorEllipse setCenterX(Double centerX) {
         if (jsBase == null) {
             this.centerX = centerX;
@@ -69,7 +82,6 @@ public class VectorEllipse extends Shape {
             }
 
             js.append(String.format(Locale.US, ".centerX(%f)", centerX));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".centerX(%f)", centerX));
                 js.setLength(0);
@@ -80,6 +92,9 @@ public class VectorEllipse extends Shape {
 
     private Double centerY;
 
+    /**
+     * Sets a center Y.
+     */
     public VectorEllipse setCenterY(Double centerY) {
         if (jsBase == null) {
             this.centerY = centerY;
@@ -91,7 +106,6 @@ public class VectorEllipse extends Shape {
             }
 
             js.append(String.format(Locale.US, ".centerY(%f)", centerY));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".centerY(%f)", centerY));
                 js.setLength(0);
@@ -102,6 +116,9 @@ public class VectorEllipse extends Shape {
 
     private Double radiusX;
 
+    /**
+     * Sets a X radius.
+     */
     public VectorEllipse setRadiusX(Double radiusX) {
         if (jsBase == null) {
             this.radiusX = radiusX;
@@ -113,7 +130,6 @@ public class VectorEllipse extends Shape {
             }
 
             js.append(String.format(Locale.US, ".radiusX(%f)", radiusX));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radiusX(%f)", radiusX));
                 js.setLength(0);
@@ -124,6 +140,9 @@ public class VectorEllipse extends Shape {
 
     private Double radiusY;
 
+    /**
+     * Sets a Y radius.
+     */
     public VectorEllipse setRadiusY(Double radiusY) {
         if (jsBase == null) {
             this.radiusY = radiusY;
@@ -135,7 +154,6 @@ public class VectorEllipse extends Shape {
             }
 
             js.append(String.format(Locale.US, ".radiusY(%f)", radiusY));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radiusY(%f)", radiusY));
                 js.setLength(0);
@@ -147,6 +165,9 @@ public class VectorEllipse extends Shape {
     private Double rx;
     private Double ry;
 
+    /**
+     * Sets radius.
+     */
     public VectorEllipse setSetRadius(Double rx, Double ry) {
         if (jsBase == null) {
             this.rx = rx;
@@ -160,7 +181,6 @@ public class VectorEllipse extends Shape {
             }
 
             js.append(String.format(Locale.US, ".setRadius(%f, %f)", rx, ry));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setRadius(%f, %f)", rx, ry));
                 js.setLength(0);
@@ -170,30 +190,12 @@ public class VectorEllipse extends Shape {
     }
 
 
-//
-//    private String generateJSCoordinate getCenter() {
-//        if (Coordinate getCenter != null) {
-//            return Coordinate getCenter.generateJs();
-//        }
-//        return "";
-//    }
-//
-    private String generateJSgetCenter() {
-        if (getCenter != null) {
-            return getCenter.generateJs();
-            //return String.format(Locale.US, "getCenter: %s,", ((getCenter != null) ? getCenter.generateJs() : "null"));
-        }
-        return "";
-    }
-
-
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
 
         jsGetters.append(super.generateJsGetters());
 
     
-        jsGetters.append(generateJSgetCenter());
 
         return jsGetters.toString();
     }
@@ -204,26 +206,6 @@ public class VectorEllipse extends Shape {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScenter());
-////        
-//            js.append(generateJScenterX());
-////        
-//            js.append(generateJScenterY());
-////        
-//            js.append(generateJSradiusX());
-////        
-//            js.append(generateJSradiusY());
-////        
-//            js.append(generateJSrx());
-////        
-//            js.append(generateJSry());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Moving Average Convergence Divergence (MACD) indicator class.
+{docs:Stock_Charts/Technical_Indicators/Moving_Average_Convergence_Divergence_(MACD)}Learn more about the MACD indicator.{docs}
+ */
 public class MACD extends JsObject {
 
     public MACD() {
-
+        js.setLength(0);
+        js.append("var mACD").append(++variableIndex).append(" = anychart.core.stock.indicators.mACD();");
+        jsBase = "mACD" + variableIndex;
     }
 
     protected MACD(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,16 @@ public class MACD extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double fastPeriod;
 
+    /**
+     * Setter for the fast period.
+     */
     public MACD setFastPeriod(Double fastPeriod) {
         if (jsBase == null) {
             this.fastPeriod = fastPeriod;
@@ -38,7 +52,6 @@ public class MACD extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
                 js.setLength(0);
@@ -49,6 +62,9 @@ public class MACD extends JsObject {
 
     private StockSeriesBase getHistogramSeries;
 
+    /**
+     * Getter for the current indicator histogram series.
+     */
     public StockSeriesBase getHistogramSeries() {
         if (getHistogramSeries == null)
             getHistogramSeries = new StockSeriesBase(jsBase + ".histogramSeries()");
@@ -59,6 +75,9 @@ public class MACD extends JsObject {
     private StockSeriesType type;
     private String type1;
 
+    /**
+     * Setter for the indicator histogram series.
+     */
     public MACD setHistogramSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
@@ -73,7 +92,6 @@ public class MACD extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".histogramSeries(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".histogramSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -83,6 +101,9 @@ public class MACD extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator histogram series.
+     */
     public MACD setHistogramSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -97,7 +118,6 @@ public class MACD extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".histogramSeries(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".histogramSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -108,6 +128,9 @@ public class MACD extends JsObject {
 
     private StockSeriesBase getMacdSeries;
 
+    /**
+     * Getter for the current indicator MACD series.
+     */
     public StockSeriesBase getMacdSeries() {
         if (getMacdSeries == null)
             getMacdSeries = new StockSeriesBase(jsBase + ".macdSeries()");
@@ -118,6 +141,9 @@ public class MACD extends JsObject {
     private StockSeriesType type2;
     private String type3;
 
+    /**
+     * Setter for the indicator MACD series.
+     */
     public MACD setMacdSeries(StockSeriesType type2) {
         if (jsBase == null) {
             this.type = null;
@@ -134,7 +160,6 @@ public class MACD extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".macdSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".macdSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
@@ -144,6 +169,9 @@ public class MACD extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator MACD series.
+     */
     public MACD setMacdSeries(String type3) {
         if (jsBase == null) {
             this.type = null;
@@ -160,7 +188,6 @@ public class MACD extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".macdSeries(%s)", wrapQuotes(type3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".macdSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);
@@ -171,6 +198,9 @@ public class MACD extends JsObject {
 
     private Double signalPeriod;
 
+    /**
+     * Setter for the signal period.
+     */
     public MACD setSignalPeriod(Double signalPeriod) {
         if (jsBase == null) {
             this.signalPeriod = signalPeriod;
@@ -182,7 +212,6 @@ public class MACD extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".signalPeriod(%f)", signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".signalPeriod(%f)", signalPeriod));
                 js.setLength(0);
@@ -193,6 +222,9 @@ public class MACD extends JsObject {
 
     private StockSeriesBase getSignalSeries;
 
+    /**
+     * Getter for the current signal series.
+     */
     public StockSeriesBase getSignalSeries() {
         if (getSignalSeries == null)
             getSignalSeries = new StockSeriesBase(jsBase + ".signalSeries()");
@@ -203,6 +235,9 @@ public class MACD extends JsObject {
     private StockSeriesType type4;
     private String type5;
 
+    /**
+     * Setter for the signal series.
+     */
     public MACD setSignalSeries(StockSeriesType type4) {
         if (jsBase == null) {
             this.type = null;
@@ -221,7 +256,6 @@ public class MACD extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".signalSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".signalSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
                 js.setLength(0);
@@ -231,6 +265,9 @@ public class MACD extends JsObject {
     }
 
 
+    /**
+     * Setter for the signal series.
+     */
     public MACD setSignalSeries(String type5) {
         if (jsBase == null) {
             this.type = null;
@@ -249,7 +286,6 @@ public class MACD extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".signalSeries(%s)", wrapQuotes(type5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".signalSeries(%s)", wrapQuotes(type5)));
                 js.setLength(0);
@@ -260,46 +296,18 @@ public class MACD extends JsObject {
 
     private List<MACD> getSlowPeriod = new ArrayList<>();
 
+    /**
+     * Getter and setter for the slow period.
+     */
     public MACD getSlowPeriod(Double slowPeriod) {
         MACD item = new MACD(jsBase + ".slowPeriod(" + slowPeriod + ")");
         getSlowPeriod.add(item);
         return item;
     }
 
-
-//
-//    private String generateJSStockSeriesBase getHistogramSeries() {
-//        if (StockSeriesBase getHistogramSeries != null) {
-//            return StockSeriesBase getHistogramSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getMacdSeries() {
-//        if (StockSeriesBase getMacdSeries != null) {
-//            return StockSeriesBase getMacdSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getSignalSeries() {
-//        if (StockSeriesBase getSignalSeries != null) {
-//            return StockSeriesBase getSignalSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSMACD getSlowPeriod() {
-//        if (MACD getSlowPeriod != null) {
-//            return MACD getSlowPeriod.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHistogramSeries() {
         if (getHistogramSeries != null) {
             return getHistogramSeries.generateJs();
-            //return String.format(Locale.US, "getHistogramSeries: %s,", ((getHistogramSeries != null) ? getHistogramSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -307,7 +315,6 @@ public class MACD extends JsObject {
     private String generateJSgetMacdSeries() {
         if (getMacdSeries != null) {
             return getMacdSeries.generateJs();
-            //return String.format(Locale.US, "getMacdSeries: %s,", ((getMacdSeries != null) ? getMacdSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -315,7 +322,6 @@ public class MACD extends JsObject {
     private String generateJSgetSignalSeries() {
         if (getSignalSeries != null) {
             return getSignalSeries.generateJs();
-            //return String.format(Locale.US, "getSignalSeries: %s,", ((getSignalSeries != null) ? getSignalSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -353,28 +359,6 @@ public class MACD extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfastPeriod());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJStype2());
-////        
-//            js.append(generateJStype3());
-////        
-//            js.append(generateJSsignalPeriod());
-////        
-//            js.append(generateJStype4());
-////        
-//            js.append(generateJStype5());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Plot controller class.
+ */
 public class PlotController extends VisualBase {
 
     public PlotController() {
-
+        js.setLength(0);
+        js.append("var plotController").append(++variableIndex).append(" = anychart.core.annotations.plotController();");
+        jsBase = "plotController" + variableIndex;
     }
 
     protected PlotController(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,11 +30,18 @@ public class PlotController extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private AnnotationTypes annotationTypeOrConfig;
     private String annotationTypeOrConfig1;
     private AnnotationJSONFormat annotationTypeOrConfig2;
 
+    /**
+     * Adds annotation on the plot.
+     */
     public AnnotationsBase add(AnnotationTypes annotationTypeOrConfig) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
@@ -44,7 +57,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".add(%s);", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
                 js.setLength(0);
@@ -54,6 +66,9 @@ public class PlotController extends VisualBase {
     }
 
 
+    /**
+     * Adds annotation on the plot.
+     */
     public AnnotationsBase add(String annotationTypeOrConfig1) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
@@ -69,7 +84,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".add(%s);", wrapQuotes(annotationTypeOrConfig1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", wrapQuotes(annotationTypeOrConfig1)));
                 js.setLength(0);
@@ -79,6 +93,9 @@ public class PlotController extends VisualBase {
     }
 
 
+    /**
+     * Adds annotation on the plot.
+     */
     public AnnotationsBase add(AnnotationJSONFormat annotationTypeOrConfig2) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
@@ -94,7 +111,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".add(%s);", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
                 js.setLength(0);
@@ -105,6 +121,9 @@ public class PlotController extends VisualBase {
 
     private String config;
 
+    /**
+     * Creates and returns an Andrews Pitchfork annotation.
+     */
     public AndrewsPitchfork andrewsPitchfork(String config) {
         if (jsBase == null) {
             this.config = config;
@@ -116,7 +135,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".andrewsPitchfork(%s);", wrapQuotes(config)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".andrewsPitchfork(%s)", wrapQuotes(config)));
                 js.setLength(0);
@@ -127,6 +145,9 @@ public class PlotController extends VisualBase {
 
     private String config1;
 
+    /**
+     * Creates and returns an Ellipse annotation.
+     */
     public AnnotationsEllipse ellipse(String config1) {
         if (jsBase == null) {
             this.config = null;
@@ -141,7 +162,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ellipse(%s);", wrapQuotes(config1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%s)", wrapQuotes(config1)));
                 js.setLength(0);
@@ -152,6 +172,9 @@ public class PlotController extends VisualBase {
 
     private String config2;
 
+    /**
+     * Creates and returns a Fibonacci Arc annotation.
+     */
     public FibonacciArc fibonacciArc(String config2) {
         if (jsBase == null) {
             this.config = null;
@@ -167,7 +190,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fibonacciArc(%s);", wrapQuotes(config2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciArc(%s)", wrapQuotes(config2)));
                 js.setLength(0);
@@ -178,6 +200,9 @@ public class PlotController extends VisualBase {
 
     private String config3;
 
+    /**
+     * Creates and returns a Fibonacci Fan annotation.
+     */
     public FibonacciFan fibonacciFan(String config3) {
         if (jsBase == null) {
             this.config = null;
@@ -194,7 +219,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fibonacciFan(%s);", wrapQuotes(config3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciFan(%s)", wrapQuotes(config3)));
                 js.setLength(0);
@@ -205,6 +229,9 @@ public class PlotController extends VisualBase {
 
     private String config4;
 
+    /**
+     * Creates and returns a Fibonacci Retracement annotation.
+     */
     public FibonacciRetracement fibonacciRetracement(String config4) {
         if (jsBase == null) {
             this.config = null;
@@ -222,7 +249,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fibonacciRetracement(%s);", wrapQuotes(config4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciRetracement(%s)", wrapQuotes(config4)));
                 js.setLength(0);
@@ -233,6 +259,9 @@ public class PlotController extends VisualBase {
 
     private String config5;
 
+    /**
+     * Creates and returns a Fibonacci Timezones annotation.
+     */
     public FibonacciTimezones fibonacciTimezones(String config5) {
         if (jsBase == null) {
             this.config = null;
@@ -251,7 +280,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fibonacciTimezones(%s);", wrapQuotes(config5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciTimezones(%s)", wrapQuotes(config5)));
                 js.setLength(0);
@@ -263,6 +291,9 @@ public class PlotController extends VisualBase {
     private String config6;
     private String config7;
 
+    /**
+     * Creates annotations list by JSON config.
+     */
     public PlotController fromJson(String config6) {
         if (jsBase == null) {
             this.config = null;
@@ -283,7 +314,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fromJson(%s)", wrapQuotes(config6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fromJson(%s)", wrapQuotes(config6)));
                 js.setLength(0);
@@ -294,6 +324,9 @@ public class PlotController extends VisualBase {
 
     private String config8;
 
+    /**
+     * Creates annotations list by XML config.
+     */
     public PlotController fromXml(String config8) {
         if (jsBase == null) {
             this.config = null;
@@ -315,7 +348,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fromXml(%s)", wrapQuotes(config8)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fromXml(%s)", wrapQuotes(config8)));
                 js.setLength(0);
@@ -326,6 +358,9 @@ public class PlotController extends VisualBase {
 
     private Double index;
 
+    /**
+     * Returns annotation by index.
+     */
     public AnnotationsBase getAnnotationAt(Double index) {
         if (jsBase == null) {
             this.index = index;
@@ -337,7 +372,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getAnnotationAt(%f);", index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getAnnotationAt(%f)", index));
                 js.setLength(0);
@@ -348,6 +382,9 @@ public class PlotController extends VisualBase {
 
     private String config9;
 
+    /**
+     * Creates and returns a Horizontal Line annotation.
+     */
     public HorizontalLine horizontalLine(String config9) {
         if (jsBase == null) {
             this.config = null;
@@ -370,7 +407,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".horizontalLine(%s);", wrapQuotes(config9)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalLine(%s)", wrapQuotes(config9)));
                 js.setLength(0);
@@ -381,6 +417,9 @@ public class PlotController extends VisualBase {
 
     private String config10;
 
+    /**
+     * Creates and returns an Infinite Line annotation.
+     */
     public InfiniteLine infiniteLine(String config10) {
         if (jsBase == null) {
             this.config = null;
@@ -404,7 +443,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".infiniteLine(%s);", wrapQuotes(config10)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".infiniteLine(%s)", wrapQuotes(config10)));
                 js.setLength(0);
@@ -415,6 +453,9 @@ public class PlotController extends VisualBase {
 
     private String config11;
 
+    /**
+     * Creates and returns a Line annotation.
+     */
     public AnnotationsLine line(String config11) {
         if (jsBase == null) {
             this.config = null;
@@ -439,7 +480,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".line(%s);", wrapQuotes(config11)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s)", wrapQuotes(config11)));
                 js.setLength(0);
@@ -450,6 +490,9 @@ public class PlotController extends VisualBase {
 
     private String config12;
 
+    /**
+     * Creates and returns a Marker annotation.
+     */
     public AnnotationsMarker marker(String config12) {
         if (jsBase == null) {
             this.config = null;
@@ -475,7 +518,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".marker(%s);", wrapQuotes(config12)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s)", wrapQuotes(config12)));
                 js.setLength(0);
@@ -486,6 +528,9 @@ public class PlotController extends VisualBase {
 
     private String config13;
 
+    /**
+     * Creates and returns a Ray annotation.
+     */
     public Ray ray(String config13) {
         if (jsBase == null) {
             this.config = null;
@@ -512,7 +557,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ray(%s);", wrapQuotes(config13)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ray(%s)", wrapQuotes(config13)));
                 js.setLength(0);
@@ -523,6 +567,9 @@ public class PlotController extends VisualBase {
 
     private String config14;
 
+    /**
+     * Creates and returns a Rectangle annotation.
+     */
     public Rectangle rectangle(String config14) {
         if (jsBase == null) {
             this.config = null;
@@ -550,7 +597,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rectangle(%s);", wrapQuotes(config14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rectangle(%s)", wrapQuotes(config14)));
                 js.setLength(0);
@@ -561,20 +607,24 @@ public class PlotController extends VisualBase {
 
     private AnnotationsBase annotation;
 
+    /**
+     * Removes an annotation from a plot by its instance.
+     */
     public PlotController removeAnnotation(AnnotationsBase annotation) {
         if (jsBase == null) {
             this.annotation = annotation;
         } else {
             this.annotation = annotation;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(annotation.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".removeAnnotation(%s)", ((annotation != null) ? annotation.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".removeAnnotation(%s);",  ((annotation != null) ? annotation.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeAnnotation(%s)", ((annotation != null) ? annotation.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".removeAnnotation(%s)", ((annotation != null) ? annotation.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -583,6 +633,9 @@ public class PlotController extends VisualBase {
 
     private Double index1;
 
+    /**
+     * Removes an annotation from a plot by its index.
+     */
     public PlotController removeAnnotationAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
@@ -597,7 +650,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".removeAnnotationAt(%f)", index1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeAnnotationAt(%f)", index1));
                 js.setLength(0);
@@ -608,6 +660,9 @@ public class PlotController extends VisualBase {
 
     private AnnotationsBase annotation1;
 
+    /**
+     * Selects annotation.
+     */
     public PlotController select(AnnotationsBase annotation1) {
         if (jsBase == null) {
             this.annotation = null;
@@ -616,15 +671,16 @@ public class PlotController extends VisualBase {
             this.annotation1 = annotation1;
         } else {
             this.annotation1 = annotation1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(annotation1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".select(%s)", ((annotation1 != null) ? annotation1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".select(%s);",  ((annotation1 != null) ? annotation1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%s)", ((annotation1 != null) ? annotation1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s)", ((annotation1 != null) ? annotation1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -635,6 +691,10 @@ public class PlotController extends VisualBase {
     private String annotationTypeOrConfig4;
     private AnnotationJSONFormat annotationTypeOrConfig5;
 
+    /**
+     * Starts annotation drawing.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Cartesian#draw} and {@link anychart.charts.Stock#draw} is called.
+     */
     public AnnotationsBase startDrawing(AnnotationTypes annotationTypeOrConfig3) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
@@ -653,7 +713,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null")));
                 js.setLength(0);
@@ -663,6 +722,10 @@ public class PlotController extends VisualBase {
     }
 
 
+    /**
+     * Starts annotation drawing.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Cartesian#draw} and {@link anychart.charts.Stock#draw} is called.
+     */
     public AnnotationsBase startDrawing(String annotationTypeOrConfig4) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
@@ -681,7 +744,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", wrapQuotes(annotationTypeOrConfig4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", wrapQuotes(annotationTypeOrConfig4)));
                 js.setLength(0);
@@ -691,6 +753,10 @@ public class PlotController extends VisualBase {
     }
 
 
+    /**
+     * Starts annotation drawing.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Cartesian#draw} and {@link anychart.charts.Stock#draw} is called.
+     */
     public AnnotationsBase startDrawing(AnnotationJSONFormat annotationTypeOrConfig5) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
@@ -709,7 +775,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null")));
                 js.setLength(0);
@@ -720,6 +785,9 @@ public class PlotController extends VisualBase {
 
     private Boolean stringify;
 
+    /**
+     * Return plot annotations configuration as JSON object or string.
+     */
     public void toJson(Boolean stringify) {
         if (jsBase == null) {
             this.stringify = stringify;
@@ -731,7 +799,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".toJson(%b);", stringify));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toJson(%b)", stringify));
                 js.setLength(0);
@@ -741,6 +808,9 @@ public class PlotController extends VisualBase {
 
     private Boolean asXmlNode;
 
+    /**
+     * Return plot annotations configuration as XML string or XMLNode.
+     */
     public void toXml(Boolean asXmlNode) {
         if (jsBase == null) {
             this.asXmlNode = asXmlNode;
@@ -752,7 +822,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".toXml(%b);", asXmlNode));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toXml(%b)", asXmlNode));
                 js.setLength(0);
@@ -762,6 +831,9 @@ public class PlotController extends VisualBase {
 
     private String config15;
 
+    /**
+     * Creates and returns a Trend Channel annotation.
+     */
     public TrendChannel trendChannel(String config15) {
         if (jsBase == null) {
             this.config = null;
@@ -790,7 +862,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".trendChannel(%s);", wrapQuotes(config15)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".trendChannel(%s)", wrapQuotes(config15)));
                 js.setLength(0);
@@ -801,6 +872,9 @@ public class PlotController extends VisualBase {
 
     private String config16;
 
+    /**
+     * Creates and returns a Triangle annotation.
+     */
     public Triangle triangle(String config16) {
         if (jsBase == null) {
             this.config = null;
@@ -830,7 +904,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".triangle(%s);", wrapQuotes(config16)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".triangle(%s)", wrapQuotes(config16)));
                 js.setLength(0);
@@ -841,6 +914,9 @@ public class PlotController extends VisualBase {
 
     private String config17;
 
+    /**
+     * Creates and returns a Vertical Line annotation.
+     */
     public VerticalLine verticalLine(String config17) {
         if (jsBase == null) {
             this.config = null;
@@ -871,7 +947,6 @@ public class PlotController extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".verticalLine(%s);", wrapQuotes(config17)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalLine(%s)", wrapQuotes(config17)));
                 js.setLength(0);
@@ -880,8 +955,6 @@ public class PlotController extends VisualBase {
         return new VerticalLine(jsBase);
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -899,72 +972,6 @@ public class PlotController extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSannotationTypeOrConfig());
-////        
-//            js.append(generateJSannotationTypeOrConfig1());
-////        
-//            js.append(generateJSannotationTypeOrConfig2());
-////        
-//            js.append(generateJSconfig());
-////        
-//            js.append(generateJSconfig1());
-////        
-//            js.append(generateJSconfig2());
-////        
-//            js.append(generateJSconfig3());
-////        
-//            js.append(generateJSconfig4());
-////        
-//            js.append(generateJSconfig5());
-////        
-//            js.append(generateJSconfig6());
-////        
-//            js.append(generateJSconfig7());
-////        
-//            js.append(generateJSconfig8());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSconfig9());
-////        
-//            js.append(generateJSconfig10());
-////        
-//            js.append(generateJSconfig11());
-////        
-//            js.append(generateJSconfig12());
-////        
-//            js.append(generateJSconfig13());
-////        
-//            js.append(generateJSconfig14());
-////        
-//            js.append(generateJSannotation());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSannotation1());
-////        
-//            js.append(generateJSannotationTypeOrConfig3());
-////        
-//            js.append(generateJSannotationTypeOrConfig4());
-////        
-//            js.append(generateJSannotationTypeOrConfig5());
-////        
-//            js.append(generateJSstringify());
-////        
-//            js.append(generateJSasXmlNode());
-////        
-//            js.append(generateJSconfig15());
-////        
-//            js.append(generateJSconfig16());
-////        
-//            js.append(generateJSconfig17());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

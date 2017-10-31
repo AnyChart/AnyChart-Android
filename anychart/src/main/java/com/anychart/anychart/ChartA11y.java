@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Anychart chart accessibility class.
+ */
 public class ChartA11y extends A11y {
 
     public ChartA11y() {
-
+        js.setLength(0);
+        js.append("var chartA11y").append(++variableIndex).append(" = anychart.core.utils.chartA11y();");
+        jsBase = "chartA11y" + variableIndex;
     }
 
     protected ChartA11y(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class ChartA11y extends A11y {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean enabled;
 
+    /**
+     * Setter for the accessibility enabled state.
+     */
     public ChartA11y setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
@@ -38,7 +51,6 @@ public class ChartA11y extends A11y {
             }
 
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -50,6 +62,9 @@ public class ChartA11y extends A11y {
     private A11yMode mode;
     private String mode1;
 
+    /**
+     * Setter for the accessibility mode.
+     */
     public ChartA11y setMode(A11yMode mode) {
         if (jsBase == null) {
             this.mode = null;
@@ -64,7 +79,6 @@ public class ChartA11y extends A11y {
             }
 
             js.append(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
                 js.setLength(0);
@@ -74,6 +88,9 @@ public class ChartA11y extends A11y {
     }
 
 
+    /**
+     * Setter for the accessibility mode.
+     */
     public ChartA11y setMode(String mode1) {
         if (jsBase == null) {
             this.mode = null;
@@ -88,7 +105,6 @@ public class ChartA11y extends A11y {
             }
 
             js.append(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
                 js.setLength(0);
@@ -99,6 +115,10 @@ public class ChartA11y extends A11y {
 
     private String titleFormat;
 
+    /**
+     * Setter for the function to format title.<br/>
+{docs:Common_Settings/Text_Formatters}Learn more about using titleFormat() method.{docs}
+     */
     public ChartA11y setTitleFormat(String titleFormat) {
         if (jsBase == null) {
             this.titleFormat = titleFormat;
@@ -110,7 +130,6 @@ public class ChartA11y extends A11y {
             }
 
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);
@@ -119,8 +138,6 @@ public class ChartA11y extends A11y {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -138,20 +155,6 @@ public class ChartA11y extends A11y {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSenabled());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJStitleFormat());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

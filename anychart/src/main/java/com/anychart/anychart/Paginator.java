@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Paginator base class.
+ */
 public class Paginator extends CoreText {
 
     public Paginator() {
-
+        js.setLength(0);
+        js.append("var paginator").append(++variableIndex).append(" = anychart.core.ui.paginator();");
+        jsBase = "paginator" + variableIndex;
     }
 
     protected Paginator(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,11 +30,18 @@ public class Paginator extends CoreText {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String background;
     private String background1;
     private Boolean background2;
 
+    /**
+     * Paginator background.
+     */
     public Paginator background(String background) {
         if (jsBase == null) {
             this.background = null;
@@ -44,7 +57,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -54,6 +66,9 @@ public class Paginator extends CoreText {
     }
 
 
+    /**
+     * Paginator background.
+     */
     public Paginator background(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
@@ -69,7 +84,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -81,6 +95,9 @@ public class Paginator extends CoreText {
     private Double currentPage;
     private String currentPage1;
 
+    /**
+     * Setter for active page.
+     */
     public Paginator setCurrentPage(Double currentPage) {
         if (jsBase == null) {
             this.currentPage = null;
@@ -95,7 +112,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".currentPage(%f)", currentPage));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".currentPage(%f)", currentPage));
                 js.setLength(0);
@@ -105,6 +121,9 @@ public class Paginator extends CoreText {
     }
 
 
+    /**
+     * Setter for active page.
+     */
     public Paginator setCurrentPage(String currentPage1) {
         if (jsBase == null) {
             this.currentPage = null;
@@ -119,7 +138,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".currentPage(%s)", wrapQuotes(currentPage1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".currentPage(%s)", wrapQuotes(currentPage1)));
                 js.setLength(0);
@@ -131,6 +149,9 @@ public class Paginator extends CoreText {
     private Layout layout;
     private String layout1;
 
+    /**
+     * Setter for paginator layout.
+     */
     public Paginator setLayout(Layout layout) {
         if (jsBase == null) {
             this.layout = null;
@@ -145,7 +166,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
@@ -155,6 +175,9 @@ public class Paginator extends CoreText {
     }
 
 
+    /**
+     * Setter for paginator layout.
+     */
     public Paginator setLayout(String layout1) {
         if (jsBase == null) {
             this.layout = null;
@@ -169,7 +192,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);
@@ -180,6 +202,9 @@ public class Paginator extends CoreText {
 
     private Margin getMargin;
 
+    /**
+     * Getter for the paginator margin.
+     */
     public Margin getMargin() {
         if (getMargin == null)
             getMargin = new Margin(jsBase + ".margin()");
@@ -199,6 +224,9 @@ public class Paginator extends CoreText {
     private String left;
     private Double left1;
 
+    /**
+     * Setter for the paginator margin.
+     */
     public Paginator setMargin(Double[] spaceOrTopOrTopAndBottom2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
@@ -216,7 +244,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom2)));
                 js.setLength(0);
@@ -226,6 +253,9 @@ public class Paginator extends CoreText {
     }
 
 
+    /**
+     * Setter for the paginator margin.
+     */
     public Paginator setMargin(String[] spaceOrTopOrTopAndBottom3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
@@ -243,7 +273,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
                 js.setLength(0);
@@ -253,6 +282,9 @@ public class Paginator extends CoreText {
     }
 
 
+    /**
+     * Setter for the paginator margin.
+     */
     public Paginator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
@@ -285,7 +317,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
                 js.setLength(0);
@@ -297,6 +328,9 @@ public class Paginator extends CoreText {
     private Orientation orientation;
     private String orientation1;
 
+    /**
+     * Orientation of the paginator.
+     */
     public Paginator orientation(Orientation orientation) {
         if (jsBase == null) {
             this.orientation = null;
@@ -311,7 +345,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
                 js.setLength(0);
@@ -321,6 +354,9 @@ public class Paginator extends CoreText {
     }
 
 
+    /**
+     * Orientation of the paginator.
+     */
     public Paginator orientation(String orientation1) {
         if (jsBase == null) {
             this.orientation = null;
@@ -335,7 +371,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
                 js.setLength(0);
@@ -346,6 +381,9 @@ public class Paginator extends CoreText {
 
     private UtilsPadding getPadding;
 
+    /**
+     * Getter for the paginator padding.
+     */
     public UtilsPadding getPadding() {
         if (getPadding == null)
             getPadding = new UtilsPadding(jsBase + ".padding()");
@@ -365,6 +403,9 @@ public class Paginator extends CoreText {
     private String left2;
     private Double left3;
 
+    /**
+     * Setter for the paginator padding.
+     */
     public Paginator setPadding(Double[] spaceOrTopOrTopAndBottom7) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
@@ -387,7 +428,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(spaceOrTopOrTopAndBottom7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(spaceOrTopOrTopAndBottom7)));
                 js.setLength(0);
@@ -397,6 +437,9 @@ public class Paginator extends CoreText {
     }
 
 
+    /**
+     * Setter for the paginator padding.
+     */
     public Paginator setPadding(String[] spaceOrTopOrTopAndBottom8) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
@@ -419,7 +462,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom8)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom8)));
                 js.setLength(0);
@@ -429,6 +471,9 @@ public class Paginator extends CoreText {
     }
 
 
+    /**
+     * Setter for the paginator padding.
+     */
     public Paginator setPadding(Double spaceOrTopOrTopAndBottom6, Double rightOrRightAndLeft3, Double bottom3, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
@@ -472,7 +517,6 @@ public class Paginator extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom6, rightOrRightAndLeft3, bottom3, left3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom6, rightOrRightAndLeft3, bottom3, left3));
                 js.setLength(0);
@@ -481,26 +525,9 @@ public class Paginator extends CoreText {
         return this;
     }
 
-
-//
-//    private String generateJSMargin getMargin() {
-//        if (Margin getMargin != null) {
-//            return Margin getMargin.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUtilsPadding getPadding() {
-//        if (UtilsPadding getPadding != null) {
-//            return UtilsPadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
-            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -508,7 +535,6 @@ public class Paginator extends CoreText {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -532,74 +558,6 @@ public class Paginator extends CoreText {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJScurrentPage());
-////        
-//            js.append(generateJScurrentPage1());
-////        
-//            js.append(generateJSlayout());
-////        
-//            js.append(generateJSlayout1());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom1());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom2());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom3());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom4());
-////        
-//            js.append(generateJSrightOrRightAndLeft());
-////        
-//            js.append(generateJSrightOrRightAndLeft1());
-////        
-//            js.append(generateJSbottom());
-////        
-//            js.append(generateJSbottom1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJSleft1());
-////        
-//            js.append(generateJSorientation());
-////        
-//            js.append(generateJSorientation1());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom5());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom6());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom7());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom8());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom9());
-////        
-//            js.append(generateJSrightOrRightAndLeft2());
-////        
-//            js.append(generateJSrightOrRightAndLeft3());
-////        
-//            js.append(generateJSbottom2());
-////        
-//            js.append(generateJSbottom3());
-////        
-//            js.append(generateJSleft2());
-////        
-//            js.append(generateJSleft3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

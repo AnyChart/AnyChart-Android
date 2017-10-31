@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Crosshair class.
+ */
 public class Crosshair extends VisualBase {
 
     public Crosshair() {
-
+        js.setLength(0);
+        js.append("var crosshair").append(++variableIndex).append(" = anychart.core.ui.crosshair();");
+        jsBase = "crosshair" + variableIndex;
     }
 
     protected Crosshair(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class Crosshair extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private CrosshairDisplayMode displayMode;
     private String displayMode1;
 
+    /**
+     * Setter for the display mode for crosshair.
+     */
     public Crosshair setDisplayMode(CrosshairDisplayMode displayMode) {
         if (jsBase == null) {
             this.displayMode = null;
@@ -42,7 +55,6 @@ public class Crosshair extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".displayMode(%s)", ((displayMode != null) ? displayMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", ((displayMode != null) ? displayMode.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class Crosshair extends VisualBase {
     }
 
 
+    /**
+     * Setter for the display mode for crosshair.
+     */
     public Crosshair setDisplayMode(String displayMode1) {
         if (jsBase == null) {
             this.displayMode = null;
@@ -66,7 +81,6 @@ public class Crosshair extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".displayMode(%s)", wrapQuotes(displayMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", wrapQuotes(displayMode1)));
                 js.setLength(0);
@@ -77,6 +91,9 @@ public class Crosshair extends VisualBase {
 
     private CrosshairLabel getXLabel;
 
+    /**
+     * Getter for the crosshair X-label settings.
+     */
     public CrosshairLabel getXLabel() {
         if (getXLabel == null)
             getXLabel = new CrosshairLabel(jsBase + ".xLabel()");
@@ -87,6 +104,9 @@ public class Crosshair extends VisualBase {
     private String xLabel;
     private Boolean xLabel1;
 
+    /**
+     * Setter for the crosshair X-label settings.
+     */
     public Crosshair setXLabel(String xLabel) {
         if (jsBase == null) {
             this.xLabel = null;
@@ -101,7 +121,6 @@ public class Crosshair extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".xLabel(%s)", wrapQuotes(xLabel)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xLabel(%s)", wrapQuotes(xLabel)));
                 js.setLength(0);
@@ -111,6 +130,9 @@ public class Crosshair extends VisualBase {
     }
 
 
+    /**
+     * Setter for the crosshair X-label settings.
+     */
     public Crosshair setXLabel(Boolean xLabel1) {
         if (jsBase == null) {
             this.xLabel = null;
@@ -125,7 +147,6 @@ public class Crosshair extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".xLabel(%b)", xLabel1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xLabel(%b)", xLabel1));
                 js.setLength(0);
@@ -141,6 +162,9 @@ public class Crosshair extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the X-line stroke.
+     */
     public Crosshair setXStroke(Stroke xStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.xStroke = null;
@@ -163,7 +187,6 @@ public class Crosshair extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", ((xStroke != null) ? xStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", ((xStroke != null) ? xStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -173,6 +196,9 @@ public class Crosshair extends VisualBase {
     }
 
 
+    /**
+     * Setter for the X-line stroke.
+     */
     public Crosshair setXStroke(String xStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.xStroke = null;
@@ -195,7 +221,6 @@ public class Crosshair extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", wrapQuotes(xStroke1), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", wrapQuotes(xStroke1), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -206,6 +231,9 @@ public class Crosshair extends VisualBase {
 
     private CrosshairLabel getYLabel;
 
+    /**
+     * Getter for the crosshair Y-label settings.
+     */
     public CrosshairLabel getYLabel() {
         if (getYLabel == null)
             getYLabel = new CrosshairLabel(jsBase + ".yLabel()");
@@ -216,6 +244,9 @@ public class Crosshair extends VisualBase {
     private String yLabel;
     private Boolean yLabel1;
 
+    /**
+     * Setter for the crosshair Y-label settings.
+     */
     public Crosshair setYLabel(String yLabel) {
         if (jsBase == null) {
             this.yLabel = null;
@@ -230,7 +261,6 @@ public class Crosshair extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".yLabel(%s)", wrapQuotes(yLabel)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yLabel(%s)", wrapQuotes(yLabel)));
                 js.setLength(0);
@@ -240,6 +270,9 @@ public class Crosshair extends VisualBase {
     }
 
 
+    /**
+     * Setter for the crosshair Y-label settings.
+     */
     public Crosshair setYLabel(Boolean yLabel1) {
         if (jsBase == null) {
             this.yLabel = null;
@@ -254,7 +287,6 @@ public class Crosshair extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".yLabel(%b)", yLabel1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yLabel(%b)", yLabel1));
                 js.setLength(0);
@@ -270,6 +302,9 @@ public class Crosshair extends VisualBase {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for the Y-line stroke.
+     */
     public Crosshair setYStroke(Stroke yStroke, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.yStroke = null;
@@ -304,7 +339,6 @@ public class Crosshair extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", ((yStroke != null) ? yStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", ((yStroke != null) ? yStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -314,6 +348,9 @@ public class Crosshair extends VisualBase {
     }
 
 
+    /**
+     * Setter for the Y-line stroke.
+     */
     public Crosshair setYStroke(String yStroke1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.yStroke = null;
@@ -348,7 +385,6 @@ public class Crosshair extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", wrapQuotes(yStroke1), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", wrapQuotes(yStroke1), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -357,26 +393,9 @@ public class Crosshair extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSCrosshairLabel getXLabel() {
-//        if (CrosshairLabel getXLabel != null) {
-//            return CrosshairLabel getXLabel.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSCrosshairLabel getYLabel() {
-//        if (CrosshairLabel getYLabel != null) {
-//            return CrosshairLabel getYLabel.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetXLabel() {
         if (getXLabel != null) {
             return getXLabel.generateJs();
-            //return String.format(Locale.US, "getXLabel: %s,", ((getXLabel != null) ? getXLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -384,7 +403,6 @@ public class Crosshair extends VisualBase {
     private String generateJSgetYLabel() {
         if (getYLabel != null) {
             return getYLabel.generateJs();
-            //return String.format(Locale.US, "getYLabel: %s,", ((getYLabel != null) ? getYLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -408,48 +426,6 @@ public class Crosshair extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdisplayMode());
-////        
-//            js.append(generateJSdisplayMode1());
-////        
-//            js.append(generateJSxLabel());
-////        
-//            js.append(generateJSxLabel1());
-////        
-//            js.append(generateJSxStroke());
-////        
-//            js.append(generateJSxStroke1());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSyLabel());
-////        
-//            js.append(generateJSyLabel1());
-////        
-//            js.append(generateJSyStroke());
-////        
-//            js.append(generateJSyStroke1());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

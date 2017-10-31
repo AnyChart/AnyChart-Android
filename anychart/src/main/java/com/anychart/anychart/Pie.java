@@ -6,13 +6,35 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Pie (Donut) chart class.<br/>
+<b>Note:</b> Use {@link anychart#pie} method to get an instance of this class:
+ */
 public class Pie extends SeparateChart {
 
     protected Pie(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Pie setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Pie setData(List<DataEntry> data) {
@@ -35,10 +57,35 @@ public class Pie extends SeparateChart {
         return this;
     }
 
+    public Pie setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
     private Double connectorLength;
     private String connectorLength1;
     private List<Pie> setConnectorLength = new ArrayList<>();
+
+    /**
+     * Setter for the outside labels connector length.<br/>
+<b>Note:</b> Works only with outside labels mode.
+     */
     public Pie setConnectorLength(Double connectorLength) {
         if (!isChain) {
             js.append(jsBase);
@@ -64,6 +111,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setConnectorLength1 = new ArrayList<>();
+
+    /**
+     * Setter for the outside labels connector length.<br/>
+<b>Note:</b> Works only with outside labels mode.
+     */
     public Pie setConnectorLength(String connectorLength1) {
         if (!isChain) {
             js.append(jsBase);
@@ -96,6 +148,12 @@ public class Pie extends SeparateChart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<Pie> setConnectorStroke = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connectors stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs} <br/>
+<b>Note: </b> Works only with outside labels mode.
+     */
     public Pie setConnectorStroke(Stroke connectorStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -121,6 +179,12 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setConnectorStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connectors stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs} <br/>
+<b>Note: </b> Works only with outside labels mode.
+     */
     public Pie setConnectorStroke(ColoredFill connectorStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -146,6 +210,12 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setConnectorStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connectors stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs} <br/>
+<b>Note: </b> Works only with outside labels mode.
+     */
     public Pie setConnectorStroke(String connectorStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -173,6 +243,9 @@ public class Pie extends SeparateChart {
 
     private View getData;
 
+    /**
+     * Getter for the chart data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -180,6 +253,11 @@ public class Pie extends SeparateChart {
         return getData;
     }
     private List<Pie> setData = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.<br/>
+Learn more about mapping at {@link anychart.data.Mapping}.
+     */
     public Pie data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -213,6 +291,11 @@ public class Pie extends SeparateChart {
     private String explode;
     private Double explode1;
     private List<Pie> setExplode = new ArrayList<>();
+
+    /**
+     * Setter for the value of the exploded pie slice.<br/>
+<b>Note:</b> Works only with exploded points mode.
+     */
     public Pie setExplode(String explode) {
         if (!isChain) {
             js.append(jsBase);
@@ -238,6 +321,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setExplode1 = new ArrayList<>();
+
+    /**
+     * Setter for the value of the exploded pie slice.<br/>
+<b>Note:</b> Works only with exploded points mode.
+     */
     public Pie setExplode(Double explode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -265,6 +353,10 @@ public class Pie extends SeparateChart {
     private Double index;
     private Boolean explode2;
     private List<Pie> setExplodeSlice = new ArrayList<>();
+
+    /**
+     * Explodes slice at index.
+     */
     public Pie explodeSlice(Double index, Boolean explode2) {
         if (!isChain) {
             js.append(jsBase);
@@ -291,6 +383,10 @@ public class Pie extends SeparateChart {
 
     private Boolean explodeSlices;
     private List<Pie> setExplodeSlices = new ArrayList<>();
+
+    /**
+     * Explodes all slices.
+     */
     public Pie explodeSlices(Boolean explodeSlices) {
         if (!isChain) {
             js.append(jsBase);
@@ -317,6 +413,11 @@ public class Pie extends SeparateChart {
 
     private Fill fill;
     private List<Pie> setFill = new ArrayList<>();
+
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pie setFill(Fill fill) {
         if (!isChain) {
             js.append(jsBase);
@@ -344,6 +445,10 @@ public class Pie extends SeparateChart {
     private String color;
     private Double opacity;
     private List<Pie> setFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.
+     */
     public Pie fill(String color, Double opacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -376,6 +481,11 @@ public class Pie extends SeparateChart {
     private String mode2;
     private Double opacity1;
     private List<Pie> setFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pie fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -401,6 +511,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pie fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -426,6 +541,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pie fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -451,6 +571,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pie fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -476,6 +601,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pie fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -501,6 +631,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pie fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -534,6 +669,11 @@ public class Pie extends SeparateChart {
     private Double fx;
     private Double fy;
     private List<Pie> setFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pie fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -559,6 +699,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pie fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -586,6 +731,10 @@ public class Pie extends SeparateChart {
     private Fill imageSettings;
     private Boolean forceHoverLabels;
     private List<Pie> setForceHoverLabels = new ArrayList<>();
+
+    /**
+     * Setter for the displaying of the label on hover event.
+     */
     public Pie setForceHoverLabels(Boolean forceHoverLabels) {
         if (!isChain) {
             js.append(jsBase);
@@ -610,17 +759,12 @@ public class Pie extends SeparateChart {
         return "";
     }
 
-
-    private Coordinate getGetCenterPoint;
-
-    public Coordinate getGetCenterPoint() {
-        if (getGetCenterPoint == null)
-            getGetCenterPoint = new Coordinate(jsBase + ".getCenterPoint()");
-
-        return getGetCenterPoint;
-    }
     private String group;
     private List<Pie> setGroup = new ArrayList<>();
+
+    /**
+     * Setter for the points grouping function.
+     */
     public Pie setGroup(String group) {
         if (!isChain) {
             js.append(jsBase);
@@ -648,6 +792,9 @@ public class Pie extends SeparateChart {
 
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for the hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -663,6 +810,10 @@ public class Pie extends SeparateChart {
     private Double thickness1;
     private Double size;
     private List<Pie> setHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public Pie setHatchFill(PatternFill patternFillOrType, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -688,6 +839,10 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public Pie setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -713,6 +868,10 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public Pie setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -738,6 +897,10 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public Pie setHatchFill(String patternFillOrType3, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -763,6 +926,10 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFill4 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public Pie setHatchFill(Boolean patternFillOrType4, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -790,6 +957,9 @@ public class Pie extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -800,6 +970,11 @@ public class Pie extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<Pie> setHatchFillPalette = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.<br/>
+<b>Note:</b> Works only with {@link anychart.charts.Pie#hatchFill} method.
+     */
     public Pie setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -825,6 +1000,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFillPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.<br/>
+<b>Note:</b> Works only with {@link anychart.charts.Pie#hatchFill} method.
+     */
     public Pie setHatchFillPalette(String hatchFillPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -850,17 +1030,20 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setHatchFillPalette2 = new ArrayList<>();
-    public Pie setHatchFillPalette(HatchFills hatchFillPalette2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for hatch fill palette settings.<br/>
+<b>Note:</b> Works only with {@link anychart.charts.Pie#hatchFill} method.
+     */
+    public Pie setHatchFillPalette(HatchFills hatchFillPalette2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetHatchFillPalette2() {
@@ -876,6 +1059,10 @@ public class Pie extends SeparateChart {
 
     private Double index1;
     private List<Pie> setHover = new ArrayList<>();
+
+    /**
+     * Setter for the hover state on a slice by index.
+     */
     public Pie setHover(Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -903,6 +1090,9 @@ public class Pie extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -911,6 +1101,10 @@ public class Pie extends SeparateChart {
     }
     private String hovered;
     private List<Pie> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public Pie setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -938,6 +1132,10 @@ public class Pie extends SeparateChart {
     private String innerRadius;
     private Double innerRadius1;
     private List<Pie> setInnerRadius = new ArrayList<>();
+
+    /**
+     * Setter for the inner radius in case of a Donut chart.
+     */
     public Pie setInnerRadius(String innerRadius) {
         if (!isChain) {
             js.append(jsBase);
@@ -963,6 +1161,10 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setInnerRadius1 = new ArrayList<>();
+
+    /**
+     * Setter for the inner radius in case of a Donut chart.
+     */
     public Pie setInnerRadius(Double innerRadius1) {
         if (!isChain) {
             js.append(jsBase);
@@ -990,6 +1192,11 @@ public class Pie extends SeparateChart {
     private Double insideLabelsOffset;
     private String insideLabelsOffset1;
     private List<Pie> setInsideLabelsOffset = new ArrayList<>();
+
+    /**
+     * Setter for inside labels space settings.<br/>
+<b>Note:</b> Works only with inside labels mode.
+     */
     public Pie setInsideLabelsOffset(Double insideLabelsOffset) {
         if (!isChain) {
             js.append(jsBase);
@@ -1015,6 +1222,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setInsideLabelsOffset1 = new ArrayList<>();
+
+    /**
+     * Setter for inside labels space settings.<br/>
+<b>Note:</b> Works only with inside labels mode.
+     */
     public Pie setInsideLabelsOffset(String insideLabelsOffset1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1042,6 +1254,9 @@ public class Pie extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for the pie labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -1051,6 +1266,10 @@ public class Pie extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Pie> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for the pie labels.
+     */
     public Pie setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -1076,6 +1295,10 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for the pie labels.
+     */
     public Pie setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1103,6 +1326,9 @@ public class Pie extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -1111,6 +1337,10 @@ public class Pie extends SeparateChart {
     }
     private String normal;
     private List<Pie> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public Pie setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -1138,6 +1368,11 @@ public class Pie extends SeparateChart {
     private Double outsideLabelsCriticalAngle;
     private String outsideLabelsCriticalAngle1;
     private List<Pie> setOutsideLabelsCriticalAngle = new ArrayList<>();
+
+    /**
+     * Setter for the outside labels connector critical angle settings.<br/>
+<b>Note:</b> Works only with outside labels mode.
+     */
     public Pie setOutsideLabelsCriticalAngle(Double outsideLabelsCriticalAngle) {
         if (!isChain) {
             js.append(jsBase);
@@ -1163,6 +1398,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setOutsideLabelsCriticalAngle1 = new ArrayList<>();
+
+    /**
+     * Setter for the outside labels connector critical angle settings.<br/>
+<b>Note:</b> Works only with outside labels mode.
+     */
     public Pie setOutsideLabelsCriticalAngle(String outsideLabelsCriticalAngle1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1190,6 +1430,11 @@ public class Pie extends SeparateChart {
     private Double outsideLabelsSpace;
     private String outsideLabelsSpace1;
     private List<Pie> setOutsideLabelsSpace = new ArrayList<>();
+
+    /**
+     * Setter for the outside labels space settings.<br/>
+<b>Note:</b> Works only with outside labels mode.
+     */
     public Pie setOutsideLabelsSpace(Double outsideLabelsSpace) {
         if (!isChain) {
             js.append(jsBase);
@@ -1215,6 +1460,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setOutsideLabelsSpace1 = new ArrayList<>();
+
+    /**
+     * Setter for the outside labels space settings.<br/>
+<b>Note:</b> Works only with outside labels mode.
+     */
     public Pie setOutsideLabelsSpace(String outsideLabelsSpace1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1243,6 +1493,10 @@ public class Pie extends SeparateChart {
     private String overlapMode1;
     private Boolean overlapMode2;
     private List<Pie> setOverlapMode = new ArrayList<>();
+
+    /**
+     * Setter for the overlap mode for labels.
+     */
     public Pie setOverlapMode(LabelsOverlapMode overlapMode) {
         if (!isChain) {
             js.append(jsBase);
@@ -1268,6 +1522,10 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setOverlapMode1 = new ArrayList<>();
+
+    /**
+     * Setter for the overlap mode for labels.
+     */
     public Pie setOverlapMode(String overlapMode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1293,6 +1551,10 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setOverlapMode2 = new ArrayList<>();
+
+    /**
+     * Setter for the overlap mode for labels.
+     */
     public Pie setOverlapMode(Boolean overlapMode2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1320,6 +1582,9 @@ public class Pie extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the pie palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -1331,17 +1596,20 @@ public class Pie extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<Pie> setPalette = new ArrayList<>();
-    public Pie setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the pie palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public Pie setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -1356,17 +1624,20 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setPalette1 = new ArrayList<>();
-    public Pie setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the pie palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public Pie setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -1381,6 +1652,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the pie palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public Pie setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1406,6 +1682,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the pie palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public Pie setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1433,6 +1714,10 @@ public class Pie extends SeparateChart {
     private String radius;
     private Double radius1;
     private List<Pie> setRadius = new ArrayList<>();
+
+    /**
+     * Setter for the outer pie radius.
+     */
     public Pie setRadius(String radius) {
         if (!isChain) {
             js.append(jsBase);
@@ -1458,6 +1743,10 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setRadius1 = new ArrayList<>();
+
+    /**
+     * Setter for the outer pie radius.
+     */
     public Pie setRadius(Double radius1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1485,6 +1774,11 @@ public class Pie extends SeparateChart {
     private Sort sort;
     private String sort1;
     private List<Pie> setSort = new ArrayList<>();
+
+    /**
+     * Setter for the sorting setting.<br/>
+Ascending, Descending and No sorting is supported.
+     */
     public Pie setSort(Sort sort) {
         if (!isChain) {
             js.append(jsBase);
@@ -1510,6 +1804,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setSort1 = new ArrayList<>();
+
+    /**
+     * Setter for the sorting setting.<br/>
+Ascending, Descending and No sorting is supported.
+     */
     public Pie setSort(String sort1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1537,6 +1836,10 @@ public class Pie extends SeparateChart {
     private String startAngle;
     private Double startAngle1;
     private List<Pie> setStartAngle = new ArrayList<>();
+
+    /**
+     * Setter for the angle of the first slice.
+     */
     public Pie setStartAngle(String startAngle) {
         if (!isChain) {
             js.append(jsBase);
@@ -1562,6 +1865,10 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setStartAngle1 = new ArrayList<>();
+
+    /**
+     * Setter for the angle of the first slice.
+     */
     public Pie setStartAngle(Double startAngle1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1594,6 +1901,11 @@ public class Pie extends SeparateChart {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
     private List<Pie> setStroke = new ArrayList<>();
+
+    /**
+     * Setter for the pie slices stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Pie setStroke(Stroke stroke, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1619,6 +1931,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the pie slices stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Pie setStroke(ColoredFill stroke1, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1644,6 +1961,11 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for the pie slices stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Pie setStroke(String stroke2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1671,13 +1993,6 @@ public class Pie extends SeparateChart {
     private String generateJSgetData() {
         if (getData != null) {
             return getData.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetGetCenterPoint() {
-        if (getGetCenterPoint != null) {
-            return getGetCenterPoint.generateJs();
         }
         return "";
     }
@@ -1732,7 +2047,6 @@ public class Pie extends SeparateChart {
             isChain = false;
         }
         js.append(generateJSgetData());
-        js.append(generateJSgetGetCenterPoint());
         js.append(generateJSgetHatchFill());
         js.append(generateJSgetHatchFillPalette());
         js.append(generateJSgetHovered());

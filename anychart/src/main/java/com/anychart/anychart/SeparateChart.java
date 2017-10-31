@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base class for all charts, contains the margins, the background and the title.
+ */
 public class SeparateChart extends ChartWithCredits {
 
     public SeparateChart() {
-
+        js.setLength(0);
+        js.append("var separateChart").append(++variableIndex).append(" = anychart.core.separateChart();");
+        jsBase = "separateChart" + variableIndex;
     }
 
     protected SeparateChart(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class SeparateChart extends ChartWithCredits {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Interactivity getInteractivity;
 
+    /**
+     * Gets the current interactivity settings for chart.
+     */
     public Interactivity getInteractivity() {
         if (getInteractivity == null)
             getInteractivity = new Interactivity(jsBase + ".interactivity()");
@@ -38,6 +51,9 @@ public class SeparateChart extends ChartWithCredits {
     private HoverMode interactivity1;
     private String interactivity2;
 
+    /**
+     * Sets interactivity settings for chart.
+     */
     public SeparateChart setInteractivity(String interactivity) {
         if (jsBase == null) {
             this.interactivity = null;
@@ -53,7 +69,6 @@ public class SeparateChart extends ChartWithCredits {
             }
 
             js.append(String.format(Locale.US, ".interactivity(%s)", wrapQuotes(interactivity)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".interactivity(%s)", wrapQuotes(interactivity)));
                 js.setLength(0);
@@ -63,6 +78,9 @@ public class SeparateChart extends ChartWithCredits {
     }
 
 
+    /**
+     * Sets interactivity settings for chart.
+     */
     public SeparateChart setInteractivity(HoverMode interactivity1) {
         if (jsBase == null) {
             this.interactivity = null;
@@ -78,7 +96,6 @@ public class SeparateChart extends ChartWithCredits {
             }
 
             js.append(String.format(Locale.US, ".interactivity(%s)", ((interactivity1 != null) ? interactivity1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".interactivity(%s)", ((interactivity1 != null) ? interactivity1.generateJs() : "null")));
                 js.setLength(0);
@@ -89,6 +106,9 @@ public class SeparateChart extends ChartWithCredits {
 
     private UiLegend getLegend;
 
+    /**
+     * Getter for the current chart legend.
+     */
     public UiLegend getLegend() {
         if (getLegend == null)
             getLegend = new UiLegend(jsBase + ".legend()");
@@ -99,6 +119,9 @@ public class SeparateChart extends ChartWithCredits {
     private String legend;
     private Boolean legend1;
 
+    /**
+     * Setter for chart legend setting.
+     */
     public Chart setLegend(String legend) {
         if (jsBase == null) {
             this.legend = null;
@@ -113,7 +136,6 @@ public class SeparateChart extends ChartWithCredits {
             }
 
             js.append(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(legend)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%s)", wrapQuotes(legend)));
                 js.setLength(0);
@@ -123,6 +145,9 @@ public class SeparateChart extends ChartWithCredits {
     }
 
 
+    /**
+     * Setter for chart legend setting.
+     */
     public Chart setLegend(Boolean legend1) {
         if (jsBase == null) {
             this.legend = null;
@@ -137,7 +162,6 @@ public class SeparateChart extends ChartWithCredits {
             }
 
             js.append(String.format(Locale.US, jsBase + ".legend(%b);", legend1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%b)", legend1));
                 js.setLength(0);
@@ -146,26 +170,9 @@ public class SeparateChart extends ChartWithCredits {
         return new Chart(jsBase);
     }
 
-
-//
-//    private String generateJSInteractivity getInteractivity() {
-//        if (Interactivity getInteractivity != null) {
-//            return Interactivity getInteractivity.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLegend getLegend() {
-//        if (UiLegend getLegend != null) {
-//            return UiLegend getLegend.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetInteractivity() {
         if (getInteractivity != null) {
             return getInteractivity.generateJs();
-            //return String.format(Locale.US, "getInteractivity: %s,", ((getInteractivity != null) ? getInteractivity.generateJs() : "null"));
         }
         return "";
     }
@@ -173,7 +180,6 @@ public class SeparateChart extends ChartWithCredits {
     private String generateJSgetLegend() {
         if (getLegend != null) {
             return getLegend.generateJs();
-            //return String.format(Locale.US, "getLegend: %s,", ((getLegend != null) ? getLegend.generateJs() : "null"));
         }
         return "";
     }
@@ -197,22 +203,6 @@ public class SeparateChart extends ChartWithCredits {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSinteractivity());
-////        
-//            js.append(generateJSinteractivity1());
-////        
-//            js.append(generateJSinteractivity2());
-////        
-//            js.append(generateJSlegend());
-////        
-//            js.append(generateJSlegend1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

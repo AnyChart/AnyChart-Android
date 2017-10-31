@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Choropleth series. Read more about choropleth <a href='https://en.wikipedia.org/wiki/Choropleth_map'>here</a>.
+ */
 public class MapSeriesBase extends AnychartSeriesBase {
 
     public MapSeriesBase() {
-
+        js.setLength(0);
+        js.append("var mapSeriesBase").append(++variableIndex).append(" = anychart.core.map.series.base();");
+        jsBase = "mapSeriesBase" + variableIndex;
     }
 
     protected MapSeriesBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class MapSeriesBase extends AnychartSeriesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double indexes;
     private Double[] indexes1;
 
+    /**
+     * Excludes points at the specified index.
+     */
     public void excludePoint(Double indexes) {
         if (jsBase == null) {
             this.indexes = null;
@@ -42,7 +55,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".excludePoint(%f);", indexes));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f)", indexes));
                 js.setLength(0);
@@ -51,6 +63,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Excludes points at the specified index.
+     */
     public void excludePoint(Double[] indexes1) {
         if (jsBase == null) {
             this.indexes = null;
@@ -65,7 +80,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".excludePoint(%s);", Arrays.toString(indexes1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s)", Arrays.toString(indexes1)));
                 js.setLength(0);
@@ -75,6 +89,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
 
     private Fill fill;
 
+    /**
+     * Setter for series fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBase setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -86,7 +104,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -98,6 +115,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Series fill color with opacity. Fill as a string or an object.
+     */
     public MapSeriesBase fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -111,7 +131,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -128,6 +147,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient series fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBase fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -155,7 +178,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -165,6 +187,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Linear gradient series fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBase fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -192,7 +218,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -202,6 +227,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Linear gradient series fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBase fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -229,7 +258,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -239,6 +267,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Linear gradient series fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBase fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -266,7 +298,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -276,6 +307,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Linear gradient series fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBase fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -303,7 +338,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -313,6 +347,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Linear gradient series fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBase fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -340,7 +378,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -358,6 +395,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial series fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBase fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -395,7 +436,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -405,6 +445,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Radial series fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBase fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -442,7 +486,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -454,6 +497,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Fill imageSettings;
     private String geoIdField;
 
+    /**
+     * Setter for the geo id field.
+     */
     public MapSeriesBase setGeoIdField(String geoIdField) {
         if (jsBase == null) {
             this.geoIdField = geoIdField;
@@ -465,7 +511,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".geoIdField(%s)", wrapQuotes(geoIdField)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".geoIdField(%s)", wrapQuotes(geoIdField)));
                 js.setLength(0);
@@ -476,6 +521,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
 
     private PatternFill getHatchFill;
 
+    /**
+     * Getter fot the hatch fill.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -492,6 +540,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for the hatch fill.
+     */
     public MapSeriesBase setHatchFill(PatternFill patternFillOrTypeOrState, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -518,7 +569,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -528,6 +578,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the hatch fill.
+     */
     public MapSeriesBase setHatchFill(HatchFill patternFillOrTypeOrState1, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -554,7 +607,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -564,6 +616,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the hatch fill.
+     */
     public MapSeriesBase setHatchFill(HatchFillType patternFillOrTypeOrState2, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -590,7 +645,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -600,6 +654,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the hatch fill.
+     */
     public MapSeriesBase setHatchFill(String patternFillOrTypeOrState3, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -626,7 +683,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -636,6 +692,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the hatch fill.
+     */
     public MapSeriesBase setHatchFill(Boolean patternFillOrTypeOrState4, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -662,7 +721,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -674,6 +732,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double indexes2;
     private Double[] indexes3;
 
+    /**
+     * Includes excluded points with the specified indexes.
+     */
     public void includePoint(Double indexes2) {
         if (jsBase == null) {
             this.indexes = null;
@@ -690,7 +751,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".includePoint(%f);", indexes2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f)", indexes2));
                 js.setLength(0);
@@ -699,6 +759,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Includes excluded points with the specified indexes.
+     */
     public void includePoint(Double[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
@@ -715,7 +778,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".includePoint(%s);", Arrays.toString(indexes3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s)", Arrays.toString(indexes3)));
                 js.setLength(0);
@@ -726,6 +788,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double indexes4;
     private Double[] indexes5;
 
+    /**
+     * Keep only the specified points.
+     */
     public void keepOnlyPoints(Double indexes4) {
         if (jsBase == null) {
             this.indexes = null;
@@ -744,7 +809,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f);", indexes4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f)", indexes4));
                 js.setLength(0);
@@ -753,6 +817,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Keep only the specified points.
+     */
     public void keepOnlyPoints(Double[] indexes5) {
         if (jsBase == null) {
             this.indexes = null;
@@ -771,7 +838,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", Arrays.toString(indexes5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s)", Arrays.toString(indexes5)));
                 js.setLength(0);
@@ -783,6 +849,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private String overlapMode1;
     private Boolean overlapMode2;
 
+    /**
+     * Setter for labels overlap mode.
+     */
     public MapSeriesBase setOverlapMode(LabelsOverlapMode overlapMode) {
         if (jsBase == null) {
             this.overlapMode = null;
@@ -798,7 +867,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
@@ -808,6 +876,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for labels overlap mode.
+     */
     public MapSeriesBase setOverlapMode(String overlapMode1) {
         if (jsBase == null) {
             this.overlapMode = null;
@@ -823,7 +894,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
                 js.setLength(0);
@@ -833,6 +903,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for labels overlap mode.
+     */
     public MapSeriesBase setOverlapMode(Boolean overlapMode2) {
         if (jsBase == null) {
             this.overlapMode = null;
@@ -848,7 +921,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
                 js.setLength(0);
@@ -865,6 +937,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for series stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public MapSeriesBase setStroke(Stroke stroke, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -891,7 +967,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -901,6 +976,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for series stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public MapSeriesBase setStroke(ColoredFill stroke1, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -927,7 +1006,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -937,6 +1015,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for series stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public MapSeriesBase setStroke(String stroke2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -963,7 +1045,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -975,6 +1056,10 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double xCoord;
     private Double yCoord;
 
+    /**
+     * Transforms geo coordinates to pixel values.
+<b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
+     */
     public void transformXY(Double xCoord, Double yCoord) {
         if (jsBase == null) {
             this.xCoord = xCoord;
@@ -988,7 +1073,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".transformXY(%f, %f);", xCoord, yCoord));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transformXY(%f, %f)", xCoord, yCoord));
                 js.setLength(0);
@@ -996,19 +1080,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
     }
 
-
-//
-//    private String generateJSPatternFill getHatchFill() {
-//        if (PatternFill getHatchFill != null) {
-//            return PatternFill getHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
-            //return String.format(Locale.US, "getHatchFill: %s,", ((getHatchFill != null) ? getHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -1031,104 +1105,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSindexes());
-////        
-//            js.append(generateJSindexes1());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSgeoIdField());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState1());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState2());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState3());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState4());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSindexes2());
-////        
-//            js.append(generateJSindexes3());
-////        
-//            js.append(generateJSindexes4());
-////        
-//            js.append(generateJSindexes5());
-////        
-//            js.append(generateJSoverlapMode());
-////        
-//            js.append(generateJSoverlapMode1());
-////        
-//            js.append(generateJSoverlapMode2());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSxCoord());
-////        
-//            js.append(generateJSyCoord());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

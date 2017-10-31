@@ -6,13 +6,35 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * AnyChart HeatMap class.<br/>
+<b>Note:</b> Use {@link anychart#heatMap} method to get an instance of this class.
+ */
 public class HeatMap extends SeparateChart {
 
     protected HeatMap(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public HeatMap setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public HeatMap setData(List<DataEntry> data) {
@@ -35,10 +57,33 @@ public class HeatMap extends SeparateChart {
         return this;
     }
 
+    public HeatMap setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
 
     private OrdinalColor getColorScale;
 
+    /**
+     * Getter for the current color scale.
+     */
     public OrdinalColor getColorScale() {
         if (getColorScale == null)
             getColorScale = new OrdinalColor(jsBase + ".colorScale()");
@@ -50,17 +95,19 @@ public class HeatMap extends SeparateChart {
     private ScaleTypes colorScale2;
     private String colorScale3;
     private List<HeatMap> setColorScale = new ArrayList<>();
-    public HeatMap setColorScale(OrdinalColor colorScale) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the color scale.
+     */
+    public HeatMap setColorScale(OrdinalColor colorScale) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(colorScale.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetColorScale() {
@@ -75,6 +122,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setColorScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the color scale.
+     */
     public HeatMap setColorScale(String colorScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -100,6 +151,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setColorScale2 = new ArrayList<>();
+
+    /**
+     * Setter for the color scale.
+     */
     public HeatMap setColorScale(ScaleTypes colorScale2) {
         if (!isChain) {
             js.append(jsBase);
@@ -127,6 +182,9 @@ public class HeatMap extends SeparateChart {
 
     private View getData;
 
+    /**
+     * Getter for the current chart data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -134,6 +192,10 @@ public class HeatMap extends SeparateChart {
         return getData;
     }
     private List<HeatMap> setData = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public HeatMap data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -166,6 +228,11 @@ public class HeatMap extends SeparateChart {
 
     private Fill fill;
     private List<HeatMap> setFill = new ArrayList<>();
+
+    /**
+     * Sets fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public HeatMap setFill(Fill fill) {
         if (!isChain) {
             js.append(jsBase);
@@ -193,6 +260,10 @@ public class HeatMap extends SeparateChart {
     private String color;
     private Double opacity;
     private List<HeatMap> setFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public HeatMap fill(String color, Double opacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -225,6 +296,11 @@ public class HeatMap extends SeparateChart {
     private String mode2;
     private Double opacity1;
     private List<HeatMap> setFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public HeatMap fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -250,6 +326,11 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public HeatMap fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -275,6 +356,11 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public HeatMap fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -300,6 +386,11 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public HeatMap fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -325,6 +416,11 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public HeatMap fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -350,6 +446,11 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public HeatMap fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -383,6 +484,11 @@ public class HeatMap extends SeparateChart {
     private Double fx;
     private Double fy;
     private List<HeatMap> setFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public HeatMap fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -408,6 +514,11 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public HeatMap fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -436,6 +547,9 @@ public class HeatMap extends SeparateChart {
 
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for the current hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -451,6 +565,10 @@ public class HeatMap extends SeparateChart {
     private Double thickness;
     private Double size;
     private List<HeatMap> setHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public HeatMap setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -476,6 +594,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public HeatMap setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -501,6 +623,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public HeatMap setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -526,6 +652,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public HeatMap setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -551,6 +681,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setHatchFill4 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public HeatMap setHatchFill(Boolean patternFillOrType4, String color1, Double thickness, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -578,6 +712,11 @@ public class HeatMap extends SeparateChart {
     private Double indexOrIndexes;
     private Double[] indexOrIndexes1;
     private List<HeatMap> setHover = new ArrayList<>();
+
+    /**
+     * Hovers point by index.
+<b>Note:</b> Works only after {@link anychart.charts.HeatMap#draw} is called.
+     */
     public HeatMap hover(Double indexOrIndexes) {
         if (!isChain) {
             js.append(jsBase);
@@ -603,6 +742,11 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setHover1 = new ArrayList<>();
+
+    /**
+     * Hovers point by index.
+<b>Note:</b> Works only after {@link anychart.charts.HeatMap#draw} is called.
+     */
     public HeatMap hover(Double[] indexOrIndexes1) {
         if (!isChain) {
             js.append(jsBase);
@@ -630,6 +774,9 @@ public class HeatMap extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -638,6 +785,10 @@ public class HeatMap extends SeparateChart {
     }
     private String hovered;
     private List<HeatMap> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public HeatMap setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -665,6 +816,9 @@ public class HeatMap extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for the current chart data labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -674,6 +828,10 @@ public class HeatMap extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<HeatMap> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for the chart data labels.
+     */
     public HeatMap setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -699,6 +857,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart data labels.
+     */
     public HeatMap setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -726,6 +888,10 @@ public class HeatMap extends SeparateChart {
     private LabelsDisplayMode labelsDisplayMode;
     private String labelsDisplayMode1;
     private List<HeatMap> setLabelsDisplayMode = new ArrayList<>();
+
+    /**
+     * Setter for the labels display mode.
+     */
     public HeatMap setLabelsDisplayMode(LabelsDisplayMode labelsDisplayMode) {
         if (!isChain) {
             js.append(jsBase);
@@ -751,6 +917,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setLabelsDisplayMode1 = new ArrayList<>();
+
+    /**
+     * Setter for the labels display mode.
+     */
     public HeatMap setLabelsDisplayMode(String labelsDisplayMode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -778,6 +948,9 @@ public class HeatMap extends SeparateChart {
 
     private UiMarkersFactory getMarkers;
 
+    /**
+     * Getter for the current data markers.
+     */
     public UiMarkersFactory getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersFactory(jsBase + ".markers()");
@@ -788,6 +961,10 @@ public class HeatMap extends SeparateChart {
     private Boolean markers1;
     private String markers2;
     private List<HeatMap> setMarkers = new ArrayList<>();
+
+    /**
+     * Setter for data markers.
+     */
     public HeatMap setMarkers(String markers) {
         if (!isChain) {
             js.append(jsBase);
@@ -813,6 +990,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for data markers.
+     */
     public HeatMap setMarkers(Boolean markers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -840,6 +1021,9 @@ public class HeatMap extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -848,6 +1032,10 @@ public class HeatMap extends SeparateChart {
     }
     private String normal;
     private List<HeatMap> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public HeatMap setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -875,6 +1063,11 @@ public class HeatMap extends SeparateChart {
     private Double indexOrIndexes2;
     private Double[] indexOrIndexes3;
     private List<HeatMap> setSelect = new ArrayList<>();
+
+    /**
+     * Selects point by index.
+<b>Note:</b> Works only after {@link anychart.charts.HeatMap#draw} is called.
+     */
     public HeatMap select(Double indexOrIndexes2) {
         if (!isChain) {
             js.append(jsBase);
@@ -900,6 +1093,11 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setSelect1 = new ArrayList<>();
+
+    /**
+     * Selects point by index.
+<b>Note:</b> Works only after {@link anychart.charts.HeatMap#draw} is called.
+     */
     public HeatMap select(Double[] indexOrIndexes3) {
         if (!isChain) {
             js.append(jsBase);
@@ -927,6 +1125,9 @@ public class HeatMap extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -935,6 +1136,10 @@ public class HeatMap extends SeparateChart {
     }
     private String selected;
     private List<HeatMap> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public HeatMap setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -967,6 +1172,11 @@ public class HeatMap extends SeparateChart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<HeatMap> setStroke = new ArrayList<>();
+
+    /**
+     * Setter for the stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public HeatMap setStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -992,6 +1202,11 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public HeatMap setStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -1017,6 +1232,11 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for the stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public HeatMap setStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -1044,6 +1264,9 @@ public class HeatMap extends SeparateChart {
 
     private CoreAxesLinear getXAxis;
 
+    /**
+     * Getter for the current chart X-axis.
+     */
     public CoreAxesLinear getXAxis() {
         if (getXAxis == null)
             getXAxis = new CoreAxesLinear(jsBase + ".xAxis()");
@@ -1053,6 +1276,9 @@ public class HeatMap extends SeparateChart {
 
     private List<CoreAxesLinear> getXAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for the current chart X-axis.
+     */
     public CoreAxesLinear getXAxis(Double index) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index+")");
         getXAxis1.add(item);
@@ -1061,6 +1287,10 @@ public class HeatMap extends SeparateChart {
     private String xAxis;
     private Boolean xAxis1;
     private List<HeatMap> setXAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public HeatMap setXAxis(String xAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -1086,6 +1316,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setXAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public HeatMap setXAxis(Boolean xAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1114,6 +1348,10 @@ public class HeatMap extends SeparateChart {
     private String xAxis2;
     private Boolean xAxis3;
     private List<HeatMap> setXAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis by index.
+     */
     public HeatMap setXAxis(String xAxis2, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1139,6 +1377,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setXAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis by index.
+     */
     public HeatMap setXAxis(Boolean xAxis3, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1166,6 +1408,9 @@ public class HeatMap extends SeparateChart {
 
     private CoreGridsLinear getXGrid;
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsLinear getXGrid() {
         if (getXGrid == null)
             getXGrid = new CoreGridsLinear(jsBase + ".xGrid()");
@@ -1175,6 +1420,9 @@ public class HeatMap extends SeparateChart {
 
     private List<CoreGridsLinear> getXGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsLinear getXGrid(Double index2) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index2+")");
         getXGrid1.add(item);
@@ -1183,6 +1431,10 @@ public class HeatMap extends SeparateChart {
     private String xGrid;
     private Boolean xGrid1;
     private List<HeatMap> setXGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public HeatMap setXGrid(String xGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1208,6 +1460,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setXGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public HeatMap setXGrid(Boolean xGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1236,6 +1492,10 @@ public class HeatMap extends SeparateChart {
     private String xGrid2;
     private Boolean xGrid3;
     private List<HeatMap> setXGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by index.
+     */
     public HeatMap setXGrid(String xGrid2, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1261,6 +1521,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setXGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by index.
+     */
     public HeatMap setXGrid(Boolean xGrid3, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1288,6 +1552,9 @@ public class HeatMap extends SeparateChart {
 
     private Ordinal getXScale;
 
+    /**
+     * Getter for the current chart X scale.
+     */
     public Ordinal getXScale() {
         if (getXScale == null)
             getXScale = new Ordinal(jsBase + ".xScale()");
@@ -1298,6 +1565,10 @@ public class HeatMap extends SeparateChart {
     private String xScale1;
     private Ordinal xScale2;
     private List<HeatMap> setXScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart X scale.
+     */
     public HeatMap setXScale(ScaleTypes xScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1323,6 +1594,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setXScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X scale.
+     */
     public HeatMap setXScale(String xScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1348,17 +1623,19 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setXScale2 = new ArrayList<>();
-    public HeatMap setXScale(Ordinal xScale2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart X scale.
+     */
+    public HeatMap setXScale(Ordinal xScale2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(xScale2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale2 != null) ? xScale2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetXScale2() {
@@ -1375,6 +1652,9 @@ public class HeatMap extends SeparateChart {
 
     private ChartScroller getXScroller;
 
+    /**
+     * Getter for the current X scroller.
+     */
     public ChartScroller getXScroller() {
         if (getXScroller == null)
             getXScroller = new ChartScroller(jsBase + ".xScroller()");
@@ -1384,6 +1664,10 @@ public class HeatMap extends SeparateChart {
     private String xScroller;
     private Boolean xScroller1;
     private List<HeatMap> setXScroller = new ArrayList<>();
+
+    /**
+     * Setter for the X scroller.
+     */
     public HeatMap setXScroller(String xScroller) {
         if (!isChain) {
             js.append(jsBase);
@@ -1409,6 +1693,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setXScroller1 = new ArrayList<>();
+
+    /**
+     * Setter for the X scroller.
+     */
     public HeatMap setXScroller(Boolean xScroller1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1436,6 +1724,9 @@ public class HeatMap extends SeparateChart {
 
     private OrdinalZoom getXZoom;
 
+    /**
+     * Getter for X Zoom settings.
+     */
     public OrdinalZoom getXZoom() {
         if (getXZoom == null)
             getXZoom = new OrdinalZoom(jsBase + ".xZoom()");
@@ -1446,6 +1737,10 @@ public class HeatMap extends SeparateChart {
     private Boolean xZoom1;
     private String xZoom2;
     private List<HeatMap> setXZoom = new ArrayList<>();
+
+    /**
+     * Setter for X Zoom settings.
+     */
     public HeatMap setXZoom(Double xZoom) {
         if (!isChain) {
             js.append(jsBase);
@@ -1471,6 +1766,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setXZoom1 = new ArrayList<>();
+
+    /**
+     * Setter for X Zoom settings.
+     */
     public HeatMap setXZoom(Boolean xZoom1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1496,6 +1795,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setXZoom2 = new ArrayList<>();
+
+    /**
+     * Setter for X Zoom settings.
+     */
     public HeatMap setXZoom(String xZoom2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1523,6 +1826,9 @@ public class HeatMap extends SeparateChart {
 
     private CoreAxesLinear getYAxis;
 
+    /**
+     * Getter for the current chart Y-axis.
+     */
     public CoreAxesLinear getYAxis() {
         if (getYAxis == null)
             getYAxis = new CoreAxesLinear(jsBase + ".yAxis()");
@@ -1532,6 +1838,9 @@ public class HeatMap extends SeparateChart {
 
     private List<CoreAxesLinear> getYAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for the current chart Y-axis.
+     */
     public CoreAxesLinear getYAxis(Double index4) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index4+")");
         getYAxis1.add(item);
@@ -1540,6 +1849,10 @@ public class HeatMap extends SeparateChart {
     private String yAxis;
     private Boolean yAxis1;
     private List<HeatMap> setYAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public HeatMap setYAxis(String yAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -1565,6 +1878,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setYAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public HeatMap setYAxis(Boolean yAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1593,6 +1910,10 @@ public class HeatMap extends SeparateChart {
     private String yAxis2;
     private Boolean yAxis3;
     private List<HeatMap> setYAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis by index.
+     */
     public HeatMap setYAxis(String yAxis2, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -1618,6 +1939,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setYAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis by index.
+     */
     public HeatMap setYAxis(Boolean yAxis3, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -1645,6 +1970,9 @@ public class HeatMap extends SeparateChart {
 
     private CoreGridsLinear getYGrid;
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsLinear getYGrid() {
         if (getYGrid == null)
             getYGrid = new CoreGridsLinear(jsBase + ".yGrid()");
@@ -1654,6 +1982,9 @@ public class HeatMap extends SeparateChart {
 
     private List<CoreGridsLinear> getYGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsLinear getYGrid(Double index6) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index6+")");
         getYGrid1.add(item);
@@ -1662,6 +1993,10 @@ public class HeatMap extends SeparateChart {
     private String yGrid;
     private Boolean yGrid1;
     private List<HeatMap> setYGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public HeatMap setYGrid(String yGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1687,6 +2022,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setYGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public HeatMap setYGrid(Boolean yGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1715,6 +2054,10 @@ public class HeatMap extends SeparateChart {
     private String yGrid2;
     private Boolean yGrid3;
     private List<HeatMap> setYGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by index.
+     */
     public HeatMap setYGrid(String yGrid2, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1740,6 +2083,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setYGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by index.
+     */
     public HeatMap setYGrid(Boolean yGrid3, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1767,6 +2114,9 @@ public class HeatMap extends SeparateChart {
 
     private Ordinal getYScale;
 
+    /**
+     * Getter for the current chart Y scale.
+     */
     public Ordinal getYScale() {
         if (getYScale == null)
             getYScale = new Ordinal(jsBase + ".yScale()");
@@ -1777,6 +2127,10 @@ public class HeatMap extends SeparateChart {
     private String yScale1;
     private Ordinal yScale2;
     private List<HeatMap> setYScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y scale.
+     */
     public HeatMap setYScale(ScaleTypes yScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1802,6 +2156,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setYScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y scale.
+     */
     public HeatMap setYScale(String yScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1827,17 +2185,19 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setYScale2 = new ArrayList<>();
-    public HeatMap setYScale(Ordinal yScale2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart Y scale.
+     */
+    public HeatMap setYScale(Ordinal yScale2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(yScale2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetYScale2() {
@@ -1854,6 +2214,9 @@ public class HeatMap extends SeparateChart {
 
     private ChartScroller getYScroller;
 
+    /**
+     * Getter for the current Y scroller.
+     */
     public ChartScroller getYScroller() {
         if (getYScroller == null)
             getYScroller = new ChartScroller(jsBase + ".yScroller()");
@@ -1863,6 +2226,10 @@ public class HeatMap extends SeparateChart {
     private String yScroller;
     private Boolean yScroller1;
     private List<HeatMap> setYScroller = new ArrayList<>();
+
+    /**
+     * Setter for the Y scroller.
+     */
     public HeatMap setYScroller(String yScroller) {
         if (!isChain) {
             js.append(jsBase);
@@ -1888,6 +2255,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setYScroller1 = new ArrayList<>();
+
+    /**
+     * Setter for the Y scroller.
+     */
     public HeatMap setYScroller(Boolean yScroller1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1915,6 +2286,9 @@ public class HeatMap extends SeparateChart {
 
     private OrdinalZoom getYZoom;
 
+    /**
+     * Getter for Y Zoom settings.
+     */
     public OrdinalZoom getYZoom() {
         if (getYZoom == null)
             getYZoom = new OrdinalZoom(jsBase + ".yZoom()");
@@ -1925,6 +2299,10 @@ public class HeatMap extends SeparateChart {
     private Boolean yZoom1;
     private String yZoom2;
     private List<HeatMap> setYZoom = new ArrayList<>();
+
+    /**
+     * Setter for Y Zoom settings.
+     */
     public HeatMap setYZoom(Double yZoom) {
         if (!isChain) {
             js.append(jsBase);
@@ -1950,6 +2328,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setYZoom1 = new ArrayList<>();
+
+    /**
+     * Setter for Y Zoom settings.
+     */
     public HeatMap setYZoom(Boolean yZoom1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1975,6 +2357,10 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setYZoom2 = new ArrayList<>();
+
+    /**
+     * Setter for Y Zoom settings.
+     */
     public HeatMap setYZoom(String yZoom2) {
         if (!isChain) {
             js.append(jsBase);

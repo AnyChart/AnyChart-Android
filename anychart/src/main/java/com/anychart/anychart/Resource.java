@@ -6,13 +6,34 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Resource chart class.
+ */
 public class Resource extends Chart {
 
     protected Resource(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Resource setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Resource setData(List<DataEntry> data) {
@@ -35,10 +56,33 @@ public class Resource extends Chart {
         return this;
     }
 
+    public Resource setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
 
     private Activities getActivities;
 
+    /**
+     * Getter for the activities settings.
+     */
     public Activities getActivities() {
         if (getActivities == null)
             getActivities = new Activities(jsBase + ".activities()");
@@ -47,6 +91,10 @@ public class Resource extends Chart {
     }
     private String activities;
     private List<Resource> setActivities = new ArrayList<>();
+
+    /**
+     * Setter for the activities settings.
+     */
     public Resource setActivities(String activities) {
         if (!isChain) {
             js.append(jsBase);
@@ -74,6 +122,9 @@ public class Resource extends Chart {
 
     private Calendar getCalendar;
 
+    /**
+     * Getter for the calendar.
+     */
     public Calendar getCalendar() {
         if (getCalendar == null)
             getCalendar = new Calendar(jsBase + ".calendar()");
@@ -82,6 +133,10 @@ public class Resource extends Chart {
     }
     private String calendar;
     private List<Resource> setCalendar = new ArrayList<>();
+
+    /**
+     * Setter for calendar.
+     */
     public Resource setCalendar(String calendar) {
         if (!isChain) {
             js.append(jsBase);
@@ -109,6 +164,9 @@ public class Resource extends Chart {
 
     private UtilsPadding getCellPadding;
 
+    /**
+     * Getter for the cell padding.
+     */
     public UtilsPadding getCellPadding() {
         if (getCellPadding == null)
             getCellPadding = new UtilsPadding(jsBase + ".cellPadding()");
@@ -119,6 +177,10 @@ public class Resource extends Chart {
     private String[] cellPadding1;
     private String cellPadding2;
     private List<Resource> setCellPadding = new ArrayList<>();
+
+    /**
+     * Setter for cell paddings in pixels using a single value.
+     */
     public Resource setCellPadding(Double[] cellPadding) {
         if (!isChain) {
             js.append(jsBase);
@@ -144,6 +206,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setCellPadding1 = new ArrayList<>();
+
+    /**
+     * Setter for cell paddings in pixels using a single value.
+     */
     public Resource setCellPadding(String[] cellPadding1) {
         if (!isChain) {
             js.append(jsBase);
@@ -169,6 +235,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setCellPadding2 = new ArrayList<>();
+
+    /**
+     * Setter for cell paddings in pixels using a single value.
+     */
     public Resource setCellPadding(String cellPadding2) {
         if (!isChain) {
             js.append(jsBase);
@@ -202,6 +272,10 @@ public class Resource extends Chart {
     private String value6;
     private Double value7;
     private List<Resource> setCellPadding3 = new ArrayList<>();
+
+    /**
+     * Setter for cell paddings in pixels using several numbers.
+     */
     public Resource setCellPadding(String value, String value2, String value4, String value6) {
         if (!isChain) {
             js.append(jsBase);
@@ -227,6 +301,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setCellPadding4 = new ArrayList<>();
+
+    /**
+     * Setter for cell paddings in pixels using several numbers.
+     */
     public Resource setCellPadding(Double value1, Double value3, Double value5, Double value7) {
         if (!isChain) {
             js.append(jsBase);
@@ -254,6 +332,9 @@ public class Resource extends Chart {
 
     private Conflicts getConflicts;
 
+    /**
+     * Getter for the conflicts settings.
+     */
     public Conflicts getConflicts() {
         if (getConflicts == null)
             getConflicts = new Conflicts(jsBase + ".conflicts()");
@@ -262,6 +343,10 @@ public class Resource extends Chart {
     }
     private String conflicts;
     private List<Resource> setConflicts = new ArrayList<>();
+
+    /**
+     * Setter for the conflicts settings.
+     */
     public Resource setConflicts(String conflicts) {
         if (!isChain) {
             js.append(jsBase);
@@ -289,6 +374,10 @@ public class Resource extends Chart {
     private Double currentStartDate;
     private String currentStartDate1;
     private List<Resource> setCurrentStartDate = new ArrayList<>();
+
+    /**
+     * Setter for the current start date.
+     */
     public Resource setCurrentStartDate(Double currentStartDate) {
         if (!isChain) {
             js.append(jsBase);
@@ -314,6 +403,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setCurrentStartDate1 = new ArrayList<>();
+
+    /**
+     * Setter for the current start date.
+     */
     public Resource setCurrentStartDate(String currentStartDate1) {
         if (!isChain) {
             js.append(jsBase);
@@ -341,6 +434,9 @@ public class Resource extends Chart {
 
     private View getData;
 
+    /**
+     * Getter for the chart data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -348,6 +444,11 @@ public class Resource extends Chart {
         return getData;
     }
     private List<Resource> setData = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+Learn more about mapping at {@link anychart.data.Mapping}.
+     */
     public Resource data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -380,6 +481,11 @@ public class Resource extends Chart {
 
     private Double defaultMinutesPerDay;
     private List<Resource> setDefaultMinutesPerDay = new ArrayList<>();
+
+    /**
+     * Setter for default minutes per day.
+<b>Note:</b> Use method when number of minutes per day isn't specified in the data.
+     */
     public Resource setDefaultMinutesPerDay(Double defaultMinutesPerDay) {
         if (!isChain) {
             js.append(jsBase);
@@ -407,6 +513,9 @@ public class Resource extends Chart {
 
     private Grid getGrid;
 
+    /**
+     * Getter for the grid.
+     */
     public Grid getGrid() {
         if (getGrid == null)
             getGrid = new Grid(jsBase + ".grid()");
@@ -416,6 +525,10 @@ public class Resource extends Chart {
     private String grid;
     private Boolean grid1;
     private List<Resource> setGrid = new ArrayList<>();
+
+    /**
+     * Setter for the grid.
+     */
     public Resource setGrid(String grid) {
         if (!isChain) {
             js.append(jsBase);
@@ -441,6 +554,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the grid.
+     */
     public Resource setGrid(Boolean grid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -468,6 +585,9 @@ public class Resource extends Chart {
 
     private UiScroller getHorizontalScrollBar;
 
+    /**
+     * Getter for the horizontal scrollbar.
+     */
     public UiScroller getHorizontalScrollBar() {
         if (getHorizontalScrollBar == null)
             getHorizontalScrollBar = new UiScroller(jsBase + ".horizontalScrollBar()");
@@ -477,6 +597,10 @@ public class Resource extends Chart {
     private String horizontalScrollBar;
     private Boolean horizontalScrollBar1;
     private List<Resource> setHorizontalScrollBar = new ArrayList<>();
+
+    /**
+     * Setter for the horizontal scrollbar.
+     */
     public Resource setHorizontalScrollBar(String horizontalScrollBar) {
         if (!isChain) {
             js.append(jsBase);
@@ -502,6 +626,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setHorizontalScrollBar1 = new ArrayList<>();
+
+    /**
+     * Setter for the horizontal scrollbar.
+     */
     public Resource setHorizontalScrollBar(Boolean horizontalScrollBar1) {
         if (!isChain) {
             js.append(jsBase);
@@ -529,6 +657,11 @@ public class Resource extends Chart {
     private Double resourceIndex;
     private Double activityIndex;
     private List<Resource> setHover = new ArrayList<>();
+
+    /**
+     * Setter for the hover state on an activity.<br/>
+Hovers an activity determined by the resourceIndex and the activityIndex.
+     */
     public Resource setHover(Double resourceIndex, Double activityIndex) {
         if (!isChain) {
             js.append(jsBase);
@@ -555,6 +688,10 @@ public class Resource extends Chart {
 
     private Double globalIndex;
     private List<Resource> setHoverPoint = new ArrayList<>();
+
+    /**
+     * Hovers an activity by its global index.
+     */
     public Resource hoverPoint(Double globalIndex) {
         if (!isChain) {
             js.append(jsBase);
@@ -582,6 +719,9 @@ public class Resource extends Chart {
 
     private Logo getLogo;
 
+    /**
+     * Getter for the logo.
+     */
     public Logo getLogo() {
         if (getLogo == null)
             getLogo = new Logo(jsBase + ".logo()");
@@ -590,6 +730,10 @@ public class Resource extends Chart {
     }
     private String logo;
     private List<Resource> setLogo = new ArrayList<>();
+
+    /**
+     * Setter for the logo.
+     */
     public Resource setLogo(String logo) {
         if (!isChain) {
             js.append(jsBase);
@@ -616,6 +760,10 @@ public class Resource extends Chart {
 
     private Double minRowHeight;
     private List<Resource> setMinRowHeight = new ArrayList<>();
+
+    /**
+     * Setter for the minimal row height.
+     */
     public Resource setMinRowHeight(Double minRowHeight) {
         if (!isChain) {
             js.append(jsBase);
@@ -643,6 +791,9 @@ public class Resource extends Chart {
 
     private Overlay getOverlay;
 
+    /**
+     * Getter for the overlay element.
+     */
     public Overlay getOverlay() {
         if (getOverlay == null)
             getOverlay = new Overlay(jsBase + ".overlay()");
@@ -652,6 +803,10 @@ public class Resource extends Chart {
     private String overlay;
     private Boolean overlay1;
     private List<Resource> setOverlay = new ArrayList<>();
+
+    /**
+     * Setter for the overlay element.
+     */
     public Resource setOverlay(String overlay) {
         if (!isChain) {
             js.append(jsBase);
@@ -677,6 +832,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setOverlay1 = new ArrayList<>();
+
+    /**
+     * Setter for the overlay element.
+     */
     public Resource setOverlay(Boolean overlay1) {
         if (!isChain) {
             js.append(jsBase);
@@ -703,6 +862,10 @@ public class Resource extends Chart {
 
     private Double pixPerHour;
     private List<Resource> setPixPerHour = new ArrayList<>();
+
+    /**
+     * Setter for hours row height in pixels.
+     */
     public Resource setPixPerHour(Double pixPerHour) {
         if (!isChain) {
             js.append(jsBase);
@@ -730,6 +893,10 @@ public class Resource extends Chart {
     private Double resourceListWidth;
     private String resourceListWidth1;
     private List<Resource> setResourceListWidth = new ArrayList<>();
+
+    /**
+     * Setter for the resource list width.
+     */
     public Resource setResourceListWidth(Double resourceListWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -755,6 +922,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setResourceListWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the resource list width.
+     */
     public Resource setResourceListWidth(String resourceListWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -782,6 +953,11 @@ public class Resource extends Chart {
     private Double resourceIndex1;
     private Double activityIndex1;
     private List<Resource> setSelect = new ArrayList<>();
+
+    /**
+     * Setter for the select state on an activity.<br/>
+Selects an activity determined by the resourceIndex and the activityIndex.
+     */
     public Resource setSelect(Double resourceIndex1, Double activityIndex1) {
         if (!isChain) {
             js.append(jsBase);
@@ -808,6 +984,10 @@ public class Resource extends Chart {
 
     private Double globalIndex1;
     private List<Resource> setSelectPoint = new ArrayList<>();
+
+    /**
+     * Selects an activity by its global index.
+     */
     public Resource selectPoint(Double globalIndex1) {
         if (!isChain) {
             js.append(jsBase);
@@ -840,6 +1020,10 @@ public class Resource extends Chart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<Resource> setSplitterStroke = new ArrayList<>();
+
+    /**
+     * Setter for the splitter stroke.
+     */
     public Resource setSplitterStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -865,6 +1049,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setSplitterStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the splitter stroke.
+     */
     public Resource setSplitterStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -890,6 +1078,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setSplitterStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for the splitter stroke.
+     */
     public Resource setSplitterStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -917,6 +1109,9 @@ public class Resource extends Chart {
 
     private TimeLine getTimeLine;
 
+    /**
+     * Getter for the time line.
+     */
     public TimeLine getTimeLine() {
         if (getTimeLine == null)
             getTimeLine = new TimeLine(jsBase + ".timeLine()");
@@ -926,6 +1121,10 @@ public class Resource extends Chart {
     private String timeLine;
     private Boolean timeLine1;
     private List<Resource> setTimeLine = new ArrayList<>();
+
+    /**
+     * Setter for the time line.
+     */
     public Resource setTimeLine(String timeLine) {
         if (!isChain) {
             js.append(jsBase);
@@ -951,6 +1150,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setTimeLine1 = new ArrayList<>();
+
+    /**
+     * Setter for the time line.
+     */
     public Resource setTimeLine(Boolean timeLine1) {
         if (!isChain) {
             js.append(jsBase);
@@ -978,6 +1181,10 @@ public class Resource extends Chart {
     private Double timeLineHeight;
     private String timeLineHeight1;
     private List<Resource> setTimeLineHeight = new ArrayList<>();
+
+    /**
+     * Setter for the time line height.
+     */
     public Resource setTimeLineHeight(Double timeLineHeight) {
         if (!isChain) {
             js.append(jsBase);
@@ -1003,6 +1210,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setTimeLineHeight1 = new ArrayList<>();
+
+    /**
+     * Setter for the time line height.
+     */
     public Resource setTimeLineHeight(String timeLineHeight1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1030,6 +1241,10 @@ public class Resource extends Chart {
     private TimeTrackingMode timeTrackingMode;
     private String timeTrackingMode1;
     private List<Resource> setTimeTrackingMode = new ArrayList<>();
+
+    /**
+     * Setter for the time tracking mode.
+     */
     public Resource setTimeTrackingMode(TimeTrackingMode timeTrackingMode) {
         if (!isChain) {
             js.append(jsBase);
@@ -1055,6 +1270,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setTimeTrackingMode1 = new ArrayList<>();
+
+    /**
+     * Setter for the time tracking mode.
+     */
     public Resource setTimeTrackingMode(String timeTrackingMode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1083,6 +1302,10 @@ public class Resource extends Chart {
     private Double[] resourceIndex3;
     private Double activityIndex2;
     private List<Resource> setUnhover = new ArrayList<>();
+
+    /**
+     * Removes hover from an activity by index.
+     */
     public Resource unhover(Double resourceIndex2, Double activityIndex2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1108,6 +1331,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setUnhover1 = new ArrayList<>();
+
+    /**
+     * Removes hover from an activity by index.
+     */
     public Resource unhover(Double[] resourceIndex3, Double activityIndex2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1135,6 +1362,10 @@ public class Resource extends Chart {
     private Double resourceIndex4;
     private Double[] resourceIndex5;
     private Double activityIndex3;
+
+    /**
+     * Removes select from an activity by index.
+     */
     public void unselect(Double resourceIndex4, Double activityIndex3) {
         if (isChain) {
             js.append(";");
@@ -1148,6 +1379,10 @@ public class Resource extends Chart {
         }
     }
 
+
+    /**
+     * Removes select from an activity by index.
+     */
     public void unselect(Double[] resourceIndex5, Double activityIndex3) {
         if (isChain) {
             js.append(";");
@@ -1164,6 +1399,9 @@ public class Resource extends Chart {
 
     private UiScroller getVerticalScrollBar;
 
+    /**
+     * Getter for the vertical scrollbar.
+     */
     public UiScroller getVerticalScrollBar() {
         if (getVerticalScrollBar == null)
             getVerticalScrollBar = new UiScroller(jsBase + ".verticalScrollBar()");
@@ -1173,6 +1411,10 @@ public class Resource extends Chart {
     private String verticalScrollBar;
     private Boolean verticalScrollBar1;
     private List<Resource> setVerticalScrollBar = new ArrayList<>();
+
+    /**
+     * Setter for the vertical scrollbar.
+     */
     public Resource setVerticalScrollBar(String verticalScrollBar) {
         if (!isChain) {
             js.append(jsBase);
@@ -1198,6 +1440,10 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setVerticalScrollBar1 = new ArrayList<>();
+
+    /**
+     * Setter for the vertical scrollbar.
+     */
     public Resource setVerticalScrollBar(Boolean verticalScrollBar1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1225,6 +1471,9 @@ public class Resource extends Chart {
 
     private DateTimeWithCalendar getXScale;
 
+    /**
+     * Getter for the X scale.
+     */
     public DateTimeWithCalendar getXScale() {
         if (getXScale == null)
             getXScale = new DateTimeWithCalendar(jsBase + ".xScale()");
@@ -1233,6 +1482,10 @@ public class Resource extends Chart {
     }
     private String xScale;
     private List<Resource> setXScale = new ArrayList<>();
+
+    /**
+     * Setter for the X scale.
+     */
     public Resource setXScale(String xScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1260,6 +1513,11 @@ public class Resource extends Chart {
     private Double indexOrId;
     private String indexOrId1;
     private List<Resource> setZoomLevel = new ArrayList<>();
+
+    /**
+     * Setter for the zoom level.
+Zooms chart to the level denoted by the passed index or identifier.
+     */
     public Resource setZoomLevel(Double indexOrId) {
         if (!isChain) {
             js.append(jsBase);
@@ -1285,6 +1543,11 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setZoomLevel1 = new ArrayList<>();
+
+    /**
+     * Setter for the zoom level.
+Zooms chart to the level denoted by the passed index or identifier.
+     */
     public Resource setZoomLevel(String indexOrId1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1311,6 +1574,10 @@ public class Resource extends Chart {
 
     private ZoomLevel[] zoomLevels;
     private List<Resource> setZoomLevels = new ArrayList<>();
+
+    /**
+     * Setter for zoom levels set.
+     */
     public Resource setZoomLevels(ZoomLevel[] zoomLevels) {
         if (!isChain) {
             js.append(jsBase);

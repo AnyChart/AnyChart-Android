@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Range Picker (only for stock chart).
+ */
 public class RangePicker extends JsObject {
 
     public RangePicker() {
-
+        js.setLength(0);
+        js.append("var rangePicker").append(++variableIndex).append(" = anychart.ui.rangePicker();");
+        jsBase = "rangePicker" + variableIndex;
     }
 
     protected RangePicker(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class RangePicker extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Element decorate;
 
+    /**
+     * Decorates the container for the range picker.
+     */
     public void decorate(Element decorate) {
         if (jsBase == null) {
             this.decorate = decorate;
@@ -36,11 +49,12 @@ public class RangePicker extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(decorate.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".decorate(%s);", ((decorate != null) ? decorate.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".decorate(%s);",  ((decorate != null) ? decorate.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((decorate != null) ? decorate.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((decorate != null) ? decorate.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -48,6 +62,9 @@ public class RangePicker extends JsObject {
 
     private String format;
 
+    /**
+     * Setter for the input and output date time format.
+     */
     public void setFormat(String format) {
         if (jsBase == null) {
             this.format = format;
@@ -59,7 +76,6 @@ public class RangePicker extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(format)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".format(%s)", wrapQuotes(format)));
                 js.setLength(0);
@@ -69,6 +85,9 @@ public class RangePicker extends JsObject {
 
     private String fromLabelText;
 
+    /**
+     * Setter for the text for 'from'-label.
+     */
     public RangePicker setFromLabelText(String fromLabelText) {
         if (jsBase == null) {
             this.fromLabelText = fromLabelText;
@@ -80,7 +99,6 @@ public class RangePicker extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fromLabelText(%s)", wrapQuotes(fromLabelText)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fromLabelText(%s)", wrapQuotes(fromLabelText)));
                 js.setLength(0);
@@ -92,6 +110,9 @@ public class RangePicker extends JsObject {
     private ChartsStock parentElement;
     private Element parentElement1;
 
+    /**
+     * Renders the range picker.
+     */
     public void render(ChartsStock parentElement) {
         if (jsBase == null) {
             this.parentElement = null;
@@ -104,17 +125,21 @@ public class RangePicker extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(parentElement.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement != null) ? parentElement.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".render(%s);",  ((parentElement != null) ? parentElement.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
     }
 
 
+    /**
+     * Renders the range picker.
+     */
     public void render(Element parentElement1) {
         if (jsBase == null) {
             this.parentElement = null;
@@ -127,11 +152,12 @@ public class RangePicker extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(parentElement1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement1 != null) ? parentElement1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".render(%s);",  ((parentElement1 != null) ? parentElement1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement1 != null) ? parentElement1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement1 != null) ? parentElement1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -139,6 +165,9 @@ public class RangePicker extends JsObject {
 
     private ChartsStock chart;
 
+    /**
+     * Sets stock chart for range picker.
+     */
     public void setTarget(ChartsStock chart) {
         if (jsBase == null) {
             this.chart = chart;
@@ -148,11 +177,12 @@ public class RangePicker extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(chart.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".target(%s);", ((chart != null) ? chart.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".target(%s);",  ((chart != null) ? chart.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", ((chart != null) ? chart.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", ((chart != null) ? chart.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -160,6 +190,9 @@ public class RangePicker extends JsObject {
 
     private String toLabelText;
 
+    /**
+     * Setter for the text for 'to'-label.
+     */
     public RangePicker setToLabelText(String toLabelText) {
         if (jsBase == null) {
             this.toLabelText = toLabelText;
@@ -171,7 +204,6 @@ public class RangePicker extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".toLabelText(%s)", wrapQuotes(toLabelText)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".toLabelText(%s)", wrapQuotes(toLabelText)));
                 js.setLength(0);
@@ -180,8 +212,6 @@ public class RangePicker extends JsObject {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -199,26 +229,6 @@ public class RangePicker extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdecorate());
-////        
-//            js.append(generateJSformat());
-////        
-//            js.append(generateJSfromLabelText());
-////        
-//            js.append(generateJSparentElement());
-////        
-//            js.append(generateJSparentElement1());
-////        
-//            js.append(generateJSchart());
-////        
-//            js.append(generateJStoLabelText());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

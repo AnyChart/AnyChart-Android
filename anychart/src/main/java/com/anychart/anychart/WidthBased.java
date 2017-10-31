@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * A base for all width-based series like bars, columns, OHLC and candlesticks.
+ */
 public class WidthBased extends CartesianSeriesBaseWithMarkers {
 
     public WidthBased() {
-
+        js.setLength(0);
+        js.append("var widthBased").append(++variableIndex).append(" = anychart.core.cartesian.series.widthBased();");
+        jsBase = "widthBased" + variableIndex;
     }
 
     protected WidthBased(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double maxPointWidth;
     private String maxPointWidth1;
 
+    /**
+     * Setter for the maximum point width.
+     */
     public WidthBased setMaxPointWidth(Double maxPointWidth) {
         if (jsBase == null) {
             this.maxPointWidth = null;
@@ -42,7 +55,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for the maximum point width.
+     */
     public WidthBased setMaxPointWidth(String maxPointWidth1) {
         if (jsBase == null) {
             this.maxPointWidth = null;
@@ -66,7 +81,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
@@ -78,6 +92,9 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
     private Double minPointLength;
     private String minPointLength1;
 
+    /**
+     * Setter for the minimum point length.
+     */
     public WidthBased setMinPointLength(Double minPointLength) {
         if (jsBase == null) {
             this.minPointLength = null;
@@ -92,7 +109,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
                 js.setLength(0);
@@ -102,6 +118,9 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for the minimum point length.
+     */
     public WidthBased setMinPointLength(String minPointLength1) {
         if (jsBase == null) {
             this.minPointLength = null;
@@ -116,7 +135,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
                 js.setLength(0);
@@ -128,6 +146,9 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
     private Double pointWidth;
     private String pointWidth1;
 
+    /**
+     * Setter for the point width settings.
+     */
     public WidthBased setPointWidth(Double pointWidth) {
         if (jsBase == null) {
             this.pointWidth = null;
@@ -142,7 +163,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
                 js.setLength(0);
@@ -152,6 +172,9 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for the point width settings.
+     */
     public WidthBased setPointWidth(String pointWidth1) {
         if (jsBase == null) {
             this.pointWidth = null;
@@ -166,7 +189,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
                 js.setLength(0);
@@ -175,8 +197,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -194,24 +214,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSmaxPointWidth());
-////        
-//            js.append(generateJSmaxPointWidth1());
-////        
-//            js.append(generateJSminPointLength());
-////        
-//            js.append(generateJSminPointLength1());
-////        
-//            js.append(generateJSpointWidth());
-////        
-//            js.append(generateJSpointWidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

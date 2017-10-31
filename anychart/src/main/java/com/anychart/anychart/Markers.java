@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Marker palette.
+ */
 public class Markers extends CoreBase {
 
     public Markers() {
-
+        js.setLength(0);
+        js.append("var markers").append(++variableIndex).append(" = anychart.palettes.markers();");
+        jsBase = "markers" + variableIndex;
     }
 
     protected Markers(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class Markers extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double index;
     private String type;
 
+    /**
+     * Setter for type palette markers from list by index.
+     */
     public Markers setItemAt(Double index, String type) {
         if (jsBase == null) {
             this.index = index;
@@ -41,7 +54,6 @@ public class Markers extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, wrapQuotes(type)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index, wrapQuotes(type)));
                 js.setLength(0);
@@ -54,6 +66,9 @@ public class Markers extends CoreBase {
     private String items1;
     private String var_args;
 
+    /**
+     * Setter for markers list of palette.
+     */
     public Markers setItems(String[] items, String var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -70,7 +85,6 @@ public class Markers extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items), wrapQuotes(var_args)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items), wrapQuotes(var_args)));
                 js.setLength(0);
@@ -80,6 +94,9 @@ public class Markers extends CoreBase {
     }
 
 
+    /**
+     * Setter for markers list of palette.
+     */
     public Markers setItems(String items1, String var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -96,7 +113,6 @@ public class Markers extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items1), wrapQuotes(var_args)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items1), wrapQuotes(var_args)));
                 js.setLength(0);
@@ -105,8 +121,6 @@ public class Markers extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -124,22 +138,6 @@ public class Markers extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJSitems());
-////        
-//            js.append(generateJSitems1());
-////        
-//            js.append(generateJSvar_args());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

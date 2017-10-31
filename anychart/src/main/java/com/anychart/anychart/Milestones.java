@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Pert milestones settings collector.
+ */
 public class Milestones extends JsObject {
 
     public Milestones() {
-
+        js.setLength(0);
+        js.append("var milestones").append(++variableIndex).append(" = anychart.core.pert.milestones();");
+        jsBase = "milestones" + variableIndex;
     }
 
     protected Milestones(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Milestones extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String color;
 
+    /**
+     * Setter for the milestones color.
+     */
     public Milestones setColor(String color) {
         if (jsBase == null) {
             this.color = color;
@@ -38,7 +51,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
@@ -49,6 +61,10 @@ public class Milestones extends JsObject {
 
     private Fill fill;
 
+    /**
+     * Setter for milestones fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Milestones setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -60,7 +76,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -72,6 +87,9 @@ public class Milestones extends JsObject {
     private String color1;
     private Double opacity;
 
+    /**
+     * Setter for the fill color with opacity. Fill as a string or an object.
+     */
     public Milestones setFill(String color1, Double opacity) {
         if (jsBase == null) {
             this.color = null;
@@ -88,7 +106,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity));
                 js.setLength(0);
@@ -105,6 +122,10 @@ public class Milestones extends JsObject {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Milestones setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -132,7 +153,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -142,6 +162,10 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Milestones setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -169,7 +193,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -179,6 +202,10 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Milestones setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -206,7 +233,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -216,6 +242,10 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Milestones setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -243,7 +273,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -253,6 +282,10 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Milestones setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -280,7 +313,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -290,6 +322,10 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Milestones setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -317,7 +353,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -335,6 +370,10 @@ public class Milestones extends JsObject {
     private Double fx;
     private Double fy;
 
+    /**
+     * Setter for the radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Milestones setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -372,7 +411,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -382,6 +420,10 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for the radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Milestones setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -419,7 +461,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -431,6 +472,9 @@ public class Milestones extends JsObject {
     private Fill imageSettings;
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -440,6 +484,9 @@ public class Milestones extends JsObject {
 
     private String hovered;
 
+    /**
+     * Setter for hovered state settings.
+     */
     public Milestones setHovered(String hovered) {
         if (jsBase == null) {
             this.hovered = hovered;
@@ -451,7 +498,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
@@ -462,6 +508,9 @@ public class Milestones extends JsObject {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for milestones data labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -472,6 +521,9 @@ public class Milestones extends JsObject {
     private String labels;
     private Boolean labels1;
 
+    /**
+     * Setter for milestones data labels.
+     */
     public Milestones setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
@@ -486,7 +538,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -496,6 +547,9 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for milestones data labels.
+     */
     public Milestones setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
@@ -510,7 +564,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -521,6 +574,9 @@ public class Milestones extends JsObject {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -530,6 +586,9 @@ public class Milestones extends JsObject {
 
     private String normal;
 
+    /**
+     * Setter for normal state settings.
+     */
     public Milestones setNormal(String normal) {
         if (jsBase == null) {
             this.normal = normal;
@@ -541,7 +600,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
@@ -552,6 +610,9 @@ public class Milestones extends JsObject {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -561,6 +622,9 @@ public class Milestones extends JsObject {
 
     private String selected;
 
+    /**
+     * Setter for selected state settings.
+     */
     public Milestones setSelected(String selected) {
         if (jsBase == null) {
             this.selected = selected;
@@ -572,7 +636,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
@@ -584,6 +647,9 @@ public class Milestones extends JsObject {
     private MilestoneShape shape;
     private String shape1;
 
+    /**
+     * Setter for milestones shape.
+     */
     public Milestones setShape(MilestoneShape shape) {
         if (jsBase == null) {
             this.shape = null;
@@ -598,7 +664,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".shape(%s)", ((shape != null) ? shape.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", ((shape != null) ? shape.generateJs() : "null")));
                 js.setLength(0);
@@ -608,6 +673,9 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for milestones shape.
+     */
     public Milestones setShape(String shape1) {
         if (jsBase == null) {
             this.shape = null;
@@ -622,7 +690,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape1)));
                 js.setLength(0);
@@ -634,6 +701,9 @@ public class Milestones extends JsObject {
     private Double size;
     private String size1;
 
+    /**
+     * Setter for milestones size.
+     */
     public Milestones setSize(Double size) {
         if (jsBase == null) {
             this.size = null;
@@ -648,7 +718,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".size(%f)", size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size));
                 js.setLength(0);
@@ -658,6 +727,9 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for milestones size.
+     */
     public Milestones setSize(String size1) {
         if (jsBase == null) {
             this.size = null;
@@ -672,7 +744,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".size(%s)", wrapQuotes(size1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%s)", wrapQuotes(size1)));
                 js.setLength(0);
@@ -689,6 +760,10 @@ public class Milestones extends JsObject {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for milestones stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Milestones setStroke(Stroke color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -714,7 +789,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -724,6 +798,10 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for milestones stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Milestones setStroke(ColoredFill color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -749,7 +827,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -759,6 +836,10 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for milestones stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Milestones setStroke(String color4, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -784,7 +865,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -795,6 +875,9 @@ public class Milestones extends JsObject {
 
     private Tooltip getTooltip;
 
+    /**
+     * Getter for milestones data tooltip.
+     */
     public Tooltip getTooltip() {
         if (getTooltip == null)
             getTooltip = new Tooltip(jsBase + ".tooltip()");
@@ -805,6 +888,9 @@ public class Milestones extends JsObject {
     private String tooltip;
     private Boolean tooltip1;
 
+    /**
+     * Setter for milestones data tooltip.
+     */
     public Milestones setTooltip(String tooltip) {
         if (jsBase == null) {
             this.tooltip = null;
@@ -819,7 +905,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
@@ -829,6 +914,9 @@ public class Milestones extends JsObject {
     }
 
 
+    /**
+     * Setter for milestones data tooltip.
+     */
     public Milestones setTooltip(Boolean tooltip1) {
         if (jsBase == null) {
             this.tooltip = null;
@@ -843,7 +931,6 @@ public class Milestones extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%b)", tooltip1));
                 js.setLength(0);
@@ -852,47 +939,9 @@ public class Milestones extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSStateSettings getHovered() {
-//        if (StateSettings getHovered != null) {
-//            return StateSettings getHovered.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLabels() {
-//        if (UiLabelsFactory getLabels != null) {
-//            return UiLabelsFactory getLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getNormal() {
-//        if (StateSettings getNormal != null) {
-//            return StateSettings getNormal.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getSelected() {
-//        if (StateSettings getSelected != null) {
-//            return StateSettings getSelected.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTooltip getTooltip() {
-//        if (Tooltip getTooltip != null) {
-//            return Tooltip getTooltip.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
-            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -900,7 +949,6 @@ public class Milestones extends JsObject {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
-            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -908,7 +956,6 @@ public class Milestones extends JsObject {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
-            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -916,7 +963,6 @@ public class Milestones extends JsObject {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
-            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -924,7 +970,6 @@ public class Milestones extends JsObject {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
-            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -951,88 +996,6 @@ public class Milestones extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJShovered());
-////        
-//            js.append(generateJSlabels());
-////        
-//            js.append(generateJSlabels1());
-////        
-//            js.append(generateJSnormal());
-////        
-//            js.append(generateJSselected());
-////        
-//            js.append(generateJSshape());
-////        
-//            js.append(generateJSshape1());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSsize1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJStooltip());
-////        
-//            js.append(generateJStooltip1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

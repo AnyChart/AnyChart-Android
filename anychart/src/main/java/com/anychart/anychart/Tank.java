@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Tank pointer class.
+ */
 public class Tank extends LineargaugePointersBase {
 
     public Tank() {
-
+        js.setLength(0);
+        js.append("var tank").append(++variableIndex).append(" = anychart.core.linearGauge.pointers.tank();");
+        jsBase = "tank" + variableIndex;
     }
 
     protected Tank(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,18 @@ public class Tank extends LineargaugePointersBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill emptyFill;
     private String emptyFill1;
 
+    /**
+     * Setter for fill settings for the empty part of a tank using a string or an object.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tank setEmptyFill(Fill emptyFill) {
         if (jsBase == null) {
             this.emptyFill = null;
@@ -42,7 +56,6 @@ public class Tank extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".emptyFill(%s)", ((emptyFill != null) ? emptyFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s)", ((emptyFill != null) ? emptyFill.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +65,10 @@ public class Tank extends LineargaugePointersBase {
     }
 
 
+    /**
+     * Setter for fill settings for the empty part of a tank using a string or an object.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tank setEmptyFill(String emptyFill1) {
         if (jsBase == null) {
             this.emptyFill = null;
@@ -66,7 +83,6 @@ public class Tank extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".emptyFill(%s)", wrapQuotes(emptyFill1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s)", wrapQuotes(emptyFill1)));
                 js.setLength(0);
@@ -78,6 +94,9 @@ public class Tank extends LineargaugePointersBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity for the empty part of a tank. Fill as a string or an object.
+     */
     public Tank emptyFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -91,7 +110,6 @@ public class Tank extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".emptyFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -102,6 +120,9 @@ public class Tank extends LineargaugePointersBase {
 
     private PatternFill getEmptyHatchFill;
 
+    /**
+     * Getter for hatch fill settings.
+     */
     public PatternFill getEmptyHatchFill() {
         if (getEmptyHatchFill == null)
             getEmptyHatchFill = new PatternFill(jsBase + ".emptyHatchFill()");
@@ -118,6 +139,10 @@ public class Tank extends LineargaugePointersBase {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Tank setEmptyHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -144,7 +169,6 @@ public class Tank extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -154,6 +178,10 @@ public class Tank extends LineargaugePointersBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Tank setEmptyHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -180,7 +208,6 @@ public class Tank extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -190,6 +217,10 @@ public class Tank extends LineargaugePointersBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Tank setEmptyHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -216,7 +247,6 @@ public class Tank extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -226,6 +256,10 @@ public class Tank extends LineargaugePointersBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Tank setEmptyHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -252,7 +286,6 @@ public class Tank extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -262,6 +295,10 @@ public class Tank extends LineargaugePointersBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Tank setEmptyHatchFill(Boolean patternFillOrType4, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -288,7 +325,6 @@ public class Tank extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -297,19 +333,9 @@ public class Tank extends LineargaugePointersBase {
         return this;
     }
 
-
-//
-//    private String generateJSPatternFill getEmptyHatchFill() {
-//        if (PatternFill getEmptyHatchFill != null) {
-//            return PatternFill getEmptyHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetEmptyHatchFill() {
         if (getEmptyHatchFill != null) {
             return getEmptyHatchFill.generateJs();
-            //return String.format(Locale.US, "getEmptyHatchFill: %s,", ((getEmptyHatchFill != null) ? getEmptyHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -332,36 +358,6 @@ public class Tank extends LineargaugePointersBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSemptyFill());
-////        
-//            js.append(generateJSemptyFill1());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJSpatternFillOrType4());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

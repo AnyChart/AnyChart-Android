@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Stock Plot class.
+ */
 public class Plot extends VisualBaseWithBounds {
 
     public Plot() {
-
+        js.setLength(0);
+        js.append("var plot").append(++variableIndex).append(" = anychart.core.stock.plot();");
+        jsBase = "plot" + variableIndex;
     }
 
     protected Plot(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Plot extends VisualBaseWithBounds {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private TableMapping var_args;
 
+    /**
+     * Add series to chart.
+     */
     public void addSeries(TableMapping var_args) {
         if (jsBase == null) {
             this.var_args = var_args;
@@ -36,11 +49,12 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            js.append(var_args.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", ((var_args != null) ? var_args.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".addSeries(%s);",  ((var_args != null) ? var_args.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", ((var_args != null) ? var_args.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", ((var_args != null) ? var_args.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -50,6 +64,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType;
     private String seriesType1;
 
+    /**
+     * Creates an Accumulation Distribution Line indicator on the plot.
+     */
     public ADL adl(StockSeriesType seriesType, TableMapping mapping) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -66,7 +83,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
@@ -76,6 +92,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates an Accumulation Distribution Line indicator on the plot.
+     */
     public ADL adl(String seriesType1, TableMapping mapping) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -92,7 +111,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
@@ -108,6 +126,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType2;
     private String seriesType3;
 
+    /**
+     * Creates AMA (Adaptive Moving Average) indicator on the plot.
+     */
     public AMA ama(StockSeriesType seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -135,7 +156,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
@@ -145,6 +165,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates AMA (Adaptive Moving Average) indicator on the plot.
+     */
     public AMA ama(String seriesType3, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -172,7 +195,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
@@ -183,6 +205,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private PlotController getAnnotations;
 
+    /**
+     * Getter for the plot annotations.
+     */
     public PlotController getAnnotations() {
         if (getAnnotations == null)
             getAnnotations = new PlotController(jsBase + ".annotations()");
@@ -192,6 +217,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private String[] annotationsList;
 
+    /**
+     * Setter for the plot annotations.
+     */
     public Plot setAnnotations(String[] annotationsList) {
         if (jsBase == null) {
             this.annotationsList = annotationsList;
@@ -203,7 +231,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
                 js.setLength(0);
@@ -219,6 +246,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings;
     private String csvSettings;
 
+    /**
+     * Creates and returns a new Area series.
+     */
     public StockSeriesArea area(TableMapping data, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
@@ -239,7 +269,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -249,6 +278,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Area series.
+     */
     public StockSeriesArea area(DataTable data1, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
@@ -269,7 +301,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -279,6 +310,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Area series.
+     */
     public StockSeriesArea area(String data2, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
@@ -299,7 +333,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -315,6 +348,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType downSeriesType;
     private String downSeriesType1;
 
+    /**
+     * Creates Aroon indicator on the plot.
+     */
     public Aroon aroon(StockSeriesType upSeriesType, StockSeriesType downSeriesType, TableMapping mapping2, Double period1) {
         if (jsBase == null) {
             this.upSeriesType = null;
@@ -345,7 +381,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -355,6 +390,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Aroon indicator on the plot.
+     */
     public Aroon aroon(StockSeriesType upSeriesType, String downSeriesType1, TableMapping mapping2, Double period1) {
         if (jsBase == null) {
             this.upSeriesType = null;
@@ -385,7 +423,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -395,6 +432,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Aroon indicator on the plot.
+     */
     public Aroon aroon(String upSeriesType1, StockSeriesType downSeriesType, TableMapping mapping2, Double period1) {
         if (jsBase == null) {
             this.upSeriesType = null;
@@ -425,7 +465,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -435,6 +474,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Aroon indicator on the plot.
+     */
     public Aroon aroon(String upSeriesType1, String downSeriesType1, TableMapping mapping2, Double period1) {
         if (jsBase == null) {
             this.upSeriesType = null;
@@ -465,7 +507,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -479,6 +520,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType4;
     private String seriesType5;
 
+    /**
+     * Creates an Average True Range indicator on the plot.
+     */
     public ATR atr(StockSeriesType seriesType4, TableMapping mapping3, Double period2) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -510,7 +554,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
@@ -520,6 +563,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates an Average True Range indicator on the plot.
+     */
     public ATR atr(String seriesType5, TableMapping mapping3, Double period2) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -551,7 +597,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
@@ -562,6 +607,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private UiBackground getBackground;
 
+    /**
+     * Getter for the current plot background.
+     */
     public UiBackground getBackground() {
         if (getBackground == null)
             getBackground = new UiBackground(jsBase + ".background()");
@@ -573,6 +621,9 @@ public class Plot extends VisualBaseWithBounds {
     private String background1;
     private Boolean background2;
 
+    /**
+     * Setter for the plot background.
+     */
     public Plot setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
@@ -588,7 +639,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -598,6 +648,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot background.
+     */
     public Plot setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
@@ -613,7 +666,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -632,6 +684,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType middleSeriesType;
     private String middleSeriesType1;
 
+    /**
+     * Creates Bollinger Bands indicator on the plot.
+     */
     public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -673,7 +728,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -683,6 +737,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the plot.
+     */
     public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -724,7 +781,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -734,6 +790,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the plot.
+     */
     public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -775,7 +834,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -785,6 +843,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the plot.
+     */
     public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -826,7 +887,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -836,6 +896,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the plot.
+     */
     public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -877,7 +940,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -887,6 +949,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the plot.
+     */
     public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -928,7 +993,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -938,6 +1002,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the plot.
+     */
     public BBands bbands(String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -979,7 +1046,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -989,6 +1055,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the plot.
+     */
     public BBands bbands(String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -1030,7 +1099,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -1045,6 +1113,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType6;
     private String seriesType7;
 
+    /**
+     * Creates %B indicator on the plot.
+     */
     public BBandsB bbandsB(StockSeriesType seriesType6, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1087,7 +1158,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
@@ -1097,6 +1167,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates %B indicator on the plot.
+     */
     public BBandsB bbandsB(String seriesType7, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1139,7 +1212,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
@@ -1154,6 +1226,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType8;
     private String seriesType9;
 
+    /**
+     * Creates Bollinger Bands Width indicator on the plot.
+     */
     public BBandsWidth bbandsWidth(StockSeriesType seriesType8, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1201,7 +1276,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
@@ -1211,6 +1285,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates Bollinger Bands Width indicator on the plot.
+     */
     public BBandsWidth bbandsWidth(String seriesType9, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1258,7 +1335,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
@@ -1274,6 +1350,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings1;
     private String csvSettings1;
 
+    /**
+     * Creates and returns a new Candlestick series.
+     */
     public StockSeriesCandlestick candlestick(TableMapping data4, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
@@ -1304,7 +1383,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -1314,6 +1392,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Candlestick series.
+     */
     public StockSeriesCandlestick candlestick(DataTable data5, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
@@ -1344,7 +1425,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -1354,6 +1434,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Candlestick series.
+     */
     public StockSeriesCandlestick candlestick(String data6, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
@@ -1384,7 +1467,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -1398,6 +1480,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType10;
     private String seriesType11;
 
+    /**
+     * Creates a Commodity Channel Index indicator on the chart.
+     */
     public CCI cci(StockSeriesType seriesType10, TableMapping mapping7, Double period6) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1443,7 +1528,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
@@ -1453,6 +1537,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Commodity Channel Index indicator on the chart.
+     */
     public CCI cci(String seriesType11, TableMapping mapping7, Double period6) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1498,7 +1585,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
@@ -1515,6 +1601,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType12;
     private String seriesType13;
 
+    /**
+     * Creates a Chaikin Oscillator indicator on the chart.
+     */
     public CHO cho(MovingAverageType maType, StockSeriesType seriesType12, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
         if (jsBase == null) {
             this.maType = null;
@@ -1568,7 +1657,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
@@ -1578,6 +1666,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Chaikin Oscillator indicator on the chart.
+     */
     public CHO cho(MovingAverageType maType, String seriesType13, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
         if (jsBase == null) {
             this.maType = null;
@@ -1631,7 +1722,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
@@ -1641,6 +1731,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Chaikin Oscillator indicator on the chart.
+     */
     public CHO cho(String maType1, StockSeriesType seriesType12, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
         if (jsBase == null) {
             this.maType = null;
@@ -1694,7 +1787,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
@@ -1704,6 +1796,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Chaikin Oscillator indicator on the chart.
+     */
     public CHO cho(String maType1, String seriesType13, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
         if (jsBase == null) {
             this.maType = null;
@@ -1757,7 +1852,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", wrapQuotes(maType1), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", wrapQuotes(maType1), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
@@ -1771,6 +1865,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType14;
     private String seriesType15;
 
+    /**
+     * Creates a Chaikin Money Flow indicator on the chart.
+     */
     public CMF cmf(StockSeriesType seriesType14, TableMapping mapping9, Double period7) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1823,7 +1920,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
@@ -1833,6 +1929,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Chaikin Money Flow indicator on the chart.
+     */
     public CMF cmf(String seriesType15, TableMapping mapping9, Double period7) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1885,7 +1984,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
@@ -1901,6 +1999,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings2;
     private String csvSettings2;
 
+    /**
+     * Creates and returns a new Column series.
+     */
     public StockSeriesColumn column(TableMapping data8, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
@@ -1937,7 +2038,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
@@ -1947,6 +2047,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Column series.
+     */
     public StockSeriesColumn column(DataTable data9, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
@@ -1983,7 +2086,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
@@ -1993,6 +2095,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Column series.
+     */
     public StockSeriesColumn column(String data10, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
@@ -2029,7 +2134,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
@@ -2040,6 +2144,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private Crosshair getCrosshair;
 
+    /**
+     * Getter for crosshair settings.
+     */
     public Crosshair getCrosshair() {
         if (getCrosshair == null)
             getCrosshair = new Crosshair(jsBase + ".crosshair()");
@@ -2050,6 +2157,10 @@ public class Plot extends VisualBaseWithBounds {
     private String crosshair;
     private Boolean crosshair1;
 
+    /**
+     * Setter for crosshair settings.<br/>
+The plot crosshair settings have a higher priority than the chart crosshair settings.
+     */
     public Plot setCrosshair(String crosshair) {
         if (jsBase == null) {
             this.crosshair = null;
@@ -2064,7 +2175,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
                 js.setLength(0);
@@ -2074,6 +2184,10 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for crosshair settings.<br/>
+The plot crosshair settings have a higher priority than the chart crosshair settings.
+     */
     public Plot setCrosshair(Boolean crosshair1) {
         if (jsBase == null) {
             this.crosshair = null;
@@ -2088,7 +2202,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
                 js.setLength(0);
@@ -2100,6 +2213,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType defaultSeriesType;
     private String defaultSeriesType1;
 
+    /**
+     * Setter for the stock plot defaultSeriesType.
+     */
     public Plot setDefaultSeriesType(StockSeriesType defaultSeriesType) {
         if (jsBase == null) {
             this.defaultSeriesType = null;
@@ -2114,7 +2230,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
                 js.setLength(0);
@@ -2124,6 +2239,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the stock plot defaultSeriesType.
+     */
     public Plot setDefaultSeriesType(String defaultSeriesType1) {
         if (jsBase == null) {
             this.defaultSeriesType = null;
@@ -2138,7 +2256,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
                 js.setLength(0);
@@ -2158,6 +2275,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType adxSeriesType;
     private String adxSeriesType1;
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2212,7 +2332,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2222,6 +2341,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2276,7 +2398,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2286,6 +2407,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(StockSeriesType pdiSeriesType, String ndiSeriesType1, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2340,7 +2464,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2350,6 +2473,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(StockSeriesType pdiSeriesType, String ndiSeriesType1, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2404,7 +2530,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2414,6 +2539,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(String pdiSeriesType1, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2468,7 +2596,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2478,6 +2605,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(String pdiSeriesType1, StockSeriesType ndiSeriesType, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2532,7 +2662,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2542,6 +2671,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(String pdiSeriesType1, String ndiSeriesType1, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2596,7 +2728,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2606,6 +2737,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(String pdiSeriesType1, String ndiSeriesType1, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2660,7 +2794,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2674,6 +2807,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType16;
     private String seriesType17;
 
+    /**
+     * Creates EMA (Exponential Moving Average) indicator on the plot.
+     */
     public EMA ema(StockSeriesType seriesType16, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -2732,7 +2868,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
@@ -2742,6 +2877,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates EMA (Exponential Moving Average) indicator on the plot.
+     */
     public EMA ema(String seriesType17, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -2800,7 +2938,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
@@ -2811,6 +2948,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private List<StockSeriesBase> getGetSeries = new ArrayList<>();
 
+    /**
+     * Gets series by its id.
+     */
     public StockSeriesBase getGetSeries(Double id) {
         StockSeriesBase item = new StockSeriesBase(jsBase + ".getSeries(" + id + ")");
         getGetSeries.add(item);
@@ -2819,6 +2959,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private List<StockSeriesBase> getGetSeries1 = new ArrayList<>();
 
+    /**
+     * Gets series by its id.
+     */
     public StockSeriesBase getGetSeries(String id) {
         StockSeriesBase item = new StockSeriesBase(jsBase + ".getSeries(" + wrapQuotes(id) + ")");
         getGetSeries1.add(item);
@@ -2827,6 +2970,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private List<StockSeriesBase> getGetSeriesAt = new ArrayList<>();
 
+    /**
+     * Gets series by its index.
+     */
     public StockSeriesBase getGetSeriesAt(Double index) {
         StockSeriesBase item = new StockSeriesBase(jsBase + ".getSeriesAt(" + index + ")");
         getGetSeriesAt.add(item);
@@ -2835,6 +2981,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for the current hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -2846,6 +2995,9 @@ public class Plot extends VisualBaseWithBounds {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
 
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public HatchFills setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
@@ -2861,7 +3013,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", arrayToString(hatchFillPalette)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
                 js.setLength(0);
@@ -2871,6 +3022,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public HatchFills setHatchFillPalette(String hatchFillPalette1) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
@@ -2886,7 +3040,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", wrapQuotes(hatchFillPalette1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
                 js.setLength(0);
@@ -2896,6 +3049,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public HatchFills setHatchFillPalette(HatchFills hatchFillPalette2) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
@@ -2909,11 +3065,12 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            js.append(hatchFillPalette2.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2927,6 +3084,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings3;
     private String csvSettings3;
 
+    /**
+     * Creates and returns a new HiLo series.
+     */
     public StockSeriesHilo hilo(TableMapping data12, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
@@ -2969,7 +3129,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
@@ -2979,6 +3138,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new HiLo series.
+     */
     public StockSeriesHilo hilo(DataTable data13, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
@@ -3021,7 +3183,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
@@ -3031,6 +3192,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new HiLo series.
+     */
     public StockSeriesHilo hilo(String data14, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
@@ -3073,7 +3237,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
@@ -3089,6 +3252,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings4;
     private String csvSettings4;
 
+    /**
+     * Creates and returns a new Jump Line series.
+     */
     public StockSeriesJumpLine jumpLine(TableMapping data16, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
@@ -3137,7 +3303,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
@@ -3147,6 +3312,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Jump Line series.
+     */
     public StockSeriesJumpLine jumpLine(DataTable data17, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
@@ -3195,7 +3363,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
@@ -3205,6 +3372,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Jump Line series.
+     */
     public StockSeriesJumpLine jumpLine(String data18, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
@@ -3253,7 +3423,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
@@ -3279,6 +3448,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType jSeriesType;
     private String jSeriesType1;
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3339,7 +3511,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3349,6 +3520,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3409,7 +3583,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3419,6 +3592,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3479,7 +3655,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3489,6 +3664,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3549,7 +3727,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3559,6 +3736,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3619,7 +3799,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3629,6 +3808,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3689,7 +3871,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3699,6 +3880,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3759,7 +3943,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3769,6 +3952,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3829,7 +4015,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3839,6 +4024,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3899,7 +4087,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3909,6 +4096,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3969,7 +4159,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3979,6 +4168,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4039,7 +4231,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4049,6 +4240,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4109,7 +4303,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4119,6 +4312,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4179,7 +4375,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4189,6 +4384,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4249,7 +4447,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4259,6 +4456,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4319,7 +4519,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4329,6 +4528,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4389,7 +4591,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4399,6 +4600,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4459,7 +4663,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4469,6 +4672,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4529,7 +4735,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4539,6 +4744,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4599,7 +4807,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4609,6 +4816,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4669,7 +4879,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4679,6 +4888,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4739,7 +4951,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4749,6 +4960,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4809,7 +5023,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4819,6 +5032,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4879,7 +5095,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4889,6 +5104,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4949,7 +5167,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4959,6 +5176,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5019,7 +5239,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5029,6 +5248,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5089,7 +5311,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5099,6 +5320,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5159,7 +5383,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5169,6 +5392,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5229,7 +5455,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5239,6 +5464,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5299,7 +5527,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5309,6 +5536,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5369,7 +5599,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5379,6 +5608,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5439,7 +5671,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5449,6 +5680,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the plot.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5509,7 +5743,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5520,6 +5753,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private UiLegend getLegend;
 
+    /**
+     * Getter for the plot legend.
+     */
     public UiLegend getLegend() {
         if (getLegend == null)
             getLegend = new UiLegend(jsBase + ".legend()");
@@ -5530,6 +5766,9 @@ public class Plot extends VisualBaseWithBounds {
     private String legend;
     private Boolean legend1;
 
+    /**
+     * Setter for the plot legend setting.
+     */
     public Plot setLegend(String legend) {
         if (jsBase == null) {
             this.legend = null;
@@ -5544,7 +5783,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".legend(%s)", wrapQuotes(legend)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".legend(%s)", wrapQuotes(legend)));
                 js.setLength(0);
@@ -5554,6 +5792,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot legend setting.
+     */
     public Plot setLegend(Boolean legend1) {
         if (jsBase == null) {
             this.legend = null;
@@ -5568,7 +5809,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".legend(%b)", legend1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".legend(%b)", legend1));
                 js.setLength(0);
@@ -5584,6 +5824,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings5;
     private String csvSettings5;
 
+    /**
+     * Creates and returns a new Line series.
+     */
     public StockSeriesLine line(TableMapping data20, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
@@ -5638,7 +5881,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
@@ -5648,6 +5890,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Line series.
+     */
     public StockSeriesLine line(DataTable data21, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
@@ -5702,7 +5947,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
@@ -5712,6 +5956,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Line series.
+     */
     public StockSeriesLine line(String data22, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
@@ -5766,7 +6013,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
@@ -5786,6 +6032,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType histogramSeriesType;
     private String histogramSeriesType1;
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
+     */
     public MACD macd(StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -5841,7 +6090,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5851,6 +6099,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
+     */
     public MACD macd(StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -5906,7 +6157,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5916,6 +6166,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
+     */
     public MACD macd(StockSeriesType macdSeriesType, String signalSeriesType1, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -5971,7 +6224,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5981,6 +6233,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
+     */
     public MACD macd(StockSeriesType macdSeriesType, String signalSeriesType1, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -6036,7 +6291,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6046,6 +6300,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
+     */
     public MACD macd(String macdSeriesType1, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -6101,7 +6358,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6111,6 +6367,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
+     */
     public MACD macd(String macdSeriesType1, StockSeriesType signalSeriesType, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -6166,7 +6425,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6176,6 +6434,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
+     */
     public MACD macd(String macdSeriesType1, String signalSeriesType1, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -6231,7 +6492,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6241,6 +6501,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
+     */
     public MACD macd(String macdSeriesType1, String signalSeriesType1, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -6296,7 +6559,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6312,6 +6574,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings6;
     private String csvSettings6;
 
+    /**
+     * Creates and returns a new Marker series.
+     */
     public StockSeriesMarker marker(TableMapping data24, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
@@ -6372,7 +6637,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
@@ -6382,6 +6646,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Marker series.
+     */
     public StockSeriesMarker marker(DataTable data25, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
@@ -6442,7 +6709,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
@@ -6452,6 +6718,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Marker series.
+     */
     public StockSeriesMarker marker(String data26, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
@@ -6512,7 +6781,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
@@ -6523,6 +6791,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for chart markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -6535,6 +6806,9 @@ public class Plot extends VisualBaseWithBounds {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
 
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public Plot setMarkerPalette(Markers markerPalette) {
         if (jsBase == null) {
             this.markerPalette = null;
@@ -6545,15 +6819,16 @@ public class Plot extends VisualBaseWithBounds {
             this.markerPalette = markerPalette;
         } else {
             this.markerPalette = markerPalette;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(markerPalette.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -6561,6 +6836,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public Plot setMarkerPalette(String markerPalette1) {
         if (jsBase == null) {
             this.markerPalette = null;
@@ -6577,7 +6855,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
                 js.setLength(0);
@@ -6587,6 +6864,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public Plot setMarkerPalette(MarkerType[] markerPalette2) {
         if (jsBase == null) {
             this.markerPalette = null;
@@ -6603,7 +6883,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
                 js.setLength(0);
@@ -6613,6 +6892,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public Plot setMarkerPalette(String[] markerPalette3) {
         if (jsBase == null) {
             this.markerPalette = null;
@@ -6629,7 +6911,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
                 js.setLength(0);
@@ -6641,6 +6922,9 @@ public class Plot extends VisualBaseWithBounds {
     private Double maxPointWidth;
     private String maxPointWidth1;
 
+    /**
+     * Setter for the maximum point width.
+     */
     public Plot setMaxPointWidth(Double maxPointWidth) {
         if (jsBase == null) {
             this.maxPointWidth = null;
@@ -6655,7 +6939,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
                 js.setLength(0);
@@ -6665,6 +6948,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the maximum point width.
+     */
     public Plot setMaxPointWidth(String maxPointWidth1) {
         if (jsBase == null) {
             this.maxPointWidth = null;
@@ -6679,7 +6965,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
@@ -6691,6 +6976,9 @@ public class Plot extends VisualBaseWithBounds {
     private Double minPointLength;
     private String minPointLength1;
 
+    /**
+     * Setter for the minimum point length.
+     */
     public Plot setMinPointLength(Double minPointLength) {
         if (jsBase == null) {
             this.minPointLength = null;
@@ -6705,7 +6993,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
                 js.setLength(0);
@@ -6715,6 +7002,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the minimum point length.
+     */
     public Plot setMinPointLength(String minPointLength1) {
         if (jsBase == null) {
             this.minPointLength = null;
@@ -6729,7 +7019,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
                 js.setLength(0);
@@ -6743,6 +7032,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType18;
     private String seriesType19;
 
+    /**
+     * Creates MMA (Modified Moving Average) indicator on the plot.
+     */
     public MMA mma(StockSeriesType seriesType18, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -6807,7 +7099,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
@@ -6817,6 +7108,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates MMA (Modified Moving Average) indicator on the plot.
+     */
     public MMA mma(String seriesType19, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -6881,7 +7175,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
@@ -6892,6 +7185,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private NoDataSettings getNoData;
 
+    /**
+     * Getter for noData settings.
+     */
     public NoDataSettings getNoData() {
         if (getNoData == null)
             getNoData = new NoDataSettings(jsBase + ".noData()");
@@ -6901,6 +7197,10 @@ public class Plot extends VisualBaseWithBounds {
 
     private String noData;
 
+    /**
+     * Setter for noData settings.<br/>
+{docs:Working_with_Data/No_Data_Label} Learn more about "No data" feature {docs}
+     */
     public Plot setNoData(String noData) {
         if (jsBase == null) {
             this.noData = noData;
@@ -6912,7 +7212,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
                 js.setLength(0);
@@ -6928,6 +7227,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings7;
     private String csvSettings7;
 
+    /**
+     * Creates and returns a new OHLC series.
+     */
     public StockSeriesOHLC ohlc(TableMapping data28, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
@@ -6994,7 +7296,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
@@ -7004,6 +7305,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new OHLC series.
+     */
     public StockSeriesOHLC ohlc(DataTable data29, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
@@ -7070,7 +7374,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
@@ -7080,6 +7383,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new OHLC series.
+     */
     public StockSeriesOHLC ohlc(String data30, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
@@ -7146,7 +7452,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
@@ -7157,6 +7462,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the current series colors palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -7169,6 +7477,9 @@ public class Plot extends VisualBaseWithBounds {
     private String palette2;
     private String[] palette3;
 
+    /**
+     * Setter for the series colors palette.
+     */
     public Plot setPalette(RangeColors palette) {
         if (jsBase == null) {
             this.palette = null;
@@ -7179,15 +7490,16 @@ public class Plot extends VisualBaseWithBounds {
             this.palette = palette;
         } else {
             this.palette = palette;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(palette.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -7195,6 +7507,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the series colors palette.
+     */
     public Plot setPalette(DistinctColors palette1) {
         if (jsBase == null) {
             this.palette = null;
@@ -7205,15 +7520,16 @@ public class Plot extends VisualBaseWithBounds {
             this.palette1 = palette1;
         } else {
             this.palette1 = palette1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(palette1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -7221,6 +7537,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the series colors palette.
+     */
     public Plot setPalette(String palette2) {
         if (jsBase == null) {
             this.palette = null;
@@ -7237,7 +7556,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
                 js.setLength(0);
@@ -7247,6 +7565,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the series colors palette.
+     */
     public Plot setPalette(String[] palette3) {
         if (jsBase == null) {
             this.palette = null;
@@ -7263,7 +7584,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
                 js.setLength(0);
@@ -7275,6 +7595,9 @@ public class Plot extends VisualBaseWithBounds {
     private Double pointWidth;
     private String pointWidth1;
 
+    /**
+     * Setter for the point width settings.
+     */
     public Plot setPointWidth(Double pointWidth) {
         if (jsBase == null) {
             this.pointWidth = null;
@@ -7289,7 +7612,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
                 js.setLength(0);
@@ -7299,6 +7621,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the point width settings.
+     */
     public Plot setPointWidth(String pointWidth1) {
         if (jsBase == null) {
             this.pointWidth = null;
@@ -7313,7 +7638,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
                 js.setLength(0);
@@ -7324,6 +7648,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private List<CurrentPriceIndicator> getPriceIndicator = new ArrayList<>();
 
+    /**
+     * Getter for the stock price indicator.
+     */
     public CurrentPriceIndicator getPriceIndicator(Double index) {
         CurrentPriceIndicator item = new CurrentPriceIndicator(jsBase + ".priceIndicator(" + index + ")");
         getPriceIndicator.add(item);
@@ -7333,6 +7660,9 @@ public class Plot extends VisualBaseWithBounds {
     private String priceIndicator;
     private Boolean priceIndicator1;
 
+    /**
+     * Setter for the stock price indicator settings.
+     */
     public Plot setPriceIndicator(String priceIndicator) {
         if (jsBase == null) {
             this.priceIndicator = null;
@@ -7347,7 +7677,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".priceIndicator(%s)", wrapQuotes(priceIndicator)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s)", wrapQuotes(priceIndicator)));
                 js.setLength(0);
@@ -7357,6 +7686,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the stock price indicator settings.
+     */
     public Plot setPriceIndicator(Boolean priceIndicator1) {
         if (jsBase == null) {
             this.priceIndicator = null;
@@ -7371,7 +7703,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".priceIndicator(%b)", priceIndicator1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%b)", priceIndicator1));
                 js.setLength(0);
@@ -7384,6 +7715,9 @@ public class Plot extends VisualBaseWithBounds {
     private String priceIndicator2;
     private Boolean priceIndicator3;
 
+    /**
+     * Setter for the stock price indicator settings by index.
+     */
     public Plot setPriceIndicator(String priceIndicator2, Double index) {
         if (jsBase == null) {
             this.priceIndicator = null;
@@ -7402,7 +7736,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".priceIndicator(%s, %f)", wrapQuotes(priceIndicator2), index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s, %f)", wrapQuotes(priceIndicator2), index));
                 js.setLength(0);
@@ -7412,6 +7745,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the stock price indicator settings by index.
+     */
     public Plot setPriceIndicator(Boolean priceIndicator3, Double index) {
         if (jsBase == null) {
             this.priceIndicator = null;
@@ -7430,7 +7766,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index));
                 js.setLength(0);
@@ -7446,6 +7781,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings8;
     private String csvSettings8;
 
+    /**
+     * Creates and returns a new Range Area series.
+     */
     public StockSeriesRangeArea rangeArea(TableMapping data32, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
@@ -7518,7 +7856,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
@@ -7528,6 +7865,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Range Area series.
+     */
     public StockSeriesRangeArea rangeArea(DataTable data33, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
@@ -7600,7 +7940,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
@@ -7610,6 +7949,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Range Area series.
+     */
     public StockSeriesRangeArea rangeArea(String data34, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
@@ -7682,7 +8024,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
@@ -7698,6 +8039,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings9;
     private String csvSettings9;
 
+    /**
+     * Creates and returns a new Range Column series.
+     */
     public StockSeriesRangeColumn rangeColumn(TableMapping data36, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
@@ -7776,7 +8120,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
@@ -7786,6 +8129,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Range Column series.
+     */
     public StockSeriesRangeColumn rangeColumn(DataTable data37, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
@@ -7864,7 +8210,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
@@ -7874,6 +8219,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Range Column series.
+     */
     public StockSeriesRangeColumn rangeColumn(String data38, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
@@ -7952,7 +8300,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
@@ -7968,6 +8315,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings10;
     private String csvSettings10;
 
+    /**
+     * Creates and returns a new Range Spline Area series.
+     */
     public StockSeriesRangeSplineArea rangeSplineArea(TableMapping data40, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
@@ -8052,7 +8402,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
@@ -8062,6 +8411,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Range Spline Area series.
+     */
     public StockSeriesRangeSplineArea rangeSplineArea(DataTable data41, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
@@ -8146,7 +8498,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
@@ -8156,6 +8507,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Range Spline Area series.
+     */
     public StockSeriesRangeSplineArea rangeSplineArea(String data42, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
@@ -8240,7 +8594,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
@@ -8256,6 +8609,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings11;
     private String csvSettings11;
 
+    /**
+     * Creates and returns a new Range Step Area series.
+     */
     public StockSeriesRangeStepArea rangeStepArea(TableMapping data44, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
@@ -8346,7 +8702,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
@@ -8356,6 +8711,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Range Step Area series.
+     */
     public StockSeriesRangeStepArea rangeStepArea(DataTable data45, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
@@ -8446,7 +8804,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
@@ -8456,6 +8813,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Range Step Area series.
+     */
     public StockSeriesRangeStepArea rangeStepArea(String data46, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
@@ -8546,7 +8906,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
@@ -8558,6 +8917,9 @@ public class Plot extends VisualBaseWithBounds {
     private Double id;
     private String id1;
 
+    /**
+     * Removes one of series from chart by its id.
+     */
     public Plot removeSeries(Double id) {
         if (jsBase == null) {
             this.id = null;
@@ -8572,7 +8934,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".removeSeries(%f)", id));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id));
                 js.setLength(0);
@@ -8582,6 +8943,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Removes one of series from chart by its id.
+     */
     public Plot removeSeries(String id1) {
         if (jsBase == null) {
             this.id = null;
@@ -8596,7 +8960,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
                 js.setLength(0);
@@ -8607,6 +8970,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private Double index1;
 
+    /**
+     * Removes one of series from chart by its index.
+     */
     public Plot removeSeriesAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
@@ -8621,7 +8987,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
                 js.setLength(0);
@@ -8635,6 +9000,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType20;
     private String seriesType21;
 
+    /**
+     * Creates RoC (Rate of Change) indicator on the plot.
+     */
     public RoC roc(StockSeriesType seriesType20, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -8703,7 +9071,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
@@ -8713,6 +9080,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates RoC (Rate of Change) indicator on the plot.
+     */
     public RoC roc(String seriesType21, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -8781,7 +9151,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
@@ -8795,6 +9164,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType22;
     private String seriesType23;
 
+    /**
+     * Creates RSI (Relative Strength Index) indicator on the plot.
+     */
     public RSI rsi(StockSeriesType seriesType22, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -8867,7 +9239,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
@@ -8877,6 +9248,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates RSI (Relative Strength Index) indicator on the plot.
+     */
     public RSI rsi(String seriesType23, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -8949,7 +9323,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
@@ -8963,6 +9336,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType24;
     private String seriesType25;
 
+    /**
+     * Creates SMA (Simple Moving Average) indicator on the plot.
+     */
     public SMA sma(StockSeriesType seriesType24, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -9039,7 +9415,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
@@ -9049,6 +9424,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates SMA (Simple Moving Average) indicator on the plot.
+     */
     public SMA sma(String seriesType25, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -9125,7 +9503,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
@@ -9141,6 +9518,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings12;
     private String csvSettings12;
 
+    /**
+     * Creates and returns a new Spline series.
+     */
     public StockSeriesSpline spline(TableMapping data48, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
@@ -9237,7 +9617,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
@@ -9247,6 +9626,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Spline series.
+     */
     public StockSeriesSpline spline(DataTable data49, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
@@ -9343,7 +9725,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
@@ -9353,6 +9734,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Spline series.
+     */
     public StockSeriesSpline spline(String data50, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
@@ -9449,7 +9833,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
@@ -9465,6 +9848,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings13;
     private String csvSettings13;
 
+    /**
+     * Creates and returns a new Spline Area series.
+     */
     public StockSeriesSplineArea splineArea(TableMapping data52, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
@@ -9567,7 +9953,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
@@ -9577,6 +9962,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Spline Area series.
+     */
     public StockSeriesSplineArea splineArea(DataTable data53, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
@@ -9679,7 +10067,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
@@ -9689,6 +10076,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Spline Area series.
+     */
     public StockSeriesSplineArea splineArea(String data54, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
@@ -9791,7 +10181,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
@@ -9807,6 +10196,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings14;
     private String csvSettings14;
 
+    /**
+     * Creates and returns a new Step Area series.
+     */
     public StockSeriesStepArea stepArea(TableMapping data56, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
@@ -9915,7 +10307,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
@@ -9925,6 +10316,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Step Area series.
+     */
     public StockSeriesStepArea stepArea(DataTable data57, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
@@ -10033,7 +10427,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
@@ -10043,6 +10436,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Step Area series.
+     */
     public StockSeriesStepArea stepArea(String data58, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
@@ -10151,7 +10547,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
@@ -10167,6 +10562,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings15;
     private String csvSettings15;
 
+    /**
+     * Creates and returns a new Step Line series.
+     */
     public StockSeriesStepLine stepLine(TableMapping data60, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
@@ -10281,7 +10679,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
@@ -10291,6 +10688,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Step Line series.
+     */
     public StockSeriesStepLine stepLine(DataTable data61, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
@@ -10405,7 +10805,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
@@ -10415,6 +10814,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Step Line series.
+     */
     public StockSeriesStepLine stepLine(String data62, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
@@ -10529,7 +10931,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
@@ -10545,6 +10946,9 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings16;
     private String csvSettings16;
 
+    /**
+     * Creates and returns a new Stick series.
+     */
     public StockSeriesStick stick(TableMapping data64, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
@@ -10665,7 +11069,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
@@ -10675,6 +11078,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Stick series.
+     */
     public StockSeriesStick stick(DataTable data65, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
@@ -10795,7 +11201,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
@@ -10805,6 +11210,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates and returns a new Stick series.
+     */
     public StockSeriesStick stick(String data66, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
@@ -10925,7 +11333,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
@@ -10947,6 +11354,9 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType dSeriesType2;
     private String dSeriesType3;
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11021,7 +11431,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11031,6 +11440,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11105,7 +11517,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11115,6 +11526,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11189,7 +11603,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11199,6 +11612,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11273,7 +11689,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11283,6 +11698,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11357,7 +11775,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11367,6 +11784,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11441,7 +11861,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11451,6 +11870,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11525,7 +11947,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11535,6 +11956,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11609,7 +12033,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11619,6 +12042,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11693,7 +12119,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11703,6 +12128,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11777,7 +12205,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11787,6 +12214,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11861,7 +12291,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11871,6 +12300,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11945,7 +12377,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11955,6 +12386,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -12029,7 +12463,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12039,6 +12472,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -12113,7 +12549,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12123,6 +12558,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -12197,7 +12635,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12207,6 +12644,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the plot.
+     */
     public Stochastic stochastic(String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -12281,7 +12721,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12292,6 +12731,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private StockDateTime getXAxis;
 
+    /**
+     * Getter for the current X-axis.
+     */
     public StockDateTime getXAxis() {
         if (getXAxis == null)
             getXAxis = new StockDateTime(jsBase + ".xAxis()");
@@ -12302,6 +12744,9 @@ public class Plot extends VisualBaseWithBounds {
     private String xAxis;
     private Boolean xAxis1;
 
+    /**
+     * Setter for the X-axis.
+     */
     public Plot setXAxis(String xAxis) {
         if (jsBase == null) {
             this.xAxis = null;
@@ -12316,7 +12761,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
                 js.setLength(0);
@@ -12326,6 +12770,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the X-axis.
+     */
     public Plot setXAxis(Boolean xAxis1) {
         if (jsBase == null) {
             this.xAxis = null;
@@ -12340,7 +12787,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
                 js.setLength(0);
@@ -12351,6 +12797,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private List<GridsStock> getXGrid = new ArrayList<>();
 
+    /**
+     * Getter for the plot grid by X-scale.
+     */
     public GridsStock getXGrid(Double index) {
         GridsStock item = new GridsStock(jsBase + ".xGrid(" + index + ")");
         getXGrid.add(item);
@@ -12360,6 +12809,9 @@ public class Plot extends VisualBaseWithBounds {
     private String xGrid;
     private Boolean xGrid1;
 
+    /**
+     * Setter for the plot grid by X-scale.
+     */
     public Plot setXGrid(String xGrid) {
         if (jsBase == null) {
             this.xGrid = null;
@@ -12374,7 +12826,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
                 js.setLength(0);
@@ -12384,6 +12835,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot grid by X-scale.
+     */
     public Plot setXGrid(Boolean xGrid1) {
         if (jsBase == null) {
             this.xGrid = null;
@@ -12398,7 +12852,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b)", xGrid1));
                 js.setLength(0);
@@ -12411,6 +12864,9 @@ public class Plot extends VisualBaseWithBounds {
     private String xGrid2;
     private Boolean xGrid3;
 
+    /**
+     * Setter for the plot grid by index.
+     */
     public Plot setXGrid(String xGrid2, Double index2) {
         if (jsBase == null) {
             this.xGrid = null;
@@ -12433,7 +12889,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index2));
                 js.setLength(0);
@@ -12443,6 +12898,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot grid by index.
+     */
     public Plot setXGrid(Boolean xGrid3, Double index2) {
         if (jsBase == null) {
             this.xGrid = null;
@@ -12465,7 +12923,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index2));
                 js.setLength(0);
@@ -12476,6 +12933,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private List<GridsStock> getXMinorGrid = new ArrayList<>();
 
+    /**
+     * Getter for the plot grid by X-scale.
+     */
     public GridsStock getXMinorGrid(Double index) {
         GridsStock item = new GridsStock(jsBase + ".xMinorGrid(" + index + ")");
         getXMinorGrid.add(item);
@@ -12485,6 +12945,9 @@ public class Plot extends VisualBaseWithBounds {
     private String xMinorGrid;
     private Boolean xMinorGrid1;
 
+    /**
+     * Setter for the plot grid by X-scale.
+     */
     public Plot setXMinorGrid(String xMinorGrid) {
         if (jsBase == null) {
             this.xMinorGrid = null;
@@ -12499,7 +12962,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
                 js.setLength(0);
@@ -12509,6 +12971,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot grid by X-scale.
+     */
     public Plot setXMinorGrid(Boolean xMinorGrid1) {
         if (jsBase == null) {
             this.xMinorGrid = null;
@@ -12523,7 +12988,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
                 js.setLength(0);
@@ -12536,6 +13000,9 @@ public class Plot extends VisualBaseWithBounds {
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
 
+    /**
+     * Setter for the plot grid by index.
+     */
     public Plot setXMinorGrid(String xMinorGrid2, Double indexOrValue) {
         if (jsBase == null) {
             this.xMinorGrid = null;
@@ -12554,7 +13021,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), indexOrValue));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), indexOrValue));
                 js.setLength(0);
@@ -12564,6 +13030,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot grid by index.
+     */
     public Plot setXMinorGrid(Boolean xMinorGrid3, Double indexOrValue) {
         if (jsBase == null) {
             this.xMinorGrid = null;
@@ -12582,7 +13051,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, indexOrValue));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, indexOrValue));
                 js.setLength(0);
@@ -12593,6 +13061,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private List<CoreAxesLinear> getYAxis = new ArrayList<>();
 
+    /**
+     * Getter for the current plot Y-axis.
+     */
     public CoreAxesLinear getYAxis(Double index) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis(" + index + ")");
         getYAxis.add(item);
@@ -12602,6 +13073,9 @@ public class Plot extends VisualBaseWithBounds {
     private String yAxis;
     private Boolean yAxis1;
 
+    /**
+     * Setter for the plot Y-axis.
+     */
     public Plot setYAxis(String yAxis) {
         if (jsBase == null) {
             this.yAxis = null;
@@ -12616,7 +13090,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
                 js.setLength(0);
@@ -12626,6 +13099,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot Y-axis.
+     */
     public Plot setYAxis(Boolean yAxis1) {
         if (jsBase == null) {
             this.yAxis = null;
@@ -12640,7 +13116,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b)", yAxis1));
                 js.setLength(0);
@@ -12653,6 +13128,9 @@ public class Plot extends VisualBaseWithBounds {
     private String yAxis2;
     private Boolean yAxis3;
 
+    /**
+     * Setter for the Y-axis by index.
+     */
     public Plot setYAxis(String yAxis2, Double index3) {
         if (jsBase == null) {
             this.yAxis = null;
@@ -12676,7 +13154,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index3));
                 js.setLength(0);
@@ -12686,6 +13163,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the Y-axis by index.
+     */
     public Plot setYAxis(Boolean yAxis3, Double index3) {
         if (jsBase == null) {
             this.yAxis = null;
@@ -12709,7 +13189,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index3));
                 js.setLength(0);
@@ -12720,6 +13199,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private List<GridsStock> getYGrid = new ArrayList<>();
 
+    /**
+     * Getter for the plot grid by Y-scale.
+     */
     public GridsStock getYGrid(Double index) {
         GridsStock item = new GridsStock(jsBase + ".yGrid(" + index + ")");
         getYGrid.add(item);
@@ -12729,6 +13211,9 @@ public class Plot extends VisualBaseWithBounds {
     private String yGrid;
     private Boolean yGrid1;
 
+    /**
+     * Setter for the plot grid by Y-scale.
+     */
     public Plot setYGrid(String yGrid) {
         if (jsBase == null) {
             this.yGrid = null;
@@ -12743,7 +13228,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
                 js.setLength(0);
@@ -12753,6 +13237,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot grid by Y-scale.
+     */
     public Plot setYGrid(Boolean yGrid1) {
         if (jsBase == null) {
             this.yGrid = null;
@@ -12767,7 +13254,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b)", yGrid1));
                 js.setLength(0);
@@ -12780,6 +13266,9 @@ public class Plot extends VisualBaseWithBounds {
     private String yGrid2;
     private Boolean yGrid3;
 
+    /**
+     * Setter for the plot grid by index.
+     */
     public Plot setYGrid(String yGrid2, Double index4) {
         if (jsBase == null) {
             this.yGrid = null;
@@ -12804,7 +13293,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index4));
                 js.setLength(0);
@@ -12814,6 +13302,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot grid by index.
+     */
     public Plot setYGrid(Boolean yGrid3, Double index4) {
         if (jsBase == null) {
             this.yGrid = null;
@@ -12838,7 +13329,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index4));
                 js.setLength(0);
@@ -12849,6 +13339,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private List<GridsStock> getYMinorGrid = new ArrayList<>();
 
+    /**
+     * Getter for the plot grid by Y-scale.
+     */
     public GridsStock getYMinorGrid(Double index) {
         GridsStock item = new GridsStock(jsBase + ".yMinorGrid(" + index + ")");
         getYMinorGrid.add(item);
@@ -12858,6 +13351,9 @@ public class Plot extends VisualBaseWithBounds {
     private String yMinorGrid;
     private Boolean yMinorGrid1;
 
+    /**
+     * Setter for the plot grid by Y-scale.
+     */
     public Plot setYMinorGrid(String yMinorGrid) {
         if (jsBase == null) {
             this.yMinorGrid = null;
@@ -12872,7 +13368,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
                 js.setLength(0);
@@ -12882,6 +13377,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot grid by Y-scale.
+     */
     public Plot setYMinorGrid(Boolean yMinorGrid1) {
         if (jsBase == null) {
             this.yMinorGrid = null;
@@ -12896,7 +13394,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
                 js.setLength(0);
@@ -12909,6 +13406,9 @@ public class Plot extends VisualBaseWithBounds {
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
 
+    /**
+     * Setter for the plot grid by index.
+     */
     public Plot setYMinorGrid(String yMinorGrid2, Double indexOrValue1) {
         if (jsBase == null) {
             this.yMinorGrid = null;
@@ -12930,7 +13430,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), indexOrValue1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), indexOrValue1));
                 js.setLength(0);
@@ -12940,6 +13439,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot grid by index.
+     */
     public Plot setYMinorGrid(Boolean yMinorGrid3, Double indexOrValue1) {
         if (jsBase == null) {
             this.yMinorGrid = null;
@@ -12961,7 +13463,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, indexOrValue1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, indexOrValue1));
                 js.setLength(0);
@@ -12972,6 +13473,9 @@ public class Plot extends VisualBaseWithBounds {
 
     private ScatterBase getYScale;
 
+    /**
+     * Getter for the default plot Y-scale.
+     */
     public ScatterBase getYScale() {
         if (getYScale == null)
             getYScale = new ScatterBase(jsBase + ".yScale()");
@@ -12984,6 +13488,9 @@ public class Plot extends VisualBaseWithBounds {
     private ScatterBase yScale2;
     private String yScale3;
 
+    /**
+     * Setter for the plot Y-scale.
+     */
     public Plot setYScale(ScatterScaleTypes yScale) {
         if (jsBase == null) {
             this.yScale = null;
@@ -13000,7 +13507,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
@@ -13010,6 +13516,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot Y-scale.
+     */
     public Plot setYScale(String yScale1) {
         if (jsBase == null) {
             this.yScale = null;
@@ -13026,7 +13535,6 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
@@ -13036,6 +13544,9 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the plot Y-scale.
+     */
     public Plot setYScale(ScatterBase yScale2) {
         if (jsBase == null) {
             this.yScale = null;
@@ -13046,160 +13557,25 @@ public class Plot extends VisualBaseWithBounds {
             this.yScale2 = yScale2;
         } else {
             this.yScale2 = yScale2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(yScale2.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-
-//
-//    private String generateJSPlotController getAnnotations() {
-//        if (PlotController getAnnotations != null) {
-//            return PlotController getAnnotations.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiBackground getBackground() {
-//        if (UiBackground getBackground != null) {
-//            return UiBackground getBackground.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSCrosshair getCrosshair() {
-//        if (Crosshair getCrosshair != null) {
-//            return Crosshair getCrosshair.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getGetSeries() {
-//        if (StockSeriesBase getGetSeries != null) {
-//            return StockSeriesBase getGetSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getGetSeries1() {
-//        if (StockSeriesBase getGetSeries1 != null) {
-//            return StockSeriesBase getGetSeries1.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getGetSeriesAt() {
-//        if (StockSeriesBase getGetSeriesAt != null) {
-//            return StockSeriesBase getGetSeriesAt.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSHatchFills getHatchFillPalette() {
-//        if (HatchFills getHatchFillPalette != null) {
-//            return HatchFills getHatchFillPalette.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLegend getLegend() {
-//        if (UiLegend getLegend != null) {
-//            return UiLegend getLegend.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSMarkers getMarkerPalette() {
-//        if (Markers getMarkerPalette != null) {
-//            return Markers getMarkerPalette.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSNoDataSettings getNoData() {
-//        if (NoDataSettings getNoData != null) {
-//            return NoDataSettings getNoData.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSRangeColors getPalette() {
-//        if (RangeColors getPalette != null) {
-//            return RangeColors getPalette.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSCurrentPriceIndicator getPriceIndicator() {
-//        if (CurrentPriceIndicator getPriceIndicator != null) {
-//            return CurrentPriceIndicator getPriceIndicator.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockDateTime getXAxis() {
-//        if (StockDateTime getXAxis != null) {
-//            return StockDateTime getXAxis.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGridsStock getXGrid() {
-//        if (GridsStock getXGrid != null) {
-//            return GridsStock getXGrid.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGridsStock getXMinorGrid() {
-//        if (GridsStock getXMinorGrid != null) {
-//            return GridsStock getXMinorGrid.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSCoreAxesLinear getYAxis() {
-//        if (CoreAxesLinear getYAxis != null) {
-//            return CoreAxesLinear getYAxis.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGridsStock getYGrid() {
-//        if (GridsStock getYGrid != null) {
-//            return GridsStock getYGrid.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGridsStock getYMinorGrid() {
-//        if (GridsStock getYMinorGrid != null) {
-//            return GridsStock getYMinorGrid.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScatterBase getYScale() {
-//        if (ScatterBase getYScale != null) {
-//            return ScatterBase getYScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetAnnotations() {
         if (getAnnotations != null) {
             return getAnnotations.generateJs();
-            //return String.format(Locale.US, "getAnnotations: %s,", ((getAnnotations != null) ? getAnnotations.generateJs() : "null"));
         }
         return "";
     }
@@ -13207,7 +13583,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -13215,7 +13590,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetCrosshair() {
         if (getCrosshair != null) {
             return getCrosshair.generateJs();
-            //return String.format(Locale.US, "getCrosshair: %s,", ((getCrosshair != null) ? getCrosshair.generateJs() : "null"));
         }
         return "";
     }
@@ -13259,7 +13633,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetHatchFillPalette() {
         if (getHatchFillPalette != null) {
             return getHatchFillPalette.generateJs();
-            //return String.format(Locale.US, "getHatchFillPalette: %s,", ((getHatchFillPalette != null) ? getHatchFillPalette.generateJs() : "null"));
         }
         return "";
     }
@@ -13267,7 +13640,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetLegend() {
         if (getLegend != null) {
             return getLegend.generateJs();
-            //return String.format(Locale.US, "getLegend: %s,", ((getLegend != null) ? getLegend.generateJs() : "null"));
         }
         return "";
     }
@@ -13275,7 +13647,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetMarkerPalette() {
         if (getMarkerPalette != null) {
             return getMarkerPalette.generateJs();
-            //return String.format(Locale.US, "getMarkerPalette: %s,", ((getMarkerPalette != null) ? getMarkerPalette.generateJs() : "null"));
         }
         return "";
     }
@@ -13283,7 +13654,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetNoData() {
         if (getNoData != null) {
             return getNoData.generateJs();
-            //return String.format(Locale.US, "getNoData: %s,", ((getNoData != null) ? getNoData.generateJs() : "null"));
         }
         return "";
     }
@@ -13291,7 +13661,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetPalette() {
         if (getPalette != null) {
             return getPalette.generateJs();
-            //return String.format(Locale.US, "getPalette: %s,", ((getPalette != null) ? getPalette.generateJs() : "null"));
         }
         return "";
     }
@@ -13311,7 +13680,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetXAxis() {
         if (getXAxis != null) {
             return getXAxis.generateJs();
-            //return String.format(Locale.US, "getXAxis: %s,", ((getXAxis != null) ? getXAxis.generateJs() : "null"));
         }
         return "";
     }
@@ -13379,7 +13747,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -13420,594 +13787,6 @@ public class Plot extends VisualBaseWithBounds {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSvar_args());
-////        
-//            js.append(generateJSmapping());
-////        
-//            js.append(generateJSseriesType());
-////        
-//            js.append(generateJSseriesType1());
-////        
-//            js.append(generateJSmapping1());
-////        
-//            js.append(generateJSperiod());
-////        
-//            js.append(generateJSfastPeriod());
-////        
-//            js.append(generateJSslowPeriod());
-////        
-//            js.append(generateJSseriesType2());
-////        
-//            js.append(generateJSseriesType3());
-////        
-//            js.append(generateJSannotationsList());
-////        
-//            js.append(generateJSdata());
-////        
-//            js.append(generateJSdata1());
-////        
-//            js.append(generateJSdata2());
-////        
-//            js.append(generateJSdata3());
-////        
-//            js.append(generateJSmappingSettings());
-////        
-//            js.append(generateJScsvSettings());
-////        
-//            js.append(generateJSmapping2());
-////        
-//            js.append(generateJSperiod1());
-////        
-//            js.append(generateJSupSeriesType());
-////        
-//            js.append(generateJSupSeriesType1());
-////        
-//            js.append(generateJSdownSeriesType());
-////        
-//            js.append(generateJSdownSeriesType1());
-////        
-//            js.append(generateJSmapping3());
-////        
-//            js.append(generateJSperiod2());
-////        
-//            js.append(generateJSseriesType4());
-////        
-//            js.append(generateJSseriesType5());
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJSmapping4());
-////        
-//            js.append(generateJSperiod3());
-////        
-//            js.append(generateJSdeviation());
-////        
-//            js.append(generateJSupperSeriesType());
-////        
-//            js.append(generateJSupperSeriesType1());
-////        
-//            js.append(generateJSlowerSeriesType());
-////        
-//            js.append(generateJSlowerSeriesType1());
-////        
-//            js.append(generateJSmiddleSeriesType());
-////        
-//            js.append(generateJSmiddleSeriesType1());
-////        
-//            js.append(generateJSmapping5());
-////        
-//            js.append(generateJSperiod4());
-////        
-//            js.append(generateJSdeviation1());
-////        
-//            js.append(generateJSseriesType6());
-////        
-//            js.append(generateJSseriesType7());
-////        
-//            js.append(generateJSmapping6());
-////        
-//            js.append(generateJSperiod5());
-////        
-//            js.append(generateJSdeviation2());
-////        
-//            js.append(generateJSseriesType8());
-////        
-//            js.append(generateJSseriesType9());
-////        
-//            js.append(generateJSdata4());
-////        
-//            js.append(generateJSdata5());
-////        
-//            js.append(generateJSdata6());
-////        
-//            js.append(generateJSdata7());
-////        
-//            js.append(generateJSmappingSettings1());
-////        
-//            js.append(generateJScsvSettings1());
-////        
-//            js.append(generateJSmapping7());
-////        
-//            js.append(generateJSperiod6());
-////        
-//            js.append(generateJSseriesType10());
-////        
-//            js.append(generateJSseriesType11());
-////        
-//            js.append(generateJSmapping8());
-////        
-//            js.append(generateJSfastPeriod1());
-////        
-//            js.append(generateJSslowPeriod1());
-////        
-//            js.append(generateJSmaType());
-////        
-//            js.append(generateJSmaType1());
-////        
-//            js.append(generateJSseriesType12());
-////        
-//            js.append(generateJSseriesType13());
-////        
-//            js.append(generateJSmapping9());
-////        
-//            js.append(generateJSperiod7());
-////        
-//            js.append(generateJSseriesType14());
-////        
-//            js.append(generateJSseriesType15());
-////        
-//            js.append(generateJSdata8());
-////        
-//            js.append(generateJSdata9());
-////        
-//            js.append(generateJSdata10());
-////        
-//            js.append(generateJSdata11());
-////        
-//            js.append(generateJSmappingSettings2());
-////        
-//            js.append(generateJScsvSettings2());
-////        
-//            js.append(generateJScrosshair());
-////        
-//            js.append(generateJScrosshair1());
-////        
-//            js.append(generateJSdefaultSeriesType());
-////        
-//            js.append(generateJSdefaultSeriesType1());
-////        
-//            js.append(generateJSmapping10());
-////        
-//            js.append(generateJSperiod8());
-////        
-//            js.append(generateJSadxPeriod());
-////        
-//            js.append(generateJSuseWildersSmoothing());
-////        
-//            js.append(generateJSpdiSeriesType());
-////        
-//            js.append(generateJSpdiSeriesType1());
-////        
-//            js.append(generateJSndiSeriesType());
-////        
-//            js.append(generateJSndiSeriesType1());
-////        
-//            js.append(generateJSadxSeriesType());
-////        
-//            js.append(generateJSadxSeriesType1());
-////        
-//            js.append(generateJSmapping11());
-////        
-//            js.append(generateJSperiod9());
-////        
-//            js.append(generateJSseriesType16());
-////        
-//            js.append(generateJSseriesType17());
-////        
-//            js.append(generateJShatchFillPalette());
-////        
-//            js.append(generateJShatchFillPalette1());
-////        
-//            js.append(generateJShatchFillPalette2());
-////        
-//            js.append(generateJSdata12());
-////        
-//            js.append(generateJSdata13());
-////        
-//            js.append(generateJSdata14());
-////        
-//            js.append(generateJSdata15());
-////        
-//            js.append(generateJSmappingSettings3());
-////        
-//            js.append(generateJScsvSettings3());
-////        
-//            js.append(generateJSdata16());
-////        
-//            js.append(generateJSdata17());
-////        
-//            js.append(generateJSdata18());
-////        
-//            js.append(generateJSdata19());
-////        
-//            js.append(generateJSmappingSettings4());
-////        
-//            js.append(generateJScsvSettings4());
-////        
-//            js.append(generateJSmapping12());
-////        
-//            js.append(generateJSkPeriod());
-////        
-//            js.append(generateJSkMAPeriod());
-////        
-//            js.append(generateJSdPeriod());
-////        
-//            js.append(generateJSkMAType());
-////        
-//            js.append(generateJSkMAType1());
-////        
-//            js.append(generateJSdMAType());
-////        
-//            js.append(generateJSdMAType1());
-////        
-//            js.append(generateJSkMultiplier());
-////        
-//            js.append(generateJSdMultiplier());
-////        
-//            js.append(generateJSkSeriesType());
-////        
-//            js.append(generateJSkSeriesType1());
-////        
-//            js.append(generateJSdSeriesType());
-////        
-//            js.append(generateJSdSeriesType1());
-////        
-//            js.append(generateJSjSeriesType());
-////        
-//            js.append(generateJSjSeriesType1());
-////        
-//            js.append(generateJSlegend());
-////        
-//            js.append(generateJSlegend1());
-////        
-//            js.append(generateJSdata20());
-////        
-//            js.append(generateJSdata21());
-////        
-//            js.append(generateJSdata22());
-////        
-//            js.append(generateJSdata23());
-////        
-//            js.append(generateJSmappingSettings5());
-////        
-//            js.append(generateJScsvSettings5());
-////        
-//            js.append(generateJSmapping13());
-////        
-//            js.append(generateJSfastPeriod2());
-////        
-//            js.append(generateJSslowPeriod2());
-////        
-//            js.append(generateJSsignalPeriod());
-////        
-//            js.append(generateJSmacdSeriesType());
-////        
-//            js.append(generateJSmacdSeriesType1());
-////        
-//            js.append(generateJSsignalSeriesType());
-////        
-//            js.append(generateJSsignalSeriesType1());
-////        
-//            js.append(generateJShistogramSeriesType());
-////        
-//            js.append(generateJShistogramSeriesType1());
-////        
-//            js.append(generateJSdata24());
-////        
-//            js.append(generateJSdata25());
-////        
-//            js.append(generateJSdata26());
-////        
-//            js.append(generateJSdata27());
-////        
-//            js.append(generateJSmappingSettings6());
-////        
-//            js.append(generateJScsvSettings6());
-////        
-//            js.append(generateJSmarkerPalette());
-////        
-//            js.append(generateJSmarkerPalette1());
-////        
-//            js.append(generateJSmarkerPalette2());
-////        
-//            js.append(generateJSmarkerPalette3());
-////        
-//            js.append(generateJSmaxPointWidth());
-////        
-//            js.append(generateJSmaxPointWidth1());
-////        
-//            js.append(generateJSminPointLength());
-////        
-//            js.append(generateJSminPointLength1());
-////        
-//            js.append(generateJSmapping14());
-////        
-//            js.append(generateJSperiod10());
-////        
-//            js.append(generateJSseriesType18());
-////        
-//            js.append(generateJSseriesType19());
-////        
-//            js.append(generateJSnoData());
-////        
-//            js.append(generateJSdata28());
-////        
-//            js.append(generateJSdata29());
-////        
-//            js.append(generateJSdata30());
-////        
-//            js.append(generateJSdata31());
-////        
-//            js.append(generateJSmappingSettings7());
-////        
-//            js.append(generateJScsvSettings7());
-////        
-//            js.append(generateJSpalette());
-////        
-//            js.append(generateJSpalette1());
-////        
-//            js.append(generateJSpalette2());
-////        
-//            js.append(generateJSpalette3());
-////        
-//            js.append(generateJSpointWidth());
-////        
-//            js.append(generateJSpointWidth1());
-////        
-//            js.append(generateJSpriceIndicator());
-////        
-//            js.append(generateJSpriceIndicator1());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSpriceIndicator2());
-////        
-//            js.append(generateJSpriceIndicator3());
-////        
-//            js.append(generateJSdata32());
-////        
-//            js.append(generateJSdata33());
-////        
-//            js.append(generateJSdata34());
-////        
-//            js.append(generateJSdata35());
-////        
-//            js.append(generateJSmappingSettings8());
-////        
-//            js.append(generateJScsvSettings8());
-////        
-//            js.append(generateJSdata36());
-////        
-//            js.append(generateJSdata37());
-////        
-//            js.append(generateJSdata38());
-////        
-//            js.append(generateJSdata39());
-////        
-//            js.append(generateJSmappingSettings9());
-////        
-//            js.append(generateJScsvSettings9());
-////        
-//            js.append(generateJSdata40());
-////        
-//            js.append(generateJSdata41());
-////        
-//            js.append(generateJSdata42());
-////        
-//            js.append(generateJSdata43());
-////        
-//            js.append(generateJSmappingSettings10());
-////        
-//            js.append(generateJScsvSettings10());
-////        
-//            js.append(generateJSdata44());
-////        
-//            js.append(generateJSdata45());
-////        
-//            js.append(generateJSdata46());
-////        
-//            js.append(generateJSdata47());
-////        
-//            js.append(generateJSmappingSettings11());
-////        
-//            js.append(generateJScsvSettings11());
-////        
-//            js.append(generateJSid());
-////        
-//            js.append(generateJSid1());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSmapping15());
-////        
-//            js.append(generateJSperiod11());
-////        
-//            js.append(generateJSseriesType20());
-////        
-//            js.append(generateJSseriesType21());
-////        
-//            js.append(generateJSmapping16());
-////        
-//            js.append(generateJSperiod12());
-////        
-//            js.append(generateJSseriesType22());
-////        
-//            js.append(generateJSseriesType23());
-////        
-//            js.append(generateJSmapping17());
-////        
-//            js.append(generateJSperiod13());
-////        
-//            js.append(generateJSseriesType24());
-////        
-//            js.append(generateJSseriesType25());
-////        
-//            js.append(generateJSdata48());
-////        
-//            js.append(generateJSdata49());
-////        
-//            js.append(generateJSdata50());
-////        
-//            js.append(generateJSdata51());
-////        
-//            js.append(generateJSmappingSettings12());
-////        
-//            js.append(generateJScsvSettings12());
-////        
-//            js.append(generateJSdata52());
-////        
-//            js.append(generateJSdata53());
-////        
-//            js.append(generateJSdata54());
-////        
-//            js.append(generateJSdata55());
-////        
-//            js.append(generateJSmappingSettings13());
-////        
-//            js.append(generateJScsvSettings13());
-////        
-//            js.append(generateJSdata56());
-////        
-//            js.append(generateJSdata57());
-////        
-//            js.append(generateJSdata58());
-////        
-//            js.append(generateJSdata59());
-////        
-//            js.append(generateJSmappingSettings14());
-////        
-//            js.append(generateJScsvSettings14());
-////        
-//            js.append(generateJSdata60());
-////        
-//            js.append(generateJSdata61());
-////        
-//            js.append(generateJSdata62());
-////        
-//            js.append(generateJSdata63());
-////        
-//            js.append(generateJSmappingSettings15());
-////        
-//            js.append(generateJScsvSettings15());
-////        
-//            js.append(generateJSdata64());
-////        
-//            js.append(generateJSdata65());
-////        
-//            js.append(generateJSdata66());
-////        
-//            js.append(generateJSdata67());
-////        
-//            js.append(generateJSmappingSettings16());
-////        
-//            js.append(generateJScsvSettings16());
-////        
-//            js.append(generateJSmapping18());
-////        
-//            js.append(generateJSkPeriod1());
-////        
-//            js.append(generateJSkMAPeriod1());
-////        
-//            js.append(generateJSdPeriod1());
-////        
-//            js.append(generateJSkMAType2());
-////        
-//            js.append(generateJSkMAType3());
-////        
-//            js.append(generateJSdMAType2());
-////        
-//            js.append(generateJSdMAType3());
-////        
-//            js.append(generateJSkSeriesType2());
-////        
-//            js.append(generateJSkSeriesType3());
-////        
-//            js.append(generateJSdSeriesType2());
-////        
-//            js.append(generateJSdSeriesType3());
-////        
-//            js.append(generateJSxAxis());
-////        
-//            js.append(generateJSxAxis1());
-////        
-//            js.append(generateJSxGrid());
-////        
-//            js.append(generateJSxGrid1());
-////        
-//            js.append(generateJSindex2());
-////        
-//            js.append(generateJSxGrid2());
-////        
-//            js.append(generateJSxGrid3());
-////        
-//            js.append(generateJSxMinorGrid());
-////        
-//            js.append(generateJSxMinorGrid1());
-////        
-//            js.append(generateJSindexOrValue());
-////        
-//            js.append(generateJSxMinorGrid2());
-////        
-//            js.append(generateJSxMinorGrid3());
-////        
-//            js.append(generateJSyAxis());
-////        
-//            js.append(generateJSyAxis1());
-////        
-//            js.append(generateJSindex3());
-////        
-//            js.append(generateJSyAxis2());
-////        
-//            js.append(generateJSyAxis3());
-////        
-//            js.append(generateJSyGrid());
-////        
-//            js.append(generateJSyGrid1());
-////        
-//            js.append(generateJSindex4());
-////        
-//            js.append(generateJSyGrid2());
-////        
-//            js.append(generateJSyGrid3());
-////        
-//            js.append(generateJSyMinorGrid());
-////        
-//            js.append(generateJSyMinorGrid1());
-////        
-//            js.append(generateJSindexOrValue1());
-////        
-//            js.append(generateJSyMinorGrid2());
-////        
-//            js.append(generateJSyMinorGrid3());
-////        
-//            js.append(generateJSyScale());
-////        
-//            js.append(generateJSyScale1());
-////        
-//            js.append(generateJSyScale2());
-////        
-//            js.append(generateJSyScale3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

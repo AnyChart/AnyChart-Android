@@ -14,12 +14,12 @@ public class DataEntry {
         hashMap.put(key, value);
     }
 
-    public void setValue(String key, String[] value) {
-        hashMap.put(key, value);
+    public void setValue(String key, String[] values) {
+        hashMap.put(key, values);
     }
 
-    public void setValue(String key, Number[] value) {
-        hashMap.put(key, value);
+    public void setValue(String key, Number[] values) {
+        hashMap.put(key, values);
     }
 
     public void setValue(String key, Number value) {
@@ -34,8 +34,8 @@ public class DataEntry {
         hashMap.put(key, value);
     }
 
-    public void setValue(String key, DataEntry[] value) {
-        hashMap.put(key, value);
+    public void setValue(String key, DataEntry[] values) {
+        hashMap.put(key, values);
     }
 
     protected String generateJs() {

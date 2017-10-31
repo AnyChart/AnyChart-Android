@@ -6,13 +6,42 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Cartesian 3d chart class.<br/>
+To get the chart use any of these methods:
+ <ul>
+     <li>{@link anychart#area3d}</li>
+     <li>{@link anychart#bar3d}</li>
+     <li>{@link anychart#column3d}</li>
+ </ul>
+Chart can contain any number of series.
+Each series is interactive, you can customize click and hover behavior and other parameters.
+ */
 public class Cartesian3d extends SeparateChart {
 
     protected Cartesian3d(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Cartesian3d setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Cartesian3d setData(List<DataEntry> data) {
@@ -35,8 +64,32 @@ public class Cartesian3d extends SeparateChart {
         return this;
     }
 
+    public Cartesian3d setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
     private List<Area3d> setArea = new ArrayList<>();
+
+    /**
+     * Adds 3D Area series.
+     */
     public Area3d area(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -70,6 +123,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Bar3d> setBar = new ArrayList<>();
+
+    /**
+     * Adds 3D Bar series.
+     */
     public Bar3d bar(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -103,6 +160,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Column3d> setColumn = new ArrayList<>();
+
+    /**
+     * Adds 3D Column series.
+     */
     public Column3d column(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -138,6 +199,9 @@ public class Cartesian3d extends SeparateChart {
 
     private View getData;
 
+    /**
+     * Getter for the data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -145,6 +209,10 @@ public class Cartesian3d extends SeparateChart {
         return getData;
     }
     private List<Cartesian3d> setData = new ArrayList<>();
+
+    /**
+     * Setter for the data.
+     */
     public Cartesian3d data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -178,6 +246,9 @@ public class Cartesian3d extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -186,6 +257,10 @@ public class Cartesian3d extends SeparateChart {
     }
     private String hovered;
     private List<Cartesian3d> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public Cartesian3d setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -213,6 +288,9 @@ public class Cartesian3d extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for series data labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -222,6 +300,10 @@ public class Cartesian3d extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Cartesian3d> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for series data labels.
+     */
     public Cartesian3d setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -247,6 +329,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for series data labels.
+     */
     public Cartesian3d setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -272,6 +358,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Line3d> setLine = new ArrayList<>();
+
+    /**
+     * Adds 3D Line series.
+     */
     public Line3d line(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -305,6 +395,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<CartesianSeriesLine> setLine2d = new ArrayList<>();
+
+    /**
+     * Adds 2D Line series to the 3D chart.
+     */
     public CartesianSeriesLine line2d(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -340,6 +434,10 @@ public class Cartesian3d extends SeparateChart {
     private Double maxPointWidth;
     private String maxPointWidth1;
     private List<Cartesian3d> setMaxPointWidth = new ArrayList<>();
+
+    /**
+     * Setter for the maximum point width.
+     */
     public Cartesian3d setMaxPointWidth(Double maxPointWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -365,6 +463,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setMaxPointWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the maximum point width.
+     */
     public Cartesian3d setMaxPointWidth(String maxPointWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -392,6 +494,10 @@ public class Cartesian3d extends SeparateChart {
     private Double minPointLength;
     private String minPointLength1;
     private List<Cartesian3d> setMinPointLength = new ArrayList<>();
+
+    /**
+     * Setter for the minimum point length.
+     */
     public Cartesian3d setMinPointLength(Double minPointLength) {
         if (!isChain) {
             js.append(jsBase);
@@ -417,6 +523,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setMinPointLength1 = new ArrayList<>();
+
+    /**
+     * Setter for the minimum point length.
+     */
     public Cartesian3d setMinPointLength(String minPointLength1) {
         if (!isChain) {
             js.append(jsBase);
@@ -444,6 +554,9 @@ public class Cartesian3d extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -452,6 +565,10 @@ public class Cartesian3d extends SeparateChart {
     }
     private String normal;
     private List<Cartesian3d> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public Cartesian3d setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -479,6 +596,10 @@ public class Cartesian3d extends SeparateChart {
     private Double pointWidth;
     private String pointWidth1;
     private List<Cartesian3d> setPointWidth = new ArrayList<>();
+
+    /**
+     * Setter for the point width settings.
+     */
     public Cartesian3d setPointWidth(Double pointWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -504,6 +625,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setPointWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the point width settings.
+     */
     public Cartesian3d setPointWidth(String pointWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -531,6 +656,9 @@ public class Cartesian3d extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -539,6 +667,10 @@ public class Cartesian3d extends SeparateChart {
     }
     private String selected;
     private List<Cartesian3d> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public Cartesian3d setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -566,6 +698,9 @@ public class Cartesian3d extends SeparateChart {
 
     private CoreAxesLinear getXAxis;
 
+    /**
+     * Getter for the chart X-axis.
+     */
     public CoreAxesLinear getXAxis() {
         if (getXAxis == null)
             getXAxis = new CoreAxesLinear(jsBase + ".xAxis()");
@@ -575,6 +710,9 @@ public class Cartesian3d extends SeparateChart {
 
     private List<CoreAxesLinear> getXAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart X-axis.
+     */
     public CoreAxesLinear getXAxis(Double index) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index+")");
         getXAxis1.add(item);
@@ -583,6 +721,10 @@ public class Cartesian3d extends SeparateChart {
     private String xAxis;
     private Boolean xAxis1;
     private List<Cartesian3d> setXAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public Cartesian3d setXAxis(String xAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -608,6 +750,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setXAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public Cartesian3d setXAxis(Boolean xAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -636,6 +782,10 @@ public class Cartesian3d extends SeparateChart {
     private String xAxis2;
     private Boolean xAxis3;
     private List<Cartesian3d> setXAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis by index.
+     */
     public Cartesian3d setXAxis(String xAxis2, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -661,6 +811,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setXAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis by index.
+     */
     public Cartesian3d setXAxis(Boolean xAxis3, Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -688,6 +842,9 @@ public class Cartesian3d extends SeparateChart {
 
     private CoreGridsLinear getXGrid;
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsLinear getXGrid() {
         if (getXGrid == null)
             getXGrid = new CoreGridsLinear(jsBase + ".xGrid()");
@@ -697,6 +854,9 @@ public class Cartesian3d extends SeparateChart {
 
     private List<CoreGridsLinear> getXGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsLinear getXGrid(Double index2) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index2+")");
         getXGrid1.add(item);
@@ -705,6 +865,10 @@ public class Cartesian3d extends SeparateChart {
     private String xGrid;
     private Boolean xGrid1;
     private List<Cartesian3d> setXGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public Cartesian3d setXGrid(String xGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -730,6 +894,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setXGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public Cartesian3d setXGrid(Boolean xGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -758,6 +926,10 @@ public class Cartesian3d extends SeparateChart {
     private String xGrid2;
     private Boolean xGrid3;
     private List<Cartesian3d> setXGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public Cartesian3d setXGrid(String xGrid2, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -783,6 +955,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setXGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public Cartesian3d setXGrid(Boolean xGrid3, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -810,6 +986,9 @@ public class Cartesian3d extends SeparateChart {
 
     private CoreGridsLinear getXMinorGrid;
 
+    /**
+     * Getter for the chart minor grid by X-scale.
+     */
     public CoreGridsLinear getXMinorGrid() {
         if (getXMinorGrid == null)
             getXMinorGrid = new CoreGridsLinear(jsBase + ".xMinorGrid()");
@@ -819,6 +998,9 @@ public class Cartesian3d extends SeparateChart {
 
     private List<CoreGridsLinear> getXMinorGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart minor grid by X-scale.
+     */
     public CoreGridsLinear getXMinorGrid(Double index4) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index4+")");
         getXMinorGrid1.add(item);
@@ -827,6 +1009,10 @@ public class Cartesian3d extends SeparateChart {
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<Cartesian3d> setXMinorGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public Cartesian3d setXMinorGrid(String xMinorGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -852,6 +1038,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setXMinorGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public Cartesian3d setXMinorGrid(Boolean xMinorGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -880,6 +1070,10 @@ public class Cartesian3d extends SeparateChart {
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
     private List<Cartesian3d> setXMinorGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public Cartesian3d setXMinorGrid(String xMinorGrid2, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -905,6 +1099,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setXMinorGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public Cartesian3d setXMinorGrid(Boolean xMinorGrid3, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -932,6 +1130,9 @@ public class Cartesian3d extends SeparateChart {
 
     private Ordinal getXScale;
 
+    /**
+     * Getter for the chart X-scale.
+     */
     public Ordinal getXScale() {
         if (getXScale == null)
             getXScale = new Ordinal(jsBase + ".xScale()");
@@ -943,6 +1144,10 @@ public class Cartesian3d extends SeparateChart {
     private String xScale2;
     private ScalesBase xScale3;
     private List<Cartesian3d> setXScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-scale.
+     */
     public Cartesian3d setXScale(String xScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -968,6 +1173,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setXScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-scale.
+     */
     public Cartesian3d setXScale(ScaleTypes xScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -993,17 +1202,19 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setXScale2 = new ArrayList<>();
-    public Cartesian3d setXScale(ScalesBase xScale3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart X-scale.
+     */
+    public Cartesian3d setXScale(ScalesBase xScale3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(xScale3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetXScale2() {
@@ -1020,6 +1231,9 @@ public class Cartesian3d extends SeparateChart {
 
     private CoreAxesLinear getYAxis;
 
+    /**
+     * Getter for the chart Y-axis.
+     */
     public CoreAxesLinear getYAxis() {
         if (getYAxis == null)
             getYAxis = new CoreAxesLinear(jsBase + ".yAxis()");
@@ -1029,6 +1243,9 @@ public class Cartesian3d extends SeparateChart {
 
     private List<CoreAxesLinear> getYAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart Y-axis.
+     */
     public CoreAxesLinear getYAxis(Double index6) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index6+")");
         getYAxis1.add(item);
@@ -1037,6 +1254,10 @@ public class Cartesian3d extends SeparateChart {
     private String yAxis;
     private Boolean yAxis1;
     private List<Cartesian3d> setYAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public Cartesian3d setYAxis(String yAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -1062,6 +1283,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setYAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public Cartesian3d setYAxis(Boolean yAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1090,6 +1315,10 @@ public class Cartesian3d extends SeparateChart {
     private String yAxis2;
     private Boolean yAxis3;
     private List<Cartesian3d> setYAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis by index.
+     */
     public Cartesian3d setYAxis(String yAxis2, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1115,6 +1344,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setYAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis by index.
+     */
     public Cartesian3d setYAxis(Boolean yAxis3, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1142,6 +1375,9 @@ public class Cartesian3d extends SeparateChart {
 
     private CoreGridsLinear getYGrid;
 
+    /**
+     * Getter for the chart grid by Y-scale.
+     */
     public CoreGridsLinear getYGrid() {
         if (getYGrid == null)
             getYGrid = new CoreGridsLinear(jsBase + ".yGrid()");
@@ -1151,6 +1387,9 @@ public class Cartesian3d extends SeparateChart {
 
     private List<CoreGridsLinear> getYGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by Y-scale.
+     */
     public CoreGridsLinear getYGrid(Double index8) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index8+")");
         getYGrid1.add(item);
@@ -1159,6 +1398,10 @@ public class Cartesian3d extends SeparateChart {
     private String yGrid;
     private Boolean yGrid1;
     private List<Cartesian3d> setYGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by Y-scale.
+     */
     public Cartesian3d setYGrid(String yGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1184,6 +1427,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setYGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by Y-scale.
+     */
     public Cartesian3d setYGrid(Boolean yGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1212,6 +1459,10 @@ public class Cartesian3d extends SeparateChart {
     private String yGrid2;
     private Boolean yGrid3;
     private List<Cartesian3d> setYGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public Cartesian3d setYGrid(String yGrid2, Double index9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1237,6 +1488,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setYGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public Cartesian3d setYGrid(Boolean yGrid3, Double index9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1264,6 +1519,9 @@ public class Cartesian3d extends SeparateChart {
 
     private CoreGridsLinear getYMinorGrid;
 
+    /**
+     * Getter for the chart minor grid by Y-scale.
+     */
     public CoreGridsLinear getYMinorGrid() {
         if (getYMinorGrid == null)
             getYMinorGrid = new CoreGridsLinear(jsBase + ".yMinorGrid()");
@@ -1273,6 +1531,9 @@ public class Cartesian3d extends SeparateChart {
 
     private List<CoreGridsLinear> getYMinorGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart minor grid by Y-scale.
+     */
     public CoreGridsLinear getYMinorGrid(Double index10) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index10+")");
         getYMinorGrid1.add(item);
@@ -1281,6 +1542,10 @@ public class Cartesian3d extends SeparateChart {
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<Cartesian3d> setYMinorGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by Y-scale.
+     */
     public Cartesian3d setYMinorGrid(String yMinorGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1306,6 +1571,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setYMinorGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by Y-scale.
+     */
     public Cartesian3d setYMinorGrid(Boolean yMinorGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1334,6 +1603,10 @@ public class Cartesian3d extends SeparateChart {
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
     private List<Cartesian3d> setYMinorGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public Cartesian3d setYMinorGrid(String yMinorGrid2, Double index11) {
         if (!isChain) {
             js.append(jsBase);
@@ -1359,6 +1632,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setYMinorGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public Cartesian3d setYMinorGrid(Boolean yMinorGrid3, Double index11) {
         if (!isChain) {
             js.append(jsBase);
@@ -1386,6 +1663,9 @@ public class Cartesian3d extends SeparateChart {
 
     private ScalesLinear getYScale;
 
+    /**
+     * Getter for the chart Y-scale.
+     */
     public ScalesLinear getYScale() {
         if (getYScale == null)
             getYScale = new ScalesLinear(jsBase + ".yScale()");
@@ -1397,6 +1677,10 @@ public class Cartesian3d extends SeparateChart {
     private String yScale2;
     private ScalesBase yScale3;
     private List<Cartesian3d> setYScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-scale.
+     */
     public Cartesian3d setYScale(String yScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1422,6 +1706,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setYScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-scale.
+     */
     public Cartesian3d setYScale(ScaleTypes yScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1447,17 +1735,19 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setYScale2 = new ArrayList<>();
-    public Cartesian3d setYScale(ScalesBase yScale3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart Y-scale.
+     */
+    public Cartesian3d setYScale(ScalesBase yScale3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(yScale3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetYScale2() {
@@ -1473,6 +1763,10 @@ public class Cartesian3d extends SeparateChart {
 
     private Double zAngle;
     private List<Cartesian3d> setZAngle = new ArrayList<>();
+
+    /**
+     * Setter for the Z-axis angle.
+     */
     public Cartesian3d setZAngle(Double zAngle) {
         if (!isChain) {
             js.append(jsBase);
@@ -1500,6 +1794,10 @@ public class Cartesian3d extends SeparateChart {
     private Double zAspect;
     private String zAspect1;
     private List<Cartesian3d> setZAspect = new ArrayList<>();
+
+    /**
+     * Setter for the depth of the point by Z-axis.
+     */
     public Cartesian3d setZAspect(Double zAspect) {
         if (!isChain) {
             js.append(jsBase);
@@ -1525,6 +1823,10 @@ public class Cartesian3d extends SeparateChart {
     }
 
     private List<Cartesian3d> setZAspect1 = new ArrayList<>();
+
+    /**
+     * Setter for the depth of the point by Z-axis.
+     */
     public Cartesian3d setZAspect(String zAspect1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1551,6 +1853,10 @@ public class Cartesian3d extends SeparateChart {
 
     private Boolean zDistribution;
     private List<Cartesian3d> setZDistribution = new ArrayList<>();
+
+    /**
+     * Setter for distribution of the series by Z-axis.
+     */
     public Cartesian3d setZDistribution(Boolean zDistribution) {
         if (!isChain) {
             js.append(jsBase);
@@ -1577,6 +1883,10 @@ public class Cartesian3d extends SeparateChart {
 
     private Double zPadding;
     private List<Cartesian3d> setZPadding = new ArrayList<>();
+
+    /**
+     * Setter for the Z-axis padding.
+     */
     public Cartesian3d setZPadding(Double zPadding) {
         if (!isChain) {
             js.append(jsBase);

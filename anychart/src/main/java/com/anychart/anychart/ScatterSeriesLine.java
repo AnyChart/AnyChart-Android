@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Define Line series type.
+Get instance by methods {@link anychart.charts.Scatter#line}.
+ */
 public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
 
     public ScatterSeriesLine() {
-
+        js.setLength(0);
+        js.append("var scatterSeriesLine").append(++variableIndex).append(" = anychart.core.scatter.series.line();");
+        jsBase = "scatterSeriesLine" + variableIndex;
     }
 
     protected ScatterSeriesLine(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,16 @@ public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean connectMissingPoints;
 
+    /**
+     * Setter for connectMissingPoints mode.
+     */
     public ScatterSeriesLine setConnectMissingPoints(Boolean connectMissingPoints) {
         if (jsBase == null) {
             this.connectMissingPoints = connectMissingPoints;
@@ -38,7 +52,6 @@ public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
                 js.setLength(0);
@@ -55,6 +68,10 @@ public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScatterSeriesLine setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -78,7 +95,6 @@ public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -88,6 +104,10 @@ public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScatterSeriesLine setStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -111,7 +131,6 @@ public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -121,6 +140,10 @@ public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScatterSeriesLine setStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -144,7 +167,6 @@ public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -153,8 +175,6 @@ public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -172,28 +192,6 @@ public class ScatterSeriesLine extends ScatterSeriesBaseWithMarkers {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSconnectMissingPoints());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

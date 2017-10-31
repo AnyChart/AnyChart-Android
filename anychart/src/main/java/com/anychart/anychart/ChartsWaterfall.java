@@ -6,13 +6,38 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Waterfall chart class.<br/>
+To get the chart use these method:
+ <ul>
+     <li>{@link anychart#waterfall}</li>
+ </ul>
+ */
 public class ChartsWaterfall extends SeparateChart {
 
     protected ChartsWaterfall(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public ChartsWaterfall setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public ChartsWaterfall setData(List<DataEntry> data) {
@@ -35,7 +60,31 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
+    public ChartsWaterfall setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
+
+    /**
+     * Adds series to the chart.
+     */
     public void addSeries(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -58,6 +107,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private PlotController getAnnotations;
 
+    /**
+     * Getter for the annotations.
+     */
     public PlotController getAnnotations() {
         if (getAnnotations == null)
             getAnnotations = new PlotController(jsBase + ".annotations()");
@@ -66,6 +118,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String[] annotationsList;
     private List<ChartsWaterfall> setAnnotations = new ArrayList<>();
+
+    /**
+     * Setter for the annotations.
+     */
     public ChartsWaterfall setAnnotations(String[] annotationsList) {
         if (!isChain) {
             js.append(jsBase);
@@ -98,6 +154,10 @@ public class ChartsWaterfall extends SeparateChart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<ChartsWaterfall> setConnectorStroke = new ArrayList<>();
+
+    /**
+     * Setter for the connector stroke.
+     */
     public ChartsWaterfall setConnectorStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -123,6 +183,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setConnectorStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the connector stroke.
+     */
     public ChartsWaterfall setConnectorStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -148,6 +212,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setConnectorStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for the connector stroke.
+     */
     public ChartsWaterfall setConnectorStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -175,6 +243,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private Crosshair getCrosshair;
 
+    /**
+     * Getter for crosshair settings.
+     */
     public Crosshair getCrosshair() {
         if (getCrosshair == null)
             getCrosshair = new Crosshair(jsBase + ".crosshair()");
@@ -184,6 +255,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String crosshair;
     private Boolean crosshair1;
     private List<ChartsWaterfall> setCrosshair = new ArrayList<>();
+
+    /**
+     * Setter for crosshair settings.
+     */
     public ChartsWaterfall setCrosshair(String crosshair) {
         if (!isChain) {
             js.append(jsBase);
@@ -209,6 +284,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setCrosshair1 = new ArrayList<>();
+
+    /**
+     * Setter for crosshair settings.
+     */
     public ChartsWaterfall setCrosshair(Boolean crosshair1) {
         if (!isChain) {
             js.append(jsBase);
@@ -236,6 +315,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private View getData;
 
+    /**
+     * Getter for the data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -243,6 +325,10 @@ public class ChartsWaterfall extends SeparateChart {
         return getData;
     }
     private List<ChartsWaterfall> setData = new ArrayList<>();
+
+    /**
+     * Setter for the data.
+     */
     public ChartsWaterfall data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -276,6 +362,10 @@ public class ChartsWaterfall extends SeparateChart {
     private WaterfallDataMode dataMode;
     private String dataMode1;
     private List<ChartsWaterfall> setDataMode = new ArrayList<>();
+
+    /**
+     * Setter for the data mode.
+     */
     public ChartsWaterfall setDataMode(WaterfallDataMode dataMode) {
         if (!isChain) {
             js.append(jsBase);
@@ -301,6 +391,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setDataMode1 = new ArrayList<>();
+
+    /**
+     * Setter for the data mode.
+     */
     public ChartsWaterfall setDataMode(String dataMode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -328,6 +422,10 @@ public class ChartsWaterfall extends SeparateChart {
 
     private AnychartMathRect getGetPlotBounds;
 
+    /**
+     * Getter for the data bounds of the chart.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Waterfall#draw} is called.
+     */
     public AnychartMathRect getGetPlotBounds() {
         if (getGetPlotBounds == null)
             getGetPlotBounds = new AnychartMathRect(jsBase + ".getPlotBounds()");
@@ -337,6 +435,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<SeriesWaterfall> getGetSeries = new ArrayList<>();
 
+    /**
+     * Gets the series by its id.
+     */
     public SeriesWaterfall getGetSeries(Double id) {
         SeriesWaterfall item = new SeriesWaterfall(jsBase + ".getSeries("+ id+")");
         getGetSeries.add(item);
@@ -345,6 +446,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<SeriesWaterfall> getGetSeries1 = new ArrayList<>();
 
+    /**
+     * Gets the series by its id.
+     */
     public SeriesWaterfall getGetSeries(String id1) {
         SeriesWaterfall item = new SeriesWaterfall(jsBase + ".getSeries("+ wrapQuotes(id1)+")");
         getGetSeries1.add(item);
@@ -353,6 +457,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<CartesianSeriesBase> getGetSeriesAt = new ArrayList<>();
 
+    /**
+     * Getter for the series by its index.
+     */
     public CartesianSeriesBase getGetSeriesAt(Double index) {
         CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeriesAt("+ index+")");
         getGetSeriesAt.add(item);
@@ -361,6 +468,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for the hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -371,6 +481,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<ChartsWaterfall> setHatchFillPalette = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public ChartsWaterfall setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -396,6 +510,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setHatchFillPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public ChartsWaterfall setHatchFillPalette(String hatchFillPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -421,17 +539,19 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setHatchFillPalette2 = new ArrayList<>();
-    public ChartsWaterfall setHatchFillPalette(HatchFills hatchFillPalette2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for hatch fill palette settings.
+     */
+    public ChartsWaterfall setHatchFillPalette(HatchFills hatchFillPalette2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetHatchFillPalette2() {
@@ -448,6 +568,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for chart labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -457,6 +580,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<ChartsWaterfall> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for chart labels.<br>
+     */
     public ChartsWaterfall setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -482,6 +609,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for chart labels.<br>
+     */
     public ChartsWaterfall setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -509,6 +640,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private CoreAxismarkersLine getLineMarker;
 
+    /**
+     * Getter for the line marker.
+     */
     public CoreAxismarkersLine getLineMarker() {
         if (getLineMarker == null)
             getLineMarker = new CoreAxismarkersLine(jsBase + ".lineMarker()");
@@ -518,6 +652,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<CoreAxismarkersLine> getLineMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the line marker.
+     */
     public CoreAxismarkersLine getLineMarker(Double index1) {
         CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
         getLineMarker1.add(item);
@@ -526,6 +663,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String lineMarker;
     private Boolean lineMarker1;
     private List<ChartsWaterfall> setLineMarker = new ArrayList<>();
+
+    /**
+     * Setter for the line marker settings.
+     */
     public ChartsWaterfall setLineMarker(String lineMarker) {
         if (!isChain) {
             js.append(jsBase);
@@ -551,6 +692,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setLineMarker1 = new ArrayList<>();
+
+    /**
+     * Setter for the line marker settings.
+     */
     public ChartsWaterfall setLineMarker(Boolean lineMarker1) {
         if (!isChain) {
             js.append(jsBase);
@@ -579,6 +724,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String lineMarker2;
     private Boolean lineMarker3;
     private List<ChartsWaterfall> setLineMarker2 = new ArrayList<>();
+
+    /**
+     * Setter for the line marker settings by index.
+     */
     public ChartsWaterfall setLineMarker(String lineMarker2, Double index2) {
         if (!isChain) {
             js.append(jsBase);
@@ -604,6 +753,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setLineMarker3 = new ArrayList<>();
+
+    /**
+     * Setter for the line marker settings by index.
+     */
     public ChartsWaterfall setLineMarker(Boolean lineMarker3, Double index2) {
         if (!isChain) {
             js.append(jsBase);
@@ -631,6 +784,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for the chart markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -642,17 +798,19 @@ public class ChartsWaterfall extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<ChartsWaterfall> setMarkerPalette = new ArrayList<>();
-    public ChartsWaterfall setMarkerPalette(Markers markerPalette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart markers palette settings.
+     */
+    public ChartsWaterfall setMarkerPalette(Markers markerPalette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(markerPalette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetMarkerPalette() {
@@ -667,6 +825,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setMarkerPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public ChartsWaterfall setMarkerPalette(String markerPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -692,6 +854,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setMarkerPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public ChartsWaterfall setMarkerPalette(MarkerType[] markerPalette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -717,6 +883,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setMarkerPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public ChartsWaterfall setMarkerPalette(String[] markerPalette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -744,6 +914,10 @@ public class ChartsWaterfall extends SeparateChart {
     private Double maxPointWidth;
     private String maxPointWidth1;
     private List<ChartsWaterfall> setMaxPointWidth = new ArrayList<>();
+
+    /**
+     * Setter for the maximum point width.
+     */
     public ChartsWaterfall setMaxPointWidth(Double maxPointWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -769,6 +943,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setMaxPointWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the maximum point width.
+     */
     public ChartsWaterfall setMaxPointWidth(String maxPointWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -796,6 +974,10 @@ public class ChartsWaterfall extends SeparateChart {
     private Double minPointLength;
     private String minPointLength1;
     private List<ChartsWaterfall> setMinPointLength = new ArrayList<>();
+
+    /**
+     * Setter for the minimum point length.
+     */
     public ChartsWaterfall setMinPointLength(Double minPointLength) {
         if (!isChain) {
             js.append(jsBase);
@@ -821,6 +1003,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setMinPointLength1 = new ArrayList<>();
+
+    /**
+     * Setter for the minimum point length.
+     */
     public ChartsWaterfall setMinPointLength(String minPointLength1) {
         if (!isChain) {
             js.append(jsBase);
@@ -848,6 +1034,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the series colors palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -859,17 +1048,19 @@ public class ChartsWaterfall extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<ChartsWaterfall> setPalette = new ArrayList<>();
-    public ChartsWaterfall setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the current series colors palette.
+     */
+    public ChartsWaterfall setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -884,17 +1075,19 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setPalette1 = new ArrayList<>();
-    public ChartsWaterfall setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the current series colors palette.
+     */
+    public ChartsWaterfall setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -909,6 +1102,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the current series colors palette.
+     */
     public ChartsWaterfall setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -934,6 +1131,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the current series colors palette.
+     */
     public ChartsWaterfall setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -961,6 +1162,10 @@ public class ChartsWaterfall extends SeparateChart {
     private Double pointWidth;
     private String pointWidth1;
     private List<ChartsWaterfall> setPointWidth = new ArrayList<>();
+
+    /**
+     * Setter for the point width settings.
+     */
     public ChartsWaterfall setPointWidth(Double pointWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -986,6 +1191,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setPointWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the point width settings.
+     */
     public ChartsWaterfall setPointWidth(String pointWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1013,6 +1222,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private CoreAxismarkersRange getRangeMarker;
 
+    /**
+     * Getter for the current range marker.
+     */
     public CoreAxismarkersRange getRangeMarker() {
         if (getRangeMarker == null)
             getRangeMarker = new CoreAxismarkersRange(jsBase + ".rangeMarker()");
@@ -1022,6 +1234,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<CoreAxismarkersRange> getRangeMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the current range marker.
+     */
     public CoreAxismarkersRange getRangeMarker(Double index3) {
         CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
         getRangeMarker1.add(item);
@@ -1030,6 +1245,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String rangeMarker;
     private Boolean rangeMarker1;
     private List<ChartsWaterfall> setRangeMarker = new ArrayList<>();
+
+    /**
+     * Setter for the range marker.
+     */
     public ChartsWaterfall setRangeMarker(String rangeMarker) {
         if (!isChain) {
             js.append(jsBase);
@@ -1055,6 +1274,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setRangeMarker1 = new ArrayList<>();
+
+    /**
+     * Setter for the range marker.
+     */
     public ChartsWaterfall setRangeMarker(Boolean rangeMarker1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1083,6 +1306,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String rangeMarker2;
     private Boolean rangeMarker3;
     private List<ChartsWaterfall> setRangeMarker2 = new ArrayList<>();
+
+    /**
+     * Setter for the range marker by index.
+     */
     public ChartsWaterfall setRangeMarker(String rangeMarker2, Double index4) {
         if (!isChain) {
             js.append(jsBase);
@@ -1108,6 +1335,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setRangeMarker3 = new ArrayList<>();
+
+    /**
+     * Setter for the range marker by index.
+     */
     public ChartsWaterfall setRangeMarker(Boolean rangeMarker3, Double index4) {
         if (!isChain) {
             js.append(jsBase);
@@ -1135,6 +1366,10 @@ public class ChartsWaterfall extends SeparateChart {
     private Double id2;
     private String id3;
     private List<ChartsWaterfall> setRemoveSeries = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public ChartsWaterfall removeSeries(Double id2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1160,6 +1395,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setRemoveSeries1 = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public ChartsWaterfall removeSeries(String id3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1186,6 +1425,10 @@ public class ChartsWaterfall extends SeparateChart {
 
     private Double index5;
     private List<ChartsWaterfall> setRemoveSeriesAt = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its index.
+     */
     public ChartsWaterfall removeSeriesAt(Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -1213,6 +1456,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private CoreAxismarkersText getTextMarker;
 
+    /**
+     * Getter for the text marker.
+     */
     public CoreAxismarkersText getTextMarker() {
         if (getTextMarker == null)
             getTextMarker = new CoreAxismarkersText(jsBase + ".textMarker()");
@@ -1222,6 +1468,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<CoreAxismarkersText> getTextMarker1 = new ArrayList<>();
 
+    /**
+     * Getter for the text marker.
+     */
     public CoreAxismarkersText getTextMarker(Double index6) {
         CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
         getTextMarker1.add(item);
@@ -1230,6 +1479,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String textMarker;
     private Boolean textMarker1;
     private List<ChartsWaterfall> setTextMarker = new ArrayList<>();
+
+    /**
+     * Setter for the text marker.
+     */
     public ChartsWaterfall setTextMarker(String textMarker) {
         if (!isChain) {
             js.append(jsBase);
@@ -1255,6 +1508,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setTextMarker1 = new ArrayList<>();
+
+    /**
+     * Setter for the text marker.
+     */
     public ChartsWaterfall setTextMarker(Boolean textMarker1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1283,6 +1540,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String textMarker2;
     private Boolean textMarker3;
     private List<ChartsWaterfall> setTextMarker2 = new ArrayList<>();
+
+    /**
+     * Setter for the text marker by index.
+     */
     public ChartsWaterfall setTextMarker(String textMarker2, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1308,6 +1569,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setTextMarker3 = new ArrayList<>();
+
+    /**
+     * Setter for the text marker by index.
+     */
     public ChartsWaterfall setTextMarker(Boolean textMarker3, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1335,6 +1600,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private CoreAxesLinear getXAxis;
 
+    /**
+     * Getter for the chart X-axis.
+     */
     public CoreAxesLinear getXAxis() {
         if (getXAxis == null)
             getXAxis = new CoreAxesLinear(jsBase + ".xAxis()");
@@ -1344,6 +1612,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<CoreAxesLinear> getXAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart X-axis.
+     */
     public CoreAxesLinear getXAxis(Double index8) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
         getXAxis1.add(item);
@@ -1352,6 +1623,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String xAxis;
     private Boolean xAxis1;
     private List<ChartsWaterfall> setXAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public ChartsWaterfall setXAxis(String xAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -1377,6 +1652,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public ChartsWaterfall setXAxis(Boolean xAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1405,6 +1684,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String xAxis2;
     private Boolean xAxis3;
     private List<ChartsWaterfall> setXAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis by index.
+     */
     public ChartsWaterfall setXAxis(String xAxis2, Double index9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1430,6 +1713,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis by index.
+     */
     public ChartsWaterfall setXAxis(Boolean xAxis3, Double index9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1457,6 +1744,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private CoreGridsLinear getXGrid;
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsLinear getXGrid() {
         if (getXGrid == null)
             getXGrid = new CoreGridsLinear(jsBase + ".xGrid()");
@@ -1466,6 +1756,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<CoreGridsLinear> getXGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsLinear getXGrid(Double index10) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
         getXGrid1.add(item);
@@ -1474,6 +1767,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String xGrid;
     private Boolean xGrid1;
     private List<ChartsWaterfall> setXGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public ChartsWaterfall setXGrid(String xGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1499,6 +1796,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public ChartsWaterfall setXGrid(Boolean xGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1527,6 +1828,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String xGrid2;
     private Boolean xGrid3;
     private List<ChartsWaterfall> setXGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public ChartsWaterfall setXGrid(String xGrid2, Double index11) {
         if (!isChain) {
             js.append(jsBase);
@@ -1552,6 +1857,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public ChartsWaterfall setXGrid(Boolean xGrid3, Double index11) {
         if (!isChain) {
             js.append(jsBase);
@@ -1579,6 +1888,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private CoreGridsLinear getXMinorGrid;
 
+    /**
+     * Getter for the current chart minor grid by X-scale.
+     */
     public CoreGridsLinear getXMinorGrid() {
         if (getXMinorGrid == null)
             getXMinorGrid = new CoreGridsLinear(jsBase + ".xMinorGrid()");
@@ -1588,6 +1900,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<CoreGridsLinear> getXMinorGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the current chart minor grid by X-scale.
+     */
     public CoreGridsLinear getXMinorGrid(Double index12) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
         getXMinorGrid1.add(item);
@@ -1596,6 +1911,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<ChartsWaterfall> setXMinorGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public ChartsWaterfall setXMinorGrid(String xMinorGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1621,6 +1940,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXMinorGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public ChartsWaterfall setXMinorGrid(Boolean xMinorGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1649,6 +1972,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
     private List<ChartsWaterfall> setXMinorGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsWaterfall setXMinorGrid(String xMinorGrid2, Double index13) {
         if (!isChain) {
             js.append(jsBase);
@@ -1674,6 +2001,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXMinorGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsWaterfall setXMinorGrid(Boolean xMinorGrid3, Double index13) {
         if (!isChain) {
             js.append(jsBase);
@@ -1701,6 +2032,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private Ordinal getXScale;
 
+    /**
+     * Getter for the chart X-scale.
+     */
     public Ordinal getXScale() {
         if (getXScale == null)
             getXScale = new Ordinal(jsBase + ".xScale()");
@@ -1712,6 +2046,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String xScale2;
     private ScalesBase xScale3;
     private List<ChartsWaterfall> setXScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-scale.
+     */
     public ChartsWaterfall setXScale(String xScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1737,6 +2075,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-scale.
+     */
     public ChartsWaterfall setXScale(ScaleTypes xScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1762,17 +2104,19 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXScale2 = new ArrayList<>();
-    public ChartsWaterfall setXScale(ScalesBase xScale3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart X-scale.
+     */
+    public ChartsWaterfall setXScale(ScalesBase xScale3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(xScale3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetXScale2() {
@@ -1789,6 +2133,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private ChartScroller getXScroller;
 
+    /**
+     * Getter for the scroller.
+     */
     public ChartScroller getXScroller() {
         if (getXScroller == null)
             getXScroller = new ChartScroller(jsBase + ".xScroller()");
@@ -1798,6 +2145,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String xScroller;
     private Boolean xScroller1;
     private List<ChartsWaterfall> setXScroller = new ArrayList<>();
+
+    /**
+     * Setter for the scroller.
+     */
     public ChartsWaterfall setXScroller(String xScroller) {
         if (!isChain) {
             js.append(jsBase);
@@ -1823,6 +2174,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXScroller1 = new ArrayList<>();
+
+    /**
+     * Setter for the scroller.
+     */
     public ChartsWaterfall setXScroller(Boolean xScroller1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1850,6 +2205,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private OrdinalZoom getXZoom;
 
+    /**
+     * Getter for the zoom settings.
+     */
     public OrdinalZoom getXZoom() {
         if (getXZoom == null)
             getXZoom = new OrdinalZoom(jsBase + ".xZoom()");
@@ -1860,6 +2218,10 @@ public class ChartsWaterfall extends SeparateChart {
     private Boolean xZoom1;
     private String xZoom2;
     private List<ChartsWaterfall> setXZoom = new ArrayList<>();
+
+    /**
+     * Setter for the zoom settings.
+     */
     public ChartsWaterfall setXZoom(Double xZoom) {
         if (!isChain) {
             js.append(jsBase);
@@ -1885,6 +2247,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXZoom1 = new ArrayList<>();
+
+    /**
+     * Setter for the zoom settings.
+     */
     public ChartsWaterfall setXZoom(Boolean xZoom1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1910,6 +2276,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setXZoom2 = new ArrayList<>();
+
+    /**
+     * Setter for the zoom settings.
+     */
     public ChartsWaterfall setXZoom(String xZoom2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1937,6 +2307,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private CoreAxesLinear getYAxis;
 
+    /**
+     * Getter for the chart Y-axis.
+     */
     public CoreAxesLinear getYAxis() {
         if (getYAxis == null)
             getYAxis = new CoreAxesLinear(jsBase + ".yAxis()");
@@ -1946,6 +2319,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<CoreAxesLinear> getYAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart Y-axis.
+     */
     public CoreAxesLinear getYAxis(Double index14) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
         getYAxis1.add(item);
@@ -1954,6 +2330,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String yAxis;
     private Boolean yAxis1;
     private List<ChartsWaterfall> setYAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public ChartsWaterfall setYAxis(String yAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -1979,6 +2359,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setYAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public ChartsWaterfall setYAxis(Boolean yAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2007,6 +2391,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String yAxis2;
     private Boolean yAxis3;
     private List<ChartsWaterfall> setYAxis2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis by index.
+     */
     public ChartsWaterfall setYAxis(String yAxis2, Double index15) {
         if (!isChain) {
             js.append(jsBase);
@@ -2032,6 +2420,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setYAxis3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis by index.
+     */
     public ChartsWaterfall setYAxis(Boolean yAxis3, Double index15) {
         if (!isChain) {
             js.append(jsBase);
@@ -2059,6 +2451,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private CoreGridsLinear getYGrid;
 
+    /**
+     * Getter for the chart grid by Y-scale.
+     */
     public CoreGridsLinear getYGrid() {
         if (getYGrid == null)
             getYGrid = new CoreGridsLinear(jsBase + ".yGrid()");
@@ -2068,6 +2463,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<CoreGridsLinear> getYGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by Y-scale.
+     */
     public CoreGridsLinear getYGrid(Double index16) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
         getYGrid1.add(item);
@@ -2076,6 +2474,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String yGrid;
     private Boolean yGrid1;
     private List<ChartsWaterfall> setYGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by Y-scale.
+     */
     public ChartsWaterfall setYGrid(String yGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -2101,6 +2503,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setYGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by Y-scale.
+     */
     public ChartsWaterfall setYGrid(Boolean yGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2129,6 +2535,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String yGrid2;
     private Boolean yGrid3;
     private List<ChartsWaterfall> setYGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public ChartsWaterfall setYGrid(String yGrid2, Double index17) {
         if (!isChain) {
             js.append(jsBase);
@@ -2154,6 +2564,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setYGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public ChartsWaterfall setYGrid(Boolean yGrid3, Double index17) {
         if (!isChain) {
             js.append(jsBase);
@@ -2181,6 +2595,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private CoreGridsLinear getYMinorGrid;
 
+    /**
+     * Getter for the current chart minor grid by Y-scale.
+     */
     public CoreGridsLinear getYMinorGrid() {
         if (getYMinorGrid == null)
             getYMinorGrid = new CoreGridsLinear(jsBase + ".yMinorGrid()");
@@ -2190,6 +2607,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private List<CoreGridsLinear> getYMinorGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the current chart minor grid by Y-scale.
+     */
     public CoreGridsLinear getYMinorGrid(Double index18) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
         getYMinorGrid1.add(item);
@@ -2198,6 +2618,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<ChartsWaterfall> setYMinorGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by Y-scale.
+     */
     public ChartsWaterfall setYMinorGrid(String yMinorGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -2223,6 +2647,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setYMinorGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by Y-scale.
+     */
     public ChartsWaterfall setYMinorGrid(Boolean yMinorGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2251,6 +2679,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
     private List<ChartsWaterfall> setYMinorGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsWaterfall setYMinorGrid(String yMinorGrid2, Double index19) {
         if (!isChain) {
             js.append(jsBase);
@@ -2276,6 +2708,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setYMinorGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsWaterfall setYMinorGrid(Boolean yMinorGrid3, Double index19) {
         if (!isChain) {
             js.append(jsBase);
@@ -2303,6 +2739,9 @@ public class ChartsWaterfall extends SeparateChart {
 
     private ScalesLinear getYScale;
 
+    /**
+     * Getter for the chart Y-scale.
+     */
     public ScalesLinear getYScale() {
         if (getYScale == null)
             getYScale = new ScalesLinear(jsBase + ".yScale()");
@@ -2314,6 +2753,10 @@ public class ChartsWaterfall extends SeparateChart {
     private String yScale2;
     private ScalesBase yScale3;
     private List<ChartsWaterfall> setYScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-scale.
+     */
     public ChartsWaterfall setYScale(String yScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -2339,6 +2782,10 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setYScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-scale.
+     */
     public ChartsWaterfall setYScale(ScaleTypes yScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -2364,17 +2811,19 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
     private List<ChartsWaterfall> setYScale2 = new ArrayList<>();
-    public ChartsWaterfall setYScale(ScalesBase yScale3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart Y-scale.
+     */
+    public ChartsWaterfall setYScale(ScalesBase yScale3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(yScale3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetYScale2() {

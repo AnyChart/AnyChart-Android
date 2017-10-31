@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Anychart series accessibility class.
+ */
 public class SeriesA11y extends A11y {
 
     public SeriesA11y() {
-
+        js.setLength(0);
+        js.append("var seriesA11y").append(++variableIndex).append(" = anychart.core.utils.seriesA11y();");
+        jsBase = "seriesA11y" + variableIndex;
     }
 
     protected SeriesA11y(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class SeriesA11y extends A11y {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean enabled;
 
+    /**
+     * Setter for the accessibility enabled state.
+     */
     public SeriesA11y setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
@@ -38,7 +51,6 @@ public class SeriesA11y extends A11y {
             }
 
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -49,6 +61,10 @@ public class SeriesA11y extends A11y {
 
     private String titleFormat;
 
+    /**
+     * Setter for the function to format title.<br/>
+{docs:Common_Settings/Text_Formatters}Learn more about using titleFormat() method.{docs}
+     */
     public SeriesA11y setTitleFormat(String titleFormat) {
         if (jsBase == null) {
             this.titleFormat = titleFormat;
@@ -60,7 +76,6 @@ public class SeriesA11y extends A11y {
             }
 
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);
@@ -69,8 +84,6 @@ public class SeriesA11y extends A11y {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -88,16 +101,6 @@ public class SeriesA11y extends A11y {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSenabled());
-////        
-//            js.append(generateJStitleFormat());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

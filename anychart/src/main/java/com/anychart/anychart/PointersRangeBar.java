@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Range bar pointer class.
+ */
 public class PointersRangeBar extends LineargaugePointersBar {
 
     public PointersRangeBar() {
-
+        js.setLength(0);
+        js.append("var pointersRangeBar").append(++variableIndex).append(" = anychart.core.linearGauge.pointers.rangeBar();");
+        jsBase = "pointersRangeBar" + variableIndex;
     }
 
     protected PointersRangeBar(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class PointersRangeBar extends LineargaugePointersBar {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class PointersRangeBar extends LineargaugePointersBar {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

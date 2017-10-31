@@ -8,13 +8,25 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base class for all base series.<br/>
+Base class defines common methods, such as those for:
+<ul>
+  <li>Binding series to a scale: <i>xScale, yScale</i></li>
+  <li>Base color settings: <i>color</i></li>
+</ul>
+You can also obtain <i>getIterator, getResetIterator</i> iterators here.
+ */
 public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     public AnychartSeriesBase() {
-
+        js.setLength(0);
+        js.append("var anychartSeriesBase").append(++variableIndex).append(" = anychart.core.seriesBase();");
+        jsBase = "anychartSeriesBase" + variableIndex;
     }
 
     protected AnychartSeriesBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +36,16 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private SeriesA11y getA11y;
 
+    /**
+     * Getter for the accessibility setting.
+     */
     public SeriesA11y getAy() {
         if (getA11y == null)
             getA11y = new SeriesA11y(jsBase + ".ay()");
@@ -37,6 +56,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private Boolean ay;
     private String ay1;
 
+    /**
+     * Setter for the accessibility setting.
+     */
     public AnychartSeriesBase setA11y(Boolean ay) {
         if (jsBase == null) {
             this.ay = null;
@@ -51,7 +73,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".a11y(%b)", ay));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".a11y(%b)", ay));
                 js.setLength(0);
@@ -61,6 +82,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the accessibility setting.
+     */
     public AnychartSeriesBase setA11y(String ay1) {
         if (jsBase == null) {
             this.ay = null;
@@ -75,7 +99,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".a11y(%s)", wrapQuotes(ay1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".a11y(%s)", wrapQuotes(ay1)));
                 js.setLength(0);
@@ -86,6 +109,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private String color;
 
+    /**
+     * Setter for the series color.
+     */
     public AnychartSeriesBase setColor(String color) {
         if (jsBase == null) {
             this.color = color;
@@ -97,7 +123,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
@@ -108,6 +133,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private View getData;
 
+    /**
+     * Getter for series mapping.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -123,6 +151,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String csvSettings1;
     private TextParsingSettings csvSettings2;
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(View data, TextParsingMode csvSettings) {
         if (jsBase == null) {
             this.data = null;
@@ -145,7 +176,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
                 js.setLength(0);
@@ -155,6 +185,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(View data, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
@@ -177,7 +210,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -187,6 +219,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(View data, TextParsingSettings csvSettings2) {
         if (jsBase == null) {
             this.data = null;
@@ -209,7 +244,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
                 js.setLength(0);
@@ -219,6 +253,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(Set data1, TextParsingMode csvSettings) {
         if (jsBase == null) {
             this.data = null;
@@ -241,7 +278,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
                 js.setLength(0);
@@ -251,6 +287,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(Set data1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
@@ -273,7 +312,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -283,6 +321,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(Set data1, TextParsingSettings csvSettings2) {
         if (jsBase == null) {
             this.data = null;
@@ -305,7 +346,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
                 js.setLength(0);
@@ -315,6 +355,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(String[] data2, TextParsingMode csvSettings) {
         if (jsBase == null) {
             this.data = null;
@@ -337,7 +380,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
                 js.setLength(0);
@@ -347,6 +389,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(String[] data2, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
@@ -369,7 +414,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -379,6 +423,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(String[] data2, TextParsingSettings csvSettings2) {
         if (jsBase == null) {
             this.data = null;
@@ -401,7 +448,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
                 js.setLength(0);
@@ -411,6 +457,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(String data3, TextParsingMode csvSettings) {
         if (jsBase == null) {
             this.data = null;
@@ -433,7 +482,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
                 js.setLength(0);
@@ -443,6 +491,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(String data3, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
@@ -465,7 +516,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -475,6 +525,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series mapping.
+     */
     public AnychartSeriesBase setData(String data3, TextParsingSettings csvSettings2) {
         if (jsBase == null) {
             this.data = null;
@@ -497,7 +550,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
                 js.setLength(0);
@@ -508,6 +560,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private List<SeriesPoint> getGetPoint = new ArrayList<>();
 
+    /**
+     * Gets wrapped point by index.
+     */
     public SeriesPoint getGetPoint(Double index) {
         SeriesPoint item = new SeriesPoint(jsBase + ".getPoint(" + index + ")");
         getGetPoint.add(item);
@@ -516,6 +571,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private Double index;
 
+    /**
+     * Hovers point by index.
+     */
     public AnychartSeriesBase hover(Double index) {
         if (jsBase == null) {
             this.index = index;
@@ -527,7 +585,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".hover(%f)", index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hover(%f)", index));
                 js.setLength(0);
@@ -538,6 +595,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private Double[] indexes;
 
+    /**
+     * Hovers points by indexes.
+     */
     public AnychartSeriesBase hover(Double[] indexes) {
         if (jsBase == null) {
             this.indexes = indexes;
@@ -549,7 +609,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".hover(%s)", Arrays.toString(indexes)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hover(%s)", Arrays.toString(indexes)));
                 js.setLength(0);
@@ -560,6 +619,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -569,6 +631,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private String hovered;
 
+    /**
+     * Setter for hovered state settings.
+     */
     public AnychartSeriesBase setHovered(String hovered) {
         if (jsBase == null) {
             this.hovered = hovered;
@@ -580,7 +645,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
@@ -592,6 +656,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String id;
     private Double id1;
 
+    /**
+     * Setter for the series id.
+     */
     public AnychartSeriesBase setId(String id) {
         if (jsBase == null) {
             this.id = null;
@@ -606,7 +673,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
                 js.setLength(0);
@@ -616,6 +682,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the series id.
+     */
     public AnychartSeriesBase setId(Double id1) {
         if (jsBase == null) {
             this.id = null;
@@ -630,7 +699,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".id(%f)", id1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".id(%f)", id1));
                 js.setLength(0);
@@ -641,6 +709,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for the series data labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -651,6 +722,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String labels;
     private Boolean labels1;
 
+    /**
+     * Setter for the series data labels.
+     */
     public AnychartSeriesBase setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
@@ -665,7 +739,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -675,6 +748,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the series data labels.
+     */
     public AnychartSeriesBase setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
@@ -689,7 +765,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -700,6 +775,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private LegendItemSettings getLegendItem;
 
+    /**
+     * Gets the current legend item setting for series.
+     */
     public LegendItemSettings getLegendItem() {
         if (getLegendItem == null)
             getLegendItem = new LegendItemSettings(jsBase + ".legendItem()");
@@ -709,6 +787,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private String legendItem;
 
+    /**
+     * Sets the legend item setting for series.
+     */
     public AnychartSeriesBase setLegendItem(String legendItem) {
         if (jsBase == null) {
             this.legendItem = legendItem;
@@ -720,7 +801,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
                 js.setLength(0);
@@ -731,6 +811,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private UiMarkersFactory getMarkers;
 
+    /**
+     * Getter for series data markers.
+     */
     public UiMarkersFactory getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersFactory(jsBase + ".markers()");
@@ -742,6 +825,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private Boolean markers1;
     private String markers2;
 
+    /**
+     * Setter for series data markers.
+     */
     public AnychartSeriesBase setMarkers(String markers) {
         if (jsBase == null) {
             this.markers = null;
@@ -757,7 +843,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
@@ -767,6 +852,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for series data markers.
+     */
     public AnychartSeriesBase setMarkers(Boolean markers1) {
         if (jsBase == null) {
             this.markers = null;
@@ -782,7 +870,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
                 js.setLength(0);
@@ -793,6 +880,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private String name;
 
+    /**
+     * Setter for the series name.
+     */
     public AnychartSeriesBase setName(String name) {
         if (jsBase == null) {
             this.name = name;
@@ -804,7 +894,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
                 js.setLength(0);
@@ -815,6 +904,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -824,6 +916,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private String normal;
 
+    /**
+     * Setter for normal state settings.
+     */
     public AnychartSeriesBase setNormal(String normal) {
         if (jsBase == null) {
             this.normal = normal;
@@ -835,7 +930,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
@@ -846,6 +940,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private Double index1;
 
+    /**
+     * Selects point by index.
+     */
     public AnychartSeriesBase select(Double index1) {
         if (jsBase == null) {
             this.index = null;
@@ -860,7 +957,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".select(%f)", index1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%f)", index1));
                 js.setLength(0);
@@ -872,6 +968,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private Double indexes1;
     private Double[] indexes2;
 
+    /**
+     * Selects point by indexes.
+     */
     public AnychartSeriesBase select(Double[] indexes2) {
         if (jsBase == null) {
             this.indexes = null;
@@ -887,7 +986,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes2)));
                 js.setLength(0);
@@ -898,6 +996,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -907,6 +1008,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private String selected;
 
+    /**
+     * Setter for selected state settings.
+     */
     public AnychartSeriesBase setSelected(String selected) {
         if (jsBase == null) {
             this.selected = selected;
@@ -918,7 +1022,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
@@ -930,6 +1033,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private SelectionMode selectionMode;
     private String selectionMode1;
 
+    /**
+     * Allows to select points of the series.
+To select multiple points, press "ctrl" and click on them.
+     */
     public AnychartSeriesBase selectionMode(SelectionMode selectionMode) {
         if (jsBase == null) {
             this.selectionMode = null;
@@ -944,7 +1051,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
                 js.setLength(0);
@@ -954,6 +1060,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Allows to select points of the series.
+To select multiple points, press "ctrl" and click on them.
+     */
     public AnychartSeriesBase selectionMode(String selectionMode1) {
         if (jsBase == null) {
             this.selectionMode = null;
@@ -968,7 +1078,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
                 js.setLength(0);
@@ -979,6 +1088,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private Tooltip getTooltip;
 
+    /**
+     * Gets the current series data tooltip.
+     */
     public Tooltip getTooltip() {
         if (getTooltip == null)
             getTooltip = new Tooltip(jsBase + ".tooltip()");
@@ -989,6 +1101,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String tooltip;
     private Boolean tooltip1;
 
+    /**
+     * Sets series data tooltip.
+     */
     public AnychartSeriesBase setTooltip(String tooltip) {
         if (jsBase == null) {
             this.tooltip = null;
@@ -1003,7 +1118,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
@@ -1013,6 +1127,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Sets series data tooltip.
+     */
     public AnychartSeriesBase setTooltip(Boolean tooltip1) {
         if (jsBase == null) {
             this.tooltip = null;
@@ -1027,7 +1144,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%b)", tooltip1));
                 js.setLength(0);
@@ -1039,6 +1155,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private Double indexOrIndexes;
     private Double[] indexOrIndexes1;
 
+    /**
+     * Removes hover from the series.
+     */
     public AnychartSeriesBase unhover(Double indexOrIndexes) {
         if (jsBase == null) {
             this.indexOrIndexes = null;
@@ -1053,7 +1172,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".unhover(%f)", indexOrIndexes));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unhover(%f)", indexOrIndexes));
                 js.setLength(0);
@@ -1063,6 +1181,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Removes hover from the series.
+     */
     public AnychartSeriesBase unhover(Double[] indexOrIndexes1) {
         if (jsBase == null) {
             this.indexOrIndexes = null;
@@ -1077,7 +1198,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".unhover(%s)", Arrays.toString(indexOrIndexes1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unhover(%s)", Arrays.toString(indexOrIndexes1)));
                 js.setLength(0);
@@ -1088,6 +1208,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private Double index2;
 
+    /**
+     * Deselects selected point by index.
+     */
     public AnychartSeriesBase unselect(Double index2) {
         if (jsBase == null) {
             this.index = null;
@@ -1103,7 +1226,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".unselect(%f)", index2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unselect(%f)", index2));
                 js.setLength(0);
@@ -1114,6 +1236,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private Double[] indexes3;
 
+    /**
+     * Deselects selected points by indexes.
+     */
     public AnychartSeriesBase unselect(Double[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
@@ -1130,7 +1255,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".unselect(%s)", Arrays.toString(indexes3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unselect(%s)", Arrays.toString(indexes3)));
                 js.setLength(0);
@@ -1139,82 +1263,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         return this;
     }
 
-
-//
-//    private String generateJSSeriesA11y getA11y() {
-//        if (SeriesA11y getA11y != null) {
-//            return SeriesA11y getA11y.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSView getData() {
-//        if (View getData != null) {
-//            return View getData.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSSeriesPoint getGetPoint() {
-//        if (SeriesPoint getGetPoint != null) {
-//            return SeriesPoint getGetPoint.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getHovered() {
-//        if (StateSettings getHovered != null) {
-//            return StateSettings getHovered.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLabels() {
-//        if (UiLabelsFactory getLabels != null) {
-//            return UiLabelsFactory getLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSLegendItemSettings getLegendItem() {
-//        if (LegendItemSettings getLegendItem != null) {
-//            return LegendItemSettings getLegendItem.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiMarkersFactory getMarkers() {
-//        if (UiMarkersFactory getMarkers != null) {
-//            return UiMarkersFactory getMarkers.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getNormal() {
-//        if (StateSettings getNormal != null) {
-//            return StateSettings getNormal.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getSelected() {
-//        if (StateSettings getSelected != null) {
-//            return StateSettings getSelected.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTooltip getTooltip() {
-//        if (Tooltip getTooltip != null) {
-//            return Tooltip getTooltip.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetA11y() {
         if (getA11y != null) {
             return getA11y.generateJs();
-            //return String.format(Locale.US, "getAy: %s,", ((getA11y != null) ? getA11y.generateJs() : "null"));
         }
         return "";
     }
@@ -1222,7 +1273,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetData() {
         if (getData != null) {
             return getData.generateJs();
-            //return String.format(Locale.US, "getData: %s,", ((getData != null) ? getData.generateJs() : "null"));
         }
         return "";
     }
@@ -1242,7 +1292,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
-            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -1250,7 +1299,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
-            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1258,7 +1306,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetLegendItem() {
         if (getLegendItem != null) {
             return getLegendItem.generateJs();
-            //return String.format(Locale.US, "getLegendItem: %s,", ((getLegendItem != null) ? getLegendItem.generateJs() : "null"));
         }
         return "";
     }
@@ -1266,7 +1313,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
-            //return String.format(Locale.US, "getMarkers: %s,", ((getMarkers != null) ? getMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -1274,7 +1320,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
-            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -1282,7 +1327,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
-            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -1290,7 +1334,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
-            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -1322,82 +1365,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSay());
-////        
-//            js.append(generateJSay1());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSdata());
-////        
-//            js.append(generateJSdata1());
-////        
-//            js.append(generateJSdata2());
-////        
-//            js.append(generateJSdata3());
-////        
-//            js.append(generateJScsvSettings());
-////        
-//            js.append(generateJScsvSettings1());
-////        
-//            js.append(generateJScsvSettings2());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSindexes());
-////        
-//            js.append(generateJShovered());
-////        
-//            js.append(generateJSid());
-////        
-//            js.append(generateJSid1());
-////        
-//            js.append(generateJSlabels());
-////        
-//            js.append(generateJSlabels1());
-////        
-//            js.append(generateJSlegendItem());
-////        
-//            js.append(generateJSmarkers());
-////        
-//            js.append(generateJSmarkers1());
-////        
-//            js.append(generateJSmarkers2());
-////        
-//            js.append(generateJSname());
-////        
-//            js.append(generateJSnormal());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSindexes1());
-////        
-//            js.append(generateJSindexes2());
-////        
-//            js.append(generateJSselected());
-////        
-//            js.append(generateJSselectionMode());
-////        
-//            js.append(generateJSselectionMode1());
-////        
-//            js.append(generateJStooltip());
-////        
-//            js.append(generateJStooltip1());
-////        
-//            js.append(generateJSindexOrIndexes());
-////        
-//            js.append(generateJSindexOrIndexes1());
-////        
-//            js.append(generateJSindex2());
-////        
-//            js.append(generateJSindexes3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

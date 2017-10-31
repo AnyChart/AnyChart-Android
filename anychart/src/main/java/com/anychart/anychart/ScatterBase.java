@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base for all scatter scales (Linear, Logarithmic and DateTime).
+Doesn't declare any ticks, so different scales can declare their own.
+ */
 public class ScatterBase extends ScalesBase {
 
     public ScatterBase() {
-
+        js.setLength(0);
+        js.append("var scatterBase").append(++variableIndex).append(" = anychart.scales.scatterBase();");
+        jsBase = "scatterBase" + variableIndex;
     }
 
     protected ScatterBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,17 @@ public class ScatterBase extends ScalesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double ratio;
 
+    /**
+     * Returns tick by its position ratio.<br/>
+<b>Note:</b> returns correct values only after {@link anychart.scales.Base#finishAutoCalc} or <b>chart.draw()</b>.
+     */
     public void inverseTransform(Double ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
@@ -38,7 +53,6 @@ public class ScatterBase extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
                 js.setLength(0);
@@ -48,6 +62,9 @@ public class ScatterBase extends ScalesBase {
 
     private Double maxTicksCount;
 
+    /**
+     * Setter for maximum ticks count.<br/>
+     */
     public ScatterBase setMaxTicksCount(Double maxTicksCount) {
         if (jsBase == null) {
             this.maxTicksCount = maxTicksCount;
@@ -59,7 +76,6 @@ public class ScatterBase extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
                 js.setLength(0);
@@ -70,6 +86,9 @@ public class ScatterBase extends ScalesBase {
 
     private Double maximum;
 
+    /**
+     * Setter for scale maximum.
+     */
     public ScatterBase setMaximum(Double maximum) {
         if (jsBase == null) {
             this.maximum = maximum;
@@ -81,7 +100,6 @@ public class ScatterBase extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".maximum(%f)", maximum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximum(%f)", maximum));
                 js.setLength(0);
@@ -92,6 +110,9 @@ public class ScatterBase extends ScalesBase {
 
     private Double minimum;
 
+    /**
+     * Setter for scale minimum.
+     */
     public ScatterBase setMinimum(Double minimum) {
         if (jsBase == null) {
             this.minimum = minimum;
@@ -103,7 +124,6 @@ public class ScatterBase extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".minimum(%f)", minimum));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimum(%f)", minimum));
                 js.setLength(0);
@@ -112,8 +132,6 @@ public class ScatterBase extends ScalesBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -131,20 +149,6 @@ public class ScatterBase extends ScalesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSratio());
-////        
-//            js.append(generateJSmaxTicksCount());
-////        
-//            js.append(generateJSmaximum());
-////        
-//            js.append(generateJSminimum());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

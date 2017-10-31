@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Class representing independent clip, that can be applied to any element.<br/>
+Used to set one clip to many elements, and updates only clip.
+ */
 public class Clip extends JsObject {
 
     public Clip() {
-
+        js.setLength(0);
+        js.append("var clip").append(++variableIndex).append(" = anychart.graphics.vector.clip();");
+        jsBase = "clip" + variableIndex;
     }
 
     protected Clip(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,16 @@ public class Clip extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Shape getShape;
 
+    /**
+     * Getter for the current shape of the clip.
+     */
     public Shape getShape() {
         if (getShape == null)
             getShape = new Shape(jsBase + ".shape()");
@@ -39,6 +53,9 @@ public class Clip extends JsObject {
     private GraphicsMathRect shape2;
     private String shape3;
 
+    /**
+     * Setter for the shape of the clip.
+     */
     public Clip setShape(Double[] shape) {
         if (jsBase == null) {
             this.shape = null;
@@ -55,7 +72,6 @@ public class Clip extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".shape(%s)", Arrays.toString(shape)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", Arrays.toString(shape)));
                 js.setLength(0);
@@ -65,6 +81,9 @@ public class Clip extends JsObject {
     }
 
 
+    /**
+     * Setter for the shape of the clip.
+     */
     public Clip setShape(Shape shape1) {
         if (jsBase == null) {
             this.shape = null;
@@ -75,15 +94,16 @@ public class Clip extends JsObject {
             this.shape1 = shape1;
         } else {
             this.shape1 = shape1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(shape1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".shape(%s)", ((shape1 != null) ? shape1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".shape(%s);",  ((shape1 != null) ? shape1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", ((shape1 != null) ? shape1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", ((shape1 != null) ? shape1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -91,6 +111,9 @@ public class Clip extends JsObject {
     }
 
 
+    /**
+     * Setter for the shape of the clip.
+     */
     public Clip setShape(GraphicsMathRect shape2) {
         if (jsBase == null) {
             this.shape = null;
@@ -101,15 +124,16 @@ public class Clip extends JsObject {
             this.shape2 = shape2;
         } else {
             this.shape2 = shape2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(shape2.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".shape(%s)", ((shape2 != null) ? shape2.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".shape(%s);",  ((shape2 != null) ? shape2.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", ((shape2 != null) ? shape2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", ((shape2 != null) ? shape2.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -117,6 +141,9 @@ public class Clip extends JsObject {
     }
 
 
+    /**
+     * Setter for the shape of the clip.
+     */
     public Clip setShape(String shape3) {
         if (jsBase == null) {
             this.shape = null;
@@ -133,7 +160,6 @@ public class Clip extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape3)));
                 js.setLength(0);
@@ -147,6 +173,9 @@ public class Clip extends JsObject {
     private Double width;
     private Double height;
 
+    /**
+     * Setter for the shape of the clip with coordinates.
+     */
     public Clip setShape(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
@@ -164,7 +193,6 @@ public class Clip extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".shape(%f, %f, %f, %f)", left, top, width, height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".shape(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
@@ -173,19 +201,9 @@ public class Clip extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSShape getShape() {
-//        if (Shape getShape != null) {
-//            return Shape getShape.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetShape() {
         if (getShape != null) {
             return getShape.generateJs();
-            //return String.format(Locale.US, "getShape: %s,", ((getShape != null) ? getShape.generateJs() : "null"));
         }
         return "";
     }
@@ -208,28 +226,6 @@ public class Clip extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSshape());
-////        
-//            js.append(generateJSshape1());
-////        
-//            js.append(generateJSshape2());
-////        
-//            js.append(generateJSshape3());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSheight());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

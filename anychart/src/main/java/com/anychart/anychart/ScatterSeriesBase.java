@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base class for all scatter series.
+ */
 public class ScatterSeriesBase extends AnychartSeriesBase {
 
     public ScatterSeriesBase() {
-
+        js.setLength(0);
+        js.append("var scatterSeriesBase").append(++variableIndex).append(" = anychart.core.scatter.series.base();");
+        jsBase = "scatterSeriesBase" + variableIndex;
     }
 
     protected ScatterSeriesBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private AnychartMathRect getClip;
 
+    /**
+     * Getter for series clip settings.
+     */
     public AnychartMathRect getClip() {
         if (getClip == null)
             getClip = new AnychartMathRect(jsBase + ".clip()");
@@ -37,6 +50,10 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private Boolean clip;
     private AnychartMathRect clip1;
 
+    /**
+     * Setter for series clip settings.
+Clips visible part of a series by a rectangle (or chart).
+     */
     public ScatterSeriesBase setClip(Boolean clip) {
         if (jsBase == null) {
             this.clip = null;
@@ -51,7 +68,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".clip(%b)", clip));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".clip(%b)", clip));
                 js.setLength(0);
@@ -61,6 +77,10 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for series clip settings.
+Clips visible part of a series by a rectangle (or chart).
+     */
     public ScatterSeriesBase setClip(AnychartMathRect clip1) {
         if (jsBase == null) {
             this.clip = null;
@@ -69,15 +89,16 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.clip1 = clip1;
         } else {
             this.clip1 = clip1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(clip1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".clip(%s)", ((clip1 != null) ? clip1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".clip(%s);",  ((clip1 != null) ? clip1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", ((clip1 != null) ? clip1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", ((clip1 != null) ? clip1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -86,6 +107,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
 
     private Error getError;
 
+    /**
+     * Getter for series error.
+     */
     public Error getError() {
         if (getError == null)
             getError = new Error(jsBase + ".error()");
@@ -98,6 +122,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private String error2;
     private Double error3;
 
+    /**
+     * Setter for series error.
+     */
     public ScatterSeriesBase setError(String error) {
         if (jsBase == null) {
             this.error = null;
@@ -114,7 +141,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".error(%s)", wrapQuotes(error)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".error(%s)", wrapQuotes(error)));
                 js.setLength(0);
@@ -124,6 +150,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for series error.
+     */
     public ScatterSeriesBase setError(Boolean error1) {
         if (jsBase == null) {
             this.error = null;
@@ -140,7 +169,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".error(%b)", error1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".error(%b)", error1));
                 js.setLength(0);
@@ -150,6 +178,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for series error.
+     */
     public ScatterSeriesBase setError(Double error3) {
         if (jsBase == null) {
             this.error = null;
@@ -166,7 +197,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".error(%f)", error3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".error(%f)", error3));
                 js.setLength(0);
@@ -178,6 +208,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private Double indexes;
     private Double[] indexes1;
 
+    /**
+     * Excludes points at the specified index.
+     */
     public void excludePoint(Double indexes) {
         if (jsBase == null) {
             this.indexes = null;
@@ -192,7 +225,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".excludePoint(%f);", indexes));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f)", indexes));
                 js.setLength(0);
@@ -201,6 +233,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Excludes points at the specified index.
+     */
     public void excludePoint(Double[] indexes1) {
         if (jsBase == null) {
             this.indexes = null;
@@ -215,7 +250,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".excludePoint(%s);", Arrays.toString(indexes1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s)", Arrays.toString(indexes1)));
                 js.setLength(0);
@@ -226,6 +260,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private Double indexes2;
     private Double[] indexes3;
 
+    /**
+     * Includes excluded points with the specified indexes.
+     */
     public void includePoint(Double indexes2) {
         if (jsBase == null) {
             this.indexes = null;
@@ -242,7 +279,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".includePoint(%f);", indexes2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f)", indexes2));
                 js.setLength(0);
@@ -251,6 +287,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Includes excluded points with the specified indexes.
+     */
     public void includePoint(Double[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
@@ -267,7 +306,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".includePoint(%s);", Arrays.toString(indexes3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s)", Arrays.toString(indexes3)));
                 js.setLength(0);
@@ -278,6 +316,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private Double indexes4;
     private Double[] indexes5;
 
+    /**
+     * Keep only the specified points.
+     */
     public void keepOnlyPoints(Double indexes4) {
         if (jsBase == null) {
             this.indexes = null;
@@ -296,7 +337,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f);", indexes4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f)", indexes4));
                 js.setLength(0);
@@ -305,6 +345,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Keep only the specified points.
+     */
     public void keepOnlyPoints(Double[] indexes5) {
         if (jsBase == null) {
             this.indexes = null;
@@ -323,7 +366,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", Arrays.toString(indexes5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s)", Arrays.toString(indexes5)));
                 js.setLength(0);
@@ -333,6 +375,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
 
     private ScatterBase getXScale;
 
+    /**
+     * Getter for the series X-scale.
+     */
     public ScatterBase getXScale() {
         if (getXScale == null)
             getXScale = new ScatterBase(jsBase + ".xScale()");
@@ -342,20 +387,24 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
 
     private ScalesBase xScale;
 
+    /**
+     * Setter for the series X-scale.
+     */
     public ScatterSeriesBase setXScale(ScalesBase xScale) {
         if (jsBase == null) {
             this.xScale = xScale;
         } else {
             this.xScale = xScale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(xScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale != null) ? xScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -364,6 +413,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
 
     private ScatterBase getYScale;
 
+    /**
+     * Getter for the series Y-scale.
+     */
     public ScatterBase getYScale() {
         if (getYScale == null)
             getYScale = new ScatterBase(jsBase + ".yScale()");
@@ -376,6 +428,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private ScaleTypes yScale2;
     private String yScale3;
 
+    /**
+     * Setter for the series Y-scale.
+     */
     public ScatterSeriesBase setYScale(ScatterBase yScale) {
         if (jsBase == null) {
             this.yScale = null;
@@ -386,15 +441,16 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.yScale = yScale;
         } else {
             this.yScale = yScale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(yScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale != null) ? yScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -402,6 +458,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series Y-scale.
+     */
     public ScatterSeriesBase setYScale(String yScale1) {
         if (jsBase == null) {
             this.yScale = null;
@@ -418,7 +477,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
@@ -428,6 +486,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series Y-scale.
+     */
     public ScatterSeriesBase setYScale(ScaleTypes yScale2) {
         if (jsBase == null) {
             this.yScale = null;
@@ -444,7 +505,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
@@ -453,40 +513,9 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
         return this;
     }
 
-
-//
-//    private String generateJSAnychartMathRect getClip() {
-//        if (AnychartMathRect getClip != null) {
-//            return AnychartMathRect getClip.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSError getError() {
-//        if (Error getError != null) {
-//            return Error getError.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScatterBase getXScale() {
-//        if (ScatterBase getXScale != null) {
-//            return ScatterBase getXScale.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScatterBase getYScale() {
-//        if (ScatterBase getYScale != null) {
-//            return ScatterBase getYScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetClip() {
         if (getClip != null) {
             return getClip.generateJs();
-            //return String.format(Locale.US, "getClip: %s,", ((getClip != null) ? getClip.generateJs() : "null"));
         }
         return "";
     }
@@ -494,7 +523,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private String generateJSgetError() {
         if (getError != null) {
             return getError.generateJs();
-            //return String.format(Locale.US, "getError: %s,", ((getError != null) ? getError.generateJs() : "null"));
         }
         return "";
     }
@@ -502,7 +530,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private String generateJSgetXScale() {
         if (getXScale != null) {
             return getXScale.generateJs();
-            //return String.format(Locale.US, "getXScale: %s,", ((getXScale != null) ? getXScale.generateJs() : "null"));
         }
         return "";
     }
@@ -510,7 +537,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -536,46 +562,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSclip());
-////        
-//            js.append(generateJSclip1());
-////        
-//            js.append(generateJSerror());
-////        
-//            js.append(generateJSerror1());
-////        
-//            js.append(generateJSerror2());
-////        
-//            js.append(generateJSerror3());
-////        
-//            js.append(generateJSindexes());
-////        
-//            js.append(generateJSindexes1());
-////        
-//            js.append(generateJSindexes2());
-////        
-//            js.append(generateJSindexes3());
-////        
-//            js.append(generateJSindexes4());
-////        
-//            js.append(generateJSindexes5());
-////        
-//            js.append(generateJSxScale());
-////        
-//            js.append(generateJSyScale());
-////        
-//            js.append(generateJSyScale1());
-////        
-//            js.append(generateJSyScale2());
-////        
-//            js.append(generateJSyScale3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

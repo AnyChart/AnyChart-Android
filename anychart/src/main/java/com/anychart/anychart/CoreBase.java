@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Class implements all the work with consistency states.
+invalidate() and markConsistent() are used to change states.
+isConsistent() and hasInvalidationState() are used to check states.
+ */
 public class CoreBase extends JsObject {
 
     public CoreBase() {
-
+        js.setLength(0);
+        js.append("var coreBase").append(++variableIndex).append(" = anychart.core.base();");
+        jsBase = "coreBase" + variableIndex;
     }
 
     protected CoreBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,11 +32,18 @@ public class CoreBase extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String type;
     private Boolean useCapture;
     private String listenerScope;
 
+    /**
+     * Adds an event listener to an implementing object.
+     */
     public void listen(String type, Boolean useCapture, String listenerScope) {
         if (jsBase == null) {
             this.type = type;
@@ -44,7 +59,6 @@ public class CoreBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
                 js.setLength(0);
@@ -56,6 +70,9 @@ public class CoreBase extends JsObject {
     private Boolean useCapture1;
     private String listenerScope1;
 
+    /**
+     * Adds an event listener to an implementing object.
+     */
     public void listenOnce(String type1, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
@@ -80,7 +97,6 @@ public class CoreBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
                 js.setLength(0);
@@ -90,6 +106,9 @@ public class CoreBase extends JsObject {
 
     private String type2;
 
+    /**
+     * Removes all listeners from an object. You can also optionally remove listeners of some particular type.
+     */
     public void removeAllListeners(String type2) {
         if (jsBase == null) {
             this.type = null;
@@ -105,7 +124,6 @@ public class CoreBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", wrapQuotes(type2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s)", wrapQuotes(type2)));
                 js.setLength(0);
@@ -117,6 +135,9 @@ public class CoreBase extends JsObject {
     private Boolean useCapture2;
     private String listenerScope2;
 
+    /**
+     * Removes a listener added using listen() or listenOnce() methods.
+     */
     public void unlisten(String type3, Boolean useCapture2, String listenerScope2) {
         if (jsBase == null) {
             this.type = null;
@@ -145,7 +166,6 @@ public class CoreBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", wrapQuotes(type3), useCapture2, wrapQuotes(listenerScope2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", wrapQuotes(type3), useCapture2, wrapQuotes(listenerScope2)));
                 js.setLength(0);
@@ -155,6 +175,9 @@ public class CoreBase extends JsObject {
 
     private String key;
 
+    /**
+     * Removes an event listener which was added with listen() by the key returned by listen() or listenOnce().
+     */
     public void unlistenByKey(String key) {
         if (jsBase == null) {
             this.key = key;
@@ -166,7 +189,6 @@ public class CoreBase extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", wrapQuotes(key)));
                 js.setLength(0);
@@ -174,8 +196,6 @@ public class CoreBase extends JsObject {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -193,34 +213,6 @@ public class CoreBase extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJSuseCapture());
-////        
-//            js.append(generateJSlistenerScope());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJSuseCapture1());
-////        
-//            js.append(generateJSlistenerScope1());
-////        
-//            js.append(generateJStype2());
-////        
-//            js.append(generateJStype3());
-////        
-//            js.append(generateJSuseCapture2());
-////        
-//            js.append(generateJSlistenerScope2());
-////        
-//            js.append(generateJSkey());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,26 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Text class.<br>
+<b>Do not invoke constructor directly.</b> Use {@link anychart.graphics.vector.Stage#text} or
+{@link anychart.graphics.vector.Layer#text} to create layer or stage bound text.
+<br/> Use {@link anychart.graphics#text} to create unbound text.<br/>
+See also:<br/>
+{@link anychart.graphics.vector.Stage#text},<br/>
+{@link anychart.graphics.vector.Layer#text},<br/>
+{@link anychart.graphics#text}
+ */
 public class VectorText extends Element {
 
     public VectorText() {
-
+        js.setLength(0);
+        js.append("var vectorText").append(++variableIndex).append(" = anychart.graphics.vector.text();");
+        jsBase = "vectorText" + variableIndex;
     }
 
     protected VectorText(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +37,16 @@ public class VectorText extends Element {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String color;
 
+    /**
+     * Setter for the text color.
+     */
     public VectorText setColor(String color) {
         if (jsBase == null) {
             this.color = color;
@@ -38,7 +58,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
@@ -50,6 +69,9 @@ public class VectorText extends Element {
     private Decoration decoration;
     private String decoration1;
 
+    /**
+     * Setter for text decoration.
+     */
     public VectorText setDecoration(Decoration decoration) {
         if (jsBase == null) {
             this.decoration = null;
@@ -64,7 +86,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".decoration(%s)", ((decoration != null) ? decoration.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".decoration(%s)", ((decoration != null) ? decoration.generateJs() : "null")));
                 js.setLength(0);
@@ -74,6 +95,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for text decoration.
+     */
     public VectorText setDecoration(String decoration1) {
         if (jsBase == null) {
             this.decoration = null;
@@ -88,7 +112,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".decoration(%s)", wrapQuotes(decoration1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".decoration(%s)", wrapQuotes(decoration1)));
                 js.setLength(0);
@@ -100,6 +123,9 @@ public class VectorText extends Element {
     private Direction direction;
     private String direction1;
 
+    /**
+     * Setter for text direction.
+     */
     public VectorText setDirection(Direction direction) {
         if (jsBase == null) {
             this.direction = null;
@@ -114,7 +140,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".direction(%s)", ((direction != null) ? direction.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".direction(%s)", ((direction != null) ? direction.generateJs() : "null")));
                 js.setLength(0);
@@ -124,6 +149,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for text direction.
+     */
     public VectorText setDirection(String direction1) {
         if (jsBase == null) {
             this.direction = null;
@@ -138,7 +166,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".direction(%s)", wrapQuotes(direction1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".direction(%s)", wrapQuotes(direction1)));
                 js.setLength(0);
@@ -149,6 +176,9 @@ public class VectorText extends Element {
 
     private String fontFamily;
 
+    /**
+     * Setter for font family of text.
+     */
     public VectorText setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
@@ -160,7 +190,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
                 js.setLength(0);
@@ -172,6 +201,9 @@ public class VectorText extends Element {
     private String fontSize;
     private Double fontSize1;
 
+    /**
+     * Setter for font size of text.
+     */
     public VectorText setFontSize(String fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -186,7 +218,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
                 js.setLength(0);
@@ -196,6 +227,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for font size of text.
+     */
     public VectorText setFontSize(Double fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -210,7 +244,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize1));
                 js.setLength(0);
@@ -222,6 +255,9 @@ public class VectorText extends Element {
     private TextFontStyle fontStyle;
     private String fontStyle1;
 
+    /**
+     * Setter for font style of text.
+     */
     public VectorText setFontStyle(TextFontStyle fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -236,7 +272,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
                 js.setLength(0);
@@ -246,6 +281,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for font style of text.
+     */
     public VectorText setFontStyle(String fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -260,7 +298,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
                 js.setLength(0);
@@ -272,6 +309,9 @@ public class VectorText extends Element {
     private TextFontVariant fontVariant;
     private String fontVariant1;
 
+    /**
+     * Setter for font variant of text.
+     */
     public VectorText setFontVariant(TextFontVariant fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -286,7 +326,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
                 js.setLength(0);
@@ -296,6 +335,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for font variant of text.
+     */
     public VectorText setFontVariant(String fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -310,7 +352,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
                 js.setLength(0);
@@ -322,6 +363,9 @@ public class VectorText extends Element {
     private String fontWeight;
     private Double fontWeight1;
 
+    /**
+     * Setter for font weight of text.
+     */
     public VectorText setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -336,7 +380,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
                 js.setLength(0);
@@ -346,6 +389,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for font weight of text.
+     */
     public VectorText setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -360,7 +406,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
@@ -372,6 +417,9 @@ public class VectorText extends Element {
     private TextHAlign hAlign;
     private String hAlign1;
 
+    /**
+     * Setter for horizontal align of text.
+     */
     public VectorText setHAlign(TextHAlign hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
@@ -386,7 +434,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
                 js.setLength(0);
@@ -396,6 +443,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for horizontal align of text.
+     */
     public VectorText setHAlign(String hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
@@ -410,7 +460,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
                 js.setLength(0);
@@ -422,6 +471,9 @@ public class VectorText extends Element {
     private Double height;
     private String height1;
 
+    /**
+     * Sets a height.
+     */
     public VectorText setHeight(Double height) {
         if (jsBase == null) {
             this.height = null;
@@ -436,7 +488,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -446,6 +497,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Sets a height.
+     */
     public VectorText setHeight(String height1) {
         if (jsBase == null) {
             this.height = null;
@@ -460,7 +514,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
@@ -471,6 +524,9 @@ public class VectorText extends Element {
 
     private String htmlText;
 
+    /**
+     * Setter for the HTML format.
+     */
     public VectorText setHtmlText(String htmlText) {
         if (jsBase == null) {
             this.htmlText = htmlText;
@@ -482,7 +538,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".htmlText(%s)", wrapQuotes(htmlText)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".htmlText(%s)", wrapQuotes(htmlText)));
                 js.setLength(0);
@@ -494,6 +549,9 @@ public class VectorText extends Element {
     private String letterSpacing;
     private Double letterSpacing1;
 
+    /**
+     * Setter for letter spacing of text.
+     */
     public VectorText setLetterSpacing(String letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = null;
@@ -508,7 +566,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
                 js.setLength(0);
@@ -518,6 +575,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for letter spacing of text.
+     */
     public VectorText setLetterSpacing(Double letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
@@ -532,7 +592,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
                 js.setLength(0);
@@ -544,6 +603,9 @@ public class VectorText extends Element {
     private String lineHeight;
     private Double lineHeight1;
 
+    /**
+     * Sets line height, either as ratio or in pixels.
+     */
     public VectorText setLineHeight(String lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
@@ -558,7 +620,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
                 js.setLength(0);
@@ -568,6 +629,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Sets line height, either as ratio or in pixels.
+     */
     public VectorText setLineHeight(Double lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
@@ -582,7 +646,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
                 js.setLength(0);
@@ -593,6 +656,9 @@ public class VectorText extends Element {
 
     private Double opacity;
 
+    /**
+     * Setter for text opacity.
+     */
     public VectorText setOpacity(Double opacity) {
         if (jsBase == null) {
             this.opacity = opacity;
@@ -604,7 +670,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".opacity(%f)", opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".opacity(%f)", opacity));
                 js.setLength(0);
@@ -615,6 +680,9 @@ public class VectorText extends Element {
 
     private Path getPath;
 
+    /**
+     * Getter for the path element.
+     */
     public Path getPath() {
         if (getPath == null)
             getPath = new Path(jsBase + ".path()");
@@ -624,20 +692,24 @@ public class VectorText extends Element {
 
     private Path path;
 
+    /**
+     * Setter for the path element.
+     */
     public VectorText setPath(Path path) {
         if (jsBase == null) {
             this.path = path;
         } else {
             this.path = path;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(path.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".path(%s)", ((path != null) ? path.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".path(%s);",  ((path != null) ? path.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".path(%s)", ((path != null) ? path.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".path(%s)", ((path != null) ? path.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -646,6 +718,10 @@ public class VectorText extends Element {
 
     private Boolean selectable;
 
+    /**
+     * Setter for the text selectable property.<br/>
+Defines whether text can be selected. If <b>false</b> - no selection.
+     */
     public VectorText setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
@@ -657,7 +733,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
@@ -668,6 +743,9 @@ public class VectorText extends Element {
 
     private String text;
 
+    /**
+     * Setter for the text.
+     */
     public VectorText setText(String text) {
         if (jsBase == null) {
             this.text = text;
@@ -679,7 +757,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
                 js.setLength(0);
@@ -690,6 +767,10 @@ public class VectorText extends Element {
 
     private Double textIndent;
 
+    /**
+     * Setter for text indent.<br/>
+The text-indent property specifies the indentation of the first line in a text-block.
+     */
     public VectorText setTextIndent(Double textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
@@ -701,7 +782,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
@@ -713,6 +793,9 @@ public class VectorText extends Element {
     private TextOverflow textOverflow;
     private String textOverflow1;
 
+    /**
+     * Setter for the text overflow mode.
+     */
     public VectorText setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
@@ -727,7 +810,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
                 js.setLength(0);
@@ -737,6 +819,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for the text overflow mode.
+     */
     public VectorText setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
@@ -751,7 +836,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
                 js.setLength(0);
@@ -763,6 +847,9 @@ public class VectorText extends Element {
     private TextVAlign vAlign;
     private String vAlign1;
 
+    /**
+     * Setter for vertical align of text.
+     */
     public VectorText setVAlign(TextVAlign vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
@@ -777,7 +864,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
                 js.setLength(0);
@@ -787,6 +873,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for vertical align of text.
+     */
     public VectorText setVAlign(String vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
@@ -801,7 +890,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
                 js.setLength(0);
@@ -813,6 +901,9 @@ public class VectorText extends Element {
     private Double width;
     private String width1;
 
+    /**
+     * Sets a width.
+     */
     public VectorText setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
@@ -827,7 +918,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -837,6 +927,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Sets a width.
+     */
     public VectorText setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
@@ -851,7 +944,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
@@ -863,6 +955,9 @@ public class VectorText extends Element {
     private String wordBreak;
     private TextWordBreak wordBreak1;
 
+    /**
+     * Setter for word break of text.
+     */
     public VectorText setWordBreak(String wordBreak) {
         if (jsBase == null) {
             this.wordBreak = null;
@@ -877,7 +972,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak)));
                 js.setLength(0);
@@ -887,6 +981,9 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for word break of text.
+     */
     public VectorText setWordBreak(TextWordBreak wordBreak1) {
         if (jsBase == null) {
             this.wordBreak = null;
@@ -901,7 +998,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak1 != null) ? wordBreak1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak1 != null) ? wordBreak1.generateJs() : "null")));
                 js.setLength(0);
@@ -913,6 +1009,10 @@ public class VectorText extends Element {
     private String wordWrap;
     private TextWordWrap wordWrap1;
 
+    /**
+     * Setter for word-wrap of text.
+More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-wrap Property</a>
+     */
     public VectorText setWordWrap(String wordWrap) {
         if (jsBase == null) {
             this.wordWrap = null;
@@ -927,7 +1027,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap)));
                 js.setLength(0);
@@ -937,6 +1036,10 @@ public class VectorText extends Element {
     }
 
 
+    /**
+     * Setter for word-wrap of text.
+More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-wrap Property</a>
+     */
     public VectorText setWordWrap(TextWordWrap wordWrap1) {
         if (jsBase == null) {
             this.wordWrap = null;
@@ -951,7 +1054,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap1 != null) ? wordWrap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap1 != null) ? wordWrap1.generateJs() : "null")));
                 js.setLength(0);
@@ -962,6 +1064,9 @@ public class VectorText extends Element {
 
     private Double x;
 
+    /**
+     * Setter for X coordinate of text.
+     */
     public VectorText setX(Double x) {
         if (jsBase == null) {
             this.x = x;
@@ -973,7 +1078,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".x(%f)", x));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".x(%f)", x));
                 js.setLength(0);
@@ -984,6 +1088,9 @@ public class VectorText extends Element {
 
     private Double y;
 
+    /**
+     * Setter for Y coordinate of text.
+     */
     public VectorText setY(Double y) {
         if (jsBase == null) {
             this.y = y;
@@ -995,7 +1102,6 @@ public class VectorText extends Element {
             }
 
             js.append(String.format(Locale.US, ".y(%f)", y));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".y(%f)", y));
                 js.setLength(0);
@@ -1004,19 +1110,9 @@ public class VectorText extends Element {
         return this;
     }
 
-
-//
-//    private String generateJSPath getPath() {
-//        if (Path getPath != null) {
-//            return Path getPath.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetPath() {
         if (getPath != null) {
             return getPath.generateJs();
-            //return String.format(Locale.US, "getPath: %s,", ((getPath != null) ? getPath.generateJs() : "null"));
         }
         return "";
     }
@@ -1039,92 +1135,6 @@ public class VectorText extends Element {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSdecoration());
-////        
-//            js.append(generateJSdecoration1());
-////        
-//            js.append(generateJSdirection());
-////        
-//            js.append(generateJSdirection1());
-////        
-//            js.append(generateJSfontFamily());
-////        
-//            js.append(generateJSfontSize());
-////        
-//            js.append(generateJSfontSize1());
-////        
-//            js.append(generateJSfontStyle());
-////        
-//            js.append(generateJSfontStyle1());
-////        
-//            js.append(generateJSfontVariant());
-////        
-//            js.append(generateJSfontVariant1());
-////        
-//            js.append(generateJSfontWeight());
-////        
-//            js.append(generateJSfontWeight1());
-////        
-//            js.append(generateJShAlign());
-////        
-//            js.append(generateJShAlign1());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJShtmlText());
-////        
-//            js.append(generateJSletterSpacing());
-////        
-//            js.append(generateJSletterSpacing1());
-////        
-//            js.append(generateJSlineHeight());
-////        
-//            js.append(generateJSlineHeight1());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSpath());
-////        
-//            js.append(generateJSselectable());
-////        
-//            js.append(generateJStext());
-////        
-//            js.append(generateJStextIndent());
-////        
-//            js.append(generateJStextOverflow());
-////        
-//            js.append(generateJStextOverflow1());
-////        
-//            js.append(generateJSvAlign());
-////        
-//            js.append(generateJSvAlign1());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-////        
-//            js.append(generateJSwordBreak());
-////        
-//            js.append(generateJSwordBreak1());
-////        
-//            js.append(generateJSwordWrap());
-////        
-//            js.append(generateJSwordWrap1());
-////        
-//            js.append(generateJSx());
-////        
-//            js.append(generateJSy());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

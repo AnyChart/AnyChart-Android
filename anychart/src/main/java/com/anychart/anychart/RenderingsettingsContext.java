@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Rendering functions context.
+ */
 public class RenderingsettingsContext extends JsObject {
 
     public RenderingsettingsContext() {
-
+        js.setLength(0);
+        js.append("var renderingsettingsContext").append(++variableIndex).append(" = anychart.core.series.RenderingSettings.context();");
+        jsBase = "renderingsettingsContext" + variableIndex;
     }
 
     protected RenderingsettingsContext(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,12 +30,19 @@ public class RenderingsettingsContext extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private PointState state;
     private String state1;
     private Double baseZIndex;
     private String restrictShapes;
 
+    /**
+     * Generates a shapes group.
+     */
     public void getShapesGroup(PointState state, Double baseZIndex, String restrictShapes) {
         if (jsBase == null) {
             this.state = null;
@@ -48,7 +61,6 @@ public class RenderingsettingsContext extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
                 js.setLength(0);
@@ -57,6 +69,9 @@ public class RenderingsettingsContext extends JsObject {
     }
 
 
+    /**
+     * Generates a shapes group.
+     */
     public void getShapesGroup(String state1, Double baseZIndex, String restrictShapes) {
         if (jsBase == null) {
             this.state = null;
@@ -75,7 +90,6 @@ public class RenderingsettingsContext extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
                 js.setLength(0);
@@ -85,6 +99,9 @@ public class RenderingsettingsContext extends JsObject {
 
     private String key;
 
+    /**
+     * Fetch statistics value by its key or a whole object if no key provided.
+     */
     public void getStat(String key) {
         if (jsBase == null) {
             this.key = key;
@@ -96,7 +113,6 @@ public class RenderingsettingsContext extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", wrapQuotes(key)));
                 js.setLength(0);
@@ -104,8 +120,6 @@ public class RenderingsettingsContext extends JsObject {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -123,22 +137,6 @@ public class RenderingsettingsContext extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSstate());
-////        
-//            js.append(generateJSstate1());
-////        
-//            js.append(generateJSbaseZIndex());
-////        
-//            js.append(generateJSrestrictShapes());
-////        
-//            js.append(generateJSkey());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Define Logarithmic scale.<br/>
+<b>Note:</b> To create instance use {@link anychart.scales#log} method.
+ */
 public class Logarithmic extends ScalesLinear {
 
     public Logarithmic() {
-
+        js.setLength(0);
+        js.append("var logarithmic").append(++variableIndex).append(" = anychart.scales.logarithmic();");
+        jsBase = "logarithmic" + variableIndex;
     }
 
     protected Logarithmic(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,17 @@ public class Logarithmic extends ScalesLinear {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double logBase;
 
+    /**
+     * Setter for Log base value.<br/>
+<b>Note:</b> Affects tick values auto calculation.
+     */
     public Logarithmic setLogBase(Double logBase) {
         if (jsBase == null) {
             this.logBase = logBase;
@@ -38,7 +53,6 @@ public class Logarithmic extends ScalesLinear {
             }
 
             js.append(String.format(Locale.US, ".logBase(%f)", logBase));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".logBase(%f)", logBase));
                 js.setLength(0);
@@ -47,8 +61,6 @@ public class Logarithmic extends ScalesLinear {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -66,14 +78,6 @@ public class Logarithmic extends ScalesLinear {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSlogBase());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

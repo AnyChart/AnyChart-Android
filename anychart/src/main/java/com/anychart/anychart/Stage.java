@@ -8,13 +8,31 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * This class provide tools for cross-browser display with the single interface for both (SVG and VML).<br/>
+<b>Do not invoke constructor directly.</b> Use {@link anychart.graphics#create}.<br/>
+<p><b>Note:</b><br/>
+{@link anychart.graphics.vector.Stage} delegates all work with DOM elements, style and attributes
+to its renderer. You can get renderer using <a href="anychart.graphics.vector.Stage#getRenderer">getRenderer
+</a> method.<br/>
+<strong>Note:</strong> Renderer is a singleton must not contain own fields.
+</p><p>
+<b>Rendering:</b><br/>
+{@link anychart.graphics.vector.Stage} has the <code>rootLayer_</code> private field of <a href="anychart.graphics.vector.Layer">Layer</a>
+type. All layers and elements you add to a stage go there, so rendering and other stuff happens
+when this layer is rendered.
+</p>
+ */
 public class Stage extends JsObject {
 
     public Stage() {
-
+        js.setLength(0);
+        js.append("var stage").append(++variableIndex).append(" = anychart.graphics.vector.stage();");
+        jsBase = "stage" + variableIndex;
     }
 
     protected Stage(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,23 +42,32 @@ public class Stage extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Element element;
 
+    /**
+     * Adds an element.<br/>
+Similar to {@link anychart.graphics.vector.Layer#addChild}
+     */
     public Stage addChild(Element element) {
         if (jsBase == null) {
             this.element = element;
         } else {
             this.element = element;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(element.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".addChild(%s)", ((element != null) ? element.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".addChild(%s);",  ((element != null) ? element.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", ((element != null) ? element.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", ((element != null) ? element.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -50,6 +77,10 @@ public class Stage extends JsObject {
     private Element element1;
     private Double index;
 
+    /**
+     * Adds an element by index.<br/>
+Similar to {@link anychart.graphics.vector.Layer#addChildAt}
+     */
     public Stage addChildAt(Element element1, Double index) {
         if (jsBase == null) {
             this.element = null;
@@ -66,7 +97,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.generateJs() : "null"), index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.generateJs() : "null"), index));
                 js.setLength(0);
@@ -82,6 +112,11 @@ public class Stage extends JsObject {
     private Double m4;
     private Double m5;
 
+    /**
+     * Combines current transformation with another.<br/>
+Combination is done by multiplying matrix to the right.<br/>
+Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix}.
+     */
     public Stage appendTransformationMatrix(Double m, Double m1, Double m2, Double m3, Double m4, Double m5) {
         if (jsBase == null) {
             this.m = null;
@@ -145,7 +180,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
                 js.setLength(0);
@@ -156,6 +190,9 @@ public class Stage extends JsObject {
 
     private Boolean asyncMode;
 
+    /**
+     * Setter for the stage rendering mode.
+     */
     public Stage setAsyncMode(Boolean asyncMode) {
         if (jsBase == null) {
             this.asyncMode = asyncMode;
@@ -167,7 +204,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".asyncMode(%b)", asyncMode));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".asyncMode(%b)", asyncMode));
                 js.setLength(0);
@@ -180,6 +216,12 @@ public class Stage extends JsObject {
     private Double cy;
     private Double radius;
 
+    /**
+     * Invokes {@link anychart.graphics.vector.Circle} constructor.<br/>
+<strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
+You must delete them yourself after you finish using them.<br/>
+Read more at: {@link anychart.graphics.vector.Circle}
+     */
     public Circle circle(Double cx, Double cy, Double radius) {
         if (jsBase == null) {
             this.cx = cx;
@@ -195,7 +237,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".circle(%f, %f, %f);", cx, cy, radius));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".circle(%f, %f, %f)", cx, cy, radius));
                 js.setLength(0);
@@ -206,6 +247,11 @@ public class Stage extends JsObject {
 
     private GraphicsMathRect getClip;
 
+    /**
+     * Gets clip bounds.<br/>
+Works only after render() is invoked.<br/>
+Read more at: {@link anychart.graphics.vector.Element#clip}.
+     */
     public GraphicsMathRect getClip() {
         if (getClip == null)
             getClip = new GraphicsMathRect(jsBase + ".clip()");
@@ -215,20 +261,26 @@ public class Stage extends JsObject {
 
     private GraphicsMathRect clip;
 
+    /**
+     * Clips a stage.<br/>
+Works only after render() is invoked.<br/>
+Read more at: {@link anychart.graphics.vector.Element#clip}.
+     */
     public Stage clip(GraphicsMathRect clip) {
         if (jsBase == null) {
             this.clip = clip;
         } else {
             this.clip = clip;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(clip.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".clip(%s)", ((clip != null) ? clip.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".clip(%s);",  ((clip != null) ? clip.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", ((clip != null) ? clip.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", ((clip != null) ? clip.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -237,20 +289,24 @@ public class Stage extends JsObject {
 
     private Element container;
 
+    /**
+     * Sets DOM element where everything is drawn upon rendering.
+     */
     public Stage setContainer(Element container) {
         if (jsBase == null) {
             this.container = container;
         } else {
             this.container = container;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container != null) ? container.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -261,6 +317,9 @@ public class Stage extends JsObject {
     private GraphicsMathRect rect1;
     private String rect2;
 
+    /**
+     * Creates a clip element using single value.
+     */
     public Clip createClip(Double[] rect) {
         if (jsBase == null) {
             this.rect = null;
@@ -276,7 +335,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".createClip(%s);", Arrays.toString(rect)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s)", Arrays.toString(rect)));
                 js.setLength(0);
@@ -286,6 +344,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Creates a clip element using single value.
+     */
     public Clip createClip(GraphicsMathRect rect1) {
         if (jsBase == null) {
             this.rect = null;
@@ -299,11 +360,12 @@ public class Stage extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(rect1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".createClip(%s);", ((rect1 != null) ? rect1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".createClip(%s);",  ((rect1 != null) ? rect1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s)", ((rect1 != null) ? rect1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s)", ((rect1 != null) ? rect1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -311,6 +373,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Creates a clip element using single value.
+     */
     public Clip createClip(String rect2) {
         if (jsBase == null) {
             this.rect = null;
@@ -326,7 +391,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".createClip(%s);", wrapQuotes(rect2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s)", wrapQuotes(rect2)));
                 js.setLength(0);
@@ -340,6 +404,9 @@ public class Stage extends JsObject {
     private Double width;
     private Double height;
 
+    /**
+     * Creates a clip element using several value.
+     */
     public Clip createClip(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
@@ -357,7 +424,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".createClip(%f, %f, %f, %f);", left, top, width, height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
@@ -368,6 +434,9 @@ public class Stage extends JsObject {
 
     private StageCredits getCredits;
 
+    /**
+     * Getter for stage credits.
+     */
     public StageCredits getCredits() {
         if (getCredits == null)
             getCredits = new StageCredits(jsBase + ".credits()");
@@ -378,6 +447,10 @@ public class Stage extends JsObject {
     private String credits;
     private Boolean credits1;
 
+    /**
+     * Setter for stage credits.
+{docs:Quick_Start/Credits}Learn more about credits settings.{docs}
+     */
     public Stage setCredits(String credits) {
         if (jsBase == null) {
             this.credits = null;
@@ -392,7 +465,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".credits(%s)", wrapQuotes(credits)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".credits(%s)", wrapQuotes(credits)));
                 js.setLength(0);
@@ -402,6 +474,10 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Setter for stage credits.
+{docs:Quick_Start/Credits}Learn more about credits settings.{docs}
+     */
     public Stage setCredits(Boolean credits1) {
         if (jsBase == null) {
             this.credits = null;
@@ -416,7 +492,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".credits(%b)", credits1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".credits(%b)", credits1));
                 js.setLength(0);
@@ -427,6 +502,14 @@ public class Stage extends JsObject {
 
     private String data;
 
+    /**
+     * Deserialize JSON. Objects are created and rendered to the current stage.<br/>
+<b>Note:</b> All settings except events and handlers are serialized. JSON object
+must be conformed with JSON schema (can be found in the project root). No checks are done
+when we deserialize - JSON schema does this. JSON schema is created in
+<a href='https://tools.ietf.org/html/draft-zyp-json-schema-04'>4-th version of standard</a>
+<a href='http://json-schema.org/'>JSON schema</a>.
+     */
     public Stage data(String data) {
         if (jsBase == null) {
             this.data = data;
@@ -438,7 +521,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".data(%s)", wrapQuotes(data)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".data(%s)", wrapQuotes(data)));
                 js.setLength(0);
@@ -449,6 +531,9 @@ public class Stage extends JsObject {
 
     private String desc;
 
+    /**
+     * Setter for the element desc value.
+     */
     public Stage setDesc(String desc) {
         if (jsBase == null) {
             this.desc = desc;
@@ -460,7 +545,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".desc(%s)", wrapQuotes(desc)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".desc(%s)", wrapQuotes(desc)));
                 js.setLength(0);
@@ -474,6 +558,12 @@ public class Stage extends JsObject {
     private Double rx;
     private Double ry;
 
+    /**
+     * Invokes {@link anychart.graphics.vector.Ellipse} constructor.<br/>
+<strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
+You must delete them yourself after you finish using them.<br/>
+Read more at: {@link anychart.graphics.vector.Ellipse}
+     */
     public VectorEllipse ellipse(Double cx1, Double cy1, Double rx, Double ry) {
         if (jsBase == null) {
             this.cx = null;
@@ -497,7 +587,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ellipse(%f, %f, %f, %f);", cx1, cy1, rx, ry));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%f, %f, %f, %f)", cx1, cy1, rx, ry));
                 js.setLength(0);
@@ -508,6 +597,10 @@ public class Stage extends JsObject {
 
     private Double index1;
 
+    /**
+     * Returns an element by index.<br/>
+Similar to {@link anychart.graphics.vector.Layer#getChildAt}
+     */
     public Element getChildAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
@@ -522,7 +615,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getChildAt(%f);", index1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getChildAt(%f)", index1));
                 js.setLength(0);
@@ -536,6 +628,9 @@ public class Stage extends JsObject {
     private Double quality;
     private Boolean forceTransparentWhite;
 
+    /**
+     * Returns JPG as base64 string.
+     */
     public void getJpgBase64String(Double width1, Double height1, Double quality, Boolean forceTransparentWhite) {
         if (jsBase == null) {
             this.width = null;
@@ -559,7 +654,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b);", width1, height1, quality, forceTransparentWhite));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b)", width1, height1, quality, forceTransparentWhite));
                 js.setLength(0);
@@ -574,6 +668,9 @@ public class Stage extends JsObject {
     private Double x;
     private Double y;
 
+    /**
+     * Returns PDF as base64 string.
+     */
     public void getPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -597,7 +694,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f);", paperSizeOrWidth, landscapeOrWidth, x, y));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f)", paperSizeOrWidth, landscapeOrWidth, x, y));
                 js.setLength(0);
@@ -606,6 +702,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Returns PDF as base64 string.
+     */
     public void getPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -629,7 +728,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %f, %f);", paperSizeOrWidth, landscapeOrWidth1, x, y));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %f, %f)", paperSizeOrWidth, landscapeOrWidth1, x, y));
                 js.setLength(0);
@@ -638,6 +736,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Returns PDF as base64 string.
+     */
     public void getPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -661,7 +762,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f);", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth, x, y));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth, x, y));
                 js.setLength(0);
@@ -670,6 +770,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Returns PDF as base64 string.
+     */
     public void getPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -693,7 +796,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %f, %f);", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth1, x, y));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth1, x, y));
                 js.setLength(0);
@@ -705,6 +807,9 @@ public class Stage extends JsObject {
     private Double height2;
     private Double quality1;
 
+    /**
+     * Returns PNG as base64 string.
+     */
     public void getPngBase64String(Double width2, Double height2, Double quality1) {
         if (jsBase == null) {
             this.width = null;
@@ -731,7 +836,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f);", width2, height2, quality1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f)", width2, height2, quality1));
                 js.setLength(0);
@@ -744,6 +848,9 @@ public class Stage extends JsObject {
     private Boolean landscapeOrHeight;
     private String landscapeOrHeight1;
 
+    /**
+     * Returns SVG as base64 string.
+     */
     public void getSvgBase64String(String paperSizeOrWidth2, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -765,7 +872,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b);", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b)", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
                 js.setLength(0);
@@ -774,6 +880,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Returns SVG as base64 string.
+     */
     public void getSvgBase64String(String paperSizeOrWidth2, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -795,7 +904,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s);", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s)", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1)));
                 js.setLength(0);
@@ -804,6 +912,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Returns SVG as base64 string.
+     */
     public void getSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -825,7 +936,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b);", paperSizeOrWidth3, landscapeOrHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b)", paperSizeOrWidth3, landscapeOrHeight));
                 js.setLength(0);
@@ -834,6 +944,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Returns SVG as base64 string.
+     */
     public void getSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -855,7 +968,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s);", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s)", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
                 js.setLength(0);
@@ -865,6 +977,10 @@ public class Stage extends JsObject {
 
     private Element element2;
 
+    /**
+     * Checks if there is such element in children set.<br/>
+Similar to {@link anychart.graphics.vector.Layer#hasChild}
+     */
     public void hasChild(Element element2) {
         if (jsBase == null) {
             this.element = null;
@@ -878,11 +994,12 @@ public class Stage extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(element2.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".hasChild(%s);", ((element2 != null) ? element2.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".hasChild(%s);",  ((element2 != null) ? element2.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hasChild(%s)", ((element2 != null) ? element2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hasChild(%s)", ((element2 != null) ? element2.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -893,6 +1010,12 @@ public class Stage extends JsObject {
     private Double thickness;
     private Double size;
 
+    /**
+     * Invokes {@link anychart.graphics.vector.HatchFill} constructor.
+<strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
+You have to delete them yourself after you finish using them.<br/>
+Read more at: {@link anychart.graphics.vector.HatchFill}
+     */
     public HatchFill hatchFill(HatchFillType type, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.type = type;
@@ -910,7 +1033,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f);", ((type != null) ? type.generateJs() : "null"), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -922,6 +1044,9 @@ public class Stage extends JsObject {
     private String height3;
     private Double height4;
 
+    /**
+     * Sets a stage height.
+     */
     public Stage setHeight(String height3) {
         if (jsBase == null) {
             this.height = null;
@@ -939,7 +1064,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height3)));
                 js.setLength(0);
@@ -949,6 +1073,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Sets a stage height.
+     */
     public Stage setHeight(Double height4) {
         if (jsBase == null) {
             this.height = null;
@@ -966,7 +1093,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height4));
                 js.setLength(0);
@@ -979,6 +1105,12 @@ public class Stage extends JsObject {
     private Double y1;
     private String text;
 
+    /**
+     * Invokes {@link anychart.graphics.vector.Text} and applies {@link anychart.graphics.vector.Text#htmlText} method
+to parse HTML.<br/>
+<strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
+You must delete them yourself after you finish using them.
+     */
     public VectorText html(Double x1, Double y1, String text) {
         if (jsBase == null) {
             this.x = null;
@@ -1000,7 +1132,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".html(%f, %f, %s);", x1, y1, wrapQuotes(text)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".html(%f, %f, %s)", x1, y1, wrapQuotes(text)));
                 js.setLength(0);
@@ -1011,6 +1142,9 @@ public class Stage extends JsObject {
 
     private String id;
 
+    /**
+     * Setter for a stage identifier. Instantly applied to the DOM.
+     */
     public Stage setId(String id) {
         if (jsBase == null) {
             this.id = id;
@@ -1022,7 +1156,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
                 js.setLength(0);
@@ -1037,6 +1170,11 @@ public class Stage extends JsObject {
     private Double width3;
     private Double height5;
 
+    /**
+     * Invokes {@link anychart.graphics.vector.Image} constructor.<br/>
+<strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
+You must delete them yourself after you finish using them.
+     */
     public Image image(String src, Double x2, Double y2, Double width3, Double height5) {
         if (jsBase == null) {
             this.src = src;
@@ -1076,7 +1214,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f);", wrapQuotes(src), x2, y2, width3, height5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f)", wrapQuotes(src), x2, y2, width3, height5));
                 js.setLength(0);
@@ -1087,6 +1224,10 @@ public class Stage extends JsObject {
 
     private Element element3;
 
+    /**
+     * Returns index of a child.<br/>
+Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
+     */
     public void indexOfChild(Element element3) {
         if (jsBase == null) {
             this.element = null;
@@ -1101,11 +1242,12 @@ public class Stage extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(element3.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".indexOfChild(%s);", ((element3 != null) ? element3.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".indexOfChild(%s);",  ((element3 != null) ? element3.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", ((element3 != null) ? element3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", ((element3 != null) ? element3.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1116,6 +1258,9 @@ public class Stage extends JsObject {
     private Boolean useCapture;
     private String listenerScope;
 
+    /**
+     * Adds an event listener to a stage.
+     */
     public void listen(String type1, Boolean useCapture, String listenerScope) {
         if (jsBase == null) {
             this.type = null;
@@ -1135,7 +1280,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", wrapQuotes(type1), useCapture, wrapQuotes(listenerScope)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type1), useCapture, wrapQuotes(listenerScope)));
                 js.setLength(0);
@@ -1144,6 +1288,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Adds an event listener to a stage.
+     */
     public void listen(StageEventType type2, Boolean useCapture, String listenerScope) {
         if (jsBase == null) {
             this.type = null;
@@ -1163,7 +1310,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", ((type2 != null) ? type2.generateJs() : "null"), useCapture, wrapQuotes(listenerScope)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", ((type2 != null) ? type2.generateJs() : "null"), useCapture, wrapQuotes(listenerScope)));
                 js.setLength(0);
@@ -1176,6 +1322,9 @@ public class Stage extends JsObject {
     private Boolean useCapture1;
     private String listenerScope1;
 
+    /**
+     * Adds an event listener that is removed automatically after the listener fired once.
+     */
     public void listenOnce(String type3, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
@@ -1203,7 +1352,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", wrapQuotes(type3), useCapture1, wrapQuotes(listenerScope1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", wrapQuotes(type3), useCapture1, wrapQuotes(listenerScope1)));
                 js.setLength(0);
@@ -1212,6 +1360,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Adds an event listener that is removed automatically after the listener fired once.
+     */
     public void listenOnce(StageEventType type4, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
@@ -1239,7 +1390,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", ((type4 != null) ? type4.generateJs() : "null"), useCapture1, wrapQuotes(listenerScope1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", ((type4 != null) ? type4.generateJs() : "null"), useCapture1, wrapQuotes(listenerScope1)));
                 js.setLength(0);
@@ -1249,6 +1399,9 @@ public class Stage extends JsObject {
 
     private Double maxResizeDelay;
 
+    /**
+     * Setter for max delay.
+     */
     public Stage setMaxResizeDelay(Double maxResizeDelay) {
         if (jsBase == null) {
             this.maxResizeDelay = maxResizeDelay;
@@ -1260,7 +1413,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".maxResizeDelay(%f)", maxResizeDelay));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxResizeDelay(%f)", maxResizeDelay));
                 js.setLength(0);
@@ -1271,6 +1423,12 @@ public class Stage extends JsObject {
 
     private GraphicsMathRect bounds;
 
+    /**
+     * Invokes {@link anychart.graphics.vector.PatternFill}.<br/>
+<strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
+You must delete them yourself after you finish using them.<br/>
+Read more at: {@link anychart.graphics.vector.PatternFill}
+     */
     public PatternFill pattern(GraphicsMathRect bounds) {
         if (jsBase == null) {
             this.bounds = bounds;
@@ -1280,11 +1438,12 @@ public class Stage extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(bounds.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".pattern(%s);", ((bounds != null) ? bounds.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".pattern(%s);",  ((bounds != null) ? bounds.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pattern(%s)", ((bounds != null) ? bounds.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pattern(%s)", ((bounds != null) ? bounds.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1296,6 +1455,9 @@ public class Stage extends JsObject {
     private Boolean landscapeOrHeight2;
     private String landscapeOrHeight3;
 
+    /**
+     * Print stage.
+     */
     public void print(String paperSizeOrWidth4, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -1321,7 +1483,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", wrapQuotes(paperSizeOrWidth4), landscapeOrHeight2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", wrapQuotes(paperSizeOrWidth4), landscapeOrHeight2));
                 js.setLength(0);
@@ -1330,6 +1491,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Print stage.
+     */
     public void print(String paperSizeOrWidth4, String landscapeOrHeight3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -1355,7 +1519,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".print(%s, %s);", wrapQuotes(paperSizeOrWidth4), wrapQuotes(landscapeOrHeight3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %s)", wrapQuotes(paperSizeOrWidth4), wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
@@ -1364,6 +1527,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Print stage.
+     */
     public void print(Double paperSizeOrWidth5, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -1389,7 +1555,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".print(%f, %b);", paperSizeOrWidth5, landscapeOrHeight2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%f, %b)", paperSizeOrWidth5, landscapeOrHeight2));
                 js.setLength(0);
@@ -1398,6 +1563,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Print stage.
+     */
     public void print(Double paperSizeOrWidth5, String landscapeOrHeight3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -1423,7 +1591,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".print(%f, %s);", paperSizeOrWidth5, wrapQuotes(landscapeOrHeight3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%f, %s)", paperSizeOrWidth5, wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
@@ -1436,6 +1603,11 @@ public class Stage extends JsObject {
     private Double width4;
     private Double height6;
 
+    /**
+     * Invokes {@link anychart.graphics.vector.Rect} constructor.<br/>
+<strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
+You must delete them yourself after you finish using them.
+     */
     public VectorRect rect(Double x3, Double y3, Double width4, Double height6) {
         if (jsBase == null) {
             this.x = null;
@@ -1477,7 +1649,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rect(%f, %f, %f, %f);", x3, y3, width4, height6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rect(%f, %f, %f, %f)", x3, y3, width4, height6));
                 js.setLength(0);
@@ -1488,6 +1659,9 @@ public class Stage extends JsObject {
 
     private String type5;
 
+    /**
+     * Removes all listeners from an object. You can also optionally remove listeners of some particular type.
+     */
     public void removeAllListeners(String type5) {
         if (jsBase == null) {
             this.type = null;
@@ -1506,7 +1680,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", wrapQuotes(type5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s)", wrapQuotes(type5)));
                 js.setLength(0);
@@ -1516,6 +1689,10 @@ public class Stage extends JsObject {
 
     private Element element4;
 
+    /**
+     * Removes an element.<br/>
+Similar to {@link anychart.graphics.vector.Layer#removeChild}
+     */
     public Element removeChild(Element element4) {
         if (jsBase == null) {
             this.element = null;
@@ -1531,11 +1708,12 @@ public class Stage extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(element4.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".removeChild(%s);", ((element4 != null) ? element4.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".removeChild(%s);",  ((element4 != null) ? element4.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((element4 != null) ? element4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((element4 != null) ? element4.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1544,6 +1722,10 @@ public class Stage extends JsObject {
 
     private Double index2;
 
+    /**
+     * Removes an element by index.<br/>
+Similar to {@link anychart.graphics.vector.Layer#removeChildAt}
+     */
     public Element removeChildAt(Double index2) {
         if (jsBase == null) {
             this.index = null;
@@ -1559,7 +1741,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index2));
                 js.setLength(0);
@@ -1573,6 +1754,10 @@ public class Stage extends JsObject {
     private Double height7;
     private String height8;
 
+    /**
+     * Stage resize. Anything drawn on stage must fit in it.
+So any part that doesn't fit will be clipped.
+     */
     public void resize(Double width5, Double height7) {
         if (jsBase == null) {
             this.width = null;
@@ -1604,7 +1789,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".resize(%f, %f);", width5, height7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%f, %f)", width5, height7));
                 js.setLength(0);
@@ -1613,6 +1797,10 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Stage resize. Anything drawn on stage must fit in it.
+So any part that doesn't fit will be clipped.
+     */
     public void resize(Double width5, String height8) {
         if (jsBase == null) {
             this.width = null;
@@ -1644,7 +1832,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".resize(%f, %s);", width5, wrapQuotes(height8)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%f, %s)", width5, wrapQuotes(height8)));
                 js.setLength(0);
@@ -1653,6 +1840,10 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Stage resize. Anything drawn on stage must fit in it.
+So any part that doesn't fit will be clipped.
+     */
     public void resize(String width6, Double height7) {
         if (jsBase == null) {
             this.width = null;
@@ -1684,7 +1875,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".resize(%s, %f);", wrapQuotes(width6), height7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%s, %f)", wrapQuotes(width6), height7));
                 js.setLength(0);
@@ -1693,6 +1883,10 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Stage resize. Anything drawn on stage must fit in it.
+So any part that doesn't fit will be clipped.
+     */
     public void resize(String width6, String height8) {
         if (jsBase == null) {
             this.width = null;
@@ -1724,7 +1918,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".resize(%s, %s);", wrapQuotes(width6), wrapQuotes(height8)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%s, %s)", wrapQuotes(width6), wrapQuotes(height8)));
                 js.setLength(0);
@@ -1734,6 +1927,10 @@ public class Stage extends JsObject {
 
     private Boolean force;
 
+    /**
+     * Removes suspend state and applies all changes in sync (if any).<br/>
+Read more at {@link anychart.graphics.vector.Stage#suspend}.
+     */
     public Stage resume(Boolean force) {
         if (jsBase == null) {
             this.force = force;
@@ -1745,7 +1942,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".resume(%b)", force));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".resume(%b)", force));
                 js.setLength(0);
@@ -1758,6 +1954,10 @@ public class Stage extends JsObject {
     private Double cx2;
     private Double cy2;
 
+    /**
+     * Rotates root layer.<br/>
+Read more at: {@link anychart.graphics.vector.Element#rotate}.
+     */
     public Stage rotate(Double degrees, Double cx2, Double cy2) {
         if (jsBase == null) {
             this.degrees = degrees;
@@ -1781,7 +1981,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx2, cy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx2, cy2));
                 js.setLength(0);
@@ -1794,6 +1993,10 @@ public class Stage extends JsObject {
     private VectorAnchor anchor;
     private String anchor1;
 
+    /**
+     * Rotates root layer around an anchor.<br/>
+Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
+     */
     public Stage rotateByAnchor(VectorAnchor anchor, Double degrees1) {
         if (jsBase == null) {
             this.anchor = null;
@@ -1813,7 +2016,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rotateByAnchor(%s, %f)", ((anchor != null) ? anchor.generateJs() : "null"), degrees1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%s, %f)", ((anchor != null) ? anchor.generateJs() : "null"), degrees1));
                 js.setLength(0);
@@ -1823,6 +2025,10 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Rotates root layer around an anchor.<br/>
+Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
+     */
     public Stage rotateByAnchor(String anchor1, Double degrees1) {
         if (jsBase == null) {
             this.anchor = null;
@@ -1842,7 +2048,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rotateByAnchor(%s, %f)", wrapQuotes(anchor1), degrees1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%s, %f)", wrapQuotes(anchor1), degrees1));
                 js.setLength(0);
@@ -1857,6 +2062,10 @@ public class Stage extends JsObject {
     private Boolean forceTransparentWhite1;
     private String filename;
 
+    /**
+     * Saves the current stage as JPG Image.<br/>
+For export to image JPG use {@link anychart#server}.
+     */
     public void saveAsJpg(Double width7, Double height9, Double quality2, Boolean forceTransparentWhite1, String filename) {
         if (jsBase == null) {
             this.width = null;
@@ -1903,7 +2112,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s);", width7, height9, quality2, forceTransparentWhite1, wrapQuotes(filename)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s)", width7, height9, quality2, forceTransparentWhite1, wrapQuotes(filename)));
                 js.setLength(0);
@@ -1917,6 +2125,10 @@ public class Stage extends JsObject {
     private Double y4;
     private String filename1;
 
+    /**
+     * Saves the current stage as PDF Document.<br/>
+For export to PDF file use {@link anychart#server}.
+     */
     public void saveAsPdf(String paperSize, Boolean landscape, Double x4, Double y4, String filename1) {
         if (jsBase == null) {
             this.paperSize = paperSize;
@@ -1951,7 +2163,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s);", wrapQuotes(paperSize), landscape, x4, y4, wrapQuotes(filename1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s)", wrapQuotes(paperSize), landscape, x4, y4, wrapQuotes(filename1)));
                 js.setLength(0);
@@ -1964,6 +2175,10 @@ public class Stage extends JsObject {
     private Double quality3;
     private String filename2;
 
+    /**
+     * Saves the current stage as PNG Image.<br/>
+For export to image PNG use {@link anychart#server}.
+     */
     public void saveAsPng(Double width8, Double height10, Double quality3, String filename2) {
         if (jsBase == null) {
             this.width = null;
@@ -2012,7 +2227,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s);", width8, height10, quality3, wrapQuotes(filename2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s)", width8, height10, quality3, wrapQuotes(filename2)));
                 js.setLength(0);
@@ -2024,6 +2238,10 @@ public class Stage extends JsObject {
     private Boolean landscape1;
     private String filename3;
 
+    /**
+     * Saves the stage as SVG Image.<br/>
+For export to SVG use {@link anychart#server}.
+     */
     public void saveAsSvg(String paperSize1, Boolean landscape1, String filename3) {
         if (jsBase == null) {
             this.paperSize = null;
@@ -2050,7 +2268,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s);", wrapQuotes(paperSize1), landscape1, wrapQuotes(filename3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s)", wrapQuotes(paperSize1), landscape1, wrapQuotes(filename3)));
                 js.setLength(0);
@@ -2061,6 +2278,10 @@ public class Stage extends JsObject {
     private Double width9;
     private Double height11;
 
+    /**
+     * Saves the stage as SVG Image using width and height.<br/>
+For export to SVG use {@link anychart#server}.
+     */
     public void saveAsSvg(Double width9, Double height11) {
         if (jsBase == null) {
             this.width = null;
@@ -2098,7 +2319,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f);", width9, height11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f)", width9, height11));
                 js.setLength(0);
@@ -2111,6 +2331,10 @@ public class Stage extends JsObject {
     private Double cx3;
     private Double cy3;
 
+    /**
+     * Scales root layer in parent coordinates system. Scaling center is set in the parent system too.<br/>
+Read more at: {@link anychart.graphics.vector.Element#scale}.
+     */
     public Stage scale(Double sx, Double sy, Double cx3, Double cy3) {
         if (jsBase == null) {
             this.sx = sx;
@@ -2138,7 +2362,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx3, cy3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx3, cy3));
                 js.setLength(0);
@@ -2152,6 +2375,10 @@ public class Stage extends JsObject {
     private VectorAnchor anchor2;
     private String anchor3;
 
+    /**
+     * Scales root layer in parent coordinates system. Scaling center is set by root layer anchor.<br/>
+Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
+     */
     public Stage scaleByAnchor(VectorAnchor anchor2, Double sx1, Double sy1) {
         if (jsBase == null) {
             this.anchor = null;
@@ -2178,7 +2405,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", ((anchor2 != null) ? anchor2.generateJs() : "null"), sx1, sy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", ((anchor2 != null) ? anchor2.generateJs() : "null"), sx1, sy1));
                 js.setLength(0);
@@ -2188,6 +2414,10 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Scales root layer in parent coordinates system. Scaling center is set by root layer anchor.<br/>
+Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
+     */
     public Stage scaleByAnchor(String anchor3, Double sx1, Double sy1) {
         if (jsBase == null) {
             this.anchor = null;
@@ -2214,7 +2444,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", wrapQuotes(anchor3), sx1, sy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", wrapQuotes(anchor3), sx1, sy1));
                 js.setLength(0);
@@ -2226,6 +2455,10 @@ public class Stage extends JsObject {
     private Double x5;
     private Double y5;
 
+    /**
+     * Sets top left corner coordinates of root layer (with transformation,in parent coordinate system).<br/>
+Read more at: {@link anychart.graphics.vector.Element#setPosition}.
+     */
     public Stage setSetPosition(Double x5, Double y5) {
         if (jsBase == null) {
             this.x = null;
@@ -2253,7 +2486,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setPosition(%f, %f)", x5, y5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setPosition(%f, %f)", x5, y5));
                 js.setLength(0);
@@ -2266,6 +2498,10 @@ public class Stage extends JsObject {
     private Double cx4;
     private Double cy4;
 
+    /**
+     * Rotates root layer around a point.<br/>
+Read more at: {@link anychart.graphics.vector.Element#setRotation}.
+     */
     public Stage setRotation(Double degrees2, Double cx4, Double cy4) {
         if (jsBase == null) {
             this.degrees = null;
@@ -2297,7 +2533,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx4, cy4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx4, cy4));
                 js.setLength(0);
@@ -2310,6 +2545,10 @@ public class Stage extends JsObject {
     private VectorAnchor anchor4;
     private String anchor5;
 
+    /**
+     * Rotates root layer around an anchor.<br/>
+Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
+     */
     public Stage setRotationByAnchor(VectorAnchor anchor4, Double degrees3) {
         if (jsBase == null) {
             this.anchor = null;
@@ -2335,7 +2574,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", ((anchor4 != null) ? anchor4.generateJs() : "null"), degrees3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", ((anchor4 != null) ? anchor4.generateJs() : "null"), degrees3));
                 js.setLength(0);
@@ -2345,6 +2583,10 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Rotates root layer around an anchor.<br/>
+Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
+     */
     public Stage setRotationByAnchor(String anchor5, Double degrees3) {
         if (jsBase == null) {
             this.anchor = null;
@@ -2370,7 +2612,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", wrapQuotes(anchor5), degrees3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", wrapQuotes(anchor5), degrees3));
                 js.setLength(0);
@@ -2386,6 +2627,10 @@ public class Stage extends JsObject {
     private Double m10;
     private Double m11;
 
+    /**
+     * Sets transformation matrix.<br/>
+Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
+     */
     public Stage setSetTransformationMatrix(Double m6, Double m7, Double m8, Double m9, Double m10, Double m11) {
         if (jsBase == null) {
             this.m = null;
@@ -2485,7 +2730,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
                 js.setLength(0);
@@ -2501,6 +2745,9 @@ public class Stage extends JsObject {
     private Boolean forceTransparentWhite2;
     private String filename4;
 
+    /**
+     * Share a stage as a JPG and return link to shared image.
+     */
     public void shareAsJpg(Boolean asBase, Double width10, Double height12, Double quality4, Boolean forceTransparentWhite2, String filename4) {
         if (jsBase == null) {
             this.asBase = asBase;
@@ -2564,7 +2811,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s);", asBase, width10, height12, quality4, forceTransparentWhite2, wrapQuotes(filename4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s)", asBase, width10, height12, quality4, forceTransparentWhite2, wrapQuotes(filename4)));
                 js.setLength(0);
@@ -2581,6 +2827,9 @@ public class Stage extends JsObject {
     private Double y6;
     private String filename5;
 
+    /**
+     * Share a stage as a PDF and return link to shared image.
+     */
     public void shareAsPdf(Double paperSizeOrWidth6, Double landscapeOrWidth2, Boolean asBase1, Double x6, Double y6, String filename5) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -2642,7 +2891,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %b, %f, %f, %s);", paperSizeOrWidth6, landscapeOrWidth2, asBase1, x6, y6, wrapQuotes(filename5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %b, %f, %f, %s)", paperSizeOrWidth6, landscapeOrWidth2, asBase1, x6, y6, wrapQuotes(filename5)));
                 js.setLength(0);
@@ -2651,6 +2899,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Share a stage as a PDF and return link to shared image.
+     */
     public void shareAsPdf(Double paperSizeOrWidth6, Boolean landscapeOrWidth3, Boolean asBase1, Double x6, Double y6, String filename5) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -2712,7 +2963,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %b, %f, %f, %s);", paperSizeOrWidth6, landscapeOrWidth3, asBase1, x6, y6, wrapQuotes(filename5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %b, %f, %f, %s)", paperSizeOrWidth6, landscapeOrWidth3, asBase1, x6, y6, wrapQuotes(filename5)));
                 js.setLength(0);
@@ -2721,6 +2971,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Share a stage as a PDF and return link to shared image.
+     */
     public void shareAsPdf(String paperSizeOrWidth7, Double landscapeOrWidth2, Boolean asBase1, Double x6, Double y6, String filename5) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -2782,7 +3035,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidth7), landscapeOrWidth2, asBase1, x6, y6, wrapQuotes(filename5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth7), landscapeOrWidth2, asBase1, x6, y6, wrapQuotes(filename5)));
                 js.setLength(0);
@@ -2791,6 +3043,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Share a stage as a PDF and return link to shared image.
+     */
     public void shareAsPdf(String paperSizeOrWidth7, Boolean landscapeOrWidth3, Boolean asBase1, Double x6, Double y6, String filename5) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -2852,7 +3107,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidth7), landscapeOrWidth3, asBase1, x6, y6, wrapQuotes(filename5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth7), landscapeOrWidth3, asBase1, x6, y6, wrapQuotes(filename5)));
                 js.setLength(0);
@@ -2866,6 +3120,9 @@ public class Stage extends JsObject {
     private Double quality5;
     private String filename6;
 
+    /**
+     * Shares a stage as a PNG file and returns a link to the shared image.
+     */
     public void shareAsPng(Boolean asBase2, Double width11, Double height13, Double quality5, String filename6) {
         if (jsBase == null) {
             this.asBase = null;
@@ -2932,7 +3189,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s);", asBase2, width11, height13, quality5, wrapQuotes(filename6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s)", asBase2, width11, height13, quality5, wrapQuotes(filename6)));
                 js.setLength(0);
@@ -2947,6 +3203,9 @@ public class Stage extends JsObject {
     private String landscapeOrHeight5;
     private String filename7;
 
+    /**
+     * Share a stage as a SVG and return link to shared image.
+     */
     public void shareAsSvg(String paperSizeOrWidth8, Boolean landscapeOrHeight4, Boolean asBase3, String filename7) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -2996,7 +3255,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %b, %s);", wrapQuotes(paperSizeOrWidth8), landscapeOrHeight4, asBase3, wrapQuotes(filename7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %b, %s)", wrapQuotes(paperSizeOrWidth8), landscapeOrHeight4, asBase3, wrapQuotes(filename7)));
                 js.setLength(0);
@@ -3005,6 +3263,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Share a stage as a SVG and return link to shared image.
+     */
     public void shareAsSvg(String paperSizeOrWidth8, String landscapeOrHeight5, Boolean asBase3, String filename7) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -3054,7 +3315,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %b, %s);", wrapQuotes(paperSizeOrWidth8), wrapQuotes(landscapeOrHeight5), asBase3, wrapQuotes(filename7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %b, %s)", wrapQuotes(paperSizeOrWidth8), wrapQuotes(landscapeOrHeight5), asBase3, wrapQuotes(filename7)));
                 js.setLength(0);
@@ -3063,6 +3323,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Share a stage as a SVG and return link to shared image.
+     */
     public void shareAsSvg(Double paperSizeOrWidth9, Boolean landscapeOrHeight4, Boolean asBase3, String filename7) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -3112,7 +3375,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %b, %s);", paperSizeOrWidth9, landscapeOrHeight4, asBase3, wrapQuotes(filename7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %b, %s)", paperSizeOrWidth9, landscapeOrHeight4, asBase3, wrapQuotes(filename7)));
                 js.setLength(0);
@@ -3121,6 +3383,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Share a stage as a SVG and return link to shared image.
+     */
     public void shareAsSvg(Double paperSizeOrWidth9, String landscapeOrHeight5, Boolean asBase3, String filename7) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
@@ -3170,7 +3435,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %b, %s);", paperSizeOrWidth9, wrapQuotes(landscapeOrHeight5), asBase3, wrapQuotes(filename7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %b, %s)", paperSizeOrWidth9, wrapQuotes(landscapeOrHeight5), asBase3, wrapQuotes(filename7)));
                 js.setLength(0);
@@ -3181,6 +3445,10 @@ public class Stage extends JsObject {
     private Element element5;
     private Element element6;
 
+    /**
+     * Swaps two children.<br/>
+Similar to {@link anychart.graphics.vector.Layer#swapChildren}
+     */
     public Stage swapChildren(Element element5, Element element6) {
         if (jsBase == null) {
             this.element = null;
@@ -3204,15 +3472,16 @@ public class Stage extends JsObject {
         } else {
             this.element5 = element5;
             this.element6 = element6;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(element5.generateJs());js.append(element6.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".swapChildren(%s, %s)", ((element5 != null) ? element5.generateJs() : "null"), ((element6 != null) ? element6.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".swapChildren(%s, %s);",  ((element5 != null) ? element5.getJsBase() : "null"), ((element6 != null) ? element6.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".swapChildren(%s, %s)", ((element5 != null) ? element5.generateJs() : "null"), ((element6 != null) ? element6.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".swapChildren(%s, %s)", ((element5 != null) ? element5.getJsBase() : "null"), ((element6 != null) ? element6.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3222,6 +3491,10 @@ public class Stage extends JsObject {
     private Double index3;
     private Double index4;
 
+    /**
+     * Swaps two children by id.<br/>
+Similar to {@link anychart.graphics.vector.Layer#swapChildrenAt}
+     */
     public Stage swapChildrenAt(Double index3, Double index4) {
         if (jsBase == null) {
             this.index = null;
@@ -3247,7 +3520,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".swapChildrenAt(%f, %f)", index3, index4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".swapChildrenAt(%f, %f)", index3, index4));
                 js.setLength(0);
@@ -3260,6 +3532,11 @@ public class Stage extends JsObject {
     private Double y7;
     private String text1;
 
+    /**
+     * Invokes {@link anychart.graphics.vector.Text} constructor.<br/>
+<strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
+You must delete them yourself after you finish using them.
+     */
     public VectorText text(Double x7, Double y7, String text1) {
         if (jsBase == null) {
             this.x = null;
@@ -3296,7 +3573,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".text(%f, %f, %s);", x7, y7, wrapQuotes(text1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%f, %f, %s)", x7, y7, wrapQuotes(text1)));
                 js.setLength(0);
@@ -3307,6 +3583,9 @@ public class Stage extends JsObject {
 
     private String title;
 
+    /**
+     * Setter for the element title value.
+     */
     public Stage setTitle(String title) {
         if (jsBase == null) {
             this.title = title;
@@ -3318,7 +3597,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title)));
                 js.setLength(0);
@@ -3330,6 +3608,9 @@ public class Stage extends JsObject {
     private String paperSize2;
     private Boolean landscape2;
 
+    /**
+     * Returns SVG string if type of content is SVG with parameters otherwise returns empty string.
+     */
     public void toSvg(String paperSize2, Boolean landscape2) {
         if (jsBase == null) {
             this.paperSize = null;
@@ -3351,7 +3632,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".toSvg(%s, %b);", wrapQuotes(paperSize2), landscape2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b)", wrapQuotes(paperSize2), landscape2));
                 js.setLength(0);
@@ -3362,6 +3642,9 @@ public class Stage extends JsObject {
     private Double width12;
     private Double height14;
 
+    /**
+     * Returns SVG string if type of content is SVG with determined the width and height otherwise returns empty string.
+     */
     public void toSvg(Double width12, Double height14) {
         if (jsBase == null) {
             this.width = null;
@@ -3405,7 +3688,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".toSvg(%f, %f);", width12, height14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f)", width12, height14));
                 js.setLength(0);
@@ -3416,6 +3698,11 @@ public class Stage extends JsObject {
     private Double tx;
     private Double ty;
 
+    /**
+     * Moves root layer taking transformation into account.<br/>
+Movement happens in root layer coordinates.<br/>
+Read more at: {@link anychart.graphics.vector.Element#translate}.
+     */
     public Stage translate(Double tx, Double ty) {
         if (jsBase == null) {
             this.tx = tx;
@@ -3429,7 +3716,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
                 js.setLength(0);
@@ -3443,6 +3729,9 @@ public class Stage extends JsObject {
     private Boolean useCapture2;
     private String listenerScope2;
 
+    /**
+     * Removes a listener added with {@link anychart.graphics.vector.Stage#listen} or {@link anychart.graphics.vector.Stage#listenOnce} methods.
+     */
     public void unlisten(String type6, Boolean useCapture2, String listenerScope2) {
         if (jsBase == null) {
             this.type = null;
@@ -3475,7 +3764,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", wrapQuotes(type6), useCapture2, wrapQuotes(listenerScope2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", wrapQuotes(type6), useCapture2, wrapQuotes(listenerScope2)));
                 js.setLength(0);
@@ -3484,6 +3772,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Removes a listener added with {@link anychart.graphics.vector.Stage#listen} or {@link anychart.graphics.vector.Stage#listenOnce} methods.
+     */
     public void unlisten(StageEventType type7, Boolean useCapture2, String listenerScope2) {
         if (jsBase == null) {
             this.type = null;
@@ -3516,7 +3807,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", ((type7 != null) ? type7.generateJs() : "null"), useCapture2, wrapQuotes(listenerScope2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", ((type7 != null) ? type7.generateJs() : "null"), useCapture2, wrapQuotes(listenerScope2)));
                 js.setLength(0);
@@ -3526,6 +3816,9 @@ public class Stage extends JsObject {
 
     private String key;
 
+    /**
+     * Removes an event listener which was added with {@link anychart.graphics.vector.Stage#listen} by the key returned by {@link anychart.graphics.vector.Stage#listen} or {@link anychart.graphics.vector.Stage#listenOnce}.
+     */
     public void unlistenByKey(String key) {
         if (jsBase == null) {
             this.key = key;
@@ -3537,7 +3830,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", wrapQuotes(key)));
                 js.setLength(0);
@@ -3547,6 +3839,9 @@ public class Stage extends JsObject {
 
     private Boolean isVisible;
 
+    /**
+     * Shows or hides a stage.
+     */
     public Stage visible(Boolean isVisible) {
         if (jsBase == null) {
             this.isVisible = isVisible;
@@ -3558,7 +3853,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".visible(%b)", isVisible));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".visible(%b)", isVisible));
                 js.setLength(0);
@@ -3570,6 +3864,9 @@ public class Stage extends JsObject {
     private String width13;
     private Double width14;
 
+    /**
+     * Sets a stage width.
+     */
     public Stage setWidth(String width13) {
         if (jsBase == null) {
             this.width = null;
@@ -3597,7 +3894,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width13)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width13)));
                 js.setLength(0);
@@ -3607,6 +3903,9 @@ public class Stage extends JsObject {
     }
 
 
+    /**
+     * Sets a stage width.
+     */
     public Stage setWidth(Double width14) {
         if (jsBase == null) {
             this.width = null;
@@ -3634,7 +3933,6 @@ public class Stage extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width14));
                 js.setLength(0);
@@ -3643,26 +3941,9 @@ public class Stage extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSGraphicsMathRect getClip() {
-//        if (GraphicsMathRect getClip != null) {
-//            return GraphicsMathRect getClip.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStageCredits getCredits() {
-//        if (StageCredits getCredits != null) {
-//            return StageCredits getCredits.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetClip() {
         if (getClip != null) {
             return getClip.generateJs();
-            //return String.format(Locale.US, "getClip: %s,", ((getClip != null) ? getClip.generateJs() : "null"));
         }
         return "";
     }
@@ -3670,7 +3951,6 @@ public class Stage extends JsObject {
     private String generateJSgetCredits() {
         if (getCredits != null) {
             return getCredits.generateJs();
-            //return String.format(Locale.US, "getCredits: %s,", ((getCredits != null) ? getCredits.generateJs() : "null"));
         }
         return "";
     }
@@ -3694,382 +3974,6 @@ public class Stage extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSelement());
-////        
-//            js.append(generateJSelement1());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSm());
-////        
-//            js.append(generateJSm1());
-////        
-//            js.append(generateJSm2());
-////        
-//            js.append(generateJSm3());
-////        
-//            js.append(generateJSm4());
-////        
-//            js.append(generateJSm5());
-////        
-//            js.append(generateJSasyncMode());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSradius());
-////        
-//            js.append(generateJSclip());
-////        
-//            js.append(generateJScontainer());
-////        
-//            js.append(generateJSrect());
-////        
-//            js.append(generateJSrect1());
-////        
-//            js.append(generateJSrect2());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJScredits());
-////        
-//            js.append(generateJScredits1());
-////        
-//            js.append(generateJSdata());
-////        
-//            js.append(generateJSdesc());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSrx());
-////        
-//            js.append(generateJSry());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSwidth1());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJSquality());
-////        
-//            js.append(generateJSforceTransparentWhite());
-////        
-//            js.append(generateJSpaperSizeOrWidth());
-////        
-//            js.append(generateJSpaperSizeOrWidth1());
-////        
-//            js.append(generateJSlandscapeOrWidth());
-////        
-//            js.append(generateJSlandscapeOrWidth1());
-////        
-//            js.append(generateJSx());
-////        
-//            js.append(generateJSy());
-////        
-//            js.append(generateJSwidth2());
-////        
-//            js.append(generateJSheight2());
-////        
-//            js.append(generateJSquality1());
-////        
-//            js.append(generateJSpaperSizeOrWidth2());
-////        
-//            js.append(generateJSpaperSizeOrWidth3());
-////        
-//            js.append(generateJSlandscapeOrHeight());
-////        
-//            js.append(generateJSlandscapeOrHeight1());
-////        
-//            js.append(generateJSelement2());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSheight3());
-////        
-//            js.append(generateJSheight4());
-////        
-//            js.append(generateJSx1());
-////        
-//            js.append(generateJSy1());
-////        
-//            js.append(generateJStext());
-////        
-//            js.append(generateJSid());
-////        
-//            js.append(generateJSsrc());
-////        
-//            js.append(generateJSx2());
-////        
-//            js.append(generateJSy2());
-////        
-//            js.append(generateJSwidth3());
-////        
-//            js.append(generateJSheight5());
-////        
-//            js.append(generateJSelement3());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJStype2());
-////        
-//            js.append(generateJSuseCapture());
-////        
-//            js.append(generateJSlistenerScope());
-////        
-//            js.append(generateJStype3());
-////        
-//            js.append(generateJStype4());
-////        
-//            js.append(generateJSuseCapture1());
-////        
-//            js.append(generateJSlistenerScope1());
-////        
-//            js.append(generateJSmaxResizeDelay());
-////        
-//            js.append(generateJSbounds());
-////        
-//            js.append(generateJSpaperSizeOrWidth4());
-////        
-//            js.append(generateJSpaperSizeOrWidth5());
-////        
-//            js.append(generateJSlandscapeOrHeight2());
-////        
-//            js.append(generateJSlandscapeOrHeight3());
-////        
-//            js.append(generateJSx3());
-////        
-//            js.append(generateJSy3());
-////        
-//            js.append(generateJSwidth4());
-////        
-//            js.append(generateJSheight6());
-////        
-//            js.append(generateJStype5());
-////        
-//            js.append(generateJSelement4());
-////        
-//            js.append(generateJSindex2());
-////        
-//            js.append(generateJSwidth5());
-////        
-//            js.append(generateJSwidth6());
-////        
-//            js.append(generateJSheight7());
-////        
-//            js.append(generateJSheight8());
-////        
-//            js.append(generateJSforce());
-////        
-//            js.append(generateJSdegrees());
-////        
-//            js.append(generateJScx2());
-////        
-//            js.append(generateJScy2());
-////        
-//            js.append(generateJSdegrees1());
-////        
-//            js.append(generateJSanchor());
-////        
-//            js.append(generateJSanchor1());
-////        
-//            js.append(generateJSwidth7());
-////        
-//            js.append(generateJSheight9());
-////        
-//            js.append(generateJSquality2());
-////        
-//            js.append(generateJSforceTransparentWhite1());
-////        
-//            js.append(generateJSfilename());
-////        
-//            js.append(generateJSpaperSize());
-////        
-//            js.append(generateJSlandscape());
-////        
-//            js.append(generateJSx4());
-////        
-//            js.append(generateJSy4());
-////        
-//            js.append(generateJSfilename1());
-////        
-//            js.append(generateJSwidth8());
-////        
-//            js.append(generateJSheight10());
-////        
-//            js.append(generateJSquality3());
-////        
-//            js.append(generateJSfilename2());
-////        
-//            js.append(generateJSpaperSize1());
-////        
-//            js.append(generateJSlandscape1());
-////        
-//            js.append(generateJSfilename3());
-////        
-//            js.append(generateJSwidth9());
-////        
-//            js.append(generateJSheight11());
-////        
-//            js.append(generateJSsx());
-////        
-//            js.append(generateJSsy());
-////        
-//            js.append(generateJScx3());
-////        
-//            js.append(generateJScy3());
-////        
-//            js.append(generateJSsx1());
-////        
-//            js.append(generateJSsy1());
-////        
-//            js.append(generateJSanchor2());
-////        
-//            js.append(generateJSanchor3());
-////        
-//            js.append(generateJSx5());
-////        
-//            js.append(generateJSy5());
-////        
-//            js.append(generateJSdegrees2());
-////        
-//            js.append(generateJScx4());
-////        
-//            js.append(generateJScy4());
-////        
-//            js.append(generateJSdegrees3());
-////        
-//            js.append(generateJSanchor4());
-////        
-//            js.append(generateJSanchor5());
-////        
-//            js.append(generateJSm6());
-////        
-//            js.append(generateJSm7());
-////        
-//            js.append(generateJSm8());
-////        
-//            js.append(generateJSm9());
-////        
-//            js.append(generateJSm10());
-////        
-//            js.append(generateJSm11());
-////        
-//            js.append(generateJSasBase());
-////        
-//            js.append(generateJSwidth10());
-////        
-//            js.append(generateJSheight12());
-////        
-//            js.append(generateJSquality4());
-////        
-//            js.append(generateJSforceTransparentWhite2());
-////        
-//            js.append(generateJSfilename4());
-////        
-//            js.append(generateJSasBase1());
-////        
-//            js.append(generateJSpaperSizeOrWidth6());
-////        
-//            js.append(generateJSpaperSizeOrWidth7());
-////        
-//            js.append(generateJSlandscapeOrWidth2());
-////        
-//            js.append(generateJSlandscapeOrWidth3());
-////        
-//            js.append(generateJSx6());
-////        
-//            js.append(generateJSy6());
-////        
-//            js.append(generateJSfilename5());
-////        
-//            js.append(generateJSasBase2());
-////        
-//            js.append(generateJSwidth11());
-////        
-//            js.append(generateJSheight13());
-////        
-//            js.append(generateJSquality5());
-////        
-//            js.append(generateJSfilename6());
-////        
-//            js.append(generateJSasBase3());
-////        
-//            js.append(generateJSpaperSizeOrWidth8());
-////        
-//            js.append(generateJSpaperSizeOrWidth9());
-////        
-//            js.append(generateJSlandscapeOrHeight4());
-////        
-//            js.append(generateJSlandscapeOrHeight5());
-////        
-//            js.append(generateJSfilename7());
-////        
-//            js.append(generateJSelement5());
-////        
-//            js.append(generateJSelement6());
-////        
-//            js.append(generateJSindex3());
-////        
-//            js.append(generateJSindex4());
-////        
-//            js.append(generateJSx7());
-////        
-//            js.append(generateJSy7());
-////        
-//            js.append(generateJStext1());
-////        
-//            js.append(generateJStitle());
-////        
-//            js.append(generateJSpaperSize2());
-////        
-//            js.append(generateJSlandscape2());
-////        
-//            js.append(generateJSwidth12());
-////        
-//            js.append(generateJSheight14());
-////        
-//            js.append(generateJStx());
-////        
-//            js.append(generateJSty());
-////        
-//            js.append(generateJStype6());
-////        
-//            js.append(generateJStype7());
-////        
-//            js.append(generateJSuseCapture2());
-////        
-//            js.append(generateJSlistenerScope2());
-////        
-//            js.append(generateJSkey());
-////        
-//            js.append(generateJSisVisible());
-////        
-//            js.append(generateJSwidth13());
-////        
-//            js.append(generateJSwidth14());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Define rectangle.
+This class is an alias of the {@link anychart.graphics.math.Rect} class.
+ */
 public class AnychartMathRect extends JsObject {
 
     public AnychartMathRect() {
-
+        js.setLength(0);
+        js.append("var anychartMathRect").append(++variableIndex).append(" = anychart.math.rect();");
+        jsBase = "anychartMathRect" + variableIndex;
     }
 
     protected AnychartMathRect(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,11 @@ public class AnychartMathRect extends JsObject {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +53,6 @@ public class AnychartMathRect extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

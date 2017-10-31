@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Map grid settings.
+ */
 public class GridsMapSettings extends CoreBase {
 
     public GridsMapSettings() {
-
+        js.setLength(0);
+        js.append("var gridsMapSettings").append(++variableIndex).append(" = anychart.core.grids.mapSettings();");
+        jsBase = "gridsMapSettings" + variableIndex;
     }
 
     protected GridsMapSettings(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class GridsMapSettings extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean drawFirstLine;
 
+    /**
+     * Setter for the first line drawing.
+     */
     public GridsMapSettings setDrawFirstLine(Boolean drawFirstLine) {
         if (jsBase == null) {
             this.drawFirstLine = drawFirstLine;
@@ -38,7 +51,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".drawFirstLine(%b)", drawFirstLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawFirstLine(%b)", drawFirstLine));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class GridsMapSettings extends CoreBase {
 
     private Boolean drawLastLine;
 
+    /**
+     * Setter for the last line drawing.
+     */
     public GridsMapSettings setDrawLastLine(Boolean drawLastLine) {
         if (jsBase == null) {
             this.drawLastLine = drawLastLine;
@@ -60,7 +75,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".drawLastLine(%b)", drawLastLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawLastLine(%b)", drawLastLine));
                 js.setLength(0);
@@ -71,6 +85,9 @@ public class GridsMapSettings extends CoreBase {
 
     private Boolean enabled;
 
+    /**
+     * Setter for the grid enabled state.
+     */
     public GridsMapSettings setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
@@ -82,7 +99,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -93,6 +109,10 @@ public class GridsMapSettings extends CoreBase {
 
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GridsMapSettings setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -104,7 +124,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -116,6 +135,9 @@ public class GridsMapSettings extends CoreBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public GridsMapSettings fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -129,7 +151,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -146,6 +167,10 @@ public class GridsMapSettings extends CoreBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GridsMapSettings fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -173,7 +198,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -183,6 +207,10 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GridsMapSettings fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -210,7 +238,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -220,6 +247,10 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GridsMapSettings fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -247,7 +278,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -257,6 +287,10 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GridsMapSettings fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -284,7 +318,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -294,6 +327,10 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GridsMapSettings fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -321,7 +358,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -331,6 +367,10 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GridsMapSettings fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -358,7 +398,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -376,6 +415,10 @@ public class GridsMapSettings extends CoreBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GridsMapSettings fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -413,7 +456,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -423,6 +465,10 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GridsMapSettings fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -460,7 +506,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -472,6 +517,9 @@ public class GridsMapSettings extends CoreBase {
     private Fill imageSettings;
     private GridsMap getHorizontal;
 
+    /**
+     * Getter for the horizontal grid.
+     */
     public GridsMap getHorizontal() {
         if (getHorizontal == null)
             getHorizontal = new GridsMap(jsBase + ".horizontal()");
@@ -482,6 +530,9 @@ public class GridsMapSettings extends CoreBase {
     private Boolean horizontal;
     private String horizontal1;
 
+    /**
+     * Setter for the horizontal grid.
+     */
     public GridsMapSettings setHorizontal(Boolean horizontal) {
         if (jsBase == null) {
             this.horizontal = null;
@@ -496,7 +547,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".horizontal(%b)", horizontal));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".horizontal(%b)", horizontal));
                 js.setLength(0);
@@ -506,6 +556,9 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the horizontal grid.
+     */
     public GridsMapSettings setHorizontal(String horizontal1) {
         if (jsBase == null) {
             this.horizontal = null;
@@ -520,7 +573,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".horizontal(%s)", wrapQuotes(horizontal1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".horizontal(%s)", wrapQuotes(horizontal1)));
                 js.setLength(0);
@@ -537,6 +589,10 @@ public class GridsMapSettings extends CoreBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for grid stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public GridsMapSettings setMinorStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -561,7 +617,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -571,6 +626,10 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for grid stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public GridsMapSettings setMinorStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -595,7 +654,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -605,6 +663,10 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for grid stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public GridsMapSettings setMinorStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -629,7 +691,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -640,6 +701,9 @@ public class GridsMapSettings extends CoreBase {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the colors palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -652,6 +716,9 @@ public class GridsMapSettings extends CoreBase {
     private String palette2;
     private String[] palette3;
 
+    /**
+     * Setter for the grid colors palette.
+     */
     public GridsMap setPalette(RangeColors palette) {
         if (jsBase == null) {
             this.palette = null;
@@ -666,11 +733,12 @@ public class GridsMapSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(palette.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".palette(%s);", ((palette != null) ? palette.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -678,6 +746,9 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the grid colors palette.
+     */
     public GridsMap setPalette(DistinctColors palette1) {
         if (jsBase == null) {
             this.palette = null;
@@ -692,11 +763,12 @@ public class GridsMapSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(palette1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".palette(%s);", ((palette1 != null) ? palette1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -704,6 +776,9 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the grid colors palette.
+     */
     public GridsMap setPalette(String palette2) {
         if (jsBase == null) {
             this.palette = null;
@@ -720,7 +795,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".palette(%s);", wrapQuotes(palette2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", wrapQuotes(palette2)));
                 js.setLength(0);
@@ -730,6 +804,9 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the grid colors palette.
+     */
     public GridsMap setPalette(String[] palette3) {
         if (jsBase == null) {
             this.palette = null;
@@ -746,7 +823,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".palette(%s);", arrayToStringWrapQuotes(palette3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", arrayToStringWrapQuotes(palette3)));
                 js.setLength(0);
@@ -763,6 +839,10 @@ public class GridsMapSettings extends CoreBase {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for grid stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public GridsMapSettings setStroke(Stroke color4, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -802,7 +882,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -812,6 +891,10 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for grid stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public GridsMapSettings setStroke(ColoredFill color5, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -851,7 +934,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color5 != null) ? color5.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color5 != null) ? color5.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -861,6 +943,10 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for grid stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public GridsMapSettings setStroke(String color6, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -900,7 +986,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color6), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color6), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -911,6 +996,9 @@ public class GridsMapSettings extends CoreBase {
 
     private GridsMap getVertical;
 
+    /**
+     * Getter for the vertical grid.
+     */
     public GridsMap getVertical() {
         if (getVertical == null)
             getVertical = new GridsMap(jsBase + ".vertical()");
@@ -921,6 +1009,9 @@ public class GridsMapSettings extends CoreBase {
     private Boolean vertical;
     private String vertical1;
 
+    /**
+     * Setter for the vertical grid.
+     */
     public GridsMapSettings setVertical(Boolean vertical) {
         if (jsBase == null) {
             this.vertical = null;
@@ -935,7 +1026,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".vertical(%b)", vertical));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vertical(%b)", vertical));
                 js.setLength(0);
@@ -945,6 +1035,9 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the vertical grid.
+     */
     public GridsMapSettings setVertical(String vertical1) {
         if (jsBase == null) {
             this.vertical = null;
@@ -959,7 +1052,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".vertical(%s)", wrapQuotes(vertical1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vertical(%s)", wrapQuotes(vertical1)));
                 js.setLength(0);
@@ -972,6 +1064,9 @@ public class GridsMapSettings extends CoreBase {
     private MapGridZIndex zIndex1;
     private String zIndex2;
 
+    /**
+     * Setter for the grid zIndex.
+     */
     public GridsMapSettings setZIndex(Double zIndex) {
         if (jsBase == null) {
             this.zIndex = null;
@@ -987,7 +1082,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".zIndex(%f)", zIndex));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".zIndex(%f)", zIndex));
                 js.setLength(0);
@@ -997,6 +1091,9 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the grid zIndex.
+     */
     public GridsMapSettings setZIndex(MapGridZIndex zIndex1) {
         if (jsBase == null) {
             this.zIndex = null;
@@ -1012,7 +1109,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".zIndex(%s)", ((zIndex1 != null) ? zIndex1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".zIndex(%s)", ((zIndex1 != null) ? zIndex1.generateJs() : "null")));
                 js.setLength(0);
@@ -1022,6 +1118,9 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the grid zIndex.
+     */
     public GridsMapSettings setZIndex(String zIndex2) {
         if (jsBase == null) {
             this.zIndex = null;
@@ -1037,7 +1136,6 @@ public class GridsMapSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".zIndex(%s)", wrapQuotes(zIndex2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".zIndex(%s)", wrapQuotes(zIndex2)));
                 js.setLength(0);
@@ -1046,33 +1144,9 @@ public class GridsMapSettings extends CoreBase {
         return this;
     }
 
-
-//
-//    private String generateJSGridsMap getHorizontal() {
-//        if (GridsMap getHorizontal != null) {
-//            return GridsMap getHorizontal.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSRangeColors getPalette() {
-//        if (RangeColors getPalette != null) {
-//            return RangeColors getPalette.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGridsMap getVertical() {
-//        if (GridsMap getVertical != null) {
-//            return GridsMap getVertical.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHorizontal() {
         if (getHorizontal != null) {
             return getHorizontal.generateJs();
-            //return String.format(Locale.US, "getHorizontal: %s,", ((getHorizontal != null) ? getHorizontal.generateJs() : "null"));
         }
         return "";
     }
@@ -1080,7 +1154,6 @@ public class GridsMapSettings extends CoreBase {
     private String generateJSgetPalette() {
         if (getPalette != null) {
             return getPalette.generateJs();
-            //return String.format(Locale.US, "getPalette: %s,", ((getPalette != null) ? getPalette.generateJs() : "null"));
         }
         return "";
     }
@@ -1088,7 +1161,6 @@ public class GridsMapSettings extends CoreBase {
     private String generateJSgetVertical() {
         if (getVertical != null) {
             return getVertical.generateJs();
-            //return String.format(Locale.US, "getVertical: %s,", ((getVertical != null) ? getVertical.generateJs() : "null"));
         }
         return "";
     }
@@ -1113,106 +1185,6 @@ public class GridsMapSettings extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdrawFirstLine());
-////        
-//            js.append(generateJSdrawLastLine());
-////        
-//            js.append(generateJSenabled());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJShorizontal());
-////        
-//            js.append(generateJShorizontal1());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSpalette());
-////        
-//            js.append(generateJSpalette1());
-////        
-//            js.append(generateJSpalette2());
-////        
-//            js.append(generateJSpalette3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJScolor5());
-////        
-//            js.append(generateJScolor6());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-////        
-//            js.append(generateJSvertical());
-////        
-//            js.append(generateJSvertical1());
-////        
-//            js.append(generateJSzIndex());
-////        
-//            js.append(generateJSzIndex1());
-////        
-//            js.append(generateJSzIndex2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * StepLine Series Class.<br/>
+{docs:Stock_Charts/Series/Step_Line}Learn more about StepLine series{docs}
+ */
 public class ScrollerseriesStepLine extends ScrollerseriesBase {
 
     public ScrollerseriesStepLine() {
-
+        js.setLength(0);
+        js.append("var scrollerseriesStepLine").append(++variableIndex).append(" = anychart.core.stock.scrollerSeries.stepLine();");
+        jsBase = "scrollerseriesStepLine" + variableIndex;
     }
 
     protected ScrollerseriesStepLine(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +31,17 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private StepDirection stepDirection;
     private String stepDirection1;
 
+    /**
+     * Setter for the step direction.
+     */
     public ScrollerseriesStepLine setStepDirection(StepDirection stepDirection) {
         if (jsBase == null) {
             this.stepDirection = null;
@@ -42,7 +56,6 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".stepDirection(%s)", ((stepDirection != null) ? stepDirection.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stepDirection(%s)", ((stepDirection != null) ? stepDirection.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +65,9 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Setter for the step direction.
+     */
     public ScrollerseriesStepLine setStepDirection(String stepDirection1) {
         if (jsBase == null) {
             this.stepDirection = null;
@@ -66,7 +82,6 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".stepDirection(%s)", wrapQuotes(stepDirection1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stepDirection(%s)", wrapQuotes(stepDirection1)));
                 js.setLength(0);
@@ -83,6 +98,10 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScrollerseriesStepLine setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -106,7 +125,6 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -116,6 +134,10 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScrollerseriesStepLine setStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -139,7 +161,6 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -149,6 +170,10 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ScrollerseriesStepLine setStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -172,7 +197,6 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -181,8 +205,6 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -200,30 +222,6 @@ public class ScrollerseriesStepLine extends ScrollerseriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSstepDirection());
-////        
-//            js.append(generateJSstepDirection1());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

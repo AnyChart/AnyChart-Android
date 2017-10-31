@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Grouping settings class.
+ */
 public class Grouping extends CoreBase {
 
     public Grouping() {
-
+        js.setLength(0);
+        js.append("var grouping").append(++variableIndex).append(" = anychart.core.stock.grouping();");
+        jsBase = "grouping" + variableIndex;
     }
 
     protected Grouping(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Grouping extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean enabled;
 
+    /**
+     * Setter for the grouping enabled state.
+     */
     public Grouping setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
@@ -38,7 +51,6 @@ public class Grouping extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class Grouping extends CoreBase {
 
     private Boolean forced;
 
+    /**
+     * Setter for the forced grouping settings.
+     */
     public Grouping setForced(Boolean forced) {
         if (jsBase == null) {
             this.forced = forced;
@@ -60,7 +75,6 @@ public class Grouping extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".forced(%b)", forced));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".forced(%b)", forced));
                 js.setLength(0);
@@ -71,6 +85,9 @@ public class Grouping extends CoreBase {
 
     private String[] levels;
 
+    /**
+     * Setter for the data grouping levels.
+     */
     public Grouping setLevels(String[] levels) {
         if (jsBase == null) {
             this.levels = levels;
@@ -82,7 +99,6 @@ public class Grouping extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".levels(%s)", arrayToStringWrapQuotes(levels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".levels(%s)", arrayToStringWrapQuotes(levels)));
                 js.setLength(0);
@@ -93,6 +109,9 @@ public class Grouping extends CoreBase {
 
     private Double maxVisiblePoints;
 
+    /**
+     * Setter for the maximum visible points count.
+     */
     public Grouping setMaxVisiblePoints(Double maxVisiblePoints) {
         if (jsBase == null) {
             this.maxVisiblePoints = maxVisiblePoints;
@@ -104,7 +123,6 @@ public class Grouping extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".maxVisiblePoints(%f)", maxVisiblePoints));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxVisiblePoints(%f)", maxVisiblePoints));
                 js.setLength(0);
@@ -115,6 +133,9 @@ public class Grouping extends CoreBase {
 
     private Double minPixPerPoint;
 
+    /**
+     * Setter for minimum pixels per point count.
+     */
     public Grouping setMinPixPerPoint(Double minPixPerPoint) {
         if (jsBase == null) {
             this.minPixPerPoint = minPixPerPoint;
@@ -126,7 +147,6 @@ public class Grouping extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minPixPerPoint(%f)", minPixPerPoint));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minPixPerPoint(%f)", minPixPerPoint));
                 js.setLength(0);
@@ -135,8 +155,6 @@ public class Grouping extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -154,22 +172,6 @@ public class Grouping extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSenabled());
-////        
-//            js.append(generateJSforced());
-////        
-//            js.append(generateJSlevels());
-////        
-//            js.append(generateJSmaxVisiblePoints());
-////        
-//            js.append(generateJSminPixPerPoint());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

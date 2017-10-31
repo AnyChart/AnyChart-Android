@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Inner class for representing legend item.
+ */
 public class LegendItem extends CoreText {
 
     public LegendItem() {
-
+        js.setLength(0);
+        js.append("var legendItem").append(++variableIndex).append(" = anychart.core.ui.legendItem();");
+        jsBase = "legendItem" + variableIndex;
     }
 
     protected LegendItem(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class LegendItem extends CoreText {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private List<LegendItem> getIconFill = new ArrayList<>();
 
+    /**
+     * Getter/setter for icon fill setting.
+     */
     public LegendItem getIconFill(Fill iconFill) {
         LegendItem item = new LegendItem(jsBase + ".iconFill(" + ((iconFill != null) ? iconFill.generateJs() : "null") + ")");
         getIconFill.add(item);
@@ -35,6 +48,9 @@ public class LegendItem extends CoreText {
 
     private PatternFill getIconHatchFill;
 
+    /**
+     * Getter for icon hatch fill settings.
+     */
     public PatternFill getIconHatchFill() {
         if (getIconHatchFill == null)
             getIconHatchFill = new PatternFill(jsBase + ".iconHatchFill()");
@@ -50,6 +66,9 @@ public class LegendItem extends CoreText {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for icon hatch fill settings.
+     */
     public LegendItem setIconHatchFill(PatternFill patternFillOrType, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -72,7 +91,6 @@ public class LegendItem extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -82,6 +100,9 @@ public class LegendItem extends CoreText {
     }
 
 
+    /**
+     * Setter for icon hatch fill settings.
+     */
     public LegendItem setIconHatchFill(HatchFill patternFillOrType1, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -104,7 +125,6 @@ public class LegendItem extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -114,6 +134,9 @@ public class LegendItem extends CoreText {
     }
 
 
+    /**
+     * Setter for icon hatch fill settings.
+     */
     public LegendItem setIconHatchFill(HatchFillType patternFillOrType2, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -136,7 +159,6 @@ public class LegendItem extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -146,6 +168,9 @@ public class LegendItem extends CoreText {
     }
 
 
+    /**
+     * Setter for icon hatch fill settings.
+     */
     public LegendItem setIconHatchFill(String patternFillOrType3, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -168,7 +193,6 @@ public class LegendItem extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -179,6 +203,9 @@ public class LegendItem extends CoreText {
 
     private List<LegendItem> getIconStroke = new ArrayList<>();
 
+    /**
+     * Getter/setter for icon stroke setting.
+     */
     public LegendItem getIconStroke(Stroke iconStroke) {
         LegendItem item = new LegendItem(jsBase + ".iconStroke(" + ((iconStroke != null) ? iconStroke.generateJs() : "null") + ")");
         getIconStroke.add(item);
@@ -187,6 +214,9 @@ public class LegendItem extends CoreText {
 
     private List<LegendItem> getIconTextSpacing = new ArrayList<>();
 
+    /**
+     * Getter/setter for iconTextSpacing setting.
+     */
     public LegendItem getIconTextSpacing(Double iconTextSpacing) {
         LegendItem item = new LegendItem(jsBase + ".iconTextSpacing(" + iconTextSpacing + ")");
         getIconTextSpacing.add(item);
@@ -195,6 +225,9 @@ public class LegendItem extends CoreText {
 
     private List<LegendItem> getIconType = new ArrayList<>();
 
+    /**
+     * Getter/setter for icon type.
+     */
     public LegendItem getIconType(String iconType) {
         LegendItem item = new LegendItem(jsBase + ".iconType(" + wrapQuotes(iconType) + ")");
         getIconType.add(item);
@@ -204,6 +237,9 @@ public class LegendItem extends CoreText {
     private Double maxHeight;
     private String maxHeight1;
 
+    /**
+     * Setter for the maximal height of a legend item.
+     */
     public LegendItem setMaxHeight(Double maxHeight) {
         if (jsBase == null) {
             this.maxHeight = null;
@@ -218,7 +254,6 @@ public class LegendItem extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
                 js.setLength(0);
@@ -228,6 +263,9 @@ public class LegendItem extends CoreText {
     }
 
 
+    /**
+     * Setter for the maximal height of a legend item.
+     */
     public LegendItem setMaxHeight(String maxHeight1) {
         if (jsBase == null) {
             this.maxHeight = null;
@@ -242,7 +280,6 @@ public class LegendItem extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
                 js.setLength(0);
@@ -254,6 +291,9 @@ public class LegendItem extends CoreText {
     private Double maxWidth;
     private String maxWidth1;
 
+    /**
+     * Setter for the maximal width of a legend item.
+     */
     public LegendItem setMaxWidth(Double maxWidth) {
         if (jsBase == null) {
             this.maxWidth = null;
@@ -268,7 +308,6 @@ public class LegendItem extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
                 js.setLength(0);
@@ -278,6 +317,9 @@ public class LegendItem extends CoreText {
     }
 
 
+    /**
+     * Setter for the maximal width of a legend item.
+     */
     public LegendItem setMaxWidth(String maxWidth1) {
         if (jsBase == null) {
             this.maxWidth = null;
@@ -292,7 +334,6 @@ public class LegendItem extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
                 js.setLength(0);
@@ -303,6 +344,9 @@ public class LegendItem extends CoreText {
 
     private List<LegendItem> getText = new ArrayList<>();
 
+    /**
+     * Getter/setter for legend item text.
+     */
     public LegendItem getText(String text) {
         LegendItem item = new LegendItem(jsBase + ".text(" + wrapQuotes(text) + ")");
         getText.add(item);
@@ -311,6 +355,9 @@ public class LegendItem extends CoreText {
 
     private List<LegendItem> getX = new ArrayList<>();
 
+    /**
+     * Getter/setter for X coordinate of legend item.
+     */
     public LegendItem getX(Double x) {
         LegendItem item = new LegendItem(jsBase + ".x(" + x + ")");
         getX.add(item);
@@ -319,6 +366,9 @@ public class LegendItem extends CoreText {
 
     private List<LegendItem> getX1 = new ArrayList<>();
 
+    /**
+     * Getter/setter for X coordinate of legend item.
+     */
     public LegendItem getX(String x) {
         LegendItem item = new LegendItem(jsBase + ".x(" + wrapQuotes(x) + ")");
         getX1.add(item);
@@ -327,6 +377,9 @@ public class LegendItem extends CoreText {
 
     private List<LegendItem> getY = new ArrayList<>();
 
+    /**
+     * Getter/setter for Y coordinate of legend item.
+     */
     public LegendItem getY(Double y) {
         LegendItem item = new LegendItem(jsBase + ".y(" + y + ")");
         getY.add(item);
@@ -335,84 +388,15 @@ public class LegendItem extends CoreText {
 
     private List<LegendItem> getY1 = new ArrayList<>();
 
+    /**
+     * Getter/setter for Y coordinate of legend item.
+     */
     public LegendItem getY(String y) {
         LegendItem item = new LegendItem(jsBase + ".y(" + wrapQuotes(y) + ")");
         getY1.add(item);
         return item;
     }
 
-
-//
-//    private String generateJSLegendItem getIconFill() {
-//        if (LegendItem getIconFill != null) {
-//            return LegendItem getIconFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPatternFill getIconHatchFill() {
-//        if (PatternFill getIconHatchFill != null) {
-//            return PatternFill getIconHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSLegendItem getIconStroke() {
-//        if (LegendItem getIconStroke != null) {
-//            return LegendItem getIconStroke.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSLegendItem getIconTextSpacing() {
-//        if (LegendItem getIconTextSpacing != null) {
-//            return LegendItem getIconTextSpacing.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSLegendItem getIconType() {
-//        if (LegendItem getIconType != null) {
-//            return LegendItem getIconType.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSLegendItem getText() {
-//        if (LegendItem getText != null) {
-//            return LegendItem getText.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSLegendItem getX() {
-//        if (LegendItem getX != null) {
-//            return LegendItem getX.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSLegendItem getX1() {
-//        if (LegendItem getX1 != null) {
-//            return LegendItem getX1.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSLegendItem getY() {
-//        if (LegendItem getY != null) {
-//            return LegendItem getY.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSLegendItem getY1() {
-//        if (LegendItem getY1 != null) {
-//            return LegendItem getY1.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetIconFill() {
         if (!getIconFill.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -428,7 +412,6 @@ public class LegendItem extends CoreText {
     private String generateJSgetIconHatchFill() {
         if (getIconHatchFill != null) {
             return getIconHatchFill.generateJs();
-            //return String.format(Locale.US, "getIconHatchFill: %s,", ((getIconHatchFill != null) ? getIconHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -556,34 +539,6 @@ public class LegendItem extends CoreText {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSmaxHeight());
-////        
-//            js.append(generateJSmaxHeight1());
-////        
-//            js.append(generateJSmaxWidth());
-////        
-//            js.append(generateJSmaxWidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

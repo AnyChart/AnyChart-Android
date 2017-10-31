@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Circular range.
+ */
 public class CircularRange extends VisualBase {
 
     public CircularRange() {
-
+        js.setLength(0);
+        js.append("var circularRange").append(++variableIndex).append(" = anychart.core.axisMarkers.circularRange();");
+        jsBase = "circularRange" + variableIndex;
     }
 
     protected CircularRange(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class CircularRange extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double index;
 
+    /**
+     * Setter for the axis index.
+     */
     public CircularRange setAxisIndex(Double index) {
         if (jsBase == null) {
             this.index = index;
@@ -38,7 +51,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".axisIndex(%f)", index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".axisIndex(%f)", index));
                 js.setLength(0);
@@ -50,6 +62,10 @@ public class CircularRange extends VisualBase {
     private Double cornersRounding;
     private String cornersRounding1;
 
+    /**
+     * Setter for the rounding of circular ranges.<br/>
+Round off the ends of circular ranges to the specified radius.
+     */
     public CircularRange setCornersRounding(Double cornersRounding) {
         if (jsBase == null) {
             this.cornersRounding = null;
@@ -64,7 +80,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
                 js.setLength(0);
@@ -74,6 +89,10 @@ public class CircularRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the rounding of circular ranges.<br/>
+Round off the ends of circular ranges to the specified radius.
+     */
     public CircularRange setCornersRounding(String cornersRounding1) {
         if (jsBase == null) {
             this.cornersRounding = null;
@@ -88,7 +107,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
                 js.setLength(0);
@@ -100,6 +118,9 @@ public class CircularRange extends VisualBase {
     private Double endSize;
     private String endSize1;
 
+    /**
+     * Setter for the range end size.
+     */
     public CircularRange setEndSize(Double endSize) {
         if (jsBase == null) {
             this.endSize = null;
@@ -114,7 +135,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".endSize(%f)", endSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".endSize(%f)", endSize));
                 js.setLength(0);
@@ -124,6 +144,9 @@ public class CircularRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the range end size.
+     */
     public CircularRange setEndSize(String endSize1) {
         if (jsBase == null) {
             this.endSize = null;
@@ -138,7 +161,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".endSize(%s)", wrapQuotes(endSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".endSize(%s)", wrapQuotes(endSize1)));
                 js.setLength(0);
@@ -149,6 +171,9 @@ public class CircularRange extends VisualBase {
 
     private Fill fill;
 
+    /**
+     * Setter for the range fill.
+     */
     public CircularRange setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -160,7 +185,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -171,6 +195,9 @@ public class CircularRange extends VisualBase {
 
     private Double from;
 
+    /**
+     * Setter for the starting range value.
+     */
     public CircularRange setFrom(Double from) {
         if (jsBase == null) {
             this.from = from;
@@ -182,7 +209,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".from(%f)", from));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".from(%f)", from));
                 js.setLength(0);
@@ -194,6 +220,9 @@ public class CircularRange extends VisualBase {
     private GaugeSidePosition position;
     private String position1;
 
+    /**
+     * Setter for the range position.
+     */
     public CircularRange setPosition(GaugeSidePosition position) {
         if (jsBase == null) {
             this.position = null;
@@ -208,7 +237,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -218,6 +246,9 @@ public class CircularRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the range position.
+     */
     public CircularRange setPosition(String position1) {
         if (jsBase == null) {
             this.position = null;
@@ -232,7 +263,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -244,6 +274,9 @@ public class CircularRange extends VisualBase {
     private Double radius;
     private String radius1;
 
+    /**
+     * Setter for the range radius.
+     */
     public CircularRange setRadius(Double radius) {
         if (jsBase == null) {
             this.radius = null;
@@ -258,7 +291,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".radius(%f)", radius));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
                 js.setLength(0);
@@ -268,6 +300,9 @@ public class CircularRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the range radius.
+     */
     public CircularRange setRadius(String radius1) {
         if (jsBase == null) {
             this.radius = null;
@@ -282,7 +317,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
                 js.setLength(0);
@@ -294,6 +328,9 @@ public class CircularRange extends VisualBase {
     private Double startSize;
     private String startSize1;
 
+    /**
+     * Setter for the range start size.
+     */
     public CircularRange setStartSize(Double startSize) {
         if (jsBase == null) {
             this.startSize = null;
@@ -308,7 +345,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".startSize(%f)", startSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startSize(%f)", startSize));
                 js.setLength(0);
@@ -318,6 +354,9 @@ public class CircularRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the range start size.
+     */
     public CircularRange setStartSize(String startSize1) {
         if (jsBase == null) {
             this.startSize = null;
@@ -332,7 +371,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
                 js.setLength(0);
@@ -343,6 +381,9 @@ public class CircularRange extends VisualBase {
 
     private Double to;
 
+    /**
+     * Setter for the ending range value.
+     */
     public CircularRange setTo(Double to) {
         if (jsBase == null) {
             this.to = to;
@@ -354,7 +395,6 @@ public class CircularRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".to(%f)", to));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".to(%f)", to));
                 js.setLength(0);
@@ -363,8 +403,6 @@ public class CircularRange extends VisualBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -382,40 +420,6 @@ public class CircularRange extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJScornersRounding());
-////        
-//            js.append(generateJScornersRounding1());
-////        
-//            js.append(generateJSendSize());
-////        
-//            js.append(generateJSendSize1());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJSfrom());
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSposition1());
-////        
-//            js.append(generateJSradius());
-////        
-//            js.append(generateJSradius1());
-////        
-//            js.append(generateJSstartSize());
-////        
-//            js.append(generateJSstartSize1());
-////        
-//            js.append(generateJSto());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

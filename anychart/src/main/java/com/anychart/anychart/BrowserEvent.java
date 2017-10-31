@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Encapsulates browser event for anychart.graphics.
+ */
 public class BrowserEvent extends JsObject {
 
     public BrowserEvent() {
-
+        js.setLength(0);
+        js.append("var browserEvent").append(++variableIndex).append(" = anychart.graphics.events.browserEvent();");
+        jsBase = "browserEvent" + variableIndex;
     }
 
     protected BrowserEvent(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class BrowserEvent extends JsObject {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class BrowserEvent extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

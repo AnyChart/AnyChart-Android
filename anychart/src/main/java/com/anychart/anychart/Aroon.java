@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Aroon indicator class.
+{docs:Stock_Charts/Technical_Indicators/Aroon}Learn more about the Aroon indicator.{docs}
+ */
 public class Aroon extends JsObject {
 
     public Aroon() {
-
+        js.setLength(0);
+        js.append("var aroon").append(++variableIndex).append(" = anychart.core.stock.indicators.aroon();");
+        jsBase = "aroon" + variableIndex;
     }
 
     protected Aroon(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,16 @@ public class Aroon extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private StockSeriesBase getDownSeries;
 
+    /**
+     * Getter for the indicator Down Series.
+     */
     public StockSeriesBase getDownSeries() {
         if (getDownSeries == null)
             getDownSeries = new StockSeriesBase(jsBase + ".downSeries()");
@@ -37,6 +51,9 @@ public class Aroon extends JsObject {
     private StockSeriesType type;
     private String type1;
 
+    /**
+     * Setter for the indicator Down Series.
+     */
     public Aroon setDownSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
@@ -51,7 +68,6 @@ public class Aroon extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".downSeries(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".downSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -61,6 +77,9 @@ public class Aroon extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator Down Series.
+     */
     public Aroon setDownSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -75,7 +94,6 @@ public class Aroon extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".downSeries(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".downSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -86,6 +104,9 @@ public class Aroon extends JsObject {
 
     private Double period;
 
+    /**
+     * Setter for the indicator period.
+     */
     public Aroon setPeriod(Double period) {
         if (jsBase == null) {
             this.period = period;
@@ -97,7 +118,6 @@ public class Aroon extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".period(%f)", period));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
                 js.setLength(0);
@@ -108,6 +128,9 @@ public class Aroon extends JsObject {
 
     private StockSeriesBase getUpSeries;
 
+    /**
+     * Getter for the indicator Up Series.
+     */
     public StockSeriesBase getUpSeries() {
         if (getUpSeries == null)
             getUpSeries = new StockSeriesBase(jsBase + ".upSeries()");
@@ -118,6 +141,9 @@ public class Aroon extends JsObject {
     private StockSeriesType type2;
     private String type3;
 
+    /**
+     * Setter for the indicator Up Series.
+     */
     public Aroon setUpSeries(StockSeriesType type2) {
         if (jsBase == null) {
             this.type = null;
@@ -134,7 +160,6 @@ public class Aroon extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".upSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
@@ -144,6 +169,9 @@ public class Aroon extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator Up Series.
+     */
     public Aroon setUpSeries(String type3) {
         if (jsBase == null) {
             this.type = null;
@@ -160,7 +188,6 @@ public class Aroon extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".upSeries(%s)", wrapQuotes(type3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);
@@ -169,26 +196,9 @@ public class Aroon extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSStockSeriesBase getDownSeries() {
-//        if (StockSeriesBase getDownSeries != null) {
-//            return StockSeriesBase getDownSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getUpSeries() {
-//        if (StockSeriesBase getUpSeries != null) {
-//            return StockSeriesBase getUpSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetDownSeries() {
         if (getDownSeries != null) {
             return getDownSeries.generateJs();
-            //return String.format(Locale.US, "getDownSeries: %s,", ((getDownSeries != null) ? getDownSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -196,7 +206,6 @@ public class Aroon extends JsObject {
     private String generateJSgetUpSeries() {
         if (getUpSeries != null) {
             return getUpSeries.generateJs();
-            //return String.format(Locale.US, "getUpSeries: %s,", ((getUpSeries != null) ? getUpSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -220,22 +229,6 @@ public class Aroon extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJSperiod());
-////        
-//            js.append(generateJStype2());
-////        
-//            js.append(generateJStype3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

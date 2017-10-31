@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Range Selector (only for stock chart).
+ */
 public class RangeSelector extends JsObject {
 
     public RangeSelector() {
-
+        js.setLength(0);
+        js.append("var rangeSelector").append(++variableIndex).append(" = anychart.ui.rangeSelector();");
+        jsBase = "rangeSelector" + variableIndex;
     }
 
     protected RangeSelector(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class RangeSelector extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Element decorate;
 
+    /**
+     * Decorates the container for the range selector.
+     */
     public void decorate(Element decorate) {
         if (jsBase == null) {
             this.decorate = decorate;
@@ -36,11 +49,12 @@ public class RangeSelector extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(decorate.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".decorate(%s);", ((decorate != null) ? decorate.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".decorate(%s);",  ((decorate != null) ? decorate.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((decorate != null) ? decorate.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((decorate != null) ? decorate.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -48,6 +62,9 @@ public class RangeSelector extends JsObject {
 
     private Range[] ranges;
 
+    /**
+     * Setter for buttons setup.
+     */
     public void setRanges(Range[] ranges) {
         if (jsBase == null) {
             this.ranges = ranges;
@@ -59,7 +76,6 @@ public class RangeSelector extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ranges(%s);", arrayToString(ranges)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ranges(%s)", arrayToString(ranges)));
                 js.setLength(0);
@@ -70,6 +86,9 @@ public class RangeSelector extends JsObject {
     private ChartsStock parentElement;
     private Element parentElement1;
 
+    /**
+     * Renders the range selector.
+     */
     public void render(ChartsStock parentElement) {
         if (jsBase == null) {
             this.parentElement = null;
@@ -82,17 +101,21 @@ public class RangeSelector extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(parentElement.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement != null) ? parentElement.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".render(%s);",  ((parentElement != null) ? parentElement.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
     }
 
 
+    /**
+     * Renders the range selector.
+     */
     public void render(Element parentElement1) {
         if (jsBase == null) {
             this.parentElement = null;
@@ -105,11 +128,12 @@ public class RangeSelector extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(parentElement1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement1 != null) ? parentElement1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".render(%s);",  ((parentElement1 != null) ? parentElement1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement1 != null) ? parentElement1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement1 != null) ? parentElement1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -117,6 +141,9 @@ public class RangeSelector extends JsObject {
 
     private ChartsStock chart;
 
+    /**
+     * Set stock chart for range selector.
+     */
     public void target(ChartsStock chart) {
         if (jsBase == null) {
             this.chart = chart;
@@ -126,11 +153,12 @@ public class RangeSelector extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            js.append(chart.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".target(%s);", ((chart != null) ? chart.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".target(%s);",  ((chart != null) ? chart.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", ((chart != null) ? chart.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", ((chart != null) ? chart.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -138,6 +166,9 @@ public class RangeSelector extends JsObject {
 
     private String zoomLabelText;
 
+    /**
+     * Setter fot the label text.
+     */
     public RangeSelector setZoomLabelText(String zoomLabelText) {
         if (jsBase == null) {
             this.zoomLabelText = zoomLabelText;
@@ -149,7 +180,6 @@ public class RangeSelector extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".zoomLabelText(%s)", wrapQuotes(zoomLabelText)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".zoomLabelText(%s)", wrapQuotes(zoomLabelText)));
                 js.setLength(0);
@@ -158,8 +188,6 @@ public class RangeSelector extends JsObject {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -177,24 +205,6 @@ public class RangeSelector extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdecorate());
-////        
-//            js.append(generateJSranges());
-////        
-//            js.append(generateJSparentElement());
-////        
-//            js.append(generateJSparentElement1());
-////        
-//            js.append(generateJSchart());
-////        
-//            js.append(generateJSzoomLabelText());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

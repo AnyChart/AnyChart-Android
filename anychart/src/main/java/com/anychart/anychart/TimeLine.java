@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Resource Chart Timeline element.
+ */
 public class TimeLine extends VisualBaseWithBounds {
 
     public TimeLine() {
-
+        js.setLength(0);
+        js.append("var timeLine").append(++variableIndex).append(" = anychart.core.resource.timeLine();");
+        jsBase = "timeLine" + variableIndex;
     }
 
     protected TimeLine(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,12 +30,19 @@ public class TimeLine extends VisualBaseWithBounds {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean adjustOrAdjustByWidth;
     private Boolean[] adjustOrAdjustByWidth1;
     private String adjustOrAdjustByWidth2;
     private Boolean adjustByHeight;
 
+    /**
+     * Setter for the adjusting font size.
+     */
     public TimeLine setAdjustFontSize(Boolean adjustOrAdjustByWidth, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
@@ -47,7 +60,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
                 js.setLength(0);
@@ -57,6 +69,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the adjusting font size.
+     */
     public TimeLine setAdjustFontSize(Boolean[] adjustOrAdjustByWidth1, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
@@ -74,7 +89,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
                 js.setLength(0);
@@ -84,6 +98,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the adjusting font size.
+     */
     public TimeLine setAdjustFontSize(String adjustOrAdjustByWidth2, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
@@ -101,7 +118,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(adjustOrAdjustByWidth2), adjustByHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(adjustOrAdjustByWidth2), adjustByHeight));
                 js.setLength(0);
@@ -112,6 +128,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private UiBackground getBackground;
 
+    /**
+     * Getter for the background.
+     */
     public UiBackground getBackground() {
         if (getBackground == null)
             getBackground = new UiBackground(jsBase + ".background()");
@@ -123,6 +142,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String background1;
     private Boolean background2;
 
+    /**
+     * Setter for the background.
+     */
     public TimeLine setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
@@ -138,7 +160,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -148,6 +169,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the background.
+     */
     public TimeLine setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
@@ -163,7 +187,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -174,6 +197,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Boolean disablePointerEvents;
 
+    /**
+     * Setter for the pointer events setting.
+     */
     public TimeLine setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
@@ -185,7 +211,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
@@ -196,6 +221,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Boolean drawBottomLine;
 
+    /**
+     * Setter for the bottom line drawing flag.
+     */
     public Grid setDrawBottomLine(Boolean drawBottomLine) {
         if (jsBase == null) {
             this.drawBottomLine = drawBottomLine;
@@ -207,7 +235,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".drawBottomLine(%b);", drawBottomLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawBottomLine(%b)", drawBottomLine));
                 js.setLength(0);
@@ -218,6 +245,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Boolean drawLeftLine;
 
+    /**
+     * Setter for the left line drawing flag.
+     */
     public Grid setDrawLeftLine(Boolean drawLeftLine) {
         if (jsBase == null) {
             this.drawLeftLine = drawLeftLine;
@@ -229,7 +259,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".drawLeftLine(%b);", drawLeftLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLeftLine(%b)", drawLeftLine));
                 js.setLength(0);
@@ -240,6 +269,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Boolean drawRightLine;
 
+    /**
+     * Setter for the right line drawing flag.
+     */
     public Grid setDrawRightLine(Boolean drawRightLine) {
         if (jsBase == null) {
             this.drawRightLine = drawRightLine;
@@ -251,7 +283,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".drawRightLine(%b);", drawRightLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawRightLine(%b)", drawRightLine));
                 js.setLength(0);
@@ -262,6 +293,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Boolean drawTopLine;
 
+    /**
+     * Setter for the top line drawing flag.
+     */
     public Grid setDrawTopLine(Boolean drawTopLine) {
         if (jsBase == null) {
             this.drawTopLine = drawTopLine;
@@ -273,7 +307,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".drawTopLine(%b);", drawTopLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawTopLine(%b)", drawTopLine));
                 js.setLength(0);
@@ -284,6 +317,10 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TimeLine setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -295,7 +332,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -307,6 +343,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity.
+     */
     public TimeLine fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -320,7 +359,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -337,6 +375,10 @@ public class TimeLine extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TimeLine fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -364,7 +406,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -374,6 +415,10 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TimeLine fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -401,7 +446,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -411,6 +455,10 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TimeLine fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -438,7 +486,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -448,6 +495,10 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TimeLine fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -475,7 +526,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -485,6 +535,10 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TimeLine fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -512,7 +566,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -522,6 +575,10 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TimeLine fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -549,7 +606,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -567,6 +623,10 @@ public class TimeLine extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TimeLine fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -604,7 +664,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -614,6 +673,10 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TimeLine fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -651,7 +714,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -663,6 +725,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private Fill imageSettings;
     private String fontColor;
 
+    /**
+     * Setter for font color settings.
+     */
     public TimeLine setFontColor(String fontColor) {
         if (jsBase == null) {
             this.fontColor = fontColor;
@@ -674,7 +739,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
                 js.setLength(0);
@@ -686,6 +750,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private Decoration fontDecoration;
     private String fontDecoration1;
 
+    /**
+     * Setter for font decoration settings.
+     */
     public TimeLine setFontDecoration(Decoration fontDecoration) {
         if (jsBase == null) {
             this.fontDecoration = null;
@@ -700,7 +767,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
                 js.setLength(0);
@@ -710,6 +776,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for font decoration settings.
+     */
     public TimeLine setFontDecoration(String fontDecoration1) {
         if (jsBase == null) {
             this.fontDecoration = null;
@@ -724,7 +793,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
                 js.setLength(0);
@@ -735,6 +803,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private String fontFamily;
 
+    /**
+     * Setter for font family settings.
+     */
     public TimeLine setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
@@ -746,7 +817,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
                 js.setLength(0);
@@ -757,6 +827,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Double fontOpacity;
 
+    /**
+     * Setter for font opacity settings.
+     */
     public TimeLine setFontOpacity(Double fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
@@ -768,7 +841,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
                 js.setLength(0);
@@ -780,6 +852,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private Double fontSize;
     private String fontSize1;
 
+    /**
+     * Setter for font size settings.
+     */
     public TimeLine setFontSize(Double fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -794,7 +869,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize));
                 js.setLength(0);
@@ -804,6 +878,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for font size settings.
+     */
     public TimeLine setFontSize(String fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -818,7 +895,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
                 js.setLength(0);
@@ -830,6 +906,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String fontStyle;
     private TextFontStyle fontStyle1;
 
+    /**
+     * Setter for font style settings.
+     */
     public TimeLine setFontStyle(String fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -844,7 +923,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle)));
                 js.setLength(0);
@@ -854,6 +932,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for font style settings.
+     */
     public TimeLine setFontStyle(TextFontStyle fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -868,7 +949,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle1 != null) ? fontStyle1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle1 != null) ? fontStyle1.generateJs() : "null")));
                 js.setLength(0);
@@ -880,6 +960,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String fontVariant;
     private TextFontVariant fontVariant1;
 
+    /**
+     * Setter for font variant settings.
+     */
     public TimeLine setFontVariant(String fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -894,7 +977,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant)));
                 js.setLength(0);
@@ -904,6 +986,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for font variant settings.
+     */
     public TimeLine setFontVariant(TextFontVariant fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -918,7 +1003,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant1 != null) ? fontVariant1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant1 != null) ? fontVariant1.generateJs() : "null")));
                 js.setLength(0);
@@ -930,6 +1014,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String fontWeight;
     private Double fontWeight1;
 
+    /**
+     * Setter for font weight settings.
+     */
     public TimeLine setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -944,7 +1031,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
                 js.setLength(0);
@@ -954,6 +1040,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for font weight settings.
+     */
     public TimeLine setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -968,7 +1057,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
@@ -979,6 +1067,10 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private String format;
 
+    /**
+     * Setter for the function content text.<br/>
+{docs:Common_Settings/Text_Formatters}Learn more about using format() method.{docs}
+     */
     public TimeLineLevelHolidaysSettings setFormat(String format) {
         if (jsBase == null) {
             this.format = format;
@@ -990,7 +1082,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(format)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".format(%s)", wrapQuotes(format)));
                 js.setLength(0);
@@ -1002,6 +1093,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String hAlign;
     private TextHAlign hAlign1;
 
+    /**
+     * Setter for the text horizontal align settings.
+     */
     public TimeLine setHAlign(String hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
@@ -1016,7 +1110,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign)));
                 js.setLength(0);
@@ -1026,6 +1119,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the text horizontal align settings.
+     */
     public TimeLine setHAlign(TextHAlign hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
@@ -1040,7 +1136,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign1 != null) ? hAlign1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", ((hAlign1 != null) ? hAlign1.generateJs() : "null")));
                 js.setLength(0);
@@ -1051,6 +1146,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private TimeLineLevelHolidaysSettings getHolidays;
 
+    /**
+     * Getter for holidays.
+     */
     public TimeLineLevelHolidaysSettings getHolidays() {
         if (getHolidays == null)
             getHolidays = new TimeLineLevelHolidaysSettings(jsBase + ".holidays()");
@@ -1060,6 +1158,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private String holidays;
 
+    /**
+     * Setter for holidays settings.
+     */
     public TimeLine setHolidays(String holidays) {
         if (jsBase == null) {
             this.holidays = holidays;
@@ -1071,7 +1172,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".holidays(%s)", wrapQuotes(holidays)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".holidays(%s)", wrapQuotes(holidays)));
                 js.setLength(0);
@@ -1083,6 +1183,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private Double letterSpacing;
     private String letterSpacing1;
 
+    /**
+     * Setter for text letter spacing settings.
+     */
     public TimeLine setLetterSpacing(Double letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = null;
@@ -1097,7 +1200,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
                 js.setLength(0);
@@ -1107,6 +1209,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for text letter spacing settings.
+     */
     public TimeLine setLetterSpacing(String letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
@@ -1121,7 +1226,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing1)));
                 js.setLength(0);
@@ -1132,6 +1236,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Double levelHeight;
 
+    /**
+     * Setter for the level height.
+     */
     public TimeLine setLevelHeight(Double levelHeight) {
         if (jsBase == null) {
             this.levelHeight = levelHeight;
@@ -1143,7 +1250,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".levelHeight(%f)", levelHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".levelHeight(%f)", levelHeight));
                 js.setLength(0);
@@ -1155,6 +1261,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private Double lineHeight;
     private String lineHeight1;
 
+    /**
+     * Setter for text line height settings.
+     */
     public TimeLine setLineHeight(Double lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
@@ -1169,7 +1278,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
                 js.setLength(0);
@@ -1179,6 +1287,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for text line height settings.
+     */
     public TimeLine setLineHeight(String lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
@@ -1193,7 +1304,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight1)));
                 js.setLength(0);
@@ -1205,6 +1315,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private Double maxFontSize;
     private String maxFontSize1;
 
+    /**
+     * Setter for the maximum font size.
+     */
     public TimeLine setMaxFontSize(Double maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
@@ -1219,7 +1332,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
                 js.setLength(0);
@@ -1229,6 +1341,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the maximum font size.
+     */
     public TimeLine setMaxFontSize(String maxFontSize1) {
         if (jsBase == null) {
             this.maxFontSize = null;
@@ -1243,7 +1358,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
                 js.setLength(0);
@@ -1255,6 +1369,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private Double minFontSize;
     private String minFontSize1;
 
+    /**
+     * Setter for the minimum font size.
+     */
     public TimeLine setMinFontSize(Double minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
@@ -1269,7 +1386,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
                 js.setLength(0);
@@ -1279,6 +1395,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the minimum font size.
+     */
     public TimeLine setMinFontSize(String minFontSize1) {
         if (jsBase == null) {
             this.minFontSize = null;
@@ -1293,7 +1412,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
                 js.setLength(0);
@@ -1304,6 +1422,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Overlay getOverlay;
 
+    /**
+     * Getter for the overlay element.
+     */
     public Overlay getOverlay() {
         if (getOverlay == null)
             getOverlay = new Overlay(jsBase + ".overlay()");
@@ -1314,6 +1435,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String overlay;
     private Boolean overlay1;
 
+    /**
+     * Setter for the overlay element.
+     */
     public TimeLine setOverlay(String overlay) {
         if (jsBase == null) {
             this.overlay = null;
@@ -1328,7 +1452,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
                 js.setLength(0);
@@ -1338,6 +1461,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the overlay element.
+     */
     public TimeLine setOverlay(Boolean overlay1) {
         if (jsBase == null) {
             this.overlay = null;
@@ -1352,7 +1478,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".overlay(%b)", overlay1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlay(%b)", overlay1));
                 js.setLength(0);
@@ -1363,6 +1488,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private UtilsPadding getPadding;
 
+    /**
+     * Getter for the padding.
+     */
     public UtilsPadding getPadding() {
         if (getPadding == null)
             getPadding = new UtilsPadding(jsBase + ".padding()");
@@ -1374,6 +1502,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String[] padding1;
     private String padding2;
 
+    /**
+     * Setter for paddings in pixels using a single value.
+     */
     public TimeLine setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
@@ -1389,7 +1520,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -1399,6 +1529,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for paddings in pixels using a single value.
+     */
     public TimeLine setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
@@ -1414,7 +1547,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -1424,6 +1556,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for paddings in pixels using a single value.
+     */
     public TimeLine setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
@@ -1439,7 +1574,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -1457,6 +1591,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for paddings in pixels using several numbers.
+     */
     public TimeLine setPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -1510,7 +1647,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -1520,6 +1656,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for paddings in pixels using several numbers.
+     */
     public TimeLine setPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -1573,7 +1712,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -1584,6 +1722,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Boolean selectable;
 
+    /**
+     * Setter for the text selectable option.
+     */
     public TimeLine setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
@@ -1595,7 +1736,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
@@ -1612,6 +1752,10 @@ public class TimeLine extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TimeLine setStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1636,7 +1780,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1646,6 +1789,10 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TimeLine setStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1670,7 +1817,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1680,6 +1826,10 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TimeLine setStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1704,7 +1854,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1716,6 +1865,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String textDirection;
     private Direction textDirection1;
 
+    /**
+     * Setter for text direction settings.
+     */
     public TimeLine setTextDirection(String textDirection) {
         if (jsBase == null) {
             this.textDirection = null;
@@ -1730,7 +1882,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection)));
                 js.setLength(0);
@@ -1740,6 +1891,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for text direction settings.
+     */
     public TimeLine setTextDirection(Direction textDirection1) {
         if (jsBase == null) {
             this.textDirection = null;
@@ -1754,7 +1908,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection1 != null) ? textDirection1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", ((textDirection1 != null) ? textDirection1.generateJs() : "null")));
                 js.setLength(0);
@@ -1765,6 +1918,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Double textIndent;
 
+    /**
+     * Setter for text-indent settings.
+     */
     public TimeLine setTextIndent(Double textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
@@ -1776,7 +1932,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
@@ -1788,6 +1943,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private TextOverflow textOverflow;
     private String textOverflow1;
 
+    /**
+     * Setter for text overflow settings.
+     */
     public TimeLine setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
@@ -1802,7 +1960,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
                 js.setLength(0);
@@ -1812,6 +1969,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for text overflow settings.
+     */
     public TimeLine setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
@@ -1826,7 +1986,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
                 js.setLength(0);
@@ -1837,6 +1996,9 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private Boolean useHtml;
 
+    /**
+     * Setter for the useHTML flag.
+     */
     public TimeLine setUseHtml(Boolean useHtml) {
         if (jsBase == null) {
             this.useHtml = useHtml;
@@ -1848,7 +2010,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
                 js.setLength(0);
@@ -1860,6 +2021,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private String vAlign;
     private TextVAlign vAlign1;
 
+    /**
+     * Setter for text vertical align settings.
+     */
     public TimeLine setVAlign(String vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
@@ -1874,7 +2038,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign)));
                 js.setLength(0);
@@ -1884,6 +2047,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for text vertical align settings.
+     */
     public TimeLine setVAlign(TextVAlign vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
@@ -1898,7 +2064,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign1 != null) ? vAlign1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", ((vAlign1 != null) ? vAlign1.generateJs() : "null")));
                 js.setLength(0);
@@ -1910,6 +2075,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private EnumsWordBreak wordBreak;
     private String wordBreak1;
 
+    /**
+     * Setter for the word-break mode.
+     */
     public TimeLine setWordBreak(EnumsWordBreak wordBreak) {
         if (jsBase == null) {
             this.wordBreak = null;
@@ -1924,7 +2092,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
                 js.setLength(0);
@@ -1934,6 +2101,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the word-break mode.
+     */
     public TimeLine setWordBreak(String wordBreak1) {
         if (jsBase == null) {
             this.wordBreak = null;
@@ -1948,7 +2118,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
                 js.setLength(0);
@@ -1960,6 +2129,9 @@ public class TimeLine extends VisualBaseWithBounds {
     private EnumsWordWrap wordWrap;
     private String wordWrap1;
 
+    /**
+     * Setter for the word-wrap mode.
+     */
     public TimeLine setWordWrap(EnumsWordWrap wordWrap) {
         if (jsBase == null) {
             this.wordWrap = null;
@@ -1974,7 +2146,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
                 js.setLength(0);
@@ -1984,6 +2155,9 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the word-wrap mode.
+     */
     public TimeLine setWordWrap(String wordWrap1) {
         if (jsBase == null) {
             this.wordWrap = null;
@@ -1998,7 +2172,6 @@ public class TimeLine extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
                 js.setLength(0);
@@ -2007,40 +2180,9 @@ public class TimeLine extends VisualBaseWithBounds {
         return this;
     }
 
-
-//
-//    private String generateJSUiBackground getBackground() {
-//        if (UiBackground getBackground != null) {
-//            return UiBackground getBackground.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTimeLineLevelHolidaysSettings getHolidays() {
-//        if (TimeLineLevelHolidaysSettings getHolidays != null) {
-//            return TimeLineLevelHolidaysSettings getHolidays.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSOverlay getOverlay() {
-//        if (Overlay getOverlay != null) {
-//            return Overlay getOverlay.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUtilsPadding getPadding() {
-//        if (UtilsPadding getPadding != null) {
-//            return UtilsPadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -2048,7 +2190,6 @@ public class TimeLine extends VisualBaseWithBounds {
     private String generateJSgetHolidays() {
         if (getHolidays != null) {
             return getHolidays.generateJs();
-            //return String.format(Locale.US, "getHolidays: %s,", ((getHolidays != null) ? getHolidays.generateJs() : "null"));
         }
         return "";
     }
@@ -2056,7 +2197,6 @@ public class TimeLine extends VisualBaseWithBounds {
     private String generateJSgetOverlay() {
         if (getOverlay != null) {
             return getOverlay.generateJs();
-            //return String.format(Locale.US, "getOverlay: %s,", ((getOverlay != null) ? getOverlay.generateJs() : "null"));
         }
         return "";
     }
@@ -2064,7 +2204,6 @@ public class TimeLine extends VisualBaseWithBounds {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -2090,192 +2229,6 @@ public class TimeLine extends VisualBaseWithBounds {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSadjustOrAdjustByWidth());
-////        
-//            js.append(generateJSadjustOrAdjustByWidth1());
-////        
-//            js.append(generateJSadjustOrAdjustByWidth2());
-////        
-//            js.append(generateJSadjustByHeight());
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJSdisablePointerEvents());
-////        
-//            js.append(generateJSdrawBottomLine());
-////        
-//            js.append(generateJSdrawLeftLine());
-////        
-//            js.append(generateJSdrawRightLine());
-////        
-//            js.append(generateJSdrawTopLine());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSfontColor());
-////        
-//            js.append(generateJSfontDecoration());
-////        
-//            js.append(generateJSfontDecoration1());
-////        
-//            js.append(generateJSfontFamily());
-////        
-//            js.append(generateJSfontOpacity());
-////        
-//            js.append(generateJSfontSize());
-////        
-//            js.append(generateJSfontSize1());
-////        
-//            js.append(generateJSfontStyle());
-////        
-//            js.append(generateJSfontStyle1());
-////        
-//            js.append(generateJSfontVariant());
-////        
-//            js.append(generateJSfontVariant1());
-////        
-//            js.append(generateJSfontWeight());
-////        
-//            js.append(generateJSfontWeight1());
-////        
-//            js.append(generateJSformat());
-////        
-//            js.append(generateJShAlign());
-////        
-//            js.append(generateJShAlign1());
-////        
-//            js.append(generateJSholidays());
-////        
-//            js.append(generateJSletterSpacing());
-////        
-//            js.append(generateJSletterSpacing1());
-////        
-//            js.append(generateJSlevelHeight());
-////        
-//            js.append(generateJSlineHeight());
-////        
-//            js.append(generateJSlineHeight1());
-////        
-//            js.append(generateJSmaxFontSize());
-////        
-//            js.append(generateJSmaxFontSize1());
-////        
-//            js.append(generateJSminFontSize());
-////        
-//            js.append(generateJSminFontSize1());
-////        
-//            js.append(generateJSoverlay());
-////        
-//            js.append(generateJSoverlay1());
-////        
-//            js.append(generateJSpadding());
-////        
-//            js.append(generateJSpadding1());
-////        
-//            js.append(generateJSpadding2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSselectable());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJStextDirection());
-////        
-//            js.append(generateJStextDirection1());
-////        
-//            js.append(generateJStextIndent());
-////        
-//            js.append(generateJStextOverflow());
-////        
-//            js.append(generateJStextOverflow1());
-////        
-//            js.append(generateJSuseHtml());
-////        
-//            js.append(generateJSvAlign());
-////        
-//            js.append(generateJSvAlign1());
-////        
-//            js.append(generateJSwordBreak());
-////        
-//            js.append(generateJSwordBreak1());
-////        
-//            js.append(generateJSwordWrap());
-////        
-//            js.append(generateJSwordWrap1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

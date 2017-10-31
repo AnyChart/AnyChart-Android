@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Map geo scale ticks.
+ */
 public class GeoTicks extends CoreBase {
 
     public GeoTicks() {
-
+        js.setLength(0);
+        js.append("var geoTicks").append(++variableIndex).append(" = anychart.scales.geoTicks();");
+        jsBase = "geoTicks" + variableIndex;
     }
 
     protected GeoTicks(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,17 @@ public class GeoTicks extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double count;
 
+    /**
+     * Setter for ticks count value.
+<b>Note:</b> Final number of ticks can be greater (one more tick can be added).
+     */
     public GeoTicks setCount(Double count) {
         if (jsBase == null) {
             this.count = count;
@@ -38,7 +52,6 @@ public class GeoTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".count(%f)", count));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
                 js.setLength(0);
@@ -50,6 +63,10 @@ public class GeoTicks extends CoreBase {
     private Double minimumCount;
     private Double maximumCount;
 
+    /**
+     * Setter for ticks count value using two parameters.
+<b>Note:</b> Final number of ticks can be greater than maximum (one more tick can be added).
+     */
     public GeoTicks setCount(Double minimumCount, Double maximumCount) {
         if (jsBase == null) {
             this.minimumCount = minimumCount;
@@ -63,7 +80,6 @@ public class GeoTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
                 js.setLength(0);
@@ -74,6 +90,9 @@ public class GeoTicks extends CoreBase {
 
     private Double interval;
 
+    /**
+     * Setter for ticks interval value.
+     */
     public GeoTicks setInterval(Double interval) {
         if (jsBase == null) {
             this.interval = interval;
@@ -85,7 +104,6 @@ public class GeoTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".interval(%f)", interval));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".interval(%f)", interval));
                 js.setLength(0);
@@ -96,6 +114,9 @@ public class GeoTicks extends CoreBase {
 
     private String[] ticks;
 
+    /**
+     * Setups ticks as an explicit array of fixed ticks.
+     */
     public GeoTicks set(String[] ticks) {
         if (jsBase == null) {
             this.ticks = ticks;
@@ -107,7 +128,6 @@ public class GeoTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
                 js.setLength(0);
@@ -116,8 +136,6 @@ public class GeoTicks extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -135,22 +153,6 @@ public class GeoTicks extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScount());
-////        
-//            js.append(generateJSminimumCount());
-////        
-//            js.append(generateJSmaximumCount());
-////        
-//            js.append(generateJSinterval());
-////        
-//            js.append(generateJSticks());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

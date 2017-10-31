@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Linear grid.
+ */
 public class CoreGridsLinear extends VisualBase {
 
     public CoreGridsLinear() {
-
+        js.setLength(0);
+        js.append("var coreGridsLinear").append(++variableIndex).append(" = anychart.core.grids.linear();");
+        jsBase = "coreGridsLinear" + variableIndex;
     }
 
     protected CoreGridsLinear(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class CoreGridsLinear extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private CoreAxesLinear getAxis;
 
+    /**
+     * Getter for the grid axis.
+     */
     public CoreAxesLinear getAxis() {
         if (getAxis == null)
             getAxis = new CoreAxesLinear(jsBase + ".axis()");
@@ -36,20 +49,24 @@ public class CoreGridsLinear extends VisualBase {
 
     private CoreAxesLinear axis;
 
+    /**
+     * Setter for the grid axis.
+     */
     public CoreGridsLinear setAxis(CoreAxesLinear axis) {
         if (jsBase == null) {
             this.axis = axis;
         } else {
             this.axis = axis;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(axis.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".axis(%s)", ((axis != null) ? axis.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".axis(%s);",  ((axis != null) ? axis.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", ((axis != null) ? axis.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", ((axis != null) ? axis.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -58,6 +75,9 @@ public class CoreGridsLinear extends VisualBase {
 
     private Boolean drawFirstLine;
 
+    /**
+     * Setter for the first line drawing flag.
+     */
     public CoreGridsLinear setDrawFirstLine(Boolean drawFirstLine) {
         if (jsBase == null) {
             this.drawFirstLine = drawFirstLine;
@@ -69,7 +89,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".drawFirstLine(%b)", drawFirstLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawFirstLine(%b)", drawFirstLine));
                 js.setLength(0);
@@ -80,6 +99,9 @@ public class CoreGridsLinear extends VisualBase {
 
     private Boolean drawLastLine;
 
+    /**
+     * Setter for the last line drawing flag.
+     */
     public CoreGridsLinear setDrawLastLine(Boolean drawLastLine) {
         if (jsBase == null) {
             this.drawLastLine = drawLastLine;
@@ -91,7 +113,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".drawLastLine(%b)", drawLastLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawLastLine(%b)", drawLastLine));
                 js.setLength(0);
@@ -102,6 +123,10 @@ public class CoreGridsLinear extends VisualBase {
 
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreGridsLinear setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -113,7 +138,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -125,6 +149,9 @@ public class CoreGridsLinear extends VisualBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public CoreGridsLinear fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -138,7 +165,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -155,6 +181,10 @@ public class CoreGridsLinear extends VisualBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreGridsLinear fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -182,7 +212,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -192,6 +221,10 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreGridsLinear fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -219,7 +252,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -229,6 +261,10 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreGridsLinear fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -256,7 +292,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -266,6 +301,10 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreGridsLinear fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -293,7 +332,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -303,6 +341,10 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreGridsLinear fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -330,7 +372,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -340,6 +381,10 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreGridsLinear fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -367,7 +412,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -385,6 +429,10 @@ public class CoreGridsLinear extends VisualBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreGridsLinear fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -422,7 +470,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -432,6 +479,10 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CoreGridsLinear fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -469,7 +520,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -481,6 +531,9 @@ public class CoreGridsLinear extends VisualBase {
     private Fill imageSettings;
     private Boolean isMinor;
 
+    /**
+     * Setter for the minor grid state flag.
+     */
     public CoreGridsLinear setIsMinor(Boolean isMinor) {
         if (jsBase == null) {
             this.isMinor = isMinor;
@@ -492,7 +545,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".isMinor(%b)", isMinor));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".isMinor(%b)", isMinor));
                 js.setLength(0);
@@ -503,6 +555,9 @@ public class CoreGridsLinear extends VisualBase {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the colors palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -515,6 +570,9 @@ public class CoreGridsLinear extends VisualBase {
     private String palette2;
     private String[] palette3;
 
+    /**
+     * Setter for the grid colors palette.
+     */
     public CoreGridsLinear setPalette(RangeColors palette) {
         if (jsBase == null) {
             this.palette = null;
@@ -525,15 +583,16 @@ public class CoreGridsLinear extends VisualBase {
             this.palette = palette;
         } else {
             this.palette = palette;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(palette.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -541,6 +600,9 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Setter for the grid colors palette.
+     */
     public CoreGridsLinear setPalette(DistinctColors palette1) {
         if (jsBase == null) {
             this.palette = null;
@@ -551,15 +613,16 @@ public class CoreGridsLinear extends VisualBase {
             this.palette1 = palette1;
         } else {
             this.palette1 = palette1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(palette1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -567,6 +630,9 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Setter for the grid colors palette.
+     */
     public CoreGridsLinear setPalette(String palette2) {
         if (jsBase == null) {
             this.palette = null;
@@ -583,7 +649,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
                 js.setLength(0);
@@ -593,6 +658,9 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Setter for the grid colors palette.
+     */
     public CoreGridsLinear setPalette(String[] palette3) {
         if (jsBase == null) {
             this.palette = null;
@@ -609,7 +677,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
                 js.setLength(0);
@@ -620,6 +687,9 @@ public class CoreGridsLinear extends VisualBase {
 
     private ScalesBase getScale;
 
+    /**
+     * Getter for the grid scale.
+     */
     public ScalesBase getScale() {
         if (getScale == null)
             getScale = new ScalesBase(jsBase + ".scale()");
@@ -632,6 +702,9 @@ public class CoreGridsLinear extends VisualBase {
     private String scale2;
     private ScalesBase scale3;
 
+    /**
+     * Setter for the grid scale.
+     */
     public CoreGridsLinear setScale(String scale) {
         if (jsBase == null) {
             this.scale = null;
@@ -648,7 +721,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale)));
                 js.setLength(0);
@@ -658,6 +730,9 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Setter for the grid scale.
+     */
     public CoreGridsLinear setScale(ScaleTypes scale1) {
         if (jsBase == null) {
             this.scale = null;
@@ -674,7 +749,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", ((scale1 != null) ? scale1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale1 != null) ? scale1.generateJs() : "null")));
                 js.setLength(0);
@@ -684,6 +758,9 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Setter for the grid scale.
+     */
     public CoreGridsLinear setScale(ScalesBase scale3) {
         if (jsBase == null) {
             this.scale = null;
@@ -694,15 +771,16 @@ public class CoreGridsLinear extends VisualBase {
             this.scale3 = scale3;
         } else {
             this.scale3 = scale3;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(scale3.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".scale(%s)", ((scale3 != null) ? scale3.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".scale(%s);",  ((scale3 != null) ? scale3.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale3 != null) ? scale3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale3 != null) ? scale3.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -717,6 +795,10 @@ public class CoreGridsLinear extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the grid stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CoreGridsLinear setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -740,7 +822,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -750,6 +831,10 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Setter for the grid stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CoreGridsLinear setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -773,7 +858,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -783,6 +867,10 @@ public class CoreGridsLinear extends VisualBase {
     }
 
 
+    /**
+     * Setter for the grid stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CoreGridsLinear setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -806,7 +894,6 @@ public class CoreGridsLinear extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -815,33 +902,9 @@ public class CoreGridsLinear extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSCoreAxesLinear getAxis() {
-//        if (CoreAxesLinear getAxis != null) {
-//            return CoreAxesLinear getAxis.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSRangeColors getPalette() {
-//        if (RangeColors getPalette != null) {
-//            return RangeColors getPalette.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesBase getScale() {
-//        if (ScalesBase getScale != null) {
-//            return ScalesBase getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetAxis() {
         if (getAxis != null) {
             return getAxis.generateJs();
-            //return String.format(Locale.US, "getAxis: %s,", ((getAxis != null) ? getAxis.generateJs() : "null"));
         }
         return "";
     }
@@ -849,7 +912,6 @@ public class CoreGridsLinear extends VisualBase {
     private String generateJSgetPalette() {
         if (getPalette != null) {
             return getPalette.generateJs();
-            //return String.format(Locale.US, "getPalette: %s,", ((getPalette != null) ? getPalette.generateJs() : "null"));
         }
         return "";
     }
@@ -857,7 +919,6 @@ public class CoreGridsLinear extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -882,88 +943,6 @@ public class CoreGridsLinear extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSaxis());
-////        
-//            js.append(generateJSdrawFirstLine());
-////        
-//            js.append(generateJSdrawLastLine());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSisMinor());
-////        
-//            js.append(generateJSpalette());
-////        
-//            js.append(generateJSpalette1());
-////        
-//            js.append(generateJSpalette2());
-////        
-//            js.append(generateJSpalette3());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSscale1());
-////        
-//            js.append(generateJSscale2());
-////        
-//            js.append(generateJSscale3());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

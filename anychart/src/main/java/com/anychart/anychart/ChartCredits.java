@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Define class Credits.<br/>
+<b>Note:</b> Use {@link anychart.ui#credits} method to create instance of this class.<br/>
+<b>Note:</b> You can't customize credits without <u>a license key</u>. See <a href="https://www.anychart.com/buy/">AnyChart Licensing</a> to learn more.
+ */
 public class ChartCredits extends CoreBase {
 
     public ChartCredits() {
-
+        js.setLength(0);
+        js.append("var chartCredits").append(++variableIndex).append(" = anychart.core.ui.chartCredits();");
+        jsBase = "chartCredits" + variableIndex;
     }
 
     protected ChartCredits(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +32,16 @@ public class ChartCredits extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String alt;
 
+    /**
+     * Setter for credits alt.
+     */
     public ChartCredits setAlt(String alt) {
         if (jsBase == null) {
             this.alt = alt;
@@ -38,7 +53,6 @@ public class ChartCredits extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".alt(%s)", wrapQuotes(alt)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".alt(%s)", wrapQuotes(alt)));
                 js.setLength(0);
@@ -49,6 +63,9 @@ public class ChartCredits extends CoreBase {
 
     private Boolean enabled;
 
+    /**
+     * Setter for the credits state.
+     */
     public ChartCredits setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
@@ -60,7 +77,6 @@ public class ChartCredits extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -71,6 +87,9 @@ public class ChartCredits extends CoreBase {
 
     private String imgAlt;
 
+    /**
+     * Setter for the image alternative text.
+     */
     public ChartCredits setImgAlt(String imgAlt) {
         if (jsBase == null) {
             this.imgAlt = imgAlt;
@@ -82,7 +101,6 @@ public class ChartCredits extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".imgAlt(%s)", wrapQuotes(imgAlt)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".imgAlt(%s)", wrapQuotes(imgAlt)));
                 js.setLength(0);
@@ -93,6 +111,10 @@ public class ChartCredits extends CoreBase {
 
     private String logoSrc;
 
+    /**
+     * Setter for credits logo source value.<br/>
+<b>Note:</b> You can't customize credits without <u>a license key</u>. See <a href="https://www.anychart.com/buy/">AnyChart Licensing</a> to learn more.
+     */
     public ChartCredits setLogoSrc(String logoSrc) {
         if (jsBase == null) {
             this.logoSrc = logoSrc;
@@ -104,7 +126,6 @@ public class ChartCredits extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".logoSrc(%s)", wrapQuotes(logoSrc)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".logoSrc(%s)", wrapQuotes(logoSrc)));
                 js.setLength(0);
@@ -115,6 +136,9 @@ public class ChartCredits extends CoreBase {
 
     private String text;
 
+    /**
+     * Setter for credits text value.
+     */
     public ChartCredits setText(String text) {
         if (jsBase == null) {
             this.text = text;
@@ -126,7 +150,6 @@ public class ChartCredits extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
                 js.setLength(0);
@@ -137,6 +160,9 @@ public class ChartCredits extends CoreBase {
 
     private String url;
 
+    /**
+     * Setter for credits url.
+     */
     public ChartCredits setUrl(String url) {
         if (jsBase == null) {
             this.url = url;
@@ -148,7 +174,6 @@ public class ChartCredits extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".url(%s)", wrapQuotes(url)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".url(%s)", wrapQuotes(url)));
                 js.setLength(0);
@@ -157,8 +182,6 @@ public class ChartCredits extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -176,24 +199,6 @@ public class ChartCredits extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSalt());
-////        
-//            js.append(generateJSenabled());
-////        
-//            js.append(generateJSimgAlt());
-////        
-//            js.append(generateJSlogoSrc());
-////        
-//            js.append(generateJStext());
-////        
-//            js.append(generateJSurl());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Interactivity class for maps.<br/>
+{docs:Maps/Move_and_Zoom#navigational_interactivity}Learn more about the map interactivity.{docs}
+ */
 public class MapInteractivity extends Interactivity {
 
     public MapInteractivity() {
-
+        js.setLength(0);
+        js.append("var mapInteractivity").append(++variableIndex).append(" = anychart.core.utils.mapInteractivity();");
+        jsBase = "mapInteractivity" + variableIndex;
     }
 
     protected MapInteractivity(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,17 @@ public class MapInteractivity extends Interactivity {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean drag;
 
+    /**
+     * Allows to use drag for map.
+<b>Note:</b> Works only with {@link anychart.charts.Map#zoom}
+     */
     public MapInteractivity drag(Boolean drag) {
         if (jsBase == null) {
             this.drag = drag;
@@ -38,7 +53,6 @@ public class MapInteractivity extends Interactivity {
             }
 
             js.append(String.format(Locale.US, ".drag(%b)", drag));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drag(%b)", drag));
                 js.setLength(0);
@@ -49,6 +63,9 @@ public class MapInteractivity extends Interactivity {
 
     private Boolean keyboardZoomAndMove;
 
+    /**
+     * Allows to use the keyboard to zoom and move.
+     */
     public Interactivity keyboardZoomAndMove(Boolean keyboardZoomAndMove) {
         if (jsBase == null) {
             this.keyboardZoomAndMove = keyboardZoomAndMove;
@@ -60,7 +77,6 @@ public class MapInteractivity extends Interactivity {
             }
 
             js.append(String.format(Locale.US, jsBase + ".keyboardZoomAndMove(%b);", keyboardZoomAndMove));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keyboardZoomAndMove(%b)", keyboardZoomAndMove));
                 js.setLength(0);
@@ -71,6 +87,9 @@ public class MapInteractivity extends Interactivity {
 
     private Boolean zoomOnDoubleClick;
 
+    /**
+     * Enables double click zoom.
+     */
     public Interactivity zoomOnDoubleClick(Boolean zoomOnDoubleClick) {
         if (jsBase == null) {
             this.zoomOnDoubleClick = zoomOnDoubleClick;
@@ -82,7 +101,6 @@ public class MapInteractivity extends Interactivity {
             }
 
             js.append(String.format(Locale.US, jsBase + ".zoomOnDoubleClick(%b);", zoomOnDoubleClick));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnDoubleClick(%b)", zoomOnDoubleClick));
                 js.setLength(0);
@@ -93,6 +111,9 @@ public class MapInteractivity extends Interactivity {
 
     private Boolean zoomOnMouseWheel;
 
+    /**
+     * Allows use the mouse wheel to zoom.
+     */
     public Interactivity zoomOnMouseWheel(Boolean zoomOnMouseWheel) {
         if (jsBase == null) {
             this.zoomOnMouseWheel = zoomOnMouseWheel;
@@ -104,7 +125,6 @@ public class MapInteractivity extends Interactivity {
             }
 
             js.append(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%b);", zoomOnMouseWheel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%b)", zoomOnMouseWheel));
                 js.setLength(0);
@@ -113,8 +133,6 @@ public class MapInteractivity extends Interactivity {
         return new Interactivity(jsBase);
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -132,20 +150,6 @@ public class MapInteractivity extends Interactivity {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdrag());
-////        
-//            js.append(generateJSkeyboardZoomAndMove());
-////        
-//            js.append(generateJSzoomOnDoubleClick());
-////        
-//            js.append(generateJSzoomOnMouseWheel());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

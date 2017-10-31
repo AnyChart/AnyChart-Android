@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Data grid element.<br/>
+The Data grid is a part of Gantt chart but it also can be used independently.
+ */
 public class UiDataGrid extends VisualBaseWithBounds {
 
     public UiDataGrid() {
-
+        js.setLength(0);
+        js.append("var uiDataGrid").append(++variableIndex).append(" = anychart.core.ui.dataGrid();");
+        jsBase = "uiDataGrid" + variableIndex;
     }
 
     protected UiDataGrid(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,17 @@ public class UiDataGrid extends VisualBaseWithBounds {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill backgroundFill;
 
+    /**
+     * Setter for background fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid setBackgroundFill(Fill backgroundFill) {
         if (jsBase == null) {
             this.backgroundFill = backgroundFill;
@@ -38,7 +53,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +64,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
+    /**
+     * Background fill color with opacity.
+     */
     public UiDataGrid backgroundFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -63,7 +80,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -80,6 +96,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient background fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid backgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -107,7 +127,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -117,6 +136,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient background fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid backgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -144,7 +167,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -154,6 +176,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient background fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid backgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -181,7 +207,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -191,6 +216,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient background fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid backgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -218,7 +247,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -228,6 +256,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient background fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid backgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -255,7 +287,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -265,6 +296,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient background fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid backgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -292,7 +327,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -310,6 +344,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient background fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid backgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -347,7 +385,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -357,6 +394,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient background fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid backgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +435,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -406,6 +446,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Fill imageSettings;
     private List<DatagridColumn> getColumn = new ArrayList<>();
 
+    /**
+     * Getter for column by index.<br/>
+Gets column by index or creates a new one if column doesn't exist yet.
+     */
     public DatagridColumn getColumn(Double index) {
         DatagridColumn item = new DatagridColumn(jsBase + ".column(" + index + ")");
         getColumn.add(item);
@@ -414,20 +458,24 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private DatagridColumn column;
 
+    /**
+     * Setter for the first column.
+     */
     public UiDataGrid setColumn(DatagridColumn column) {
         if (jsBase == null) {
             this.column = column;
         } else {
             this.column = column;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(column.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".column(%s)", ((column != null) ? column.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".column(%s);",  ((column != null) ? column.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".column(%s)", ((column != null) ? column.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".column(%s)", ((column != null) ? column.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -437,6 +485,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double index;
     private DatagridColumn column1;
 
+    /**
+     * Setter for the column by index.
+     */
     public UiDataGrid setColumn(Double index, DatagridColumn column1) {
         if (jsBase == null) {
             this.index = index;
@@ -453,7 +504,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".column(%f, %s)", index, ((column1 != null) ? column1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".column(%f, %s)", index, ((column1 != null) ? column1.generateJs() : "null")));
                 js.setLength(0);
@@ -465,6 +515,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Stroke columnStroke;
     private String columnStroke1;
 
+    /**
+     * Setter for the column stroke.
+     */
     public UiDataGrid setColumnStroke(Stroke columnStroke) {
         if (jsBase == null) {
             this.columnStroke = null;
@@ -479,7 +532,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -489,6 +541,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the column stroke.
+     */
     public UiDataGrid setColumnStroke(String columnStroke1) {
         if (jsBase == null) {
             this.columnStroke = null;
@@ -503,7 +558,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
                 js.setLength(0);
@@ -514,6 +568,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private Tree getData;
 
+    /**
+     * Getter for data.
+     */
     public Tree getData() {
         if (getData == null)
             getData = new Tree(jsBase + ".data()");
@@ -523,20 +580,24 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private Tree data;
 
+    /**
+     * Setter for new data.
+     */
     public UiDataGrid setData(Tree data) {
         if (jsBase == null) {
             this.data = data;
         } else {
             this.data = data;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(data.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".data(%s)", ((data != null) ? data.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".data(%s);",  ((data != null) ? data.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s)", ((data != null) ? data.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s)", ((data != null) ? data.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -546,6 +607,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Stroke editStructurePreviewDashStroke;
     private String editStructurePreviewDashStroke1;
 
+    /**
+     * Setter for the structure preview dash stroke in edit mode.
+     */
     public UiDataGrid setEditStructurePreviewDashStroke(Stroke editStructurePreviewDashStroke) {
         if (jsBase == null) {
             this.editStructurePreviewDashStroke = null;
@@ -560,7 +624,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -570,6 +633,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the structure preview dash stroke in edit mode.
+     */
     public UiDataGrid setEditStructurePreviewDashStroke(String editStructurePreviewDashStroke1) {
         if (jsBase == null) {
             this.editStructurePreviewDashStroke = null;
@@ -584,7 +650,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s)", wrapQuotes(editStructurePreviewDashStroke1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s)", wrapQuotes(editStructurePreviewDashStroke1)));
                 js.setLength(0);
@@ -595,6 +660,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private Fill editStructurePreviewFill;
 
+    /**
+     * Setter for structure preview fill settings in edit mode using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid setEditStructurePreviewFill(Fill editStructurePreviewFill) {
         if (jsBase == null) {
             this.editStructurePreviewFill = editStructurePreviewFill;
@@ -606,7 +675,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s)", ((editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s)", ((editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null")));
                 js.setLength(0);
@@ -618,6 +686,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color1;
     private Double opacity3;
 
+    /**
+     * Structure preview fill color in edit mode with opacity.
+     */
     public UiDataGrid editStructurePreviewFill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
@@ -639,7 +710,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color1), opacity3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color1), opacity3));
                 js.setLength(0);
@@ -656,6 +726,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode6;
     private Double opacity4;
 
+    /**
+     * Linear gradient structure preview fill in edit mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -697,7 +771,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -707,6 +780,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient structure preview fill in edit mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -748,7 +825,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -758,6 +834,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient structure preview fill in edit mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -799,7 +879,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -809,6 +888,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient structure preview fill in edit mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid editStructurePreviewFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -850,7 +933,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -860,6 +942,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient structure preview fill in edit mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid editStructurePreviewFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -901,7 +987,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -911,6 +996,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient structure preview fill in edit mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid editStructurePreviewFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -952,7 +1041,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -970,6 +1058,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx1;
     private Double fy1;
 
+    /**
+     * Radial gradient structure preview fill in edit mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid editStructurePreviewFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1030,7 +1122,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1040,6 +1131,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient structure preview fill in edit mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid editStructurePreviewFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1100,7 +1195,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1113,6 +1207,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Stroke editStructurePreviewStroke;
     private String editStructurePreviewStroke1;
 
+    /**
+     * Setter for the structure preview stroke in edit mode.
+     */
     public UiDataGrid setEditStructurePreviewStroke(Stroke editStructurePreviewStroke) {
         if (jsBase == null) {
             this.editStructurePreviewStroke = null;
@@ -1127,7 +1224,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -1137,6 +1233,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the structure preview stroke in edit mode.
+     */
     public UiDataGrid setEditStructurePreviewStroke(String editStructurePreviewStroke1) {
         if (jsBase == null) {
             this.editStructurePreviewStroke = null;
@@ -1151,7 +1250,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s)", wrapQuotes(editStructurePreviewStroke1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s)", wrapQuotes(editStructurePreviewStroke1)));
                 js.setLength(0);
@@ -1162,6 +1260,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private Boolean editing;
 
+    /**
+     * Enables or disables live edit mode.
+     */
     public StandalonesDataGrid editing(Boolean editing) {
         if (jsBase == null) {
             this.editing = editing;
@@ -1173,7 +1274,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, jsBase + ".editing(%b);", editing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editing(%b)", editing));
                 js.setLength(0);
@@ -1184,6 +1284,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private Double endIndex;
 
+    /**
+     * Setter for the end index.
+     */
     public UiDataGrid setEndIndex(Double endIndex) {
         if (jsBase == null) {
             this.endIndex = endIndex;
@@ -1195,7 +1298,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".endIndex(%f)", endIndex));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".endIndex(%f)", endIndex));
                 js.setLength(0);
@@ -1206,6 +1308,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private Double horizontalOffset;
 
+    /**
+     * Setter for the horizontal offset.
+     */
     public UiDataGrid setHorizontalOffset(Double horizontalOffset) {
         if (jsBase == null) {
             this.horizontalOffset = horizontalOffset;
@@ -1217,7 +1322,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".horizontalOffset(%f)", horizontalOffset));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".horizontalOffset(%f)", horizontalOffset));
                 js.setLength(0);
@@ -1228,6 +1332,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private ScrollBar getHorizontalScrollBar;
 
+    /**
+     * Getter for the horizontal scroll bar.
+     */
     public ScrollBar getHorizontalScrollBar() {
         if (getHorizontalScrollBar == null)
             getHorizontalScrollBar = new ScrollBar(jsBase + ".horizontalScrollBar()");
@@ -1237,6 +1344,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private String horizontalScrollBar;
 
+    /**
+     * Setter for the horizontal scroll bar.
+     */
     public UiDataGrid setHorizontalScrollBar(String horizontalScrollBar) {
         if (jsBase == null) {
             this.horizontalScrollBar = horizontalScrollBar;
@@ -1248,7 +1358,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
                 js.setLength(0);
@@ -1259,6 +1368,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private Fill rowEvenFill;
 
+    /**
+     * Setter for fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid setRowEvenFill(Fill rowEvenFill) {
         if (jsBase == null) {
             this.rowEvenFill = rowEvenFill;
@@ -1270,7 +1383,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
                 js.setLength(0);
@@ -1282,6 +1394,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color2;
     private Double opacity6;
 
+    /**
+     * Fill color with opacity.
+     */
     public UiDataGrid rowEvenFill(String color2, Double opacity6) {
         if (jsBase == null) {
             this.color = null;
@@ -1307,7 +1422,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color2), opacity6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color2), opacity6));
                 js.setLength(0);
@@ -1324,6 +1438,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode10;
     private Double opacity7;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowEvenFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1377,7 +1495,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
                 js.setLength(0);
@@ -1387,6 +1504,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowEvenFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1440,7 +1561,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
@@ -1450,6 +1570,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowEvenFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1503,7 +1627,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
@@ -1513,6 +1636,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowEvenFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1566,7 +1693,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
                 js.setLength(0);
@@ -1576,6 +1702,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowEvenFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1629,7 +1759,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
@@ -1639,6 +1768,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowEvenFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1692,7 +1825,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
@@ -1710,6 +1842,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx2;
     private Double fy2;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowEvenFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
@@ -1785,7 +1921,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
@@ -1795,6 +1930,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowEvenFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
@@ -1870,7 +2009,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
@@ -1882,6 +2020,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Fill imageSettings2;
     private Fill rowFill;
 
+    /**
+     * Setter for fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid setRowFill(Fill rowFill) {
         if (jsBase == null) {
             this.rowFill = rowFill;
@@ -1893,7 +2035,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s)", ((rowFill != null) ? rowFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s)", ((rowFill != null) ? rowFill.generateJs() : "null")));
                 js.setLength(0);
@@ -1905,6 +2046,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color3;
     private Double opacity9;
 
+    /**
+     * Fill color with opacity.
+     */
     public UiDataGrid rowFill(String color3, Double opacity9) {
         if (jsBase == null) {
             this.color = null;
@@ -1934,7 +2078,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color3), opacity9));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color3), opacity9));
                 js.setLength(0);
@@ -1951,6 +2094,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode14;
     private Double opacity10;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2016,7 +2163,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
                 js.setLength(0);
@@ -2026,6 +2172,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2091,7 +2241,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
                 js.setLength(0);
@@ -2101,6 +2250,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2166,7 +2319,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity10));
                 js.setLength(0);
@@ -2176,6 +2328,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowFill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2241,7 +2397,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity10));
                 js.setLength(0);
@@ -2251,6 +2406,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2316,7 +2475,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
                 js.setLength(0);
@@ -2326,6 +2484,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowFill(String[] keys13, String mode14, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
@@ -2391,7 +2553,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity10));
                 js.setLength(0);
@@ -2409,6 +2570,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx3;
     private Double fy3;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
@@ -2499,7 +2664,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
                 js.setLength(0);
@@ -2509,6 +2673,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
@@ -2599,7 +2767,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
                 js.setLength(0);
@@ -2611,6 +2778,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Fill imageSettings3;
     private Fill rowHoverFill;
 
+    /**
+     * Setter for fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid setRowHoverFill(Fill rowHoverFill) {
         if (jsBase == null) {
             this.rowHoverFill = rowHoverFill;
@@ -2622,7 +2793,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
                 js.setLength(0);
@@ -2634,6 +2804,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color4;
     private Double opacity12;
 
+    /**
+     * Fill color with opacity.
+     */
     public UiDataGrid rowHoverFill(String color4, Double opacity12) {
         if (jsBase == null) {
             this.color = null;
@@ -2667,7 +2840,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color4), opacity12));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color4), opacity12));
                 js.setLength(0);
@@ -2684,6 +2856,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode18;
     private Double opacity13;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowHoverFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
@@ -2761,7 +2937,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
                 js.setLength(0);
@@ -2771,6 +2946,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowHoverFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
@@ -2848,7 +3027,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
                 js.setLength(0);
@@ -2858,6 +3036,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowHoverFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
@@ -2935,7 +3117,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity13));
                 js.setLength(0);
@@ -2945,6 +3126,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowHoverFill(String[] keys17, Boolean mode16, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
@@ -3022,7 +3207,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity13));
                 js.setLength(0);
@@ -3032,6 +3216,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowHoverFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
@@ -3109,7 +3297,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
                 js.setLength(0);
@@ -3119,6 +3306,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowHoverFill(String[] keys17, String mode18, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
@@ -3196,7 +3387,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity13));
                 js.setLength(0);
@@ -3214,6 +3404,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx4;
     private Double fy4;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowHoverFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
@@ -3319,7 +3513,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
                 js.setLength(0);
@@ -3329,6 +3522,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowHoverFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
@@ -3434,7 +3631,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
                 js.setLength(0);
@@ -3446,6 +3642,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Fill imageSettings4;
     private Fill rowOddFill;
 
+    /**
+     * Setter for fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid setRowOddFill(Fill rowOddFill) {
         if (jsBase == null) {
             this.rowOddFill = rowOddFill;
@@ -3457,7 +3657,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
                 js.setLength(0);
@@ -3469,6 +3668,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color5;
     private Double opacity15;
 
+    /**
+     * Fill color with opacity.
+     */
     public UiDataGrid rowOddFill(String color5, Double opacity15) {
         if (jsBase == null) {
             this.color = null;
@@ -3506,7 +3708,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color5), opacity15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color5), opacity15));
                 js.setLength(0);
@@ -3523,6 +3724,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode22;
     private Double opacity16;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowOddFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
@@ -3612,7 +3817,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
                 js.setLength(0);
@@ -3622,6 +3826,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowOddFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
@@ -3711,7 +3919,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
                 js.setLength(0);
@@ -3721,6 +3928,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowOddFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
@@ -3810,7 +4021,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity16));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity16));
                 js.setLength(0);
@@ -3820,6 +4030,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowOddFill(String[] keys21, Boolean mode20, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
@@ -3909,7 +4123,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity16));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity16));
                 js.setLength(0);
@@ -3919,6 +4132,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowOddFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
@@ -4008,7 +4225,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
                 js.setLength(0);
@@ -4018,6 +4234,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowOddFill(String[] keys21, String mode22, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
@@ -4107,7 +4327,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity16));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity16));
                 js.setLength(0);
@@ -4125,6 +4344,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx5;
     private Double fy5;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowOddFill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
         if (jsBase == null) {
             this.keys = null;
@@ -4245,7 +4468,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
                 js.setLength(0);
@@ -4255,6 +4477,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowOddFill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
         if (jsBase == null) {
             this.keys = null;
@@ -4375,7 +4601,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
                 js.setLength(0);
@@ -4387,6 +4612,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Fill imageSettings5;
     private Fill rowSelectedFill;
 
+    /**
+     * Setter for row fill settings in selected mode using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid setRowSelectedFill(Fill rowSelectedFill) {
         if (jsBase == null) {
             this.rowSelectedFill = rowSelectedFill;
@@ -4398,7 +4627,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
                 js.setLength(0);
@@ -4410,6 +4638,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color6;
     private Double opacity18;
 
+    /**
+     * Fill color in selected mode with opacity. Fill as a string or an object.
+     */
     public UiDataGrid rowSelectedFill(String color6, Double opacity18) {
         if (jsBase == null) {
             this.color = null;
@@ -4451,7 +4682,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color6), opacity18));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color6), opacity18));
                 js.setLength(0);
@@ -4467,6 +4697,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private VectorRect mode25;
     private String mode26;
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowSelectedFill(GradientKey[] keys24, Boolean mode24, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
@@ -4545,7 +4779,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToString(keys24), mode24, angle6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToString(keys24), mode24, angle6));
                 js.setLength(0);
@@ -4555,6 +4788,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowSelectedFill(GradientKey[] keys24, VectorRect mode25, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
@@ -4633,7 +4870,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6));
                 js.setLength(0);
@@ -4643,6 +4879,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowSelectedFill(GradientKey[] keys24, String mode26, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
@@ -4721,7 +4961,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6));
                 js.setLength(0);
@@ -4731,6 +4970,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowSelectedFill(String[] keys25, Boolean mode24, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
@@ -4809,7 +5052,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6));
                 js.setLength(0);
@@ -4819,6 +5061,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowSelectedFill(String[] keys25, VectorRect mode25, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
@@ -4897,7 +5143,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6));
                 js.setLength(0);
@@ -4907,6 +5152,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowSelectedFill(String[] keys25, String mode26, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
@@ -4985,7 +5234,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6));
                 js.setLength(0);
@@ -5003,6 +5251,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx6;
     private Double fy6;
 
+    /**
+     * Radial gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowSelectedFill(GradientKey[] keys26, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity19, Double fx6, Double fy6) {
         if (jsBase == null) {
             this.keys = null;
@@ -5137,7 +5389,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx6, cy6, ((mode27 != null) ? mode27.generateJs() : "null"), opacity19, fx6, fy6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx6, cy6, ((mode27 != null) ? mode27.generateJs() : "null"), opacity19, fx6, fy6));
                 js.setLength(0);
@@ -5147,6 +5398,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public UiDataGrid rowSelectedFill(String[] keys27, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity19, Double fx6, Double fy6) {
         if (jsBase == null) {
             this.keys = null;
@@ -5281,7 +5536,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx6, cy6, ((mode27 != null) ? mode27.generateJs() : "null"), opacity19, fx6, fy6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx6, cy6, ((mode27 != null) ? mode27.generateJs() : "null"), opacity19, fx6, fy6));
                 js.setLength(0);
@@ -5293,6 +5547,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Fill imageSettings6;
     private Double startIndex;
 
+    /**
+     * Setter for the start index.
+     */
     public UiDataGrid setStartIndex(Double startIndex) {
         if (jsBase == null) {
             this.startIndex = startIndex;
@@ -5304,7 +5561,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".startIndex(%f)", startIndex));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startIndex(%f)", startIndex));
                 js.setLength(0);
@@ -5315,6 +5571,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private Tooltip getTooltip;
 
+    /**
+     * Getter for tooltip settings.
+     */
     public Tooltip getTooltip() {
         if (getTooltip == null)
             getTooltip = new Tooltip(jsBase + ".tooltip()");
@@ -5324,6 +5583,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private List<UiDataGrid> getTooltip1 = new ArrayList<>();
 
+    /**
+     * Getter for tooltip settings.
+     */
     public UiDataGrid getTooltip(String tooltip) {
         UiDataGrid item = new UiDataGrid(jsBase + ".tooltip(" + wrapQuotes(tooltip) + ")");
         getTooltip1.add(item);
@@ -5332,6 +5594,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private List<UiDataGrid> getTooltip2 = new ArrayList<>();
 
+    /**
+     * Getter for tooltip settings.
+     */
     public UiDataGrid getTooltip(Boolean tooltip) {
         UiDataGrid item = new UiDataGrid(jsBase + ".tooltip(" + tooltip + ")");
         getTooltip2.add(item);
@@ -5340,6 +5605,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private Double verticalOffset;
 
+    /**
+     * Setter for the vertical offset.
+     */
     public UiDataGrid setVerticalOffset(Double verticalOffset) {
         if (jsBase == null) {
             this.verticalOffset = verticalOffset;
@@ -5351,7 +5619,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".verticalOffset(%f)", verticalOffset));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".verticalOffset(%f)", verticalOffset));
                 js.setLength(0);
@@ -5360,50 +5627,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         return this;
     }
 
-
-//
-//    private String generateJSDatagridColumn getColumn() {
-//        if (DatagridColumn getColumn != null) {
-//            return DatagridColumn getColumn.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTree getData() {
-//        if (Tree getData != null) {
-//            return Tree getData.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScrollBar getHorizontalScrollBar() {
-//        if (ScrollBar getHorizontalScrollBar != null) {
-//            return ScrollBar getHorizontalScrollBar.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTooltip getTooltip() {
-//        if (Tooltip getTooltip != null) {
-//            return Tooltip getTooltip.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiDataGrid getTooltip1() {
-//        if (UiDataGrid getTooltip1 != null) {
-//            return UiDataGrid getTooltip1.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiDataGrid getTooltip2() {
-//        if (UiDataGrid getTooltip2 != null) {
-//            return UiDataGrid getTooltip2.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetColumn() {
         if (!getColumn.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -5419,7 +5642,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String generateJSgetData() {
         if (getData != null) {
             return getData.generateJs();
-            //return String.format(Locale.US, "getData: %s,", ((getData != null) ? getData.generateJs() : "null"));
         }
         return "";
     }
@@ -5427,7 +5649,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String generateJSgetHorizontalScrollBar() {
         if (getHorizontalScrollBar != null) {
             return getHorizontalScrollBar.generateJs();
-            //return String.format(Locale.US, "getHorizontalScrollBar: %s,", ((getHorizontalScrollBar != null) ? getHorizontalScrollBar.generateJs() : "null"));
         }
         return "";
     }
@@ -5435,7 +5656,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
-            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -5487,308 +5707,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbackgroundFill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJScolumn());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJScolumn1());
-////        
-//            js.append(generateJScolumnStroke());
-////        
-//            js.append(generateJScolumnStroke1());
-////        
-//            js.append(generateJSdata());
-////        
-//            js.append(generateJSeditStructurePreviewDashStroke());
-////        
-//            js.append(generateJSeditStructurePreviewDashStroke1());
-////        
-//            js.append(generateJSeditStructurePreviewFill());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSopacity3());
-////        
-//            js.append(generateJSkeys4());
-////        
-//            js.append(generateJSkeys5());
-////        
-//            js.append(generateJSangle1());
-////        
-//            js.append(generateJSmode4());
-////        
-//            js.append(generateJSmode5());
-////        
-//            js.append(generateJSmode6());
-////        
-//            js.append(generateJSopacity4());
-////        
-//            js.append(generateJSkeys6());
-////        
-//            js.append(generateJSkeys7());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSmode7());
-////        
-//            js.append(generateJSopacity5());
-////        
-//            js.append(generateJSfx1());
-////        
-//            js.append(generateJSfy1());
-////        
-//            js.append(generateJSimageSettings1());
-////        
-//            js.append(generateJSeditStructurePreviewStroke());
-////        
-//            js.append(generateJSeditStructurePreviewStroke1());
-////        
-//            js.append(generateJSediting());
-////        
-//            js.append(generateJSendIndex());
-////        
-//            js.append(generateJShorizontalOffset());
-////        
-//            js.append(generateJShorizontalScrollBar());
-////        
-//            js.append(generateJSrowEvenFill());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSopacity6());
-////        
-//            js.append(generateJSkeys8());
-////        
-//            js.append(generateJSkeys9());
-////        
-//            js.append(generateJSangle2());
-////        
-//            js.append(generateJSmode8());
-////        
-//            js.append(generateJSmode9());
-////        
-//            js.append(generateJSmode10());
-////        
-//            js.append(generateJSopacity7());
-////        
-//            js.append(generateJSkeys10());
-////        
-//            js.append(generateJSkeys11());
-////        
-//            js.append(generateJScx2());
-////        
-//            js.append(generateJScy2());
-////        
-//            js.append(generateJSmode11());
-////        
-//            js.append(generateJSopacity8());
-////        
-//            js.append(generateJSfx2());
-////        
-//            js.append(generateJSfy2());
-////        
-//            js.append(generateJSimageSettings2());
-////        
-//            js.append(generateJSrowFill());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSopacity9());
-////        
-//            js.append(generateJSkeys12());
-////        
-//            js.append(generateJSkeys13());
-////        
-//            js.append(generateJSangle3());
-////        
-//            js.append(generateJSmode12());
-////        
-//            js.append(generateJSmode13());
-////        
-//            js.append(generateJSmode14());
-////        
-//            js.append(generateJSopacity10());
-////        
-//            js.append(generateJSkeys14());
-////        
-//            js.append(generateJSkeys15());
-////        
-//            js.append(generateJScx3());
-////        
-//            js.append(generateJScy3());
-////        
-//            js.append(generateJSmode15());
-////        
-//            js.append(generateJSopacity11());
-////        
-//            js.append(generateJSfx3());
-////        
-//            js.append(generateJSfy3());
-////        
-//            js.append(generateJSimageSettings3());
-////        
-//            js.append(generateJSrowHoverFill());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJSopacity12());
-////        
-//            js.append(generateJSkeys16());
-////        
-//            js.append(generateJSkeys17());
-////        
-//            js.append(generateJSangle4());
-////        
-//            js.append(generateJSmode16());
-////        
-//            js.append(generateJSmode17());
-////        
-//            js.append(generateJSmode18());
-////        
-//            js.append(generateJSopacity13());
-////        
-//            js.append(generateJSkeys18());
-////        
-//            js.append(generateJSkeys19());
-////        
-//            js.append(generateJScx4());
-////        
-//            js.append(generateJScy4());
-////        
-//            js.append(generateJSmode19());
-////        
-//            js.append(generateJSopacity14());
-////        
-//            js.append(generateJSfx4());
-////        
-//            js.append(generateJSfy4());
-////        
-//            js.append(generateJSimageSettings4());
-////        
-//            js.append(generateJSrowOddFill());
-////        
-//            js.append(generateJScolor5());
-////        
-//            js.append(generateJSopacity15());
-////        
-//            js.append(generateJSkeys20());
-////        
-//            js.append(generateJSkeys21());
-////        
-//            js.append(generateJSangle5());
-////        
-//            js.append(generateJSmode20());
-////        
-//            js.append(generateJSmode21());
-////        
-//            js.append(generateJSmode22());
-////        
-//            js.append(generateJSopacity16());
-////        
-//            js.append(generateJSkeys22());
-////        
-//            js.append(generateJSkeys23());
-////        
-//            js.append(generateJScx5());
-////        
-//            js.append(generateJScy5());
-////        
-//            js.append(generateJSmode23());
-////        
-//            js.append(generateJSopacity17());
-////        
-//            js.append(generateJSfx5());
-////        
-//            js.append(generateJSfy5());
-////        
-//            js.append(generateJSimageSettings5());
-////        
-//            js.append(generateJSrowSelectedFill());
-////        
-//            js.append(generateJScolor6());
-////        
-//            js.append(generateJSopacity18());
-////        
-//            js.append(generateJSkeys24());
-////        
-//            js.append(generateJSkeys25());
-////        
-//            js.append(generateJSangle6());
-////        
-//            js.append(generateJSmode24());
-////        
-//            js.append(generateJSmode25());
-////        
-//            js.append(generateJSmode26());
-////        
-//            js.append(generateJSkeys26());
-////        
-//            js.append(generateJSkeys27());
-////        
-//            js.append(generateJScx6());
-////        
-//            js.append(generateJScy6());
-////        
-//            js.append(generateJSmode27());
-////        
-//            js.append(generateJSopacity19());
-////        
-//            js.append(generateJSfx6());
-////        
-//            js.append(generateJSfy6());
-////        
-//            js.append(generateJSimageSettings6());
-////        
-//            js.append(generateJSstartIndex());
-////        
-//            js.append(generateJSverticalOffset());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

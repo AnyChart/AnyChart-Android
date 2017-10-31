@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Led pointer class.
+ */
 public class Led extends LineargaugePointersBase {
 
     public Led() {
-
+        js.setLength(0);
+        js.append("var led").append(++variableIndex).append(" = anychart.core.linearGauge.pointers.led();");
+        jsBase = "led" + variableIndex;
     }
 
     protected Led(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Led extends LineargaugePointersBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Led getColorScale;
 
+    /**
+     * Getter for led color scale.
+     */
     public Led getColorScale() {
         if (getColorScale == null)
             getColorScale = new Led(jsBase + ".colorScale()");
@@ -37,6 +50,9 @@ public class Led extends LineargaugePointersBase {
     private LinearColor colorScale;
     private OrdinalColor colorScale1;
 
+    /**
+     * Setter for the led color scale.
+     */
     public Led setColorScale(LinearColor colorScale) {
         if (jsBase == null) {
             this.colorScale = null;
@@ -45,15 +61,16 @@ public class Led extends LineargaugePointersBase {
             this.colorScale = colorScale;
         } else {
             this.colorScale = colorScale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(colorScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -61,6 +78,9 @@ public class Led extends LineargaugePointersBase {
     }
 
 
+    /**
+     * Setter for the led color scale.
+     */
     public Led setColorScale(OrdinalColor colorScale1) {
         if (jsBase == null) {
             this.colorScale = null;
@@ -69,15 +89,16 @@ public class Led extends LineargaugePointersBase {
             this.colorScale1 = colorScale1;
         } else {
             this.colorScale1 = colorScale1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(colorScale1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -86,6 +107,9 @@ public class Led extends LineargaugePointersBase {
 
     private Double count;
 
+    /**
+     * Setter for the led interval.
+     */
     public Led setCount(Double count) {
         if (jsBase == null) {
             this.count = count;
@@ -97,7 +121,6 @@ public class Led extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".count(%f)", count));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
                 js.setLength(0);
@@ -109,6 +132,9 @@ public class Led extends LineargaugePointersBase {
     private Double gap;
     private String gap1;
 
+    /**
+     * Setter for the led gap.
+     */
     public Led setGap(Double gap) {
         if (jsBase == null) {
             this.gap = null;
@@ -123,7 +149,6 @@ public class Led extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".gap(%f)", gap));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".gap(%f)", gap));
                 js.setLength(0);
@@ -133,6 +158,9 @@ public class Led extends LineargaugePointersBase {
     }
 
 
+    /**
+     * Setter for the led gap.
+     */
     public Led setGap(String gap1) {
         if (jsBase == null) {
             this.gap = null;
@@ -147,7 +175,6 @@ public class Led extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".gap(%s)", wrapQuotes(gap1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".gap(%s)", wrapQuotes(gap1)));
                 js.setLength(0);
@@ -159,6 +186,9 @@ public class Led extends LineargaugePointersBase {
     private Double size;
     private String size1;
 
+    /**
+     * Setter for the led size.
+     */
     public Led setSize(Double size) {
         if (jsBase == null) {
             this.size = null;
@@ -173,7 +203,6 @@ public class Led extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".size(%f)", size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size));
                 js.setLength(0);
@@ -183,6 +212,9 @@ public class Led extends LineargaugePointersBase {
     }
 
 
+    /**
+     * Setter for the led size.
+     */
     public Led setSize(String size1) {
         if (jsBase == null) {
             this.size = null;
@@ -197,7 +229,6 @@ public class Led extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".size(%s)", wrapQuotes(size1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%s)", wrapQuotes(size1)));
                 js.setLength(0);
@@ -206,19 +237,9 @@ public class Led extends LineargaugePointersBase {
         return this;
     }
 
-
-//
-//    private String generateJSLed getColorScale() {
-//        if (Led getColorScale != null) {
-//            return Led getColorScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetColorScale() {
         if (getColorScale != null) {
             return getColorScale.generateJs();
-            //return String.format(Locale.US, "getColorScale: %s,", ((getColorScale != null) ? getColorScale.generateJs() : "null"));
         }
         return "";
     }
@@ -241,26 +262,6 @@ public class Led extends LineargaugePointersBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolorScale());
-////        
-//            js.append(generateJScolorScale1());
-////        
-//            js.append(generateJScount());
-////        
-//            js.append(generateJSgap());
-////        
-//            js.append(generateJSgap1());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSsize1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

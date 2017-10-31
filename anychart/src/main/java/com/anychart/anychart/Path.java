@@ -8,13 +8,30 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Path class.<br/>
+Path is sequence of segments of different type, it can be opened or closed.<br/>
+To define the internal fill this rule is used <a target='_blank'
+href="https://www.w3.org/TR/SVG/painting.html#FillProperties">EVEN-ODD</a>.<br/>
+Path always starts with {@link anychart.graphics.vector.Path#moveTo} command.<br/>
+<b>Do not invoke constructor directly.</b> Use {@link anychart.graphics.vector.Stage#path} or
+{@link anychart.graphics.vector.Layer#path} to create stage or layer bound path.
+<br/> To create unbound path use {@link anychart.graphics#path} <br/>
+See also:<br/>
+{@link anychart.graphics.vector.Stage#path}<br/>
+{@link anychart.graphics.vector.Layer#path}<br/>
+{@link anychart.graphics#path}
+ */
 public class Path extends JsObject {
 
     public Path() {
-
+        js.setLength(0);
+        js.append("var path").append(++variableIndex).append(" = anychart.graphics.vector.path();");
+        jsBase = "path" + variableIndex;
     }
 
     protected Path(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,12 +41,22 @@ public class Path extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double rx;
     private Double ry;
     private Double fromAngle;
     private Double extent;
 
+    /**
+     * Adds a command to the path that draws an arc of an ellipse.<br/>
+An ellipse with radius <b>rx, ry</b>, starting from an angle <b>fromAngle</b>, with an angular length <b>extent</b>.<br/>
+The positive direction is considered the direction from a positive direction of the X-axis to a positive direction
+of the Y-axis, that is clockwise.
+     */
     public Path arcTo(Double rx, Double ry, Double fromAngle, Double extent) {
         if (jsBase == null) {
             this.rx = rx;
@@ -47,7 +74,6 @@ public class Path extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".arcTo(%f, %f, %f, %f)", rx, ry, fromAngle, extent));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".arcTo(%f, %f, %f, %f)", rx, ry, fromAngle, extent));
                 js.setLength(0);
@@ -61,6 +87,9 @@ public class Path extends JsObject {
     private Double fromAngle1;
     private Double extent1;
 
+    /**
+     * This method is similar to {@link anychart.graphics.vector.Path#arcTo}, but in this case the arc is approximated by Bezier curves.
+     */
     public Path arcToAsCurves(Double rx1, Double ry1, Double fromAngle1, Double extent1) {
         if (jsBase == null) {
             this.rx = null;
@@ -90,7 +119,6 @@ public class Path extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".arcToAsCurves(%f, %f, %f, %f)", rx1, ry1, fromAngle1, extent1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".arcToAsCurves(%f, %f, %f, %f)", rx1, ry1, fromAngle1, extent1));
                 js.setLength(0);
@@ -106,6 +134,12 @@ public class Path extends JsObject {
     private Boolean largeArc;
     private Boolean clockwiseArc;
 
+    /**
+     * Adds a command to the path that draws an arc of an ellipse.<br/>
+An arc of an ellipse with radius <b>rx, ry</b> <b>rx, ry</b> from the current point to a point <b>x, y</b>.<br/>
+The <b>largeArc</b> and <b>clockwiseArc</b> flags define which of the 4 possible arcs is drawn.<br/>
+Read more at {@link https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNotes}
+     */
     public Path arcToByEndPoint(Double x, Double y, Double rx2, Double ry2, Boolean largeArc, Boolean clockwiseArc) {
         if (jsBase == null) {
             this.x = x;
@@ -135,7 +169,6 @@ public class Path extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".arcToByEndPoint(%f, %f, %f, %f, %b, %b)", x, y, rx2, ry2, largeArc, clockwiseArc));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".arcToByEndPoint(%f, %f, %f, %f, %b, %b)", x, y, rx2, ry2, largeArc, clockwiseArc));
                 js.setLength(0);
@@ -152,6 +185,11 @@ public class Path extends JsObject {
     private Double sweep;
     private Boolean lineTo;
 
+    /**
+     * Adds a command to the path that draws a circular arc.<br/>
+An arc with a center in (cx, cy) start angle (from) and end angle (from + sweep),
+with clockwise and counterclock drawing option.
+     */
     public Path circularArc(Double cx, Double cy, Double rx3, Double ry3, Double fromAngle2, Double sweep, Boolean lineTo) {
         if (jsBase == null) {
             this.cx = cx;
@@ -189,7 +227,6 @@ public class Path extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".circularArc(%f, %f, %f, %f, %f, %f, %b)", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".circularArc(%f, %f, %f, %f, %f, %f, %b)", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
                 js.setLength(0);
@@ -206,6 +243,10 @@ public class Path extends JsObject {
     private Double endY;
     private Double var_args;
 
+    /**
+     * Adds specified points to the path, drawing sequentially a cubic Bezier curve from the current point to the next.<br/>
+Each curve is defined by 3 points (6 coordinates) – two control points and an endpoint.
+     */
     public Path curveTo(Double controlX, Double controlY, Double controlX1, Double controlY1, Double endX, Double endY, Double var_args) {
         if (jsBase == null) {
             this.controlX = null;
@@ -241,7 +282,6 @@ public class Path extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".curveTo(%f, %f, %f, %f, %f, %f, %f)", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".curveTo(%f, %f, %f, %f, %f, %f, %f)", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
                 js.setLength(0);
@@ -254,6 +294,9 @@ public class Path extends JsObject {
     private Double y1;
     private Double var_args1;
 
+    /**
+     * Adds specified points to the current path, drawing sequentially a straight line through the specified coordinates.
+     */
     public Path lineTo(Double x1, Double y1, Double var_args1) {
         if (jsBase == null) {
             this.x = null;
@@ -278,7 +321,6 @@ public class Path extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lineTo(%f, %f, %f)", x1, y1, var_args1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineTo(%f, %f, %f)", x1, y1, var_args1));
                 js.setLength(0);
@@ -290,6 +332,10 @@ public class Path extends JsObject {
     private Double x2;
     private Double y2;
 
+    /**
+     * Moves path cursor position to a specified coordinate.</br>
+Remember that if you call the <b>moveTo</b> method a few times in a row, only the last call will be applied.
+     */
     public Path moveTo(Double x2, Double y2) {
         if (jsBase == null) {
             this.x = null;
@@ -311,7 +357,6 @@ public class Path extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".moveTo(%f, %f)", x2, y2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".moveTo(%f, %f)", x2, y2));
                 js.setLength(0);
@@ -326,6 +371,10 @@ public class Path extends JsObject {
     private Double endY1;
     private Double var_args2;
 
+    /**
+     * Adds specified points to the path, drawing sequentially a quadratic Bezier curve from the current point to the next.
+Each curve is defined by 2 points (4 coordinates) – a control point and an endpoint.
+     */
     public Path quadraticCurveTo(Double controlX2, Double controlY2, Double endX1, Double endY1, Double var_args2) {
         if (jsBase == null) {
             this.controlX = null;
@@ -363,7 +412,6 @@ public class Path extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".quadraticCurveTo(%f, %f, %f, %f, %f)", controlX2, controlY2, endX1, endY1, var_args2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".quadraticCurveTo(%f, %f, %f, %f, %f)", controlX2, controlY2, endX1, endY1, var_args2));
                 js.setLength(0);
@@ -372,8 +420,6 @@ public class Path extends JsObject {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -391,88 +437,6 @@ public class Path extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSrx());
-////        
-//            js.append(generateJSry());
-////        
-//            js.append(generateJSfromAngle());
-////        
-//            js.append(generateJSextent());
-////        
-//            js.append(generateJSrx1());
-////        
-//            js.append(generateJSry1());
-////        
-//            js.append(generateJSfromAngle1());
-////        
-//            js.append(generateJSextent1());
-////        
-//            js.append(generateJSx());
-////        
-//            js.append(generateJSy());
-////        
-//            js.append(generateJSrx2());
-////        
-//            js.append(generateJSry2());
-////        
-//            js.append(generateJSlargeArc());
-////        
-//            js.append(generateJSclockwiseArc());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSrx3());
-////        
-//            js.append(generateJSry3());
-////        
-//            js.append(generateJSfromAngle2());
-////        
-//            js.append(generateJSsweep());
-////        
-//            js.append(generateJSlineTo());
-////        
-//            js.append(generateJScontrolX());
-////        
-//            js.append(generateJScontrolY());
-////        
-//            js.append(generateJScontrolX1());
-////        
-//            js.append(generateJScontrolY1());
-////        
-//            js.append(generateJSendX());
-////        
-//            js.append(generateJSendY());
-////        
-//            js.append(generateJSvar_args());
-////        
-//            js.append(generateJSx1());
-////        
-//            js.append(generateJSy1());
-////        
-//            js.append(generateJSvar_args1());
-////        
-//            js.append(generateJSx2());
-////        
-//            js.append(generateJSy2());
-////        
-//            js.append(generateJScontrolX2());
-////        
-//            js.append(generateJScontrolY2());
-////        
-//            js.append(generateJSendX1());
-////        
-//            js.append(generateJSendY1());
-////        
-//            js.append(generateJSvar_args2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

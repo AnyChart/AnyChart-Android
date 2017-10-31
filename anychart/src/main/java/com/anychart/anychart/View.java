@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * View is a representation of raw data.<br/>
+<b>Note:</b> Default View is a view with default mapping.
+ */
 public class View extends CoreBase {
 
     public View() {
-
+        js.setLength(0);
+        js.append("var view").append(++variableIndex).append(" = anychart.data.view();");
+        jsBase = "view" + variableIndex;
     }
 
     protected View(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +31,17 @@ public class View extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private View otherView;
     private String[] otherView1;
 
+    /**
+     * Concatenates two views to make a derived view that contains rows from both views.
+     */
     public View concat(View otherView) {
         if (jsBase == null) {
             this.otherView = null;
@@ -36,15 +50,16 @@ public class View extends CoreBase {
             this.otherView = otherView;
         } else {
             this.otherView = otherView;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(otherView.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".concat(%s)", ((otherView != null) ? otherView.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".concat(%s);",  ((otherView != null) ? otherView.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", ((otherView != null) ? otherView.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", ((otherView != null) ? otherView.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -52,6 +67,9 @@ public class View extends CoreBase {
     }
 
 
+    /**
+     * Concatenates two views to make a derived view that contains rows from both views.
+     */
     public View concat(String[] otherView1) {
         if (jsBase == null) {
             this.otherView = null;
@@ -66,7 +84,6 @@ public class View extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".concat(%s)", arrayToStringWrapQuotes(otherView1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", arrayToStringWrapQuotes(otherView1)));
                 js.setLength(0);
@@ -77,6 +94,9 @@ public class View extends CoreBase {
 
     private String fieldName;
 
+    /**
+     * Creates a derived view, containing only the rows that pass the filter.
+     */
     public View filter(String fieldName) {
         if (jsBase == null) {
             this.fieldName = fieldName;
@@ -88,7 +108,6 @@ public class View extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".filter(%s)", wrapQuotes(fieldName)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".filter(%s)", wrapQuotes(fieldName)));
                 js.setLength(0);
@@ -99,6 +118,9 @@ public class View extends CoreBase {
 
     private String fieldName1;
 
+    /**
+     * Searches fieldName by fieldValue and returns it index (or the first match).
+     */
     public void find(String fieldName1) {
         if (jsBase == null) {
             this.fieldName = null;
@@ -113,7 +135,6 @@ public class View extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".find(%s);", wrapQuotes(fieldName1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".find(%s)", wrapQuotes(fieldName1)));
                 js.setLength(0);
@@ -124,6 +145,9 @@ public class View extends CoreBase {
     private Double index;
     private String name;
 
+    /**
+     * Setter for a metadata value. Learn how it works at {@link anychart.data.Iterator#meta}.
+     */
     public View setMeta(Double index, String name) {
         if (jsBase == null) {
             this.index = index;
@@ -137,7 +161,6 @@ public class View extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".meta(%f, %s)", index, wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".meta(%f, %s)", index, wrapQuotes(name)));
                 js.setLength(0);
@@ -148,6 +171,9 @@ public class View extends CoreBase {
 
     private Double rowIndex;
 
+    /**
+     * Sets a row of the set by an index.
+     */
     public void setRow(Double rowIndex) {
         if (jsBase == null) {
             this.rowIndex = rowIndex;
@@ -159,7 +185,6 @@ public class View extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".row(%f);", rowIndex));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f)", rowIndex));
                 js.setLength(0);
@@ -170,6 +195,9 @@ public class View extends CoreBase {
     private Double rowIndex1;
     private String fieldName2;
 
+    /**
+     * Sets the value to the row field by row index and field name.
+     */
     public View setSet(Double rowIndex1, String fieldName2) {
         if (jsBase == null) {
             this.rowIndex = null;
@@ -190,7 +218,6 @@ public class View extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".set(%f, %s)", rowIndex1, wrapQuotes(fieldName2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%f, %s)", rowIndex1, wrapQuotes(fieldName2)));
                 js.setLength(0);
@@ -201,6 +228,9 @@ public class View extends CoreBase {
 
     private String fieldName3;
 
+    /**
+     * Creates a derived view that ensures sorting by a passed field.
+     */
     public View sort(String fieldName3) {
         if (jsBase == null) {
             this.fieldName = null;
@@ -217,7 +247,6 @@ public class View extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".sort(%s)", wrapQuotes(fieldName3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", wrapQuotes(fieldName3)));
                 js.setLength(0);
@@ -230,6 +259,9 @@ public class View extends CoreBase {
     private Sort order;
     private String order1;
 
+    /**
+     * Creates a derived view that ensures sorting by a passed field.
+     */
     public View sort(Sort order, String fieldName4) {
         if (jsBase == null) {
             this.order = null;
@@ -252,7 +284,6 @@ public class View extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".sort(%s, %s)", ((order != null) ? order.generateJs() : "null"), wrapQuotes(fieldName4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", ((order != null) ? order.generateJs() : "null"), wrapQuotes(fieldName4)));
                 js.setLength(0);
@@ -262,6 +293,9 @@ public class View extends CoreBase {
     }
 
 
+    /**
+     * Creates a derived view that ensures sorting by a passed field.
+     */
     public View sort(String order1, String fieldName4) {
         if (jsBase == null) {
             this.order = null;
@@ -284,7 +318,6 @@ public class View extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(order1), wrapQuotes(fieldName4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(order1), wrapQuotes(fieldName4)));
                 js.setLength(0);
@@ -293,8 +326,6 @@ public class View extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -312,38 +343,6 @@ public class View extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSotherView());
-////        
-//            js.append(generateJSotherView1());
-////        
-//            js.append(generateJSfieldName());
-////        
-//            js.append(generateJSfieldName1());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSname());
-////        
-//            js.append(generateJSrowIndex());
-////        
-//            js.append(generateJSrowIndex1());
-////        
-//            js.append(generateJSfieldName2());
-////        
-//            js.append(generateJSfieldName3());
-////        
-//            js.append(generateJSfieldName4());
-////        
-//            js.append(generateJSorder());
-////        
-//            js.append(generateJSorder1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

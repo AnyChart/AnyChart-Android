@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Class with settings for "No data" feature.<br/>
+{docs:Working_with_Data/No_Data_Label} Learn more about "No data" feature {docs}
+ */
 public class NoDataSettings extends CoreBase {
 
     public NoDataSettings() {
-
+        js.setLength(0);
+        js.append("var noDataSettings").append(++variableIndex).append(" = anychart.core.noDataSettings();");
+        jsBase = "noDataSettings" + variableIndex;
     }
 
     protected NoDataSettings(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,16 @@ public class NoDataSettings extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private UiLabel getLabel;
 
+    /**
+     * Getter for no data label.
+     */
     public UiLabel getLabel() {
         if (getLabel == null)
             getLabel = new UiLabel(jsBase + ".label()");
@@ -38,6 +52,9 @@ public class NoDataSettings extends CoreBase {
     private String label1;
     private Boolean label2;
 
+    /**
+     * Setter for no data label.
+     */
     public NoDataSettings setLabel(String label) {
         if (jsBase == null) {
             this.label = null;
@@ -53,7 +70,6 @@ public class NoDataSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".label(%s)", wrapQuotes(label)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%s)", wrapQuotes(label)));
                 js.setLength(0);
@@ -63,6 +79,9 @@ public class NoDataSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for no data label.
+     */
     public NoDataSettings setLabel(Boolean label2) {
         if (jsBase == null) {
             this.label = null;
@@ -78,7 +97,6 @@ public class NoDataSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".label(%b)", label2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%b)", label2));
                 js.setLength(0);
@@ -87,19 +105,9 @@ public class NoDataSettings extends CoreBase {
         return this;
     }
 
-
-//
-//    private String generateJSUiLabel getLabel() {
-//        if (UiLabel getLabel != null) {
-//            return UiLabel getLabel.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetLabel() {
         if (getLabel != null) {
             return getLabel.generateJs();
-            //return String.format(Locale.US, "getLabel: %s,", ((getLabel != null) ? getLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -122,18 +130,6 @@ public class NoDataSettings extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSlabel());
-////        
-//            js.append(generateJSlabel1());
-////        
-//            js.append(generateJSlabel2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

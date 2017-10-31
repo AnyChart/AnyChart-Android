@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Series renderer settings class.
+ */
 public class RenderingSettings extends CoreBase {
 
     public RenderingSettings() {
-
+        js.setLength(0);
+        js.append("var renderingSettings").append(++variableIndex).append(" = anychart.core.series.renderingSettings();");
+        jsBase = "renderingSettings" + variableIndex;
     }
 
     protected RenderingSettings(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class RenderingSettings extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean needsWidth;
 
+    /**
+     * Setter for points width.
+     */
     public RenderingSettings setNeedsWidth(Boolean needsWidth) {
         if (jsBase == null) {
             this.needsWidth = needsWidth;
@@ -38,7 +51,6 @@ public class RenderingSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".needsWidth(%b)", needsWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".needsWidth(%b)", needsWidth));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class RenderingSettings extends CoreBase {
 
     private Boolean needsZero;
 
+    /**
+     * Setter for zero value.
+     */
     public RenderingSettings setNeedsZero(Boolean needsZero) {
         if (jsBase == null) {
             this.needsZero = needsZero;
@@ -60,7 +75,6 @@ public class RenderingSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".needsZero(%b)", needsZero));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".needsZero(%b)", needsZero));
                 js.setLength(0);
@@ -71,6 +85,9 @@ public class RenderingSettings extends CoreBase {
 
     private ShapeConfig[] shapes;
 
+    /**
+     * Setter for the shapes settings.
+     */
     public RenderingSettings setShapes(ShapeConfig[] shapes) {
         if (jsBase == null) {
             this.shapes = shapes;
@@ -82,7 +99,6 @@ public class RenderingSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".shapes(%s)", arrayToString(shapes)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".shapes(%s)", arrayToString(shapes)));
                 js.setLength(0);
@@ -93,6 +109,9 @@ public class RenderingSettings extends CoreBase {
 
     private String[] yValues;
 
+    /**
+     * Setter for YScale values.
+     */
     public RenderingSettings setYValues(String[] yValues) {
         if (jsBase == null) {
             this.yValues = yValues;
@@ -104,7 +123,6 @@ public class RenderingSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".yValues(%s)", arrayToStringWrapQuotes(yValues)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yValues(%s)", arrayToStringWrapQuotes(yValues)));
                 js.setLength(0);
@@ -113,8 +131,6 @@ public class RenderingSettings extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -132,20 +148,6 @@ public class RenderingSettings extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSneedsWidth());
-////        
-//            js.append(generateJSneedsZero());
-////        
-//            js.append(generateJSshapes());
-////        
-//            js.append(generateJSyValues());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

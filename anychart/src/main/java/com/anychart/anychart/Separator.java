@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Class for a separator element.
+ */
 public class Separator extends VisualBase {
 
     public Separator() {
-
+        js.setLength(0);
+        js.append("var separator").append(++variableIndex).append(" = anychart.core.ui.separator();");
+        jsBase = "separator" + variableIndex;
     }
 
     protected Separator(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,17 @@ public class Separator extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill fill;
 
+    /**
+     * Setter for separator fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Separator setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -38,7 +52,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +63,9 @@ public class Separator extends VisualBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity.
+     */
     public Separator fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -63,7 +79,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -80,6 +95,10 @@ public class Separator extends VisualBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill for the separator.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Separator fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -107,7 +126,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -117,6 +135,10 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill for the separator.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Separator fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -144,7 +166,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -154,6 +175,10 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill for the separator.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Separator fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -181,7 +206,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -191,6 +215,10 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill for the separator.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Separator fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -218,7 +246,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -228,6 +255,10 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill for the separator.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Separator fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -255,7 +286,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -265,6 +295,10 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill for the separator.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Separator fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -292,7 +326,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -310,6 +343,10 @@ public class Separator extends VisualBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill for the separator.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Separator fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -347,7 +384,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -357,6 +393,10 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Radial gradient fill for the separator.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Separator fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +434,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -407,6 +446,9 @@ public class Separator extends VisualBase {
     private Double height;
     private String height1;
 
+    /**
+     * Setter for separator height.
+     */
     public Separator setHeight(Double height) {
         if (jsBase == null) {
             this.height = null;
@@ -421,7 +463,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -431,6 +472,9 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Setter for separator height.
+     */
     public Separator setHeight(String height1) {
         if (jsBase == null) {
             this.height = null;
@@ -445,7 +489,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
@@ -456,6 +499,9 @@ public class Separator extends VisualBase {
 
     private Margin getMargin;
 
+    /**
+     * Getter for the margin of the separator.
+     */
     public Margin getMargin() {
         if (getMargin == null)
             getMargin = new Margin(jsBase + ".margin()");
@@ -475,6 +521,9 @@ public class Separator extends VisualBase {
     private String left;
     private Double left1;
 
+    /**
+     * Setter for the margin of the separator.
+     */
     public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
@@ -492,7 +541,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom2)));
                 js.setLength(0);
@@ -502,6 +550,9 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the margin of the separator.
+     */
     public Separator setMargin(String[] spaceOrTopOrTopAndBottom3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
@@ -519,7 +570,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
                 js.setLength(0);
@@ -529,6 +579,9 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Setter for the margin of the separator.
+     */
     public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
@@ -561,7 +614,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
                 js.setLength(0);
@@ -572,6 +624,9 @@ public class Separator extends VisualBase {
 
     private List<Separator> getOrientation = new ArrayList<>();
 
+    /**
+     * Getter fo the orientation of the separator.
+     */
     public Separator getOrientation(Orientation orientation) {
         Separator item = new Separator(jsBase + ".orientation(" + ((orientation != null) ? orientation.generateJs() : "null") + ")");
         getOrientation.add(item);
@@ -580,6 +635,9 @@ public class Separator extends VisualBase {
 
     private List<Separator> getOrientation1 = new ArrayList<>();
 
+    /**
+     * Getter fo the orientation of the separator.
+     */
     public Separator getOrientation(String orientation) {
         Separator item = new Separator(jsBase + ".orientation(" + wrapQuotes(orientation) + ")");
         getOrientation1.add(item);
@@ -594,6 +652,9 @@ public class Separator extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Separator stroke.
+     */
     public Separator stroke(Stroke strokeOrFill, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
@@ -617,7 +678,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -627,6 +687,9 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Separator stroke.
+     */
     public Separator stroke(ColoredFill strokeOrFill1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
@@ -650,7 +713,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -660,6 +722,9 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Separator stroke.
+     */
     public Separator stroke(String strokeOrFill2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
@@ -683,7 +748,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -695,6 +759,9 @@ public class Separator extends VisualBase {
     private Double width;
     private String width1;
 
+    /**
+     * Setter for separator width.
+     */
     public Separator setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
@@ -709,7 +776,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -719,6 +785,9 @@ public class Separator extends VisualBase {
     }
 
 
+    /**
+     * Setter for separator width.
+     */
     public Separator setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
@@ -733,7 +802,6 @@ public class Separator extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
@@ -742,33 +810,9 @@ public class Separator extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSMargin getMargin() {
-//        if (Margin getMargin != null) {
-//            return Margin getMargin.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSSeparator getOrientation() {
-//        if (Separator getOrientation != null) {
-//            return Separator getOrientation.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSSeparator getOrientation1() {
-//        if (Separator getOrientation1 != null) {
-//            return Separator getOrientation1.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
-            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -817,94 +861,6 @@ public class Separator extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom1());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom2());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom3());
-////        
-//            js.append(generateJSspaceOrTopOrTopAndBottom4());
-////        
-//            js.append(generateJSrightOrRightAndLeft());
-////        
-//            js.append(generateJSrightOrRightAndLeft1());
-////        
-//            js.append(generateJSbottom());
-////        
-//            js.append(generateJSbottom1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJSleft1());
-////        
-//            js.append(generateJSstrokeOrFill());
-////        
-//            js.append(generateJSstrokeOrFill1());
-////        
-//            js.append(generateJSstrokeOrFill2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

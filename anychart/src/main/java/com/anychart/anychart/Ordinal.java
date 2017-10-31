@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Define Ordinal scale.
+<b>Note:</b> To create instance use {@link anychart.scales#ordinal} method.
+ */
 public class Ordinal extends ScalesBase {
 
     public Ordinal() {
-
+        js.setLength(0);
+        js.append("var ordinal").append(++variableIndex).append(" = anychart.scales.ordinal();");
+        jsBase = "ordinal" + variableIndex;
     }
 
     protected Ordinal(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,17 @@ public class Ordinal extends ScalesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double ratio;
 
+    /**
+     * Returns tick name by its ratio position.
+<b>Note:</b> returns correct values only after {@link anychart.scales.Base#finishAutoCalc} or <b>chart.draw()</b>.
+     */
     public void inverseTransform(Double ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
@@ -38,7 +53,6 @@ public class Ordinal extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
                 js.setLength(0);
@@ -48,6 +62,9 @@ public class Ordinal extends ScalesBase {
 
     private String names;
 
+    /**
+     * Setter for scale ticks names.
+     */
     public Ordinal setNames(String names) {
         if (jsBase == null) {
             this.names = names;
@@ -59,7 +76,6 @@ public class Ordinal extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
                 js.setLength(0);
@@ -70,6 +86,9 @@ public class Ordinal extends ScalesBase {
 
     private OrdinalTicks getTicks;
 
+    /**
+     * Getter for set of scale ticks in terms of data values.
+     */
     public OrdinalTicks getTicks() {
         if (getTicks == null)
             getTicks = new OrdinalTicks(jsBase + ".ticks()");
@@ -80,6 +99,9 @@ public class Ordinal extends ScalesBase {
     private String ticks;
     private String[] ticks1;
 
+    /**
+     * Setter for set of scale ticks in terms of data values.
+     */
     public Ordinal setTicks(String ticks) {
         if (jsBase == null) {
             this.ticks = null;
@@ -94,7 +116,6 @@ public class Ordinal extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
@@ -104,6 +125,9 @@ public class Ordinal extends ScalesBase {
     }
 
 
+    /**
+     * Setter for set of scale ticks in terms of data values.
+     */
     public Ordinal setTicks(String[] ticks1) {
         if (jsBase == null) {
             this.ticks = null;
@@ -118,7 +142,6 @@ public class Ordinal extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
@@ -129,6 +152,10 @@ public class Ordinal extends ScalesBase {
 
     private Double subRangeRatio;
 
+    /**
+     * Returns tick position ratio by its name.
+<b>Note:</b> returns correct values only after {@link anychart.scales.Base#finishAutoCalc} or <b>chart.draw()</b>.
+     */
     public void transform(Double subRangeRatio) {
         if (jsBase == null) {
             this.subRangeRatio = subRangeRatio;
@@ -140,7 +167,6 @@ public class Ordinal extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".transform(%f);", subRangeRatio));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f)", subRangeRatio));
                 js.setLength(0);
@@ -150,6 +176,9 @@ public class Ordinal extends ScalesBase {
 
     private Double[] weights;
 
+    /**
+     * Setter for scale weights.
+     */
     public Ordinal setWeights(Double[] weights) {
         if (jsBase == null) {
             this.weights = weights;
@@ -161,7 +190,6 @@ public class Ordinal extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".weights(%s)", Arrays.toString(weights)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".weights(%s)", Arrays.toString(weights)));
                 js.setLength(0);
@@ -170,19 +198,9 @@ public class Ordinal extends ScalesBase {
         return this;
     }
 
-
-//
-//    private String generateJSOrdinalTicks getTicks() {
-//        if (OrdinalTicks getTicks != null) {
-//            return OrdinalTicks getTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -205,24 +223,6 @@ public class Ordinal extends ScalesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSratio());
-////        
-//            js.append(generateJSnames());
-////        
-//            js.append(generateJSticks());
-////        
-//            js.append(generateJSticks1());
-////        
-//            js.append(generateJSsubRangeRatio());
-////        
-//            js.append(generateJSweights());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

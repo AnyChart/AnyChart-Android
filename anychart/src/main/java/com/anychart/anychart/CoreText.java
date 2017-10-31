@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * This class is responsible of the text formatting, it processes the plain text and the text in HTML format.
+ */
 public class CoreText extends VisualBase {
 
     public CoreText() {
-
+        js.setLength(0);
+        js.append("var coreText").append(++variableIndex).append(" = anychart.core.text();");
+        jsBase = "coreText" + variableIndex;
     }
 
     protected CoreText(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class CoreText extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean disablePointerEvents;
 
+    /**
+     * Setter for the pointer events.
+     */
     public CoreText setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
@@ -38,7 +51,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
@@ -49,6 +61,10 @@ public class CoreText extends VisualBase {
 
     private String fontColor;
 
+    /**
+     * Setter for the text font color.<br/>
+{@link https://www.w3schools.com/html/html_colors.asp}
+     */
     public CoreText setFontColor(String fontColor) {
         if (jsBase == null) {
             this.fontColor = fontColor;
@@ -60,7 +76,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
                 js.setLength(0);
@@ -72,6 +87,9 @@ public class CoreText extends VisualBase {
     private Decoration fontDecoration;
     private String fontDecoration1;
 
+    /**
+     * Setter for the text font decoration.
+     */
     public CoreText setFontDecoration(Decoration fontDecoration) {
         if (jsBase == null) {
             this.fontDecoration = null;
@@ -86,7 +104,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
                 js.setLength(0);
@@ -96,6 +113,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text font decoration.
+     */
     public CoreText setFontDecoration(String fontDecoration1) {
         if (jsBase == null) {
             this.fontDecoration = null;
@@ -110,7 +130,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
                 js.setLength(0);
@@ -121,6 +140,9 @@ public class CoreText extends VisualBase {
 
     private String fontFamily;
 
+    /**
+     * Setter for font family.
+     */
     public CoreText setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
@@ -132,7 +154,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
                 js.setLength(0);
@@ -143,6 +164,9 @@ public class CoreText extends VisualBase {
 
     private Double fontOpacity;
 
+    /**
+     * Setter for the text font opacity. Double value from 0 to 1.
+     */
     public CoreText setFontOpacity(Double fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
@@ -154,7 +178,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
                 js.setLength(0);
@@ -166,6 +189,9 @@ public class CoreText extends VisualBase {
     private String fontSize;
     private Double fontSize1;
 
+    /**
+     * Setter for text font size.
+     */
     public CoreText setFontSize(String fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -180,7 +206,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
                 js.setLength(0);
@@ -190,6 +215,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for text font size.
+     */
     public CoreText setFontSize(Double fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -204,7 +232,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize1));
                 js.setLength(0);
@@ -216,6 +243,9 @@ public class CoreText extends VisualBase {
     private TextFontStyle fontStyle;
     private String fontStyle1;
 
+    /**
+     * Setter for the text font style.
+     */
     public CoreText setFontStyle(TextFontStyle fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -230,7 +260,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
                 js.setLength(0);
@@ -240,6 +269,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text font style.
+     */
     public CoreText setFontStyle(String fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -254,7 +286,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
                 js.setLength(0);
@@ -266,6 +297,9 @@ public class CoreText extends VisualBase {
     private TextFontVariant fontVariant;
     private String fontVariant1;
 
+    /**
+     * Setter for the text font variant.
+     */
     public CoreText setFontVariant(TextFontVariant fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -280,7 +314,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
                 js.setLength(0);
@@ -290,6 +323,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text font variant.
+     */
     public CoreText setFontVariant(String fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -304,7 +340,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
                 js.setLength(0);
@@ -316,6 +351,10 @@ public class CoreText extends VisualBase {
     private String fontWeight;
     private Double fontWeight1;
 
+    /**
+     * Setter for the text font weight.<br/>
+{@link https://www.w3schools.com/cssref/pr_font_weight.asp}
+     */
     public CoreText setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -330,7 +369,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
                 js.setLength(0);
@@ -340,6 +378,10 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text font weight.<br/>
+{@link https://www.w3schools.com/cssref/pr_font_weight.asp}
+     */
     public CoreText setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -354,7 +396,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
@@ -366,6 +407,9 @@ public class CoreText extends VisualBase {
     private TextHAlign hAlign;
     private String hAlign1;
 
+    /**
+     * Setter for the text horizontal align.
+     */
     public CoreText setHAlign(TextHAlign hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
@@ -380,7 +424,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
                 js.setLength(0);
@@ -390,6 +433,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text horizontal align.
+     */
     public CoreText setHAlign(String hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
@@ -404,7 +450,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
                 js.setLength(0);
@@ -416,6 +461,10 @@ public class CoreText extends VisualBase {
     private String letterSpacing;
     private Double letterSpacing1;
 
+    /**
+     * Setter for the text letter spacing.<br/>
+{@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
+     */
     public CoreText setLetterSpacing(String letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = null;
@@ -430,7 +479,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
                 js.setLength(0);
@@ -440,6 +488,10 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text letter spacing.<br/>
+{@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
+     */
     public CoreText setLetterSpacing(Double letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
@@ -454,7 +506,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
                 js.setLength(0);
@@ -466,6 +517,10 @@ public class CoreText extends VisualBase {
     private String lineHeight;
     private Double lineHeight1;
 
+    /**
+     * Setter for the text line height.<br/>
+{@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
+     */
     public CoreText setLineHeight(String lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
@@ -480,7 +535,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
                 js.setLength(0);
@@ -490,6 +544,10 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text line height.<br/>
+{@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
+     */
     public CoreText setLineHeight(Double lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
@@ -504,7 +562,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
                 js.setLength(0);
@@ -515,6 +572,9 @@ public class CoreText extends VisualBase {
 
     private Boolean selectable;
 
+    /**
+     * Setter for the text selectable.
+     */
     public CoreText setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
@@ -526,7 +586,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
@@ -538,6 +597,9 @@ public class CoreText extends VisualBase {
     private Direction textDirection;
     private String textDirection1;
 
+    /**
+     * Setter for the text direction.
+     */
     public CoreText setTextDirection(Direction textDirection) {
         if (jsBase == null) {
             this.textDirection = null;
@@ -552,7 +614,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection != null) ? textDirection.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", ((textDirection != null) ? textDirection.generateJs() : "null")));
                 js.setLength(0);
@@ -562,6 +623,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text direction.
+     */
     public CoreText setTextDirection(String textDirection1) {
         if (jsBase == null) {
             this.textDirection = null;
@@ -576,7 +640,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection1)));
                 js.setLength(0);
@@ -587,6 +650,9 @@ public class CoreText extends VisualBase {
 
     private Double textIndent;
 
+    /**
+     * Setter for the text indent.
+     */
     public CoreText setTextIndent(Double textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
@@ -598,7 +664,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
@@ -610,6 +675,9 @@ public class CoreText extends VisualBase {
     private TextOverflow textOverflow;
     private String textOverflow1;
 
+    /**
+     * Setter for the text overflow settings.
+     */
     public CoreText setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
@@ -624,7 +692,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
                 js.setLength(0);
@@ -634,6 +701,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text overflow settings.
+     */
     public CoreText setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
@@ -648,7 +718,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
                 js.setLength(0);
@@ -659,6 +728,9 @@ public class CoreText extends VisualBase {
 
     private String objectWithSettings;
 
+    /**
+     * Setter for text appearance settings.
+     */
     public CoreText setTextSettings(String objectWithSettings) {
         if (jsBase == null) {
             this.objectWithSettings = objectWithSettings;
@@ -670,7 +742,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textSettings(%s)", wrapQuotes(objectWithSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s)", wrapQuotes(objectWithSettings)));
                 js.setLength(0);
@@ -684,6 +755,9 @@ public class CoreText extends VisualBase {
     private Double textSettings1;
     private Boolean textSettings2;
 
+    /**
+     * Setter for the text appearance settings.
+     */
     public CoreText setTextSettings(String textSettings, String name) {
         if (jsBase == null) {
             this.textSettings = null;
@@ -701,7 +775,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textSettings(%s, %s)", wrapQuotes(textSettings), wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %s)", wrapQuotes(textSettings), wrapQuotes(name)));
                 js.setLength(0);
@@ -711,6 +784,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text appearance settings.
+     */
     public CoreText setTextSettings(Double textSettings1, String name) {
         if (jsBase == null) {
             this.textSettings = null;
@@ -728,7 +804,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textSettings(%f, %s)", textSettings1, wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%f, %s)", textSettings1, wrapQuotes(name)));
                 js.setLength(0);
@@ -738,6 +813,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text appearance settings.
+     */
     public CoreText setTextSettings(Boolean textSettings2, String name) {
         if (jsBase == null) {
             this.textSettings = null;
@@ -755,7 +833,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textSettings(%b, %s)", textSettings2, wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%b, %s)", textSettings2, wrapQuotes(name)));
                 js.setLength(0);
@@ -766,6 +843,9 @@ public class CoreText extends VisualBase {
 
     private Boolean useHtml;
 
+    /**
+     * Setter for flag useHTML.
+     */
     public CoreText setUseHtml(Boolean useHtml) {
         if (jsBase == null) {
             this.useHtml = useHtml;
@@ -777,7 +857,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
                 js.setLength(0);
@@ -789,6 +868,9 @@ public class CoreText extends VisualBase {
     private TextVAlign vAlign;
     private String vAlign1;
 
+    /**
+     * Setter for the text vertical align.
+     */
     public CoreText setVAlign(TextVAlign vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
@@ -803,7 +885,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
                 js.setLength(0);
@@ -813,6 +894,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text vertical align.
+     */
     public CoreText setVAlign(String vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
@@ -827,7 +911,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
                 js.setLength(0);
@@ -839,6 +922,9 @@ public class CoreText extends VisualBase {
     private EnumsWordBreak wordBreak;
     private String wordBreak1;
 
+    /**
+     * Setter for the word-break mode.
+     */
     public CoreText setWordBreak(EnumsWordBreak wordBreak) {
         if (jsBase == null) {
             this.wordBreak = null;
@@ -853,7 +939,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
                 js.setLength(0);
@@ -863,6 +948,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the word-break mode.
+     */
     public CoreText setWordBreak(String wordBreak1) {
         if (jsBase == null) {
             this.wordBreak = null;
@@ -877,7 +965,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
                 js.setLength(0);
@@ -889,6 +976,9 @@ public class CoreText extends VisualBase {
     private EnumsWordWrap wordWrap;
     private String wordWrap1;
 
+    /**
+     * Setter for the word-wrap mode.
+     */
     public CoreText setWordWrap(EnumsWordWrap wordWrap) {
         if (jsBase == null) {
             this.wordWrap = null;
@@ -903,7 +993,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
                 js.setLength(0);
@@ -913,6 +1002,9 @@ public class CoreText extends VisualBase {
     }
 
 
+    /**
+     * Setter for the word-wrap mode.
+     */
     public CoreText setWordWrap(String wordWrap1) {
         if (jsBase == null) {
             this.wordWrap = null;
@@ -927,7 +1019,6 @@ public class CoreText extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
                 js.setLength(0);
@@ -936,8 +1027,6 @@ public class CoreText extends VisualBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -955,88 +1044,6 @@ public class CoreText extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdisablePointerEvents());
-////        
-//            js.append(generateJSfontColor());
-////        
-//            js.append(generateJSfontDecoration());
-////        
-//            js.append(generateJSfontDecoration1());
-////        
-//            js.append(generateJSfontFamily());
-////        
-//            js.append(generateJSfontOpacity());
-////        
-//            js.append(generateJSfontSize());
-////        
-//            js.append(generateJSfontSize1());
-////        
-//            js.append(generateJSfontStyle());
-////        
-//            js.append(generateJSfontStyle1());
-////        
-//            js.append(generateJSfontVariant());
-////        
-//            js.append(generateJSfontVariant1());
-////        
-//            js.append(generateJSfontWeight());
-////        
-//            js.append(generateJSfontWeight1());
-////        
-//            js.append(generateJShAlign());
-////        
-//            js.append(generateJShAlign1());
-////        
-//            js.append(generateJSletterSpacing());
-////        
-//            js.append(generateJSletterSpacing1());
-////        
-//            js.append(generateJSlineHeight());
-////        
-//            js.append(generateJSlineHeight1());
-////        
-//            js.append(generateJSselectable());
-////        
-//            js.append(generateJStextDirection());
-////        
-//            js.append(generateJStextDirection1());
-////        
-//            js.append(generateJStextIndent());
-////        
-//            js.append(generateJStextOverflow());
-////        
-//            js.append(generateJStextOverflow1());
-////        
-//            js.append(generateJSobjectWithSettings());
-////        
-//            js.append(generateJSname());
-////        
-//            js.append(generateJStextSettings());
-////        
-//            js.append(generateJStextSettings1());
-////        
-//            js.append(generateJStextSettings2());
-////        
-//            js.append(generateJSuseHtml());
-////        
-//            js.append(generateJSvAlign());
-////        
-//            js.append(generateJSvAlign1());
-////        
-//            js.append(generateJSwordBreak());
-////        
-//            js.append(generateJSwordBreak1());
-////        
-//            js.append(generateJSwordWrap());
-////        
-//            js.append(generateJSwordWrap1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Legend element.
+ */
 public class UiLegend extends CoreText {
 
     public UiLegend() {
-
+        js.setLength(0);
+        js.append("var uiLegend").append(++variableIndex).append(" = anychart.core.ui.legend();");
+        jsBase = "uiLegend" + variableIndex;
     }
 
     protected UiLegend(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class UiLegend extends CoreText {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private EnumsAlign align;
     private String align1;
 
+    /**
+     * Setter for legend align settings.
+     */
     public UiLegend setAlign(EnumsAlign align) {
         if (jsBase == null) {
             this.align = null;
@@ -42,7 +55,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for legend align settings.
+     */
     public UiLegend setAlign(String align1) {
         if (jsBase == null) {
             this.align = null;
@@ -66,7 +81,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
                 js.setLength(0);
@@ -77,6 +91,9 @@ public class UiLegend extends CoreText {
 
     private UiBackground getBackground;
 
+    /**
+     * Getter for the legend background.
+     */
     public UiBackground getBackground() {
         if (getBackground == null)
             getBackground = new UiBackground(jsBase + ".background()");
@@ -88,6 +105,9 @@ public class UiLegend extends CoreText {
     private String background1;
     private Boolean background2;
 
+    /**
+     * Setter for the legend background.
+     */
     public UiLegend setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
@@ -103,7 +123,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -113,6 +132,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the legend background.
+     */
     public UiLegend setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
@@ -128,7 +150,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -139,6 +160,9 @@ public class UiLegend extends CoreText {
 
     private Boolean drag;
 
+    /**
+     * Allows to use drag for legend.
+     */
     public UiLegend drag(Boolean drag) {
         if (jsBase == null) {
             this.drag = drag;
@@ -150,7 +174,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".drag(%b)", drag));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drag(%b)", drag));
                 js.setLength(0);
@@ -161,6 +184,9 @@ public class UiLegend extends CoreText {
 
     private AnychartMathRect getGetRemainingBounds;
 
+    /**
+     * Getter for remain bounds after legend.
+     */
     public AnychartMathRect getGetRemainingBounds() {
         if (getGetRemainingBounds == null)
             getGetRemainingBounds = new AnychartMathRect(jsBase + ".getRemainingBounds()");
@@ -171,6 +197,9 @@ public class UiLegend extends CoreText {
     private Double height;
     private String height1;
 
+    /**
+     * Setter for the legend height.
+     */
     public UiLegend setHeight(Double height) {
         if (jsBase == null) {
             this.height = null;
@@ -185,7 +214,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -195,6 +223,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the legend height.
+     */
     public UiLegend setHeight(String height1) {
         if (jsBase == null) {
             this.height = null;
@@ -209,7 +240,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
@@ -221,6 +251,9 @@ public class UiLegend extends CoreText {
     private EnumsCursor hoverCursor;
     private String hoverCursor1;
 
+    /**
+     * Setter for hover cursor settings.
+     */
     public UiLegend setHoverCursor(EnumsCursor hoverCursor) {
         if (jsBase == null) {
             this.hoverCursor = null;
@@ -235,7 +268,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".hoverCursor(%s)", ((hoverCursor != null) ? hoverCursor.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hoverCursor(%s)", ((hoverCursor != null) ? hoverCursor.generateJs() : "null")));
                 js.setLength(0);
@@ -245,6 +277,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for hover cursor settings.
+     */
     public UiLegend setHoverCursor(String hoverCursor1) {
         if (jsBase == null) {
             this.hoverCursor = null;
@@ -259,7 +294,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".hoverCursor(%s)", wrapQuotes(hoverCursor1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hoverCursor(%s)", wrapQuotes(hoverCursor1)));
                 js.setLength(0);
@@ -271,6 +305,9 @@ public class UiLegend extends CoreText {
     private Double iconSize;
     private String iconSize1;
 
+    /**
+     * Setter for the icon size.
+     */
     public UiLegend setIconSize(Double iconSize) {
         if (jsBase == null) {
             this.iconSize = null;
@@ -285,7 +322,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconSize(%f)", iconSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconSize(%f)", iconSize));
                 js.setLength(0);
@@ -295,6 +331,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the icon size.
+     */
     public UiLegend setIconSize(String iconSize1) {
         if (jsBase == null) {
             this.iconSize = null;
@@ -309,7 +348,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconSize(%s)", wrapQuotes(iconSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconSize(%s)", wrapQuotes(iconSize1)));
                 js.setLength(0);
@@ -321,6 +359,9 @@ public class UiLegend extends CoreText {
     private String iconTextSpacing;
     private Double iconTextSpacing1;
 
+    /**
+     * Setter for spacing between icon and text in a legend item.
+     */
     public UiLegend setIconTextSpacing(String iconTextSpacing) {
         if (jsBase == null) {
             this.iconTextSpacing = null;
@@ -335,7 +376,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconTextSpacing(%s)", wrapQuotes(iconTextSpacing)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconTextSpacing(%s)", wrapQuotes(iconTextSpacing)));
                 js.setLength(0);
@@ -345,6 +385,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for spacing between icon and text in a legend item.
+     */
     public UiLegend setIconTextSpacing(Double iconTextSpacing1) {
         if (jsBase == null) {
             this.iconTextSpacing = null;
@@ -359,7 +402,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".iconTextSpacing(%f)", iconTextSpacing1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconTextSpacing(%f)", iconTextSpacing1));
                 js.setLength(0);
@@ -370,6 +412,9 @@ public class UiLegend extends CoreText {
 
     private Boolean inverted;
 
+    /**
+     * Setter for inverted settings.
+     */
     public UiLegend setInverted(Boolean inverted) {
         if (jsBase == null) {
             this.inverted = inverted;
@@ -381,7 +426,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".inverted(%b)", inverted));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".inverted(%b)", inverted));
                 js.setLength(0);
@@ -392,6 +436,9 @@ public class UiLegend extends CoreText {
 
     private LegendItemProvider[] items;
 
+    /**
+     * Setter for custom items.
+     */
     public UiLegend setItems(LegendItemProvider[] items) {
         if (jsBase == null) {
             this.items = items;
@@ -403,7 +450,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".items(%s)", arrayToString(items)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s)", arrayToString(items)));
                 js.setLength(0);
@@ -415,6 +461,9 @@ public class UiLegend extends CoreText {
     private LegendLayout itemsLayout;
     private String itemsLayout1;
 
+    /**
+     * Setter for items layout.
+     */
     public UiLegend setItemsLayout(LegendLayout itemsLayout) {
         if (jsBase == null) {
             this.itemsLayout = null;
@@ -429,7 +478,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".itemsLayout(%s)", ((itemsLayout != null) ? itemsLayout.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", ((itemsLayout != null) ? itemsLayout.generateJs() : "null")));
                 js.setLength(0);
@@ -439,6 +487,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for items layout.
+     */
     public UiLegend setItemsLayout(String itemsLayout1) {
         if (jsBase == null) {
             this.itemsLayout = null;
@@ -453,7 +504,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".itemsLayout(%s)", wrapQuotes(itemsLayout1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", wrapQuotes(itemsLayout1)));
                 js.setLength(0);
@@ -465,6 +515,9 @@ public class UiLegend extends CoreText {
     private LegendItemsSourceMode itemsSourceMode;
     private String itemsSourceMode1;
 
+    /**
+     * Setter for items source mode.
+     */
     public UiLegend setItemsSourceMode(LegendItemsSourceMode itemsSourceMode) {
         if (jsBase == null) {
             this.itemsSourceMode = null;
@@ -479,7 +532,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".itemsSourceMode(%s)", ((itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", ((itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null")));
                 js.setLength(0);
@@ -489,6 +541,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for items source mode.
+     */
     public UiLegend setItemsSourceMode(String itemsSourceMode1) {
         if (jsBase == null) {
             this.itemsSourceMode = null;
@@ -503,7 +558,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".itemsSourceMode(%s)", wrapQuotes(itemsSourceMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", wrapQuotes(itemsSourceMode1)));
                 js.setLength(0);
@@ -515,6 +569,9 @@ public class UiLegend extends CoreText {
     private String itemsSpacing;
     private Double itemsSpacing1;
 
+    /**
+     * Setter for items spacing settings.
+     */
     public UiLegend setItemsSpacing(String itemsSpacing) {
         if (jsBase == null) {
             this.itemsSpacing = null;
@@ -529,7 +586,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".itemsSpacing(%s)", wrapQuotes(itemsSpacing)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsSpacing(%s)", wrapQuotes(itemsSpacing)));
                 js.setLength(0);
@@ -539,6 +595,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for items spacing settings.
+     */
     public UiLegend setItemsSpacing(Double itemsSpacing1) {
         if (jsBase == null) {
             this.itemsSpacing = null;
@@ -553,7 +612,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".itemsSpacing(%f)", itemsSpacing1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsSpacing(%f)", itemsSpacing1));
                 js.setLength(0);
@@ -564,6 +622,9 @@ public class UiLegend extends CoreText {
 
     private Margin getMargin;
 
+    /**
+     * Getter for margin settings.
+     */
     public Margin getMargin() {
         if (getMargin == null)
             getMargin = new Margin(jsBase + ".margin()");
@@ -577,6 +638,9 @@ public class UiLegend extends CoreText {
     private Double margin3;
     private String margin4;
 
+    /**
+     * Setter for the legend margin in pixels using a single value.
+     */
     public UiLegend setMargin(Double[] margin) {
         if (jsBase == null) {
             this.margin = null;
@@ -594,7 +658,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
                 js.setLength(0);
@@ -604,6 +667,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the legend margin in pixels using a single value.
+     */
     public UiLegend setMargin(String[] margin1) {
         if (jsBase == null) {
             this.margin = null;
@@ -621,7 +687,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
@@ -639,6 +704,9 @@ public class UiLegend extends CoreText {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for the legend margin in pixels using a single simple values.
+     */
     public UiLegend setMargin(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -692,7 +760,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -702,6 +769,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the legend margin in pixels using a single simple values.
+     */
     public UiLegend setMargin(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -755,7 +825,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -767,6 +836,9 @@ public class UiLegend extends CoreText {
     private Double maxHeight;
     private String maxHeight1;
 
+    /**
+     * Setter for the maximum height.
+     */
     public UiLegend setMaxHeight(Double maxHeight) {
         if (jsBase == null) {
             this.maxHeight = null;
@@ -781,7 +853,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
                 js.setLength(0);
@@ -791,6 +862,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the maximum height.
+     */
     public UiLegend setMaxHeight(String maxHeight1) {
         if (jsBase == null) {
             this.maxHeight = null;
@@ -805,7 +879,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
                 js.setLength(0);
@@ -817,6 +890,9 @@ public class UiLegend extends CoreText {
     private Double maxWidth;
     private String maxWidth1;
 
+    /**
+     * Setter for the maximum width.
+     */
     public UiLegend setMaxWidth(Double maxWidth) {
         if (jsBase == null) {
             this.maxWidth = null;
@@ -831,7 +907,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
                 js.setLength(0);
@@ -841,6 +916,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the maximum width.
+     */
     public UiLegend setMaxWidth(String maxWidth1) {
         if (jsBase == null) {
             this.maxWidth = null;
@@ -855,7 +933,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
                 js.setLength(0);
@@ -866,6 +943,9 @@ public class UiLegend extends CoreText {
 
     private UtilsPadding getPadding;
 
+    /**
+     * Getter for legend padding settings.
+     */
     public UtilsPadding getPadding() {
         if (getPadding == null)
             getPadding = new UtilsPadding(jsBase + ".padding()");
@@ -879,6 +959,9 @@ public class UiLegend extends CoreText {
     private Double padding3;
     private String padding4;
 
+    /**
+     * Setter for the legend padding in pixels using a single value.
+     */
     public UiLegend setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
@@ -896,7 +979,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -906,6 +988,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the legend padding in pixels using a single value.
+     */
     public UiLegend setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
@@ -923,7 +1008,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -941,6 +1025,9 @@ public class UiLegend extends CoreText {
     private String value14;
     private Double value15;
 
+    /**
+     * Setter for the legend padding setting in pixels using a several value.
+     */
     public UiLegend setPadding(String value8, String value10, String value12, String value14) {
         if (jsBase == null) {
             this.value = null;
@@ -1026,7 +1113,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
@@ -1036,6 +1122,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the legend padding setting in pixels using a several value.
+     */
     public UiLegend setPadding(Double value9, Double value11, Double value13, Double value15) {
         if (jsBase == null) {
             this.value = null;
@@ -1121,7 +1210,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
                 js.setLength(0);
@@ -1132,6 +1220,9 @@ public class UiLegend extends CoreText {
 
     private Paginator getPaginator;
 
+    /**
+     * Getter for paginator settings.
+     */
     public Paginator getPaginator() {
         if (getPaginator == null)
             getPaginator = new Paginator(jsBase + ".paginator()");
@@ -1142,6 +1233,9 @@ public class UiLegend extends CoreText {
     private String paginator;
     private Boolean paginator1;
 
+    /**
+     * Setter for paginator settings.
+     */
     public UiLegend setPaginator(String paginator) {
         if (jsBase == null) {
             this.paginator = null;
@@ -1156,7 +1250,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".paginator(%s)", wrapQuotes(paginator)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".paginator(%s)", wrapQuotes(paginator)));
                 js.setLength(0);
@@ -1166,6 +1259,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for paginator settings.
+     */
     public UiLegend setPaginator(Boolean paginator1) {
         if (jsBase == null) {
             this.paginator = null;
@@ -1180,7 +1276,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".paginator(%b)", paginator1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".paginator(%b)", paginator1));
                 js.setLength(0);
@@ -1192,6 +1287,9 @@ public class UiLegend extends CoreText {
     private Orientation position;
     private String position1;
 
+    /**
+     * Setter for legend position setting.
+     */
     public UiLegend setPosition(Orientation position) {
         if (jsBase == null) {
             this.position = null;
@@ -1206,7 +1304,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -1216,6 +1313,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for legend position setting.
+     */
     public UiLegend setPosition(String position1) {
         if (jsBase == null) {
             this.position = null;
@@ -1230,7 +1330,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -1242,6 +1341,9 @@ public class UiLegend extends CoreText {
     private LegendPositionMode positionMode;
     private String positionMode1;
 
+    /**
+     * Setter for the position mode.
+     */
     public UiLegend setPositionMode(LegendPositionMode positionMode) {
         if (jsBase == null) {
             this.positionMode = null;
@@ -1256,7 +1358,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".positionMode(%s)", ((positionMode != null) ? positionMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", ((positionMode != null) ? positionMode.generateJs() : "null")));
                 js.setLength(0);
@@ -1266,6 +1367,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the position mode.
+     */
     public UiLegend setPositionMode(String positionMode1) {
         if (jsBase == null) {
             this.positionMode = null;
@@ -1280,7 +1384,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".positionMode(%s)", wrapQuotes(positionMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", wrapQuotes(positionMode1)));
                 js.setLength(0);
@@ -1291,6 +1394,9 @@ public class UiLegend extends CoreText {
 
     private UiTitle getTitle;
 
+    /**
+     * Getter for the legend title.
+     */
     public UiTitle getTitle() {
         if (getTitle == null)
             getTitle = new UiTitle(jsBase + ".title()");
@@ -1302,6 +1408,9 @@ public class UiLegend extends CoreText {
     private String title1;
     private String title2;
 
+    /**
+     * Setter for the legend title.
+     */
     public UiLegend setTitle(Boolean title) {
         if (jsBase == null) {
             this.title = null;
@@ -1317,7 +1426,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".title(%b)", title));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
@@ -1327,6 +1435,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the legend title.
+     */
     public UiLegend setTitle(String title1) {
         if (jsBase == null) {
             this.title = null;
@@ -1342,7 +1453,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
@@ -1353,6 +1463,11 @@ public class UiLegend extends CoreText {
 
     private String titleFormat;
 
+    /**
+     * Setter for the legend title format function.
+If set, formats title. Currently supported in Stock only.
+{docs:Common_Settings/Text_Formatters}Learn more about using titleFormat() method.{docs}
+     */
     public UiLegend setTitleFormat(String titleFormat) {
         if (jsBase == null) {
             this.titleFormat = titleFormat;
@@ -1364,7 +1479,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);
@@ -1375,6 +1489,9 @@ public class UiLegend extends CoreText {
 
     private Separator getTitleSeparator;
 
+    /**
+     * Getter for title separator settings.
+     */
     public Separator getTitleSeparator() {
         if (getTitleSeparator == null)
             getTitleSeparator = new Separator(jsBase + ".titleSeparator()");
@@ -1385,6 +1502,9 @@ public class UiLegend extends CoreText {
     private String titleSeparator;
     private Boolean titleSeparator1;
 
+    /**
+     * Setter for title separator settings.
+     */
     public UiLegend setTitleSeparator(String titleSeparator) {
         if (jsBase == null) {
             this.titleSeparator = null;
@@ -1399,7 +1519,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".titleSeparator(%s)", wrapQuotes(titleSeparator)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleSeparator(%s)", wrapQuotes(titleSeparator)));
                 js.setLength(0);
@@ -1409,6 +1528,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for title separator settings.
+     */
     public UiLegend setTitleSeparator(Boolean titleSeparator1) {
         if (jsBase == null) {
             this.titleSeparator = null;
@@ -1423,7 +1545,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".titleSeparator(%b)", titleSeparator1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleSeparator(%b)", titleSeparator1));
                 js.setLength(0);
@@ -1434,6 +1555,9 @@ public class UiLegend extends CoreText {
 
     private Tooltip getTooltip;
 
+    /**
+     * Getter for the legend tooltip.
+     */
     public Tooltip getTooltip() {
         if (getTooltip == null)
             getTooltip = new Tooltip(jsBase + ".tooltip()");
@@ -1444,6 +1568,9 @@ public class UiLegend extends CoreText {
     private String tooltip;
     private Boolean tooltip1;
 
+    /**
+     * Setter for legend tooltip.
+     */
     public UiLegend setTooltip(String tooltip) {
         if (jsBase == null) {
             this.tooltip = null;
@@ -1458,7 +1585,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
@@ -1468,6 +1594,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for legend tooltip.
+     */
     public UiLegend setTooltip(Boolean tooltip1) {
         if (jsBase == null) {
             this.tooltip = null;
@@ -1482,7 +1611,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%b)", tooltip1));
                 js.setLength(0);
@@ -1494,6 +1622,9 @@ public class UiLegend extends CoreText {
     private Double width;
     private String width1;
 
+    /**
+     * Setter for the legend width.
+     */
     public UiLegend setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
@@ -1508,7 +1639,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -1518,6 +1648,9 @@ public class UiLegend extends CoreText {
     }
 
 
+    /**
+     * Setter for the legend width.
+     */
     public UiLegend setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
@@ -1532,7 +1665,6 @@ public class UiLegend extends CoreText {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
@@ -1541,68 +1673,9 @@ public class UiLegend extends CoreText {
         return this;
     }
 
-
-//
-//    private String generateJSUiBackground getBackground() {
-//        if (UiBackground getBackground != null) {
-//            return UiBackground getBackground.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAnychartMathRect getGetRemainingBounds() {
-//        if (AnychartMathRect getGetRemainingBounds != null) {
-//            return AnychartMathRect getGetRemainingBounds.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSMargin getMargin() {
-//        if (Margin getMargin != null) {
-//            return Margin getMargin.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUtilsPadding getPadding() {
-//        if (UtilsPadding getPadding != null) {
-//            return UtilsPadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPaginator getPaginator() {
-//        if (Paginator getPaginator != null) {
-//            return Paginator getPaginator.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiTitle getTitle() {
-//        if (UiTitle getTitle != null) {
-//            return UiTitle getTitle.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSSeparator getTitleSeparator() {
-//        if (Separator getTitleSeparator != null) {
-//            return Separator getTitleSeparator.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTooltip getTooltip() {
-//        if (Tooltip getTooltip != null) {
-//            return Tooltip getTooltip.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -1610,7 +1683,6 @@ public class UiLegend extends CoreText {
     private String generateJSgetGetRemainingBounds() {
         if (getGetRemainingBounds != null) {
             return getGetRemainingBounds.generateJs();
-            //return String.format(Locale.US, "getGetRemainingBounds: %s,", ((getGetRemainingBounds != null) ? getGetRemainingBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -1618,7 +1690,6 @@ public class UiLegend extends CoreText {
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
-            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -1626,7 +1697,6 @@ public class UiLegend extends CoreText {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -1634,7 +1704,6 @@ public class UiLegend extends CoreText {
     private String generateJSgetPaginator() {
         if (getPaginator != null) {
             return getPaginator.generateJs();
-            //return String.format(Locale.US, "getPaginator: %s,", ((getPaginator != null) ? getPaginator.generateJs() : "null"));
         }
         return "";
     }
@@ -1642,7 +1711,6 @@ public class UiLegend extends CoreText {
     private String generateJSgetTitle() {
         if (getTitle != null) {
             return getTitle.generateJs();
-            //return String.format(Locale.US, "getTitle: %s,", ((getTitle != null) ? getTitle.generateJs() : "null"));
         }
         return "";
     }
@@ -1650,7 +1718,6 @@ public class UiLegend extends CoreText {
     private String generateJSgetTitleSeparator() {
         if (getTitleSeparator != null) {
             return getTitleSeparator.generateJs();
-            //return String.format(Locale.US, "getTitleSeparator: %s,", ((getTitleSeparator != null) ? getTitleSeparator.generateJs() : "null"));
         }
         return "";
     }
@@ -1658,7 +1725,6 @@ public class UiLegend extends CoreText {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
-            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -1688,148 +1754,6 @@ public class UiLegend extends CoreText {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSalign());
-////        
-//            js.append(generateJSalign1());
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJSdrag());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJShoverCursor());
-////        
-//            js.append(generateJShoverCursor1());
-////        
-//            js.append(generateJSiconSize());
-////        
-//            js.append(generateJSiconSize1());
-////        
-//            js.append(generateJSiconTextSpacing());
-////        
-//            js.append(generateJSiconTextSpacing1());
-////        
-//            js.append(generateJSinverted());
-////        
-//            js.append(generateJSitems());
-////        
-//            js.append(generateJSitemsLayout());
-////        
-//            js.append(generateJSitemsLayout1());
-////        
-//            js.append(generateJSitemsSourceMode());
-////        
-//            js.append(generateJSitemsSourceMode1());
-////        
-//            js.append(generateJSitemsSpacing());
-////        
-//            js.append(generateJSitemsSpacing1());
-////        
-//            js.append(generateJSmargin());
-////        
-//            js.append(generateJSmargin1());
-////        
-//            js.append(generateJSmargin2());
-////        
-//            js.append(generateJSmargin3());
-////        
-//            js.append(generateJSmargin4());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSmaxHeight());
-////        
-//            js.append(generateJSmaxHeight1());
-////        
-//            js.append(generateJSmaxWidth());
-////        
-//            js.append(generateJSmaxWidth1());
-////        
-//            js.append(generateJSpadding());
-////        
-//            js.append(generateJSpadding1());
-////        
-//            js.append(generateJSpadding2());
-////        
-//            js.append(generateJSpadding3());
-////        
-//            js.append(generateJSpadding4());
-////        
-//            js.append(generateJSvalue8());
-////        
-//            js.append(generateJSvalue9());
-////        
-//            js.append(generateJSvalue10());
-////        
-//            js.append(generateJSvalue11());
-////        
-//            js.append(generateJSvalue12());
-////        
-//            js.append(generateJSvalue13());
-////        
-//            js.append(generateJSvalue14());
-////        
-//            js.append(generateJSvalue15());
-////        
-//            js.append(generateJSpaginator());
-////        
-//            js.append(generateJSpaginator1());
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSposition1());
-////        
-//            js.append(generateJSpositionMode());
-////        
-//            js.append(generateJSpositionMode1());
-////        
-//            js.append(generateJStitle());
-////        
-//            js.append(generateJStitle1());
-////        
-//            js.append(generateJStitle2());
-////        
-//            js.append(generateJStitleFormat());
-////        
-//            js.append(generateJStitleSeparator());
-////        
-//            js.append(generateJStitleSeparator1());
-////        
-//            js.append(generateJStooltip());
-////        
-//            js.append(generateJStooltip1());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

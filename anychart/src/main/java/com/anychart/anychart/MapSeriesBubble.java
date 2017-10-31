@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Bubble series.
+ */
 public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
 
     public MapSeriesBubble() {
-
+        js.setLength(0);
+        js.append("var mapSeriesBubble").append(++variableIndex).append(" = anychart.core.map.series.bubble();");
+        jsBase = "mapSeriesBubble" + variableIndex;
     }
 
     protected MapSeriesBubble(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean displayNegative;
 
+    /**
+     * Setter for the negative value option.
+     */
     public MapSeriesBubble setDisplayNegative(Boolean displayNegative) {
         if (jsBase == null) {
             this.displayNegative = displayNegative;
@@ -38,7 +51,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".displayNegative(%b)", displayNegative));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".displayNegative(%b)", displayNegative));
                 js.setLength(0);
@@ -49,6 +61,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
 
     private Fill negativeFill;
 
+    /**
+     * Setter for series negative fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBubble setNegativeFill(Fill negativeFill) {
         if (jsBase == null) {
             this.negativeFill = negativeFill;
@@ -60,7 +76,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s)", ((negativeFill != null) ? negativeFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s)", ((negativeFill != null) ? negativeFill.generateJs() : "null")));
                 js.setLength(0);
@@ -72,6 +87,9 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private String color;
     private Double opacity;
 
+    /**
+     * Series negative fill color with opacity. Fill as a string or an object.
+     */
     public MapSeriesBubble negativeFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -85,7 +103,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -102,6 +119,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient series negative fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBubble negativeFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -129,7 +150,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -139,6 +159,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Linear gradient series negative fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBubble negativeFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -166,7 +190,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -176,6 +199,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Linear gradient series negative fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBubble negativeFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -203,7 +230,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -213,6 +239,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Linear gradient series negative fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBubble negativeFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -240,7 +270,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -250,6 +279,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Linear gradient series negative fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBubble negativeFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -277,7 +310,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -287,6 +319,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Linear gradient series negative fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBubble negativeFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -314,7 +350,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -332,6 +367,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial series negative fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBubble negativeFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -369,7 +408,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -379,6 +417,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Radial series negative fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public MapSeriesBubble negativeFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -416,7 +458,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -428,6 +469,9 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private Fill imageSettings;
     private PatternFill getNegativeHatchFill;
 
+    /**
+     * Getter fot the negative hatch fill.
+     */
     public PatternFill getNegativeHatchFill() {
         if (getNegativeHatchFill == null)
             getNegativeHatchFill = new PatternFill(jsBase + ".negativeHatchFill()");
@@ -444,6 +488,9 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for the negative hatch fill.
+     */
     public MapSeriesBubble setNegativeHatchFill(PatternFill patternFillOrTypeOrState, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -470,7 +517,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -480,6 +526,9 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for the negative hatch fill.
+     */
     public MapSeriesBubble setNegativeHatchFill(HatchFill patternFillOrTypeOrState1, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -506,7 +555,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -516,6 +564,9 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for the negative hatch fill.
+     */
     public MapSeriesBubble setNegativeHatchFill(HatchFillType patternFillOrTypeOrState2, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -542,7 +593,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -552,6 +602,9 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for the negative hatch fill.
+     */
     public MapSeriesBubble setNegativeHatchFill(String patternFillOrTypeOrState3, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -578,7 +631,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -588,6 +640,9 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for the negative hatch fill.
+     */
     public MapSeriesBubble setNegativeHatchFill(Boolean patternFillOrTypeOrState4, String color1, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -614,7 +669,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -625,6 +679,9 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
 
     private MapSeriesBubble getNegativeStroke;
 
+    /**
+     * Getter for negative stroke settings.
+     */
     public MapSeriesBubble getNegativeStroke() {
         if (getNegativeStroke == null)
             getNegativeStroke = new MapSeriesBubble(jsBase + ".negativeStroke()");
@@ -640,6 +697,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for series negative stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public MapSeriesBubble setNegativeStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -668,7 +729,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -678,6 +738,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for series negative stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public MapSeriesBubble setNegativeStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -706,7 +770,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -716,6 +779,10 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for series negative stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public MapSeriesBubble setNegativeStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -744,7 +811,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -753,26 +819,9 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         return this;
     }
 
-
-//
-//    private String generateJSPatternFill getNegativeHatchFill() {
-//        if (PatternFill getNegativeHatchFill != null) {
-//            return PatternFill getNegativeHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSMapSeriesBubble getNegativeStroke() {
-//        if (MapSeriesBubble getNegativeStroke != null) {
-//            return MapSeriesBubble getNegativeStroke.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetNegativeHatchFill() {
         if (getNegativeHatchFill != null) {
             return getNegativeHatchFill.generateJs();
-            //return String.format(Locale.US, "getNegativeHatchFill: %s,", ((getNegativeHatchFill != null) ? getNegativeHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -780,7 +829,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private String generateJSgetNegativeStroke() {
         if (getNegativeStroke != null) {
             return getNegativeStroke.generateJs();
-            //return String.format(Locale.US, "getNegativeStroke: %s,", ((getNegativeStroke != null) ? getNegativeStroke.generateJs() : "null"));
         }
         return "";
     }
@@ -804,82 +852,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdisplayNegative());
-////        
-//            js.append(generateJSnegativeFill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState1());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState2());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState3());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState4());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

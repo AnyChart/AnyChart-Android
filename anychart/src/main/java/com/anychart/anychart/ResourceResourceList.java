@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Resource list constructor.
+ */
 public class ResourceResourceList extends VisualBaseWithBounds {
 
     public ResourceResourceList() {
-
+        js.setLength(0);
+        js.append("var resourceResourceList").append(++variableIndex).append(" = anychart.core.resource.resourceList();");
+        jsBase = "resourceResourceList" + variableIndex;
     }
 
     protected ResourceResourceList(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private UiBackground getBackground;
 
+    /**
+     * Getter for the background.
+     */
     public UiBackground getBackground() {
         if (getBackground == null)
             getBackground = new UiBackground(jsBase + ".background()");
@@ -38,6 +51,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String background1;
     private Boolean background2;
 
+    /**
+     * Setter for the background.
+     */
     public ResourceResourceList setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
@@ -53,7 +69,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -63,6 +78,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the background.
+     */
     public ResourceResourceList setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
@@ -78,7 +96,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -89,6 +106,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private TextSettings getDescriptions;
 
+    /**
+     * Getter for descriptions.
+     */
     public TextSettings getDescriptions() {
         if (getDescriptions == null)
             getDescriptions = new TextSettings(jsBase + ".descriptions()");
@@ -98,6 +118,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private String descriptions;
 
+    /**
+     * Setter for descriptions.
+     */
     public ResourceResourceList setDescriptions(String descriptions) {
         if (jsBase == null) {
             this.descriptions = descriptions;
@@ -109,7 +132,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".descriptions(%s)", wrapQuotes(descriptions)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".descriptions(%s)", wrapQuotes(descriptions)));
                 js.setLength(0);
@@ -120,6 +142,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private Boolean drawBottomLine;
 
+    /**
+     * Setter for the bottom line drawing flag.
+     */
     public ResourceResourceList setDrawBottomLine(Boolean drawBottomLine) {
         if (jsBase == null) {
             this.drawBottomLine = drawBottomLine;
@@ -131,7 +156,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".drawBottomLine(%b)", drawBottomLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawBottomLine(%b)", drawBottomLine));
                 js.setLength(0);
@@ -142,6 +166,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private Boolean drawLeftLine;
 
+    /**
+     * Setter for the left line drawing flag.
+     */
     public ResourceResourceList setDrawLeftLine(Boolean drawLeftLine) {
         if (jsBase == null) {
             this.drawLeftLine = drawLeftLine;
@@ -153,7 +180,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".drawLeftLine(%b)", drawLeftLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawLeftLine(%b)", drawLeftLine));
                 js.setLength(0);
@@ -164,6 +190,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private Boolean drawRightLine;
 
+    /**
+     * Setter for the right line drawing flag.
+     */
     public ResourceResourceList setDrawRightLine(Boolean drawRightLine) {
         if (jsBase == null) {
             this.drawRightLine = drawRightLine;
@@ -175,7 +204,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".drawRightLine(%b)", drawRightLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawRightLine(%b)", drawRightLine));
                 js.setLength(0);
@@ -186,6 +214,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private Boolean drawTopLine;
 
+    /**
+     * Setter for the top line drawing flag.
+     */
     public ResourceResourceList setDrawTopLine(Boolean drawTopLine) {
         if (jsBase == null) {
             this.drawTopLine = drawTopLine;
@@ -197,7 +228,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".drawTopLine(%b)", drawTopLine));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawTopLine(%b)", drawTopLine));
                 js.setLength(0);
@@ -208,6 +238,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private Fill evenFill;
 
+    /**
+     * Setter for even fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList setEvenFill(Fill evenFill) {
         if (jsBase == null) {
             this.evenFill = evenFill;
@@ -219,7 +253,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s)", ((evenFill != null) ? evenFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s)", ((evenFill != null) ? evenFill.generateJs() : "null")));
                 js.setLength(0);
@@ -231,6 +264,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
+    /**
+     * Even fill color with opacity.
+     */
     public ResourceResourceList evenFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -244,7 +280,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -261,6 +296,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList evenFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -288,7 +327,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -298,6 +336,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList evenFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -325,7 +367,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -335,6 +376,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList evenFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -362,7 +407,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -372,6 +416,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList evenFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -399,7 +447,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -409,6 +456,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList evenFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -436,7 +487,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -446,6 +496,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList evenFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -473,7 +527,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -491,6 +544,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList evenFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -528,7 +585,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -538,6 +594,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList evenFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -575,7 +635,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -587,6 +646,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private Fill imageSettings;
     private ImageSettings getImages;
 
+    /**
+     * Getter for images.
+     */
     public ImageSettings getImages() {
         if (getImages == null)
             getImages = new ImageSettings(jsBase + ".images()");
@@ -596,6 +658,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private String images;
 
+    /**
+     * Setter for images.
+     */
     public ResourceResourceList setImages(String images) {
         if (jsBase == null) {
             this.images = images;
@@ -607,7 +672,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".images(%s)", wrapQuotes(images)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".images(%s)", wrapQuotes(images)));
                 js.setLength(0);
@@ -618,6 +682,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private TextSettings getNames;
 
+    /**
+     * Getter for names.
+     */
     public TextSettings getNames() {
         if (getNames == null)
             getNames = new TextSettings(jsBase + ".names()");
@@ -627,6 +694,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private String names;
 
+    /**
+     * Setter for names.
+     */
     public ResourceResourceList setNames(String names) {
         if (jsBase == null) {
             this.names = names;
@@ -638,7 +708,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
                 js.setLength(0);
@@ -649,6 +718,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private Fill oddFill;
 
+    /**
+     * Setter for odd fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList setOddFill(Fill oddFill) {
         if (jsBase == null) {
             this.oddFill = oddFill;
@@ -660,7 +733,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s)", ((oddFill != null) ? oddFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s)", ((oddFill != null) ? oddFill.generateJs() : "null")));
                 js.setLength(0);
@@ -672,6 +744,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String color1;
     private Double opacity3;
 
+    /**
+     * Odd fill color with opacity.
+     */
     public ResourceResourceList oddFill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
@@ -693,7 +768,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %f)", wrapQuotes(color1), opacity3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f)", wrapQuotes(color1), opacity3));
                 js.setLength(0);
@@ -710,6 +784,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String mode6;
     private Double opacity4;
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList oddFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -751,7 +829,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -761,6 +838,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList oddFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -802,7 +883,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -812,6 +892,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList oddFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -853,7 +937,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -863,6 +946,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList oddFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -904,7 +991,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -914,6 +1000,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList oddFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -955,7 +1045,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -965,6 +1054,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Linear gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList oddFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -1006,7 +1099,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -1024,6 +1116,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private Double fx1;
     private Double fy1;
 
+    /**
+     * Radial gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList oddFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1084,7 +1180,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1094,6 +1189,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Radial gradient odd fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ResourceResourceList oddFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1154,7 +1253,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1166,6 +1264,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private Fill imageSettings1;
     private Overlay getOverlay;
 
+    /**
+     * Getter for the overlay element.
+     */
     public Overlay getOverlay() {
         if (getOverlay == null)
             getOverlay = new Overlay(jsBase + ".overlay()");
@@ -1177,6 +1278,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String overlay1;
     private Boolean overlay2;
 
+    /**
+     * Setter for the overlay element.
+     */
     public ResourceResourceList setOverlay(String overlay) {
         if (jsBase == null) {
             this.overlay = null;
@@ -1192,7 +1296,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
                 js.setLength(0);
@@ -1202,6 +1305,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the overlay element.
+     */
     public ResourceResourceList setOverlay(Boolean overlay2) {
         if (jsBase == null) {
             this.overlay = null;
@@ -1217,7 +1323,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".overlay(%b)", overlay2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlay(%b)", overlay2));
                 js.setLength(0);
@@ -1234,6 +1339,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ResourceResourceList setStroke(Stroke color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1259,7 +1368,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1269,6 +1377,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ResourceResourceList setStroke(ColoredFill color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1294,7 +1406,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1304,6 +1415,10 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
+    /**
+     * Setter for the stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public ResourceResourceList setStroke(String color4, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1329,7 +1444,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1340,6 +1454,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private TagsSettings getTags;
 
+    /**
+     * Getter for tags.
+     */
     public TagsSettings getTags() {
         if (getTags == null)
             getTags = new TagsSettings(jsBase + ".tags()");
@@ -1349,6 +1466,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private String tags;
 
+    /**
+     * Setter for tags.
+     */
     public ResourceResourceList setTags(String tags) {
         if (jsBase == null) {
             this.tags = tags;
@@ -1360,7 +1480,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".tags(%s)", wrapQuotes(tags)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tags(%s)", wrapQuotes(tags)));
                 js.setLength(0);
@@ -1371,6 +1490,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private TextSettings getTypes;
 
+    /**
+     * Getter for types.
+     */
     public TextSettings getTypes() {
         if (getTypes == null)
             getTypes = new TextSettings(jsBase + ".types()");
@@ -1380,6 +1502,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private String types;
 
+    /**
+     * Setter for types.
+     */
     public ResourceResourceList setTypes(String types) {
         if (jsBase == null) {
             this.types = types;
@@ -1391,7 +1516,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
 
             js.append(String.format(Locale.US, ".types(%s)", wrapQuotes(types)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".types(%s)", wrapQuotes(types)));
                 js.setLength(0);
@@ -1400,61 +1524,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         return this;
     }
 
-
-//
-//    private String generateJSUiBackground getBackground() {
-//        if (UiBackground getBackground != null) {
-//            return UiBackground getBackground.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTextSettings getDescriptions() {
-//        if (TextSettings getDescriptions != null) {
-//            return TextSettings getDescriptions.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSImageSettings getImages() {
-//        if (ImageSettings getImages != null) {
-//            return ImageSettings getImages.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTextSettings getNames() {
-//        if (TextSettings getNames != null) {
-//            return TextSettings getNames.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSOverlay getOverlay() {
-//        if (Overlay getOverlay != null) {
-//            return Overlay getOverlay.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTagsSettings getTags() {
-//        if (TagsSettings getTags != null) {
-//            return TagsSettings getTags.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTextSettings getTypes() {
-//        if (TextSettings getTypes != null) {
-//            return TextSettings getTypes.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -1462,7 +1534,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String generateJSgetDescriptions() {
         if (getDescriptions != null) {
             return getDescriptions.generateJs();
-            //return String.format(Locale.US, "getDescriptions: %s,", ((getDescriptions != null) ? getDescriptions.generateJs() : "null"));
         }
         return "";
     }
@@ -1470,7 +1541,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String generateJSgetImages() {
         if (getImages != null) {
             return getImages.generateJs();
-            //return String.format(Locale.US, "getImages: %s,", ((getImages != null) ? getImages.generateJs() : "null"));
         }
         return "";
     }
@@ -1478,7 +1548,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String generateJSgetNames() {
         if (getNames != null) {
             return getNames.generateJs();
-            //return String.format(Locale.US, "getNames: %s,", ((getNames != null) ? getNames.generateJs() : "null"));
         }
         return "";
     }
@@ -1486,7 +1555,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String generateJSgetOverlay() {
         if (getOverlay != null) {
             return getOverlay.generateJs();
-            //return String.format(Locale.US, "getOverlay: %s,", ((getOverlay != null) ? getOverlay.generateJs() : "null"));
         }
         return "";
     }
@@ -1494,7 +1562,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String generateJSgetTags() {
         if (getTags != null) {
             return getTags.generateJs();
-            //return String.format(Locale.US, "getTags: %s,", ((getTags != null) ? getTags.generateJs() : "null"));
         }
         return "";
     }
@@ -1502,7 +1569,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String generateJSgetTypes() {
         if (getTypes != null) {
             return getTypes.generateJs();
-            //return String.format(Locale.US, "getTypes: %s,", ((getTypes != null) ? getTypes.generateJs() : "null"));
         }
         return "";
     }
@@ -1531,132 +1597,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJSdescriptions());
-////        
-//            js.append(generateJSdrawBottomLine());
-////        
-//            js.append(generateJSdrawLeftLine());
-////        
-//            js.append(generateJSdrawRightLine());
-////        
-//            js.append(generateJSdrawTopLine());
-////        
-//            js.append(generateJSevenFill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSimages());
-////        
-//            js.append(generateJSnames());
-////        
-//            js.append(generateJSoddFill());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSopacity3());
-////        
-//            js.append(generateJSkeys4());
-////        
-//            js.append(generateJSkeys5());
-////        
-//            js.append(generateJSangle1());
-////        
-//            js.append(generateJSmode4());
-////        
-//            js.append(generateJSmode5());
-////        
-//            js.append(generateJSmode6());
-////        
-//            js.append(generateJSopacity4());
-////        
-//            js.append(generateJSkeys6());
-////        
-//            js.append(generateJSkeys7());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSmode7());
-////        
-//            js.append(generateJSopacity5());
-////        
-//            js.append(generateJSfx1());
-////        
-//            js.append(generateJSfy1());
-////        
-//            js.append(generateJSimageSettings1());
-////        
-//            js.append(generateJSoverlay());
-////        
-//            js.append(generateJSoverlay1());
-////        
-//            js.append(generateJSoverlay2());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJStags());
-////        
-//            js.append(generateJStypes());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

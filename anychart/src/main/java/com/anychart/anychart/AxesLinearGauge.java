@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Linear Gauge axis class.<br/>
+Any axis must be bound to a scale.<br/>
+To obtain a new instance of Axis use {@link anychart.standalones.axes#linear}.
+ */
 public class AxesLinearGauge extends CoreAxesLinear {
 
     public AxesLinearGauge() {
-
+        js.setLength(0);
+        js.append("var axesLinearGauge").append(++variableIndex).append(" = anychart.core.axes.linearGauge();");
+        jsBase = "axesLinearGauge" + variableIndex;
     }
 
     protected AxesLinearGauge(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +32,16 @@ public class AxesLinearGauge extends CoreAxesLinear {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String offset;
 
+    /**
+     * Setter for the axis offset.
+     */
     public AxesLinearGauge setOffset(String offset) {
         if (jsBase == null) {
             this.offset = offset;
@@ -38,7 +53,6 @@ public class AxesLinearGauge extends CoreAxesLinear {
             }
 
             js.append(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
                 js.setLength(0);
@@ -47,8 +61,6 @@ public class AxesLinearGauge extends CoreAxesLinear {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -66,14 +78,6 @@ public class AxesLinearGauge extends CoreAxesLinear {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSoffset());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

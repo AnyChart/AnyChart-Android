@@ -6,13 +6,37 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Polar chart class.<br/>
+To get the chart use {@link anychart#polar} method.<br/>
+Chart can contain any number of series.<br/>
+Each series is interactive, you can customize click and hover behavior and other params.
+ */
 public class ChartsPolar extends SeparateChart {
 
     protected ChartsPolar(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public ChartsPolar setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public ChartsPolar setData(List<DataEntry> data) {
@@ -35,7 +59,31 @@ public class ChartsPolar extends SeparateChart {
         return this;
     }
 
+    public ChartsPolar setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
+
+    /**
+     * Adds series to the chart.
+     */
     public void addSeries(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -56,6 +104,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<PolarSeriesArea> setArea = new ArrayList<>();
+
+    /**
+     * Adds Area series.
+     */
     public PolarSeriesArea area(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -90,6 +142,10 @@ public class ChartsPolar extends SeparateChart {
 
     private Double barGroupsPadding;
     private List<ChartsPolar> setBarGroupsPadding = new ArrayList<>();
+
+    /**
+     * Setter for the space between bar groups on the ordinal scale by ratio of bars width.
+     */
     public ChartsPolar setBarGroupsPadding(Double barGroupsPadding) {
         if (!isChain) {
             js.append(jsBase);
@@ -116,6 +172,10 @@ public class ChartsPolar extends SeparateChart {
 
     private Double barsPadding;
     private List<ChartsPolar> setBarsPadding = new ArrayList<>();
+
+    /**
+     * Setter for the space between bars on the ordinal scale by ratio of bars width.
+     */
     public ChartsPolar setBarsPadding(Double barsPadding) {
         if (!isChain) {
             js.append(jsBase);
@@ -141,6 +201,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<PolarSeriesColumn> setColumn = new ArrayList<>();
+
+    /**
+     * Adds Column series.
+     */
     public PolarSeriesColumn column(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -176,6 +240,10 @@ public class ChartsPolar extends SeparateChart {
     private PolarSeriesType defaultSeriesType;
     private String defaultSeriesType1;
     private List<ChartsPolar> setDefaultSeriesType = new ArrayList<>();
+
+    /**
+     * Setter for the polar default series type.
+     */
     public ChartsPolar setDefaultSeriesType(PolarSeriesType defaultSeriesType) {
         if (!isChain) {
             js.append(jsBase);
@@ -201,6 +269,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setDefaultSeriesType1 = new ArrayList<>();
+
+    /**
+     * Setter for the polar default series type.
+     */
     public ChartsPolar setDefaultSeriesType(String defaultSeriesType1) {
         if (!isChain) {
             js.append(jsBase);
@@ -228,6 +300,10 @@ public class ChartsPolar extends SeparateChart {
 
     private AnychartMathRect getGetPlotBounds;
 
+    /**
+     * Getter for the data bounds of the chart.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Polar#draw} is called.
+     */
     public AnychartMathRect getGetPlotBounds() {
         if (getGetPlotBounds == null)
             getGetPlotBounds = new AnychartMathRect(jsBase + ".getPlotBounds()");
@@ -237,6 +313,9 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesBase> getGetSeries = new ArrayList<>();
 
+    /**
+     * Getter for the series by its id.
+     */
     public PolarSeriesBase getGetSeries(Double id) {
         PolarSeriesBase item = new PolarSeriesBase(jsBase + ".getSeries("+ id+")");
         getGetSeries.add(item);
@@ -245,6 +324,9 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesBase> getGetSeries1 = new ArrayList<>();
 
+    /**
+     * Getter for the series by its id.
+     */
     public PolarSeriesBase getGetSeries(String id1) {
         PolarSeriesBase item = new PolarSeriesBase(jsBase + ".getSeries("+ wrapQuotes(id1)+")");
         getGetSeries1.add(item);
@@ -253,6 +335,9 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesBase> getGetSeriesAt = new ArrayList<>();
 
+    /**
+     * Getter for the series by its index.
+     */
     public PolarSeriesBase getGetSeriesAt(Double index) {
         PolarSeriesBase item = new PolarSeriesBase(jsBase + ".getSeriesAt("+ index+")");
         getGetSeriesAt.add(item);
@@ -261,6 +346,9 @@ public class ChartsPolar extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -271,6 +359,10 @@ public class ChartsPolar extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<ChartsPolar> setHatchFillPalette = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public ChartsPolar setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -296,6 +388,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setHatchFillPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public ChartsPolar setHatchFillPalette(String hatchFillPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -321,17 +417,19 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setHatchFillPalette2 = new ArrayList<>();
-    public ChartsPolar setHatchFillPalette(HatchFills hatchFillPalette2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for hatch fill palette settings.
+     */
+    public ChartsPolar setHatchFillPalette(HatchFills hatchFillPalette2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetHatchFillPalette2() {
@@ -348,6 +446,9 @@ public class ChartsPolar extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -356,6 +457,10 @@ public class ChartsPolar extends SeparateChart {
     }
     private String hovered;
     private List<ChartsPolar> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public ChartsPolar setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -383,6 +488,10 @@ public class ChartsPolar extends SeparateChart {
     private Double innerRadius;
     private String innerRadius1;
     private List<ChartsPolar> setInnerRadius = new ArrayList<>();
+
+    /**
+     * Setter for the inner radius in pixels or percent of main radius.
+     */
     public ChartsPolar setInnerRadius(Double innerRadius) {
         if (!isChain) {
             js.append(jsBase);
@@ -408,6 +517,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setInnerRadius1 = new ArrayList<>();
+
+    /**
+     * Setter for the inner radius in pixels or percent of main radius.
+     */
     public ChartsPolar setInnerRadius(String innerRadius1) {
         if (!isChain) {
             js.append(jsBase);
@@ -435,6 +548,9 @@ public class ChartsPolar extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for series data labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -444,6 +560,10 @@ public class ChartsPolar extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<ChartsPolar> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for series data labels.
+     */
     public ChartsPolar setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -469,6 +589,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for series data labels.
+     */
     public ChartsPolar setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -494,6 +618,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<PolarSeriesLine> setLine = new ArrayList<>();
+
+    /**
+     * Adds Line series.
+     */
     public PolarSeriesLine line(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -527,6 +655,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<PolarSeriesMarker> setMarker = new ArrayList<>();
+
+    /**
+     * Adds Marker series.
+     */
     public PolarSeriesMarker marker(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -562,6 +694,9 @@ public class ChartsPolar extends SeparateChart {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for the markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -573,17 +708,19 @@ public class ChartsPolar extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<ChartsPolar> setMarkerPalette = new ArrayList<>();
-    public ChartsPolar setMarkerPalette(Markers markerPalette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the markers palette settings.
+     */
+    public ChartsPolar setMarkerPalette(Markers markerPalette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(markerPalette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetMarkerPalette() {
@@ -598,6 +735,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setMarkerPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for the markers palette settings.
+     */
     public ChartsPolar setMarkerPalette(String markerPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -623,6 +764,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setMarkerPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the markers palette settings.
+     */
     public ChartsPolar setMarkerPalette(MarkerType[] markerPalette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -648,6 +793,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setMarkerPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the markers palette settings.
+     */
     public ChartsPolar setMarkerPalette(String[] markerPalette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -675,6 +824,10 @@ public class ChartsPolar extends SeparateChart {
     private Double maxPointWidth;
     private String maxPointWidth1;
     private List<ChartsPolar> setMaxPointWidth = new ArrayList<>();
+
+    /**
+     * Setter for the maximum point width.
+     */
     public ChartsPolar setMaxPointWidth(Double maxPointWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -700,6 +853,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setMaxPointWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the maximum point width.
+     */
     public ChartsPolar setMaxPointWidth(String maxPointWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -727,6 +884,9 @@ public class ChartsPolar extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -735,6 +895,10 @@ public class ChartsPolar extends SeparateChart {
     }
     private String normal;
     private List<ChartsPolar> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public ChartsPolar setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -762,6 +926,9 @@ public class ChartsPolar extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the series colors palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -773,17 +940,20 @@ public class ChartsPolar extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<ChartsPolar> setPalette = new ArrayList<>();
-    public ChartsPolar setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the series colors palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public ChartsPolar setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -798,17 +968,20 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setPalette1 = new ArrayList<>();
-    public ChartsPolar setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the series colors palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public ChartsPolar setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -823,6 +996,11 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the series colors palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public ChartsPolar setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -848,6 +1026,11 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the series colors palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public ChartsPolar setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -875,6 +1058,10 @@ public class ChartsPolar extends SeparateChart {
     private Double pointWidth;
     private String pointWidth1;
     private List<ChartsPolar> setPointWidth = new ArrayList<>();
+
+    /**
+     * Setter for the point width settings.
+     */
     public ChartsPolar setPointWidth(Double pointWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -900,6 +1087,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setPointWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the point width settings.
+     */
     public ChartsPolar setPointWidth(String pointWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -925,6 +1116,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<Polygon> setPolygon = new ArrayList<>();
+
+    /**
+     * Adds Polygon series.
+     */
     public Polygon polygon(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -958,6 +1153,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<Polyline> setPolyline = new ArrayList<>();
+
+    /**
+     * Adds Polyline series.
+     */
     public Polyline polyline(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -991,6 +1190,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<PolarSeriesRangeColumn> setRangeColumn = new ArrayList<>();
+
+    /**
+     * Adds Range Column series.
+     */
     public PolarSeriesRangeColumn rangeColumn(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -1026,6 +1229,10 @@ public class ChartsPolar extends SeparateChart {
     private Double id2;
     private String id3;
     private List<ChartsPolar> setRemoveSeries = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public ChartsPolar removeSeries(Double id2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1051,6 +1258,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setRemoveSeries1 = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its id.
+     */
     public ChartsPolar removeSeries(String id3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1077,6 +1288,10 @@ public class ChartsPolar extends SeparateChart {
 
     private Double index1;
     private List<ChartsPolar> setRemoveSeriesAt = new ArrayList<>();
+
+    /**
+     * Removes one of series from chart by its index.
+     */
     public ChartsPolar removeSeriesAt(Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1104,6 +1319,9 @@ public class ChartsPolar extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -1112,6 +1330,10 @@ public class ChartsPolar extends SeparateChart {
     }
     private String selected;
     private List<ChartsPolar> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public ChartsPolar setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -1138,6 +1360,11 @@ public class ChartsPolar extends SeparateChart {
 
     private Boolean sortPointsByX;
     private List<ChartsPolar> setSortPointsByX = new ArrayList<>();
+
+    /**
+     * Setter for the sortPointsByX mode.
+If the points of series should be sorted by X before drawing.
+     */
     public ChartsPolar setSortPointsByX(Boolean sortPointsByX) {
         if (!isChain) {
             js.append(jsBase);
@@ -1165,6 +1392,10 @@ public class ChartsPolar extends SeparateChart {
     private String startAngle;
     private Double startAngle1;
     private List<ChartsPolar> setStartAngle = new ArrayList<>();
+
+    /**
+     * Setter for the chart start angle.
+     */
     public ChartsPolar setStartAngle(String startAngle) {
         if (!isChain) {
             js.append(jsBase);
@@ -1190,6 +1421,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setStartAngle1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart start angle.
+     */
     public ChartsPolar setStartAngle(Double startAngle1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1217,6 +1452,9 @@ public class ChartsPolar extends SeparateChart {
 
     private CoreAxesRadar getXAxis;
 
+    /**
+     * Getter for the chart X-axis.
+     */
     public CoreAxesRadar getXAxis() {
         if (getXAxis == null)
             getXAxis = new CoreAxesRadar(jsBase + ".xAxis()");
@@ -1226,6 +1464,10 @@ public class ChartsPolar extends SeparateChart {
     private String xAxis;
     private Boolean xAxis1;
     private List<ChartsPolar> setXAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public ChartsPolar setXAxis(String xAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -1251,6 +1493,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setXAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X-axis.
+     */
     public ChartsPolar setXAxis(Boolean xAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1278,6 +1524,9 @@ public class ChartsPolar extends SeparateChart {
 
     private CoreGridsPolar getXGrid;
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsPolar getXGrid() {
         if (getXGrid == null)
             getXGrid = new CoreGridsPolar(jsBase + ".xGrid()");
@@ -1287,6 +1536,9 @@ public class ChartsPolar extends SeparateChart {
 
     private List<CoreGridsPolar> getXGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by X-scale.
+     */
     public CoreGridsPolar getXGrid(Double index2) {
         CoreGridsPolar item = new CoreGridsPolar(jsBase + ".xGrid("+ index2+")");
         getXGrid1.add(item);
@@ -1295,6 +1547,10 @@ public class ChartsPolar extends SeparateChart {
     private String xGrid;
     private Boolean xGrid1;
     private List<ChartsPolar> setXGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public ChartsPolar setXGrid(String xGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1320,6 +1576,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setXGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by X-scale.
+     */
     public ChartsPolar setXGrid(Boolean xGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1348,6 +1608,10 @@ public class ChartsPolar extends SeparateChart {
     private String xGrid2;
     private Boolean xGrid3;
     private List<ChartsPolar> setXGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public ChartsPolar setXGrid(String xGrid2, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1373,6 +1637,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setXGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public ChartsPolar setXGrid(Boolean xGrid3, Double index3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1400,6 +1668,9 @@ public class ChartsPolar extends SeparateChart {
 
     private CoreGridsPolar getXMinorGrid;
 
+    /**
+     * Getter for the chart minor grid by X-scale.
+     */
     public CoreGridsPolar getXMinorGrid() {
         if (getXMinorGrid == null)
             getXMinorGrid = new CoreGridsPolar(jsBase + ".xMinorGrid()");
@@ -1409,6 +1680,9 @@ public class ChartsPolar extends SeparateChart {
 
     private List<CoreGridsPolar> getXMinorGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart minor grid by X-scale.
+     */
     public CoreGridsPolar getXMinorGrid(Double index4) {
         CoreGridsPolar item = new CoreGridsPolar(jsBase + ".xMinorGrid("+ index4+")");
         getXMinorGrid1.add(item);
@@ -1417,6 +1691,10 @@ public class ChartsPolar extends SeparateChart {
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<ChartsPolar> setXMinorGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public ChartsPolar setXMinorGrid(String xMinorGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1442,6 +1720,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setXMinorGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by X-scale.
+     */
     public ChartsPolar setXMinorGrid(Boolean xMinorGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1470,6 +1752,10 @@ public class ChartsPolar extends SeparateChart {
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
     private List<ChartsPolar> setXMinorGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsPolar setXMinorGrid(String xMinorGrid2, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -1495,6 +1781,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setXMinorGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsPolar setXMinorGrid(Boolean xMinorGrid3, Double index5) {
         if (!isChain) {
             js.append(jsBase);
@@ -1522,6 +1812,9 @@ public class ChartsPolar extends SeparateChart {
 
     private ScatterBase getXScale;
 
+    /**
+     * Getter for the default chart X scale.
+     */
     public ScatterBase getXScale() {
         if (getXScale == null)
             getXScale = new ScatterBase(jsBase + ".xScale()");
@@ -1533,6 +1826,10 @@ public class ChartsPolar extends SeparateChart {
     private String xScale2;
     private ScalesBase xScale3;
     private List<ChartsPolar> setXScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart X scale.
+     */
     public ChartsPolar setXScale(String xScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1558,6 +1855,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setXScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart X scale.
+     */
     public ChartsPolar setXScale(ScaleTypes xScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1583,17 +1884,19 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setXScale2 = new ArrayList<>();
-    public ChartsPolar setXScale(ScalesBase xScale3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart X scale.
+     */
+    public ChartsPolar setXScale(ScalesBase xScale3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(xScale3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetXScale2() {
@@ -1610,6 +1913,9 @@ public class ChartsPolar extends SeparateChart {
 
     private CoreAxesRadial getYAxis;
 
+    /**
+     * Getter for the chart Y-axis.
+     */
     public CoreAxesRadial getYAxis() {
         if (getYAxis == null)
             getYAxis = new CoreAxesRadial(jsBase + ".yAxis()");
@@ -1619,6 +1925,10 @@ public class ChartsPolar extends SeparateChart {
     private String yAxis;
     private Boolean yAxis1;
     private List<ChartsPolar> setYAxis = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public ChartsPolar setYAxis(String yAxis) {
         if (!isChain) {
             js.append(jsBase);
@@ -1644,6 +1954,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setYAxis1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y-axis.
+     */
     public ChartsPolar setYAxis(Boolean yAxis1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1671,6 +1985,9 @@ public class ChartsPolar extends SeparateChart {
 
     private CoreGridsPolar getYGrid;
 
+    /**
+     * Getter for the chart grid by Y-scale.
+     */
     public CoreGridsPolar getYGrid() {
         if (getYGrid == null)
             getYGrid = new CoreGridsPolar(jsBase + ".yGrid()");
@@ -1680,6 +1997,9 @@ public class ChartsPolar extends SeparateChart {
 
     private List<CoreGridsPolar> getYGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart grid by Y-scale.
+     */
     public CoreGridsPolar getYGrid(Double index6) {
         CoreGridsPolar item = new CoreGridsPolar(jsBase + ".yGrid("+ index6+")");
         getYGrid1.add(item);
@@ -1688,6 +2008,10 @@ public class ChartsPolar extends SeparateChart {
     private String yGrid;
     private Boolean yGrid1;
     private List<ChartsPolar> setYGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by Y-scale.
+     */
     public ChartsPolar setYGrid(String yGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1713,6 +2037,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setYGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart grid by Y-scale.
+     */
     public ChartsPolar setYGrid(Boolean yGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1741,6 +2069,10 @@ public class ChartsPolar extends SeparateChart {
     private String yGrid2;
     private Boolean yGrid3;
     private List<ChartsPolar> setYGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public ChartsPolar setYGrid(String yGrid2, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1766,6 +2098,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setYGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for chart grid by index.
+     */
     public ChartsPolar setYGrid(Boolean yGrid3, Double index7) {
         if (!isChain) {
             js.append(jsBase);
@@ -1793,6 +2129,9 @@ public class ChartsPolar extends SeparateChart {
 
     private CoreGridsPolar getYMinorGrid;
 
+    /**
+     * Getter for the chart minor grid by Y-scale.
+     */
     public CoreGridsPolar getYMinorGrid() {
         if (getYMinorGrid == null)
             getYMinorGrid = new CoreGridsPolar(jsBase + ".yMinorGrid()");
@@ -1802,6 +2141,9 @@ public class ChartsPolar extends SeparateChart {
 
     private List<CoreGridsPolar> getYMinorGrid1 = new ArrayList<>();
 
+    /**
+     * Getter for the chart minor grid by Y-scale.
+     */
     public CoreGridsPolar getYMinorGrid(Double index8) {
         CoreGridsPolar item = new CoreGridsPolar(jsBase + ".yMinorGrid("+ index8+")");
         getYMinorGrid1.add(item);
@@ -1810,6 +2152,10 @@ public class ChartsPolar extends SeparateChart {
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<ChartsPolar> setYMinorGrid = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by Y-scale.
+     */
     public ChartsPolar setYMinorGrid(String yMinorGrid) {
         if (!isChain) {
             js.append(jsBase);
@@ -1835,6 +2181,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setYMinorGrid1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by Y-scale.
+     */
     public ChartsPolar setYMinorGrid(Boolean yMinorGrid1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1863,6 +2213,10 @@ public class ChartsPolar extends SeparateChart {
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
     private List<ChartsPolar> setYMinorGrid2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsPolar setYMinorGrid(String yMinorGrid2, Double index9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1888,6 +2242,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setYMinorGrid3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart minor grid by index.
+     */
     public ChartsPolar setYMinorGrid(Boolean yMinorGrid3, Double index9) {
         if (!isChain) {
             js.append(jsBase);
@@ -1915,6 +2273,9 @@ public class ChartsPolar extends SeparateChart {
 
     private ScatterBase getYScale;
 
+    /**
+     * Getter for the default chart Y scale.
+     */
     public ScatterBase getYScale() {
         if (getYScale == null)
             getYScale = new ScatterBase(jsBase + ".yScale()");
@@ -1926,6 +2287,10 @@ public class ChartsPolar extends SeparateChart {
     private String yScale2;
     private ScatterBase yScale3;
     private List<ChartsPolar> setYScale = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y scale.
+     */
     public ChartsPolar setYScale(String yScale) {
         if (!isChain) {
             js.append(jsBase);
@@ -1951,6 +2316,10 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setYScale1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart Y scale.
+     */
     public ChartsPolar setYScale(ScatterScaleTypes yScale1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1976,17 +2345,19 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private List<ChartsPolar> setYScale2 = new ArrayList<>();
-    public ChartsPolar setYScale(ScatterBase yScale3) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart Y scale.
+     */
+    public ChartsPolar setYScale(ScatterBase yScale3) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(yScale3.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetYScale2() {

@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Stores information about visual location of an object.<br/>
+Can be defined with an object, a {@link anychart.math#rect} or as a set of numbers.<br/>
+<b>Note</b>: "right" and "bottom" have priority over "width" and "height".
+ */
 public class Bounds extends CoreBase {
 
     public Bounds() {
-
+        js.setLength(0);
+        js.append("var bounds").append(++variableIndex).append(" = anychart.core.utils.bounds();");
+        jsBase = "bounds" + variableIndex;
     }
 
     protected Bounds(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +32,17 @@ public class Bounds extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double bottom;
     private String bottom1;
 
+    /**
+     * Setter for the bottom edge position.
+     */
     public Bounds setBottom(Double bottom) {
         if (jsBase == null) {
             this.bottom = null;
@@ -42,7 +57,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".bottom(%f)", bottom));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%f)", bottom));
                 js.setLength(0);
@@ -52,6 +66,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Setter for the bottom edge position.
+     */
     public Bounds setBottom(String bottom1) {
         if (jsBase == null) {
             this.bottom = null;
@@ -66,7 +83,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
                 js.setLength(0);
@@ -78,6 +94,9 @@ public class Bounds extends CoreBase {
     private Double height;
     private String height1;
 
+    /**
+     * Setter for the height value.
+     */
     public Bounds setHeight(Double height) {
         if (jsBase == null) {
             this.height = null;
@@ -92,7 +111,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -102,6 +120,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Setter for the height value.
+     */
     public Bounds setHeight(String height1) {
         if (jsBase == null) {
             this.height = null;
@@ -116,7 +137,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
@@ -128,6 +148,9 @@ public class Bounds extends CoreBase {
     private Double left;
     private String left1;
 
+    /**
+     * Setter for the left edge position.
+     */
     public Bounds setLeft(Double left) {
         if (jsBase == null) {
             this.left = null;
@@ -142,7 +165,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".left(%f)", left));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%f)", left));
                 js.setLength(0);
@@ -152,6 +174,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Setter for the left edge position.
+     */
     public Bounds setLeft(String left1) {
         if (jsBase == null) {
             this.left = null;
@@ -166,7 +191,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
                 js.setLength(0);
@@ -178,6 +202,9 @@ public class Bounds extends CoreBase {
     private Double maxHeight;
     private String maxHeight1;
 
+    /**
+     * Setter for the maximum height value.
+     */
     public Bounds setMaxHeight(Double maxHeight) {
         if (jsBase == null) {
             this.maxHeight = null;
@@ -192,7 +219,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
                 js.setLength(0);
@@ -202,6 +228,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Setter for the maximum height value.
+     */
     public Bounds setMaxHeight(String maxHeight1) {
         if (jsBase == null) {
             this.maxHeight = null;
@@ -216,7 +245,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
                 js.setLength(0);
@@ -228,6 +256,9 @@ public class Bounds extends CoreBase {
     private Double maxWidth;
     private String maxWidth1;
 
+    /**
+     * Setter for the maximum width value.
+     */
     public Bounds setMaxWidth(Double maxWidth) {
         if (jsBase == null) {
             this.maxWidth = null;
@@ -242,7 +273,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
                 js.setLength(0);
@@ -252,6 +282,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Setter for the maximum width value.
+     */
     public Bounds setMaxWidth(String maxWidth1) {
         if (jsBase == null) {
             this.maxWidth = null;
@@ -266,7 +299,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
                 js.setLength(0);
@@ -278,6 +310,9 @@ public class Bounds extends CoreBase {
     private Double minHeight;
     private String minHeight1;
 
+    /**
+     * Setter for the minimum height value.
+     */
     public Bounds setMinHeight(Double minHeight) {
         if (jsBase == null) {
             this.minHeight = null;
@@ -292,7 +327,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minHeight(%f)", minHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minHeight(%f)", minHeight));
                 js.setLength(0);
@@ -302,6 +336,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Setter for the minimum height value.
+     */
     public Bounds setMinHeight(String minHeight1) {
         if (jsBase == null) {
             this.minHeight = null;
@@ -316,7 +353,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minHeight(%s)", wrapQuotes(minHeight1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minHeight(%s)", wrapQuotes(minHeight1)));
                 js.setLength(0);
@@ -328,6 +364,9 @@ public class Bounds extends CoreBase {
     private Double minWidth;
     private String minWidth1;
 
+    /**
+     * Setter for the minimum width value.
+     */
     public Bounds setMinWidth(Double minWidth) {
         if (jsBase == null) {
             this.minWidth = null;
@@ -342,7 +381,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minWidth(%f)", minWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minWidth(%f)", minWidth));
                 js.setLength(0);
@@ -352,6 +390,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Setter for the minimum width value.
+     */
     public Bounds setMinWidth(String minWidth1) {
         if (jsBase == null) {
             this.minWidth = null;
@@ -366,7 +407,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".minWidth(%s)", wrapQuotes(minWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minWidth(%s)", wrapQuotes(minWidth1)));
                 js.setLength(0);
@@ -378,6 +418,9 @@ public class Bounds extends CoreBase {
     private Double right;
     private String right1;
 
+    /**
+     * Setter for the right edge position.
+     */
     public Bounds setRight(Double right) {
         if (jsBase == null) {
             this.right = null;
@@ -392,7 +435,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".right(%f)", right));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%f)", right));
                 js.setLength(0);
@@ -402,6 +444,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Setter for the right edge position.
+     */
     public Bounds setRight(String right1) {
         if (jsBase == null) {
             this.right = null;
@@ -416,7 +461,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
                 js.setLength(0);
@@ -438,6 +482,10 @@ public class Bounds extends CoreBase {
     private Double height2;
     private String height3;
 
+    /**
+     * Resets all values of the object by passed values.<br/>
+<b>Note</b>: "right" and "bottom" have priority over "width" and "height".
+     */
     public Bounds set(Double[] xOrRect2) {
         if (jsBase == null) {
             this.xOrRect = null;
@@ -456,7 +504,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".set(%s)", Arrays.toString(xOrRect2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", Arrays.toString(xOrRect2)));
                 js.setLength(0);
@@ -466,6 +513,10 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Resets all values of the object by passed values.<br/>
+<b>Note</b>: "right" and "bottom" have priority over "width" and "height".
+     */
     public Bounds set(RectObj xOrRect3) {
         if (jsBase == null) {
             this.xOrRect = null;
@@ -484,7 +535,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".set(%s)", ((xOrRect3 != null) ? xOrRect3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect3 != null) ? xOrRect3.generateJs() : "null")));
                 js.setLength(0);
@@ -494,6 +544,10 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Resets all values of the object by passed values.<br/>
+<b>Note</b>: "right" and "bottom" have priority over "width" and "height".
+     */
     public Bounds set(AnychartMathRect xOrRect4) {
         if (jsBase == null) {
             this.xOrRect = null;
@@ -506,15 +560,16 @@ public class Bounds extends CoreBase {
             this.xOrRect4 = xOrRect4;
         } else {
             this.xOrRect4 = xOrRect4;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(xOrRect4.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".set(%s)", ((xOrRect4 != null) ? xOrRect4.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".set(%s);",  ((xOrRect4 != null) ? xOrRect4.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect4 != null) ? xOrRect4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect4 != null) ? xOrRect4.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -522,6 +577,10 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Resets all values of the object by passed values.<br/>
+<b>Note</b>: "right" and "bottom" have priority over "width" and "height".
+     */
     public Bounds set(Bounds xOrRect5) {
         if (jsBase == null) {
             this.xOrRect = null;
@@ -534,15 +593,16 @@ public class Bounds extends CoreBase {
             this.xOrRect5 = xOrRect5;
         } else {
             this.xOrRect5 = xOrRect5;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(xOrRect5.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".set(%s)", ((xOrRect5 != null) ? xOrRect5.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".set(%s);",  ((xOrRect5 != null) ? xOrRect5.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect5 != null) ? xOrRect5.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect5 != null) ? xOrRect5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -556,6 +616,9 @@ public class Bounds extends CoreBase {
     private Double parentWidth;
     private Double parentHeight;
 
+    /**
+     * Normalizes all info stored in this object.
+     */
     public AnychartMathRect toRect(Double parentLeftOrRect, Double parentTop, Double parentWidth, Double parentHeight) {
         if (jsBase == null) {
             this.parentLeftOrRect = null;
@@ -577,7 +640,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".toRect(%f, %f, %f, %f);", parentLeftOrRect, parentTop, parentWidth, parentHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%f, %f, %f, %f)", parentLeftOrRect, parentTop, parentWidth, parentHeight));
                 js.setLength(0);
@@ -587,6 +649,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Normalizes all info stored in this object.
+     */
     public AnychartMathRect toRect(AnychartMathRect parentLeftOrRect1, Double parentTop, Double parentWidth, Double parentHeight) {
         if (jsBase == null) {
             this.parentLeftOrRect = null;
@@ -608,7 +673,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f);", ((parentLeftOrRect1 != null) ? parentLeftOrRect1.generateJs() : "null"), parentTop, parentWidth, parentHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f)", ((parentLeftOrRect1 != null) ? parentLeftOrRect1.generateJs() : "null"), parentTop, parentWidth, parentHeight));
                 js.setLength(0);
@@ -618,6 +682,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Normalizes all info stored in this object.
+     */
     public AnychartMathRect toRect(String parentLeftOrRect2, Double parentTop, Double parentWidth, Double parentHeight) {
         if (jsBase == null) {
             this.parentLeftOrRect = null;
@@ -639,7 +706,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f);", wrapQuotes(parentLeftOrRect2), parentTop, parentWidth, parentHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f)", wrapQuotes(parentLeftOrRect2), parentTop, parentWidth, parentHeight));
                 js.setLength(0);
@@ -651,6 +717,9 @@ public class Bounds extends CoreBase {
     private Double top;
     private String top1;
 
+    /**
+     * Setter for the top edge position.
+     */
     public Bounds setTop(Double top) {
         if (jsBase == null) {
             this.top = null;
@@ -665,7 +734,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".top(%f)", top));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%f)", top));
                 js.setLength(0);
@@ -675,6 +743,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Setter for the top edge position.
+     */
     public Bounds setTop(String top1) {
         if (jsBase == null) {
             this.top = null;
@@ -689,7 +760,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
                 js.setLength(0);
@@ -701,6 +771,9 @@ public class Bounds extends CoreBase {
     private Double width2;
     private String width3;
 
+    /**
+     * Setter for the width value.
+     */
     public Bounds setWidth(Double width2) {
         if (jsBase == null) {
             this.width = null;
@@ -717,7 +790,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width2));
                 js.setLength(0);
@@ -727,6 +799,9 @@ public class Bounds extends CoreBase {
     }
 
 
+    /**
+     * Setter for the width value.
+     */
     public Bounds setWidth(String width3) {
         if (jsBase == null) {
             this.width = null;
@@ -743,7 +818,6 @@ public class Bounds extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width3)));
                 js.setLength(0);
@@ -752,8 +826,6 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -771,88 +843,6 @@ public class Bounds extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbottom());
-////        
-//            js.append(generateJSbottom1());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJSleft1());
-////        
-//            js.append(generateJSmaxHeight());
-////        
-//            js.append(generateJSmaxHeight1());
-////        
-//            js.append(generateJSmaxWidth());
-////        
-//            js.append(generateJSmaxWidth1());
-////        
-//            js.append(generateJSminHeight());
-////        
-//            js.append(generateJSminHeight1());
-////        
-//            js.append(generateJSminWidth());
-////        
-//            js.append(generateJSminWidth1());
-////        
-//            js.append(generateJSright());
-////        
-//            js.append(generateJSright1());
-////        
-//            js.append(generateJSxOrRect());
-////        
-//            js.append(generateJSxOrRect1());
-////        
-//            js.append(generateJSxOrRect2());
-////        
-//            js.append(generateJSxOrRect3());
-////        
-//            js.append(generateJSxOrRect4());
-////        
-//            js.append(generateJSxOrRect5());
-////        
-//            js.append(generateJSy());
-////        
-//            js.append(generateJSy1());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-////        
-//            js.append(generateJSheight2());
-////        
-//            js.append(generateJSheight3());
-////        
-//            js.append(generateJSparentLeftOrRect());
-////        
-//            js.append(generateJSparentLeftOrRect1());
-////        
-//            js.append(generateJSparentLeftOrRect2());
-////        
-//            js.append(generateJSparentTop());
-////        
-//            js.append(generateJSparentWidth());
-////        
-//            js.append(generateJSparentHeight());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJStop1());
-////        
-//            js.append(generateJSwidth2());
-////        
-//            js.append(generateJSwidth3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

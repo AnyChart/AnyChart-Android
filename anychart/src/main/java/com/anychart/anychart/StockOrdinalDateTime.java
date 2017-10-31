@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Stock ordinal date time scale.
+ */
 public class StockOrdinalDateTime extends StockScatterDateTime {
 
     public StockOrdinalDateTime() {
-
+        js.setLength(0);
+        js.append("var stockOrdinalDateTime").append(++variableIndex).append(" = anychart.scales.stockOrdinalDateTime();");
+        jsBase = "stockOrdinalDateTime" + variableIndex;
     }
 
     protected StockOrdinalDateTime(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class StockOrdinalDateTime extends StockScatterDateTime {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class StockOrdinalDateTime extends StockScatterDateTime {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

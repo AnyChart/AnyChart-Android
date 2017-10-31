@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Represents table row with associated mapping. Allows fetching rows values.
+ */
 public class TableselectableRowProxy extends JsObject {
 
     public TableselectableRowProxy() {
-
+        js.setLength(0);
+        js.append("var tableselectableRowProxy").append(++variableIndex).append(" = anychart.data.TableSelectable.rowProxy();");
+        jsBase = "tableselectableRowProxy" + variableIndex;
     }
 
     protected TableselectableRowProxy(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class TableselectableRowProxy extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String field;
 
+    /**
+     * Returns current field values.
+     */
     public void get(String field) {
         if (jsBase == null) {
             this.field = field;
@@ -38,7 +51,6 @@ public class TableselectableRowProxy extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".get(%s);", wrapQuotes(field)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
                 js.setLength(0);
@@ -48,6 +60,9 @@ public class TableselectableRowProxy extends JsObject {
 
     private Double column;
 
+    /**
+     * Returns current column value.
+     */
     public void getColumn(Double column) {
         if (jsBase == null) {
             this.column = column;
@@ -59,7 +74,6 @@ public class TableselectableRowProxy extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getColumn(%f);", column));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getColumn(%f)", column));
                 js.setLength(0);
@@ -67,8 +81,6 @@ public class TableselectableRowProxy extends JsObject {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -86,16 +98,6 @@ public class TableselectableRowProxy extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfield());
-////        
-//            js.append(generateJScolumn());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

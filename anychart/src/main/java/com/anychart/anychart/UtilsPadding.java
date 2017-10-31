@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Stores padding values. Can accept numbers and strings.
+Use {@link anychart.core.utils.Padding#set} method to set values.
+ */
 public class UtilsPadding extends CoreBase {
 
     public UtilsPadding() {
-
+        js.setLength(0);
+        js.append("var utilsPadding").append(++variableIndex).append(" = anychart.core.utils.padding();");
+        jsBase = "utilsPadding" + variableIndex;
     }
 
     protected UtilsPadding(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +31,17 @@ public class UtilsPadding extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double bottom;
     private String bottom1;
 
+    /**
+     * Setter for the bottom space.
+     */
     public UtilsPadding setBottom(Double bottom) {
         if (jsBase == null) {
             this.bottom = null;
@@ -42,7 +56,6 @@ public class UtilsPadding extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".bottom(%f)", bottom));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%f)", bottom));
                 js.setLength(0);
@@ -52,6 +65,9 @@ public class UtilsPadding extends CoreBase {
     }
 
 
+    /**
+     * Setter for the bottom space.
+     */
     public UtilsPadding setBottom(String bottom1) {
         if (jsBase == null) {
             this.bottom = null;
@@ -66,7 +82,6 @@ public class UtilsPadding extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
                 js.setLength(0);
@@ -78,6 +93,9 @@ public class UtilsPadding extends CoreBase {
     private Double left;
     private String left1;
 
+    /**
+     * Setter for the left space.
+     */
     public UtilsPadding setLeft(Double left) {
         if (jsBase == null) {
             this.left = null;
@@ -92,7 +110,6 @@ public class UtilsPadding extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".left(%f)", left));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%f)", left));
                 js.setLength(0);
@@ -102,6 +119,9 @@ public class UtilsPadding extends CoreBase {
     }
 
 
+    /**
+     * Setter for the left space.
+     */
     public UtilsPadding setLeft(String left1) {
         if (jsBase == null) {
             this.left = null;
@@ -116,7 +136,6 @@ public class UtilsPadding extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
                 js.setLength(0);
@@ -128,6 +147,9 @@ public class UtilsPadding extends CoreBase {
     private Double right;
     private String right1;
 
+    /**
+     * Setter for the right space.
+     */
     public UtilsPadding setRight(Double right) {
         if (jsBase == null) {
             this.right = null;
@@ -142,7 +164,6 @@ public class UtilsPadding extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".right(%f)", right));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%f)", right));
                 js.setLength(0);
@@ -152,6 +173,9 @@ public class UtilsPadding extends CoreBase {
     }
 
 
+    /**
+     * Setter for the right space.
+     */
     public UtilsPadding setRight(String right1) {
         if (jsBase == null) {
             this.right = null;
@@ -166,7 +190,6 @@ public class UtilsPadding extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
                 js.setLength(0);
@@ -187,6 +210,9 @@ public class UtilsPadding extends CoreBase {
     private String value9;
     private Double value10;
 
+    /**
+     * Sets all offsets.
+     */
     public UtilsPadding setSet(Double[] value2) {
         if (jsBase == null) {
             this.value = null;
@@ -210,7 +236,6 @@ public class UtilsPadding extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".set(%s)", Arrays.toString(value2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", Arrays.toString(value2)));
                 js.setLength(0);
@@ -220,6 +245,9 @@ public class UtilsPadding extends CoreBase {
     }
 
 
+    /**
+     * Sets all offsets.
+     */
     public UtilsPadding setSet(String[] value3) {
         if (jsBase == null) {
             this.value = null;
@@ -243,7 +271,6 @@ public class UtilsPadding extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(value3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(value3)));
                 js.setLength(0);
@@ -255,6 +282,9 @@ public class UtilsPadding extends CoreBase {
     private Double top;
     private String top1;
 
+    /**
+     * Setter for the top space.
+     */
     public UtilsPadding setTop(Double top) {
         if (jsBase == null) {
             this.top = null;
@@ -269,7 +299,6 @@ public class UtilsPadding extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".top(%f)", top));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%f)", top));
                 js.setLength(0);
@@ -279,6 +308,9 @@ public class UtilsPadding extends CoreBase {
     }
 
 
+    /**
+     * Setter for the top space.
+     */
     public UtilsPadding setTop(String top1) {
         if (jsBase == null) {
             this.top = null;
@@ -293,7 +325,6 @@ public class UtilsPadding extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
                 js.setLength(0);
@@ -302,8 +333,6 @@ public class UtilsPadding extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -321,50 +350,6 @@ public class UtilsPadding extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbottom());
-////        
-//            js.append(generateJSbottom1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJSleft1());
-////        
-//            js.append(generateJSright());
-////        
-//            js.append(generateJSright1());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSvalue8());
-////        
-//            js.append(generateJSvalue9());
-////        
-//            js.append(generateJSvalue10());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJStop1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

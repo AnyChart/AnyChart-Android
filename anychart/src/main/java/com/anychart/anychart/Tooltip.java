@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Class for the tooltip.
+ */
 public class Tooltip extends VisualBase {
 
     public Tooltip() {
-
+        js.setLength(0);
+        js.append("var tooltip").append(++variableIndex).append(" = anychart.core.ui.tooltip();");
+        jsBase = "tooltip" + variableIndex;
     }
 
     protected Tooltip(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,12 +30,19 @@ public class Tooltip extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean adjustOrAdjustByWidth;
     private Boolean[] adjustOrAdjustByWidth1;
     private String adjustOrAdjustByWidth2;
     private Boolean adjustByHeight;
 
+    /**
+     * Setter for the adjusting font size.
+     */
     public Tooltip setAdjustFontSize(Boolean adjustOrAdjustByWidth, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
@@ -47,7 +60,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
                 js.setLength(0);
@@ -57,6 +69,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the adjusting font size.
+     */
     public Tooltip setAdjustFontSize(Boolean[] adjustOrAdjustByWidth1, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
@@ -74,7 +89,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
                 js.setLength(0);
@@ -84,6 +98,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the adjusting font size.
+     */
     public Tooltip setAdjustFontSize(String adjustOrAdjustByWidth2, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
@@ -101,7 +118,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(adjustOrAdjustByWidth2), adjustByHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(adjustOrAdjustByWidth2), adjustByHeight));
                 js.setLength(0);
@@ -112,6 +128,9 @@ public class Tooltip extends VisualBase {
 
     private Boolean allowLeaveChart;
 
+    /**
+     * Setter for the allowLeaveChart tooltip mode.
+     */
     public Tooltip setAllowLeaveChart(Boolean allowLeaveChart) {
         if (jsBase == null) {
             this.allowLeaveChart = allowLeaveChart;
@@ -123,7 +142,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".allowLeaveChart(%b)", allowLeaveChart));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".allowLeaveChart(%b)", allowLeaveChart));
                 js.setLength(0);
@@ -134,6 +152,9 @@ public class Tooltip extends VisualBase {
 
     private Boolean allowLeaveScreen;
 
+    /**
+     * Setter for the allowLeaveScreen tooltip mode.
+     */
     public Tooltip setAllowLeaveScreen(Boolean allowLeaveScreen) {
         if (jsBase == null) {
             this.allowLeaveScreen = allowLeaveScreen;
@@ -145,7 +166,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".allowLeaveScreen(%b)", allowLeaveScreen));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".allowLeaveScreen(%b)", allowLeaveScreen));
                 js.setLength(0);
@@ -156,6 +176,9 @@ public class Tooltip extends VisualBase {
 
     private Boolean allowLeaveStage;
 
+    /**
+     * Setter for the allowLeaveStage tooltip mode.
+     */
     public Tooltip setAllowLeaveStage(Boolean allowLeaveStage) {
         if (jsBase == null) {
             this.allowLeaveStage = allowLeaveStage;
@@ -167,7 +190,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".allowLeaveStage(%b)", allowLeaveStage));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".allowLeaveStage(%b)", allowLeaveStage));
                 js.setLength(0);
@@ -179,6 +201,9 @@ public class Tooltip extends VisualBase {
     private EnumsAnchor anchor;
     private String anchor1;
 
+    /**
+     * Setter for the tooltip anchor.
+     */
     public Tooltip setAnchor(EnumsAnchor anchor) {
         if (jsBase == null) {
             this.anchor = null;
@@ -193,7 +218,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
@@ -203,6 +227,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the tooltip anchor.
+     */
     public Tooltip setAnchor(String anchor1) {
         if (jsBase == null) {
             this.anchor = null;
@@ -217,7 +244,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
                 js.setLength(0);
@@ -228,6 +254,9 @@ public class Tooltip extends VisualBase {
 
     private UiBackground getBackground;
 
+    /**
+     * Getter for tooltip background settings.
+     */
     public UiBackground getBackground() {
         if (getBackground == null)
             getBackground = new UiBackground(jsBase + ".background()");
@@ -239,6 +268,9 @@ public class Tooltip extends VisualBase {
     private String background1;
     private String background2;
 
+    /**
+     * Setter for tooltip background settings.
+     */
     public Tooltip setBackground(Boolean background) {
         if (jsBase == null) {
             this.background = null;
@@ -254,7 +286,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".background(%b)", background));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background));
                 js.setLength(0);
@@ -264,6 +295,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for tooltip background settings.
+     */
     public Tooltip setBackground(String background1) {
         if (jsBase == null) {
             this.background = null;
@@ -279,7 +313,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background1)));
                 js.setLength(0);
@@ -290,6 +323,9 @@ public class Tooltip extends VisualBase {
 
     private Boolean disablePointerEvents;
 
+    /**
+     * Setter for the pointer events setting.
+     */
     public Tooltip setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
@@ -301,7 +337,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
@@ -313,6 +348,10 @@ public class Tooltip extends VisualBase {
     private TooltipDisplayMode displayMode;
     private String displayMode1;
 
+    /**
+     * Setter for display mode settings.
+<b>Note</b>: Works only for the <b>chart</b> tooltip.
+     */
     public Tooltip setDisplayMode(TooltipDisplayMode displayMode) {
         if (jsBase == null) {
             this.displayMode = null;
@@ -327,7 +366,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".displayMode(%s)", ((displayMode != null) ? displayMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", ((displayMode != null) ? displayMode.generateJs() : "null")));
                 js.setLength(0);
@@ -337,6 +375,10 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for display mode settings.
+<b>Note</b>: Works only for the <b>chart</b> tooltip.
+     */
     public Tooltip setDisplayMode(String displayMode1) {
         if (jsBase == null) {
             this.displayMode = null;
@@ -351,7 +393,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".displayMode(%s)", wrapQuotes(displayMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", wrapQuotes(displayMode1)));
                 js.setLength(0);
@@ -362,6 +403,9 @@ public class Tooltip extends VisualBase {
 
     private String fontColor;
 
+    /**
+     * Setter for font color settings.
+     */
     public Tooltip setFontColor(String fontColor) {
         if (jsBase == null) {
             this.fontColor = fontColor;
@@ -373,7 +417,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
                 js.setLength(0);
@@ -385,6 +428,9 @@ public class Tooltip extends VisualBase {
     private Decoration fontDecoration;
     private String fontDecoration1;
 
+    /**
+     * Setter for font decoration settings.
+     */
     public Tooltip setFontDecoration(Decoration fontDecoration) {
         if (jsBase == null) {
             this.fontDecoration = null;
@@ -399,7 +445,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
                 js.setLength(0);
@@ -409,6 +454,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for font decoration settings.
+     */
     public Tooltip setFontDecoration(String fontDecoration1) {
         if (jsBase == null) {
             this.fontDecoration = null;
@@ -423,7 +471,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
                 js.setLength(0);
@@ -434,6 +481,9 @@ public class Tooltip extends VisualBase {
 
     private String fontFamily;
 
+    /**
+     * Setter for font family settings.
+     */
     public Tooltip setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
@@ -445,7 +495,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
                 js.setLength(0);
@@ -456,6 +505,9 @@ public class Tooltip extends VisualBase {
 
     private Double fontOpacity;
 
+    /**
+     * Setter for font opacity settings.
+     */
     public Tooltip setFontOpacity(Double fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
@@ -467,7 +519,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
                 js.setLength(0);
@@ -479,6 +530,9 @@ public class Tooltip extends VisualBase {
     private Double fontSize;
     private String fontSize1;
 
+    /**
+     * Setter for font size settings.
+     */
     public Tooltip setFontSize(Double fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -493,7 +547,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize));
                 js.setLength(0);
@@ -503,6 +556,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for font size settings.
+     */
     public Tooltip setFontSize(String fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -517,7 +573,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
                 js.setLength(0);
@@ -529,6 +584,9 @@ public class Tooltip extends VisualBase {
     private String fontStyle;
     private TextFontStyle fontStyle1;
 
+    /**
+     * Setter for font style settings.
+     */
     public Tooltip setFontStyle(String fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -543,7 +601,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle)));
                 js.setLength(0);
@@ -553,6 +610,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for font style settings.
+     */
     public Tooltip setFontStyle(TextFontStyle fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -567,7 +627,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle1 != null) ? fontStyle1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle1 != null) ? fontStyle1.generateJs() : "null")));
                 js.setLength(0);
@@ -579,6 +638,9 @@ public class Tooltip extends VisualBase {
     private String fontVariant;
     private TextFontVariant fontVariant1;
 
+    /**
+     * Setter for font variant settings.
+     */
     public Tooltip setFontVariant(String fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -593,7 +655,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant)));
                 js.setLength(0);
@@ -603,6 +664,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for font variant settings.
+     */
     public Tooltip setFontVariant(TextFontVariant fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -617,7 +681,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant1 != null) ? fontVariant1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant1 != null) ? fontVariant1.generateJs() : "null")));
                 js.setLength(0);
@@ -629,6 +692,9 @@ public class Tooltip extends VisualBase {
     private String fontWeight;
     private Double fontWeight1;
 
+    /**
+     * Setter for font weight settings.
+     */
     public Tooltip setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -643,7 +709,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
                 js.setLength(0);
@@ -653,6 +718,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for font weight settings.
+     */
     public Tooltip setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -667,7 +735,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
@@ -678,6 +745,10 @@ public class Tooltip extends VisualBase {
 
     private String format;
 
+    /**
+     * Setter for function content text for the tooltip.<br/>
+{docs:Common_Settings/Text_Formatters}Learn more about using format() method.{docs}
+     */
     public Tooltip setFormat(String format) {
         if (jsBase == null) {
             this.format = format;
@@ -689,7 +760,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".format(%s)", wrapQuotes(format)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".format(%s)", wrapQuotes(format)));
                 js.setLength(0);
@@ -701,6 +771,9 @@ public class Tooltip extends VisualBase {
     private String hAlign;
     private TextHAlign hAlign1;
 
+    /**
+     * Setter for the text horizontal align settings.
+     */
     public Tooltip setHAlign(String hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
@@ -715,7 +788,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign)));
                 js.setLength(0);
@@ -725,6 +797,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the text horizontal align settings.
+     */
     public Tooltip setHAlign(TextHAlign hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
@@ -739,7 +814,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign1 != null) ? hAlign1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", ((hAlign1 != null) ? hAlign1.generateJs() : "null")));
                 js.setLength(0);
@@ -751,6 +825,9 @@ public class Tooltip extends VisualBase {
     private String height;
     private Double height1;
 
+    /**
+     * Setter for the tooltip height.
+     */
     public Tooltip setHeight(String height) {
         if (jsBase == null) {
             this.height = null;
@@ -765,7 +842,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height)));
                 js.setLength(0);
@@ -775,6 +851,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the tooltip height.
+     */
     public Tooltip setHeight(Double height1) {
         if (jsBase == null) {
             this.height = null;
@@ -789,7 +868,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".height(%f)", height1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height1));
                 js.setLength(0);
@@ -800,6 +878,9 @@ public class Tooltip extends VisualBase {
 
     private Boolean force;
 
+    /**
+     * Hides tooltips with delay.
+     */
     public void hide(Boolean force) {
         if (jsBase == null) {
             this.force = force;
@@ -811,7 +892,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hide(%b);", force));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hide(%b)", force));
                 js.setLength(0);
@@ -821,6 +901,9 @@ public class Tooltip extends VisualBase {
 
     private Double hideDelay;
 
+    /**
+     * Setter for the delay in milliseconds before a tooltip becomes hidden.
+     */
     public Tooltip setHideDelay(Double hideDelay) {
         if (jsBase == null) {
             this.hideDelay = hideDelay;
@@ -832,7 +915,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hideDelay(%f)", hideDelay));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hideDelay(%f)", hideDelay));
                 js.setLength(0);
@@ -843,6 +925,9 @@ public class Tooltip extends VisualBase {
 
     private Double letterSpacing;
 
+    /**
+     * Setter for text letter spacing settings.
+     */
     public Tooltip setLetterSpacing(Double letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = letterSpacing;
@@ -854,7 +939,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
                 js.setLength(0);
@@ -866,6 +950,9 @@ public class Tooltip extends VisualBase {
     private Double lineHeight;
     private String lineHeight1;
 
+    /**
+     * Setter for text line height settings.
+     */
     public Tooltip setLineHeight(Double lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
@@ -880,7 +967,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
                 js.setLength(0);
@@ -890,6 +976,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for text line height settings.
+     */
     public Tooltip setLineHeight(String lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
@@ -904,7 +993,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight1)));
                 js.setLength(0);
@@ -916,6 +1004,9 @@ public class Tooltip extends VisualBase {
     private Double maxFontSize;
     private String maxFontSize1;
 
+    /**
+     * Setter for maximum font size settings for adjust text from.
+     */
     public Tooltip setMaxFontSize(Double maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
@@ -930,7 +1021,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
                 js.setLength(0);
@@ -940,6 +1030,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for maximum font size settings for adjust text from.
+     */
     public Tooltip setMaxFontSize(String maxFontSize1) {
         if (jsBase == null) {
             this.maxFontSize = null;
@@ -954,7 +1047,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
                 js.setLength(0);
@@ -966,6 +1058,9 @@ public class Tooltip extends VisualBase {
     private Double minFontSize;
     private String minFontSize1;
 
+    /**
+     * Setter for minimum font size settings for adjust text from.
+     */
     public Tooltip setMinFontSize(Double minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
@@ -980,7 +1075,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
                 js.setLength(0);
@@ -990,6 +1084,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for minimum font size settings for adjust text from.
+     */
     public Tooltip setMinFontSize(String minFontSize1) {
         if (jsBase == null) {
             this.minFontSize = null;
@@ -1004,7 +1101,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
                 js.setLength(0);
@@ -1015,6 +1111,9 @@ public class Tooltip extends VisualBase {
 
     private Double offsetX;
 
+    /**
+     * Setter for union tooltip offsetX.
+     */
     public Tooltip setOffsetX(Double offsetX) {
         if (jsBase == null) {
             this.offsetX = offsetX;
@@ -1026,7 +1125,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetX(%f)", offsetX));
                 js.setLength(0);
@@ -1037,6 +1135,9 @@ public class Tooltip extends VisualBase {
 
     private Double offsetY;
 
+    /**
+     * Setter for the tooltip offset by Y.
+     */
     public Tooltip setOffsetY(Double offsetY) {
         if (jsBase == null) {
             this.offsetY = offsetY;
@@ -1048,7 +1149,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetY(%f)", offsetY));
                 js.setLength(0);
@@ -1059,6 +1159,9 @@ public class Tooltip extends VisualBase {
 
     private UtilsPadding getPadding;
 
+    /**
+     * Getter for the tooltip padding.
+     */
     public UtilsPadding getPadding() {
         if (getPadding == null)
             getPadding = new UtilsPadding(jsBase + ".padding()");
@@ -1070,6 +1173,9 @@ public class Tooltip extends VisualBase {
     private String[] padding1;
     private String padding2;
 
+    /**
+     * Setter for the tooltip padding in pixels by one value.
+     */
     public Tooltip setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
@@ -1085,7 +1191,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -1095,6 +1200,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the tooltip padding in pixels by one value.
+     */
     public Tooltip setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
@@ -1110,7 +1218,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -1120,6 +1227,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the tooltip padding in pixels by one value.
+     */
     public Tooltip setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
@@ -1135,7 +1245,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -1153,6 +1262,9 @@ public class Tooltip extends VisualBase {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for the tooltip padding in pixels.
+     */
     public Tooltip setPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -1206,7 +1318,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -1216,6 +1327,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the tooltip padding in pixels.
+     */
     public Tooltip setPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -1269,7 +1383,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -1281,6 +1394,10 @@ public class Tooltip extends VisualBase {
     private Position position;
     private String position1;
 
+    /**
+     * Setter for the union tooltip position.<br/>
+<b>Note:</b> Do not works with position mode <b>FLOAT</b>.
+     */
     public Tooltip setPosition(Position position) {
         if (jsBase == null) {
             this.position = null;
@@ -1295,7 +1412,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -1305,6 +1421,10 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the union tooltip position.<br/>
+<b>Note:</b> Do not works with position mode <b>FLOAT</b>.
+     */
     public Tooltip setPosition(String position1) {
         if (jsBase == null) {
             this.position = null;
@@ -1319,7 +1439,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -1331,6 +1450,9 @@ public class Tooltip extends VisualBase {
     private TooltipPositionMode positionMode;
     private String positionMode1;
 
+    /**
+     * Setter for all tooltips position mode.
+     */
     public Tooltip setPositionMode(TooltipPositionMode positionMode) {
         if (jsBase == null) {
             this.positionMode = null;
@@ -1345,7 +1467,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".positionMode(%s)", ((positionMode != null) ? positionMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", ((positionMode != null) ? positionMode.generateJs() : "null")));
                 js.setLength(0);
@@ -1355,6 +1476,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for all tooltips position mode.
+     */
     public Tooltip setPositionMode(String positionMode1) {
         if (jsBase == null) {
             this.positionMode = null;
@@ -1369,7 +1493,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".positionMode(%s)", wrapQuotes(positionMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", wrapQuotes(positionMode1)));
                 js.setLength(0);
@@ -1380,6 +1503,9 @@ public class Tooltip extends VisualBase {
 
     private Boolean selectable;
 
+    /**
+     * Setter for the text selectable option.
+     */
     public Tooltip setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
@@ -1391,7 +1517,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
@@ -1402,6 +1527,9 @@ public class Tooltip extends VisualBase {
 
     private Separator getSeparator;
 
+    /**
+     * Getter for the union tooltip separator.
+     */
     public Separator getSeparator() {
         if (getSeparator == null)
             getSeparator = new Separator(jsBase + ".separator()");
@@ -1412,6 +1540,9 @@ public class Tooltip extends VisualBase {
     private Boolean separator;
     private String separator1;
 
+    /**
+     * Setter for the union tooltip separator.
+     */
     public Tooltip setSeparator(Boolean separator) {
         if (jsBase == null) {
             this.separator = null;
@@ -1426,7 +1557,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".separator(%b)", separator));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".separator(%b)", separator));
                 js.setLength(0);
@@ -1436,6 +1566,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the union tooltip separator.
+     */
     public Tooltip setSeparator(String separator1) {
         if (jsBase == null) {
             this.separator = null;
@@ -1450,7 +1583,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".separator(%s)", wrapQuotes(separator1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".separator(%s)", wrapQuotes(separator1)));
                 js.setLength(0);
@@ -1462,6 +1594,9 @@ public class Tooltip extends VisualBase {
     private String textDirection;
     private Direction textDirection1;
 
+    /**
+     * Setter for text direction settings.
+     */
     public Tooltip setTextDirection(String textDirection) {
         if (jsBase == null) {
             this.textDirection = null;
@@ -1476,7 +1611,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection)));
                 js.setLength(0);
@@ -1486,6 +1620,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for text direction settings.
+     */
     public Tooltip setTextDirection(Direction textDirection1) {
         if (jsBase == null) {
             this.textDirection = null;
@@ -1500,7 +1637,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection1 != null) ? textDirection1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", ((textDirection1 != null) ? textDirection1.generateJs() : "null")));
                 js.setLength(0);
@@ -1511,6 +1647,9 @@ public class Tooltip extends VisualBase {
 
     private Double textIndent;
 
+    /**
+     * Setter for text-indent settings.
+     */
     public Tooltip setTextIndent(Double textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
@@ -1522,7 +1661,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
@@ -1534,6 +1672,9 @@ public class Tooltip extends VisualBase {
     private TextOverflow textOverflow;
     private String textOverflow1;
 
+    /**
+     * Setter for text overflow settings.
+     */
     public Tooltip setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
@@ -1548,7 +1689,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
                 js.setLength(0);
@@ -1558,6 +1698,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for text overflow settings.
+     */
     public Tooltip setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
@@ -1572,7 +1715,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
                 js.setLength(0);
@@ -1583,6 +1725,9 @@ public class Tooltip extends VisualBase {
 
     private String textSettings;
 
+    /**
+     * Setter for the full text appearance settings.
+     */
     public Tooltip setTextSettings(String textSettings) {
         if (jsBase == null) {
             this.textSettings = textSettings;
@@ -1594,7 +1739,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textSettings(%s)", wrapQuotes(textSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s)", wrapQuotes(textSettings)));
                 js.setLength(0);
@@ -1608,6 +1752,9 @@ public class Tooltip extends VisualBase {
     private Double textSettings2;
     private Boolean textSettings3;
 
+    /**
+     * Setter for the custom text appearance settings.
+     */
     public Tooltip setTextSettings(String textSettings1, String name) {
         if (jsBase == null) {
             this.textSettings = null;
@@ -1626,7 +1773,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textSettings(%s, %s)", wrapQuotes(textSettings1), wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %s)", wrapQuotes(textSettings1), wrapQuotes(name)));
                 js.setLength(0);
@@ -1636,6 +1782,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the custom text appearance settings.
+     */
     public Tooltip setTextSettings(Double textSettings2, String name) {
         if (jsBase == null) {
             this.textSettings = null;
@@ -1654,7 +1803,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textSettings(%f, %s)", textSettings2, wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%f, %s)", textSettings2, wrapQuotes(name)));
                 js.setLength(0);
@@ -1664,6 +1812,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the custom text appearance settings.
+     */
     public Tooltip setTextSettings(Boolean textSettings3, String name) {
         if (jsBase == null) {
             this.textSettings = null;
@@ -1682,7 +1833,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".textSettings(%b, %s)", textSettings3, wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%b, %s)", textSettings3, wrapQuotes(name)));
                 js.setLength(0);
@@ -1693,6 +1843,9 @@ public class Tooltip extends VisualBase {
 
     private UiTitle getTitle;
 
+    /**
+     * Getter for union tooltip title visual settings.
+     */
     public UiTitle getTitle() {
         if (getTitle == null)
             getTitle = new UiTitle(jsBase + ".title()");
@@ -1703,6 +1856,9 @@ public class Tooltip extends VisualBase {
     private Boolean title;
     private String title1;
 
+    /**
+     * Setter for union tooltip title visual settings.
+     */
     public Tooltip setTitle(Boolean title) {
         if (jsBase == null) {
             this.title = null;
@@ -1717,7 +1873,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".title(%b)", title));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
@@ -1727,6 +1882,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for union tooltip title visual settings.
+     */
     public Tooltip setTitle(String title1) {
         if (jsBase == null) {
             this.title = null;
@@ -1741,7 +1899,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
@@ -1752,6 +1909,10 @@ public class Tooltip extends VisualBase {
 
     private String titleFormat;
 
+    /**
+     * Setter for the function to format title.<br/>
+<b>Note:</b> Use {@link anychart.core.ui.Tooltip#title} method to set title visual settings.
+     */
     public Tooltip setTitleFormat(String titleFormat) {
         if (jsBase == null) {
             this.titleFormat = titleFormat;
@@ -1763,7 +1924,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);
@@ -1774,6 +1934,10 @@ public class Tooltip extends VisualBase {
 
     private String unionFormat;
 
+    /**
+     * Setter for the function content text for union tooltip.<br/>
+{docs:Common_Settings/Text_Formatters}Learn more about using unionFormat() method.{docs}
+     */
     public Tooltip setUnionFormat(String unionFormat) {
         if (jsBase == null) {
             this.unionFormat = unionFormat;
@@ -1785,7 +1949,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".unionFormat(%s)", wrapQuotes(unionFormat)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unionFormat(%s)", wrapQuotes(unionFormat)));
                 js.setLength(0);
@@ -1796,6 +1959,9 @@ public class Tooltip extends VisualBase {
 
     private Boolean useHtml;
 
+    /**
+     * Setter for the useHTML flag.
+     */
     public Tooltip setUseHtml(Boolean useHtml) {
         if (jsBase == null) {
             this.useHtml = useHtml;
@@ -1807,7 +1973,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
                 js.setLength(0);
@@ -1819,6 +1984,9 @@ public class Tooltip extends VisualBase {
     private String vAlign;
     private TextVAlign vAlign1;
 
+    /**
+     * Setter for text vertical align settings.
+     */
     public Tooltip setVAlign(String vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
@@ -1833,7 +2001,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign)));
                 js.setLength(0);
@@ -1843,6 +2010,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for text vertical align settings.
+     */
     public Tooltip setVAlign(TextVAlign vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
@@ -1857,7 +2027,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign1 != null) ? vAlign1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", ((vAlign1 != null) ? vAlign1.generateJs() : "null")));
                 js.setLength(0);
@@ -1868,6 +2037,9 @@ public class Tooltip extends VisualBase {
 
     private String valuePostfix;
 
+    /**
+     * Setter for tooltip postfix value.
+     */
     public Tooltip setValuePostfix(String valuePostfix) {
         if (jsBase == null) {
             this.valuePostfix = valuePostfix;
@@ -1879,7 +2051,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".valuePostfix(%s)", wrapQuotes(valuePostfix)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valuePostfix(%s)", wrapQuotes(valuePostfix)));
                 js.setLength(0);
@@ -1890,6 +2061,9 @@ public class Tooltip extends VisualBase {
 
     private String valuePrefix;
 
+    /**
+     * Setter for tooltip prefix value.
+     */
     public Tooltip setValuePrefix(String valuePrefix) {
         if (jsBase == null) {
             this.valuePrefix = valuePrefix;
@@ -1901,7 +2075,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".valuePrefix(%s)", wrapQuotes(valuePrefix)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valuePrefix(%s)", wrapQuotes(valuePrefix)));
                 js.setLength(0);
@@ -1913,6 +2086,9 @@ public class Tooltip extends VisualBase {
     private String width;
     private Double width1;
 
+    /**
+     * Setter for the tooltip width.
+     */
     public Tooltip setWidth(String width) {
         if (jsBase == null) {
             this.width = null;
@@ -1927,7 +2103,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
                 js.setLength(0);
@@ -1937,6 +2112,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the tooltip width.
+     */
     public Tooltip setWidth(Double width1) {
         if (jsBase == null) {
             this.width = null;
@@ -1951,7 +2129,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width1));
                 js.setLength(0);
@@ -1963,6 +2140,9 @@ public class Tooltip extends VisualBase {
     private EnumsWordBreak wordBreak;
     private String wordBreak1;
 
+    /**
+     * Setter for the word-break mode.
+     */
     public Tooltip setWordBreak(EnumsWordBreak wordBreak) {
         if (jsBase == null) {
             this.wordBreak = null;
@@ -1977,7 +2157,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
                 js.setLength(0);
@@ -1987,6 +2166,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the word-break mode.
+     */
     public Tooltip setWordBreak(String wordBreak1) {
         if (jsBase == null) {
             this.wordBreak = null;
@@ -2001,7 +2183,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
                 js.setLength(0);
@@ -2013,6 +2194,9 @@ public class Tooltip extends VisualBase {
     private EnumsWordWrap wordWrap;
     private String wordWrap1;
 
+    /**
+     * Setter for the word-wrap mode.
+     */
     public Tooltip setWordWrap(EnumsWordWrap wordWrap) {
         if (jsBase == null) {
             this.wordWrap = null;
@@ -2027,7 +2211,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
                 js.setLength(0);
@@ -2037,6 +2220,9 @@ public class Tooltip extends VisualBase {
     }
 
 
+    /**
+     * Setter for the word-wrap mode.
+     */
     public Tooltip setWordWrap(String wordWrap1) {
         if (jsBase == null) {
             this.wordWrap = null;
@@ -2051,7 +2237,6 @@ public class Tooltip extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
                 js.setLength(0);
@@ -2060,40 +2245,9 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSUiBackground getBackground() {
-//        if (UiBackground getBackground != null) {
-//            return UiBackground getBackground.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUtilsPadding getPadding() {
-//        if (UtilsPadding getPadding != null) {
-//            return UtilsPadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSSeparator getSeparator() {
-//        if (Separator getSeparator != null) {
-//            return Separator getSeparator.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiTitle getTitle() {
-//        if (UiTitle getTitle != null) {
-//            return UiTitle getTitle.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-            //return String.format(Locale.US, "getBackground: %s,", ((getBackground != null) ? getBackground.generateJs() : "null"));
         }
         return "";
     }
@@ -2101,7 +2255,6 @@ public class Tooltip extends VisualBase {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -2109,7 +2262,6 @@ public class Tooltip extends VisualBase {
     private String generateJSgetSeparator() {
         if (getSeparator != null) {
             return getSeparator.generateJs();
-            //return String.format(Locale.US, "getSeparator: %s,", ((getSeparator != null) ? getSeparator.generateJs() : "null"));
         }
         return "";
     }
@@ -2117,7 +2269,6 @@ public class Tooltip extends VisualBase {
     private String generateJSgetTitle() {
         if (getTitle != null) {
             return getTitle.generateJs();
-            //return String.format(Locale.US, "getTitle: %s,", ((getTitle != null) ? getTitle.generateJs() : "null"));
         }
         return "";
     }
@@ -2143,186 +2294,6 @@ public class Tooltip extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSadjustOrAdjustByWidth());
-////        
-//            js.append(generateJSadjustOrAdjustByWidth1());
-////        
-//            js.append(generateJSadjustOrAdjustByWidth2());
-////        
-//            js.append(generateJSadjustByHeight());
-////        
-//            js.append(generateJSallowLeaveChart());
-////        
-//            js.append(generateJSallowLeaveScreen());
-////        
-//            js.append(generateJSallowLeaveStage());
-////        
-//            js.append(generateJSanchor());
-////        
-//            js.append(generateJSanchor1());
-////        
-//            js.append(generateJSbackground());
-////        
-//            js.append(generateJSbackground1());
-////        
-//            js.append(generateJSbackground2());
-////        
-//            js.append(generateJSdisablePointerEvents());
-////        
-//            js.append(generateJSdisplayMode());
-////        
-//            js.append(generateJSdisplayMode1());
-////        
-//            js.append(generateJSfontColor());
-////        
-//            js.append(generateJSfontDecoration());
-////        
-//            js.append(generateJSfontDecoration1());
-////        
-//            js.append(generateJSfontFamily());
-////        
-//            js.append(generateJSfontOpacity());
-////        
-//            js.append(generateJSfontSize());
-////        
-//            js.append(generateJSfontSize1());
-////        
-//            js.append(generateJSfontStyle());
-////        
-//            js.append(generateJSfontStyle1());
-////        
-//            js.append(generateJSfontVariant());
-////        
-//            js.append(generateJSfontVariant1());
-////        
-//            js.append(generateJSfontWeight());
-////        
-//            js.append(generateJSfontWeight1());
-////        
-//            js.append(generateJSformat());
-////        
-//            js.append(generateJShAlign());
-////        
-//            js.append(generateJShAlign1());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJSforce());
-////        
-//            js.append(generateJShideDelay());
-////        
-//            js.append(generateJSletterSpacing());
-////        
-//            js.append(generateJSlineHeight());
-////        
-//            js.append(generateJSlineHeight1());
-////        
-//            js.append(generateJSmaxFontSize());
-////        
-//            js.append(generateJSmaxFontSize1());
-////        
-//            js.append(generateJSminFontSize());
-////        
-//            js.append(generateJSminFontSize1());
-////        
-//            js.append(generateJSoffsetX());
-////        
-//            js.append(generateJSoffsetY());
-////        
-//            js.append(generateJSpadding());
-////        
-//            js.append(generateJSpadding1());
-////        
-//            js.append(generateJSpadding2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSposition1());
-////        
-//            js.append(generateJSpositionMode());
-////        
-//            js.append(generateJSpositionMode1());
-////        
-//            js.append(generateJSselectable());
-////        
-//            js.append(generateJSseparator());
-////        
-//            js.append(generateJSseparator1());
-////        
-//            js.append(generateJStextDirection());
-////        
-//            js.append(generateJStextDirection1());
-////        
-//            js.append(generateJStextIndent());
-////        
-//            js.append(generateJStextOverflow());
-////        
-//            js.append(generateJStextOverflow1());
-////        
-//            js.append(generateJStextSettings());
-////        
-//            js.append(generateJSname());
-////        
-//            js.append(generateJStextSettings1());
-////        
-//            js.append(generateJStextSettings2());
-////        
-//            js.append(generateJStextSettings3());
-////        
-//            js.append(generateJStitle());
-////        
-//            js.append(generateJStitle1());
-////        
-//            js.append(generateJStitleFormat());
-////        
-//            js.append(generateJSunionFormat());
-////        
-//            js.append(generateJSuseHtml());
-////        
-//            js.append(generateJSvAlign());
-////        
-//            js.append(generateJSvAlign1());
-////        
-//            js.append(generateJSvaluePostfix());
-////        
-//            js.append(generateJSvaluePrefix());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-////        
-//            js.append(generateJSwordBreak());
-////        
-//            js.append(generateJSwordBreak1());
-////        
-//            js.append(generateJSwordWrap());
-////        
-//            js.append(generateJSwordWrap1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

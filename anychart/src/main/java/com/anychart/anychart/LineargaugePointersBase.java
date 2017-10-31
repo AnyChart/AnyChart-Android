@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base class for pointers.
+ */
 public class LineargaugePointersBase extends VisualBase {
 
     public LineargaugePointersBase() {
-
+        js.setLength(0);
+        js.append("var lineargaugePointersBase").append(++variableIndex).append(" = anychart.core.linearGauge.pointers.base();");
+        jsBase = "lineargaugePointersBase" + variableIndex;
     }
 
     protected LineargaugePointersBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class LineargaugePointersBase extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String color;
 
+    /**
+     * Setter for the pointer color.
+     */
     public LineargaugePointersBase setColor(String color) {
         if (jsBase == null) {
             this.color = color;
@@ -38,7 +51,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private Double index;
 
+    /**
+     * Setter for the data index.
+     */
     public LineargaugePointersBase setDataIndex(Double index) {
         if (jsBase == null) {
             this.index = index;
@@ -60,7 +75,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".dataIndex(%f)", index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dataIndex(%f)", index));
                 js.setLength(0);
@@ -71,6 +85,10 @@ public class LineargaugePointersBase extends VisualBase {
 
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LineargaugePointersBase setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -82,7 +100,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -94,6 +111,9 @@ public class LineargaugePointersBase extends VisualBase {
     private String color1;
     private Double opacity;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public LineargaugePointersBase fill(String color1, Double opacity) {
         if (jsBase == null) {
             this.color = null;
@@ -110,7 +130,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity));
                 js.setLength(0);
@@ -127,6 +146,10 @@ public class LineargaugePointersBase extends VisualBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LineargaugePointersBase fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -154,7 +177,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -164,6 +186,10 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LineargaugePointersBase fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -191,7 +217,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -201,6 +226,10 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LineargaugePointersBase fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -228,7 +257,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -238,6 +266,10 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LineargaugePointersBase fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -265,7 +297,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -275,6 +306,10 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LineargaugePointersBase fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -302,7 +337,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -312,6 +346,10 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LineargaugePointersBase fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -339,7 +377,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -357,6 +394,10 @@ public class LineargaugePointersBase extends VisualBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LineargaugePointersBase fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +435,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -404,6 +444,10 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public LineargaugePointersBase fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -441,7 +485,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -453,6 +496,9 @@ public class LineargaugePointersBase extends VisualBase {
     private Fill imageSettings;
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for pointer hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -469,6 +515,9 @@ public class LineargaugePointersBase extends VisualBase {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for hatch fill settings.
+     */
     public LineargaugePointersBase setHatchFill(PatternFill patternFillOrType, String color2, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -496,7 +545,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color2), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
@@ -506,6 +554,9 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+     */
     public LineargaugePointersBase setHatchFill(HatchFill patternFillOrType1, String color2, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -533,7 +584,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color2), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
@@ -543,6 +593,9 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+     */
     public LineargaugePointersBase setHatchFill(HatchFillType patternFillOrType2, String color2, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -570,7 +623,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color2), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
@@ -580,6 +632,9 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+     */
     public LineargaugePointersBase setHatchFill(String patternFillOrType3, String color2, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -607,7 +662,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color2), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color2), thickness, size));
                 js.setLength(0);
@@ -617,6 +671,9 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+     */
     public LineargaugePointersBase setHatchFill(Boolean patternFillOrType4, String color2, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -644,7 +701,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color2), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color2), thickness, size));
                 js.setLength(0);
@@ -655,6 +711,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -664,6 +723,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private String hovered;
 
+    /**
+     * Setter for hovered state settings.
+     */
     public LineargaugePointersBase setHovered(String hovered) {
         if (jsBase == null) {
             this.hovered = hovered;
@@ -675,7 +737,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
@@ -686,6 +747,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private UiLabelsFactory getLabel;
 
+    /**
+     * Getter for the pointer label.
+     */
     public UiLabelsFactory getLabel() {
         if (getLabel == null)
             getLabel = new UiLabelsFactory(jsBase + ".label()");
@@ -697,6 +761,9 @@ public class LineargaugePointersBase extends VisualBase {
     private String label1;
     private Boolean label2;
 
+    /**
+     * Setter for the pointer label.
+     */
     public LineargaugePointersBase setLabel(UiLabelsFactory label) {
         if (jsBase == null) {
             this.label = null;
@@ -706,15 +773,16 @@ public class LineargaugePointersBase extends VisualBase {
             this.label = label;
         } else {
             this.label = label;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(label.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".label(%s)", ((label != null) ? label.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".label(%s);",  ((label != null) ? label.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", ((label != null) ? label.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", ((label != null) ? label.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -722,6 +790,9 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Setter for the pointer label.
+     */
     public LineargaugePointersBase setLabel(String label1) {
         if (jsBase == null) {
             this.label = null;
@@ -737,7 +808,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".label(%s)", wrapQuotes(label1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%s)", wrapQuotes(label1)));
                 js.setLength(0);
@@ -747,6 +817,9 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Setter for the pointer label.
+     */
     public LineargaugePointersBase setLabel(Boolean label2) {
         if (jsBase == null) {
             this.label = null;
@@ -762,7 +835,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".label(%b)", label2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%b)", label2));
                 js.setLength(0);
@@ -773,6 +845,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private LegendItemSettings getLegendItem;
 
+    /**
+     * Getter for the legend item settings.
+     */
     public LegendItemSettings getLegendItem() {
         if (getLegendItem == null)
             getLegendItem = new LegendItemSettings(jsBase + ".legendItem()");
@@ -782,6 +857,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private String legendItem;
 
+    /**
+     * Setter for the legend item settings.
+     */
     public LineargaugePointersBase setLegendItem(String legendItem) {
         if (jsBase == null) {
             this.legendItem = legendItem;
@@ -793,7 +871,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
                 js.setLength(0);
@@ -804,6 +881,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private String name;
 
+    /**
+     * Setter for the pointer name.
+     */
     public LineargaugePointersBase setName(String name) {
         if (jsBase == null) {
             this.name = name;
@@ -815,7 +895,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
                 js.setLength(0);
@@ -826,6 +905,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -835,6 +917,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private String normal;
 
+    /**
+     * Setter for normal state settings.
+     */
     public LineargaugePointersBase setNormal(String normal) {
         if (jsBase == null) {
             this.normal = normal;
@@ -846,7 +931,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
@@ -857,6 +941,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private String offset;
 
+    /**
+     * Setter for the pointer offset.
+     */
     public LineargaugePointersBase setOffset(String offset) {
         if (jsBase == null) {
             this.offset = offset;
@@ -868,7 +955,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
                 js.setLength(0);
@@ -879,6 +965,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private ScalesBase getScale;
 
+    /**
+     * Getter for the pointer scale.
+     */
     public ScalesBase getScale() {
         if (getScale == null)
             getScale = new ScalesBase(jsBase + ".scale()");
@@ -888,20 +977,24 @@ public class LineargaugePointersBase extends VisualBase {
 
     private ScalesBase scale;
 
+    /**
+     * Setter for the pointer scale.
+     */
     public LineargaugePointersBase setScale(ScalesBase scale) {
         if (jsBase == null) {
             this.scale = scale;
         } else {
             this.scale = scale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(scale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -910,6 +1003,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -919,6 +1015,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private String selected;
 
+    /**
+     * Setter for selected state settings.
+     */
     public LineargaugePointersBase setSelected(String selected) {
         if (jsBase == null) {
             this.selected = selected;
@@ -930,7 +1029,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
@@ -941,6 +1039,10 @@ public class LineargaugePointersBase extends VisualBase {
 
     private Stroke stroke;
 
+    /**
+     * Setter for the pointer stroke using function.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public LineargaugePointersBase setStroke(Stroke stroke) {
         if (jsBase == null) {
             this.stroke = stroke;
@@ -952,7 +1054,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
@@ -969,6 +1070,10 @@ public class LineargaugePointersBase extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the  pointer stroke using several parameters.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public LineargaugePointersBase setStroke(Stroke color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -998,7 +1103,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1008,6 +1112,10 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Setter for the  pointer stroke using several parameters.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public LineargaugePointersBase setStroke(ColoredFill color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1037,7 +1145,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1047,6 +1154,10 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
 
+    /**
+     * Setter for the  pointer stroke using several parameters.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public LineargaugePointersBase setStroke(String color5, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -1076,7 +1187,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1087,6 +1197,9 @@ public class LineargaugePointersBase extends VisualBase {
 
     private String width;
 
+    /**
+     * Setter for the pointer width.
+     */
     public LineargaugePointersBase setWidth(String width) {
         if (jsBase == null) {
             this.width = width;
@@ -1098,7 +1211,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
                 js.setLength(0);
@@ -1107,61 +1219,9 @@ public class LineargaugePointersBase extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSPatternFill getHatchFill() {
-//        if (PatternFill getHatchFill != null) {
-//            return PatternFill getHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getHovered() {
-//        if (StateSettings getHovered != null) {
-//            return StateSettings getHovered.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLabel() {
-//        if (UiLabelsFactory getLabel != null) {
-//            return UiLabelsFactory getLabel.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSLegendItemSettings getLegendItem() {
-//        if (LegendItemSettings getLegendItem != null) {
-//            return LegendItemSettings getLegendItem.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getNormal() {
-//        if (StateSettings getNormal != null) {
-//            return StateSettings getNormal.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesBase getScale() {
-//        if (ScalesBase getScale != null) {
-//            return ScalesBase getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getSelected() {
-//        if (StateSettings getSelected != null) {
-//            return StateSettings getSelected.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
-            //return String.format(Locale.US, "getHatchFill: %s,", ((getHatchFill != null) ? getHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -1169,7 +1229,6 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
-            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -1177,7 +1236,6 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetLabel() {
         if (getLabel != null) {
             return getLabel.generateJs();
-            //return String.format(Locale.US, "getLabel: %s,", ((getLabel != null) ? getLabel.generateJs() : "null"));
         }
         return "";
     }
@@ -1185,7 +1243,6 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetLegendItem() {
         if (getLegendItem != null) {
             return getLegendItem.generateJs();
-            //return String.format(Locale.US, "getLegendItem: %s,", ((getLegendItem != null) ? getLegendItem.generateJs() : "null"));
         }
         return "";
     }
@@ -1193,7 +1250,6 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
-            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -1201,7 +1257,6 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -1209,7 +1264,6 @@ public class LineargaugePointersBase extends VisualBase {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
-            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -1238,108 +1292,6 @@ public class LineargaugePointersBase extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJSpatternFillOrType4());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJShovered());
-////        
-//            js.append(generateJSlabel());
-////        
-//            js.append(generateJSlabel1());
-////        
-//            js.append(generateJSlabel2());
-////        
-//            js.append(generateJSlegendItem());
-////        
-//            js.append(generateJSname());
-////        
-//            js.append(generateJSnormal());
-////        
-//            js.append(generateJSoffset());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSselected());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJScolor5());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSwidth());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

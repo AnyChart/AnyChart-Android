@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * DiscreteBase series class.
+ */
 public class ScrollerseriesDiscreteBase extends ScrollerseriesBase {
 
     public ScrollerseriesDiscreteBase() {
-
+        js.setLength(0);
+        js.append("var scrollerseriesDiscreteBase").append(++variableIndex).append(" = anychart.core.stock.scrollerSeries.discreteBase();");
+        jsBase = "scrollerseriesDiscreteBase" + variableIndex;
     }
 
     protected ScrollerseriesDiscreteBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class ScrollerseriesDiscreteBase extends ScrollerseriesBase {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class ScrollerseriesDiscreteBase extends ScrollerseriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Stochastic indicator class.
+{docs:Stock_Charts/Technical_Indicators/Stochastic_Oscillator}Learn more about the Stochastic indicator.{docs}
+ */
 public class Stochastic extends JsObject {
 
     public Stochastic() {
-
+        js.setLength(0);
+        js.append("var stochastic").append(++variableIndex).append(" = anychart.core.stock.indicators.stochastic();");
+        jsBase = "stochastic" + variableIndex;
     }
 
     protected Stochastic(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +31,17 @@ public class Stochastic extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private MovingAverageType dMAType;
     private String dMAType1;
 
+    /**
+     * Setter for the %D smoothing type.
+     */
     public Stochastic setDMAType(MovingAverageType dMAType) {
         if (jsBase == null) {
             this.dMAType = null;
@@ -42,7 +56,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dMAType(%s)", ((dMAType != null) ? dMAType.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", ((dMAType != null) ? dMAType.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +65,9 @@ public class Stochastic extends JsObject {
     }
 
 
+    /**
+     * Setter for the %D smoothing type.
+     */
     public Stochastic setDMAType(String dMAType1) {
         if (jsBase == null) {
             this.dMAType = null;
@@ -66,7 +82,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dMAType(%s)", wrapQuotes(dMAType1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", wrapQuotes(dMAType1)));
                 js.setLength(0);
@@ -77,6 +92,9 @@ public class Stochastic extends JsObject {
 
     private Double dPeriod;
 
+    /**
+     * Setter for the %D Period.
+     */
     public Stochastic setDPeriod(Double dPeriod) {
         if (jsBase == null) {
             this.dPeriod = dPeriod;
@@ -88,7 +106,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dPeriod(%f)", dPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dPeriod(%f)", dPeriod));
                 js.setLength(0);
@@ -99,6 +116,9 @@ public class Stochastic extends JsObject {
 
     private StockSeriesBase getDSeries;
 
+    /**
+     * Getter for the indicator %D Series.
+     */
     public StockSeriesBase getDSeries() {
         if (getDSeries == null)
             getDSeries = new StockSeriesBase(jsBase + ".dSeries()");
@@ -109,6 +129,9 @@ public class Stochastic extends JsObject {
     private StockSeriesType type;
     private String type1;
 
+    /**
+     * Setter for the indicator %D Series.
+     */
     public Stochastic setDSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
@@ -123,7 +146,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dSeries(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -133,6 +155,9 @@ public class Stochastic extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator %D Series.
+     */
     public Stochastic setDSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -147,7 +172,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dSeries(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -158,6 +182,9 @@ public class Stochastic extends JsObject {
 
     private Double kMAPeriod;
 
+    /**
+     * Setter for the %K smoothing period.
+     */
     public Stochastic setKMAPeriod(Double kMAPeriod) {
         if (jsBase == null) {
             this.kMAPeriod = kMAPeriod;
@@ -169,7 +196,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
                 js.setLength(0);
@@ -181,6 +207,9 @@ public class Stochastic extends JsObject {
     private MovingAverageType kMAType;
     private String kMAType1;
 
+    /**
+     * Setter for the %K smoothing type.
+     */
     public Stochastic setKMAType(MovingAverageType kMAType) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -195,7 +224,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".kMAType(%s)", ((kMAType != null) ? kMAType.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", ((kMAType != null) ? kMAType.generateJs() : "null")));
                 js.setLength(0);
@@ -205,6 +233,9 @@ public class Stochastic extends JsObject {
     }
 
 
+    /**
+     * Setter for the %K smoothing type.
+     */
     public Stochastic setKMAType(String kMAType1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -219,7 +250,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".kMAType(%s)", wrapQuotes(kMAType1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", wrapQuotes(kMAType1)));
                 js.setLength(0);
@@ -230,6 +260,9 @@ public class Stochastic extends JsObject {
 
     private Double kPeriod;
 
+    /**
+     * Setter for the %K Period.
+     */
     public Stochastic setKPeriod(Double kPeriod) {
         if (jsBase == null) {
             this.kPeriod = kPeriod;
@@ -241,7 +274,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".kPeriod(%f)", kPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kPeriod(%f)", kPeriod));
                 js.setLength(0);
@@ -252,6 +284,9 @@ public class Stochastic extends JsObject {
 
     private StockSeriesBase getKSeries;
 
+    /**
+     * Getter for the indicator %K Series.
+     */
     public StockSeriesBase getKSeries() {
         if (getKSeries == null)
             getKSeries = new StockSeriesBase(jsBase + ".kSeries()");
@@ -262,6 +297,9 @@ public class Stochastic extends JsObject {
     private StockSeriesType type2;
     private String type3;
 
+    /**
+     * Setter for the indicator %K Series.
+     */
     public Stochastic setKSeries(StockSeriesType type2) {
         if (jsBase == null) {
             this.type = null;
@@ -278,7 +316,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".kSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
@@ -288,6 +325,9 @@ public class Stochastic extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator %K Series.
+     */
     public Stochastic setKSeries(String type3) {
         if (jsBase == null) {
             this.type = null;
@@ -304,7 +344,6 @@ public class Stochastic extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".kSeries(%s)", wrapQuotes(type3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);
@@ -313,26 +352,9 @@ public class Stochastic extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSStockSeriesBase getDSeries() {
-//        if (StockSeriesBase getDSeries != null) {
-//            return StockSeriesBase getDSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getKSeries() {
-//        if (StockSeriesBase getKSeries != null) {
-//            return StockSeriesBase getKSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetDSeries() {
         if (getDSeries != null) {
             return getDSeries.generateJs();
-            //return String.format(Locale.US, "getDSeries: %s,", ((getDSeries != null) ? getDSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -340,7 +362,6 @@ public class Stochastic extends JsObject {
     private String generateJSgetKSeries() {
         if (getKSeries != null) {
             return getKSeries.generateJs();
-            //return String.format(Locale.US, "getKSeries: %s,", ((getKSeries != null) ? getKSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -364,34 +385,6 @@ public class Stochastic extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdMAType());
-////        
-//            js.append(generateJSdMAType1());
-////        
-//            js.append(generateJSdPeriod());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJSkMAPeriod());
-////        
-//            js.append(generateJSkMAType());
-////        
-//            js.append(generateJSkMAType1());
-////        
-//            js.append(generateJSkPeriod());
-////        
-//            js.append(generateJStype2());
-////        
-//            js.append(generateJStype3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

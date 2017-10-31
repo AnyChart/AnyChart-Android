@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 3D Area Series Class.<br/>
+<b>Note:</b> Use {@link anychart.charts.Cartesian3d#area3d} method to get this series.<br/>
+{docs:Basic_Charts/3D/Area_Chart}Learn more about 3D Area series{docs}
+ */
 public class Area3d extends CartesianSeriesContinuousBase {
 
     public Area3d() {
-
+        js.setLength(0);
+        js.append("var area3d").append(++variableIndex).append(" = anychart.core.cartesian.series.area3d();");
+        jsBase = "area3d" + variableIndex;
     }
 
     protected Area3d(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +32,16 @@ public class Area3d extends CartesianSeriesContinuousBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -42,6 +57,10 @@ public class Area3d extends CartesianSeriesContinuousBase {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Area3d setHatchFill(PatternFill patternFillOrType, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -64,7 +83,6 @@ public class Area3d extends CartesianSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -74,6 +92,10 @@ public class Area3d extends CartesianSeriesContinuousBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Area3d setHatchFill(HatchFill patternFillOrType1, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -96,7 +118,6 @@ public class Area3d extends CartesianSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -106,6 +127,10 @@ public class Area3d extends CartesianSeriesContinuousBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Area3d setHatchFill(HatchFillType patternFillOrType2, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -128,7 +153,6 @@ public class Area3d extends CartesianSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -138,6 +162,10 @@ public class Area3d extends CartesianSeriesContinuousBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Area3d setHatchFill(String patternFillOrType3, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -160,7 +188,6 @@ public class Area3d extends CartesianSeriesContinuousBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -169,19 +196,9 @@ public class Area3d extends CartesianSeriesContinuousBase {
         return this;
     }
 
-
-//
-//    private String generateJSPatternFill getHatchFill() {
-//        if (PatternFill getHatchFill != null) {
-//            return PatternFill getHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
-            //return String.format(Locale.US, "getHatchFill: %s,", ((getHatchFill != null) ? getHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -204,26 +221,6 @@ public class Area3d extends CartesianSeriesContinuousBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

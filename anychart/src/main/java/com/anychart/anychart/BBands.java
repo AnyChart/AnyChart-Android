@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Bollinger Bands (BBands) indicator class.
+ */
 public class BBands extends JsObject {
 
     public BBands() {
-
+        js.setLength(0);
+        js.append("var bBands").append(++variableIndex).append(" = anychart.core.stock.indicators.bBands();");
+        jsBase = "bBands" + variableIndex;
     }
 
     protected BBands(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class BBands extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double deviation;
 
+    /**
+     * Setter for the deviation.
+     */
     public BBands setDeviation(Double deviation) {
         if (jsBase == null) {
             this.deviation = deviation;
@@ -38,7 +51,6 @@ public class BBands extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".deviation(%f)", deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".deviation(%f)", deviation));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class BBands extends JsObject {
 
     private StockSeriesBase getLowerSeries;
 
+    /**
+     * Getter for the indicator Lower Series.
+     */
     public StockSeriesBase getLowerSeries() {
         if (getLowerSeries == null)
             getLowerSeries = new StockSeriesBase(jsBase + ".lowerSeries()");
@@ -59,6 +74,9 @@ public class BBands extends JsObject {
     private StockSeriesType type;
     private String type1;
 
+    /**
+     * Setter for the indicator Lower Series.
+     */
     public BBands setLowerSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
@@ -73,7 +91,6 @@ public class BBands extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lowerSeries(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowerSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -83,6 +100,9 @@ public class BBands extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator Lower Series.
+     */
     public BBands setLowerSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -97,7 +117,6 @@ public class BBands extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lowerSeries(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowerSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -108,6 +127,9 @@ public class BBands extends JsObject {
 
     private StockSeriesBase getMiddleSeries;
 
+    /**
+     * Getter for the indicator Middle Series.
+     */
     public StockSeriesBase getMiddleSeries() {
         if (getMiddleSeries == null)
             getMiddleSeries = new StockSeriesBase(jsBase + ".middleSeries()");
@@ -118,6 +140,9 @@ public class BBands extends JsObject {
     private StockSeriesType type2;
     private String type3;
 
+    /**
+     * Setter for the indicator Middle Series.
+     */
     public BBands setMiddleSeries(StockSeriesType type2) {
         if (jsBase == null) {
             this.type = null;
@@ -134,7 +159,6 @@ public class BBands extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".middleSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".middleSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
@@ -144,6 +168,9 @@ public class BBands extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator Middle Series.
+     */
     public BBands setMiddleSeries(String type3) {
         if (jsBase == null) {
             this.type = null;
@@ -160,7 +187,6 @@ public class BBands extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".middleSeries(%s)", wrapQuotes(type3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".middleSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);
@@ -171,6 +197,9 @@ public class BBands extends JsObject {
 
     private Double period;
 
+    /**
+     * Setter for the period.
+     */
     public BBands setPeriod(Double period) {
         if (jsBase == null) {
             this.period = period;
@@ -182,7 +211,6 @@ public class BBands extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".period(%f)", period));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
                 js.setLength(0);
@@ -193,6 +221,9 @@ public class BBands extends JsObject {
 
     private StockSeriesBase getUpperSeries;
 
+    /**
+     * Getter for the indicator Upper Series.
+     */
     public StockSeriesBase getUpperSeries() {
         if (getUpperSeries == null)
             getUpperSeries = new StockSeriesBase(jsBase + ".upperSeries()");
@@ -203,6 +234,9 @@ public class BBands extends JsObject {
     private StockSeriesType type4;
     private String type5;
 
+    /**
+     * Setter for the indicator Upper Series.
+     */
     public BBands setUpperSeries(StockSeriesType type4) {
         if (jsBase == null) {
             this.type = null;
@@ -221,7 +255,6 @@ public class BBands extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".upperSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upperSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
                 js.setLength(0);
@@ -231,6 +264,9 @@ public class BBands extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator Upper Series.
+     */
     public BBands setUpperSeries(String type5) {
         if (jsBase == null) {
             this.type = null;
@@ -249,7 +285,6 @@ public class BBands extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".upperSeries(%s)", wrapQuotes(type5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upperSeries(%s)", wrapQuotes(type5)));
                 js.setLength(0);
@@ -258,33 +293,9 @@ public class BBands extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSStockSeriesBase getLowerSeries() {
-//        if (StockSeriesBase getLowerSeries != null) {
-//            return StockSeriesBase getLowerSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getMiddleSeries() {
-//        if (StockSeriesBase getMiddleSeries != null) {
-//            return StockSeriesBase getMiddleSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getUpperSeries() {
-//        if (StockSeriesBase getUpperSeries != null) {
-//            return StockSeriesBase getUpperSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetLowerSeries() {
         if (getLowerSeries != null) {
             return getLowerSeries.generateJs();
-            //return String.format(Locale.US, "getLowerSeries: %s,", ((getLowerSeries != null) ? getLowerSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -292,7 +303,6 @@ public class BBands extends JsObject {
     private String generateJSgetMiddleSeries() {
         if (getMiddleSeries != null) {
             return getMiddleSeries.generateJs();
-            //return String.format(Locale.US, "getMiddleSeries: %s,", ((getMiddleSeries != null) ? getMiddleSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -300,7 +310,6 @@ public class BBands extends JsObject {
     private String generateJSgetUpperSeries() {
         if (getUpperSeries != null) {
             return getUpperSeries.generateJs();
-            //return String.format(Locale.US, "getUpperSeries: %s,", ((getUpperSeries != null) ? getUpperSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -325,28 +334,6 @@ public class BBands extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdeviation());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJStype2());
-////        
-//            js.append(generateJStype3());
-////        
-//            js.append(generateJSperiod());
-////        
-//            js.append(generateJStype4());
-////        
-//            js.append(generateJStype5());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

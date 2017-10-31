@@ -6,13 +6,35 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Funnel chart class.<br/>
+<b>Note:</b> Use {@link anychart#funnel} method to get an instance of this class:
+ */
 public class Funnel extends SeparateChart {
 
     protected Funnel(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Funnel setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Funnel setData(List<DataEntry> data) {
@@ -35,10 +57,34 @@ public class Funnel extends SeparateChart {
         return this;
     }
 
+    public Funnel setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
     private String baseWidth;
     private Double baseWidth1;
     private List<Funnel> setBaseWidth = new ArrayList<>();
+
+    /**
+     * Setter for the funnel width in pixels or in percentage.
+     */
     public Funnel setBaseWidth(String baseWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -64,6 +110,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setBaseWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the funnel width in pixels or in percentage.
+     */
     public Funnel setBaseWidth(Double baseWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -91,6 +141,10 @@ public class Funnel extends SeparateChart {
     private Double connectorLength;
     private String connectorLength1;
     private List<Funnel> setConnectorLength = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connector length.
+     */
     public Funnel setConnectorLength(Double connectorLength) {
         if (!isChain) {
             js.append(jsBase);
@@ -116,6 +170,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setConnectorLength1 = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connector length.
+     */
     public Funnel setConnectorLength(String connectorLength1) {
         if (!isChain) {
             js.append(jsBase);
@@ -148,6 +206,11 @@ public class Funnel extends SeparateChart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<Funnel> setConnectorStroke = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connectors stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Funnel setConnectorStroke(Stroke connectorStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -173,6 +236,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setConnectorStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connectors stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Funnel setConnectorStroke(ColoredFill connectorStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -198,6 +266,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setConnectorStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connectors stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Funnel setConnectorStroke(String connectorStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -225,6 +298,9 @@ public class Funnel extends SeparateChart {
 
     private View getData;
 
+    /**
+     * Getter for the current chart data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -232,6 +308,10 @@ public class Funnel extends SeparateChart {
         return getData;
     }
     private List<Funnel> setData = new ArrayList<>();
+
+    /**
+     * Setter for the data for the current chart.
+     */
     public Funnel data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -264,6 +344,11 @@ public class Funnel extends SeparateChart {
 
     private Fill fill;
     private List<Funnel> setFill = new ArrayList<>();
+
+    /**
+     * Sets fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Funnel setFill(Fill fill) {
         if (!isChain) {
             js.append(jsBase);
@@ -291,6 +376,10 @@ public class Funnel extends SeparateChart {
     private String color;
     private Double opacity;
     private List<Funnel> setFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.
+     */
     public Funnel fill(String color, Double opacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -323,6 +412,11 @@ public class Funnel extends SeparateChart {
     private String mode2;
     private Double opacity1;
     private List<Funnel> setFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Funnel fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -348,6 +442,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Funnel fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -373,6 +472,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Funnel fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -398,6 +502,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Funnel fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -423,6 +532,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Funnel fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -448,6 +562,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Funnel fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -481,6 +600,11 @@ public class Funnel extends SeparateChart {
     private Double fx;
     private Double fy;
     private List<Funnel> setFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Funnel fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -506,6 +630,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Funnel fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -534,6 +663,9 @@ public class Funnel extends SeparateChart {
 
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for the current hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -549,6 +681,10 @@ public class Funnel extends SeparateChart {
     private Double thickness1;
     private Double size;
     private List<Funnel> setHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public Funnel setHatchFill(PatternFill patternFillOrType, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -574,6 +710,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public Funnel setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -599,6 +739,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public Funnel setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -624,6 +768,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public Funnel setHatchFill(String patternFillOrType3, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -649,6 +797,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFill4 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+     */
     public Funnel setHatchFill(Boolean patternFillOrType4, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -676,6 +828,9 @@ public class Funnel extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for the current chart hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -686,6 +841,10 @@ public class Funnel extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<Funnel> setHatchFillPalette = new ArrayList<>();
+
+    /**
+     * Setter for the chart hatch fill palette settings.
+     */
     public Funnel setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -711,6 +870,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFillPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart hatch fill palette settings.
+     */
     public Funnel setHatchFillPalette(String hatchFillPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -736,17 +899,19 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setHatchFillPalette2 = new ArrayList<>();
-    public Funnel setHatchFillPalette(HatchFills hatchFillPalette2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart hatch fill palette settings.
+     */
+    public Funnel setHatchFillPalette(HatchFills hatchFillPalette2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetHatchFillPalette2() {
@@ -762,6 +927,10 @@ public class Funnel extends SeparateChart {
 
     private Double index;
     private List<Funnel> setHover = new ArrayList<>();
+
+    /**
+     * Setter for the hover state on a element or all elements.
+     */
     public Funnel setHover(Double index) {
         if (!isChain) {
             js.append(jsBase);
@@ -789,6 +958,9 @@ public class Funnel extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -797,6 +969,10 @@ public class Funnel extends SeparateChart {
     }
     private String hovered;
     private List<Funnel> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public Funnel setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -824,6 +1000,9 @@ public class Funnel extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for the current funnel labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -833,6 +1012,10 @@ public class Funnel extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Funnel> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for the funnel labels.
+     */
     public Funnel setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -858,6 +1041,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for the funnel labels.
+     */
     public Funnel setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -885,6 +1072,9 @@ public class Funnel extends SeparateChart {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for the current chart markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -896,17 +1086,19 @@ public class Funnel extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<Funnel> setMarkerPalette = new ArrayList<>();
-    public Funnel setMarkerPalette(Markers markerPalette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart markers palette settings.
+     */
+    public Funnel setMarkerPalette(Markers markerPalette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(markerPalette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetMarkerPalette() {
@@ -921,6 +1113,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setMarkerPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public Funnel setMarkerPalette(String markerPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -946,6 +1142,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setMarkerPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public Funnel setMarkerPalette(MarkerType[] markerPalette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -971,6 +1171,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setMarkerPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public Funnel setMarkerPalette(String[] markerPalette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -998,6 +1202,9 @@ public class Funnel extends SeparateChart {
 
     private UiMarkersFactory getMarkers;
 
+    /**
+     * Getter for the current data markers.
+     */
     public UiMarkersFactory getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersFactory(jsBase + ".markers()");
@@ -1008,6 +1215,10 @@ public class Funnel extends SeparateChart {
     private Boolean markers1;
     private String markers2;
     private List<Funnel> setMarkers = new ArrayList<>();
+
+    /**
+     * Setter for data markers.
+     */
     public Funnel setMarkers(String markers) {
         if (!isChain) {
             js.append(jsBase);
@@ -1033,6 +1244,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for data markers.
+     */
     public Funnel setMarkers(Boolean markers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1060,6 +1275,10 @@ public class Funnel extends SeparateChart {
     private String neckHeight;
     private Double neckHeight1;
     private List<Funnel> setNeckHeight = new ArrayList<>();
+
+    /**
+     * Setter for the height of the neck.
+     */
     public Funnel setNeckHeight(String neckHeight) {
         if (!isChain) {
             js.append(jsBase);
@@ -1085,6 +1304,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setNeckHeight1 = new ArrayList<>();
+
+    /**
+     * Setter for the height of the neck.
+     */
     public Funnel setNeckHeight(Double neckHeight1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1112,6 +1335,10 @@ public class Funnel extends SeparateChart {
     private String neckWidth;
     private Double neckWidth1;
     private List<Funnel> setNeckWidth = new ArrayList<>();
+
+    /**
+     * Setter for the width of the neck.
+     */
     public Funnel setNeckWidth(String neckWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -1137,6 +1364,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setNeckWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the width of the neck.
+     */
     public Funnel setNeckWidth(Double neckWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1164,6 +1395,9 @@ public class Funnel extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -1172,6 +1406,10 @@ public class Funnel extends SeparateChart {
     }
     private String normal;
     private List<Funnel> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public Funnel setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -1200,6 +1438,10 @@ public class Funnel extends SeparateChart {
     private String overlapMode1;
     private Boolean overlapMode2;
     private List<Funnel> setOverlapMode = new ArrayList<>();
+
+    /**
+     * Setter for overlap mode for labels.
+     */
     public Funnel setOverlapMode(LabelsOverlapMode overlapMode) {
         if (!isChain) {
             js.append(jsBase);
@@ -1225,6 +1467,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setOverlapMode1 = new ArrayList<>();
+
+    /**
+     * Setter for overlap mode for labels.
+     */
     public Funnel setOverlapMode(String overlapMode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1250,6 +1496,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setOverlapMode2 = new ArrayList<>();
+
+    /**
+     * Setter for overlap mode for labels.
+     */
     public Funnel setOverlapMode(Boolean overlapMode2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1277,6 +1527,9 @@ public class Funnel extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the current funnel palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -1288,17 +1541,20 @@ public class Funnel extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<Funnel> setPalette = new ArrayList<>();
-    public Funnel setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the funnel palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public Funnel setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -1313,17 +1569,20 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setPalette1 = new ArrayList<>();
-    public Funnel setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the funnel palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public Funnel setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -1338,6 +1597,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the funnel palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public Funnel setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1363,6 +1627,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the funnel palette.
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public Funnel setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1390,6 +1659,10 @@ public class Funnel extends SeparateChart {
     private String pointsPadding;
     private Double pointsPadding1;
     private List<Funnel> setPointsPadding = new ArrayList<>();
+
+    /**
+     * Setter for the padding between points.
+     */
     public Funnel setPointsPadding(String pointsPadding) {
         if (!isChain) {
             js.append(jsBase);
@@ -1415,6 +1688,10 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setPointsPadding1 = new ArrayList<>();
+
+    /**
+     * Setter for the padding between points.
+     */
     public Funnel setPointsPadding(Double pointsPadding1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1441,6 +1718,11 @@ public class Funnel extends SeparateChart {
 
     private Double index1;
     private List<Funnel> setSelect = new ArrayList<>();
+
+    /**
+     * Selects points by index.
+<b>Note:</b> Works only after {@link anychart.charts.Funnel#draw} is called.
+     */
     public Funnel select(Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1467,6 +1749,11 @@ public class Funnel extends SeparateChart {
 
     private Double[] indexes;
     private List<Funnel> setSelect1 = new ArrayList<>();
+
+    /**
+     * Selects points by indexes.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Funnel#draw} is called.
+     */
     public Funnel select(Double[] indexes) {
         if (!isChain) {
             js.append(jsBase);
@@ -1494,6 +1781,9 @@ public class Funnel extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -1502,6 +1792,10 @@ public class Funnel extends SeparateChart {
     }
     private String selected;
     private List<Funnel> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public Funnel setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -1528,6 +1822,11 @@ public class Funnel extends SeparateChart {
 
     private Stroke stroke;
     private List<Funnel> setStroke = new ArrayList<>();
+
+    /**
+     * Setter for the funnel points stroke using function.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Funnel setStroke(Stroke stroke) {
         if (!isChain) {
             js.append(jsBase);
@@ -1560,6 +1859,11 @@ public class Funnel extends SeparateChart {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
     private List<Funnel> setStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the funnel points stroke using several parameters.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Funnel setStroke(Stroke color2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1585,6 +1889,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for the funnel points stroke using several parameters.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Funnel setStroke(ColoredFill color3, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1610,6 +1919,11 @@ public class Funnel extends SeparateChart {
     }
 
     private List<Funnel> setStroke3 = new ArrayList<>();
+
+    /**
+     * Setter for the funnel points stroke using several parameters.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Funnel setStroke(String color4, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);

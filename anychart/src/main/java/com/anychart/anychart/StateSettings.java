@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * The StateSettings class contains methods for configuring the states of different charts and their parts.<br/>
+States are used for series, charts, annotations, intersections in Venn Diagram, pointers in Linear Gauge, tasks,
+and milestones in PERT Chart, activities in Resource Chart.<br/> See examples below:
+ */
 public class StateSettings extends CoreBase {
 
     public StateSettings() {
-
+        js.setLength(0);
+        js.append("var stateSettings").append(++variableIndex).append(" = anychart.core.stateSettings();");
+        jsBase = "stateSettings" + variableIndex;
     }
 
     protected StateSettings(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +32,17 @@ public class StateSettings extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill dummyFill;
 
+    /**
+     * Setter for dummy fill settings using a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setDummyFill(Fill dummyFill) {
         if (jsBase == null) {
             this.dummyFill = dummyFill;
@@ -38,7 +54,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s)", ((dummyFill != null) ? dummyFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s)", ((dummyFill != null) ? dummyFill.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +65,9 @@ public class StateSettings extends CoreBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Dummy fill color with opacity.
+     */
     public StateSettings dummyFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -63,7 +81,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -80,6 +97,10 @@ public class StateSettings extends CoreBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings dummyFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -107,7 +128,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -117,6 +137,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings dummyFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -144,7 +168,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -154,6 +177,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings dummyFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -181,7 +208,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -191,6 +217,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings dummyFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -218,7 +248,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -228,6 +257,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings dummyFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -255,7 +288,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -265,6 +297,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings dummyFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -292,7 +328,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -310,6 +345,10 @@ public class StateSettings extends CoreBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings dummyFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -347,7 +386,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -357,6 +395,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Radial gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings dummyFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +436,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -412,6 +453,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for tasks dummy stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setDummyStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -436,7 +481,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -446,6 +490,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for tasks dummy stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setDummyStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -470,7 +518,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -480,6 +527,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for tasks dummy stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setDummyStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -504,7 +555,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -516,6 +566,10 @@ public class StateSettings extends CoreBase {
     private Fill emptyFill;
     private String emptyFill1;
 
+    /**
+     * Setter for state fill settings for the empty part of a tank using a string or an object.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setEmptyFill(Fill emptyFill) {
         if (jsBase == null) {
             this.emptyFill = null;
@@ -530,7 +584,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".emptyFill(%s)", ((emptyFill != null) ? emptyFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s)", ((emptyFill != null) ? emptyFill.generateJs() : "null")));
                 js.setLength(0);
@@ -540,6 +593,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for state fill settings for the empty part of a tank using a string or an object.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setEmptyFill(String emptyFill1) {
         if (jsBase == null) {
             this.emptyFill = null;
@@ -554,7 +611,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".emptyFill(%s)", wrapQuotes(emptyFill1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s)", wrapQuotes(emptyFill1)));
                 js.setLength(0);
@@ -566,6 +622,9 @@ public class StateSettings extends CoreBase {
     private String color4;
     private Double opacity3;
 
+    /**
+     * State fill color with opacity for the empty part of a tank. Fill as a string or an object.
+     */
     public StateSettings emptyFill(String color4, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
@@ -590,7 +649,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".emptyFill(%s, %f)", wrapQuotes(color4), opacity3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s, %f)", wrapQuotes(color4), opacity3));
                 js.setLength(0);
@@ -601,6 +659,9 @@ public class StateSettings extends CoreBase {
 
     private PatternFill getEmptyHatchFill;
 
+    /**
+     * Getter for hatch fill settings.
+     */
     public PatternFill getEmptyHatchFill() {
         if (getEmptyHatchFill == null)
             getEmptyHatchFill = new PatternFill(jsBase + ".emptyHatchFill()");
@@ -617,6 +678,10 @@ public class StateSettings extends CoreBase {
     private Double thickness1;
     private Double size;
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StateSettings setEmptyHatchFill(PatternFill patternFillOrType, String color5, Double thickness1, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -650,7 +715,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
@@ -660,6 +724,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StateSettings setEmptyHatchFill(HatchFill patternFillOrType1, String color5, Double thickness1, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -693,7 +761,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
@@ -703,6 +770,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StateSettings setEmptyHatchFill(HatchFillType patternFillOrType2, String color5, Double thickness1, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -736,7 +807,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
@@ -746,6 +816,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StateSettings setEmptyHatchFill(String patternFillOrType3, String color5, Double thickness1, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -779,7 +853,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color5), thickness1, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
@@ -789,6 +862,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StateSettings setEmptyHatchFill(Boolean patternFillOrType4, String color5, Double thickness1, Double size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -822,7 +899,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color5), thickness1, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
@@ -833,6 +909,10 @@ public class StateSettings extends CoreBase {
 
     private Fill fallingFill;
 
+    /**
+     * Setter for falling fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CartesianSeriesBase setFallingFill(Fill fallingFill) {
         if (jsBase == null) {
             this.fallingFill = fallingFill;
@@ -844,7 +924,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingFill(%s);", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
                 js.setLength(0);
@@ -856,6 +935,9 @@ public class StateSettings extends CoreBase {
     private String color6;
     private Double opacity4;
 
+    /**
+     * Falling fill color with opacity.
+     */
     public CartesianSeriesBase fallingFill(String color6, Double opacity4) {
         if (jsBase == null) {
             this.color = null;
@@ -883,7 +965,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %f);", wrapQuotes(color6), opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f)", wrapQuotes(color6), opacity4));
                 js.setLength(0);
@@ -900,6 +981,10 @@ public class StateSettings extends CoreBase {
     private String mode6;
     private Double opacity5;
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CartesianSeriesBase fallingFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
@@ -942,7 +1027,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity5));
                 js.setLength(0);
@@ -952,6 +1036,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CartesianSeriesBase fallingFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
@@ -994,7 +1082,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f);", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity5));
                 js.setLength(0);
@@ -1004,6 +1091,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CartesianSeriesBase fallingFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
@@ -1046,7 +1137,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f);", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity5));
                 js.setLength(0);
@@ -1056,6 +1146,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CartesianSeriesBase fallingFill(String[] keys5, Boolean mode4, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
@@ -1098,7 +1192,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f);", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity5));
                 js.setLength(0);
@@ -1108,6 +1201,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CartesianSeriesBase fallingFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
@@ -1150,7 +1247,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity5));
                 js.setLength(0);
@@ -1160,6 +1256,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CartesianSeriesBase fallingFill(String[] keys5, String mode6, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
@@ -1202,7 +1302,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity5));
                 js.setLength(0);
@@ -1220,6 +1319,10 @@ public class StateSettings extends CoreBase {
     private Double fx1;
     private Double fy1;
 
+    /**
+     * Radial gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CartesianSeriesBase fallingFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity6, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1281,7 +1384,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity6, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity6, fx1, fy1));
                 js.setLength(0);
@@ -1291,6 +1393,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Radial gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public CartesianSeriesBase fallingFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity6, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1352,7 +1458,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity6, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity6, fx1, fy1));
                 js.setLength(0);
@@ -1364,6 +1469,9 @@ public class StateSettings extends CoreBase {
     private Fill imageSettings1;
     private PatternFill getFallingHatchFill;
 
+    /**
+     * Getter for falling hatch fill settings.
+     */
     public PatternFill getFallingHatchFill() {
         if (getFallingHatchFill == null)
             getFallingHatchFill = new PatternFill(jsBase + ".fallingHatchFill()");
@@ -1379,6 +1487,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for falling stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setFallingStroke(Stroke stroke, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1415,7 +1527,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1425,6 +1536,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for falling stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setFallingStroke(ColoredFill stroke1, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1461,7 +1576,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1471,6 +1585,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for falling stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setFallingStroke(String stroke2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
@@ -1507,7 +1625,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1518,6 +1635,10 @@ public class StateSettings extends CoreBase {
 
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -1529,7 +1650,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -1541,6 +1661,9 @@ public class StateSettings extends CoreBase {
     private String color7;
     private Double opacity7;
 
+    /**
+     * Setter for the fill color with opacity.
+     */
     public StateSettings setFill(String color7, Double opacity7) {
         if (jsBase == null) {
             this.color = null;
@@ -1572,7 +1695,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color7), opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color7), opacity7));
                 js.setLength(0);
@@ -1589,6 +1711,10 @@ public class StateSettings extends CoreBase {
     private String mode10;
     private Double opacity8;
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
@@ -1643,7 +1769,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity8));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity8));
                 js.setLength(0);
@@ -1653,6 +1778,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
@@ -1707,7 +1836,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
                 js.setLength(0);
@@ -1717,6 +1845,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
@@ -1771,7 +1903,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity8));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity8));
                 js.setLength(0);
@@ -1781,6 +1912,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setFill(String[] keys9, Boolean mode8, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
@@ -1835,7 +1970,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity8));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity8));
                 js.setLength(0);
@@ -1845,6 +1979,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
@@ -1899,7 +2037,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
                 js.setLength(0);
@@ -1909,6 +2046,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setFill(String[] keys9, String mode10, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
@@ -1963,7 +2104,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity8));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity8));
                 js.setLength(0);
@@ -1981,6 +2121,10 @@ public class StateSettings extends CoreBase {
     private Double fx2;
     private Double fy2;
 
+    /**
+     * Setter for the radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
@@ -2057,7 +2201,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
                 js.setLength(0);
@@ -2067,6 +2210,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
@@ -2143,7 +2290,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
                 js.setLength(0);
@@ -2155,6 +2301,9 @@ public class StateSettings extends CoreBase {
     private Fill imageSettings2;
     private String fontFamily;
 
+    /**
+     * Setter for the font family of text.
+     */
     public StateSettings setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
@@ -2166,7 +2315,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
                 js.setLength(0);
@@ -2178,6 +2326,9 @@ public class StateSettings extends CoreBase {
     private Double fontSize;
     private String fontSize1;
 
+    /**
+     * Setter for font size settings.
+     */
     public StateSettings setFontSize(Double fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -2192,7 +2343,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize));
                 js.setLength(0);
@@ -2202,6 +2352,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for font size settings.
+     */
     public StateSettings setFontSize(String fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
@@ -2216,7 +2369,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
                 js.setLength(0);
@@ -2228,6 +2380,9 @@ public class StateSettings extends CoreBase {
     private TextFontStyle fontStyle;
     private String fontStyle1;
 
+    /**
+     * Setter for the text font style.
+     */
     public StateSettings setFontStyle(TextFontStyle fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -2242,7 +2397,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
                 js.setLength(0);
@@ -2252,6 +2406,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the text font style.
+     */
     public StateSettings setFontStyle(String fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
@@ -2266,7 +2423,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
                 js.setLength(0);
@@ -2278,6 +2434,9 @@ public class StateSettings extends CoreBase {
     private TextFontVariant fontVariant;
     private String fontVariant1;
 
+    /**
+     * Setter for the text font variant.
+     */
     public StateSettings setFontVariant(TextFontVariant fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -2292,7 +2451,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
                 js.setLength(0);
@@ -2302,6 +2460,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the text font variant.
+     */
     public StateSettings setFontVariant(String fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
@@ -2316,7 +2477,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
                 js.setLength(0);
@@ -2328,6 +2488,9 @@ public class StateSettings extends CoreBase {
     private String fontWeight;
     private Double fontWeight1;
 
+    /**
+     * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
+     */
     public StateSettings setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -2342,7 +2505,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
                 js.setLength(0);
@@ -2352,6 +2514,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
+     */
     public StateSettings setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
@@ -2366,7 +2531,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
@@ -2383,6 +2547,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
 
+    /**
+     * Setter for annotation grid settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setGrid(Stroke grid, Double thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.grid = null;
@@ -2423,7 +2591,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid != null) ? grid.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid != null) ? grid.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2433,6 +2600,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for annotation grid settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setGrid(ColoredFill grid1, Double thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.grid = null;
@@ -2473,7 +2644,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid1 != null) ? grid1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid1 != null) ? grid1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2483,6 +2653,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for annotation grid settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setGrid(String grid2, Double thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.grid = null;
@@ -2523,7 +2697,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", wrapQuotes(grid2), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", wrapQuotes(grid2), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2534,6 +2707,9 @@ public class StateSettings extends CoreBase {
 
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -2549,6 +2725,10 @@ public class StateSettings extends CoreBase {
     private Double thickness4;
     private Double size1;
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StateSettings setHatchFill(PatternFill patternFillOrType5, String color8, Double thickness4, Double size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -2595,7 +2775,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
                 js.setLength(0);
@@ -2605,6 +2784,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StateSettings setHatchFill(HatchFill patternFillOrType6, String color8, Double thickness4, Double size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -2651,7 +2834,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
                 js.setLength(0);
@@ -2661,6 +2843,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StateSettings setHatchFill(HatchFillType patternFillOrType7, String color8, Double thickness4, Double size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -2707,7 +2893,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
                 js.setLength(0);
@@ -2717,6 +2902,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public StateSettings setHatchFill(String patternFillOrType8, String color8, Double thickness4, Double size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -2763,7 +2952,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType8), wrapQuotes(color8), thickness4, size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType8), wrapQuotes(color8), thickness4, size1));
                 js.setLength(0);
@@ -2774,6 +2962,9 @@ public class StateSettings extends CoreBase {
 
     private UiLabelsFactory getHeaders;
 
+    /**
+     * Getter for the header labels (TreeMap).
+     */
     public UiLabelsFactory getHeaders() {
         if (getHeaders == null)
             getHeaders = new UiLabelsFactory(jsBase + ".headers()");
@@ -2784,6 +2975,9 @@ public class StateSettings extends CoreBase {
     private String headers;
     private Boolean headers1;
 
+    /**
+     * Setter for the header labels (TreeMap).
+     */
     public StateSettings setHeaders(String headers) {
         if (jsBase == null) {
             this.headers = null;
@@ -2798,7 +2992,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".headers(%s)", wrapQuotes(headers)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".headers(%s)", wrapQuotes(headers)));
                 js.setLength(0);
@@ -2808,6 +3001,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the header labels (TreeMap).
+     */
     public StateSettings setHeaders(Boolean headers1) {
         if (jsBase == null) {
             this.headers = null;
@@ -2822,7 +3018,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".headers(%b)", headers1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".headers(%b)", headers1));
                 js.setLength(0);
@@ -2839,6 +3034,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
 
+    /**
+     * Setter for high stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setHighStroke(Stroke color9, Double thickness5, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
@@ -2893,7 +3092,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color9 != null) ? color9.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color9 != null) ? color9.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -2903,6 +3101,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for high stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setHighStroke(ColoredFill color10, Double thickness5, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
@@ -2957,7 +3159,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -2967,6 +3168,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for high stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setHighStroke(String color11, Double thickness5, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
@@ -3021,7 +3226,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", wrapQuotes(color11), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", wrapQuotes(color11), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -3032,6 +3236,9 @@ public class StateSettings extends CoreBase {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for the hovered state.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -3041,6 +3248,9 @@ public class StateSettings extends CoreBase {
 
     private String hovered;
 
+    /**
+     * Setter for the hovered state.
+     */
     public void setHovered(String hovered) {
         if (jsBase == null) {
             this.hovered = hovered;
@@ -3052,7 +3262,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(hovered)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
@@ -3062,6 +3271,9 @@ public class StateSettings extends CoreBase {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -3072,6 +3284,9 @@ public class StateSettings extends CoreBase {
     private String labels;
     private Boolean labels1;
 
+    /**
+     * Setter for labels.
+     */
     public StateSettings setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
@@ -3086,7 +3301,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -3096,6 +3310,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for labels.
+     */
     public StateSettings setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
@@ -3110,7 +3327,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -3127,6 +3343,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin4;
     private StrokeLineCap lineCap4;
 
+    /**
+     * Setter for low stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setLowStroke(Stroke color12, Double thickness6, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.color = null;
@@ -3188,7 +3408,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3198,6 +3417,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for low stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setLowStroke(ColoredFill color13, Double thickness6, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.color = null;
@@ -3259,7 +3482,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3269,6 +3491,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for low stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setLowStroke(String color14, Double thickness6, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.color = null;
@@ -3330,7 +3556,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", wrapQuotes(color14), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", wrapQuotes(color14), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3341,6 +3566,9 @@ public class StateSettings extends CoreBase {
 
     private UiLabelsFactory getLowerLabels;
 
+    /**
+     * Getter for lower labels (for pert tasks).
+     */
     public UiLabelsFactory getLowerLabels() {
         if (getLowerLabels == null)
             getLowerLabels = new UiLabelsFactory(jsBase + ".lowerLabels()");
@@ -3351,6 +3579,9 @@ public class StateSettings extends CoreBase {
     private String lowerLabels;
     private Boolean lowerLabels1;
 
+    /**
+     * Setter for lower labels (for pert tasks).
+     */
     public StateSettings setLowerLabels(String lowerLabels) {
         if (jsBase == null) {
             this.lowerLabels = null;
@@ -3365,7 +3596,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".lowerLabels(%s)", wrapQuotes(lowerLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowerLabels(%s)", wrapQuotes(lowerLabels)));
                 js.setLength(0);
@@ -3375,6 +3605,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for lower labels (for pert tasks).
+     */
     public StateSettings setLowerLabels(Boolean lowerLabels1) {
         if (jsBase == null) {
             this.lowerLabels = null;
@@ -3389,7 +3622,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".lowerLabels(%b)", lowerLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowerLabels(%b)", lowerLabels1));
                 js.setLength(0);
@@ -3400,6 +3632,9 @@ public class StateSettings extends CoreBase {
 
     private UiMarkersFactory getMarkers;
 
+    /**
+     * Getter for data markers.
+     */
     public UiMarkersFactory getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersFactory(jsBase + ".markers()");
@@ -3411,6 +3646,9 @@ public class StateSettings extends CoreBase {
     private Boolean markers1;
     private String markers2;
 
+    /**
+     * Setter for data markers.
+     */
     public StateSettings setMarkers(String markers) {
         if (jsBase == null) {
             this.markers = null;
@@ -3426,7 +3664,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
@@ -3436,6 +3673,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for data markers.
+     */
     public StateSettings setMarkers(Boolean markers1) {
         if (jsBase == null) {
             this.markers = null;
@@ -3451,7 +3691,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
                 js.setLength(0);
@@ -3468,6 +3707,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin5;
     private StrokeLineCap lineCap5;
 
+    /**
+     * Setter for median stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setMedianStroke(Stroke color15, Double thickness7, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.color = null;
@@ -3536,7 +3779,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color15 != null) ? color15.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color15 != null) ? color15.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -3546,6 +3788,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for median stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setMedianStroke(ColoredFill color16, Double thickness7, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.color = null;
@@ -3614,7 +3860,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color16 != null) ? color16.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color16 != null) ? color16.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -3624,6 +3869,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for median stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setMedianStroke(String color17, Double thickness7, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.color = null;
@@ -3692,7 +3941,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", wrapQuotes(color17), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", wrapQuotes(color17), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -3703,6 +3951,10 @@ public class StateSettings extends CoreBase {
 
     private Fill negativeFill;
 
+    /**
+     * Setter for negative fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setNegativeFill(Fill negativeFill) {
         if (jsBase == null) {
             this.negativeFill = negativeFill;
@@ -3714,7 +3966,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s)", ((negativeFill != null) ? negativeFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s)", ((negativeFill != null) ? negativeFill.generateJs() : "null")));
                 js.setLength(0);
@@ -3726,6 +3977,9 @@ public class StateSettings extends CoreBase {
     private String color18;
     private Double opacity10;
 
+    /**
+     * Negative fill color with opacity.
+     */
     public StateSettings negativeFill(String color18, Double opacity10) {
         if (jsBase == null) {
             this.color = null;
@@ -3771,7 +4025,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color18), opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color18), opacity10));
                 js.setLength(0);
@@ -3788,6 +4041,10 @@ public class StateSettings extends CoreBase {
     private String mode14;
     private Double opacity11;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings negativeFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -3854,7 +4111,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
                 js.setLength(0);
@@ -3864,6 +4120,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings negativeFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -3930,7 +4190,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
                 js.setLength(0);
@@ -3940,6 +4199,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings negativeFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -4006,7 +4269,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
                 js.setLength(0);
@@ -4016,6 +4278,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings negativeFill(String[] keys13, Boolean mode12, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -4082,7 +4348,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
                 js.setLength(0);
@@ -4092,6 +4357,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings negativeFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -4158,7 +4427,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
                 js.setLength(0);
@@ -4168,6 +4436,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings negativeFill(String[] keys13, String mode14, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -4234,7 +4506,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
                 js.setLength(0);
@@ -4252,6 +4523,10 @@ public class StateSettings extends CoreBase {
     private Double fx3;
     private Double fy3;
 
+    /**
+     * Radial gradient negative fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings negativeFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity12, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
@@ -4343,7 +4618,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
                 js.setLength(0);
@@ -4353,6 +4627,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Radial gradient negative fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings negativeFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity12, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
@@ -4444,7 +4722,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
                 js.setLength(0);
@@ -4456,6 +4733,9 @@ public class StateSettings extends CoreBase {
     private Fill imageSettings3;
     private PatternFill getNegativeHatchFill;
 
+    /**
+     * Getter for negative hatch fill settings.
+     */
     public PatternFill getNegativeHatchFill() {
         if (getNegativeHatchFill == null)
             getNegativeHatchFill = new PatternFill(jsBase + ".negativeHatchFill()");
@@ -4471,6 +4751,10 @@ public class StateSettings extends CoreBase {
     private Double thickness8;
     private Double size2;
 
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setNegativeHatchFill(PatternFill patternFillOrType9, String color19, Double thickness8, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -4537,7 +4821,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
                 js.setLength(0);
@@ -4547,6 +4830,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setNegativeHatchFill(HatchFill patternFillOrType10, String color19, Double thickness8, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -4613,7 +4900,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
                 js.setLength(0);
@@ -4623,6 +4909,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setNegativeHatchFill(HatchFillType patternFillOrType11, String color19, Double thickness8, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -4689,7 +4979,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType11 != null) ? patternFillOrType11.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType11 != null) ? patternFillOrType11.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
                 js.setLength(0);
@@ -4699,6 +4988,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setNegativeHatchFill(String patternFillOrType12, String color19, Double thickness8, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
@@ -4765,7 +5058,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType12), wrapQuotes(color19), thickness8, size2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType12), wrapQuotes(color19), thickness8, size2));
                 js.setLength(0);
@@ -4782,6 +5074,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin6;
     private StrokeLineCap lineCap6;
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setNegativeStroke(Stroke color20, Double thickness9, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.color = null;
@@ -4860,7 +5156,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color20 != null) ? color20.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color20 != null) ? color20.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -4870,6 +5165,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setNegativeStroke(ColoredFill color21, Double thickness9, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.color = null;
@@ -4948,7 +5247,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color21 != null) ? color21.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color21 != null) ? color21.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -4958,6 +5256,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setNegativeStroke(String color22, Double thickness9, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.color = null;
@@ -5036,7 +5338,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color22), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color22), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -5047,6 +5348,9 @@ public class StateSettings extends CoreBase {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for the normal state.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -5056,6 +5360,9 @@ public class StateSettings extends CoreBase {
 
     private String normal;
 
+    /**
+     * Setter for the normal state.
+     */
     public void setNormal(String normal) {
         if (jsBase == null) {
             this.normal = normal;
@@ -5067,7 +5374,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(normal)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
@@ -5077,6 +5383,9 @@ public class StateSettings extends CoreBase {
 
     private UiMarkersFactory getOutlierMarkers;
 
+    /**
+     * Getter for series outlier markers.
+     */
     public UiMarkersFactory getOutlierMarkers() {
         if (getOutlierMarkers == null)
             getOutlierMarkers = new UiMarkersFactory(jsBase + ".outlierMarkers()");
@@ -5088,6 +5397,9 @@ public class StateSettings extends CoreBase {
     private Boolean outlierMarkers1;
     private String outlierMarkers2;
 
+    /**
+     * Setter for series outlier markers.
+     */
     public StateSettings setOutlierMarkers(String outlierMarkers) {
         if (jsBase == null) {
             this.outlierMarkers = null;
@@ -5103,7 +5415,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".outlierMarkers(%s)", wrapQuotes(outlierMarkers)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".outlierMarkers(%s)", wrapQuotes(outlierMarkers)));
                 js.setLength(0);
@@ -5113,6 +5424,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for series outlier markers.
+     */
     public StateSettings setOutlierMarkers(Boolean outlierMarkers1) {
         if (jsBase == null) {
             this.outlierMarkers = null;
@@ -5128,7 +5442,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".outlierMarkers(%b)", outlierMarkers1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".outlierMarkers(%b)", outlierMarkers1));
                 js.setLength(0);
@@ -5139,6 +5452,10 @@ public class StateSettings extends CoreBase {
 
     private Fill risingFill;
 
+    /**
+     * Setter for the rising fill settings using an array or a string.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingFill(Fill risingFill) {
         if (jsBase == null) {
             this.risingFill = risingFill;
@@ -5150,7 +5467,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s);", ((risingFill != null) ? risingFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
                 js.setLength(0);
@@ -5162,6 +5478,9 @@ public class StateSettings extends CoreBase {
     private String color23;
     private Double opacity13;
 
+    /**
+     * Rising fill color with opacity.
+     */
     public ScrollerseriesBase risingFill(String color23, Double opacity13) {
         if (jsBase == null) {
             this.color = null;
@@ -5215,7 +5534,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %f);", wrapQuotes(color23), opacity13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f)", wrapQuotes(color23), opacity13));
                 js.setLength(0);
@@ -5232,6 +5550,10 @@ public class StateSettings extends CoreBase {
     private String mode18;
     private Double opacity14;
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -5310,7 +5632,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f);", arrayToString(keys16), mode16, angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity14));
                 js.setLength(0);
@@ -5320,6 +5641,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -5398,7 +5723,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
                 js.setLength(0);
@@ -5408,6 +5732,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -5486,7 +5814,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
                 js.setLength(0);
@@ -5496,6 +5823,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(String[] keys17, Boolean mode16, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -5574,7 +5905,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f);", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
                 js.setLength(0);
@@ -5584,6 +5914,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -5662,7 +5996,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
                 js.setLength(0);
@@ -5672,6 +6005,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public ScrollerseriesBase risingFill(String[] keys17, String mode18, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -5750,7 +6087,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
                 js.setLength(0);
@@ -5768,6 +6104,10 @@ public class StateSettings extends CoreBase {
     private Double fx4;
     private Double fy4;
 
+    /**
+     * Radial gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings risingFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity15, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
@@ -5874,7 +6214,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
                 js.setLength(0);
@@ -5884,6 +6223,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Radial gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings risingFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity15, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
@@ -5990,7 +6333,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
                 js.setLength(0);
@@ -6002,6 +6344,9 @@ public class StateSettings extends CoreBase {
     private Fill imageSettings4;
     private PatternFill getRisingHatchFill;
 
+    /**
+     * Getter for the rising hatch fill.
+     */
     public PatternFill getRisingHatchFill() {
         if (getRisingHatchFill == null)
             getRisingHatchFill = new PatternFill(jsBase + ".risingHatchFill()");
@@ -6018,6 +6363,10 @@ public class StateSettings extends CoreBase {
     private Double thickness10;
     private Double size3;
 
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingHatchFill(PatternFill patternFillOrTypeOrState, String color24, Double thickness10, Double size3) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -6084,7 +6433,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
                 js.setLength(0);
@@ -6094,6 +6442,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingHatchFill(HatchFill patternFillOrTypeOrState1, String color24, Double thickness10, Double size3) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -6160,7 +6512,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
                 js.setLength(0);
@@ -6170,6 +6521,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingHatchFill(HatchFillType patternFillOrTypeOrState2, String color24, Double thickness10, Double size3) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -6236,7 +6591,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
                 js.setLength(0);
@@ -6246,6 +6600,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingHatchFill(String patternFillOrTypeOrState3, String color24, Double thickness10, Double size3) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -6312,7 +6670,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color24), thickness10, size3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color24), thickness10, size3));
                 js.setLength(0);
@@ -6322,6 +6679,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public ScrollerseriesBase setRisingHatchFill(Boolean patternFillOrTypeOrState4, String color24, Double thickness10, Double size3) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -6388,7 +6749,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, wrapQuotes(color24), thickness10, size3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color24), thickness10, size3));
                 js.setLength(0);
@@ -6405,6 +6765,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin7;
     private StrokeLineCap lineCap7;
 
+    /**
+     * Setter for rising stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setRisingStroke(Stroke color25, Double thickness11, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.color = null;
@@ -6493,7 +6857,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color25 != null) ? color25.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color25 != null) ? color25.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -6503,6 +6866,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for rising stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setRisingStroke(ColoredFill color26, Double thickness11, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.color = null;
@@ -6591,7 +6958,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color26 != null) ? color26.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color26 != null) ? color26.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -6601,6 +6967,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for rising stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setRisingStroke(String color27, Double thickness11, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.color = null;
@@ -6689,7 +7059,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color27), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color27), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -6707,6 +7076,10 @@ public class StateSettings extends CoreBase {
     private Double thickness12;
     private Double size4;
 
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public CartesianSeriesBase setSelectFallingHatchFill(PatternFill patternFillOrTypeOrState5, String color28, Double thickness12, Double size4) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -6785,7 +7158,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
                 js.setLength(0);
@@ -6795,6 +7167,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public CartesianSeriesBase setSelectFallingHatchFill(HatchFill patternFillOrTypeOrState6, String color28, Double thickness12, Double size4) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -6873,7 +7249,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
                 js.setLength(0);
@@ -6883,6 +7258,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public CartesianSeriesBase setSelectFallingHatchFill(HatchFillType patternFillOrTypeOrState7, String color28, Double thickness12, Double size4) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -6961,7 +7340,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
                 js.setLength(0);
@@ -6971,6 +7349,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public CartesianSeriesBase setSelectFallingHatchFill(String patternFillOrTypeOrState8, String color28, Double thickness12, Double size4) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -7049,7 +7431,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color28), thickness12, size4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color28), thickness12, size4));
                 js.setLength(0);
@@ -7059,6 +7440,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public CartesianSeriesBase setSelectFallingHatchFill(Boolean patternFillOrTypeOrState9, String color28, Double thickness12, Double size4) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
@@ -7137,7 +7522,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState9, wrapQuotes(color28), thickness12, size4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, wrapQuotes(color28), thickness12, size4));
                 js.setLength(0);
@@ -7148,6 +7532,9 @@ public class StateSettings extends CoreBase {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for the selected state.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -7157,6 +7544,9 @@ public class StateSettings extends CoreBase {
 
     private String selected;
 
+    /**
+     * Setter for the selected state.
+     */
     public void setSelected(String selected) {
         if (jsBase == null) {
             this.selected = selected;
@@ -7168,7 +7558,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(selected)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
@@ -7178,6 +7567,9 @@ public class StateSettings extends CoreBase {
 
     private Double size5;
 
+    /**
+     * Setter for the marker size.
+     */
     public PolarSeriesMarker setSize(Double size5) {
         if (jsBase == null) {
             this.size = null;
@@ -7196,7 +7588,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".size(%f);", size5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%f)", size5));
                 js.setLength(0);
@@ -7213,6 +7604,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin8;
     private StrokeLineCap lineCap8;
 
+    /**
+     * Setter for stem stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setStemStroke(Stroke color29, Double thickness13, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.color = null;
@@ -7310,7 +7705,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", ((color29 != null) ? color29.generateJs() : "null"), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", ((color29 != null) ? color29.generateJs() : "null"), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7320,6 +7714,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for stem stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setStemStroke(ColoredFill color30, Double thickness13, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.color = null;
@@ -7417,7 +7815,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", ((color30 != null) ? color30.generateJs() : "null"), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", ((color30 != null) ? color30.generateJs() : "null"), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7427,6 +7824,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for stem stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setStemStroke(String color31, Double thickness13, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.color = null;
@@ -7524,7 +7925,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", wrapQuotes(color31), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", wrapQuotes(color31), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7541,6 +7941,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin9;
     private StrokeLineCap lineCap9;
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setStroke(Stroke color32, Double thickness14, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.color = null;
@@ -7645,7 +8049,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color32 != null) ? color32.generateJs() : "null"), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color32 != null) ? color32.generateJs() : "null"), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -7655,6 +8058,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setStroke(ColoredFill color33, Double thickness14, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.color = null;
@@ -7759,7 +8166,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color33 != null) ? color33.generateJs() : "null"), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color33 != null) ? color33.generateJs() : "null"), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -7769,6 +8175,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setStroke(String color34, Double thickness14, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.color = null;
@@ -7873,7 +8283,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color34), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color34), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -7890,6 +8299,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin10;
     private StrokeLineCap lineCap10;
 
+    /**
+     * Setter for annotation trend settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setTrend(Stroke trend, Double thickness15, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.trend = null;
@@ -7966,7 +8379,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend != null) ? trend.generateJs() : "null"), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend != null) ? trend.generateJs() : "null"), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -7976,6 +8388,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for annotation trend settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setTrend(ColoredFill trend1, Double thickness15, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.trend = null;
@@ -8052,7 +8468,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend1 != null) ? trend1.generateJs() : "null"), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend1 != null) ? trend1.generateJs() : "null"), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -8062,6 +8477,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for annotation trend settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setTrend(String trend2, Double thickness15, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.trend = null;
@@ -8138,7 +8557,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", wrapQuotes(trend2), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", wrapQuotes(trend2), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -8150,6 +8568,9 @@ public class StateSettings extends CoreBase {
     private MarkerType type;
     private String type1;
 
+    /**
+     * Setter for the marker type.
+     */
     public StateSettings setType(MarkerType type) {
         if (jsBase == null) {
             this.type = null;
@@ -8164,7 +8585,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -8174,6 +8594,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the marker type.
+     */
     public StateSettings setType(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -8188,7 +8611,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -8199,6 +8621,9 @@ public class StateSettings extends CoreBase {
 
     private UiLabelsFactory getUpperLabels;
 
+    /**
+     * Getter for upper labels (for pert tasks).
+     */
     public UiLabelsFactory getUpperLabels() {
         if (getUpperLabels == null)
             getUpperLabels = new UiLabelsFactory(jsBase + ".upperLabels()");
@@ -8209,6 +8634,9 @@ public class StateSettings extends CoreBase {
     private String upperLabels;
     private Boolean upperLabels1;
 
+    /**
+     * Setter for upper labels (for pert tasks).
+     */
     public StateSettings setUpperLabels(String upperLabels) {
         if (jsBase == null) {
             this.upperLabels = null;
@@ -8223,7 +8651,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".upperLabels(%s)", wrapQuotes(upperLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upperLabels(%s)", wrapQuotes(upperLabels)));
                 js.setLength(0);
@@ -8233,6 +8660,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for upper labels (for pert tasks).
+     */
     public StateSettings setUpperLabels(Boolean upperLabels1) {
         if (jsBase == null) {
             this.upperLabels = null;
@@ -8247,7 +8677,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".upperLabels(%b)", upperLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upperLabels(%b)", upperLabels1));
                 js.setLength(0);
@@ -8264,6 +8693,10 @@ public class StateSettings extends CoreBase {
     private StrokeLineJoin lineJoin11;
     private StrokeLineCap lineCap11;
 
+    /**
+     * Setter for whisker stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setWhiskerStroke(Stroke color35, Double thickness16, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.color = null;
@@ -8379,7 +8812,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", ((color35 != null) ? color35.generateJs() : "null"), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", ((color35 != null) ? color35.generateJs() : "null"), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -8389,6 +8821,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for whisker stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setWhiskerStroke(ColoredFill color36, Double thickness16, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.color = null;
@@ -8504,7 +8940,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", ((color36 != null) ? color36.generateJs() : "null"), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", ((color36 != null) ? color36.generateJs() : "null"), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -8514,6 +8949,10 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for whisker stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public StateSettings setWhiskerStroke(String color37, Double thickness16, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.color = null;
@@ -8629,7 +9068,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", wrapQuotes(color37), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", wrapQuotes(color37), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -8641,6 +9079,9 @@ public class StateSettings extends CoreBase {
     private Double whiskerWidth;
     private String whiskerWidth1;
 
+    /**
+     * Setter for the whisker width.
+     */
     public StateSettings setWhiskerWidth(Double whiskerWidth) {
         if (jsBase == null) {
             this.whiskerWidth = null;
@@ -8655,7 +9096,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".whiskerWidth(%f)", whiskerWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".whiskerWidth(%f)", whiskerWidth));
                 js.setLength(0);
@@ -8665,6 +9105,9 @@ public class StateSettings extends CoreBase {
     }
 
 
+    /**
+     * Setter for the whisker width.
+     */
     public StateSettings setWhiskerWidth(String whiskerWidth1) {
         if (jsBase == null) {
             this.whiskerWidth = null;
@@ -8679,7 +9122,6 @@ public class StateSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".whiskerWidth(%s)", wrapQuotes(whiskerWidth1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".whiskerWidth(%s)", wrapQuotes(whiskerWidth1)));
                 js.setLength(0);
@@ -8688,110 +9130,9 @@ public class StateSettings extends CoreBase {
         return this;
     }
 
-
-//
-//    private String generateJSPatternFill getEmptyHatchFill() {
-//        if (PatternFill getEmptyHatchFill != null) {
-//            return PatternFill getEmptyHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPatternFill getFallingHatchFill() {
-//        if (PatternFill getFallingHatchFill != null) {
-//            return PatternFill getFallingHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPatternFill getHatchFill() {
-//        if (PatternFill getHatchFill != null) {
-//            return PatternFill getHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getHeaders() {
-//        if (UiLabelsFactory getHeaders != null) {
-//            return UiLabelsFactory getHeaders.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getHovered() {
-//        if (StateSettings getHovered != null) {
-//            return StateSettings getHovered.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLabels() {
-//        if (UiLabelsFactory getLabels != null) {
-//            return UiLabelsFactory getLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLowerLabels() {
-//        if (UiLabelsFactory getLowerLabels != null) {
-//            return UiLabelsFactory getLowerLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiMarkersFactory getMarkers() {
-//        if (UiMarkersFactory getMarkers != null) {
-//            return UiMarkersFactory getMarkers.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPatternFill getNegativeHatchFill() {
-//        if (PatternFill getNegativeHatchFill != null) {
-//            return PatternFill getNegativeHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getNormal() {
-//        if (StateSettings getNormal != null) {
-//            return StateSettings getNormal.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiMarkersFactory getOutlierMarkers() {
-//        if (UiMarkersFactory getOutlierMarkers != null) {
-//            return UiMarkersFactory getOutlierMarkers.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSPatternFill getRisingHatchFill() {
-//        if (PatternFill getRisingHatchFill != null) {
-//            return PatternFill getRisingHatchFill.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getSelected() {
-//        if (StateSettings getSelected != null) {
-//            return StateSettings getSelected.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getUpperLabels() {
-//        if (UiLabelsFactory getUpperLabels != null) {
-//            return UiLabelsFactory getUpperLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetEmptyHatchFill() {
         if (getEmptyHatchFill != null) {
             return getEmptyHatchFill.generateJs();
-            //return String.format(Locale.US, "getEmptyHatchFill: %s,", ((getEmptyHatchFill != null) ? getEmptyHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -8799,7 +9140,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetFallingHatchFill() {
         if (getFallingHatchFill != null) {
             return getFallingHatchFill.generateJs();
-            //return String.format(Locale.US, "getFallingHatchFill: %s,", ((getFallingHatchFill != null) ? getFallingHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -8807,7 +9147,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
-            //return String.format(Locale.US, "getHatchFill: %s,", ((getHatchFill != null) ? getHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -8815,7 +9154,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetHeaders() {
         if (getHeaders != null) {
             return getHeaders.generateJs();
-            //return String.format(Locale.US, "getHeaders: %s,", ((getHeaders != null) ? getHeaders.generateJs() : "null"));
         }
         return "";
     }
@@ -8823,7 +9161,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
-            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -8831,7 +9168,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
-            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -8839,7 +9175,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetLowerLabels() {
         if (getLowerLabels != null) {
             return getLowerLabels.generateJs();
-            //return String.format(Locale.US, "getLowerLabels: %s,", ((getLowerLabels != null) ? getLowerLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -8847,7 +9182,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
-            //return String.format(Locale.US, "getMarkers: %s,", ((getMarkers != null) ? getMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -8855,7 +9189,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetNegativeHatchFill() {
         if (getNegativeHatchFill != null) {
             return getNegativeHatchFill.generateJs();
-            //return String.format(Locale.US, "getNegativeHatchFill: %s,", ((getNegativeHatchFill != null) ? getNegativeHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -8863,7 +9196,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
-            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -8871,7 +9203,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetOutlierMarkers() {
         if (getOutlierMarkers != null) {
             return getOutlierMarkers.generateJs();
-            //return String.format(Locale.US, "getOutlierMarkers: %s,", ((getOutlierMarkers != null) ? getOutlierMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -8879,7 +9210,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetRisingHatchFill() {
         if (getRisingHatchFill != null) {
             return getRisingHatchFill.generateJs();
-            //return String.format(Locale.US, "getRisingHatchFill: %s,", ((getRisingHatchFill != null) ? getRisingHatchFill.generateJs() : "null"));
         }
         return "";
     }
@@ -8887,7 +9217,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
-            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -8895,7 +9224,6 @@ public class StateSettings extends CoreBase {
     private String generateJSgetUpperLabels() {
         if (getUpperLabels != null) {
             return getUpperLabels.generateJs();
-            //return String.format(Locale.US, "getUpperLabels: %s,", ((getUpperLabels != null) ? getUpperLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -8931,516 +9259,6 @@ public class StateSettings extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdummyFill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSemptyFill());
-////        
-//            js.append(generateJSemptyFill1());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJSopacity3());
-////        
-//            js.append(generateJSpatternFillOrType());
-////        
-//            js.append(generateJSpatternFillOrType1());
-////        
-//            js.append(generateJSpatternFillOrType2());
-////        
-//            js.append(generateJSpatternFillOrType3());
-////        
-//            js.append(generateJSpatternFillOrType4());
-////        
-//            js.append(generateJScolor5());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSfallingFill());
-////        
-//            js.append(generateJScolor6());
-////        
-//            js.append(generateJSopacity4());
-////        
-//            js.append(generateJSkeys4());
-////        
-//            js.append(generateJSkeys5());
-////        
-//            js.append(generateJSangle1());
-////        
-//            js.append(generateJSmode4());
-////        
-//            js.append(generateJSmode5());
-////        
-//            js.append(generateJSmode6());
-////        
-//            js.append(generateJSopacity5());
-////        
-//            js.append(generateJSkeys6());
-////        
-//            js.append(generateJSkeys7());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSmode7());
-////        
-//            js.append(generateJSopacity6());
-////        
-//            js.append(generateJSfx1());
-////        
-//            js.append(generateJSfy1());
-////        
-//            js.append(generateJSimageSettings1());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSthickness2());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor7());
-////        
-//            js.append(generateJSopacity7());
-////        
-//            js.append(generateJSkeys8());
-////        
-//            js.append(generateJSkeys9());
-////        
-//            js.append(generateJSangle2());
-////        
-//            js.append(generateJSmode8());
-////        
-//            js.append(generateJSmode9());
-////        
-//            js.append(generateJSmode10());
-////        
-//            js.append(generateJSopacity8());
-////        
-//            js.append(generateJSkeys10());
-////        
-//            js.append(generateJSkeys11());
-////        
-//            js.append(generateJScx2());
-////        
-//            js.append(generateJScy2());
-////        
-//            js.append(generateJSmode11());
-////        
-//            js.append(generateJSopacity9());
-////        
-//            js.append(generateJSfx2());
-////        
-//            js.append(generateJSfy2());
-////        
-//            js.append(generateJSimageSettings2());
-////        
-//            js.append(generateJSfontFamily());
-////        
-//            js.append(generateJSfontSize());
-////        
-//            js.append(generateJSfontSize1());
-////        
-//            js.append(generateJSfontStyle());
-////        
-//            js.append(generateJSfontStyle1());
-////        
-//            js.append(generateJSfontVariant());
-////        
-//            js.append(generateJSfontVariant1());
-////        
-//            js.append(generateJSfontWeight());
-////        
-//            js.append(generateJSfontWeight1());
-////        
-//            js.append(generateJSgrid());
-////        
-//            js.append(generateJSgrid1());
-////        
-//            js.append(generateJSgrid2());
-////        
-//            js.append(generateJSthickness3());
-////        
-//            js.append(generateJSdashpattern2());
-////        
-//            js.append(generateJSlineJoin2());
-////        
-//            js.append(generateJSlineCap2());
-////        
-//            js.append(generateJSpatternFillOrType5());
-////        
-//            js.append(generateJSpatternFillOrType6());
-////        
-//            js.append(generateJSpatternFillOrType7());
-////        
-//            js.append(generateJSpatternFillOrType8());
-////        
-//            js.append(generateJScolor8());
-////        
-//            js.append(generateJSthickness4());
-////        
-//            js.append(generateJSsize1());
-////        
-//            js.append(generateJSheaders());
-////        
-//            js.append(generateJSheaders1());
-////        
-//            js.append(generateJScolor9());
-////        
-//            js.append(generateJScolor10());
-////        
-//            js.append(generateJScolor11());
-////        
-//            js.append(generateJSthickness5());
-////        
-//            js.append(generateJSdashpattern3());
-////        
-//            js.append(generateJSlineJoin3());
-////        
-//            js.append(generateJSlineCap3());
-////        
-//            js.append(generateJShovered());
-////        
-//            js.append(generateJSlabels());
-////        
-//            js.append(generateJSlabels1());
-////        
-//            js.append(generateJScolor12());
-////        
-//            js.append(generateJScolor13());
-////        
-//            js.append(generateJScolor14());
-////        
-//            js.append(generateJSthickness6());
-////        
-//            js.append(generateJSdashpattern4());
-////        
-//            js.append(generateJSlineJoin4());
-////        
-//            js.append(generateJSlineCap4());
-////        
-//            js.append(generateJSlowerLabels());
-////        
-//            js.append(generateJSlowerLabels1());
-////        
-//            js.append(generateJSmarkers());
-////        
-//            js.append(generateJSmarkers1());
-////        
-//            js.append(generateJSmarkers2());
-////        
-//            js.append(generateJScolor15());
-////        
-//            js.append(generateJScolor16());
-////        
-//            js.append(generateJScolor17());
-////        
-//            js.append(generateJSthickness7());
-////        
-//            js.append(generateJSdashpattern5());
-////        
-//            js.append(generateJSlineJoin5());
-////        
-//            js.append(generateJSlineCap5());
-////        
-//            js.append(generateJSnegativeFill());
-////        
-//            js.append(generateJScolor18());
-////        
-//            js.append(generateJSopacity10());
-////        
-//            js.append(generateJSkeys12());
-////        
-//            js.append(generateJSkeys13());
-////        
-//            js.append(generateJSangle3());
-////        
-//            js.append(generateJSmode12());
-////        
-//            js.append(generateJSmode13());
-////        
-//            js.append(generateJSmode14());
-////        
-//            js.append(generateJSopacity11());
-////        
-//            js.append(generateJSkeys14());
-////        
-//            js.append(generateJSkeys15());
-////        
-//            js.append(generateJScx3());
-////        
-//            js.append(generateJScy3());
-////        
-//            js.append(generateJSmode15());
-////        
-//            js.append(generateJSopacity12());
-////        
-//            js.append(generateJSfx3());
-////        
-//            js.append(generateJSfy3());
-////        
-//            js.append(generateJSimageSettings3());
-////        
-//            js.append(generateJSpatternFillOrType9());
-////        
-//            js.append(generateJSpatternFillOrType10());
-////        
-//            js.append(generateJSpatternFillOrType11());
-////        
-//            js.append(generateJSpatternFillOrType12());
-////        
-//            js.append(generateJScolor19());
-////        
-//            js.append(generateJSthickness8());
-////        
-//            js.append(generateJSsize2());
-////        
-//            js.append(generateJScolor20());
-////        
-//            js.append(generateJScolor21());
-////        
-//            js.append(generateJScolor22());
-////        
-//            js.append(generateJSthickness9());
-////        
-//            js.append(generateJSdashpattern6());
-////        
-//            js.append(generateJSlineJoin6());
-////        
-//            js.append(generateJSlineCap6());
-////        
-//            js.append(generateJSnormal());
-////        
-//            js.append(generateJSoutlierMarkers());
-////        
-//            js.append(generateJSoutlierMarkers1());
-////        
-//            js.append(generateJSoutlierMarkers2());
-////        
-//            js.append(generateJSrisingFill());
-////        
-//            js.append(generateJScolor23());
-////        
-//            js.append(generateJSopacity13());
-////        
-//            js.append(generateJSkeys16());
-////        
-//            js.append(generateJSkeys17());
-////        
-//            js.append(generateJSangle4());
-////        
-//            js.append(generateJSmode16());
-////        
-//            js.append(generateJSmode17());
-////        
-//            js.append(generateJSmode18());
-////        
-//            js.append(generateJSopacity14());
-////        
-//            js.append(generateJSkeys18());
-////        
-//            js.append(generateJSkeys19());
-////        
-//            js.append(generateJScx4());
-////        
-//            js.append(generateJScy4());
-////        
-//            js.append(generateJSmode19());
-////        
-//            js.append(generateJSopacity15());
-////        
-//            js.append(generateJSfx4());
-////        
-//            js.append(generateJSfy4());
-////        
-//            js.append(generateJSimageSettings4());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState1());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState2());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState3());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState4());
-////        
-//            js.append(generateJScolor24());
-////        
-//            js.append(generateJSthickness10());
-////        
-//            js.append(generateJSsize3());
-////        
-//            js.append(generateJScolor25());
-////        
-//            js.append(generateJScolor26());
-////        
-//            js.append(generateJScolor27());
-////        
-//            js.append(generateJSthickness11());
-////        
-//            js.append(generateJSdashpattern7());
-////        
-//            js.append(generateJSlineJoin7());
-////        
-//            js.append(generateJSlineCap7());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState5());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState6());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState7());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState8());
-////        
-//            js.append(generateJSpatternFillOrTypeOrState9());
-////        
-//            js.append(generateJScolor28());
-////        
-//            js.append(generateJSthickness12());
-////        
-//            js.append(generateJSsize4());
-////        
-//            js.append(generateJSselected());
-////        
-//            js.append(generateJSsize5());
-////        
-//            js.append(generateJScolor29());
-////        
-//            js.append(generateJScolor30());
-////        
-//            js.append(generateJScolor31());
-////        
-//            js.append(generateJSthickness13());
-////        
-//            js.append(generateJSdashpattern8());
-////        
-//            js.append(generateJSlineJoin8());
-////        
-//            js.append(generateJSlineCap8());
-////        
-//            js.append(generateJScolor32());
-////        
-//            js.append(generateJScolor33());
-////        
-//            js.append(generateJScolor34());
-////        
-//            js.append(generateJSthickness14());
-////        
-//            js.append(generateJSdashpattern9());
-////        
-//            js.append(generateJSlineJoin9());
-////        
-//            js.append(generateJSlineCap9());
-////        
-//            js.append(generateJStrend());
-////        
-//            js.append(generateJStrend1());
-////        
-//            js.append(generateJStrend2());
-////        
-//            js.append(generateJSthickness15());
-////        
-//            js.append(generateJSdashpattern10());
-////        
-//            js.append(generateJSlineJoin10());
-////        
-//            js.append(generateJSlineCap10());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJSupperLabels());
-////        
-//            js.append(generateJSupperLabels1());
-////        
-//            js.append(generateJScolor35());
-////        
-//            js.append(generateJScolor36());
-////        
-//            js.append(generateJScolor37());
-////        
-//            js.append(generateJSthickness16());
-////        
-//            js.append(generateJSdashpattern11());
-////        
-//            js.append(generateJSlineJoin11());
-////        
-//            js.append(generateJSlineCap11());
-////        
-//            js.append(generateJSwhiskerWidth());
-////        
-//            js.append(generateJSwhiskerWidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

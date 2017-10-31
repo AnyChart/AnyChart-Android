@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Circular axis class.
+{docs:Gauges/Circular_Gauge#axis}Learn more about circular axis.{docs}
+ */
 public class Circular extends VisualBase {
 
     public Circular() {
-
+        js.setLength(0);
+        js.append("var circular").append(++variableIndex).append(" = anychart.core.axes.circular();");
+        jsBase = "circular" + variableIndex;
     }
 
     protected Circular(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +31,18 @@ public class Circular extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double cornersRounding;
     private String cornersRounding1;
 
+    /**
+     * Setter for the rounding of corners.
+Round off the ends of axes to the specified radius.
+     */
     public Circular setCornersRounding(Double cornersRounding) {
         if (jsBase == null) {
             this.cornersRounding = null;
@@ -42,7 +57,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
                 js.setLength(0);
@@ -52,6 +66,10 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for the rounding of corners.
+Round off the ends of axes to the specified radius.
+     */
     public Circular setCornersRounding(String cornersRounding1) {
         if (jsBase == null) {
             this.cornersRounding = null;
@@ -66,7 +84,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
                 js.setLength(0);
@@ -77,6 +94,9 @@ public class Circular extends VisualBase {
 
     private Boolean drawFirstLabel;
 
+    /**
+     * Setter for the first label drawing flag.
+     */
     public Circular setDrawFirstLabel(Boolean drawFirstLabel) {
         if (jsBase == null) {
             this.drawFirstLabel = drawFirstLabel;
@@ -88,7 +108,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
                 js.setLength(0);
@@ -99,6 +118,9 @@ public class Circular extends VisualBase {
 
     private Boolean drawLastLabel;
 
+    /**
+     * Setter for the last label drawing flag.
+     */
     public Circular setDrawLastLabel(Boolean drawLastLabel) {
         if (jsBase == null) {
             this.drawLastLabel = drawLastLabel;
@@ -110,7 +132,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
                 js.setLength(0);
@@ -122,6 +143,10 @@ public class Circular extends VisualBase {
     private Fill fill;
     private String fill1;
 
+    /**
+     * Setter for axis fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Circular setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = null;
@@ -136,7 +161,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -146,6 +170,10 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for axis fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Circular setFill(String fill1) {
         if (jsBase == null) {
             this.fill = null;
@@ -160,7 +188,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
                 js.setLength(0);
@@ -172,6 +199,9 @@ public class Circular extends VisualBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Axis fill color with opacity. Fill as a string or an object.
+     */
     public Circular fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -185,7 +215,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -202,6 +231,10 @@ public class Circular extends VisualBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient axis fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Circular fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -229,7 +262,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -239,6 +271,10 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient axis fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Circular fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -266,7 +302,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -276,6 +311,10 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient axis fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Circular fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -303,7 +342,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -313,6 +351,10 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient axis fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Circular fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -340,7 +382,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -350,6 +391,10 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient axis fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Circular fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -377,7 +422,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -387,6 +431,10 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient axis fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Circular fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -414,7 +462,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -432,6 +479,10 @@ public class Circular extends VisualBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial axis fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Circular fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -469,7 +520,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -479,6 +529,10 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Radial axis fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Circular fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -516,7 +570,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -528,6 +581,9 @@ public class Circular extends VisualBase {
     private Fill imageSettings;
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -538,6 +594,9 @@ public class Circular extends VisualBase {
     private String labels;
     private Boolean labels1;
 
+    /**
+     * Setter for labels.
+     */
     public Circular setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
@@ -552,7 +611,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -562,6 +620,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for labels.
+     */
     public Circular setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
@@ -576,7 +637,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -587,6 +647,9 @@ public class Circular extends VisualBase {
 
     private UiLabelsFactory getMinorLabels;
 
+    /**
+     * Getter for minor labels.
+     */
     public UiLabelsFactory getMinorLabels() {
         if (getMinorLabels == null)
             getMinorLabels = new UiLabelsFactory(jsBase + ".minorLabels()");
@@ -597,6 +660,9 @@ public class Circular extends VisualBase {
     private String minorLabels;
     private Boolean minorLabels1;
 
+    /**
+     * Setter for minor labels.
+     */
     public Circular setMinorLabels(String minorLabels) {
         if (jsBase == null) {
             this.minorLabels = null;
@@ -611,7 +677,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
                 js.setLength(0);
@@ -621,6 +686,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for minor labels.
+     */
     public Circular setMinorLabels(Boolean minorLabels1) {
         if (jsBase == null) {
             this.minorLabels = null;
@@ -635,7 +703,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
                 js.setLength(0);
@@ -646,6 +713,9 @@ public class Circular extends VisualBase {
 
     private CircularTicks getMinorTicks;
 
+    /**
+     * Getter for minor axis ticks.
+     */
     public CircularTicks getMinorTicks() {
         if (getMinorTicks == null)
             getMinorTicks = new CircularTicks(jsBase + ".minorTicks()");
@@ -656,6 +726,9 @@ public class Circular extends VisualBase {
     private String minorTicks;
     private Boolean minorTicks1;
 
+    /**
+     * Setter for minor axis ticks.
+     */
     public Circular setMinorTicks(String minorTicks) {
         if (jsBase == null) {
             this.minorTicks = null;
@@ -670,7 +743,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
@@ -680,6 +752,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for minor axis ticks.
+     */
     public Circular setMinorTicks(Boolean minorTicks1) {
         if (jsBase == null) {
             this.minorTicks = null;
@@ -694,7 +769,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
                 js.setLength(0);
@@ -707,6 +781,9 @@ public class Circular extends VisualBase {
     private String overlapMode1;
     private Boolean overlapMode2;
 
+    /**
+     * Setter for labels overlap mode.
+     */
     public Circular setOverlapMode(LabelsOverlapMode overlapMode) {
         if (jsBase == null) {
             this.overlapMode = null;
@@ -722,7 +799,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
@@ -732,6 +808,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for labels overlap mode.
+     */
     public Circular setOverlapMode(String overlapMode1) {
         if (jsBase == null) {
             this.overlapMode = null;
@@ -747,7 +826,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
                 js.setLength(0);
@@ -757,6 +835,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for labels overlap mode.
+     */
     public Circular setOverlapMode(Boolean overlapMode2) {
         if (jsBase == null) {
             this.overlapMode = null;
@@ -772,7 +853,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
                 js.setLength(0);
@@ -784,6 +864,9 @@ public class Circular extends VisualBase {
     private Double radius;
     private String radius1;
 
+    /**
+     * Setter for the axis radius.
+     */
     public Circular setRadius(Double radius) {
         if (jsBase == null) {
             this.radius = null;
@@ -798,7 +881,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".radius(%f)", radius));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
                 js.setLength(0);
@@ -808,6 +890,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for the axis radius.
+     */
     public Circular setRadius(String radius1) {
         if (jsBase == null) {
             this.radius = null;
@@ -822,7 +907,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
                 js.setLength(0);
@@ -833,6 +917,9 @@ public class Circular extends VisualBase {
 
     private ScalesLinear getScale;
 
+    /**
+     * Getter for the axis scale.
+     */
     public ScalesLinear getScale() {
         if (getScale == null)
             getScale = new ScalesLinear(jsBase + ".scale()");
@@ -845,6 +932,9 @@ public class Circular extends VisualBase {
     private ScalesLinear scale2;
     private String scale3;
 
+    /**
+     * Setter for the axis scale.
+     */
     public Circular setScale(GaugeScaleTypes scale) {
         if (jsBase == null) {
             this.scale = null;
@@ -861,7 +951,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
                 js.setLength(0);
@@ -871,6 +960,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for the axis scale.
+     */
     public Circular setScale(String scale1) {
         if (jsBase == null) {
             this.scale = null;
@@ -887,7 +979,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
@@ -897,6 +988,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for the axis scale.
+     */
     public Circular setScale(ScalesLinear scale2) {
         if (jsBase == null) {
             this.scale = null;
@@ -907,15 +1001,16 @@ public class Circular extends VisualBase {
             this.scale2 = scale2;
         } else {
             this.scale2 = scale2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(scale2.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".scale(%s);",  ((scale2 != null) ? scale2.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -925,6 +1020,9 @@ public class Circular extends VisualBase {
     private String startAngle;
     private Double startAngle1;
 
+    /**
+     * Setter for the start angle.
+     */
     public Circular setStartAngle(String startAngle) {
         if (jsBase == null) {
             this.startAngle = null;
@@ -939,7 +1037,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
                 js.setLength(0);
@@ -949,6 +1046,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for the start angle.
+     */
     public Circular setStartAngle(Double startAngle1) {
         if (jsBase == null) {
             this.startAngle = null;
@@ -963,7 +1063,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startAngle(%f)", startAngle1));
                 js.setLength(0);
@@ -975,6 +1074,9 @@ public class Circular extends VisualBase {
     private String sweepAngle;
     private Double sweepAngle1;
 
+    /**
+     * Setter for the sweep angle.
+     */
     public Circular setSweepAngle(String sweepAngle) {
         if (jsBase == null) {
             this.sweepAngle = null;
@@ -989,7 +1091,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".sweepAngle(%s)", wrapQuotes(sweepAngle)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%s)", wrapQuotes(sweepAngle)));
                 js.setLength(0);
@@ -999,6 +1100,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for the sweep angle.
+     */
     public Circular setSweepAngle(Double sweepAngle1) {
         if (jsBase == null) {
             this.sweepAngle = null;
@@ -1013,7 +1117,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
                 js.setLength(0);
@@ -1024,6 +1127,9 @@ public class Circular extends VisualBase {
 
     private CircularTicks getTicks;
 
+    /**
+     * Getter for circular ticks.
+     */
     public CircularTicks getTicks() {
         if (getTicks == null)
             getTicks = new CircularTicks(jsBase + ".ticks()");
@@ -1034,6 +1140,9 @@ public class Circular extends VisualBase {
     private String ticks;
     private Boolean ticks1;
 
+    /**
+     * Setter for circular ticks.
+     */
     public Circular setTicks(String ticks) {
         if (jsBase == null) {
             this.ticks = null;
@@ -1048,7 +1157,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
@@ -1058,6 +1166,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for circular ticks.
+     */
     public Circular setTicks(Boolean ticks1) {
         if (jsBase == null) {
             this.ticks = null;
@@ -1072,7 +1183,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%b)", ticks1));
                 js.setLength(0);
@@ -1084,6 +1194,9 @@ public class Circular extends VisualBase {
     private Double width;
     private String width1;
 
+    /**
+     * Setter for the axis width.
+     */
     public Circular setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
@@ -1098,7 +1211,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -1108,6 +1220,9 @@ public class Circular extends VisualBase {
     }
 
 
+    /**
+     * Setter for the axis width.
+     */
     public Circular setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
@@ -1122,7 +1237,6 @@ public class Circular extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);
@@ -1131,47 +1245,9 @@ public class Circular extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSUiLabelsFactory getLabels() {
-//        if (UiLabelsFactory getLabels != null) {
-//            return UiLabelsFactory getLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getMinorLabels() {
-//        if (UiLabelsFactory getMinorLabels != null) {
-//            return UiLabelsFactory getMinorLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSCircularTicks getMinorTicks() {
-//        if (CircularTicks getMinorTicks != null) {
-//            return CircularTicks getMinorTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesLinear getScale() {
-//        if (ScalesLinear getScale != null) {
-//            return ScalesLinear getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSCircularTicks getTicks() {
-//        if (CircularTicks getTicks != null) {
-//            return CircularTicks getTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
-            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1179,7 +1255,6 @@ public class Circular extends VisualBase {
     private String generateJSgetMinorLabels() {
         if (getMinorLabels != null) {
             return getMinorLabels.generateJs();
-            //return String.format(Locale.US, "getMinorLabels: %s,", ((getMinorLabels != null) ? getMinorLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1187,7 +1262,6 @@ public class Circular extends VisualBase {
     private String generateJSgetMinorTicks() {
         if (getMinorTicks != null) {
             return getMinorTicks.generateJs();
-            //return String.format(Locale.US, "getMinorTicks: %s,", ((getMinorTicks != null) ? getMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -1195,7 +1269,6 @@ public class Circular extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -1203,7 +1276,6 @@ public class Circular extends VisualBase {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -1230,106 +1302,6 @@ public class Circular extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScornersRounding());
-////        
-//            js.append(generateJScornersRounding1());
-////        
-//            js.append(generateJSdrawFirstLabel());
-////        
-//            js.append(generateJSdrawLastLabel());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJSfill1());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSlabels());
-////        
-//            js.append(generateJSlabels1());
-////        
-//            js.append(generateJSminorLabels());
-////        
-//            js.append(generateJSminorLabels1());
-////        
-//            js.append(generateJSminorTicks());
-////        
-//            js.append(generateJSminorTicks1());
-////        
-//            js.append(generateJSoverlapMode());
-////        
-//            js.append(generateJSoverlapMode1());
-////        
-//            js.append(generateJSoverlapMode2());
-////        
-//            js.append(generateJSradius());
-////        
-//            js.append(generateJSradius1());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSscale1());
-////        
-//            js.append(generateJSscale2());
-////        
-//            js.append(generateJSscale3());
-////        
-//            js.append(generateJSstartAngle());
-////        
-//            js.append(generateJSstartAngle1());
-////        
-//            js.append(generateJSsweepAngle());
-////        
-//            js.append(generateJSsweepAngle1());
-////        
-//            js.append(generateJSticks());
-////        
-//            js.append(generateJSticks1());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

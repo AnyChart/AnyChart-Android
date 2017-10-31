@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Gantt range marker.
+ */
 public class GanttRange extends VisualBase {
 
     public GanttRange() {
-
+        js.setLength(0);
+        js.append("var ganttRange").append(++variableIndex).append(" = anychart.core.axisMarkers.ganttRange();");
+        jsBase = "ganttRange" + variableIndex;
     }
 
     protected GanttRange(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,17 @@ public class GanttRange extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GanttRange setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -38,7 +52,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +63,9 @@ public class GanttRange extends VisualBase {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public GanttRange fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -63,7 +79,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -80,6 +95,10 @@ public class GanttRange extends VisualBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GanttRange fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -107,7 +126,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -117,6 +135,10 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GanttRange fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -144,7 +166,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -154,6 +175,10 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GanttRange fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -181,7 +206,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -191,6 +215,10 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GanttRange fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -218,7 +246,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -228,6 +255,10 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GanttRange fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -255,7 +286,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -265,6 +295,10 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GanttRange fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -292,7 +326,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -310,6 +343,10 @@ public class GanttRange extends VisualBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GanttRange fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -347,7 +384,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -357,6 +393,10 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public GanttRange fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +434,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -408,6 +447,9 @@ public class GanttRange extends VisualBase {
     private GanttDateTimeMarkers from1;
     private String from2;
 
+    /**
+     * Setter for the starting marker value.
+     */
     public GanttRange setFrom(Double from) {
         if (jsBase == null) {
             this.from = null;
@@ -423,7 +465,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".from(%f)", from));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".from(%f)", from));
                 js.setLength(0);
@@ -433,6 +474,9 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the starting marker value.
+     */
     public GanttRange setFrom(GanttDateTimeMarkers from1) {
         if (jsBase == null) {
             this.from = null;
@@ -448,7 +492,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".from(%s)", ((from1 != null) ? from1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".from(%s)", ((from1 != null) ? from1.generateJs() : "null")));
                 js.setLength(0);
@@ -458,6 +501,9 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the starting marker value.
+     */
     public GanttRange setFrom(String from2) {
         if (jsBase == null) {
             this.from = null;
@@ -473,7 +519,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".from(%s)", wrapQuotes(from2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".from(%s)", wrapQuotes(from2)));
                 js.setLength(0);
@@ -485,6 +530,10 @@ public class GanttRange extends VisualBase {
     private Layout layout;
     private String layout1;
 
+    /**
+     * Setter for the Gantt chart range marker layout.
+<b>Note:</b> The layout method will not work here, only "vertical" layout are available in Gantt Chart.
+     */
     public GanttRange setLayout(Layout layout) {
         if (jsBase == null) {
             this.layout = null;
@@ -499,7 +548,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
@@ -509,6 +557,10 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the Gantt chart range marker layout.
+<b>Note:</b> The layout method will not work here, only "vertical" layout are available in Gantt Chart.
+     */
     public GanttRange setLayout(String layout1) {
         if (jsBase == null) {
             this.layout = null;
@@ -523,7 +575,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);
@@ -534,6 +585,9 @@ public class GanttRange extends VisualBase {
 
     private GanttDateTime getScale;
 
+    /**
+     * Getter for the Gantt chart range marker scale.
+     */
     public GanttDateTime getScale() {
         if (getScale == null)
             getScale = new GanttDateTime(jsBase + ".scale()");
@@ -543,20 +597,26 @@ public class GanttRange extends VisualBase {
 
     private GanttDateTime scale;
 
+    /**
+     * Setter for the Gantt chart range marker scale.
+<b>Note:</b> The scale method will not work here, only "dateTime" scale are available in Gantt Chart.
+{docs:Gantt_Chart/Timeline#special_features}Learn more about scale.{docs}
+     */
     public GanttRange setScale(GanttDateTime scale) {
         if (jsBase == null) {
             this.scale = scale;
         } else {
             this.scale = scale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(scale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -567,6 +627,9 @@ public class GanttRange extends VisualBase {
     private GanttDateTimeMarkers to1;
     private String to2;
 
+    /**
+     * Setter for the ending marker value.
+     */
     public GanttRange setTo(Double to) {
         if (jsBase == null) {
             this.to = null;
@@ -582,7 +645,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".to(%f)", to));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".to(%f)", to));
                 js.setLength(0);
@@ -592,6 +654,9 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the ending marker value.
+     */
     public GanttRange setTo(GanttDateTimeMarkers to1) {
         if (jsBase == null) {
             this.to = null;
@@ -607,7 +672,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".to(%s)", ((to1 != null) ? to1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".to(%s)", ((to1 != null) ? to1.generateJs() : "null")));
                 js.setLength(0);
@@ -617,6 +681,9 @@ public class GanttRange extends VisualBase {
     }
 
 
+    /**
+     * Setter for the ending marker value.
+     */
     public GanttRange setTo(String to2) {
         if (jsBase == null) {
             this.to = null;
@@ -632,7 +699,6 @@ public class GanttRange extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".to(%s)", wrapQuotes(to2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".to(%s)", wrapQuotes(to2)));
                 js.setLength(0);
@@ -641,19 +707,9 @@ public class GanttRange extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSGanttDateTime getScale() {
-//        if (GanttDateTime getScale != null) {
-//            return GanttDateTime getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -676,68 +732,6 @@ public class GanttRange extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSfrom());
-////        
-//            js.append(generateJSfrom1());
-////        
-//            js.append(generateJSfrom2());
-////        
-//            js.append(generateJSlayout());
-////        
-//            js.append(generateJSlayout1());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSto());
-////        
-//            js.append(generateJSto1());
-////        
-//            js.append(generateJSto2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

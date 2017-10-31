@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Define Ordinal scale.<br/>
+<b>Note:</b> To create instance use {@link anychart.scales#ordinalColor} method.
+ */
 public class OrdinalColor extends ScalesBase {
 
     public OrdinalColor() {
-
+        js.setLength(0);
+        js.append("var ordinalColor").append(++variableIndex).append(" = anychart.scales.ordinalColor();");
+        jsBase = "ordinalColor" + variableIndex;
     }
 
     protected OrdinalColor(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,16 @@ public class OrdinalColor extends ScalesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String colorToValue;
 
+    /**
+     * Returns value for passed color. Value is a middle of its range.
+     */
     public void colorToValue(String colorToValue) {
         if (jsBase == null) {
             this.colorToValue = colorToValue;
@@ -38,7 +52,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".colorToValue(%s);", wrapQuotes(colorToValue)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorToValue(%s)", wrapQuotes(colorToValue)));
                 js.setLength(0);
@@ -48,6 +61,9 @@ public class OrdinalColor extends ScalesBase {
 
     private String[] colors;
 
+    /**
+     * Sets linear gradient for linear color scale.
+     */
     public OrdinalColor setColors(String[] colors) {
         if (jsBase == null) {
             this.colors = colors;
@@ -59,7 +75,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".colors(%s)", arrayToStringWrapQuotes(colors)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", arrayToStringWrapQuotes(colors)));
                 js.setLength(0);
@@ -70,6 +85,9 @@ public class OrdinalColor extends ScalesBase {
 
     private Double getIndexByValue;
 
+    /**
+     * Returns range index relative passed value.
+     */
     public void getIndexByValue(Double getIndexByValue) {
         if (jsBase == null) {
             this.getIndexByValue = getIndexByValue;
@@ -81,7 +99,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getIndexByValue(%f);", getIndexByValue));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getIndexByValue(%f)", getIndexByValue));
                 js.setLength(0);
@@ -91,6 +108,9 @@ public class OrdinalColor extends ScalesBase {
 
     private Double getRangeByValue;
 
+    /**
+     * Returns range for passed value.
+     */
     public void getRangeByValue(Double getRangeByValue) {
         if (jsBase == null) {
             this.getRangeByValue = getRangeByValue;
@@ -102,7 +122,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getRangeByValue(%f);", getRangeByValue));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getRangeByValue(%f)", getRangeByValue));
                 js.setLength(0);
@@ -112,6 +131,9 @@ public class OrdinalColor extends ScalesBase {
 
     private Double ratio;
 
+    /**
+     * Returns tick value by its ratio position.
+     */
     public void inverseTransform(Double ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
@@ -123,7 +145,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
                 js.setLength(0);
@@ -133,6 +154,9 @@ public class OrdinalColor extends ScalesBase {
 
     private String names;
 
+    /**
+     * Sets scale names for data set.
+     */
     public OrdinalColor setNames(String names) {
         if (jsBase == null) {
             this.names = names;
@@ -144,7 +168,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
                 js.setLength(0);
@@ -155,6 +178,9 @@ public class OrdinalColor extends ScalesBase {
 
     private String ranges;
 
+    /**
+     * Sets a set ranges.
+     */
     public OrdinalColor setRanges(String ranges) {
         if (jsBase == null) {
             this.ranges = ranges;
@@ -166,7 +192,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".ranges(%s)", wrapQuotes(ranges)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ranges(%s)", wrapQuotes(ranges)));
                 js.setLength(0);
@@ -177,6 +202,9 @@ public class OrdinalColor extends ScalesBase {
 
     private OrdinalTicks getTicks;
 
+    /**
+     * Gets the current set of scale ticks in terms of data values.
+     */
     public OrdinalTicks getTicks() {
         if (getTicks == null)
             getTicks = new OrdinalTicks(jsBase + ".ticks()");
@@ -187,6 +215,9 @@ public class OrdinalColor extends ScalesBase {
     private String ticks;
     private String[] ticks1;
 
+    /**
+     * Sets a set of scale ticks in terms of data values.
+     */
     public OrdinalColor setTicks(String ticks) {
         if (jsBase == null) {
             this.ticks = null;
@@ -201,7 +232,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
@@ -211,6 +241,9 @@ public class OrdinalColor extends ScalesBase {
     }
 
 
+    /**
+     * Sets a set of scale ticks in terms of data values.
+     */
     public OrdinalColor setTicks(String[] ticks1) {
         if (jsBase == null) {
             this.ticks = null;
@@ -225,7 +258,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
@@ -236,6 +268,9 @@ public class OrdinalColor extends ScalesBase {
 
     private Double subRangeRatio;
 
+    /**
+     * Returns tick position ratio by its value.
+     */
     public void transform(Double subRangeRatio) {
         if (jsBase == null) {
             this.subRangeRatio = subRangeRatio;
@@ -247,7 +282,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".transform(%f);", subRangeRatio));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f)", subRangeRatio));
                 js.setLength(0);
@@ -257,6 +291,9 @@ public class OrdinalColor extends ScalesBase {
 
     private Double valueToColor;
 
+    /**
+     * Converts value to color. Returns color relative to passed value.
+     */
     public void valueToColor(Double valueToColor) {
         if (jsBase == null) {
             this.valueToColor = valueToColor;
@@ -268,7 +305,6 @@ public class OrdinalColor extends ScalesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".valueToColor(%f);", valueToColor));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueToColor(%f)", valueToColor));
                 js.setLength(0);
@@ -276,19 +312,9 @@ public class OrdinalColor extends ScalesBase {
         }
     }
 
-
-//
-//    private String generateJSOrdinalTicks getTicks() {
-//        if (OrdinalTicks getTicks != null) {
-//            return OrdinalTicks getTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -311,34 +337,6 @@ public class OrdinalColor extends ScalesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolorToValue());
-////        
-//            js.append(generateJScolors());
-////        
-//            js.append(generateJSgetIndexByValue());
-////        
-//            js.append(generateJSgetRangeByValue());
-////        
-//            js.append(generateJSratio());
-////        
-//            js.append(generateJSnames());
-////        
-//            js.append(generateJSranges());
-////        
-//            js.append(generateJSticks());
-////        
-//            js.append(generateJSticks1());
-////        
-//            js.append(generateJSsubRangeRatio());
-////        
-//            js.append(generateJSvalueToColor());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

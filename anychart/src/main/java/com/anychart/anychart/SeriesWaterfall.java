@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Waterfall Series Class.
+ */
 public class SeriesWaterfall extends WidthBased {
 
     public SeriesWaterfall() {
-
+        js.setLength(0);
+        js.append("var seriesWaterfall").append(++variableIndex).append(" = anychart.core.waterfall.series.waterfall();");
+        jsBase = "seriesWaterfall" + variableIndex;
     }
 
     protected SeriesWaterfall(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,17 @@ public class SeriesWaterfall extends WidthBased {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill fallingFill;
 
+    /**
+     * Setter for falling fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall setFallingFill(Fill fallingFill) {
         if (jsBase == null) {
             this.fallingFill = fallingFill;
@@ -38,7 +52,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +63,9 @@ public class SeriesWaterfall extends WidthBased {
     private String color;
     private Double opacity;
 
+    /**
+     * Falling fill color with opacity.
+     */
     public SeriesWaterfall fallingFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -63,7 +79,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -80,6 +95,10 @@ public class SeriesWaterfall extends WidthBased {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fallingFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -107,7 +126,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -117,6 +135,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fallingFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -144,7 +166,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -154,6 +175,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fallingFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -181,7 +206,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -191,6 +215,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fallingFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -218,7 +246,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -228,6 +255,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fallingFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -255,7 +286,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -265,6 +295,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fallingFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -292,7 +326,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -310,6 +343,10 @@ public class SeriesWaterfall extends WidthBased {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fallingFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -347,7 +384,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -357,6 +393,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Radial gradient falling fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fallingFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +434,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -406,6 +445,10 @@ public class SeriesWaterfall extends WidthBased {
     private Fill imageSettings;
     private Fill fill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -417,7 +460,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -429,6 +471,9 @@ public class SeriesWaterfall extends WidthBased {
     private String color1;
     private Double opacity3;
 
+    /**
+     * Fill color with opacity.
+     */
     public SeriesWaterfall fill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
@@ -450,7 +495,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity3));
                 js.setLength(0);
@@ -467,6 +511,10 @@ public class SeriesWaterfall extends WidthBased {
     private String mode6;
     private Double opacity4;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -508,7 +556,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -518,6 +565,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -559,7 +610,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -569,6 +619,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -610,7 +664,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -620,6 +673,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -661,7 +718,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -671,6 +727,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -712,7 +772,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -722,6 +781,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -763,7 +826,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -781,6 +843,10 @@ public class SeriesWaterfall extends WidthBased {
     private Double fx1;
     private Double fy1;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -841,7 +907,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -851,6 +916,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall fill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -911,7 +980,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -923,6 +991,10 @@ public class SeriesWaterfall extends WidthBased {
     private Fill imageSettings1;
     private Fill risingFill;
 
+    /**
+     * Setter for rising fill settings using an array or a string.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public SeriesWaterfall setRisingFill(Fill risingFill) {
         if (jsBase == null) {
             this.risingFill = risingFill;
@@ -934,7 +1006,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
                 js.setLength(0);
@@ -946,6 +1017,9 @@ public class SeriesWaterfall extends WidthBased {
     private String color2;
     private Double opacity6;
 
+    /**
+     * Rising fill color with opacity.
+     */
     public SeriesWaterfall risingFill(String color2, Double opacity6) {
         if (jsBase == null) {
             this.color = null;
@@ -971,7 +1045,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %f)", wrapQuotes(color2), opacity6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f)", wrapQuotes(color2), opacity6));
                 js.setLength(0);
@@ -988,6 +1061,10 @@ public class SeriesWaterfall extends WidthBased {
     private String mode10;
     private Double opacity7;
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall risingFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1041,7 +1118,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
                 js.setLength(0);
@@ -1051,6 +1127,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall risingFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1104,7 +1184,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
@@ -1114,6 +1193,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall risingFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1167,7 +1250,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
@@ -1177,6 +1259,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall risingFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1230,7 +1316,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
                 js.setLength(0);
@@ -1240,6 +1325,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall risingFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1293,7 +1382,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
@@ -1303,6 +1391,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Linear gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall risingFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1356,7 +1448,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
@@ -1374,6 +1465,10 @@ public class SeriesWaterfall extends WidthBased {
     private Double fx2;
     private Double fy2;
 
+    /**
+     * Radial gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall risingFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
@@ -1449,7 +1544,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
@@ -1459,6 +1553,10 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
+    /**
+     * Radial gradient rising fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public SeriesWaterfall risingFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
@@ -1534,7 +1632,6 @@ public class SeriesWaterfall extends WidthBased {
             }
 
             js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
@@ -1544,8 +1641,6 @@ public class SeriesWaterfall extends WidthBased {
     }
 
     private Fill imageSettings2;
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -1563,126 +1658,6 @@ public class SeriesWaterfall extends WidthBased {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfallingFill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSopacity3());
-////        
-//            js.append(generateJSkeys4());
-////        
-//            js.append(generateJSkeys5());
-////        
-//            js.append(generateJSangle1());
-////        
-//            js.append(generateJSmode4());
-////        
-//            js.append(generateJSmode5());
-////        
-//            js.append(generateJSmode6());
-////        
-//            js.append(generateJSopacity4());
-////        
-//            js.append(generateJSkeys6());
-////        
-//            js.append(generateJSkeys7());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSmode7());
-////        
-//            js.append(generateJSopacity5());
-////        
-//            js.append(generateJSfx1());
-////        
-//            js.append(generateJSfy1());
-////        
-//            js.append(generateJSimageSettings1());
-////        
-//            js.append(generateJSrisingFill());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSopacity6());
-////        
-//            js.append(generateJSkeys8());
-////        
-//            js.append(generateJSkeys9());
-////        
-//            js.append(generateJSangle2());
-////        
-//            js.append(generateJSmode8());
-////        
-//            js.append(generateJSmode9());
-////        
-//            js.append(generateJSmode10());
-////        
-//            js.append(generateJSopacity7());
-////        
-//            js.append(generateJSkeys10());
-////        
-//            js.append(generateJSkeys11());
-////        
-//            js.append(generateJScx2());
-////        
-//            js.append(generateJScy2());
-////        
-//            js.append(generateJSmode11());
-////        
-//            js.append(generateJSopacity8());
-////        
-//            js.append(generateJSfx2());
-////        
-//            js.append(generateJSfy2());
-////        
-//            js.append(generateJSimageSettings2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

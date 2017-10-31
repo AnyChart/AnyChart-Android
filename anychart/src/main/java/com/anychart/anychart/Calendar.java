@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Calendar scale.
+<b>Note:</b> To create instance use {@link anychart.scales#calendar} method.
+ */
 public class Calendar extends CoreBase {
 
     public Calendar() {
-
+        js.setLength(0);
+        js.append("var calendar").append(++variableIndex).append(" = anychart.scales.calendar();");
+        jsBase = "calendar" + variableIndex;
     }
 
     protected Calendar(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,16 @@ public class Calendar extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Availability[] availabilities;
 
+    /**
+     * Setter for the availabilities for the calendar.
+     */
     public Calendar setAvailabilities(Availability[] availabilities) {
         if (jsBase == null) {
             this.availabilities = availabilities;
@@ -38,7 +52,6 @@ public class Calendar extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".availabilities(%s)", arrayToString(availabilities)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".availabilities(%s)", arrayToString(availabilities)));
                 js.setLength(0);
@@ -49,6 +62,9 @@ public class Calendar extends CoreBase {
 
     private Double var_value;
 
+    /**
+     * Setter for the timezone offset for the output availabilities.
+     */
     public Calendar setTimezoneOffset(Double var_value) {
         if (jsBase == null) {
             this.var_value = var_value;
@@ -60,7 +76,6 @@ public class Calendar extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".timezoneOffset(%f)", var_value));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".timezoneOffset(%f)", var_value));
                 js.setLength(0);
@@ -71,6 +86,9 @@ public class Calendar extends CoreBase {
 
     private Double[] var_value1;
 
+    /**
+     * Setter for the regular weekend days.
+     */
     public Calendar setWeekendRange(Double[] var_value1) {
         if (jsBase == null) {
             this.var_value = null;
@@ -85,7 +103,6 @@ public class Calendar extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".weekendRange(%s)", Arrays.toString(var_value1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".weekendRange(%s)", Arrays.toString(var_value1)));
                 js.setLength(0);
@@ -94,8 +111,6 @@ public class Calendar extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -113,18 +128,6 @@ public class Calendar extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSavailabilities());
-////        
-//            js.append(generateJSvar_value());
-////        
-//            js.append(generateJSvar_value1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

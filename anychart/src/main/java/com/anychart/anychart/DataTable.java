@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Stock data table constructor.
+ */
 public class DataTable extends CoreBase {
 
     public DataTable() {
-
+        js.setLength(0);
+        js.append("var dataTable").append(++variableIndex).append(" = anychart.data.table();");
+        jsBase = "dataTable" + variableIndex;
     }
 
     protected DataTable(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,6 +30,10 @@ public class DataTable extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String[] rawData;
     private String rawData1;
@@ -31,6 +41,9 @@ public class DataTable extends CoreBase {
     private Double removeFromStart1;
     private String csvSettings;
 
+    /**
+     * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
+     */
     public DataTable addData(String[] rawData, Boolean removeFromStart, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
@@ -52,7 +65,6 @@ public class DataTable extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %b, %s)", arrayToStringWrapQuotes(rawData), removeFromStart, wrapQuotes(csvSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %b, %s)", arrayToStringWrapQuotes(rawData), removeFromStart, wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -62,6 +74,9 @@ public class DataTable extends CoreBase {
     }
 
 
+    /**
+     * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
+     */
     public DataTable addData(String[] rawData, Double removeFromStart1, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
@@ -83,7 +98,6 @@ public class DataTable extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %f, %s)", arrayToStringWrapQuotes(rawData), removeFromStart1, wrapQuotes(csvSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %f, %s)", arrayToStringWrapQuotes(rawData), removeFromStart1, wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -93,6 +107,9 @@ public class DataTable extends CoreBase {
     }
 
 
+    /**
+     * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
+     */
     public DataTable addData(String rawData1, Boolean removeFromStart, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
@@ -114,7 +131,6 @@ public class DataTable extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %b, %s)", wrapQuotes(rawData1), removeFromStart, wrapQuotes(csvSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %b, %s)", wrapQuotes(rawData1), removeFromStart, wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -124,6 +140,9 @@ public class DataTable extends CoreBase {
     }
 
 
+    /**
+     * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
+     */
     public DataTable addData(String rawData1, Double removeFromStart1, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
@@ -145,7 +164,6 @@ public class DataTable extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %f, %s)", wrapQuotes(rawData1), removeFromStart1, wrapQuotes(csvSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %f, %s)", wrapQuotes(rawData1), removeFromStart1, wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -156,6 +174,10 @@ public class DataTable extends CoreBase {
 
     private String fields;
 
+    /**
+     * Returns a new mapping for the table.
+You can add fields to table mappings after the mapping is created using it's addField() method.
+     */
     public TableMapping mapAs(String fields) {
         if (jsBase == null) {
             this.fields = fields;
@@ -167,7 +189,6 @@ public class DataTable extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", wrapQuotes(fields)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(fields)));
                 js.setLength(0);
@@ -181,6 +202,9 @@ public class DataTable extends CoreBase {
     private Double endKey;
     private String endKey1;
 
+    /**
+     * Removes all items between start and end keys.
+     */
     public DataTable remove(Double startKey, Double endKey) {
         if (jsBase == null) {
             this.startKey = null;
@@ -200,7 +224,6 @@ public class DataTable extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".remove(%f, %f)", startKey, endKey));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".remove(%f, %f)", startKey, endKey));
                 js.setLength(0);
@@ -210,6 +233,9 @@ public class DataTable extends CoreBase {
     }
 
 
+    /**
+     * Removes all items between start and end keys.
+     */
     public DataTable remove(Double startKey, String endKey1) {
         if (jsBase == null) {
             this.startKey = null;
@@ -229,7 +255,6 @@ public class DataTable extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".remove(%f, %s)", startKey, wrapQuotes(endKey1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".remove(%f, %s)", startKey, wrapQuotes(endKey1)));
                 js.setLength(0);
@@ -239,6 +264,9 @@ public class DataTable extends CoreBase {
     }
 
 
+    /**
+     * Removes all items between start and end keys.
+     */
     public DataTable remove(String startKey1, Double endKey) {
         if (jsBase == null) {
             this.startKey = null;
@@ -258,7 +286,6 @@ public class DataTable extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".remove(%s, %f)", wrapQuotes(startKey1), endKey));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".remove(%s, %f)", wrapQuotes(startKey1), endKey));
                 js.setLength(0);
@@ -268,6 +295,9 @@ public class DataTable extends CoreBase {
     }
 
 
+    /**
+     * Removes all items between start and end keys.
+     */
     public DataTable remove(String startKey1, String endKey1) {
         if (jsBase == null) {
             this.startKey = null;
@@ -287,7 +317,6 @@ public class DataTable extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".remove(%s, %s)", wrapQuotes(startKey1), wrapQuotes(endKey1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".remove(%s, %s)", wrapQuotes(startKey1), wrapQuotes(endKey1)));
                 js.setLength(0);
@@ -298,6 +327,9 @@ public class DataTable extends CoreBase {
 
     private Double count;
 
+    /**
+     * Removes first opt_count rows from the storage also considering appended but not yet committed rows.
+     */
     public DataTable removeFirst(Double count) {
         if (jsBase == null) {
             this.count = count;
@@ -309,7 +341,6 @@ public class DataTable extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".removeFirst(%f)", count));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeFirst(%f)", count));
                 js.setLength(0);
@@ -318,8 +349,6 @@ public class DataTable extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -337,34 +366,6 @@ public class DataTable extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSrawData());
-////        
-//            js.append(generateJSrawData1());
-////        
-//            js.append(generateJSremoveFromStart());
-////        
-//            js.append(generateJSremoveFromStart1());
-////        
-//            js.append(generateJScsvSettings());
-////        
-//            js.append(generateJSfields());
-////        
-//            js.append(generateJSstartKey());
-////        
-//            js.append(generateJSstartKey1());
-////        
-//            js.append(generateJSendKey());
-////        
-//            js.append(generateJSendKey1());
-////        
-//            js.append(generateJScount());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

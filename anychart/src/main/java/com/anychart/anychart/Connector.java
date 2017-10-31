@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Connector series.
+ */
 public class Connector extends MapSeriesBaseWithMarkers {
 
     public Connector() {
-
+        js.setLength(0);
+        js.append("var connector").append(++variableIndex).append(" = anychart.core.map.series.connector();");
+        jsBase = "connector" + variableIndex;
     }
 
     protected Connector(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class Connector extends MapSeriesBaseWithMarkers {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double curvature;
     private String curvature1;
 
+    /**
+     * Setter for the curvature of connector point.
+     */
     public Connector setCurvature(Double curvature) {
         if (jsBase == null) {
             this.curvature = null;
@@ -42,7 +55,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".curvature(%f)", curvature));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".curvature(%f)", curvature));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class Connector extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for the curvature of connector point.
+     */
     public Connector setCurvature(String curvature1) {
         if (jsBase == null) {
             this.curvature = null;
@@ -66,7 +81,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".curvature(%s)", wrapQuotes(curvature1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".curvature(%s)", wrapQuotes(curvature1)));
                 js.setLength(0);
@@ -77,6 +91,9 @@ public class Connector extends MapSeriesBaseWithMarkers {
 
     private List<Connector> getEndSize = new ArrayList<>();
 
+    /**
+     * Getter for the connector width in the end point.
+     */
     public Connector getEndSize(Double endSize) {
         Connector item = new Connector(jsBase + ".endSize(" + endSize + ")");
         getEndSize.add(item);
@@ -85,6 +102,9 @@ public class Connector extends MapSeriesBaseWithMarkers {
 
     private List<Connector> getEndSize1 = new ArrayList<>();
 
+    /**
+     * Getter for the connector width in the end point.
+     */
     public Connector getEndSize(String endSize) {
         Connector item = new Connector(jsBase + ".endSize(" + wrapQuotes(endSize) + ")");
         getEndSize1.add(item);
@@ -94,6 +114,9 @@ public class Connector extends MapSeriesBaseWithMarkers {
     private Double startSize;
     private String startSize1;
 
+    /**
+     * Setter for the connector width in the start point.
+     */
     public Connector setStartSize(Double startSize) {
         if (jsBase == null) {
             this.startSize = null;
@@ -108,7 +131,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".startSize(%f)", startSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startSize(%f)", startSize));
                 js.setLength(0);
@@ -118,6 +140,9 @@ public class Connector extends MapSeriesBaseWithMarkers {
     }
 
 
+    /**
+     * Setter for the connector width in the start point.
+     */
     public Connector setStartSize(String startSize1) {
         if (jsBase == null) {
             this.startSize = null;
@@ -132,7 +157,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
             }
 
             js.append(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
                 js.setLength(0);
@@ -141,22 +165,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
         return this;
     }
 
-
-//
-//    private String generateJSConnector getEndSize() {
-//        if (Connector getEndSize != null) {
-//            return Connector getEndSize.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSConnector getEndSize1() {
-//        if (Connector getEndSize1 != null) {
-//            return Connector getEndSize1.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetEndSize() {
         if (!getEndSize.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -200,20 +208,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScurvature());
-////        
-//            js.append(generateJScurvature1());
-////        
-//            js.append(generateJSstartSize());
-////        
-//            js.append(generateJSstartSize1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

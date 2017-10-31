@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Class representing text settings for resource list items.
+ */
 public class ImageSettings extends SettingsWithMargin {
 
     public ImageSettings() {
-
+        js.setLength(0);
+        js.append("var imageSettings").append(++variableIndex).append(" = anychart.core.resource.resourceList.imageSettings();");
+        jsBase = "imageSettings" + variableIndex;
     }
 
     protected ImageSettings(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class ImageSettings extends SettingsWithMargin {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String align;
     private ImageAlign align1;
 
+    /**
+     * Setter for the image align.
+     */
     public ImageSettings setAlign(String align) {
         if (jsBase == null) {
             this.align = null;
@@ -42,7 +55,6 @@ public class ImageSettings extends SettingsWithMargin {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align)));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class ImageSettings extends SettingsWithMargin {
     }
 
 
+    /**
+     * Setter for the image align.
+     */
     public ImageSettings setAlign(ImageAlign align1) {
         if (jsBase == null) {
             this.align = null;
@@ -66,7 +81,6 @@ public class ImageSettings extends SettingsWithMargin {
             }
 
             js.append(String.format(Locale.US, ".align(%s)", ((align1 != null) ? align1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align1 != null) ? align1.generateJs() : "null")));
                 js.setLength(0);
@@ -78,6 +92,10 @@ public class ImageSettings extends SettingsWithMargin {
     private Double borderRadius;
     private Double[] borderRadius1;
 
+    /**
+     * Setter for the border radius of an image in item.
+Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_border-radius.asp}
+     */
     public ImageSettings setBorderRadius(Double borderRadius) {
         if (jsBase == null) {
             this.borderRadius = null;
@@ -92,7 +110,6 @@ public class ImageSettings extends SettingsWithMargin {
             }
 
             js.append(String.format(Locale.US, ".borderRadius(%f)", borderRadius));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".borderRadius(%f)", borderRadius));
                 js.setLength(0);
@@ -102,6 +119,10 @@ public class ImageSettings extends SettingsWithMargin {
     }
 
 
+    /**
+     * Setter for the border radius of an image in item.
+Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_border-radius.asp}
+     */
     public ImageSettings setBorderRadius(Double[] borderRadius1) {
         if (jsBase == null) {
             this.borderRadius = null;
@@ -116,7 +137,6 @@ public class ImageSettings extends SettingsWithMargin {
             }
 
             js.append(String.format(Locale.US, ".borderRadius(%s)", Arrays.toString(borderRadius1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".borderRadius(%s)", Arrays.toString(borderRadius1)));
                 js.setLength(0);
@@ -128,6 +148,9 @@ public class ImageSettings extends SettingsWithMargin {
     private String fittingMode;
     private Fitting fittingMode1;
 
+    /**
+     * Setter for the fitting mode.
+     */
     public ImageSettings setFittingMode(String fittingMode) {
         if (jsBase == null) {
             this.fittingMode = null;
@@ -142,7 +165,6 @@ public class ImageSettings extends SettingsWithMargin {
             }
 
             js.append(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode)));
                 js.setLength(0);
@@ -152,6 +174,9 @@ public class ImageSettings extends SettingsWithMargin {
     }
 
 
+    /**
+     * Setter for the fitting mode.
+     */
     public ImageSettings setFittingMode(Fitting fittingMode1) {
         if (jsBase == null) {
             this.fittingMode = null;
@@ -166,7 +191,6 @@ public class ImageSettings extends SettingsWithMargin {
             }
 
             js.append(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode1 != null) ? fittingMode1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode1 != null) ? fittingMode1.generateJs() : "null")));
                 js.setLength(0);
@@ -177,6 +201,9 @@ public class ImageSettings extends SettingsWithMargin {
 
     private Double opacity;
 
+    /**
+     * Setter for the image opacity.
+     */
     public ImageSettings setOpacity(Double opacity) {
         if (jsBase == null) {
             this.opacity = opacity;
@@ -188,7 +215,6 @@ public class ImageSettings extends SettingsWithMargin {
             }
 
             js.append(String.format(Locale.US, ".opacity(%f)", opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".opacity(%f)", opacity));
                 js.setLength(0);
@@ -200,6 +226,9 @@ public class ImageSettings extends SettingsWithMargin {
     private String size;
     private Double size1;
 
+    /**
+     * Setter for the image size in item.
+     */
     public ImageSettings setSize(String size) {
         if (jsBase == null) {
             this.size = null;
@@ -214,7 +243,6 @@ public class ImageSettings extends SettingsWithMargin {
             }
 
             js.append(String.format(Locale.US, ".size(%s)", wrapQuotes(size)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%s)", wrapQuotes(size)));
                 js.setLength(0);
@@ -224,6 +252,9 @@ public class ImageSettings extends SettingsWithMargin {
     }
 
 
+    /**
+     * Setter for the image size in item.
+     */
     public ImageSettings setSize(Double size1) {
         if (jsBase == null) {
             this.size = null;
@@ -238,7 +269,6 @@ public class ImageSettings extends SettingsWithMargin {
             }
 
             js.append(String.format(Locale.US, ".size(%f)", size1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size1));
                 js.setLength(0);
@@ -247,8 +277,6 @@ public class ImageSettings extends SettingsWithMargin {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -266,30 +294,6 @@ public class ImageSettings extends SettingsWithMargin {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSalign());
-////        
-//            js.append(generateJSalign1());
-////        
-//            js.append(generateJSborderRadius());
-////        
-//            js.append(generateJSborderRadius1());
-////        
-//            js.append(generateJSfittingMode());
-////        
-//            js.append(generateJSfittingMode1());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSsize1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

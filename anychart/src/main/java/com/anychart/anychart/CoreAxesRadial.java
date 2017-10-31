@@ -8,13 +8,21 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Axis Class.<br/>
+Any axis must be bound to a scale.<br/>
+To obtain a new instance of Axis use {@link anychart.standalones.axes#radial}.
+ */
 public class CoreAxesRadial extends VisualBase {
 
     public CoreAxesRadial() {
-
+        js.setLength(0);
+        js.append("var coreAxesRadial").append(++variableIndex).append(" = anychart.core.axes.radial();");
+        jsBase = "coreAxesRadial" + variableIndex;
     }
 
     protected CoreAxesRadial(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +32,16 @@ public class CoreAxesRadial extends VisualBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Boolean drawFirstLabel;
 
+    /**
+     * Setter for the first label drawing flag.
+     */
     public CoreAxesRadial setDrawFirstLabel(Boolean drawFirstLabel) {
         if (jsBase == null) {
             this.drawFirstLabel = drawFirstLabel;
@@ -38,7 +53,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
                 js.setLength(0);
@@ -49,6 +63,9 @@ public class CoreAxesRadial extends VisualBase {
 
     private Boolean drawLastLabel;
 
+    /**
+     * Setter for the last label drawing flag.
+     */
     public CoreAxesRadial setDrawLastLabel(Boolean drawLastLabel) {
         if (jsBase == null) {
             this.drawLastLabel = drawLastLabel;
@@ -60,7 +77,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
                 js.setLength(0);
@@ -71,6 +87,9 @@ public class CoreAxesRadial extends VisualBase {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for axis labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -81,6 +100,9 @@ public class CoreAxesRadial extends VisualBase {
     private String labels;
     private Boolean labels1;
 
+    /**
+     * Setter for axis labels.
+     */
     public CoreAxesRadial setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
@@ -95,7 +117,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -105,6 +126,9 @@ public class CoreAxesRadial extends VisualBase {
     }
 
 
+    /**
+     * Setter for axis labels.
+     */
     public CoreAxesRadial setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
@@ -119,7 +143,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -130,6 +153,9 @@ public class CoreAxesRadial extends VisualBase {
 
     private UiLabelsFactory getMinorLabels;
 
+    /**
+     * Getter for axis minor labels.
+     */
     public UiLabelsFactory getMinorLabels() {
         if (getMinorLabels == null)
             getMinorLabels = new UiLabelsFactory(jsBase + ".minorLabels()");
@@ -140,6 +166,9 @@ public class CoreAxesRadial extends VisualBase {
     private String minorLabels;
     private Boolean minorLabels1;
 
+    /**
+     * Setter for axis minor labels.
+     */
     public CoreAxesRadial setMinorLabels(String minorLabels) {
         if (jsBase == null) {
             this.minorLabels = null;
@@ -154,7 +183,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
                 js.setLength(0);
@@ -164,6 +192,9 @@ public class CoreAxesRadial extends VisualBase {
     }
 
 
+    /**
+     * Setter for axis minor labels.
+     */
     public CoreAxesRadial setMinorLabels(Boolean minorLabels1) {
         if (jsBase == null) {
             this.minorLabels = null;
@@ -178,7 +209,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
                 js.setLength(0);
@@ -189,6 +219,9 @@ public class CoreAxesRadial extends VisualBase {
 
     private RadialTicks getMinorTicks;
 
+    /**
+     * Getter for axis minor ticks.
+     */
     public RadialTicks getMinorTicks() {
         if (getMinorTicks == null)
             getMinorTicks = new RadialTicks(jsBase + ".minorTicks()");
@@ -199,6 +232,9 @@ public class CoreAxesRadial extends VisualBase {
     private String minorTicks;
     private Boolean minorTicks1;
 
+    /**
+     * Setter for axis minor ticks.
+     */
     public CoreAxesRadial setMinorTicks(String minorTicks) {
         if (jsBase == null) {
             this.minorTicks = null;
@@ -213,7 +249,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
@@ -223,6 +258,9 @@ public class CoreAxesRadial extends VisualBase {
     }
 
 
+    /**
+     * Setter for axis minor ticks.
+     */
     public CoreAxesRadial setMinorTicks(Boolean minorTicks1) {
         if (jsBase == null) {
             this.minorTicks = null;
@@ -237,7 +275,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
                 js.setLength(0);
@@ -249,6 +286,9 @@ public class CoreAxesRadial extends VisualBase {
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
 
+    /**
+     * Setter for labels overlap mode for.
+     */
     public CoreAxesRadial setOverlapMode(LabelsOverlapMode overlapMode) {
         if (jsBase == null) {
             this.overlapMode = null;
@@ -263,7 +303,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
@@ -273,6 +312,9 @@ public class CoreAxesRadial extends VisualBase {
     }
 
 
+    /**
+     * Setter for labels overlap mode for.
+     */
     public CoreAxesRadial setOverlapMode(String overlapMode1) {
         if (jsBase == null) {
             this.overlapMode = null;
@@ -287,7 +329,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
                 js.setLength(0);
@@ -298,6 +339,9 @@ public class CoreAxesRadial extends VisualBase {
 
     private ScalesBase getScale;
 
+    /**
+     * Getter for the axis scale.
+     */
     public ScalesBase getScale() {
         if (getScale == null)
             getScale = new ScalesBase(jsBase + ".scale()");
@@ -310,6 +354,9 @@ public class CoreAxesRadial extends VisualBase {
     private ScaleTypes scale2;
     private String scale3;
 
+    /**
+     * Setter for the axis scale.
+     */
     public CoreAxesRadial setScale(ScalesBase scale) {
         if (jsBase == null) {
             this.scale = null;
@@ -320,15 +367,16 @@ public class CoreAxesRadial extends VisualBase {
             this.scale = scale;
         } else {
             this.scale = scale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(scale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -336,6 +384,9 @@ public class CoreAxesRadial extends VisualBase {
     }
 
 
+    /**
+     * Setter for the axis scale.
+     */
     public CoreAxesRadial setScale(String scale1) {
         if (jsBase == null) {
             this.scale = null;
@@ -352,7 +403,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
@@ -362,6 +412,9 @@ public class CoreAxesRadial extends VisualBase {
     }
 
 
+    /**
+     * Setter for the axis scale.
+     */
     public CoreAxesRadial setScale(ScaleTypes scale2) {
         if (jsBase == null) {
             this.scale = null;
@@ -378,7 +431,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
                 js.setLength(0);
@@ -395,6 +447,10 @@ public class CoreAxesRadial extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the axis stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CoreAxesRadial setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -418,7 +474,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -428,6 +483,10 @@ public class CoreAxesRadial extends VisualBase {
     }
 
 
+    /**
+     * Setter for the axis stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CoreAxesRadial setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -451,7 +510,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -461,6 +519,10 @@ public class CoreAxesRadial extends VisualBase {
     }
 
 
+    /**
+     * Setter for the axis stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public CoreAxesRadial setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
@@ -484,7 +546,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -495,6 +556,9 @@ public class CoreAxesRadial extends VisualBase {
 
     private RadialTicks getTicks;
 
+    /**
+     * Getter for axis ticks.
+     */
     public RadialTicks getTicks() {
         if (getTicks == null)
             getTicks = new RadialTicks(jsBase + ".ticks()");
@@ -505,6 +569,9 @@ public class CoreAxesRadial extends VisualBase {
     private String ticks;
     private Boolean ticks1;
 
+    /**
+     * Setter for axis ticks.
+     */
     public CoreAxesRadial setTicks(String ticks) {
         if (jsBase == null) {
             this.ticks = null;
@@ -519,7 +586,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
@@ -529,6 +595,9 @@ public class CoreAxesRadial extends VisualBase {
     }
 
 
+    /**
+     * Setter for axis ticks.
+     */
     public CoreAxesRadial setTicks(Boolean ticks1) {
         if (jsBase == null) {
             this.ticks = null;
@@ -543,7 +612,6 @@ public class CoreAxesRadial extends VisualBase {
             }
 
             js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%b)", ticks1));
                 js.setLength(0);
@@ -552,47 +620,9 @@ public class CoreAxesRadial extends VisualBase {
         return this;
     }
 
-
-//
-//    private String generateJSUiLabelsFactory getLabels() {
-//        if (UiLabelsFactory getLabels != null) {
-//            return UiLabelsFactory getLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getMinorLabels() {
-//        if (UiLabelsFactory getMinorLabels != null) {
-//            return UiLabelsFactory getMinorLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSRadialTicks getMinorTicks() {
-//        if (RadialTicks getMinorTicks != null) {
-//            return RadialTicks getMinorTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesBase getScale() {
-//        if (ScalesBase getScale != null) {
-//            return ScalesBase getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSRadialTicks getTicks() {
-//        if (RadialTicks getTicks != null) {
-//            return RadialTicks getTicks.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
-            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -600,7 +630,6 @@ public class CoreAxesRadial extends VisualBase {
     private String generateJSgetMinorLabels() {
         if (getMinorLabels != null) {
             return getMinorLabels.generateJs();
-            //return String.format(Locale.US, "getMinorLabels: %s,", ((getMinorLabels != null) ? getMinorLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -608,7 +637,6 @@ public class CoreAxesRadial extends VisualBase {
     private String generateJSgetMinorTicks() {
         if (getMinorTicks != null) {
             return getMinorTicks.generateJs();
-            //return String.format(Locale.US, "getMinorTicks: %s,", ((getMinorTicks != null) ? getMinorTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -616,7 +644,6 @@ public class CoreAxesRadial extends VisualBase {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -624,7 +651,6 @@ public class CoreAxesRadial extends VisualBase {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
-            //return String.format(Locale.US, "getTicks: %s,", ((getTicks != null) ? getTicks.generateJs() : "null"));
         }
         return "";
     }
@@ -651,58 +677,6 @@ public class CoreAxesRadial extends VisualBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdrawFirstLabel());
-////        
-//            js.append(generateJSdrawLastLabel());
-////        
-//            js.append(generateJSlabels());
-////        
-//            js.append(generateJSlabels1());
-////        
-//            js.append(generateJSminorLabels());
-////        
-//            js.append(generateJSminorLabels1());
-////        
-//            js.append(generateJSminorTicks());
-////        
-//            js.append(generateJSminorTicks1());
-////        
-//            js.append(generateJSoverlapMode());
-////        
-//            js.append(generateJSoverlapMode1());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSscale1());
-////        
-//            js.append(generateJSscale2());
-////        
-//            js.append(generateJSscale3());
-////        
-//            js.append(generateJSstroke());
-////        
-//            js.append(generateJSstroke1());
-////        
-//            js.append(generateJSstroke2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSticks());
-////        
-//            js.append(generateJSticks1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

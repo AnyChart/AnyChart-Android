@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Accumulation Distribution Line (ADL) indicator class.
+ */
 public class ADL extends JsObject {
 
     public ADL() {
-
+        js.setLength(0);
+        js.append("var aDL").append(++variableIndex).append(" = anychart.core.stock.indicators.aDL();");
+        jsBase = "aDL" + variableIndex;
     }
 
     protected ADL(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class ADL extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private StockSeriesBase getSeries;
 
+    /**
+     * Getter for the indicator series.
+     */
     public StockSeriesBase getSeries() {
         if (getSeries == null)
             getSeries = new StockSeriesBase(jsBase + ".series()");
@@ -37,6 +50,9 @@ public class ADL extends JsObject {
     private StockSeriesType type;
     private String type1;
 
+    /**
+     * Setter for the indicator series.
+     */
     public ADL setSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
@@ -51,7 +67,6 @@ public class ADL extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -61,6 +76,9 @@ public class ADL extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator series.
+     */
     public ADL setSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -75,7 +93,6 @@ public class ADL extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -84,19 +101,9 @@ public class ADL extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSStockSeriesBase getSeries() {
-//        if (StockSeriesBase getSeries != null) {
-//            return StockSeriesBase getSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetSeries() {
         if (getSeries != null) {
             return getSeries.generateJs();
-            //return String.format(Locale.US, "getSeries: %s,", ((getSeries != null) ? getSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -119,16 +126,6 @@ public class ADL extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

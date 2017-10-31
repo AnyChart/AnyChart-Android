@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Marker series.
+ */
 public class MapSeriesMarker extends MapSeriesBase {
 
     public MapSeriesMarker() {
-
+        js.setLength(0);
+        js.append("var mapSeriesMarker").append(++variableIndex).append(" = anychart.core.map.series.marker();");
+        jsBase = "mapSeriesMarker" + variableIndex;
     }
 
     protected MapSeriesMarker(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class MapSeriesMarker extends MapSeriesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double size;
 
+    /**
+     * Setter for the marker size setting.
+     */
     public MapSeriesMarker setSize(Double size) {
         if (jsBase == null) {
             this.size = size;
@@ -38,7 +51,6 @@ public class MapSeriesMarker extends MapSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".size(%f)", size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size));
                 js.setLength(0);
@@ -50,6 +62,9 @@ public class MapSeriesMarker extends MapSeriesBase {
     private MarkerType type;
     private String type1;
 
+    /**
+     * Setter for the marker type settings.
+     */
     public MapSeriesMarker setType(MarkerType type) {
         if (jsBase == null) {
             this.type = null;
@@ -64,7 +79,6 @@ public class MapSeriesMarker extends MapSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -74,6 +88,9 @@ public class MapSeriesMarker extends MapSeriesBase {
     }
 
 
+    /**
+     * Setter for the marker type settings.
+     */
     public MapSeriesMarker setType(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -88,7 +105,6 @@ public class MapSeriesMarker extends MapSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -97,8 +113,6 @@ public class MapSeriesMarker extends MapSeriesBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -116,18 +130,6 @@ public class MapSeriesMarker extends MapSeriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

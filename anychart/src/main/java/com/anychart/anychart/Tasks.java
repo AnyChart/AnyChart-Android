@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Pert tasks settings collector.
+ */
 public class Tasks extends JsObject {
 
     public Tasks() {
-
+        js.setLength(0);
+        js.append("var tasks").append(++variableIndex).append(" = anychart.core.pert.tasks();");
+        jsBase = "tasks" + variableIndex;
     }
 
     protected Tasks(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Tasks extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String color;
 
+    /**
+     * Setter for tasks color.
+     */
     public Tasks setColor(String color) {
         if (jsBase == null) {
             this.color = color;
@@ -38,7 +51,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
                 js.setLength(0);
@@ -49,6 +61,10 @@ public class Tasks extends JsObject {
 
     private Fill dummyFill;
 
+    /**
+     * Setter for dummy fill settings using a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setDummyFill(Fill dummyFill) {
         if (jsBase == null) {
             this.dummyFill = dummyFill;
@@ -60,7 +76,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dummyFill(%s);", ((dummyFill != null) ? dummyFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dummyFill(%s)", ((dummyFill != null) ? dummyFill.generateJs() : "null")));
                 js.setLength(0);
@@ -72,6 +87,9 @@ public class Tasks extends JsObject {
     private String color1;
     private Double opacity;
 
+    /**
+     * Dummy fill color with opacity.
+     */
     public Tasks dummyFill(String color1, Double opacity) {
         if (jsBase == null) {
             this.color = null;
@@ -88,7 +106,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %f)", wrapQuotes(color1), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f)", wrapQuotes(color1), opacity));
                 js.setLength(0);
@@ -105,6 +122,10 @@ public class Tasks extends JsObject {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks dummyFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -132,7 +153,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -142,6 +162,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks dummyFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -169,7 +193,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -179,6 +202,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks dummyFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -206,7 +233,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -216,6 +242,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks dummyFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -243,7 +273,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -253,6 +282,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks dummyFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -280,7 +313,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -290,6 +322,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Linear gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks dummyFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -317,7 +353,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -335,6 +370,10 @@ public class Tasks extends JsObject {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks dummyFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -372,7 +411,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -382,6 +420,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Radial gradient dummy fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks dummyFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -419,7 +461,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -437,6 +478,10 @@ public class Tasks extends JsObject {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for tasks dummy stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Tasks setDummyStroke(Stroke color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -462,7 +507,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -472,6 +516,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Setter for tasks dummy stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Tasks setDummyStroke(ColoredFill color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -497,7 +545,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -507,6 +554,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Setter for tasks dummy stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Tasks setDummyStroke(String color4, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -532,7 +583,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -543,6 +593,10 @@ public class Tasks extends JsObject {
 
     private Fill fill;
 
+    /**
+     * Setter for fill settings using a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public StateSettings setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
@@ -554,7 +608,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".fill(%s);", ((fill != null) ? fill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -566,6 +619,9 @@ public class Tasks extends JsObject {
     private String color5;
     private Double opacity3;
 
+    /**
+     * Fill color with opacity.
+     */
     public Tasks fill(String color5, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
@@ -591,7 +647,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color5), opacity3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color5), opacity3));
                 js.setLength(0);
@@ -608,6 +663,10 @@ public class Tasks extends JsObject {
     private String mode6;
     private Double opacity4;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks fill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -649,7 +708,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -659,6 +717,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks fill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -700,7 +762,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -710,6 +771,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks fill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -751,7 +816,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -761,6 +825,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks fill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -802,7 +870,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -812,6 +879,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks fill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -853,7 +924,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -863,6 +933,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks fill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -904,7 +978,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -922,6 +995,10 @@ public class Tasks extends JsObject {
     private Double fx1;
     private Double fy1;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks fill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -982,7 +1059,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -992,6 +1068,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Tasks fill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -1052,7 +1132,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1064,6 +1143,9 @@ public class Tasks extends JsObject {
     private Fill imageSettings1;
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -1073,6 +1155,9 @@ public class Tasks extends JsObject {
 
     private String hovered;
 
+    /**
+     * Setter for hovered state settings.
+     */
     public Tasks setHovered(String hovered) {
         if (jsBase == null) {
             this.hovered = hovered;
@@ -1084,7 +1169,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
@@ -1095,6 +1179,9 @@ public class Tasks extends JsObject {
 
     private UiLabelsFactory getLowerLabels;
 
+    /**
+     * Getter for the lower labels settings.
+     */
     public UiLabelsFactory getLowerLabels() {
         if (getLowerLabels == null)
             getLowerLabels = new UiLabelsFactory(jsBase + ".lowerLabels()");
@@ -1105,6 +1192,9 @@ public class Tasks extends JsObject {
     private String lowerLabels;
     private Boolean lowerLabels1;
 
+    /**
+     * Setter for the lower labels settings.
+     */
     public Tasks setLowerLabels(String lowerLabels) {
         if (jsBase == null) {
             this.lowerLabels = null;
@@ -1119,7 +1209,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lowerLabels(%s)", wrapQuotes(lowerLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowerLabels(%s)", wrapQuotes(lowerLabels)));
                 js.setLength(0);
@@ -1129,6 +1218,9 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Setter for the lower labels settings.
+     */
     public Tasks setLowerLabels(Boolean lowerLabels1) {
         if (jsBase == null) {
             this.lowerLabels = null;
@@ -1143,7 +1235,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lowerLabels(%b)", lowerLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowerLabels(%b)", lowerLabels1));
                 js.setLength(0);
@@ -1154,6 +1245,9 @@ public class Tasks extends JsObject {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -1163,6 +1257,9 @@ public class Tasks extends JsObject {
 
     private String normal;
 
+    /**
+     * Setter for normal state settings.
+     */
     public Tasks setNormal(String normal) {
         if (jsBase == null) {
             this.normal = normal;
@@ -1174,7 +1271,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
@@ -1185,6 +1281,9 @@ public class Tasks extends JsObject {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -1194,6 +1293,9 @@ public class Tasks extends JsObject {
 
     private String selected;
 
+    /**
+     * Setter for selected state settings.
+     */
     public Tasks setSelected(String selected) {
         if (jsBase == null) {
             this.selected = selected;
@@ -1205,7 +1307,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
@@ -1222,6 +1323,10 @@ public class Tasks extends JsObject {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for tasks stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Tasks setStroke(Stroke color6, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -1263,7 +1368,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color6 != null) ? color6.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color6 != null) ? color6.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1273,6 +1377,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Setter for tasks stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Tasks setStroke(ColoredFill color7, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -1314,7 +1422,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color7 != null) ? color7.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color7 != null) ? color7.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1324,6 +1431,10 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Setter for tasks stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Tasks setStroke(String color8, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
@@ -1365,7 +1476,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color8), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color8), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1376,6 +1486,9 @@ public class Tasks extends JsObject {
 
     private Tooltip getTooltip;
 
+    /**
+     * Getter for tasks data tooltip.
+     */
     public Tooltip getTooltip() {
         if (getTooltip == null)
             getTooltip = new Tooltip(jsBase + ".tooltip()");
@@ -1386,6 +1499,9 @@ public class Tasks extends JsObject {
     private String tooltip;
     private Boolean tooltip1;
 
+    /**
+     * Setter for tasks data tooltip.
+     */
     public Tasks setTooltip(String tooltip) {
         if (jsBase == null) {
             this.tooltip = null;
@@ -1400,7 +1516,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
@@ -1410,6 +1525,9 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Setter for tasks data tooltip.
+     */
     public Tasks setTooltip(Boolean tooltip1) {
         if (jsBase == null) {
             this.tooltip = null;
@@ -1424,7 +1542,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%b)", tooltip1));
                 js.setLength(0);
@@ -1435,6 +1552,9 @@ public class Tasks extends JsObject {
 
     private UiLabelsFactory getUpperLabels;
 
+    /**
+     * Getter for the upper labels settings.
+     */
     public UiLabelsFactory getUpperLabels() {
         if (getUpperLabels == null)
             getUpperLabels = new UiLabelsFactory(jsBase + ".upperLabels()");
@@ -1445,6 +1565,9 @@ public class Tasks extends JsObject {
     private String upperLabels;
     private Boolean upperLabels1;
 
+    /**
+     * Setter for the upper labels settings.
+     */
     public Tasks setUpperLabels(String upperLabels) {
         if (jsBase == null) {
             this.upperLabels = null;
@@ -1459,7 +1582,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".upperLabels(%s)", wrapQuotes(upperLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upperLabels(%s)", wrapQuotes(upperLabels)));
                 js.setLength(0);
@@ -1469,6 +1591,9 @@ public class Tasks extends JsObject {
     }
 
 
+    /**
+     * Setter for the upper labels settings.
+     */
     public Tasks setUpperLabels(Boolean upperLabels1) {
         if (jsBase == null) {
             this.upperLabels = null;
@@ -1483,7 +1608,6 @@ public class Tasks extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".upperLabels(%b)", upperLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upperLabels(%b)", upperLabels1));
                 js.setLength(0);
@@ -1492,54 +1616,9 @@ public class Tasks extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSStateSettings getHovered() {
-//        if (StateSettings getHovered != null) {
-//            return StateSettings getHovered.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLowerLabels() {
-//        if (UiLabelsFactory getLowerLabels != null) {
-//            return UiLabelsFactory getLowerLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getNormal() {
-//        if (StateSettings getNormal != null) {
-//            return StateSettings getNormal.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStateSettings getSelected() {
-//        if (StateSettings getSelected != null) {
-//            return StateSettings getSelected.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTooltip getTooltip() {
-//        if (Tooltip getTooltip != null) {
-//            return Tooltip getTooltip.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getUpperLabels() {
-//        if (UiLabelsFactory getUpperLabels != null) {
-//            return UiLabelsFactory getUpperLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetHovered() {
         if (getHovered != null) {
             return getHovered.generateJs();
-            //return String.format(Locale.US, "getHovered: %s,", ((getHovered != null) ? getHovered.generateJs() : "null"));
         }
         return "";
     }
@@ -1547,7 +1626,6 @@ public class Tasks extends JsObject {
     private String generateJSgetLowerLabels() {
         if (getLowerLabels != null) {
             return getLowerLabels.generateJs();
-            //return String.format(Locale.US, "getLowerLabels: %s,", ((getLowerLabels != null) ? getLowerLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1555,7 +1633,6 @@ public class Tasks extends JsObject {
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
-            //return String.format(Locale.US, "getNormal: %s,", ((getNormal != null) ? getNormal.generateJs() : "null"));
         }
         return "";
     }
@@ -1563,7 +1640,6 @@ public class Tasks extends JsObject {
     private String generateJSgetSelected() {
         if (getSelected != null) {
             return getSelected.generateJs();
-            //return String.format(Locale.US, "getSelected: %s,", ((getSelected != null) ? getSelected.generateJs() : "null"));
         }
         return "";
     }
@@ -1571,7 +1647,6 @@ public class Tasks extends JsObject {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
-            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -1579,7 +1654,6 @@ public class Tasks extends JsObject {
     private String generateJSgetUpperLabels() {
         if (getUpperLabels != null) {
             return getUpperLabels.generateJs();
-            //return String.format(Locale.US, "getUpperLabels: %s,", ((getUpperLabels != null) ? getUpperLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -1607,136 +1681,6 @@ public class Tasks extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSdummyFill());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSfill());
-////        
-//            js.append(generateJScolor5());
-////        
-//            js.append(generateJSopacity3());
-////        
-//            js.append(generateJSkeys4());
-////        
-//            js.append(generateJSkeys5());
-////        
-//            js.append(generateJSangle1());
-////        
-//            js.append(generateJSmode4());
-////        
-//            js.append(generateJSmode5());
-////        
-//            js.append(generateJSmode6());
-////        
-//            js.append(generateJSopacity4());
-////        
-//            js.append(generateJSkeys6());
-////        
-//            js.append(generateJSkeys7());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSmode7());
-////        
-//            js.append(generateJSopacity5());
-////        
-//            js.append(generateJSfx1());
-////        
-//            js.append(generateJSfy1());
-////        
-//            js.append(generateJSimageSettings1());
-////        
-//            js.append(generateJShovered());
-////        
-//            js.append(generateJSlowerLabels());
-////        
-//            js.append(generateJSlowerLabels1());
-////        
-//            js.append(generateJSnormal());
-////        
-//            js.append(generateJSselected());
-////        
-//            js.append(generateJScolor6());
-////        
-//            js.append(generateJScolor7());
-////        
-//            js.append(generateJScolor8());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-////        
-//            js.append(generateJStooltip());
-////        
-//            js.append(generateJStooltip1());
-////        
-//            js.append(generateJSupperLabels());
-////        
-//            js.append(generateJSupperLabels1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

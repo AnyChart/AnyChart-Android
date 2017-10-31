@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Scale ticks.
+ */
 public class DateTimeTicks extends CoreBase {
 
     public DateTimeTicks() {
-
+        js.setLength(0);
+        js.append("var dateTimeTicks").append(++variableIndex).append(" = anychart.scales.dateTimeTicks();");
+        jsBase = "dateTimeTicks" + variableIndex;
     }
 
     protected DateTimeTicks(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class DateTimeTicks extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double count;
 
+    /**
+     * Setter for ticks count value.
+     */
     public DateTimeTicks setCount(Double count) {
         if (jsBase == null) {
             this.count = count;
@@ -38,7 +51,6 @@ public class DateTimeTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".count(%f)", count));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class DateTimeTicks extends CoreBase {
 
     private String isodate;
 
+    /**
+     * Setter for ticks interval value by string representing date part or ISO 8601 interval string.
+     */
     public DateTimeTicks setInterval(String isodate) {
         if (jsBase == null) {
             this.isodate = isodate;
@@ -60,7 +75,6 @@ public class DateTimeTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".interval(%s)", wrapQuotes(isodate)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".interval(%s)", wrapQuotes(isodate)));
                 js.setLength(0);
@@ -73,6 +87,9 @@ public class DateTimeTicks extends CoreBase {
     private String unit1;
     private Double count1;
 
+    /**
+     * Setter for ticks interval value by unit.
+     */
     public DateTimeTicks setInterval(Interval unit, Double count1) {
         if (jsBase == null) {
             this.unit = null;
@@ -92,7 +109,6 @@ public class DateTimeTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".interval(%s, %f)", ((unit != null) ? unit.generateJs() : "null"), count1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".interval(%s, %f)", ((unit != null) ? unit.generateJs() : "null"), count1));
                 js.setLength(0);
@@ -102,6 +118,9 @@ public class DateTimeTicks extends CoreBase {
     }
 
 
+    /**
+     * Setter for ticks interval value by unit.
+     */
     public DateTimeTicks setInterval(String unit1, Double count1) {
         if (jsBase == null) {
             this.unit = null;
@@ -121,7 +140,6 @@ public class DateTimeTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".interval(%s, %f)", wrapQuotes(unit1), count1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".interval(%s, %f)", wrapQuotes(unit1), count1));
                 js.setLength(0);
@@ -137,6 +155,10 @@ public class DateTimeTicks extends CoreBase {
     private Double minutes;
     private Double seconds;
 
+    /**
+     * Setter for ticks interval value.
+<b>Note:</b> If any passed value is defined but is not a number or less than 0, it defaults to NaN and count() resets to 5.
+     */
     public DateTimeTicks setInterval(Double years, Double months, Double days, Double hours, Double minutes, Double seconds) {
         if (jsBase == null) {
             this.years = years;
@@ -158,7 +180,6 @@ public class DateTimeTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".interval(%f, %f, %f, %f, %f, %f)", years, months, days, hours, minutes, seconds));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".interval(%f, %f, %f, %f, %f, %f)", years, months, days, hours, minutes, seconds));
                 js.setLength(0);
@@ -169,6 +190,9 @@ public class DateTimeTicks extends CoreBase {
 
     private String[] ticks;
 
+    /**
+     * Setups ticks as an explicit array of fixed ticks.
+     */
     public DateTimeTicks set(String[] ticks) {
         if (jsBase == null) {
             this.ticks = ticks;
@@ -180,7 +204,6 @@ public class DateTimeTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
                 js.setLength(0);
@@ -189,8 +212,6 @@ public class DateTimeTicks extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -208,36 +229,6 @@ public class DateTimeTicks extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScount());
-////        
-//            js.append(generateJSisodate());
-////        
-//            js.append(generateJSunit());
-////        
-//            js.append(generateJSunit1());
-////        
-//            js.append(generateJScount1());
-////        
-//            js.append(generateJSyears());
-////        
-//            js.append(generateJSmonths());
-////        
-//            js.append(generateJSdays());
-////        
-//            js.append(generateJShours());
-////        
-//            js.append(generateJSminutes());
-////        
-//            js.append(generateJSseconds());
-////        
-//            js.append(generateJSticks());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

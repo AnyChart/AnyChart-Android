@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * A base for all series except marker series.
+ */
 public class CartesianSeriesBaseWithMarkers extends CartesianSeriesBase {
 
     public CartesianSeriesBaseWithMarkers() {
-
+        js.setLength(0);
+        js.append("var cartesianSeriesBaseWithMarkers").append(++variableIndex).append(" = anychart.core.cartesian.series.baseWithMarkers();");
+        jsBase = "cartesianSeriesBaseWithMarkers" + variableIndex;
     }
 
     protected CartesianSeriesBaseWithMarkers(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class CartesianSeriesBaseWithMarkers extends CartesianSeriesBase {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class CartesianSeriesBaseWithMarkers extends CartesianSeriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

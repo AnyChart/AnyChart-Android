@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Scale ticks settings.
+ */
 public class OrdinalTicks extends CoreBase {
 
     public OrdinalTicks() {
-
+        js.setLength(0);
+        js.append("var ordinalTicks").append(++variableIndex).append(" = anychart.scales.ordinalTicks();");
+        jsBase = "ordinalTicks" + variableIndex;
     }
 
     protected OrdinalTicks(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class OrdinalTicks extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double interval;
 
+    /**
+     * Setter for ticks interval value. Passed value as rounded and defaults to 1 in case of incorrect settings.
+     */
     public OrdinalTicks setInterval(Double interval) {
         if (jsBase == null) {
             this.interval = interval;
@@ -38,7 +51,6 @@ public class OrdinalTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".interval(%f)", interval));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".interval(%f)", interval));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class OrdinalTicks extends CoreBase {
 
     private String[] values;
 
+    /**
+     * Setter for tick names.
+     */
     public OrdinalTicks setNames(String[] values) {
         if (jsBase == null) {
             this.values = values;
@@ -60,7 +75,6 @@ public class OrdinalTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".names(%s)", arrayToStringWrapQuotes(values)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".names(%s)", arrayToStringWrapQuotes(values)));
                 js.setLength(0);
@@ -71,6 +85,9 @@ public class OrdinalTicks extends CoreBase {
 
     private String[] ticks;
 
+    /**
+     * Setups ticks as an explicit array of fixed ticks.
+     */
     public OrdinalTicks set(String[] ticks) {
         if (jsBase == null) {
             this.ticks = ticks;
@@ -82,7 +99,6 @@ public class OrdinalTicks extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
                 js.setLength(0);
@@ -91,8 +107,6 @@ public class OrdinalTicks extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -110,18 +124,6 @@ public class OrdinalTicks extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSinterval());
-////        
-//            js.append(generateJSvalues());
-////        
-//            js.append(generateJSticks());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

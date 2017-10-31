@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * CHO indicator class.
+ */
 public class CHO extends JsObject {
 
     public CHO() {
-
+        js.setLength(0);
+        js.append("var cHO").append(++variableIndex).append(" = anychart.core.stock.indicators.cHO();");
+        jsBase = "cHO" + variableIndex;
     }
 
     protected CHO(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class CHO extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double fastPeriod;
 
+    /**
+     * Setter for the fast period.
+     */
     public CHO setFastPeriod(Double fastPeriod) {
         if (jsBase == null) {
             this.fastPeriod = fastPeriod;
@@ -38,7 +51,6 @@ public class CHO extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
                 js.setLength(0);
@@ -50,6 +62,9 @@ public class CHO extends JsObject {
     private MovingAverageType maType;
     private String maType1;
 
+    /**
+     * Setter for the indicator smoothing type.
+     */
     public CHO setMaType(MovingAverageType maType) {
         if (jsBase == null) {
             this.maType = null;
@@ -64,7 +79,6 @@ public class CHO extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".maType(%s)", ((maType != null) ? maType.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maType(%s)", ((maType != null) ? maType.generateJs() : "null")));
                 js.setLength(0);
@@ -74,6 +88,9 @@ public class CHO extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator smoothing type.
+     */
     public CHO setMaType(String maType1) {
         if (jsBase == null) {
             this.maType = null;
@@ -88,7 +105,6 @@ public class CHO extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".maType(%s)", wrapQuotes(maType1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maType(%s)", wrapQuotes(maType1)));
                 js.setLength(0);
@@ -99,6 +115,9 @@ public class CHO extends JsObject {
 
     private StockSeriesBase getSeries;
 
+    /**
+     * Getter for the indicator series.
+     */
     public StockSeriesBase getSeries() {
         if (getSeries == null)
             getSeries = new StockSeriesBase(jsBase + ".series()");
@@ -109,6 +128,9 @@ public class CHO extends JsObject {
     private StockSeriesType type;
     private String type1;
 
+    /**
+     * Setter for the indicator series.
+     */
     public CHO setSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
@@ -123,7 +145,6 @@ public class CHO extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -133,6 +154,9 @@ public class CHO extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator series.
+     */
     public CHO setSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -147,7 +171,6 @@ public class CHO extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -158,6 +181,9 @@ public class CHO extends JsObject {
 
     private Double slowPeriod;
 
+    /**
+     * Setter for the slow period.
+     */
     public CHO setSlowPeriod(Double slowPeriod) {
         if (jsBase == null) {
             this.slowPeriod = slowPeriod;
@@ -169,7 +195,6 @@ public class CHO extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".slowPeriod(%f)", slowPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".slowPeriod(%f)", slowPeriod));
                 js.setLength(0);
@@ -178,19 +203,9 @@ public class CHO extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSStockSeriesBase getSeries() {
-//        if (StockSeriesBase getSeries != null) {
-//            return StockSeriesBase getSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetSeries() {
         if (getSeries != null) {
             return getSeries.generateJs();
-            //return String.format(Locale.US, "getSeries: %s,", ((getSeries != null) ? getSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -213,24 +228,6 @@ public class CHO extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSfastPeriod());
-////        
-//            js.append(generateJSmaType());
-////        
-//            js.append(generateJSmaType1());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJSslowPeriod());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

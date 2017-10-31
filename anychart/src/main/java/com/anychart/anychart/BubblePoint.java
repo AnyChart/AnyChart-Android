@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Point representing bubble points that belongs to cartesian or scatter chart.
+ */
 public class BubblePoint extends SeriesPoint {
 
     public BubblePoint() {
-
+        js.setLength(0);
+        js.append("var bubblePoint").append(++variableIndex).append(" = anychart.core.bubblePoint();");
+        jsBase = "bubblePoint" + variableIndex;
     }
 
     protected BubblePoint(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class BubblePoint extends SeriesPoint {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class BubblePoint extends SeriesPoint {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

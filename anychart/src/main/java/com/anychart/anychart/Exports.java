@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Composition view, that concatenates two different views.
+ */
 public class Exports extends JsObject {
 
     public Exports() {
-
+        js.setLength(0);
+        js.append("var exports").append(++variableIndex).append(" = anychart.core.utils.exports();");
+        jsBase = "exports" + variableIndex;
     }
 
     protected Exports(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -22,6 +28,10 @@ public class Exports extends JsObject {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
+    }
+
+    protected String getJsBase() {
+        return jsBase;
     }
 
     
@@ -34,6 +44,9 @@ public class Exports extends JsObject {
     private String height;
     private String appId;
 
+    /**
+     * Setter for facebook sharing settings.
+     */
     public void setFacebook(String captionOrOptions, String link, String name, String description, String width, String height, String appId) {
         if (jsBase == null) {
             this.captionOrOptions = null;
@@ -60,7 +73,6 @@ public class Exports extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description), wrapQuotes(width), wrapQuotes(height), wrapQuotes(appId)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s)", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description), wrapQuotes(width), wrapQuotes(height), wrapQuotes(appId)));
                 js.setLength(0);
@@ -70,6 +82,9 @@ public class Exports extends JsObject {
 
     private String filename;
 
+    /**
+     * Setter and getter for the file name for exported files.
+     */
     public void setFilename(String filename) {
         if (jsBase == null) {
             this.filename = filename;
@@ -81,7 +96,6 @@ public class Exports extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".filename(%s);", wrapQuotes(filename)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".filename(%s)", wrapQuotes(filename)));
                 js.setLength(0);
@@ -93,6 +107,9 @@ public class Exports extends JsObject {
     private String widthOrOptions1;
     private String height1;
 
+    /**
+     * Setter for dimensions for exported images and PDFs.
+     */
     public void setImage(String widthOrOptions, String height1) {
         if (jsBase == null) {
             this.widthOrOptions = null;
@@ -112,7 +129,6 @@ public class Exports extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".image(%s, %s);", wrapQuotes(widthOrOptions), wrapQuotes(height1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %s)", wrapQuotes(widthOrOptions), wrapQuotes(height1)));
                 js.setLength(0);
@@ -126,6 +142,9 @@ public class Exports extends JsObject {
     private String width1;
     private String height2;
 
+    /**
+     * Setter for LinkedIn sharing settings.
+     */
     public void setLinkedin(String captionOrOptions2, String description1, String width1, String height2) {
         if (jsBase == null) {
             this.captionOrOptions = null;
@@ -158,7 +177,6 @@ public class Exports extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".linkedin(%s, %s, %s, %s);", wrapQuotes(captionOrOptions2), wrapQuotes(description1), wrapQuotes(width1), wrapQuotes(height2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".linkedin(%s, %s, %s, %s)", wrapQuotes(captionOrOptions2), wrapQuotes(description1), wrapQuotes(width1), wrapQuotes(height2)));
                 js.setLength(0);
@@ -172,6 +190,9 @@ public class Exports extends JsObject {
     private String width2;
     private String height3;
 
+    /**
+     * Setter for Pinterest sharing settings.
+     */
     public void setPinterest(String linkOrOptions, String description2, String width2, String height3) {
         if (jsBase == null) {
             this.linkOrOptions = null;
@@ -205,7 +226,6 @@ public class Exports extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".pinterest(%s, %s, %s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description2), wrapQuotes(width2), wrapQuotes(height3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".pinterest(%s, %s, %s, %s)", wrapQuotes(linkOrOptions), wrapQuotes(description2), wrapQuotes(width2), wrapQuotes(height3)));
                 js.setLength(0);
@@ -218,6 +238,9 @@ public class Exports extends JsObject {
     private String width3;
     private String height4;
 
+    /**
+     * Setter for twitter sharing settings.
+     */
     public void setTwitter(String urlOrOptions, String width3, String height4) {
         if (jsBase == null) {
             this.urlOrOptions = null;
@@ -247,7 +270,6 @@ public class Exports extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".twitter(%s, %s, %s);", wrapQuotes(urlOrOptions), wrapQuotes(width3), wrapQuotes(height4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".twitter(%s, %s, %s)", wrapQuotes(urlOrOptions), wrapQuotes(width3), wrapQuotes(height4)));
                 js.setLength(0);
@@ -255,8 +277,6 @@ public class Exports extends JsObject {
         }
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -274,64 +294,6 @@ public class Exports extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScaptionOrOptions());
-////        
-//            js.append(generateJScaptionOrOptions1());
-////        
-//            js.append(generateJSlink());
-////        
-//            js.append(generateJSname());
-////        
-//            js.append(generateJSdescription());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSheight());
-////        
-//            js.append(generateJSappId());
-////        
-//            js.append(generateJSfilename());
-////        
-//            js.append(generateJSwidthOrOptions());
-////        
-//            js.append(generateJSwidthOrOptions1());
-////        
-//            js.append(generateJSheight1());
-////        
-//            js.append(generateJScaptionOrOptions2());
-////        
-//            js.append(generateJScaptionOrOptions3());
-////        
-//            js.append(generateJSdescription1());
-////        
-//            js.append(generateJSwidth1());
-////        
-//            js.append(generateJSheight2());
-////        
-//            js.append(generateJSlinkOrOptions());
-////        
-//            js.append(generateJSlinkOrOptions1());
-////        
-//            js.append(generateJSdescription2());
-////        
-//            js.append(generateJSwidth2());
-////        
-//            js.append(generateJSheight3());
-////        
-//            js.append(generateJSurlOrOptions());
-////        
-//            js.append(generateJSurlOrOptions1());
-////        
-//            js.append(generateJSwidth3());
-////        
-//            js.append(generateJSheight4());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Overlay element class.
+ */
 public class Overlay extends CoreBase {
 
     public Overlay() {
-
+        js.setLength(0);
+        js.append("var overlay").append(++variableIndex).append(" = anychart.core.ui.overlay();");
+        jsBase = "overlay" + variableIndex;
     }
 
     protected Overlay(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Overlay extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String className;
 
+    /**
+     * Setter for the name of DIV class.
+     */
     public Overlay setClassName(String className) {
         if (jsBase == null) {
             this.className = className;
@@ -38,7 +51,6 @@ public class Overlay extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".className(%s)", wrapQuotes(className)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".className(%s)", wrapQuotes(className)));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class Overlay extends CoreBase {
 
     private Boolean enabled;
 
+    /**
+     * Setter for the enabled state.
+     */
     public Overlay setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
@@ -60,7 +75,6 @@ public class Overlay extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -71,6 +85,9 @@ public class Overlay extends CoreBase {
 
     private Element getGetElement;
 
+    /**
+     * Gets the overlay DOM element.
+     */
     public Element getGetElement() {
         if (getGetElement == null)
             getGetElement = new Element(jsBase + ".getElement()");
@@ -80,6 +97,9 @@ public class Overlay extends CoreBase {
 
     private String id;
 
+    /**
+     * Setter for the DIV identifier.
+     */
     public Overlay setId(String id) {
         if (jsBase == null) {
             this.id = id;
@@ -91,7 +111,6 @@ public class Overlay extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
                 js.setLength(0);
@@ -100,19 +119,9 @@ public class Overlay extends CoreBase {
         return this;
     }
 
-
-//
-//    private String generateJSElement getGetElement() {
-//        if (Element getGetElement != null) {
-//            return Element getGetElement.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetGetElement() {
         if (getGetElement != null) {
             return getGetElement.generateJs();
-            //return String.format(Locale.US, "getGetElement: %s,", ((getGetElement != null) ? getGetElement.generateJs() : "null"));
         }
         return "";
     }
@@ -135,18 +144,6 @@ public class Overlay extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSclassName());
-////        
-//            js.append(generateJSenabled());
-////        
-//            js.append(generateJSid());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

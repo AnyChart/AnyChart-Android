@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Class for the Gantt chart timeline.
+ */
 public class Timeline extends JsObject {
 
     public Timeline() {
-
+        js.setLength(0);
+        js.append("var timeline").append(++variableIndex).append(" = anychart.core.ui.timeline();");
+        jsBase = "timeline" + variableIndex;
     }
 
     protected Timeline(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,17 @@ public class Timeline extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Fill backgroundFill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setBackgroundFill(Fill backgroundFill) {
         if (jsBase == null) {
             this.backgroundFill = backgroundFill;
@@ -38,7 +52,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
                 js.setLength(0);
@@ -50,6 +63,9 @@ public class Timeline extends JsObject {
     private String color;
     private Double opacity;
 
+    /**
+     * Fill color with opacity.
+     */
     public Timeline backgroundFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
@@ -63,7 +79,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -80,6 +95,10 @@ public class Timeline extends JsObject {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline backgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -107,7 +126,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -117,6 +135,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline backgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -144,7 +166,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -154,6 +175,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline backgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -181,7 +206,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -191,6 +215,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline backgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -218,7 +246,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -228,6 +255,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline backgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -255,7 +286,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -265,6 +295,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline backgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -292,7 +326,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -310,6 +343,10 @@ public class Timeline extends JsObject {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline backgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -347,7 +384,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -357,6 +393,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline backgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -394,7 +434,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -406,6 +445,10 @@ public class Timeline extends JsObject {
     private Fill imageSettings;
     private Fill baseFill;
 
+    /**
+     * Setter for base fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setBaseFill(Fill baseFill) {
         if (jsBase == null) {
             this.baseFill = baseFill;
@@ -417,7 +460,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseFill(%s)", ((baseFill != null) ? baseFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s)", ((baseFill != null) ? baseFill.generateJs() : "null")));
                 js.setLength(0);
@@ -429,6 +471,9 @@ public class Timeline extends JsObject {
     private String color1;
     private Double opacity3;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline baseFill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
@@ -450,7 +495,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseFill(%s, %f)", wrapQuotes(color1), opacity3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f)", wrapQuotes(color1), opacity3));
                 js.setLength(0);
@@ -467,6 +511,10 @@ public class Timeline extends JsObject {
     private String mode6;
     private Double opacity4;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baseFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -508,7 +556,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -518,6 +565,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baseFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -559,7 +610,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -569,6 +619,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baseFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -610,7 +664,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -620,6 +673,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baseFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -661,7 +718,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -671,6 +727,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baseFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -712,7 +772,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -722,6 +781,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baseFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
@@ -763,7 +826,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -781,6 +843,10 @@ public class Timeline extends JsObject {
     private Double fx1;
     private Double fy1;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baseFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -841,7 +907,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -851,6 +916,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baseFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
@@ -911,7 +980,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -923,6 +991,9 @@ public class Timeline extends JsObject {
     private Fill imageSettings1;
     private UiLabelsFactory getBaseLabels;
 
+    /**
+     * Getter for base labels.
+     */
     public UiLabelsFactory getBaseLabels() {
         if (getBaseLabels == null)
             getBaseLabels = new UiLabelsFactory(jsBase + ".baseLabels()");
@@ -933,6 +1004,9 @@ public class Timeline extends JsObject {
     private String baseLabels;
     private Boolean baseLabels1;
 
+    /**
+     * Setter for base labels.
+     */
     public Timeline setBaseLabels(String baseLabels) {
         if (jsBase == null) {
             this.baseLabels = null;
@@ -947,7 +1021,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseLabels(%s)", wrapQuotes(baseLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseLabels(%s)", wrapQuotes(baseLabels)));
                 js.setLength(0);
@@ -957,6 +1030,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for base labels.
+     */
     public Timeline setBaseLabels(Boolean baseLabels1) {
         if (jsBase == null) {
             this.baseLabels = null;
@@ -971,7 +1047,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseLabels(%b)", baseLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseLabels(%b)", baseLabels1));
                 js.setLength(0);
@@ -988,6 +1063,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for the base stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setBaseStroke(Stroke baseStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.baseStroke = null;
@@ -1011,7 +1090,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1021,6 +1099,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the base stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setBaseStroke(ColoredFill baseStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.baseStroke = null;
@@ -1044,7 +1126,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1054,6 +1135,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the base stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setBaseStroke(String baseStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.baseStroke = null;
@@ -1077,7 +1162,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1088,6 +1172,9 @@ public class Timeline extends JsObject {
 
     private Boolean baselineAbove;
 
+    /**
+     * Setter for the "baseline above" flag.
+     */
     public Timeline setBaselineAbove(Boolean baselineAbove) {
         if (jsBase == null) {
             this.baselineAbove = baselineAbove;
@@ -1099,7 +1186,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineAbove(%b)", baselineAbove));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineAbove(%b)", baselineAbove));
                 js.setLength(0);
@@ -1110,6 +1196,10 @@ public class Timeline extends JsObject {
 
     private Fill baselineFill;
 
+    /**
+     * Setter for baseline fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setBaselineFill(Fill baselineFill) {
         if (jsBase == null) {
             this.baselineFill = baselineFill;
@@ -1121,7 +1211,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineFill(%s)", ((baselineFill != null) ? baselineFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s)", ((baselineFill != null) ? baselineFill.generateJs() : "null")));
                 js.setLength(0);
@@ -1133,6 +1222,9 @@ public class Timeline extends JsObject {
     private String color2;
     private Double opacity6;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline baselineFill(String color2, Double opacity6) {
         if (jsBase == null) {
             this.color = null;
@@ -1158,7 +1250,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineFill(%s, %f)", wrapQuotes(color2), opacity6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f)", wrapQuotes(color2), opacity6));
                 js.setLength(0);
@@ -1175,6 +1266,10 @@ public class Timeline extends JsObject {
     private String mode10;
     private Double opacity7;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baselineFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1228,7 +1323,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
                 js.setLength(0);
@@ -1238,6 +1332,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baselineFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1291,7 +1389,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
@@ -1301,6 +1398,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baselineFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1354,7 +1455,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
@@ -1364,6 +1464,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baselineFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1417,7 +1521,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
                 js.setLength(0);
@@ -1427,6 +1530,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baselineFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1480,7 +1587,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
@@ -1490,6 +1596,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baselineFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
@@ -1543,7 +1653,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
@@ -1561,6 +1670,10 @@ public class Timeline extends JsObject {
     private Double fx2;
     private Double fy2;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baselineFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
@@ -1636,7 +1749,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
@@ -1646,6 +1758,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline baselineFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
@@ -1721,7 +1837,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
@@ -1733,6 +1848,9 @@ public class Timeline extends JsObject {
     private Fill imageSettings2;
     private UiLabelsFactory getBaselineLabels;
 
+    /**
+     * Getter for base line labels.
+     */
     public UiLabelsFactory getBaselineLabels() {
         if (getBaselineLabels == null)
             getBaselineLabels = new UiLabelsFactory(jsBase + ".baselineLabels()");
@@ -1743,6 +1861,9 @@ public class Timeline extends JsObject {
     private String baselineLabels;
     private Boolean baselineLabels1;
 
+    /**
+     * Setter for base line labels.
+     */
     public Timeline setBaselineLabels(String baselineLabels) {
         if (jsBase == null) {
             this.baselineLabels = null;
@@ -1757,7 +1878,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineLabels(%s)", wrapQuotes(baselineLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineLabels(%s)", wrapQuotes(baselineLabels)));
                 js.setLength(0);
@@ -1767,6 +1887,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for base line labels.
+     */
     public Timeline setBaselineLabels(Boolean baselineLabels1) {
         if (jsBase == null) {
             this.baselineLabels = null;
@@ -1781,7 +1904,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineLabels(%b)", baselineLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineLabels(%b)", baselineLabels1));
                 js.setLength(0);
@@ -1798,6 +1920,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for the baseline stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setBaselineStroke(Stroke baselineStroke, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.baselineStroke = null;
@@ -1833,7 +1959,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1843,6 +1968,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the baseline stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setBaselineStroke(ColoredFill baselineStroke1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.baselineStroke = null;
@@ -1878,7 +2007,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1888,6 +2016,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the baseline stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setBaselineStroke(String baselineStroke2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.baselineStroke = null;
@@ -1923,7 +2055,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1935,6 +2066,9 @@ public class Timeline extends JsObject {
     private Stroke columnStroke;
     private String columnStroke1;
 
+    /**
+     * Setter for the column stroke.
+     */
     public Timeline setColumnStroke(Stroke columnStroke) {
         if (jsBase == null) {
             this.columnStroke = null;
@@ -1949,7 +2083,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -1959,6 +2092,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the column stroke.
+     */
     public Timeline setColumnStroke(String columnStroke1) {
         if (jsBase == null) {
             this.columnStroke = null;
@@ -1973,7 +2109,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
                 js.setLength(0);
@@ -1992,6 +2127,10 @@ public class Timeline extends JsObject {
     private Double fx3;
     private Double fy3;
 
+    /**
+     * Setter for connector fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setConnectorFill(Fill connectorFill, Double cx3, Double cy3, GraphicsMathRect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.connectorFill = null;
@@ -2050,7 +2189,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
@@ -2060,6 +2198,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for connector fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setConnectorFill(GradientKey[] connectorFill1, Double cx3, Double cy3, GraphicsMathRect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.connectorFill = null;
@@ -2118,7 +2260,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
@@ -2128,6 +2269,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for connector fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setConnectorFill(String[] connectorFill2, Double cx3, Double cy3, GraphicsMathRect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.connectorFill = null;
@@ -2186,7 +2331,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
@@ -2203,6 +2347,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
 
+    /**
+     * Setter for the connector preview stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setConnectorPreviewStroke(Stroke connectorPreviewStroke, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.connectorPreviewStroke = null;
@@ -2242,7 +2390,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2252,6 +2399,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the connector preview stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setConnectorPreviewStroke(ColoredFill connectorPreviewStroke1, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.connectorPreviewStroke = null;
@@ -2291,7 +2442,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2301,6 +2451,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the connector preview stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setConnectorPreviewStroke(String connectorPreviewStroke2, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.connectorPreviewStroke = null;
@@ -2340,7 +2494,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2357,6 +2510,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
 
+    /**
+     * Setter for the connector stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setConnectorStroke(Stroke connectorStroke, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.connectorStroke = null;
@@ -2400,7 +2557,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -2410,6 +2566,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the connector stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setConnectorStroke(ColoredFill connectorStroke1, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.connectorStroke = null;
@@ -2453,7 +2613,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -2463,6 +2622,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the connector stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setConnectorStroke(String connectorStroke2, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.connectorStroke = null;
@@ -2506,7 +2669,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -2517,6 +2679,10 @@ public class Timeline extends JsObject {
 
     private Fill editConnectorThumbFill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setEditConnectorThumbFill(Fill editConnectorThumbFill) {
         if (jsBase == null) {
             this.editConnectorThumbFill = editConnectorThumbFill;
@@ -2528,7 +2694,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s)", ((editConnectorThumbFill != null) ? editConnectorThumbFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s)", ((editConnectorThumbFill != null) ? editConnectorThumbFill.generateJs() : "null")));
                 js.setLength(0);
@@ -2540,6 +2705,9 @@ public class Timeline extends JsObject {
     private String color3;
     private Double opacity10;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline editConnectorThumbFill(String color3, Double opacity10) {
         if (jsBase == null) {
             this.color = null;
@@ -2570,7 +2738,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f)", wrapQuotes(color3), opacity10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f)", wrapQuotes(color3), opacity10));
                 js.setLength(0);
@@ -2587,6 +2754,10 @@ public class Timeline extends JsObject {
     private String mode14;
     private Double opacity11;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editConnectorThumbFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -2653,7 +2824,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
                 js.setLength(0);
@@ -2663,6 +2833,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editConnectorThumbFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -2729,7 +2903,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
                 js.setLength(0);
@@ -2739,6 +2912,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editConnectorThumbFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -2805,7 +2982,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
                 js.setLength(0);
@@ -2815,6 +2991,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editConnectorThumbFill(String[] keys13, Boolean mode12, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -2881,7 +3061,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
                 js.setLength(0);
@@ -2891,6 +3070,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editConnectorThumbFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -2957,7 +3140,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
                 js.setLength(0);
@@ -2967,6 +3149,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editConnectorThumbFill(String[] keys13, String mode14, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
@@ -3033,7 +3219,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
                 js.setLength(0);
@@ -3051,6 +3236,10 @@ public class Timeline extends JsObject {
     private Double fx4;
     private Double fy4;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editConnectorThumbFill(GradientKey[] keys14, Double cx4, Double cy4, GraphicsMathRect mode15, Double opacity12, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
@@ -3146,7 +3335,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
                 js.setLength(0);
@@ -3156,6 +3344,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editConnectorThumbFill(String[] keys15, Double cx4, Double cy4, GraphicsMathRect mode15, Double opacity12, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
@@ -3251,7 +3443,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
                 js.setLength(0);
@@ -3269,6 +3460,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin4;
     private StrokeLineCap lineCap4;
 
+    /**
+     * Setter for the edit connector thumb stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditConnectorThumbStroke(Stroke editConnectorThumbStroke, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.editConnectorThumbStroke = null;
@@ -3316,7 +3511,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3326,6 +3520,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the edit connector thumb stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditConnectorThumbStroke(ColoredFill editConnectorThumbStroke1, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.editConnectorThumbStroke = null;
@@ -3373,7 +3571,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3383,6 +3580,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the edit connector thumb stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditConnectorThumbStroke(String editConnectorThumbStroke2, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.editConnectorThumbStroke = null;
@@ -3430,7 +3631,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3441,6 +3641,9 @@ public class Timeline extends JsObject {
 
     private Double editFinishConnectorMarkerHorizontalOffset;
 
+    /**
+     * Setter for the finish edit connector control horizontal offset.
+     */
     public Timeline setEditFinishConnectorMarkerHorizontalOffset(Double editFinishConnectorMarkerHorizontalOffset) {
         if (jsBase == null) {
             this.editFinishConnectorMarkerHorizontalOffset = editFinishConnectorMarkerHorizontalOffset;
@@ -3452,7 +3655,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editFinishConnectorMarkerHorizontalOffset(%f)", editFinishConnectorMarkerHorizontalOffset));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editFinishConnectorMarkerHorizontalOffset(%f)", editFinishConnectorMarkerHorizontalOffset));
                 js.setLength(0);
@@ -3463,6 +3665,9 @@ public class Timeline extends JsObject {
 
     private Double editFinishConnectorMarkerSize;
 
+    /**
+     * Setter for the finish edit connector control size.
+     */
     public Timeline setEditFinishConnectorMarkerSize(Double editFinishConnectorMarkerSize) {
         if (jsBase == null) {
             this.editFinishConnectorMarkerSize = editFinishConnectorMarkerSize;
@@ -3474,7 +3679,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editFinishConnectorMarkerSize(%f)", editFinishConnectorMarkerSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editFinishConnectorMarkerSize(%f)", editFinishConnectorMarkerSize));
                 js.setLength(0);
@@ -3486,6 +3690,9 @@ public class Timeline extends JsObject {
     private MarkerType editFinishConnectorMarkerType;
     private String editFinishConnectorMarkerType1;
 
+    /**
+     * Setter for the finish edit connector control type.
+     */
     public void setEditFinishConnectorMarkerType(MarkerType editFinishConnectorMarkerType) {
         if (jsBase == null) {
             this.editFinishConnectorMarkerType = null;
@@ -3500,7 +3707,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", ((editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", ((editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null")));
                 js.setLength(0);
@@ -3509,6 +3715,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the finish edit connector control type.
+     */
     public void setEditFinishConnectorMarkerType(String editFinishConnectorMarkerType1) {
         if (jsBase == null) {
             this.editFinishConnectorMarkerType = null;
@@ -3523,7 +3732,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", wrapQuotes(editFinishConnectorMarkerType1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", wrapQuotes(editFinishConnectorMarkerType1)));
                 js.setLength(0);
@@ -3533,6 +3741,9 @@ public class Timeline extends JsObject {
 
     private Double editFinishConnectorMarkerVerticalOffset;
 
+    /**
+     * Setter for the finish edit connector control vertical offset.
+     */
     public Timeline setEditFinishConnectorMarkerVerticalOffset(Double editFinishConnectorMarkerVerticalOffset) {
         if (jsBase == null) {
             this.editFinishConnectorMarkerVerticalOffset = editFinishConnectorMarkerVerticalOffset;
@@ -3544,7 +3755,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editFinishConnectorMarkerVerticalOffset(%f)", editFinishConnectorMarkerVerticalOffset));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editFinishConnectorMarkerVerticalOffset(%f)", editFinishConnectorMarkerVerticalOffset));
                 js.setLength(0);
@@ -3555,6 +3765,10 @@ public class Timeline extends JsObject {
 
     private Fill editIntervalThumbFill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setEditIntervalThumbFill(Fill editIntervalThumbFill) {
         if (jsBase == null) {
             this.editIntervalThumbFill = editIntervalThumbFill;
@@ -3566,7 +3780,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s)", ((editIntervalThumbFill != null) ? editIntervalThumbFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s)", ((editIntervalThumbFill != null) ? editIntervalThumbFill.generateJs() : "null")));
                 js.setLength(0);
@@ -3578,6 +3791,9 @@ public class Timeline extends JsObject {
     private String color4;
     private Double opacity13;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline editIntervalThumbFill(String color4, Double opacity13) {
         if (jsBase == null) {
             this.color = null;
@@ -3612,7 +3828,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f)", wrapQuotes(color4), opacity13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f)", wrapQuotes(color4), opacity13));
                 js.setLength(0);
@@ -3629,6 +3844,10 @@ public class Timeline extends JsObject {
     private String mode18;
     private Double opacity14;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editIntervalThumbFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -3707,7 +3926,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity14));
                 js.setLength(0);
@@ -3717,6 +3935,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editIntervalThumbFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -3795,7 +4017,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
                 js.setLength(0);
@@ -3805,6 +4026,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editIntervalThumbFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -3883,7 +4108,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
                 js.setLength(0);
@@ -3893,6 +4117,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editIntervalThumbFill(String[] keys17, Boolean mode16, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -3971,7 +4199,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
                 js.setLength(0);
@@ -3981,6 +4208,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editIntervalThumbFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -4059,7 +4290,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
                 js.setLength(0);
@@ -4069,6 +4299,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editIntervalThumbFill(String[] keys17, String mode18, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
@@ -4147,7 +4381,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
                 js.setLength(0);
@@ -4165,6 +4398,10 @@ public class Timeline extends JsObject {
     private Double fx5;
     private Double fy5;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editIntervalThumbFill(GradientKey[] keys18, Double cx5, Double cy5, GraphicsMathRect mode19, Double opacity15, Double fx5, Double fy5) {
         if (jsBase == null) {
             this.keys = null;
@@ -4275,7 +4512,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
                 js.setLength(0);
@@ -4285,6 +4521,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editIntervalThumbFill(String[] keys19, Double cx5, Double cy5, GraphicsMathRect mode19, Double opacity15, Double fx5, Double fy5) {
         if (jsBase == null) {
             this.keys = null;
@@ -4395,7 +4635,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
                 js.setLength(0);
@@ -4413,6 +4652,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin5;
     private StrokeLineCap lineCap5;
 
+    /**
+     * Setter for the edit interval thumb stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditIntervalThumbStroke(Stroke editIntervalThumbStroke, Double thickness5, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.editIntervalThumbStroke = null;
@@ -4464,7 +4707,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -4474,6 +4716,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the edit interval thumb stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditIntervalThumbStroke(ColoredFill editIntervalThumbStroke1, Double thickness5, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.editIntervalThumbStroke = null;
@@ -4525,7 +4771,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -4535,6 +4780,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the edit interval thumb stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditIntervalThumbStroke(String editIntervalThumbStroke2, Double thickness5, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.editIntervalThumbStroke = null;
@@ -4586,7 +4835,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -4597,6 +4845,9 @@ public class Timeline extends JsObject {
 
     private Double editIntervalWidth;
 
+    /**
+     * Setter for the interval edit control width.
+     */
     public Timeline setEditIntervalWidth(Double editIntervalWidth) {
         if (jsBase == null) {
             this.editIntervalWidth = editIntervalWidth;
@@ -4608,7 +4859,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editIntervalWidth(%f)", editIntervalWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalWidth(%f)", editIntervalWidth));
                 js.setLength(0);
@@ -4619,6 +4869,10 @@ public class Timeline extends JsObject {
 
     private Fill editPreviewFill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setEditPreviewFill(Fill editPreviewFill) {
         if (jsBase == null) {
             this.editPreviewFill = editPreviewFill;
@@ -4630,7 +4884,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewFill(%s)", ((editPreviewFill != null) ? editPreviewFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s)", ((editPreviewFill != null) ? editPreviewFill.generateJs() : "null")));
                 js.setLength(0);
@@ -4642,6 +4895,9 @@ public class Timeline extends JsObject {
     private String color5;
     private Double opacity16;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline editPreviewFill(String color5, Double opacity16) {
         if (jsBase == null) {
             this.color = null;
@@ -4680,7 +4936,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %f)", wrapQuotes(color5), opacity16));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f)", wrapQuotes(color5), opacity16));
                 js.setLength(0);
@@ -4697,6 +4952,10 @@ public class Timeline extends JsObject {
     private String mode22;
     private Double opacity17;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editPreviewFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
@@ -4787,7 +5046,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity17));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity17));
                 js.setLength(0);
@@ -4797,6 +5055,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editPreviewFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
@@ -4887,7 +5149,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
                 js.setLength(0);
@@ -4897,6 +5158,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editPreviewFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
@@ -4987,7 +5252,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity17));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity17));
                 js.setLength(0);
@@ -4997,6 +5261,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editPreviewFill(String[] keys21, Boolean mode20, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
@@ -5087,7 +5355,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity17));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity17));
                 js.setLength(0);
@@ -5097,6 +5364,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editPreviewFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
@@ -5187,7 +5458,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
                 js.setLength(0);
@@ -5197,6 +5467,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editPreviewFill(String[] keys21, String mode22, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
@@ -5287,7 +5561,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity17));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity17));
                 js.setLength(0);
@@ -5305,6 +5578,10 @@ public class Timeline extends JsObject {
     private Double fx6;
     private Double fy6;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editPreviewFill(GradientKey[] keys22, Double cx6, Double cy6, GraphicsMathRect mode23, Double opacity18, Double fx6, Double fy6) {
         if (jsBase == null) {
             this.keys = null;
@@ -5430,7 +5707,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
                 js.setLength(0);
@@ -5440,6 +5716,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editPreviewFill(String[] keys23, Double cx6, Double cy6, GraphicsMathRect mode23, Double opacity18, Double fx6, Double fy6) {
         if (jsBase == null) {
             this.keys = null;
@@ -5565,7 +5845,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
                 js.setLength(0);
@@ -5583,6 +5862,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin6;
     private StrokeLineCap lineCap6;
 
+    /**
+     * Setter for the edit preview stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditPreviewStroke(Stroke editPreviewStroke, Double thickness6, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.editPreviewStroke = null;
@@ -5638,7 +5921,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -5648,6 +5930,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the edit preview stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditPreviewStroke(ColoredFill editPreviewStroke1, Double thickness6, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.editPreviewStroke = null;
@@ -5703,7 +5989,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -5713,6 +5998,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the edit preview stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditPreviewStroke(String editPreviewStroke2, Double thickness6, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.editPreviewStroke = null;
@@ -5768,7 +6057,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -5779,6 +6067,10 @@ public class Timeline extends JsObject {
 
     private Fill editProgressFill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setEditProgressFill(Fill editProgressFill) {
         if (jsBase == null) {
             this.editProgressFill = editProgressFill;
@@ -5790,7 +6082,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressFill(%s)", ((editProgressFill != null) ? editProgressFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s)", ((editProgressFill != null) ? editProgressFill.generateJs() : "null")));
                 js.setLength(0);
@@ -5802,6 +6093,9 @@ public class Timeline extends JsObject {
     private String color6;
     private Double opacity19;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline editProgressFill(String color6, Double opacity19) {
         if (jsBase == null) {
             this.color = null;
@@ -5844,7 +6138,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressFill(%s, %f)", wrapQuotes(color6), opacity19));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f)", wrapQuotes(color6), opacity19));
                 js.setLength(0);
@@ -5861,6 +6154,10 @@ public class Timeline extends JsObject {
     private String mode26;
     private Double opacity20;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editProgressFill(GradientKey[] keys24, Boolean mode24, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
@@ -5963,7 +6260,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToString(keys24), mode24, angle6, opacity20));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToString(keys24), mode24, angle6, opacity20));
                 js.setLength(0);
@@ -5973,6 +6269,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editProgressFill(GradientKey[] keys24, VectorRect mode25, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
@@ -6075,7 +6375,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
                 js.setLength(0);
@@ -6085,6 +6384,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editProgressFill(GradientKey[] keys24, String mode26, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
@@ -6187,7 +6490,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6, opacity20));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6, opacity20));
                 js.setLength(0);
@@ -6197,6 +6499,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editProgressFill(String[] keys25, Boolean mode24, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
@@ -6299,7 +6605,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6, opacity20));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6, opacity20));
                 js.setLength(0);
@@ -6309,6 +6614,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editProgressFill(String[] keys25, VectorRect mode25, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
@@ -6411,7 +6720,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
                 js.setLength(0);
@@ -6421,6 +6729,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editProgressFill(String[] keys25, String mode26, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
@@ -6523,7 +6835,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6, opacity20));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6, opacity20));
                 js.setLength(0);
@@ -6541,6 +6852,10 @@ public class Timeline extends JsObject {
     private Double fx7;
     private Double fy7;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editProgressFill(GradientKey[] keys26, Double cx7, Double cy7, GraphicsMathRect mode27, Double opacity21, Double fx7, Double fy7) {
         if (jsBase == null) {
             this.keys = null;
@@ -6681,7 +6996,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
                 js.setLength(0);
@@ -6691,6 +7005,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editProgressFill(String[] keys27, Double cx7, Double cy7, GraphicsMathRect mode27, Double opacity21, Double fx7, Double fy7) {
         if (jsBase == null) {
             this.keys = null;
@@ -6831,7 +7149,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
                 js.setLength(0);
@@ -6849,6 +7166,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin7;
     private StrokeLineCap lineCap7;
 
+    /**
+     * Setter for the edit progress stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditProgressStroke(Stroke editProgressStroke, Double thickness7, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.editProgressStroke = null;
@@ -6908,7 +7229,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -6918,6 +7238,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the edit progress stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditProgressStroke(ColoredFill editProgressStroke1, Double thickness7, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.editProgressStroke = null;
@@ -6977,7 +7301,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -6987,6 +7310,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the edit progress stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditProgressStroke(String editProgressStroke2, Double thickness7, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.editProgressStroke = null;
@@ -7046,7 +7373,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -7057,6 +7383,9 @@ public class Timeline extends JsObject {
 
     private Double editStartConnectorMarkerHorizontalOffset;
 
+    /**
+     * Setter for the start edit connector control horizontal offset.
+     */
     public Timeline setEditStartConnectorMarkerHorizontalOffset(Double editStartConnectorMarkerHorizontalOffset) {
         if (jsBase == null) {
             this.editStartConnectorMarkerHorizontalOffset = editStartConnectorMarkerHorizontalOffset;
@@ -7068,7 +7397,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStartConnectorMarkerHorizontalOffset(%f)", editStartConnectorMarkerHorizontalOffset));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStartConnectorMarkerHorizontalOffset(%f)", editStartConnectorMarkerHorizontalOffset));
                 js.setLength(0);
@@ -7079,6 +7407,9 @@ public class Timeline extends JsObject {
 
     private Double editStartConnectorMarkerSize;
 
+    /**
+     * Setter for the start edit connector control size.
+     */
     public Timeline setEditStartConnectorMarkerSize(Double editStartConnectorMarkerSize) {
         if (jsBase == null) {
             this.editStartConnectorMarkerSize = editStartConnectorMarkerSize;
@@ -7090,7 +7421,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStartConnectorMarkerSize(%f)", editStartConnectorMarkerSize));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStartConnectorMarkerSize(%f)", editStartConnectorMarkerSize));
                 js.setLength(0);
@@ -7102,6 +7432,9 @@ public class Timeline extends JsObject {
     private MarkerType editStartConnectorMarkerType;
     private String editStartConnectorMarkerType1;
 
+    /**
+     * Setter for the start edit connector control type.
+     */
     public void setEditStartConnectorMarkerType(MarkerType editStartConnectorMarkerType) {
         if (jsBase == null) {
             this.editStartConnectorMarkerType = null;
@@ -7116,7 +7449,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", ((editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", ((editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null")));
                 js.setLength(0);
@@ -7125,6 +7457,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the start edit connector control type.
+     */
     public void setEditStartConnectorMarkerType(String editStartConnectorMarkerType1) {
         if (jsBase == null) {
             this.editStartConnectorMarkerType = null;
@@ -7139,7 +7474,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", wrapQuotes(editStartConnectorMarkerType1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", wrapQuotes(editStartConnectorMarkerType1)));
                 js.setLength(0);
@@ -7149,6 +7483,9 @@ public class Timeline extends JsObject {
 
     private Double editStartConnectorMarkerVerticalOffset;
 
+    /**
+     * Setter for the start edit connector control vertical offset.
+     */
     public Timeline setEditStartConnectorMarkerVerticalOffset(Double editStartConnectorMarkerVerticalOffset) {
         if (jsBase == null) {
             this.editStartConnectorMarkerVerticalOffset = editStartConnectorMarkerVerticalOffset;
@@ -7160,7 +7497,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStartConnectorMarkerVerticalOffset(%f)", editStartConnectorMarkerVerticalOffset));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStartConnectorMarkerVerticalOffset(%f)", editStartConnectorMarkerVerticalOffset));
                 js.setLength(0);
@@ -7177,6 +7513,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin8;
     private StrokeLineCap lineCap8;
 
+    /**
+     * Setter for the preview dash stroke when editing structure.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditStructurePreviewDashStroke(Stroke editStructurePreviewDashStroke, Double thickness8, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.editStructurePreviewDashStroke = null;
@@ -7240,7 +7580,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7250,6 +7589,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the preview dash stroke when editing structure.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditStructurePreviewDashStroke(ColoredFill editStructurePreviewDashStroke1, Double thickness8, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.editStructurePreviewDashStroke = null;
@@ -7313,7 +7656,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7323,6 +7665,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the preview dash stroke when editing structure.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditStructurePreviewDashStroke(String editStructurePreviewDashStroke2, Double thickness8, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.editStructurePreviewDashStroke = null;
@@ -7386,7 +7732,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7397,6 +7742,10 @@ public class Timeline extends JsObject {
 
     private Fill editStructurePreviewFill;
 
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setEditStructurePreviewFill(Fill editStructurePreviewFill) {
         if (jsBase == null) {
             this.editStructurePreviewFill = editStructurePreviewFill;
@@ -7408,7 +7757,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s)", ((editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s)", ((editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null")));
                 js.setLength(0);
@@ -7420,6 +7768,9 @@ public class Timeline extends JsObject {
     private String color7;
     private Double opacity22;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline editStructurePreviewFill(String color7, Double opacity22) {
         if (jsBase == null) {
             this.color = null;
@@ -7466,7 +7817,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color7), opacity22));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color7), opacity22));
                 js.setLength(0);
@@ -7483,6 +7833,10 @@ public class Timeline extends JsObject {
     private String mode30;
     private Double opacity23;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editStructurePreviewFill(GradientKey[] keys28, Boolean mode28, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
@@ -7597,7 +7951,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToString(keys28), mode28, angle7, opacity23));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToString(keys28), mode28, angle7, opacity23));
                 js.setLength(0);
@@ -7607,6 +7960,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editStructurePreviewFill(GradientKey[] keys28, VectorRect mode29, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
@@ -7721,7 +8078,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
                 js.setLength(0);
@@ -7731,6 +8087,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editStructurePreviewFill(GradientKey[] keys28, String mode30, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
@@ -7845,7 +8205,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), wrapQuotes(mode30), angle7, opacity23));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), wrapQuotes(mode30), angle7, opacity23));
                 js.setLength(0);
@@ -7855,6 +8214,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editStructurePreviewFill(String[] keys29, Boolean mode28, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
@@ -7969,7 +8332,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys29), mode28, angle7, opacity23));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys29), mode28, angle7, opacity23));
                 js.setLength(0);
@@ -7979,6 +8341,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editStructurePreviewFill(String[] keys29, VectorRect mode29, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
@@ -8093,7 +8459,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
                 js.setLength(0);
@@ -8103,6 +8468,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editStructurePreviewFill(String[] keys29, String mode30, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
@@ -8217,7 +8586,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), wrapQuotes(mode30), angle7, opacity23));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), wrapQuotes(mode30), angle7, opacity23));
                 js.setLength(0);
@@ -8235,6 +8603,10 @@ public class Timeline extends JsObject {
     private Double fx8;
     private Double fy8;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editStructurePreviewFill(GradientKey[] keys30, Double cx8, Double cy8, GraphicsMathRect mode31, Double opacity24, Double fx8, Double fy8) {
         if (jsBase == null) {
             this.keys = null;
@@ -8390,7 +8762,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
                 js.setLength(0);
@@ -8400,6 +8771,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline editStructurePreviewFill(String[] keys31, Double cx8, Double cy8, GraphicsMathRect mode31, Double opacity24, Double fx8, Double fy8) {
         if (jsBase == null) {
             this.keys = null;
@@ -8555,7 +8930,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
                 js.setLength(0);
@@ -8573,6 +8947,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin9;
     private StrokeLineCap lineCap9;
 
+    /**
+     * Setter for the preview stroke when editing structure.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditStructurePreviewStroke(Stroke editStructurePreviewStroke, Double thickness9, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.editStructurePreviewStroke = null;
@@ -8640,7 +9018,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -8650,6 +9027,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the preview stroke when editing structure.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditStructurePreviewStroke(ColoredFill editStructurePreviewStroke1, Double thickness9, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.editStructurePreviewStroke = null;
@@ -8717,7 +9098,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -8727,6 +9107,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the preview stroke when editing structure.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setEditStructurePreviewStroke(String editStructurePreviewStroke2, Double thickness9, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.editStructurePreviewStroke = null;
@@ -8794,7 +9178,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -8805,6 +9188,9 @@ public class Timeline extends JsObject {
 
     private Boolean editing;
 
+    /**
+     * Enables or disables live edit mode.
+     */
     public Timeline editing(Boolean editing) {
         if (jsBase == null) {
             this.editing = editing;
@@ -8816,7 +9202,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".editing(%b)", editing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editing(%b)", editing));
                 js.setLength(0);
@@ -8827,6 +9212,9 @@ public class Timeline extends JsObject {
 
     private TimelineHeader getHeader;
 
+    /**
+     * Getter for the timeline header.
+     */
     public TimelineHeader getHeader() {
         if (getHeader == null)
             getHeader = new TimelineHeader(jsBase + ".header()");
@@ -8836,6 +9224,9 @@ public class Timeline extends JsObject {
 
     private String header;
 
+    /**
+     * Setter for the timeline header.
+     */
     public Timeline setHeader(String header) {
         if (jsBase == null) {
             this.header = header;
@@ -8847,7 +9238,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".header(%s)", wrapQuotes(header)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".header(%s)", wrapQuotes(header)));
                 js.setLength(0);
@@ -8858,6 +9248,9 @@ public class Timeline extends JsObject {
 
     private ScrollBar getHorizontalScrollBar;
 
+    /**
+     * Getter for the horizontal scroll bar.
+     */
     public ScrollBar getHorizontalScrollBar() {
         if (getHorizontalScrollBar == null)
             getHorizontalScrollBar = new ScrollBar(jsBase + ".horizontalScrollBar()");
@@ -8867,6 +9260,9 @@ public class Timeline extends JsObject {
 
     private String horizontalScrollBar;
 
+    /**
+     * Setter for the horizontal scroll bar.
+     */
     public Timeline setHorizontalScrollBar(String horizontalScrollBar) {
         if (jsBase == null) {
             this.horizontalScrollBar = horizontalScrollBar;
@@ -8878,7 +9274,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
                 js.setLength(0);
@@ -8889,6 +9284,9 @@ public class Timeline extends JsObject {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for the labels factory.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -8898,6 +9296,9 @@ public class Timeline extends JsObject {
 
     private String labels;
 
+    /**
+     * Setter for the labels factory.
+     */
     public Timeline setLabels(String labels) {
         if (jsBase == null) {
             this.labels = labels;
@@ -8909,7 +9310,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -8920,6 +9320,9 @@ public class Timeline extends JsObject {
 
     private List<GanttLine> getLineMarker = new ArrayList<>();
 
+    /**
+     * Getter for the line marker.
+     */
     public GanttLine getLineMarker(Double index) {
         GanttLine item = new GanttLine(jsBase + ".lineMarker(" + index + ")");
         getLineMarker.add(item);
@@ -8929,6 +9332,9 @@ public class Timeline extends JsObject {
     private String lineMarker;
     private Boolean lineMarker1;
 
+    /**
+     * Setter for the line marker.
+     */
     public Timeline setLineMarker(String lineMarker) {
         if (jsBase == null) {
             this.lineMarker = null;
@@ -8943,7 +9349,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
                 js.setLength(0);
@@ -8953,6 +9358,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the line marker.
+     */
     public Timeline setLineMarker(Boolean lineMarker1) {
         if (jsBase == null) {
             this.lineMarker = null;
@@ -8967,7 +9375,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
                 js.setLength(0);
@@ -8982,6 +9389,9 @@ public class Timeline extends JsObject {
     private GanttDateTimeMarkers lineMarker4;
     private String lineMarker5;
 
+    /**
+     * Setter for the line marker by index.
+     */
     public Timeline setLineMarker(String lineMarker2, Double index) {
         if (jsBase == null) {
             this.lineMarker = null;
@@ -9002,7 +9412,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index));
                 js.setLength(0);
@@ -9012,6 +9421,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the line marker by index.
+     */
     public Timeline setLineMarker(Boolean lineMarker3, Double index) {
         if (jsBase == null) {
             this.lineMarker = null;
@@ -9032,7 +9444,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index));
                 js.setLength(0);
@@ -9042,6 +9453,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the line marker by index.
+     */
     public Timeline setLineMarker(GanttDateTimeMarkers lineMarker4, Double index) {
         if (jsBase == null) {
             this.lineMarker = null;
@@ -9062,7 +9476,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".lineMarker(%s, %f)", ((lineMarker4 != null) ? lineMarker4.generateJs() : "null"), index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", ((lineMarker4 != null) ? lineMarker4.generateJs() : "null"), index));
                 js.setLength(0);
@@ -9073,6 +9486,9 @@ public class Timeline extends JsObject {
 
     private UiMarkersFactory getMarkers;
 
+    /**
+     * Getter for the markers factory.
+     */
     public UiMarkersFactory getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersFactory(jsBase + ".markers()");
@@ -9082,6 +9498,9 @@ public class Timeline extends JsObject {
 
     private String markers;
 
+    /**
+     * Setter for the markers factory.
+     */
     public Timeline setMarkers(String markers) {
         if (jsBase == null) {
             this.markers = markers;
@@ -9093,7 +9512,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
@@ -9104,6 +9522,10 @@ public class Timeline extends JsObject {
 
     private Fill milestoneFill;
 
+    /**
+     * Setter for milestone fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setMilestoneFill(Fill milestoneFill) {
         if (jsBase == null) {
             this.milestoneFill = milestoneFill;
@@ -9115,7 +9537,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneFill(%s)", ((milestoneFill != null) ? milestoneFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s)", ((milestoneFill != null) ? milestoneFill.generateJs() : "null")));
                 js.setLength(0);
@@ -9127,6 +9548,9 @@ public class Timeline extends JsObject {
     private String color8;
     private Double opacity25;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline milestoneFill(String color8, Double opacity25) {
         if (jsBase == null) {
             this.color = null;
@@ -9177,7 +9601,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneFill(%s, %f)", wrapQuotes(color8), opacity25));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f)", wrapQuotes(color8), opacity25));
                 js.setLength(0);
@@ -9194,6 +9617,10 @@ public class Timeline extends JsObject {
     private String mode34;
     private Double opacity26;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline milestoneFill(GradientKey[] keys32, Boolean mode32, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
@@ -9320,7 +9747,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToString(keys32), mode32, angle8, opacity26));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToString(keys32), mode32, angle8, opacity26));
                 js.setLength(0);
@@ -9330,6 +9756,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline milestoneFill(GradientKey[] keys32, VectorRect mode33, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
@@ -9456,7 +9886,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
                 js.setLength(0);
@@ -9466,6 +9895,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline milestoneFill(GradientKey[] keys32, String mode34, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
@@ -9592,7 +10025,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), wrapQuotes(mode34), angle8, opacity26));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), wrapQuotes(mode34), angle8, opacity26));
                 js.setLength(0);
@@ -9602,6 +10034,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline milestoneFill(String[] keys33, Boolean mode32, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
@@ -9728,7 +10164,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys33), mode32, angle8, opacity26));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys33), mode32, angle8, opacity26));
                 js.setLength(0);
@@ -9738,6 +10173,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline milestoneFill(String[] keys33, VectorRect mode33, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
@@ -9864,7 +10303,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
                 js.setLength(0);
@@ -9874,6 +10312,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline milestoneFill(String[] keys33, String mode34, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
@@ -10000,7 +10442,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), wrapQuotes(mode34), angle8, opacity26));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), wrapQuotes(mode34), angle8, opacity26));
                 js.setLength(0);
@@ -10018,6 +10459,10 @@ public class Timeline extends JsObject {
     private Double fx9;
     private Double fy9;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline milestoneFill(GradientKey[] keys34, Double cx9, Double cy9, GraphicsMathRect mode35, Double opacity27, Double fx9, Double fy9) {
         if (jsBase == null) {
             this.keys = null;
@@ -10188,7 +10633,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
                 js.setLength(0);
@@ -10198,6 +10642,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline milestoneFill(String[] keys35, Double cx9, Double cy9, GraphicsMathRect mode35, Double opacity27, Double fx9, Double fy9) {
         if (jsBase == null) {
             this.keys = null;
@@ -10368,7 +10816,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
                 js.setLength(0);
@@ -10380,6 +10827,9 @@ public class Timeline extends JsObject {
     private Fill imageSettings8;
     private UiLabelsFactory getMilestoneLabels;
 
+    /**
+     * Getter for milestone labels.
+     */
     public UiLabelsFactory getMilestoneLabels() {
         if (getMilestoneLabels == null)
             getMilestoneLabels = new UiLabelsFactory(jsBase + ".milestoneLabels()");
@@ -10390,6 +10840,9 @@ public class Timeline extends JsObject {
     private String milestoneLabels;
     private Boolean milestoneLabels1;
 
+    /**
+     * Setter for milestone labels.
+     */
     public Timeline setMilestoneLabels(String milestoneLabels) {
         if (jsBase == null) {
             this.milestoneLabels = null;
@@ -10404,7 +10857,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneLabels(%s)", wrapQuotes(milestoneLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneLabels(%s)", wrapQuotes(milestoneLabels)));
                 js.setLength(0);
@@ -10414,6 +10866,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for milestone labels.
+     */
     public Timeline setMilestoneLabels(Boolean milestoneLabels1) {
         if (jsBase == null) {
             this.milestoneLabels = null;
@@ -10428,7 +10883,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneLabels(%b)", milestoneLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneLabels(%b)", milestoneLabels1));
                 js.setLength(0);
@@ -10445,6 +10899,9 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin10;
     private StrokeLineCap lineCap10;
 
+    /**
+     * Setter for the milestone stroke settings.
+     */
     public Timeline setMilestoneStroke(Stroke milestoneStroke, Double thickness10, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.milestoneStroke = null;
@@ -10516,7 +10973,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -10526,6 +10982,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the milestone stroke settings.
+     */
     public Timeline setMilestoneStroke(ColoredFill milestoneStroke1, Double thickness10, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.milestoneStroke = null;
@@ -10597,7 +11056,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -10607,6 +11065,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the milestone stroke settings.
+     */
     public Timeline setMilestoneStroke(String milestoneStroke2, Double thickness10, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.milestoneStroke = null;
@@ -10678,7 +11139,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -10689,6 +11149,10 @@ public class Timeline extends JsObject {
 
     private Fill parentFill;
 
+    /**
+     * Setter for parent fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setParentFill(Fill parentFill) {
         if (jsBase == null) {
             this.parentFill = parentFill;
@@ -10700,7 +11164,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentFill(%s)", ((parentFill != null) ? parentFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s)", ((parentFill != null) ? parentFill.generateJs() : "null")));
                 js.setLength(0);
@@ -10712,6 +11175,9 @@ public class Timeline extends JsObject {
     private String color9;
     private Double opacity28;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline parentFill(String color9, Double opacity28) {
         if (jsBase == null) {
             this.color = null;
@@ -10766,7 +11232,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentFill(%s, %f)", wrapQuotes(color9), opacity28));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f)", wrapQuotes(color9), opacity28));
                 js.setLength(0);
@@ -10783,6 +11248,10 @@ public class Timeline extends JsObject {
     private String mode38;
     private Double opacity29;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline parentFill(GradientKey[] keys36, Boolean mode36, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
@@ -10921,7 +11390,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToString(keys36), mode36, angle9, opacity29));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToString(keys36), mode36, angle9, opacity29));
                 js.setLength(0);
@@ -10931,6 +11399,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline parentFill(GradientKey[] keys36, VectorRect mode37, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
@@ -11069,7 +11541,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
                 js.setLength(0);
@@ -11079,6 +11550,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline parentFill(GradientKey[] keys36, String mode38, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
@@ -11217,7 +11692,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), wrapQuotes(mode38), angle9, opacity29));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), wrapQuotes(mode38), angle9, opacity29));
                 js.setLength(0);
@@ -11227,6 +11701,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline parentFill(String[] keys37, Boolean mode36, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
@@ -11365,7 +11843,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys37), mode36, angle9, opacity29));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys37), mode36, angle9, opacity29));
                 js.setLength(0);
@@ -11375,6 +11852,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline parentFill(String[] keys37, VectorRect mode37, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
@@ -11513,7 +11994,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
                 js.setLength(0);
@@ -11523,6 +12003,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline parentFill(String[] keys37, String mode38, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
@@ -11661,7 +12145,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), wrapQuotes(mode38), angle9, opacity29));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), wrapQuotes(mode38), angle9, opacity29));
                 js.setLength(0);
@@ -11679,6 +12162,10 @@ public class Timeline extends JsObject {
     private Double fx10;
     private Double fy10;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline parentFill(GradientKey[] keys38, Double cx10, Double cy10, GraphicsMathRect mode39, Double opacity30, Double fx10, Double fy10) {
         if (jsBase == null) {
             this.keys = null;
@@ -11864,7 +12351,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
                 js.setLength(0);
@@ -11874,6 +12360,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline parentFill(String[] keys39, Double cx10, Double cy10, GraphicsMathRect mode39, Double opacity30, Double fx10, Double fy10) {
         if (jsBase == null) {
             this.keys = null;
@@ -12059,7 +12549,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
                 js.setLength(0);
@@ -12071,6 +12560,9 @@ public class Timeline extends JsObject {
     private Fill imageSettings9;
     private UiLabelsFactory getParentLabels;
 
+    /**
+     * Getter for parent labels.
+     */
     public UiLabelsFactory getParentLabels() {
         if (getParentLabels == null)
             getParentLabels = new UiLabelsFactory(jsBase + ".parentLabels()");
@@ -12081,6 +12573,9 @@ public class Timeline extends JsObject {
     private String parentLabels;
     private Boolean parentLabels1;
 
+    /**
+     * Setter for parent labels.
+     */
     public Timeline setParentLabels(String parentLabels) {
         if (jsBase == null) {
             this.parentLabels = null;
@@ -12095,7 +12590,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentLabels(%s)", wrapQuotes(parentLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentLabels(%s)", wrapQuotes(parentLabels)));
                 js.setLength(0);
@@ -12105,6 +12599,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for parent labels.
+     */
     public Timeline setParentLabels(Boolean parentLabels1) {
         if (jsBase == null) {
             this.parentLabels = null;
@@ -12119,7 +12616,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentLabels(%b)", parentLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentLabels(%b)", parentLabels1));
                 js.setLength(0);
@@ -12136,6 +12632,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin11;
     private StrokeLineCap lineCap11;
 
+    /**
+     * Setter for the parent stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setParentStroke(Stroke parentStroke, Double thickness11, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.parentStroke = null;
@@ -12211,7 +12711,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -12221,6 +12720,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the parent stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setParentStroke(ColoredFill parentStroke1, Double thickness11, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.parentStroke = null;
@@ -12296,7 +12799,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -12306,6 +12808,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the parent stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setParentStroke(String parentStroke2, Double thickness11, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.parentStroke = null;
@@ -12381,7 +12887,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -12392,6 +12897,10 @@ public class Timeline extends JsObject {
 
     private Fill progressFill;
 
+    /**
+     * Setter for progress fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setProgressFill(Fill progressFill) {
         if (jsBase == null) {
             this.progressFill = progressFill;
@@ -12403,7 +12912,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressFill(%s)", ((progressFill != null) ? progressFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s)", ((progressFill != null) ? progressFill.generateJs() : "null")));
                 js.setLength(0);
@@ -12415,6 +12923,9 @@ public class Timeline extends JsObject {
     private String color10;
     private Double opacity31;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline progressFill(String color10, Double opacity31) {
         if (jsBase == null) {
             this.color = null;
@@ -12473,7 +12984,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressFill(%s, %f)", wrapQuotes(color10), opacity31));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f)", wrapQuotes(color10), opacity31));
                 js.setLength(0);
@@ -12490,6 +13000,10 @@ public class Timeline extends JsObject {
     private String mode42;
     private Double opacity32;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline progressFill(GradientKey[] keys40, Boolean mode40, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
@@ -12640,7 +13154,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToString(keys40), mode40, angle10, opacity32));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToString(keys40), mode40, angle10, opacity32));
                 js.setLength(0);
@@ -12650,6 +13163,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline progressFill(GradientKey[] keys40, VectorRect mode41, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
@@ -12800,7 +13317,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
                 js.setLength(0);
@@ -12810,6 +13326,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline progressFill(GradientKey[] keys40, String mode42, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
@@ -12960,7 +13480,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), wrapQuotes(mode42), angle10, opacity32));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), wrapQuotes(mode42), angle10, opacity32));
                 js.setLength(0);
@@ -12970,6 +13489,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline progressFill(String[] keys41, Boolean mode40, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
@@ -13120,7 +13643,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys41), mode40, angle10, opacity32));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys41), mode40, angle10, opacity32));
                 js.setLength(0);
@@ -13130,6 +13652,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline progressFill(String[] keys41, VectorRect mode41, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
@@ -13280,7 +13806,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
                 js.setLength(0);
@@ -13290,6 +13815,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline progressFill(String[] keys41, String mode42, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
@@ -13440,7 +13969,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), wrapQuotes(mode42), angle10, opacity32));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), wrapQuotes(mode42), angle10, opacity32));
                 js.setLength(0);
@@ -13458,6 +13986,10 @@ public class Timeline extends JsObject {
     private Double fx11;
     private Double fy11;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline progressFill(GradientKey[] keys42, Double cx11, Double cy11, GraphicsMathRect mode43, Double opacity33, Double fx11, Double fy11) {
         if (jsBase == null) {
             this.keys = null;
@@ -13658,7 +14190,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
                 js.setLength(0);
@@ -13668,6 +14199,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline progressFill(String[] keys43, Double cx11, Double cy11, GraphicsMathRect mode43, Double opacity33, Double fx11, Double fy11) {
         if (jsBase == null) {
             this.keys = null;
@@ -13868,7 +14403,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
                 js.setLength(0);
@@ -13880,6 +14414,9 @@ public class Timeline extends JsObject {
     private Fill imageSettings10;
     private UiLabelsFactory getProgressLabels;
 
+    /**
+     * Getter for progress labels.
+     */
     public UiLabelsFactory getProgressLabels() {
         if (getProgressLabels == null)
             getProgressLabels = new UiLabelsFactory(jsBase + ".progressLabels()");
@@ -13890,6 +14427,9 @@ public class Timeline extends JsObject {
     private String progressLabels;
     private Boolean progressLabels1;
 
+    /**
+     * Setter for progress labels.
+     */
     public Timeline setProgressLabels(String progressLabels) {
         if (jsBase == null) {
             this.progressLabels = null;
@@ -13904,7 +14444,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressLabels(%s)", wrapQuotes(progressLabels)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressLabels(%s)", wrapQuotes(progressLabels)));
                 js.setLength(0);
@@ -13914,6 +14453,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for progress labels.
+     */
     public Timeline setProgressLabels(Boolean progressLabels1) {
         if (jsBase == null) {
             this.progressLabels = null;
@@ -13928,7 +14470,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressLabels(%b)", progressLabels1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressLabels(%b)", progressLabels1));
                 js.setLength(0);
@@ -13945,6 +14486,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin12;
     private StrokeLineCap lineCap12;
 
+    /**
+     * Setter for the progress bar stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setProgressStroke(Stroke progressStroke, Double thickness12, String dashpattern12, StrokeLineJoin lineJoin12, StrokeLineCap lineCap12) {
         if (jsBase == null) {
             this.progressStroke = null;
@@ -14024,7 +14569,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
@@ -14034,6 +14578,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the progress bar stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setProgressStroke(ColoredFill progressStroke1, Double thickness12, String dashpattern12, StrokeLineJoin lineJoin12, StrokeLineCap lineCap12) {
         if (jsBase == null) {
             this.progressStroke = null;
@@ -14113,7 +14661,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
@@ -14123,6 +14670,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the progress bar stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setProgressStroke(String progressStroke2, Double thickness12, String dashpattern12, StrokeLineJoin lineJoin12, StrokeLineCap lineCap12) {
         if (jsBase == null) {
             this.progressStroke = null;
@@ -14202,7 +14753,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
@@ -14213,6 +14763,9 @@ public class Timeline extends JsObject {
 
     private List<GanttRange> getRangeMarker = new ArrayList<>();
 
+    /**
+     * Getter for the range marker.
+     */
     public GanttRange getRangeMarker(Double index) {
         GanttRange item = new GanttRange(jsBase + ".rangeMarker(" + index + ")");
         getRangeMarker.add(item);
@@ -14222,6 +14775,9 @@ public class Timeline extends JsObject {
     private String rangeMarker;
     private Boolean rangeMarker1;
 
+    /**
+     * Setter for the range marker.
+     */
     public Timeline setRangeMarker(String rangeMarker) {
         if (jsBase == null) {
             this.rangeMarker = null;
@@ -14236,7 +14792,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
                 js.setLength(0);
@@ -14246,6 +14801,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the range marker.
+     */
     public Timeline setRangeMarker(Boolean rangeMarker1) {
         if (jsBase == null) {
             this.rangeMarker = null;
@@ -14260,7 +14818,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
                 js.setLength(0);
@@ -14275,6 +14832,9 @@ public class Timeline extends JsObject {
     private GanttDateTimeMarkers rangeMarker4;
     private String rangeMarker5;
 
+    /**
+     * Setter for the range marker by index.
+     */
     public Timeline setRangeMarker(String rangeMarker2, Double index1) {
         if (jsBase == null) {
             this.rangeMarker = null;
@@ -14298,7 +14858,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index1));
                 js.setLength(0);
@@ -14308,6 +14867,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the range marker by index.
+     */
     public Timeline setRangeMarker(Boolean rangeMarker3, Double index1) {
         if (jsBase == null) {
             this.rangeMarker = null;
@@ -14331,7 +14893,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index1));
                 js.setLength(0);
@@ -14341,6 +14902,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the range marker by index.
+     */
     public Timeline setRangeMarker(GanttDateTimeMarkers rangeMarker4, Double index1) {
         if (jsBase == null) {
             this.rangeMarker = null;
@@ -14364,7 +14928,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null"), index1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null"), index1));
                 js.setLength(0);
@@ -14375,6 +14938,10 @@ public class Timeline extends JsObject {
 
     private Fill rowEvenFill;
 
+    /**
+     * Setter for row even fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setRowEvenFill(Fill rowEvenFill) {
         if (jsBase == null) {
             this.rowEvenFill = rowEvenFill;
@@ -14386,7 +14953,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
                 js.setLength(0);
@@ -14398,6 +14964,9 @@ public class Timeline extends JsObject {
     private String color11;
     private Double opacity34;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline rowEvenFill(String color11, Double opacity34) {
         if (jsBase == null) {
             this.color = null;
@@ -14460,7 +15029,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color11), opacity34));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color11), opacity34));
                 js.setLength(0);
@@ -14477,6 +15045,10 @@ public class Timeline extends JsObject {
     private String mode46;
     private Double opacity35;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowEvenFill(GradientKey[] keys44, Boolean mode44, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
@@ -14639,7 +15211,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys44), mode44, angle11, opacity35));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys44), mode44, angle11, opacity35));
                 js.setLength(0);
@@ -14649,6 +15220,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowEvenFill(GradientKey[] keys44, VectorRect mode45, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
@@ -14811,7 +15386,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
                 js.setLength(0);
@@ -14821,6 +15395,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowEvenFill(GradientKey[] keys44, String mode46, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
@@ -14983,7 +15561,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), wrapQuotes(mode46), angle11, opacity35));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), wrapQuotes(mode46), angle11, opacity35));
                 js.setLength(0);
@@ -14993,6 +15570,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowEvenFill(String[] keys45, Boolean mode44, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
@@ -15155,7 +15736,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys45), mode44, angle11, opacity35));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys45), mode44, angle11, opacity35));
                 js.setLength(0);
@@ -15165,6 +15745,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowEvenFill(String[] keys45, VectorRect mode45, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
@@ -15327,7 +15911,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
                 js.setLength(0);
@@ -15337,6 +15920,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowEvenFill(String[] keys45, String mode46, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
@@ -15499,7 +16086,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), wrapQuotes(mode46), angle11, opacity35));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), wrapQuotes(mode46), angle11, opacity35));
                 js.setLength(0);
@@ -15517,6 +16103,10 @@ public class Timeline extends JsObject {
     private Double fx12;
     private Double fy12;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowEvenFill(GradientKey[] keys46, Double cx12, Double cy12, GraphicsMathRect mode47, Double opacity36, Double fx12, Double fy12) {
         if (jsBase == null) {
             this.keys = null;
@@ -15732,7 +16322,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
                 js.setLength(0);
@@ -15742,6 +16331,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowEvenFill(String[] keys47, Double cx12, Double cy12, GraphicsMathRect mode47, Double opacity36, Double fx12, Double fy12) {
         if (jsBase == null) {
             this.keys = null;
@@ -15957,7 +16550,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
                 js.setLength(0);
@@ -15969,6 +16561,10 @@ public class Timeline extends JsObject {
     private Fill imageSettings11;
     private Fill rowFill;
 
+    /**
+     * Setter for row fill settings using an array or a string. Resets odd fill and even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setRowFill(Fill rowFill) {
         if (jsBase == null) {
             this.rowFill = rowFill;
@@ -15980,7 +16576,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s)", ((rowFill != null) ? rowFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s)", ((rowFill != null) ? rowFill.generateJs() : "null")));
                 js.setLength(0);
@@ -15992,6 +16587,9 @@ public class Timeline extends JsObject {
     private String color12;
     private Double opacity37;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline rowFill(String color12, Double opacity37) {
         if (jsBase == null) {
             this.color = null;
@@ -16058,7 +16656,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color12), opacity37));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color12), opacity37));
                 js.setLength(0);
@@ -16075,6 +16672,10 @@ public class Timeline extends JsObject {
     private String mode50;
     private Double opacity38;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowFill(GradientKey[] keys48, Boolean mode48, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
@@ -16249,7 +16850,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToString(keys48), mode48, angle12, opacity38));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToString(keys48), mode48, angle12, opacity38));
                 js.setLength(0);
@@ -16259,6 +16859,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowFill(GradientKey[] keys48, VectorRect mode49, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
@@ -16433,7 +17037,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
                 js.setLength(0);
@@ -16443,6 +17046,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowFill(GradientKey[] keys48, String mode50, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
@@ -16617,7 +17224,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), wrapQuotes(mode50), angle12, opacity38));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), wrapQuotes(mode50), angle12, opacity38));
                 js.setLength(0);
@@ -16627,6 +17233,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowFill(String[] keys49, Boolean mode48, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
@@ -16801,7 +17411,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys49), mode48, angle12, opacity38));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys49), mode48, angle12, opacity38));
                 js.setLength(0);
@@ -16811,6 +17420,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowFill(String[] keys49, VectorRect mode49, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
@@ -16985,7 +17598,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
                 js.setLength(0);
@@ -16995,6 +17607,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowFill(String[] keys49, String mode50, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
@@ -17169,7 +17785,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), wrapQuotes(mode50), angle12, opacity38));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), wrapQuotes(mode50), angle12, opacity38));
                 js.setLength(0);
@@ -17187,6 +17802,10 @@ public class Timeline extends JsObject {
     private Double fx13;
     private Double fy13;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowFill(GradientKey[] keys50, Double cx13, Double cy13, GraphicsMathRect mode51, Double opacity39, Double fx13, Double fy13) {
         if (jsBase == null) {
             this.keys = null;
@@ -17417,7 +18036,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
                 js.setLength(0);
@@ -17427,6 +18045,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowFill(String[] keys51, Double cx13, Double cy13, GraphicsMathRect mode51, Double opacity39, Double fx13, Double fy13) {
         if (jsBase == null) {
             this.keys = null;
@@ -17657,7 +18279,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
                 js.setLength(0);
@@ -17669,6 +18290,10 @@ public class Timeline extends JsObject {
     private Fill imageSettings12;
     private Fill rowHoverFill;
 
+    /**
+     * Setter for row hover fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setRowHoverFill(Fill rowHoverFill) {
         if (jsBase == null) {
             this.rowHoverFill = rowHoverFill;
@@ -17680,7 +18305,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
                 js.setLength(0);
@@ -17692,6 +18316,9 @@ public class Timeline extends JsObject {
     private String color13;
     private Double opacity40;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline rowHoverFill(String color13, Double opacity40) {
         if (jsBase == null) {
             this.color = null;
@@ -17762,7 +18389,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color13), opacity40));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color13), opacity40));
                 js.setLength(0);
@@ -17779,6 +18405,10 @@ public class Timeline extends JsObject {
     private String mode54;
     private Double opacity41;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowHoverFill(GradientKey[] keys52, Boolean mode52, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
@@ -17965,7 +18595,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys52), mode52, angle13, opacity41));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys52), mode52, angle13, opacity41));
                 js.setLength(0);
@@ -17975,6 +18604,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowHoverFill(GradientKey[] keys52, VectorRect mode53, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
@@ -18161,7 +18794,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
                 js.setLength(0);
@@ -18171,6 +18803,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowHoverFill(GradientKey[] keys52, String mode54, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
@@ -18357,7 +18993,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), wrapQuotes(mode54), angle13, opacity41));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), wrapQuotes(mode54), angle13, opacity41));
                 js.setLength(0);
@@ -18367,6 +19002,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowHoverFill(String[] keys53, Boolean mode52, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
@@ -18553,7 +19192,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys53), mode52, angle13, opacity41));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys53), mode52, angle13, opacity41));
                 js.setLength(0);
@@ -18563,6 +19201,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowHoverFill(String[] keys53, VectorRect mode53, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
@@ -18749,7 +19391,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
                 js.setLength(0);
@@ -18759,6 +19400,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowHoverFill(String[] keys53, String mode54, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
@@ -18945,7 +19590,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), wrapQuotes(mode54), angle13, opacity41));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), wrapQuotes(mode54), angle13, opacity41));
                 js.setLength(0);
@@ -18963,6 +19607,10 @@ public class Timeline extends JsObject {
     private Double fx14;
     private Double fy14;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowHoverFill(GradientKey[] keys54, Double cx14, Double cy14, GraphicsMathRect mode55, Double opacity42, Double fx14, Double fy14) {
         if (jsBase == null) {
             this.keys = null;
@@ -19208,7 +19856,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
                 js.setLength(0);
@@ -19218,6 +19865,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowHoverFill(String[] keys55, Double cx14, Double cy14, GraphicsMathRect mode55, Double opacity42, Double fx14, Double fy14) {
         if (jsBase == null) {
             this.keys = null;
@@ -19463,7 +20114,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
                 js.setLength(0);
@@ -19474,6 +20124,10 @@ public class Timeline extends JsObject {
 
     private Fill rowOddFill;
 
+    /**
+     * Setter for row odd fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setRowOddFill(Fill rowOddFill) {
         if (jsBase == null) {
             this.rowOddFill = rowOddFill;
@@ -19485,7 +20139,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
                 js.setLength(0);
@@ -19497,6 +20150,9 @@ public class Timeline extends JsObject {
     private String color14;
     private Double opacity43;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline rowOddFill(String color14, Double opacity43) {
         if (jsBase == null) {
             this.color = null;
@@ -19571,7 +20227,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color14), opacity43));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color14), opacity43));
                 js.setLength(0);
@@ -19588,6 +20243,10 @@ public class Timeline extends JsObject {
     private String mode58;
     private Double opacity44;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowOddFill(GradientKey[] keys56, Boolean mode56, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
@@ -19786,7 +20445,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys56), mode56, angle14, opacity44));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys56), mode56, angle14, opacity44));
                 js.setLength(0);
@@ -19796,6 +20454,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowOddFill(GradientKey[] keys56, VectorRect mode57, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
@@ -19994,7 +20656,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
                 js.setLength(0);
@@ -20004,6 +20665,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowOddFill(GradientKey[] keys56, String mode58, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
@@ -20202,7 +20867,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), wrapQuotes(mode58), angle14, opacity44));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), wrapQuotes(mode58), angle14, opacity44));
                 js.setLength(0);
@@ -20212,6 +20876,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowOddFill(String[] keys57, Boolean mode56, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
@@ -20410,7 +21078,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys57), mode56, angle14, opacity44));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys57), mode56, angle14, opacity44));
                 js.setLength(0);
@@ -20420,6 +21087,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowOddFill(String[] keys57, VectorRect mode57, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
@@ -20618,7 +21289,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
                 js.setLength(0);
@@ -20628,6 +21298,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowOddFill(String[] keys57, String mode58, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
@@ -20826,7 +21500,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), wrapQuotes(mode58), angle14, opacity44));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), wrapQuotes(mode58), angle14, opacity44));
                 js.setLength(0);
@@ -20844,6 +21517,10 @@ public class Timeline extends JsObject {
     private Double fx15;
     private Double fy15;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowOddFill(GradientKey[] keys58, Double cx15, Double cy15, GraphicsMathRect mode59, Double opacity45, Double fx15, Double fy15) {
         if (jsBase == null) {
             this.keys = null;
@@ -21104,7 +21781,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
                 js.setLength(0);
@@ -21114,6 +21790,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowOddFill(String[] keys59, Double cx15, Double cy15, GraphicsMathRect mode59, Double opacity45, Double fx15, Double fy15) {
         if (jsBase == null) {
             this.keys = null;
@@ -21374,7 +22054,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
                 js.setLength(0);
@@ -21386,6 +22065,10 @@ public class Timeline extends JsObject {
     private Fill imageSettings13;
     private Fill rowSelectedFill;
 
+    /**
+     * Setter for row fill settings in selected mode using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setRowSelectedFill(Fill rowSelectedFill) {
         if (jsBase == null) {
             this.rowSelectedFill = rowSelectedFill;
@@ -21397,7 +22080,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
                 js.setLength(0);
@@ -21409,6 +22091,9 @@ public class Timeline extends JsObject {
     private String color15;
     private Double opacity46;
 
+    /**
+     * Fill color in selected mode with opacity. Fill as a string or an object.
+     */
     public Timeline rowSelectedFill(String color15, Double opacity46) {
         if (jsBase == null) {
             this.color = null;
@@ -21487,7 +22172,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color15), opacity46));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color15), opacity46));
                 js.setLength(0);
@@ -21503,6 +22187,10 @@ public class Timeline extends JsObject {
     private VectorRect mode61;
     private String mode62;
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowSelectedFill(GradientKey[] keys60, Boolean mode60, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
@@ -21662,7 +22350,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToString(keys60), mode60, angle15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToString(keys60), mode60, angle15));
                 js.setLength(0);
@@ -21672,6 +22359,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowSelectedFill(GradientKey[] keys60, VectorRect mode61, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
@@ -21831,7 +22522,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
                 js.setLength(0);
@@ -21841,6 +22531,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowSelectedFill(GradientKey[] keys60, String mode62, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
@@ -22000,7 +22694,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), wrapQuotes(mode62), angle15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), wrapQuotes(mode62), angle15));
                 js.setLength(0);
@@ -22010,6 +22703,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowSelectedFill(String[] keys61, Boolean mode60, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
@@ -22169,7 +22866,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys61), mode60, angle15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys61), mode60, angle15));
                 js.setLength(0);
@@ -22179,6 +22875,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowSelectedFill(String[] keys61, VectorRect mode61, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
@@ -22338,7 +23038,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
                 js.setLength(0);
@@ -22348,6 +23047,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowSelectedFill(String[] keys61, String mode62, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
@@ -22507,7 +23210,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), wrapQuotes(mode62), angle15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), wrapQuotes(mode62), angle15));
                 js.setLength(0);
@@ -22525,6 +23227,10 @@ public class Timeline extends JsObject {
     private Double fx16;
     private Double fy16;
 
+    /**
+     * Radial gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowSelectedFill(GradientKey[] keys62, Double cx16, Double cy16, GraphicsMathRect mode63, Double opacity47, Double fx16, Double fy16) {
         if (jsBase == null) {
             this.keys = null;
@@ -22799,7 +23505,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
                 js.setLength(0);
@@ -22809,6 +23514,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill in selected mode.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline rowSelectedFill(String[] keys63, Double cx16, Double cy16, GraphicsMathRect mode63, Double opacity47, Double fx16, Double fy16) {
         if (jsBase == null) {
             this.keys = null;
@@ -23083,7 +23792,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
                 js.setLength(0);
@@ -23095,6 +23803,9 @@ public class Timeline extends JsObject {
     private Fill imageSettings14;
     private GanttDateTime getScale;
 
+    /**
+     * Getter for the timeline scale.
+     */
     public GanttDateTime getScale() {
         if (getScale == null)
             getScale = new GanttDateTime(jsBase + ".scale()");
@@ -23104,6 +23815,9 @@ public class Timeline extends JsObject {
 
     private String scale;
 
+    /**
+     * Setter for the timeline scale.
+     */
     public Timeline setScale(String scale) {
         if (jsBase == null) {
             this.scale = scale;
@@ -23115,7 +23829,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale)));
                 js.setLength(0);
@@ -23126,6 +23839,10 @@ public class Timeline extends JsObject {
 
     private Fill selectedElementFill;
 
+    /**
+     * Setter for selected element fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline setSelectedElementFill(Fill selectedElementFill) {
         if (jsBase == null) {
             this.selectedElementFill = selectedElementFill;
@@ -23137,7 +23854,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementFill(%s)", ((selectedElementFill != null) ? selectedElementFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s)", ((selectedElementFill != null) ? selectedElementFill.generateJs() : "null")));
                 js.setLength(0);
@@ -23149,6 +23865,9 @@ public class Timeline extends JsObject {
     private String color16;
     private Double opacity48;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public Timeline selectedElementFill(String color16, Double opacity48) {
         if (jsBase == null) {
             this.color = null;
@@ -23230,7 +23949,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %f)", wrapQuotes(color16), opacity48));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f)", wrapQuotes(color16), opacity48));
                 js.setLength(0);
@@ -23247,6 +23965,10 @@ public class Timeline extends JsObject {
     private String mode66;
     private Double opacity49;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline selectedElementFill(GradientKey[] keys64, Boolean mode64, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
@@ -23468,7 +24190,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToString(keys64), mode64, angle16, opacity49));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToString(keys64), mode64, angle16, opacity49));
                 js.setLength(0);
@@ -23478,6 +24199,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline selectedElementFill(GradientKey[] keys64, VectorRect mode65, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
@@ -23699,7 +24424,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
                 js.setLength(0);
@@ -23709,6 +24433,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline selectedElementFill(GradientKey[] keys64, String mode66, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
@@ -23930,7 +24658,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), wrapQuotes(mode66), angle16, opacity49));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), wrapQuotes(mode66), angle16, opacity49));
                 js.setLength(0);
@@ -23940,6 +24667,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline selectedElementFill(String[] keys65, Boolean mode64, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
@@ -24161,7 +24892,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys65), mode64, angle16, opacity49));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys65), mode64, angle16, opacity49));
                 js.setLength(0);
@@ -24171,6 +24901,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline selectedElementFill(String[] keys65, VectorRect mode65, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
@@ -24392,7 +25126,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
                 js.setLength(0);
@@ -24402,6 +25135,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline selectedElementFill(String[] keys65, String mode66, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
@@ -24623,7 +25360,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), wrapQuotes(mode66), angle16, opacity49));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), wrapQuotes(mode66), angle16, opacity49));
                 js.setLength(0);
@@ -24641,6 +25377,10 @@ public class Timeline extends JsObject {
     private Double fx17;
     private Double fy17;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline selectedElementFill(GradientKey[] keys66, Double cx17, Double cy17, GraphicsMathRect mode67, Double opacity50, Double fx17, Double fy17) {
         if (jsBase == null) {
             this.keys = null;
@@ -24930,7 +25670,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
                 js.setLength(0);
@@ -24940,6 +25679,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Timeline selectedElementFill(String[] keys67, Double cx17, Double cy17, GraphicsMathRect mode67, Double opacity50, Double fx17, Double fy17) {
         if (jsBase == null) {
             this.keys = null;
@@ -25229,7 +25972,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
                 js.setLength(0);
@@ -25247,6 +25989,10 @@ public class Timeline extends JsObject {
     private StrokeLineJoin lineJoin13;
     private StrokeLineCap lineCap13;
 
+    /**
+     * Setter for the selected element on timeline stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setSelectedElementStroke(Stroke selectedElementStroke, Double thickness13, String dashpattern13, StrokeLineJoin lineJoin13, StrokeLineCap lineCap13) {
         if (jsBase == null) {
             this.selectedElementStroke = null;
@@ -25330,7 +26076,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
@@ -25340,6 +26085,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the selected element on timeline stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setSelectedElementStroke(ColoredFill selectedElementStroke1, Double thickness13, String dashpattern13, StrokeLineJoin lineJoin13, StrokeLineCap lineCap13) {
         if (jsBase == null) {
             this.selectedElementStroke = null;
@@ -25423,7 +26172,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
@@ -25433,6 +26181,10 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the selected element on timeline stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Timeline setSelectedElementStroke(String selectedElementStroke2, Double thickness13, String dashpattern13, StrokeLineJoin lineJoin13, StrokeLineCap lineCap13) {
         if (jsBase == null) {
             this.selectedElementStroke = null;
@@ -25516,7 +26268,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
@@ -25527,6 +26278,9 @@ public class Timeline extends JsObject {
 
     private List<GanttText> getTextMarker = new ArrayList<>();
 
+    /**
+     * Getter for the text marker.
+     */
     public GanttText getTextMarker(Double index) {
         GanttText item = new GanttText(jsBase + ".textMarker(" + index + ")");
         getTextMarker.add(item);
@@ -25536,6 +26290,9 @@ public class Timeline extends JsObject {
     private String textMarker;
     private Boolean textMarker1;
 
+    /**
+     * Setter for the text marker.
+     */
     public Timeline setTextMarker(String textMarker) {
         if (jsBase == null) {
             this.textMarker = null;
@@ -25550,7 +26307,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
                 js.setLength(0);
@@ -25560,6 +26316,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the text marker.
+     */
     public Timeline setTextMarker(Boolean textMarker1) {
         if (jsBase == null) {
             this.textMarker = null;
@@ -25574,7 +26333,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b)", textMarker1));
                 js.setLength(0);
@@ -25589,6 +26347,9 @@ public class Timeline extends JsObject {
     private GanttDateTimeMarkers textMarker4;
     private String textMarker5;
 
+    /**
+     * Setter for text marker by index.
+     */
     public Timeline setTextMarker(String textMarker2, Double index2) {
         if (jsBase == null) {
             this.textMarker = null;
@@ -25613,7 +26374,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index2));
                 js.setLength(0);
@@ -25623,6 +26383,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for text marker by index.
+     */
     public Timeline setTextMarker(Boolean textMarker3, Double index2) {
         if (jsBase == null) {
             this.textMarker = null;
@@ -25647,7 +26410,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index2));
                 js.setLength(0);
@@ -25657,6 +26419,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for text marker by index.
+     */
     public Timeline setTextMarker(GanttDateTimeMarkers textMarker4, Double index2) {
         if (jsBase == null) {
             this.textMarker = null;
@@ -25681,7 +26446,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".textMarker(%s, %f)", ((textMarker4 != null) ? textMarker4.generateJs() : "null"), index2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", ((textMarker4 != null) ? textMarker4.generateJs() : "null"), index2));
                 js.setLength(0);
@@ -25692,6 +26456,9 @@ public class Timeline extends JsObject {
 
     private Tooltip getTooltip;
 
+    /**
+     * Getter for tooltip settings.
+     */
     public Tooltip getTooltip() {
         if (getTooltip == null)
             getTooltip = new Tooltip(jsBase + ".tooltip()");
@@ -25702,6 +26469,9 @@ public class Timeline extends JsObject {
     private String tooltip;
     private Boolean tooltip1;
 
+    /**
+     * Setter for the tooltip.
+     */
     public Timeline setTooltip(String tooltip) {
         if (jsBase == null) {
             this.tooltip = null;
@@ -25716,7 +26486,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
@@ -25726,6 +26495,9 @@ public class Timeline extends JsObject {
     }
 
 
+    /**
+     * Setter for the tooltip.
+     */
     public Timeline setTooltip(Boolean tooltip1) {
         if (jsBase == null) {
             this.tooltip = null;
@@ -25740,7 +26512,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%b)", tooltip1));
                 js.setLength(0);
@@ -25751,6 +26522,9 @@ public class Timeline extends JsObject {
 
     private ScrollBar getVerticalScrollBar;
 
+    /**
+     * Getter for the vertical scroll bar.
+     */
     public ScrollBar getVerticalScrollBar() {
         if (getVerticalScrollBar == null)
             getVerticalScrollBar = new ScrollBar(jsBase + ".verticalScrollBar()");
@@ -25760,6 +26534,9 @@ public class Timeline extends JsObject {
 
     private String verticalScrollBar;
 
+    /**
+     * Setter for the vertical scroll bar.
+     */
     public Timeline setVerticalScrollBar(String verticalScrollBar) {
         if (jsBase == null) {
             this.verticalScrollBar = verticalScrollBar;
@@ -25771,7 +26548,6 @@ public class Timeline extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
                 js.setLength(0);
@@ -25780,117 +26556,9 @@ public class Timeline extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSUiLabelsFactory getBaseLabels() {
-//        if (UiLabelsFactory getBaseLabels != null) {
-//            return UiLabelsFactory getBaseLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getBaselineLabels() {
-//        if (UiLabelsFactory getBaselineLabels != null) {
-//            return UiLabelsFactory getBaselineLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTimelineHeader getHeader() {
-//        if (TimelineHeader getHeader != null) {
-//            return TimelineHeader getHeader.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScrollBar getHorizontalScrollBar() {
-//        if (ScrollBar getHorizontalScrollBar != null) {
-//            return ScrollBar getHorizontalScrollBar.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getLabels() {
-//        if (UiLabelsFactory getLabels != null) {
-//            return UiLabelsFactory getLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGanttLine getLineMarker() {
-//        if (GanttLine getLineMarker != null) {
-//            return GanttLine getLineMarker.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiMarkersFactory getMarkers() {
-//        if (UiMarkersFactory getMarkers != null) {
-//            return UiMarkersFactory getMarkers.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getMilestoneLabels() {
-//        if (UiLabelsFactory getMilestoneLabels != null) {
-//            return UiLabelsFactory getMilestoneLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getParentLabels() {
-//        if (UiLabelsFactory getParentLabels != null) {
-//            return UiLabelsFactory getParentLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabelsFactory getProgressLabels() {
-//        if (UiLabelsFactory getProgressLabels != null) {
-//            return UiLabelsFactory getProgressLabels.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGanttRange getRangeMarker() {
-//        if (GanttRange getRangeMarker != null) {
-//            return GanttRange getRangeMarker.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGanttDateTime getScale() {
-//        if (GanttDateTime getScale != null) {
-//            return GanttDateTime getScale.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSGanttText getTextMarker() {
-//        if (GanttText getTextMarker != null) {
-//            return GanttText getTextMarker.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTooltip getTooltip() {
-//        if (Tooltip getTooltip != null) {
-//            return Tooltip getTooltip.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScrollBar getVerticalScrollBar() {
-//        if (ScrollBar getVerticalScrollBar != null) {
-//            return ScrollBar getVerticalScrollBar.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetBaseLabels() {
         if (getBaseLabels != null) {
             return getBaseLabels.generateJs();
-            //return String.format(Locale.US, "getBaseLabels: %s,", ((getBaseLabels != null) ? getBaseLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -25898,7 +26566,6 @@ public class Timeline extends JsObject {
     private String generateJSgetBaselineLabels() {
         if (getBaselineLabels != null) {
             return getBaselineLabels.generateJs();
-            //return String.format(Locale.US, "getBaselineLabels: %s,", ((getBaselineLabels != null) ? getBaselineLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -25906,7 +26573,6 @@ public class Timeline extends JsObject {
     private String generateJSgetHeader() {
         if (getHeader != null) {
             return getHeader.generateJs();
-            //return String.format(Locale.US, "getHeader: %s,", ((getHeader != null) ? getHeader.generateJs() : "null"));
         }
         return "";
     }
@@ -25914,7 +26580,6 @@ public class Timeline extends JsObject {
     private String generateJSgetHorizontalScrollBar() {
         if (getHorizontalScrollBar != null) {
             return getHorizontalScrollBar.generateJs();
-            //return String.format(Locale.US, "getHorizontalScrollBar: %s,", ((getHorizontalScrollBar != null) ? getHorizontalScrollBar.generateJs() : "null"));
         }
         return "";
     }
@@ -25922,7 +26587,6 @@ public class Timeline extends JsObject {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
-            //return String.format(Locale.US, "getLabels: %s,", ((getLabels != null) ? getLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -25942,7 +26606,6 @@ public class Timeline extends JsObject {
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
-            //return String.format(Locale.US, "getMarkers: %s,", ((getMarkers != null) ? getMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -25950,7 +26613,6 @@ public class Timeline extends JsObject {
     private String generateJSgetMilestoneLabels() {
         if (getMilestoneLabels != null) {
             return getMilestoneLabels.generateJs();
-            //return String.format(Locale.US, "getMilestoneLabels: %s,", ((getMilestoneLabels != null) ? getMilestoneLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -25958,7 +26620,6 @@ public class Timeline extends JsObject {
     private String generateJSgetParentLabels() {
         if (getParentLabels != null) {
             return getParentLabels.generateJs();
-            //return String.format(Locale.US, "getParentLabels: %s,", ((getParentLabels != null) ? getParentLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -25966,7 +26627,6 @@ public class Timeline extends JsObject {
     private String generateJSgetProgressLabels() {
         if (getProgressLabels != null) {
             return getProgressLabels.generateJs();
-            //return String.format(Locale.US, "getProgressLabels: %s,", ((getProgressLabels != null) ? getProgressLabels.generateJs() : "null"));
         }
         return "";
     }
@@ -25986,7 +26646,6 @@ public class Timeline extends JsObject {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
-            //return String.format(Locale.US, "getScale: %s,", ((getScale != null) ? getScale.generateJs() : "null"));
         }
         return "";
     }
@@ -26006,7 +26665,6 @@ public class Timeline extends JsObject {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
-            //return String.format(Locale.US, "getTooltip: %s,", ((getTooltip != null) ? getTooltip.generateJs() : "null"));
         }
         return "";
     }
@@ -26014,7 +26672,6 @@ public class Timeline extends JsObject {
     private String generateJSgetVerticalScrollBar() {
         if (getVerticalScrollBar != null) {
             return getVerticalScrollBar.generateJs();
-            //return String.format(Locale.US, "getVerticalScrollBar: %s,", ((getVerticalScrollBar != null) ? getVerticalScrollBar.generateJs() : "null"));
         }
         return "";
     }
@@ -26051,976 +26708,6 @@ public class Timeline extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbackgroundFill());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJSbaseFill());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJSopacity3());
-////        
-//            js.append(generateJSkeys4());
-////        
-//            js.append(generateJSkeys5());
-////        
-//            js.append(generateJSangle1());
-////        
-//            js.append(generateJSmode4());
-////        
-//            js.append(generateJSmode5());
-////        
-//            js.append(generateJSmode6());
-////        
-//            js.append(generateJSopacity4());
-////        
-//            js.append(generateJSkeys6());
-////        
-//            js.append(generateJSkeys7());
-////        
-//            js.append(generateJScx1());
-////        
-//            js.append(generateJScy1());
-////        
-//            js.append(generateJSmode7());
-////        
-//            js.append(generateJSopacity5());
-////        
-//            js.append(generateJSfx1());
-////        
-//            js.append(generateJSfy1());
-////        
-//            js.append(generateJSimageSettings1());
-////        
-//            js.append(generateJSbaseLabels());
-////        
-//            js.append(generateJSbaseLabels1());
-////        
-//            js.append(generateJSbaseStroke());
-////        
-//            js.append(generateJSbaseStroke1());
-////        
-//            js.append(generateJSbaseStroke2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSbaselineAbove());
-////        
-//            js.append(generateJSbaselineFill());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSopacity6());
-////        
-//            js.append(generateJSkeys8());
-////        
-//            js.append(generateJSkeys9());
-////        
-//            js.append(generateJSangle2());
-////        
-//            js.append(generateJSmode8());
-////        
-//            js.append(generateJSmode9());
-////        
-//            js.append(generateJSmode10());
-////        
-//            js.append(generateJSopacity7());
-////        
-//            js.append(generateJSkeys10());
-////        
-//            js.append(generateJSkeys11());
-////        
-//            js.append(generateJScx2());
-////        
-//            js.append(generateJScy2());
-////        
-//            js.append(generateJSmode11());
-////        
-//            js.append(generateJSopacity8());
-////        
-//            js.append(generateJSfx2());
-////        
-//            js.append(generateJSfy2());
-////        
-//            js.append(generateJSimageSettings2());
-////        
-//            js.append(generateJSbaselineLabels());
-////        
-//            js.append(generateJSbaselineLabels1());
-////        
-//            js.append(generateJSbaselineStroke());
-////        
-//            js.append(generateJSbaselineStroke1());
-////        
-//            js.append(generateJSbaselineStroke2());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-////        
-//            js.append(generateJScolumnStroke());
-////        
-//            js.append(generateJScolumnStroke1());
-////        
-//            js.append(generateJSconnectorFill());
-////        
-//            js.append(generateJSconnectorFill1());
-////        
-//            js.append(generateJSconnectorFill2());
-////        
-//            js.append(generateJScx3());
-////        
-//            js.append(generateJScy3());
-////        
-//            js.append(generateJSopacityOrMode());
-////        
-//            js.append(generateJSopacity9());
-////        
-//            js.append(generateJSfx3());
-////        
-//            js.append(generateJSfy3());
-////        
-//            js.append(generateJSconnectorPreviewStroke());
-////        
-//            js.append(generateJSconnectorPreviewStroke1());
-////        
-//            js.append(generateJSconnectorPreviewStroke2());
-////        
-//            js.append(generateJSthickness2());
-////        
-//            js.append(generateJSdashpattern2());
-////        
-//            js.append(generateJSlineJoin2());
-////        
-//            js.append(generateJSlineCap2());
-////        
-//            js.append(generateJSconnectorStroke());
-////        
-//            js.append(generateJSconnectorStroke1());
-////        
-//            js.append(generateJSconnectorStroke2());
-////        
-//            js.append(generateJSthickness3());
-////        
-//            js.append(generateJSdashpattern3());
-////        
-//            js.append(generateJSlineJoin3());
-////        
-//            js.append(generateJSlineCap3());
-////        
-//            js.append(generateJSeditConnectorThumbFill());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSopacity10());
-////        
-//            js.append(generateJSkeys12());
-////        
-//            js.append(generateJSkeys13());
-////        
-//            js.append(generateJSangle3());
-////        
-//            js.append(generateJSmode12());
-////        
-//            js.append(generateJSmode13());
-////        
-//            js.append(generateJSmode14());
-////        
-//            js.append(generateJSopacity11());
-////        
-//            js.append(generateJSkeys14());
-////        
-//            js.append(generateJSkeys15());
-////        
-//            js.append(generateJScx4());
-////        
-//            js.append(generateJScy4());
-////        
-//            js.append(generateJSmode15());
-////        
-//            js.append(generateJSopacity12());
-////        
-//            js.append(generateJSfx4());
-////        
-//            js.append(generateJSfy4());
-////        
-//            js.append(generateJSimageSettings3());
-////        
-//            js.append(generateJSeditConnectorThumbStroke());
-////        
-//            js.append(generateJSeditConnectorThumbStroke1());
-////        
-//            js.append(generateJSeditConnectorThumbStroke2());
-////        
-//            js.append(generateJSthickness4());
-////        
-//            js.append(generateJSdashpattern4());
-////        
-//            js.append(generateJSlineJoin4());
-////        
-//            js.append(generateJSlineCap4());
-////        
-//            js.append(generateJSeditFinishConnectorMarkerHorizontalOffset());
-////        
-//            js.append(generateJSeditFinishConnectorMarkerSize());
-////        
-//            js.append(generateJSeditFinishConnectorMarkerType());
-////        
-//            js.append(generateJSeditFinishConnectorMarkerType1());
-////        
-//            js.append(generateJSeditFinishConnectorMarkerVerticalOffset());
-////        
-//            js.append(generateJSeditIntervalThumbFill());
-////        
-//            js.append(generateJScolor4());
-////        
-//            js.append(generateJSopacity13());
-////        
-//            js.append(generateJSkeys16());
-////        
-//            js.append(generateJSkeys17());
-////        
-//            js.append(generateJSangle4());
-////        
-//            js.append(generateJSmode16());
-////        
-//            js.append(generateJSmode17());
-////        
-//            js.append(generateJSmode18());
-////        
-//            js.append(generateJSopacity14());
-////        
-//            js.append(generateJSkeys18());
-////        
-//            js.append(generateJSkeys19());
-////        
-//            js.append(generateJScx5());
-////        
-//            js.append(generateJScy5());
-////        
-//            js.append(generateJSmode19());
-////        
-//            js.append(generateJSopacity15());
-////        
-//            js.append(generateJSfx5());
-////        
-//            js.append(generateJSfy5());
-////        
-//            js.append(generateJSimageSettings4());
-////        
-//            js.append(generateJSeditIntervalThumbStroke());
-////        
-//            js.append(generateJSeditIntervalThumbStroke1());
-////        
-//            js.append(generateJSeditIntervalThumbStroke2());
-////        
-//            js.append(generateJSthickness5());
-////        
-//            js.append(generateJSdashpattern5());
-////        
-//            js.append(generateJSlineJoin5());
-////        
-//            js.append(generateJSlineCap5());
-////        
-//            js.append(generateJSeditIntervalWidth());
-////        
-//            js.append(generateJSeditPreviewFill());
-////        
-//            js.append(generateJScolor5());
-////        
-//            js.append(generateJSopacity16());
-////        
-//            js.append(generateJSkeys20());
-////        
-//            js.append(generateJSkeys21());
-////        
-//            js.append(generateJSangle5());
-////        
-//            js.append(generateJSmode20());
-////        
-//            js.append(generateJSmode21());
-////        
-//            js.append(generateJSmode22());
-////        
-//            js.append(generateJSopacity17());
-////        
-//            js.append(generateJSkeys22());
-////        
-//            js.append(generateJSkeys23());
-////        
-//            js.append(generateJScx6());
-////        
-//            js.append(generateJScy6());
-////        
-//            js.append(generateJSmode23());
-////        
-//            js.append(generateJSopacity18());
-////        
-//            js.append(generateJSfx6());
-////        
-//            js.append(generateJSfy6());
-////        
-//            js.append(generateJSimageSettings5());
-////        
-//            js.append(generateJSeditPreviewStroke());
-////        
-//            js.append(generateJSeditPreviewStroke1());
-////        
-//            js.append(generateJSeditPreviewStroke2());
-////        
-//            js.append(generateJSthickness6());
-////        
-//            js.append(generateJSdashpattern6());
-////        
-//            js.append(generateJSlineJoin6());
-////        
-//            js.append(generateJSlineCap6());
-////        
-//            js.append(generateJSeditProgressFill());
-////        
-//            js.append(generateJScolor6());
-////        
-//            js.append(generateJSopacity19());
-////        
-//            js.append(generateJSkeys24());
-////        
-//            js.append(generateJSkeys25());
-////        
-//            js.append(generateJSangle6());
-////        
-//            js.append(generateJSmode24());
-////        
-//            js.append(generateJSmode25());
-////        
-//            js.append(generateJSmode26());
-////        
-//            js.append(generateJSopacity20());
-////        
-//            js.append(generateJSkeys26());
-////        
-//            js.append(generateJSkeys27());
-////        
-//            js.append(generateJScx7());
-////        
-//            js.append(generateJScy7());
-////        
-//            js.append(generateJSmode27());
-////        
-//            js.append(generateJSopacity21());
-////        
-//            js.append(generateJSfx7());
-////        
-//            js.append(generateJSfy7());
-////        
-//            js.append(generateJSimageSettings6());
-////        
-//            js.append(generateJSeditProgressStroke());
-////        
-//            js.append(generateJSeditProgressStroke1());
-////        
-//            js.append(generateJSeditProgressStroke2());
-////        
-//            js.append(generateJSthickness7());
-////        
-//            js.append(generateJSdashpattern7());
-////        
-//            js.append(generateJSlineJoin7());
-////        
-//            js.append(generateJSlineCap7());
-////        
-//            js.append(generateJSeditStartConnectorMarkerHorizontalOffset());
-////        
-//            js.append(generateJSeditStartConnectorMarkerSize());
-////        
-//            js.append(generateJSeditStartConnectorMarkerType());
-////        
-//            js.append(generateJSeditStartConnectorMarkerType1());
-////        
-//            js.append(generateJSeditStartConnectorMarkerVerticalOffset());
-////        
-//            js.append(generateJSeditStructurePreviewDashStroke());
-////        
-//            js.append(generateJSeditStructurePreviewDashStroke1());
-////        
-//            js.append(generateJSeditStructurePreviewDashStroke2());
-////        
-//            js.append(generateJSthickness8());
-////        
-//            js.append(generateJSdashpattern8());
-////        
-//            js.append(generateJSlineJoin8());
-////        
-//            js.append(generateJSlineCap8());
-////        
-//            js.append(generateJSeditStructurePreviewFill());
-////        
-//            js.append(generateJScolor7());
-////        
-//            js.append(generateJSopacity22());
-////        
-//            js.append(generateJSkeys28());
-////        
-//            js.append(generateJSkeys29());
-////        
-//            js.append(generateJSangle7());
-////        
-//            js.append(generateJSmode28());
-////        
-//            js.append(generateJSmode29());
-////        
-//            js.append(generateJSmode30());
-////        
-//            js.append(generateJSopacity23());
-////        
-//            js.append(generateJSkeys30());
-////        
-//            js.append(generateJSkeys31());
-////        
-//            js.append(generateJScx8());
-////        
-//            js.append(generateJScy8());
-////        
-//            js.append(generateJSmode31());
-////        
-//            js.append(generateJSopacity24());
-////        
-//            js.append(generateJSfx8());
-////        
-//            js.append(generateJSfy8());
-////        
-//            js.append(generateJSimageSettings7());
-////        
-//            js.append(generateJSeditStructurePreviewStroke());
-////        
-//            js.append(generateJSeditStructurePreviewStroke1());
-////        
-//            js.append(generateJSeditStructurePreviewStroke2());
-////        
-//            js.append(generateJSthickness9());
-////        
-//            js.append(generateJSdashpattern9());
-////        
-//            js.append(generateJSlineJoin9());
-////        
-//            js.append(generateJSlineCap9());
-////        
-//            js.append(generateJSediting());
-////        
-//            js.append(generateJSheader());
-////        
-//            js.append(generateJShorizontalScrollBar());
-////        
-//            js.append(generateJSlabels());
-////        
-//            js.append(generateJSlineMarker());
-////        
-//            js.append(generateJSlineMarker1());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSlineMarker2());
-////        
-//            js.append(generateJSlineMarker3());
-////        
-//            js.append(generateJSlineMarker4());
-////        
-//            js.append(generateJSlineMarker5());
-////        
-//            js.append(generateJSmarkers());
-////        
-//            js.append(generateJSmilestoneFill());
-////        
-//            js.append(generateJScolor8());
-////        
-//            js.append(generateJSopacity25());
-////        
-//            js.append(generateJSkeys32());
-////        
-//            js.append(generateJSkeys33());
-////        
-//            js.append(generateJSangle8());
-////        
-//            js.append(generateJSmode32());
-////        
-//            js.append(generateJSmode33());
-////        
-//            js.append(generateJSmode34());
-////        
-//            js.append(generateJSopacity26());
-////        
-//            js.append(generateJSkeys34());
-////        
-//            js.append(generateJSkeys35());
-////        
-//            js.append(generateJScx9());
-////        
-//            js.append(generateJScy9());
-////        
-//            js.append(generateJSmode35());
-////        
-//            js.append(generateJSopacity27());
-////        
-//            js.append(generateJSfx9());
-////        
-//            js.append(generateJSfy9());
-////        
-//            js.append(generateJSimageSettings8());
-////        
-//            js.append(generateJSmilestoneLabels());
-////        
-//            js.append(generateJSmilestoneLabels1());
-////        
-//            js.append(generateJSmilestoneStroke());
-////        
-//            js.append(generateJSmilestoneStroke1());
-////        
-//            js.append(generateJSmilestoneStroke2());
-////        
-//            js.append(generateJSthickness10());
-////        
-//            js.append(generateJSdashpattern10());
-////        
-//            js.append(generateJSlineJoin10());
-////        
-//            js.append(generateJSlineCap10());
-////        
-//            js.append(generateJSparentFill());
-////        
-//            js.append(generateJScolor9());
-////        
-//            js.append(generateJSopacity28());
-////        
-//            js.append(generateJSkeys36());
-////        
-//            js.append(generateJSkeys37());
-////        
-//            js.append(generateJSangle9());
-////        
-//            js.append(generateJSmode36());
-////        
-//            js.append(generateJSmode37());
-////        
-//            js.append(generateJSmode38());
-////        
-//            js.append(generateJSopacity29());
-////        
-//            js.append(generateJSkeys38());
-////        
-//            js.append(generateJSkeys39());
-////        
-//            js.append(generateJScx10());
-////        
-//            js.append(generateJScy10());
-////        
-//            js.append(generateJSmode39());
-////        
-//            js.append(generateJSopacity30());
-////        
-//            js.append(generateJSfx10());
-////        
-//            js.append(generateJSfy10());
-////        
-//            js.append(generateJSimageSettings9());
-////        
-//            js.append(generateJSparentLabels());
-////        
-//            js.append(generateJSparentLabels1());
-////        
-//            js.append(generateJSparentStroke());
-////        
-//            js.append(generateJSparentStroke1());
-////        
-//            js.append(generateJSparentStroke2());
-////        
-//            js.append(generateJSthickness11());
-////        
-//            js.append(generateJSdashpattern11());
-////        
-//            js.append(generateJSlineJoin11());
-////        
-//            js.append(generateJSlineCap11());
-////        
-//            js.append(generateJSprogressFill());
-////        
-//            js.append(generateJScolor10());
-////        
-//            js.append(generateJSopacity31());
-////        
-//            js.append(generateJSkeys40());
-////        
-//            js.append(generateJSkeys41());
-////        
-//            js.append(generateJSangle10());
-////        
-//            js.append(generateJSmode40());
-////        
-//            js.append(generateJSmode41());
-////        
-//            js.append(generateJSmode42());
-////        
-//            js.append(generateJSopacity32());
-////        
-//            js.append(generateJSkeys42());
-////        
-//            js.append(generateJSkeys43());
-////        
-//            js.append(generateJScx11());
-////        
-//            js.append(generateJScy11());
-////        
-//            js.append(generateJSmode43());
-////        
-//            js.append(generateJSopacity33());
-////        
-//            js.append(generateJSfx11());
-////        
-//            js.append(generateJSfy11());
-////        
-//            js.append(generateJSimageSettings10());
-////        
-//            js.append(generateJSprogressLabels());
-////        
-//            js.append(generateJSprogressLabels1());
-////        
-//            js.append(generateJSprogressStroke());
-////        
-//            js.append(generateJSprogressStroke1());
-////        
-//            js.append(generateJSprogressStroke2());
-////        
-//            js.append(generateJSthickness12());
-////        
-//            js.append(generateJSdashpattern12());
-////        
-//            js.append(generateJSlineJoin12());
-////        
-//            js.append(generateJSlineCap12());
-////        
-//            js.append(generateJSrangeMarker());
-////        
-//            js.append(generateJSrangeMarker1());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSrangeMarker2());
-////        
-//            js.append(generateJSrangeMarker3());
-////        
-//            js.append(generateJSrangeMarker4());
-////        
-//            js.append(generateJSrangeMarker5());
-////        
-//            js.append(generateJSrowEvenFill());
-////        
-//            js.append(generateJScolor11());
-////        
-//            js.append(generateJSopacity34());
-////        
-//            js.append(generateJSkeys44());
-////        
-//            js.append(generateJSkeys45());
-////        
-//            js.append(generateJSangle11());
-////        
-//            js.append(generateJSmode44());
-////        
-//            js.append(generateJSmode45());
-////        
-//            js.append(generateJSmode46());
-////        
-//            js.append(generateJSopacity35());
-////        
-//            js.append(generateJSkeys46());
-////        
-//            js.append(generateJSkeys47());
-////        
-//            js.append(generateJScx12());
-////        
-//            js.append(generateJScy12());
-////        
-//            js.append(generateJSmode47());
-////        
-//            js.append(generateJSopacity36());
-////        
-//            js.append(generateJSfx12());
-////        
-//            js.append(generateJSfy12());
-////        
-//            js.append(generateJSimageSettings11());
-////        
-//            js.append(generateJSrowFill());
-////        
-//            js.append(generateJScolor12());
-////        
-//            js.append(generateJSopacity37());
-////        
-//            js.append(generateJSkeys48());
-////        
-//            js.append(generateJSkeys49());
-////        
-//            js.append(generateJSangle12());
-////        
-//            js.append(generateJSmode48());
-////        
-//            js.append(generateJSmode49());
-////        
-//            js.append(generateJSmode50());
-////        
-//            js.append(generateJSopacity38());
-////        
-//            js.append(generateJSkeys50());
-////        
-//            js.append(generateJSkeys51());
-////        
-//            js.append(generateJScx13());
-////        
-//            js.append(generateJScy13());
-////        
-//            js.append(generateJSmode51());
-////        
-//            js.append(generateJSopacity39());
-////        
-//            js.append(generateJSfx13());
-////        
-//            js.append(generateJSfy13());
-////        
-//            js.append(generateJSimageSettings12());
-////        
-//            js.append(generateJSrowHoverFill());
-////        
-//            js.append(generateJScolor13());
-////        
-//            js.append(generateJSopacity40());
-////        
-//            js.append(generateJSkeys52());
-////        
-//            js.append(generateJSkeys53());
-////        
-//            js.append(generateJSangle13());
-////        
-//            js.append(generateJSmode52());
-////        
-//            js.append(generateJSmode53());
-////        
-//            js.append(generateJSmode54());
-////        
-//            js.append(generateJSopacity41());
-////        
-//            js.append(generateJSkeys54());
-////        
-//            js.append(generateJSkeys55());
-////        
-//            js.append(generateJScx14());
-////        
-//            js.append(generateJScy14());
-////        
-//            js.append(generateJSmode55());
-////        
-//            js.append(generateJSopacity42());
-////        
-//            js.append(generateJSfx14());
-////        
-//            js.append(generateJSfy14());
-////        
-//            js.append(generateJSrowOddFill());
-////        
-//            js.append(generateJScolor14());
-////        
-//            js.append(generateJSopacity43());
-////        
-//            js.append(generateJSkeys56());
-////        
-//            js.append(generateJSkeys57());
-////        
-//            js.append(generateJSangle14());
-////        
-//            js.append(generateJSmode56());
-////        
-//            js.append(generateJSmode57());
-////        
-//            js.append(generateJSmode58());
-////        
-//            js.append(generateJSopacity44());
-////        
-//            js.append(generateJSkeys58());
-////        
-//            js.append(generateJSkeys59());
-////        
-//            js.append(generateJScx15());
-////        
-//            js.append(generateJScy15());
-////        
-//            js.append(generateJSmode59());
-////        
-//            js.append(generateJSopacity45());
-////        
-//            js.append(generateJSfx15());
-////        
-//            js.append(generateJSfy15());
-////        
-//            js.append(generateJSimageSettings13());
-////        
-//            js.append(generateJSrowSelectedFill());
-////        
-//            js.append(generateJScolor15());
-////        
-//            js.append(generateJSopacity46());
-////        
-//            js.append(generateJSkeys60());
-////        
-//            js.append(generateJSkeys61());
-////        
-//            js.append(generateJSangle15());
-////        
-//            js.append(generateJSmode60());
-////        
-//            js.append(generateJSmode61());
-////        
-//            js.append(generateJSmode62());
-////        
-//            js.append(generateJSkeys62());
-////        
-//            js.append(generateJSkeys63());
-////        
-//            js.append(generateJScx16());
-////        
-//            js.append(generateJScy16());
-////        
-//            js.append(generateJSmode63());
-////        
-//            js.append(generateJSopacity47());
-////        
-//            js.append(generateJSfx16());
-////        
-//            js.append(generateJSfy16());
-////        
-//            js.append(generateJSimageSettings14());
-////        
-//            js.append(generateJSscale());
-////        
-//            js.append(generateJSselectedElementFill());
-////        
-//            js.append(generateJScolor16());
-////        
-//            js.append(generateJSopacity48());
-////        
-//            js.append(generateJSkeys64());
-////        
-//            js.append(generateJSkeys65());
-////        
-//            js.append(generateJSangle16());
-////        
-//            js.append(generateJSmode64());
-////        
-//            js.append(generateJSmode65());
-////        
-//            js.append(generateJSmode66());
-////        
-//            js.append(generateJSopacity49());
-////        
-//            js.append(generateJSkeys66());
-////        
-//            js.append(generateJSkeys67());
-////        
-//            js.append(generateJScx17());
-////        
-//            js.append(generateJScy17());
-////        
-//            js.append(generateJSmode67());
-////        
-//            js.append(generateJSopacity50());
-////        
-//            js.append(generateJSfx17());
-////        
-//            js.append(generateJSfy17());
-////        
-//            js.append(generateJSimageSettings15());
-////        
-//            js.append(generateJSselectedElementStroke());
-////        
-//            js.append(generateJSselectedElementStroke1());
-////        
-//            js.append(generateJSselectedElementStroke2());
-////        
-//            js.append(generateJSthickness13());
-////        
-//            js.append(generateJSdashpattern13());
-////        
-//            js.append(generateJSlineJoin13());
-////        
-//            js.append(generateJSlineCap13());
-////        
-//            js.append(generateJStextMarker());
-////        
-//            js.append(generateJStextMarker1());
-////        
-//            js.append(generateJSindex2());
-////        
-//            js.append(generateJStextMarker2());
-////        
-//            js.append(generateJStextMarker3());
-////        
-//            js.append(generateJStextMarker4());
-////        
-//            js.append(generateJStextMarker5());
-////        
-//            js.append(generateJStooltip());
-////        
-//            js.append(generateJStooltip1());
-////        
-//            js.append(generateJSverticalScrollBar());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

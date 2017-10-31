@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Stock scroller class. Adds series drawing to UI Scroller.
+ */
 public class StockScroller extends UiScroller {
 
     public StockScroller() {
-
+        js.setLength(0);
+        js.append("var stockScroller").append(++variableIndex).append(" = anychart.core.stock.scroller();");
+        jsBase = "stockScroller" + variableIndex;
     }
 
     protected StockScroller(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,11 +30,19 @@ public class StockScroller extends UiScroller {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private View var_args;
     private Set var_args1;
     private String[] var_args2;
 
+    /**
+     * Add series to chart.<br/>
+<b>Note</b>: We recommend to use the line and area types for the scroller series.
+     */
     public void addSeries(View var_args) {
         if (jsBase == null) {
             this.var_args = null;
@@ -42,17 +56,22 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(var_args.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", ((var_args != null) ? var_args.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".addSeries(%s);",  ((var_args != null) ? var_args.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", ((var_args != null) ? var_args.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", ((var_args != null) ? var_args.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
     }
 
 
+    /**
+     * Add series to chart.<br/>
+<b>Note</b>: We recommend to use the line and area types for the scroller series.
+     */
     public void addSeries(Set var_args1) {
         if (jsBase == null) {
             this.var_args = null;
@@ -66,17 +85,22 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(var_args1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", ((var_args1 != null) ? var_args1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".addSeries(%s);",  ((var_args1 != null) ? var_args1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", ((var_args1 != null) ? var_args1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", ((var_args1 != null) ? var_args1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
     }
 
 
+    /**
+     * Add series to chart.<br/>
+<b>Note</b>: We recommend to use the line and area types for the scroller series.
+     */
     public void addSeries(String[] var_args2) {
         if (jsBase == null) {
             this.var_args = null;
@@ -92,7 +116,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", arrayToStringWrapQuotes(var_args2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", arrayToStringWrapQuotes(var_args2)));
                 js.setLength(0);
@@ -104,6 +127,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType;
     private String seriesType1;
 
+    /**
+     * Creates an Accumulation Distribution Line indicator on the scroller.
+     */
     public ADL adl(StockSeriesType seriesType, TableMapping mapping) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -120,7 +146,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
@@ -130,6 +155,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates an Accumulation Distribution Line indicator on the scroller.
+     */
     public ADL adl(String seriesType1, TableMapping mapping) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -146,7 +174,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
@@ -162,6 +189,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType2;
     private String seriesType3;
 
+    /**
+     * Creates AMA (Adaptive Moving Average) indicator on the scroller.
+     */
     public AMA ama(StockSeriesType seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -189,7 +219,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
@@ -199,6 +228,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates AMA (Adaptive Moving Average) indicator on the scroller.
+     */
     public AMA ama(String seriesType3, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -226,7 +258,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
@@ -242,6 +273,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings;
     private String csvSettings;
 
+    /**
+     * Creates and returns a new Area series.
+     */
     public ScrollerseriesArea area(TableMapping data, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
@@ -262,7 +296,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -272,6 +305,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Area series.
+     */
     public ScrollerseriesArea area(DataTable data1, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
@@ -292,7 +328,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -302,6 +337,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Area series.
+     */
     public ScrollerseriesArea area(String data2, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
@@ -322,7 +360,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -338,6 +375,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType downSeriesType;
     private String downSeriesType1;
 
+    /**
+     * Creates Aroon indicator on the scroller.
+     */
     public Aroon aroon(StockSeriesType upSeriesType, StockSeriesType downSeriesType, TableMapping mapping2, Double period1) {
         if (jsBase == null) {
             this.upSeriesType = null;
@@ -368,7 +408,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -378,6 +417,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Aroon indicator on the scroller.
+     */
     public Aroon aroon(StockSeriesType upSeriesType, String downSeriesType1, TableMapping mapping2, Double period1) {
         if (jsBase == null) {
             this.upSeriesType = null;
@@ -408,7 +450,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -418,6 +459,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Aroon indicator on the scroller.
+     */
     public Aroon aroon(String upSeriesType1, StockSeriesType downSeriesType, TableMapping mapping2, Double period1) {
         if (jsBase == null) {
             this.upSeriesType = null;
@@ -448,7 +492,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -458,6 +501,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Aroon indicator on the scroller.
+     */
     public Aroon aroon(String upSeriesType1, String downSeriesType1, TableMapping mapping2, Double period1) {
         if (jsBase == null) {
             this.upSeriesType = null;
@@ -488,7 +534,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -502,6 +547,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType4;
     private String seriesType5;
 
+    /**
+     * Creates an Average True Range indicator on the chart.
+     */
     public ATR atr(StockSeriesType seriesType4, TableMapping mapping3, Double period2) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -533,7 +581,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
@@ -543,6 +590,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates an Average True Range indicator on the chart.
+     */
     public ATR atr(String seriesType5, TableMapping mapping3, Double period2) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -574,7 +624,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
@@ -593,6 +642,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType middleSeriesType;
     private String middleSeriesType1;
 
+    /**
+     * Creates Bollinger Bands indicator on the scroller.
+     */
     public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -634,7 +686,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -644,6 +695,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the scroller.
+     */
     public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -685,7 +739,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -695,6 +748,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the scroller.
+     */
     public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -736,7 +792,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -746,6 +801,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the scroller.
+     */
     public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -787,7 +845,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -797,6 +854,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the scroller.
+     */
     public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -838,7 +898,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -848,6 +907,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the scroller.
+     */
     public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -889,7 +951,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -899,6 +960,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the scroller.
+     */
     public BBands bbands(String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -940,7 +1004,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -950,6 +1013,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Bollinger Bands indicator on the scroller.
+     */
     public BBands bbands(String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
@@ -991,7 +1057,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -1006,6 +1071,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType6;
     private String seriesType7;
 
+    /**
+     * Creates %B indicator on the scroller.
+     */
     public BBandsB bbandsB(StockSeriesType seriesType6, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1048,7 +1116,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
@@ -1058,6 +1125,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates %B indicator on the scroller.
+     */
     public BBandsB bbandsB(String seriesType7, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1100,7 +1170,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
@@ -1115,6 +1184,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType8;
     private String seriesType9;
 
+    /**
+     * Creates Bollinger Bands Width indicator on the scroller.
+     */
     public BBandsWidth bbandsWidth(StockSeriesType seriesType8, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1162,7 +1234,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
@@ -1172,6 +1243,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates Bollinger Bands Width indicator on the scroller.
+     */
     public BBandsWidth bbandsWidth(String seriesType9, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1219,7 +1293,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
@@ -1235,6 +1308,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings1;
     private String csvSettings1;
 
+    /**
+     * Creates and returns a new Candlestick series.
+     */
     public ScrollerseriesCandlestick candlestick(TableMapping data4, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
@@ -1265,7 +1341,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -1275,6 +1350,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Candlestick series.
+     */
     public ScrollerseriesCandlestick candlestick(DataTable data5, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
@@ -1305,7 +1383,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -1315,6 +1392,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Candlestick series.
+     */
     public ScrollerseriesCandlestick candlestick(String data6, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
@@ -1345,7 +1425,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -1359,6 +1438,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType10;
     private String seriesType11;
 
+    /**
+     * Creates a Commodity Channel Index indicator on the scroller.
+     */
     public CCI cci(StockSeriesType seriesType10, TableMapping mapping7, Double period6) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1404,7 +1486,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
@@ -1414,6 +1495,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Commodity Channel Index indicator on the scroller.
+     */
     public CCI cci(String seriesType11, TableMapping mapping7, Double period6) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1459,7 +1543,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
@@ -1475,6 +1558,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType12;
     private String seriesType13;
 
+    /**
+     * Creates a Chaikin Oscillator indicator on the chart.
+     */
     public CHO cho(StockSeriesType seriesType12, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1525,7 +1611,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s);", ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
                 js.setLength(0);
@@ -1535,6 +1620,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Chaikin Oscillator indicator on the chart.
+     */
     public CHO cho(String seriesType13, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1585,7 +1673,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s);", wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
                 js.setLength(0);
@@ -1599,6 +1686,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType14;
     private String seriesType15;
 
+    /**
+     * Creates a Chaikin Money Flow indicator on the chart.
+     */
     public CMF cmf(StockSeriesType seriesType14, TableMapping mapping9, Double period7) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1651,7 +1741,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
@@ -1661,6 +1750,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Chaikin Money Flow indicator on the chart.
+     */
     public CMF cmf(String seriesType15, TableMapping mapping9, Double period7) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -1713,7 +1805,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
@@ -1729,6 +1820,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings2;
     private String csvSettings2;
 
+    /**
+     * Creates and returns a new column series.
+     */
     public ScrollerseriesColumn column(TableMapping data8, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
@@ -1765,7 +1859,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
@@ -1775,6 +1868,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new column series.
+     */
     public ScrollerseriesColumn column(DataTable data9, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
@@ -1811,7 +1907,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
@@ -1821,6 +1916,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new column series.
+     */
     public ScrollerseriesColumn column(String data10, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
@@ -1857,7 +1955,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
@@ -1869,6 +1966,10 @@ public class StockScroller extends UiScroller {
     private StockSeriesType defaultSeriesType;
     private String defaultSeriesType1;
 
+    /**
+     * Setter for the stock scroller default series type.<br/>
+<b>Note</b>: We recommend to use the line and area types for the scroller series.
+     */
     public StockScroller setDefaultSeriesType(StockSeriesType defaultSeriesType) {
         if (jsBase == null) {
             this.defaultSeriesType = null;
@@ -1883,7 +1984,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
                 js.setLength(0);
@@ -1893,6 +1993,10 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Setter for the stock scroller default series type.<br/>
+<b>Note</b>: We recommend to use the line and area types for the scroller series.
+     */
     public StockScroller setDefaultSeriesType(String defaultSeriesType1) {
         if (jsBase == null) {
             this.defaultSeriesType = null;
@@ -1907,7 +2011,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
                 js.setLength(0);
@@ -1927,6 +2030,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType adxSeriesType;
     private String adxSeriesType1;
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -1981,7 +2087,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -1991,6 +2096,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2045,7 +2153,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2055,6 +2162,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(StockSeriesType pdiSeriesType, String ndiSeriesType1, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2109,7 +2219,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2119,6 +2228,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(StockSeriesType pdiSeriesType, String ndiSeriesType1, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2173,7 +2285,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2183,6 +2294,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(String pdiSeriesType1, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2237,7 +2351,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2247,6 +2360,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(String pdiSeriesType1, StockSeriesType ndiSeriesType, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2301,7 +2417,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2311,6 +2426,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(String pdiSeriesType1, String ndiSeriesType1, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2365,7 +2483,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2375,6 +2492,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Directional Movement Index indicator on the chart.
+     */
     public DMI dmi(String pdiSeriesType1, String ndiSeriesType1, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
             this.pdiSeriesType = null;
@@ -2429,7 +2549,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2443,6 +2562,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType16;
     private String seriesType17;
 
+    /**
+     * Creates EMA (Exponential Moving Average) indicator on the scroller.
+     */
     public EMA ema(StockSeriesType seriesType16, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -2501,7 +2623,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
@@ -2511,6 +2632,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates EMA (Exponential Moving Average) indicator on the scroller.
+     */
     public EMA ema(String seriesType17, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -2569,7 +2693,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
@@ -2580,6 +2703,9 @@ public class StockScroller extends UiScroller {
 
     private List<ScrollerseriesBase> getGetSeries = new ArrayList<>();
 
+    /**
+     * Gets series by its id.
+     */
     public ScrollerseriesBase getGetSeries(Double id) {
         ScrollerseriesBase item = new ScrollerseriesBase(jsBase + ".getSeries(" + id + ")");
         getGetSeries.add(item);
@@ -2588,6 +2714,9 @@ public class StockScroller extends UiScroller {
 
     private List<ScrollerseriesBase> getGetSeries1 = new ArrayList<>();
 
+    /**
+     * Gets series by its id.
+     */
     public ScrollerseriesBase getGetSeries(String id) {
         ScrollerseriesBase item = new ScrollerseriesBase(jsBase + ".getSeries(" + wrapQuotes(id) + ")");
         getGetSeries1.add(item);
@@ -2596,6 +2725,9 @@ public class StockScroller extends UiScroller {
 
     private List<ScrollerseriesBase> getGetSeriesAt = new ArrayList<>();
 
+    /**
+     * Gets the series by its index.
+     */
     public ScrollerseriesBase getGetSeriesAt(Double index) {
         ScrollerseriesBase item = new ScrollerseriesBase(jsBase + ".getSeriesAt(" + index + ")");
         getGetSeriesAt.add(item);
@@ -2604,6 +2736,9 @@ public class StockScroller extends UiScroller {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -2615,6 +2750,9 @@ public class StockScroller extends UiScroller {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
 
+    /**
+     * Hatch fill palette settings.
+     */
     public StockScroller hatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
@@ -2630,7 +2768,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
                 js.setLength(0);
@@ -2640,6 +2777,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Hatch fill palette settings.
+     */
     public StockScroller hatchFillPalette(String hatchFillPalette1) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
@@ -2655,7 +2795,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
                 js.setLength(0);
@@ -2665,6 +2804,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Hatch fill palette settings.
+     */
     public StockScroller hatchFillPalette(HatchFills hatchFillPalette2) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
@@ -2674,15 +2816,16 @@ public class StockScroller extends UiScroller {
             this.hatchFillPalette2 = hatchFillPalette2;
         } else {
             this.hatchFillPalette2 = hatchFillPalette2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(hatchFillPalette2.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2696,6 +2839,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings3;
     private String csvSettings3;
 
+    /**
+     * Creates and returns a new HiLo series.
+     */
     public ScrollerseriesHilo hilo(TableMapping data12, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
@@ -2738,7 +2884,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
@@ -2748,6 +2893,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new HiLo series.
+     */
     public ScrollerseriesHilo hilo(DataTable data13, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
@@ -2790,7 +2938,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
@@ -2800,6 +2947,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new HiLo series.
+     */
     public ScrollerseriesHilo hilo(String data14, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
@@ -2842,7 +2992,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
@@ -2858,6 +3007,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings4;
     private String csvSettings4;
 
+    /**
+     * Creates and returns a new Jump Line series.
+     */
     public ScrollerseriesJumpLine jumpLine(TableMapping data16, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
@@ -2906,7 +3058,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
@@ -2916,6 +3067,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Jump Line series.
+     */
     public ScrollerseriesJumpLine jumpLine(DataTable data17, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
@@ -2964,7 +3118,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
@@ -2974,6 +3127,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Jump Line series.
+     */
     public ScrollerseriesJumpLine jumpLine(String data18, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
@@ -3022,7 +3178,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
@@ -3048,6 +3203,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType jSeriesType;
     private String jSeriesType1;
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3108,7 +3266,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3118,6 +3275,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3178,7 +3338,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3188,6 +3347,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3248,7 +3410,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3258,6 +3419,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3318,7 +3482,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3328,6 +3491,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3388,7 +3554,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3398,6 +3563,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3458,7 +3626,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3468,6 +3635,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3528,7 +3698,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3538,6 +3707,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3598,7 +3770,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3608,6 +3779,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3668,7 +3842,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3678,6 +3851,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3738,7 +3914,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3748,6 +3923,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3808,7 +3986,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3818,6 +3995,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3878,7 +4058,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3888,6 +4067,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -3948,7 +4130,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3958,6 +4139,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4018,7 +4202,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4028,6 +4211,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4088,7 +4274,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4098,6 +4283,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4158,7 +4346,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4168,6 +4355,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4228,7 +4418,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4238,6 +4427,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4298,7 +4490,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4308,6 +4499,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4368,7 +4562,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4378,6 +4571,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4438,7 +4634,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4448,6 +4643,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4508,7 +4706,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4518,6 +4715,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4578,7 +4778,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4588,6 +4787,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4648,7 +4850,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4658,6 +4859,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4718,7 +4922,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4728,6 +4931,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4788,7 +4994,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4798,6 +5003,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4858,7 +5066,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4868,6 +5075,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4928,7 +5138,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4938,6 +5147,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -4998,7 +5210,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5008,6 +5219,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5068,7 +5282,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5078,6 +5291,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5138,7 +5354,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5148,6 +5363,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5208,7 +5426,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5218,6 +5435,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a KDJ indicator on the scroller.
+     */
     public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -5278,7 +5498,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5294,6 +5513,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings5;
     private String csvSettings5;
 
+    /**
+     * Creates and returns a new line series.
+     */
     public ScrollerseriesLine line(TableMapping data20, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
@@ -5348,7 +5570,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
@@ -5358,6 +5579,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new line series.
+     */
     public ScrollerseriesLine line(DataTable data21, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
@@ -5412,7 +5636,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
@@ -5422,6 +5645,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new line series.
+     */
     public ScrollerseriesLine line(String data22, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
@@ -5476,7 +5702,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
@@ -5496,6 +5721,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType histogramSeriesType;
     private String histogramSeriesType1;
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
+     */
     public MACD macd(StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -5551,7 +5779,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5561,6 +5788,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
+     */
     public MACD macd(StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -5616,7 +5846,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5626,6 +5855,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
+     */
     public MACD macd(StockSeriesType macdSeriesType, String signalSeriesType1, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -5681,7 +5913,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5691,6 +5922,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
+     */
     public MACD macd(StockSeriesType macdSeriesType, String signalSeriesType1, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -5746,7 +5980,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5756,6 +5989,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
+     */
     public MACD macd(String macdSeriesType1, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -5811,7 +6047,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5821,6 +6056,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
+     */
     public MACD macd(String macdSeriesType1, StockSeriesType signalSeriesType, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -5876,7 +6114,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5886,6 +6123,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
+     */
     public MACD macd(String macdSeriesType1, String signalSeriesType1, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -5941,7 +6181,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5951,6 +6190,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
+     */
     public MACD macd(String macdSeriesType1, String signalSeriesType1, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
@@ -6006,7 +6248,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6022,6 +6263,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings6;
     private String csvSettings6;
 
+    /**
+     * Creates and returns a new Marker series.
+     */
     public ScrollerseriesMarker marker(TableMapping data24, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
@@ -6082,7 +6326,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
@@ -6092,6 +6335,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Marker series.
+     */
     public ScrollerseriesMarker marker(DataTable data25, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
@@ -6152,7 +6398,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
@@ -6162,6 +6407,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Marker series.
+     */
     public ScrollerseriesMarker marker(String data26, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
@@ -6222,7 +6470,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
@@ -6236,6 +6483,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType18;
     private String seriesType19;
 
+    /**
+     * Creates MMA (Modified Moving Average) indicator on the scroller.
+     */
     public MMA mma(StockSeriesType seriesType18, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -6300,7 +6550,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
@@ -6310,6 +6559,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates MMA (Modified Moving Average) indicator on the scroller.
+     */
     public MMA mma(String seriesType19, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -6374,7 +6626,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
@@ -6390,6 +6641,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings7;
     private String csvSettings7;
 
+    /**
+     * Creates and returns a new OHLC series.
+     */
     public ScrollerseriesOHLC ohlc(TableMapping data28, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
@@ -6456,7 +6710,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
@@ -6466,6 +6719,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new OHLC series.
+     */
     public ScrollerseriesOHLC ohlc(DataTable data29, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
@@ -6532,7 +6788,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
@@ -6542,6 +6797,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new OHLC series.
+     */
     public ScrollerseriesOHLC ohlc(String data30, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
@@ -6608,7 +6866,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
@@ -6619,6 +6876,9 @@ public class StockScroller extends UiScroller {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the scroller colors palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -6631,6 +6891,9 @@ public class StockScroller extends UiScroller {
     private String palette2;
     private String[] palette3;
 
+    /**
+     * Setter for the scroller colors palette.
+     */
     public StockScroller setPalette(RangeColors palette) {
         if (jsBase == null) {
             this.palette = null;
@@ -6641,15 +6904,16 @@ public class StockScroller extends UiScroller {
             this.palette = palette;
         } else {
             this.palette = palette;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(palette.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -6657,6 +6921,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Setter for the scroller colors palette.
+     */
     public StockScroller setPalette(DistinctColors palette1) {
         if (jsBase == null) {
             this.palette = null;
@@ -6667,15 +6934,16 @@ public class StockScroller extends UiScroller {
             this.palette1 = palette1;
         } else {
             this.palette1 = palette1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(palette1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -6683,6 +6951,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Setter for the scroller colors palette.
+     */
     public StockScroller setPalette(String palette2) {
         if (jsBase == null) {
             this.palette = null;
@@ -6699,7 +6970,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
                 js.setLength(0);
@@ -6709,6 +6979,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Setter for the scroller colors palette.
+     */
     public StockScroller setPalette(String[] palette3) {
         if (jsBase == null) {
             this.palette = null;
@@ -6725,7 +6998,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
                 js.setLength(0);
@@ -6741,6 +7013,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings8;
     private String csvSettings8;
 
+    /**
+     * Creates and returns a new Range Area series.
+     */
     public ScrollerseriesRangeArea rangeArea(TableMapping data32, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
@@ -6813,7 +7088,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
@@ -6823,6 +7097,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Range Area series.
+     */
     public ScrollerseriesRangeArea rangeArea(DataTable data33, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
@@ -6895,7 +7172,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
@@ -6905,6 +7181,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Range Area series.
+     */
     public ScrollerseriesRangeArea rangeArea(String data34, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
@@ -6977,7 +7256,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
@@ -6993,6 +7271,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings9;
     private String csvSettings9;
 
+    /**
+     * Creates and returns a new Range Column series.
+     */
     public ScrollerseriesRangeColumn rangeColumn(TableMapping data36, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
@@ -7071,7 +7352,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
@@ -7081,6 +7361,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Range Column series.
+     */
     public ScrollerseriesRangeColumn rangeColumn(DataTable data37, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
@@ -7159,7 +7442,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
@@ -7169,6 +7451,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Range Column series.
+     */
     public ScrollerseriesRangeColumn rangeColumn(String data38, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
@@ -7247,7 +7532,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
@@ -7263,6 +7547,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings10;
     private String csvSettings10;
 
+    /**
+     * Creates and returns a new Range Spline Area series.
+     */
     public ScrollerseriesRangeSplineArea rangeSplineArea(TableMapping data40, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
@@ -7347,7 +7634,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
@@ -7357,6 +7643,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Range Spline Area series.
+     */
     public ScrollerseriesRangeSplineArea rangeSplineArea(DataTable data41, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
@@ -7441,7 +7730,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
@@ -7451,6 +7739,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Range Spline Area series.
+     */
     public ScrollerseriesRangeSplineArea rangeSplineArea(String data42, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
@@ -7535,7 +7826,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
@@ -7551,6 +7841,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings11;
     private String csvSettings11;
 
+    /**
+     * Creates and returns a new rangeStepArea series.
+     */
     public ScrollerseriesRangeStepArea rangeStepArea(TableMapping data44, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
@@ -7641,7 +7934,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
@@ -7651,6 +7943,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new rangeStepArea series.
+     */
     public ScrollerseriesRangeStepArea rangeStepArea(DataTable data45, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
@@ -7741,7 +8036,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
@@ -7751,6 +8045,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new rangeStepArea series.
+     */
     public ScrollerseriesRangeStepArea rangeStepArea(String data46, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
@@ -7841,7 +8138,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
@@ -7853,6 +8149,9 @@ public class StockScroller extends UiScroller {
     private Double id;
     private String id1;
 
+    /**
+     * Removes one of series from chart by its id.
+     */
     public StockScroller removeSeries(Double id) {
         if (jsBase == null) {
             this.id = null;
@@ -7867,7 +8166,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".removeSeries(%f)", id));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id));
                 js.setLength(0);
@@ -7877,6 +8175,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Removes one of series from chart by its id.
+     */
     public StockScroller removeSeries(String id1) {
         if (jsBase == null) {
             this.id = null;
@@ -7891,7 +8192,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
                 js.setLength(0);
@@ -7902,6 +8202,9 @@ public class StockScroller extends UiScroller {
 
     private Double index;
 
+    /**
+     * Removes one of series from chart by its index.
+     */
     public StockScroller removeSeriesAt(Double index) {
         if (jsBase == null) {
             this.index = index;
@@ -7913,7 +8216,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index));
                 js.setLength(0);
@@ -7927,6 +8229,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType20;
     private String seriesType21;
 
+    /**
+     * Creates RoC (Rate of Change) indicator on the scroller.
+     */
     public RoC roc(StockSeriesType seriesType20, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -7995,7 +8300,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
@@ -8005,6 +8309,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates RoC (Rate of Change) indicator on the scroller.
+     */
     public RoC roc(String seriesType21, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -8073,7 +8380,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
@@ -8087,6 +8393,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType22;
     private String seriesType23;
 
+    /**
+     * Creates RSI (Relative Strength Index) indicator on the scroller.
+     */
     public RSI rsi(StockSeriesType seriesType22, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -8159,7 +8468,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
@@ -8169,6 +8477,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates RSI (Relative Strength Index) indicator on the scroller.
+     */
     public RSI rsi(String seriesType23, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -8241,7 +8552,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
@@ -8255,6 +8565,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType24;
     private String seriesType25;
 
+    /**
+     * Creates SMA (Simple Moving Average) indicator on the scroller.
+     */
     public SMA sma(StockSeriesType seriesType24, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -8331,7 +8644,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
@@ -8341,6 +8653,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates SMA (Simple Moving Average) indicator on the scroller.
+     */
     public SMA sma(String seriesType25, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
@@ -8417,7 +8732,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
@@ -8433,6 +8747,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings12;
     private String csvSettings12;
 
+    /**
+     * Creates and returns a new Spline series.
+     */
     public ScrollerseriesSpline spline(TableMapping data48, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
@@ -8529,7 +8846,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
@@ -8539,6 +8855,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Spline series.
+     */
     public ScrollerseriesSpline spline(DataTable data49, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
@@ -8635,7 +8954,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
@@ -8645,6 +8963,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Spline series.
+     */
     public ScrollerseriesSpline spline(String data50, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
@@ -8741,7 +9062,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
@@ -8757,6 +9077,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings13;
     private String csvSettings13;
 
+    /**
+     * Creates and returns a new Spline Area series.
+     */
     public ScrollerseriesSplineArea splineArea(TableMapping data52, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
@@ -8859,7 +9182,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
@@ -8869,6 +9191,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Spline Area series.
+     */
     public ScrollerseriesSplineArea splineArea(DataTable data53, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
@@ -8971,7 +9296,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
@@ -8981,6 +9305,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Spline Area series.
+     */
     public ScrollerseriesSplineArea splineArea(String data54, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
@@ -9083,7 +9410,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
@@ -9099,6 +9425,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings14;
     private String csvSettings14;
 
+    /**
+     * Creates and returns a new Step Area series.
+     */
     public ScrollerseriesStepArea stepArea(TableMapping data56, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
@@ -9207,7 +9536,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
@@ -9217,6 +9545,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Step Area series.
+     */
     public ScrollerseriesStepArea stepArea(DataTable data57, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
@@ -9325,7 +9656,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
@@ -9335,6 +9665,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Step Area series.
+     */
     public ScrollerseriesStepArea stepArea(String data58, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
@@ -9443,7 +9776,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
@@ -9459,6 +9791,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings15;
     private String csvSettings15;
 
+    /**
+     * Creates and returns a new Step Line series.
+     */
     public ScrollerseriesStepLine stepLine(TableMapping data60, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
@@ -9573,7 +9908,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
@@ -9583,6 +9917,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Step Line series.
+     */
     public ScrollerseriesStepLine stepLine(DataTable data61, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
@@ -9697,7 +10034,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
@@ -9707,6 +10043,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Step Line series.
+     */
     public ScrollerseriesStepLine stepLine(String data62, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
@@ -9821,7 +10160,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
@@ -9837,6 +10175,9 @@ public class StockScroller extends UiScroller {
     private String mappingSettings16;
     private String csvSettings16;
 
+    /**
+     * Creates and returns a new Stick series.
+     */
     public ScrollerseriesStick stick(TableMapping data64, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
@@ -9957,7 +10298,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
@@ -9967,6 +10307,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Stick series.
+     */
     public ScrollerseriesStick stick(DataTable data65, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
@@ -10087,7 +10430,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
@@ -10097,6 +10439,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates and returns a new Stick series.
+     */
     public ScrollerseriesStick stick(String data66, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
@@ -10217,7 +10562,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
@@ -10239,6 +10583,9 @@ public class StockScroller extends UiScroller {
     private StockSeriesType dSeriesType2;
     private String dSeriesType3;
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -10313,7 +10660,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10323,6 +10669,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -10397,7 +10746,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10407,6 +10755,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -10481,7 +10832,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10491,6 +10841,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -10565,7 +10918,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10575,6 +10927,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -10649,7 +11004,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10659,6 +11013,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -10733,7 +11090,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10743,6 +11099,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -10817,7 +11176,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10827,6 +11185,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -10901,7 +11262,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10911,6 +11271,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -10985,7 +11348,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10995,6 +11357,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11069,7 +11434,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11079,6 +11443,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11153,7 +11520,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11163,6 +11529,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11237,7 +11606,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11247,6 +11615,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11321,7 +11692,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11331,6 +11701,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11405,7 +11778,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11415,6 +11787,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11489,7 +11864,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11499,6 +11873,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Creates a Stochastic indicator on the scroller.
+     */
     public Stochastic stochastic(String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
             this.kMAType = null;
@@ -11573,7 +11950,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11584,6 +11960,9 @@ public class StockScroller extends UiScroller {
 
     private StockDateTime getXAxis;
 
+    /**
+     * Getter for the current scroller X-axis.
+     */
     public StockDateTime getXAxis() {
         if (getXAxis == null)
             getXAxis = new StockDateTime(jsBase + ".xAxis()");
@@ -11594,6 +11973,9 @@ public class StockScroller extends UiScroller {
     private String xAxis;
     private Boolean xAxis1;
 
+    /**
+     * Setter for the scroller X-axis.
+     */
     public StockScroller setXAxis(String xAxis) {
         if (jsBase == null) {
             this.xAxis = null;
@@ -11608,7 +11990,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
                 js.setLength(0);
@@ -11618,6 +11999,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Setter for the scroller X-axis.
+     */
     public StockScroller setXAxis(Boolean xAxis1) {
         if (jsBase == null) {
             this.xAxis = null;
@@ -11632,7 +12016,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
                 js.setLength(0);
@@ -11643,6 +12026,9 @@ public class StockScroller extends UiScroller {
 
     private ScatterBase getYScale;
 
+    /**
+     * Getter for the current scroller Y-scale.
+     */
     public ScatterBase getYScale() {
         if (getYScale == null)
             getYScale = new ScatterBase(jsBase + ".yScale()");
@@ -11655,6 +12041,9 @@ public class StockScroller extends UiScroller {
     private ScatterBase yScale2;
     private String yScale3;
 
+    /**
+     * Setter for the scroller Y-scale.
+     */
     public StockScroller setYScale(ScatterScaleTypes yScale) {
         if (jsBase == null) {
             this.yScale = null;
@@ -11671,7 +12060,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
@@ -11681,6 +12069,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Setter for the scroller Y-scale.
+     */
     public StockScroller setYScale(String yScale1) {
         if (jsBase == null) {
             this.yScale = null;
@@ -11697,7 +12088,6 @@ public class StockScroller extends UiScroller {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
@@ -11707,6 +12097,9 @@ public class StockScroller extends UiScroller {
     }
 
 
+    /**
+     * Setter for the scroller Y-scale.
+     */
     public StockScroller setYScale(ScatterBase yScale2) {
         if (jsBase == null) {
             this.yScale = null;
@@ -11717,72 +12110,22 @@ public class StockScroller extends UiScroller {
             this.yScale2 = yScale2;
         } else {
             this.yScale2 = yScale2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(yScale2.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-
-//
-//    private String generateJSScrollerseriesBase getGetSeries() {
-//        if (ScrollerseriesBase getGetSeries != null) {
-//            return ScrollerseriesBase getGetSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScrollerseriesBase getGetSeries1() {
-//        if (ScrollerseriesBase getGetSeries1 != null) {
-//            return ScrollerseriesBase getGetSeries1.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScrollerseriesBase getGetSeriesAt() {
-//        if (ScrollerseriesBase getGetSeriesAt != null) {
-//            return ScrollerseriesBase getGetSeriesAt.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSHatchFills getHatchFillPalette() {
-//        if (HatchFills getHatchFillPalette != null) {
-//            return HatchFills getHatchFillPalette.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSRangeColors getPalette() {
-//        if (RangeColors getPalette != null) {
-//            return RangeColors getPalette.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockDateTime getXAxis() {
-//        if (StockDateTime getXAxis != null) {
-//            return StockDateTime getXAxis.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScatterBase getYScale() {
-//        if (ScatterBase getYScale != null) {
-//            return ScatterBase getYScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetGetSeries() {
         if (!getGetSeries.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -11822,7 +12165,6 @@ public class StockScroller extends UiScroller {
     private String generateJSgetHatchFillPalette() {
         if (getHatchFillPalette != null) {
             return getHatchFillPalette.generateJs();
-            //return String.format(Locale.US, "getHatchFillPalette: %s,", ((getHatchFillPalette != null) ? getHatchFillPalette.generateJs() : "null"));
         }
         return "";
     }
@@ -11830,7 +12172,6 @@ public class StockScroller extends UiScroller {
     private String generateJSgetPalette() {
         if (getPalette != null) {
             return getPalette.generateJs();
-            //return String.format(Locale.US, "getPalette: %s,", ((getPalette != null) ? getPalette.generateJs() : "null"));
         }
         return "";
     }
@@ -11838,7 +12179,6 @@ public class StockScroller extends UiScroller {
     private String generateJSgetXAxis() {
         if (getXAxis != null) {
             return getXAxis.generateJs();
-            //return String.format(Locale.US, "getXAxis: %s,", ((getXAxis != null) ? getXAxis.generateJs() : "null"));
         }
         return "";
     }
@@ -11846,7 +12186,6 @@ public class StockScroller extends UiScroller {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -11875,498 +12214,6 @@ public class StockScroller extends UiScroller {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSvar_args());
-////        
-//            js.append(generateJSvar_args1());
-////        
-//            js.append(generateJSvar_args2());
-////        
-//            js.append(generateJSmapping());
-////        
-//            js.append(generateJSseriesType());
-////        
-//            js.append(generateJSseriesType1());
-////        
-//            js.append(generateJSmapping1());
-////        
-//            js.append(generateJSperiod());
-////        
-//            js.append(generateJSfastPeriod());
-////        
-//            js.append(generateJSslowPeriod());
-////        
-//            js.append(generateJSseriesType2());
-////        
-//            js.append(generateJSseriesType3());
-////        
-//            js.append(generateJSdata());
-////        
-//            js.append(generateJSdata1());
-////        
-//            js.append(generateJSdata2());
-////        
-//            js.append(generateJSdata3());
-////        
-//            js.append(generateJSmappingSettings());
-////        
-//            js.append(generateJScsvSettings());
-////        
-//            js.append(generateJSmapping2());
-////        
-//            js.append(generateJSperiod1());
-////        
-//            js.append(generateJSupSeriesType());
-////        
-//            js.append(generateJSupSeriesType1());
-////        
-//            js.append(generateJSdownSeriesType());
-////        
-//            js.append(generateJSdownSeriesType1());
-////        
-//            js.append(generateJSmapping3());
-////        
-//            js.append(generateJSperiod2());
-////        
-//            js.append(generateJSseriesType4());
-////        
-//            js.append(generateJSseriesType5());
-////        
-//            js.append(generateJSmapping4());
-////        
-//            js.append(generateJSperiod3());
-////        
-//            js.append(generateJSdeviation());
-////        
-//            js.append(generateJSupperSeriesType());
-////        
-//            js.append(generateJSupperSeriesType1());
-////        
-//            js.append(generateJSlowerSeriesType());
-////        
-//            js.append(generateJSlowerSeriesType1());
-////        
-//            js.append(generateJSmiddleSeriesType());
-////        
-//            js.append(generateJSmiddleSeriesType1());
-////        
-//            js.append(generateJSmapping5());
-////        
-//            js.append(generateJSperiod4());
-////        
-//            js.append(generateJSdeviation1());
-////        
-//            js.append(generateJSseriesType6());
-////        
-//            js.append(generateJSseriesType7());
-////        
-//            js.append(generateJSmapping6());
-////        
-//            js.append(generateJSperiod5());
-////        
-//            js.append(generateJSdeviation2());
-////        
-//            js.append(generateJSseriesType8());
-////        
-//            js.append(generateJSseriesType9());
-////        
-//            js.append(generateJSdata4());
-////        
-//            js.append(generateJSdata5());
-////        
-//            js.append(generateJSdata6());
-////        
-//            js.append(generateJSdata7());
-////        
-//            js.append(generateJSmappingSettings1());
-////        
-//            js.append(generateJScsvSettings1());
-////        
-//            js.append(generateJSmapping7());
-////        
-//            js.append(generateJSperiod6());
-////        
-//            js.append(generateJSseriesType10());
-////        
-//            js.append(generateJSseriesType11());
-////        
-//            js.append(generateJSmapping8());
-////        
-//            js.append(generateJSfastPeriod1());
-////        
-//            js.append(generateJSslowPeriod1());
-////        
-//            js.append(generateJSmaType());
-////        
-//            js.append(generateJSseriesType12());
-////        
-//            js.append(generateJSseriesType13());
-////        
-//            js.append(generateJSmapping9());
-////        
-//            js.append(generateJSperiod7());
-////        
-//            js.append(generateJSseriesType14());
-////        
-//            js.append(generateJSseriesType15());
-////        
-//            js.append(generateJSdata8());
-////        
-//            js.append(generateJSdata9());
-////        
-//            js.append(generateJSdata10());
-////        
-//            js.append(generateJSdata11());
-////        
-//            js.append(generateJSmappingSettings2());
-////        
-//            js.append(generateJScsvSettings2());
-////        
-//            js.append(generateJSdefaultSeriesType());
-////        
-//            js.append(generateJSdefaultSeriesType1());
-////        
-//            js.append(generateJSmapping10());
-////        
-//            js.append(generateJSperiod8());
-////        
-//            js.append(generateJSadxPeriod());
-////        
-//            js.append(generateJSuseWildersSmoothing());
-////        
-//            js.append(generateJSpdiSeriesType());
-////        
-//            js.append(generateJSpdiSeriesType1());
-////        
-//            js.append(generateJSndiSeriesType());
-////        
-//            js.append(generateJSndiSeriesType1());
-////        
-//            js.append(generateJSadxSeriesType());
-////        
-//            js.append(generateJSadxSeriesType1());
-////        
-//            js.append(generateJSmapping11());
-////        
-//            js.append(generateJSperiod9());
-////        
-//            js.append(generateJSseriesType16());
-////        
-//            js.append(generateJSseriesType17());
-////        
-//            js.append(generateJShatchFillPalette());
-////        
-//            js.append(generateJShatchFillPalette1());
-////        
-//            js.append(generateJShatchFillPalette2());
-////        
-//            js.append(generateJSdata12());
-////        
-//            js.append(generateJSdata13());
-////        
-//            js.append(generateJSdata14());
-////        
-//            js.append(generateJSdata15());
-////        
-//            js.append(generateJSmappingSettings3());
-////        
-//            js.append(generateJScsvSettings3());
-////        
-//            js.append(generateJSdata16());
-////        
-//            js.append(generateJSdata17());
-////        
-//            js.append(generateJSdata18());
-////        
-//            js.append(generateJSdata19());
-////        
-//            js.append(generateJSmappingSettings4());
-////        
-//            js.append(generateJScsvSettings4());
-////        
-//            js.append(generateJSmapping12());
-////        
-//            js.append(generateJSkPeriod());
-////        
-//            js.append(generateJSkMAPeriod());
-////        
-//            js.append(generateJSdPeriod());
-////        
-//            js.append(generateJSkMAType());
-////        
-//            js.append(generateJSkMAType1());
-////        
-//            js.append(generateJSdMAType());
-////        
-//            js.append(generateJSdMAType1());
-////        
-//            js.append(generateJSkMultiplier());
-////        
-//            js.append(generateJSdMultiplier());
-////        
-//            js.append(generateJSkSeriesType());
-////        
-//            js.append(generateJSkSeriesType1());
-////        
-//            js.append(generateJSdSeriesType());
-////        
-//            js.append(generateJSdSeriesType1());
-////        
-//            js.append(generateJSjSeriesType());
-////        
-//            js.append(generateJSjSeriesType1());
-////        
-//            js.append(generateJSdata20());
-////        
-//            js.append(generateJSdata21());
-////        
-//            js.append(generateJSdata22());
-////        
-//            js.append(generateJSdata23());
-////        
-//            js.append(generateJSmappingSettings5());
-////        
-//            js.append(generateJScsvSettings5());
-////        
-//            js.append(generateJSmapping13());
-////        
-//            js.append(generateJSfastPeriod2());
-////        
-//            js.append(generateJSslowPeriod2());
-////        
-//            js.append(generateJSsignalPeriod());
-////        
-//            js.append(generateJSmacdSeriesType());
-////        
-//            js.append(generateJSmacdSeriesType1());
-////        
-//            js.append(generateJSsignalSeriesType());
-////        
-//            js.append(generateJSsignalSeriesType1());
-////        
-//            js.append(generateJShistogramSeriesType());
-////        
-//            js.append(generateJShistogramSeriesType1());
-////        
-//            js.append(generateJSdata24());
-////        
-//            js.append(generateJSdata25());
-////        
-//            js.append(generateJSdata26());
-////        
-//            js.append(generateJSdata27());
-////        
-//            js.append(generateJSmappingSettings6());
-////        
-//            js.append(generateJScsvSettings6());
-////        
-//            js.append(generateJSmapping14());
-////        
-//            js.append(generateJSperiod10());
-////        
-//            js.append(generateJSseriesType18());
-////        
-//            js.append(generateJSseriesType19());
-////        
-//            js.append(generateJSdata28());
-////        
-//            js.append(generateJSdata29());
-////        
-//            js.append(generateJSdata30());
-////        
-//            js.append(generateJSdata31());
-////        
-//            js.append(generateJSmappingSettings7());
-////        
-//            js.append(generateJScsvSettings7());
-////        
-//            js.append(generateJSpalette());
-////        
-//            js.append(generateJSpalette1());
-////        
-//            js.append(generateJSpalette2());
-////        
-//            js.append(generateJSpalette3());
-////        
-//            js.append(generateJSdata32());
-////        
-//            js.append(generateJSdata33());
-////        
-//            js.append(generateJSdata34());
-////        
-//            js.append(generateJSdata35());
-////        
-//            js.append(generateJSmappingSettings8());
-////        
-//            js.append(generateJScsvSettings8());
-////        
-//            js.append(generateJSdata36());
-////        
-//            js.append(generateJSdata37());
-////        
-//            js.append(generateJSdata38());
-////        
-//            js.append(generateJSdata39());
-////        
-//            js.append(generateJSmappingSettings9());
-////        
-//            js.append(generateJScsvSettings9());
-////        
-//            js.append(generateJSdata40());
-////        
-//            js.append(generateJSdata41());
-////        
-//            js.append(generateJSdata42());
-////        
-//            js.append(generateJSdata43());
-////        
-//            js.append(generateJSmappingSettings10());
-////        
-//            js.append(generateJScsvSettings10());
-////        
-//            js.append(generateJSdata44());
-////        
-//            js.append(generateJSdata45());
-////        
-//            js.append(generateJSdata46());
-////        
-//            js.append(generateJSdata47());
-////        
-//            js.append(generateJSmappingSettings11());
-////        
-//            js.append(generateJScsvSettings11());
-////        
-//            js.append(generateJSid());
-////        
-//            js.append(generateJSid1());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSmapping15());
-////        
-//            js.append(generateJSperiod11());
-////        
-//            js.append(generateJSseriesType20());
-////        
-//            js.append(generateJSseriesType21());
-////        
-//            js.append(generateJSmapping16());
-////        
-//            js.append(generateJSperiod12());
-////        
-//            js.append(generateJSseriesType22());
-////        
-//            js.append(generateJSseriesType23());
-////        
-//            js.append(generateJSmapping17());
-////        
-//            js.append(generateJSperiod13());
-////        
-//            js.append(generateJSseriesType24());
-////        
-//            js.append(generateJSseriesType25());
-////        
-//            js.append(generateJSdata48());
-////        
-//            js.append(generateJSdata49());
-////        
-//            js.append(generateJSdata50());
-////        
-//            js.append(generateJSdata51());
-////        
-//            js.append(generateJSmappingSettings12());
-////        
-//            js.append(generateJScsvSettings12());
-////        
-//            js.append(generateJSdata52());
-////        
-//            js.append(generateJSdata53());
-////        
-//            js.append(generateJSdata54());
-////        
-//            js.append(generateJSdata55());
-////        
-//            js.append(generateJSmappingSettings13());
-////        
-//            js.append(generateJScsvSettings13());
-////        
-//            js.append(generateJSdata56());
-////        
-//            js.append(generateJSdata57());
-////        
-//            js.append(generateJSdata58());
-////        
-//            js.append(generateJSdata59());
-////        
-//            js.append(generateJSmappingSettings14());
-////        
-//            js.append(generateJScsvSettings14());
-////        
-//            js.append(generateJSdata60());
-////        
-//            js.append(generateJSdata61());
-////        
-//            js.append(generateJSdata62());
-////        
-//            js.append(generateJSdata63());
-////        
-//            js.append(generateJSmappingSettings15());
-////        
-//            js.append(generateJScsvSettings15());
-////        
-//            js.append(generateJSdata64());
-////        
-//            js.append(generateJSdata65());
-////        
-//            js.append(generateJSdata66());
-////        
-//            js.append(generateJSdata67());
-////        
-//            js.append(generateJSmappingSettings16());
-////        
-//            js.append(generateJScsvSettings16());
-////        
-//            js.append(generateJSmapping18());
-////        
-//            js.append(generateJSkPeriod1());
-////        
-//            js.append(generateJSkMAPeriod1());
-////        
-//            js.append(generateJSdPeriod1());
-////        
-//            js.append(generateJSkMAType2());
-////        
-//            js.append(generateJSkMAType3());
-////        
-//            js.append(generateJSdMAType2());
-////        
-//            js.append(generateJSdMAType3());
-////        
-//            js.append(generateJSkSeriesType2());
-////        
-//            js.append(generateJSkSeriesType3());
-////        
-//            js.append(generateJSdSeriesType2());
-////        
-//            js.append(generateJSdSeriesType3());
-////        
-//            js.append(generateJSxAxis());
-////        
-//            js.append(generateJSxAxis1());
-////        
-//            js.append(generateJSyScale());
-////        
-//            js.append(generateJSyScale1());
-////        
-//            js.append(generateJSyScale2());
-////        
-//            js.append(generateJSyScale3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

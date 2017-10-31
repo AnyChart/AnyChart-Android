@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Pert critical path settings collector.
+ */
 public class CriticalPath extends CoreBase {
 
     public CriticalPath() {
-
+        js.setLength(0);
+        js.append("var criticalPath").append(++variableIndex).append(" = anychart.core.pert.criticalPath();");
+        jsBase = "criticalPath" + variableIndex;
     }
 
     protected CriticalPath(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class CriticalPath extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Milestones getMilestones;
 
+    /**
+     * Getter for milestones settings.
+     */
     public Milestones getMilestones() {
         if (getMilestones == null)
             getMilestones = new Milestones(jsBase + ".milestones()");
@@ -36,6 +49,9 @@ public class CriticalPath extends CoreBase {
 
     private String milestones;
 
+    /**
+     * Setter for milestones settings.
+     */
     public CriticalPath setMilestones(String milestones) {
         if (jsBase == null) {
             this.milestones = milestones;
@@ -47,7 +63,6 @@ public class CriticalPath extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".milestones(%s)", wrapQuotes(milestones)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestones(%s)", wrapQuotes(milestones)));
                 js.setLength(0);
@@ -58,6 +73,9 @@ public class CriticalPath extends CoreBase {
 
     private Tasks getTasks;
 
+    /**
+     * Getter for tasks settings.
+     */
     public Tasks getTasks() {
         if (getTasks == null)
             getTasks = new Tasks(jsBase + ".tasks()");
@@ -67,6 +85,9 @@ public class CriticalPath extends CoreBase {
 
     private String tasks;
 
+    /**
+     * Setter for tasks settings object.
+     */
     public CriticalPath setTasks(String tasks) {
         if (jsBase == null) {
             this.tasks = tasks;
@@ -78,7 +99,6 @@ public class CriticalPath extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".tasks(%s)", wrapQuotes(tasks)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tasks(%s)", wrapQuotes(tasks)));
                 js.setLength(0);
@@ -87,26 +107,9 @@ public class CriticalPath extends CoreBase {
         return this;
     }
 
-
-//
-//    private String generateJSMilestones getMilestones() {
-//        if (Milestones getMilestones != null) {
-//            return Milestones getMilestones.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTasks getTasks() {
-//        if (Tasks getTasks != null) {
-//            return Tasks getTasks.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetMilestones() {
         if (getMilestones != null) {
             return getMilestones.generateJs();
-            //return String.format(Locale.US, "getMilestones: %s,", ((getMilestones != null) ? getMilestones.generateJs() : "null"));
         }
         return "";
     }
@@ -114,7 +117,6 @@ public class CriticalPath extends CoreBase {
     private String generateJSgetTasks() {
         if (getTasks != null) {
             return getTasks.generateJs();
-            //return String.format(Locale.US, "getTasks: %s,", ((getTasks != null) ? getTasks.generateJs() : "null"));
         }
         return "";
     }
@@ -138,16 +140,6 @@ public class CriticalPath extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSmilestones());
-////        
-//            js.append(generateJStasks());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

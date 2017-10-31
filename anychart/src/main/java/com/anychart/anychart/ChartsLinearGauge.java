@@ -6,13 +6,35 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Linear gauge class.<br/>
+<b>Note:</b> Use {@link anychart.gauges#linear} method to get an instance of this class.
+ */
 public class ChartsLinearGauge extends SeparateChart {
 
     protected ChartsLinearGauge(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public ChartsLinearGauge setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public ChartsLinearGauge setData(List<DataEntry> data) {
@@ -35,8 +57,32 @@ public class ChartsLinearGauge extends SeparateChart {
         return this;
     }
 
+    public ChartsLinearGauge setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
     private Double var_args;
+
+    /**
+     * Adds pointers to the gauge.
+     */
     public void addPointer(Double var_args) {
         if (isChain) {
             js.append(";");
@@ -53,6 +99,9 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private AxesLinearGauge getAxis;
 
+    /**
+     * Getter for the gauge axis.
+     */
     public AxesLinearGauge getAxis() {
         if (getAxis == null)
             getAxis = new AxesLinearGauge(jsBase + ".axis()");
@@ -62,6 +111,9 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private List<AxesLinearGauge> getAxis1 = new ArrayList<>();
 
+    /**
+     * Getter for the gauge axis.
+     */
     public AxesLinearGauge getAxis(Double index) {
         AxesLinearGauge item = new AxesLinearGauge(jsBase + ".axis("+ index+")");
         getAxis1.add(item);
@@ -69,6 +121,10 @@ public class ChartsLinearGauge extends SeparateChart {
     }
     private String axis;
     private Boolean axis1;
+
+    /**
+     * Setter for the gauge axis.
+     */
     public void setAxis(String axis) {
         if (isChain) {
             js.append(";");
@@ -82,6 +138,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the gauge axis.
+     */
     public void setAxis(Boolean axis1) {
         if (isChain) {
             js.append(";");
@@ -98,6 +158,10 @@ public class ChartsLinearGauge extends SeparateChart {
     private Double index1;
     private String axis2;
     private Boolean axis3;
+
+    /**
+     * Setter for the chart axis by index.
+     */
     public void setAxis(String axis2, Double index1) {
         if (isChain) {
             js.append(";");
@@ -111,6 +175,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the chart axis by index.
+     */
     public void setAxis(Boolean axis3, Double index1) {
         if (isChain) {
             js.append(";");
@@ -126,6 +194,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double dataIndex;
     private List<LineargaugePointersBar> setBar = new ArrayList<>();
+
+    /**
+     * Adds Bar pointer.
+     */
     public LineargaugePointersBar bar(Double dataIndex) {
         if (isChain) {
             js.append(";");
@@ -155,12 +227,19 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private View getData;
 
+    /**
+     * Getter for the pointers mapping.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
 
         return getData;
     }
+
+    /**
+     * Setter for the pointers mapping.
+     */
     public void data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -182,6 +261,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private LinearGaugePointerType defaultPointerType;
     private String defaultPointerType1;
+
+    /**
+     * Setter for the linear gauge pointer type by default.
+     */
     public void setDefaultPointerType(LinearGaugePointerType defaultPointerType) {
         if (isChain) {
             js.append(";");
@@ -195,6 +278,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the linear gauge pointer type by default.
+     */
     public void setDefaultPointerType(String defaultPointerType1) {
         if (isChain) {
             js.append(";");
@@ -211,6 +298,10 @@ public class ChartsLinearGauge extends SeparateChart {
     private Double id;
     private String id1;
     private List<LineargaugePointersBase> setGetPointer = new ArrayList<>();
+
+    /**
+     * Returns pointer by id.
+     */
     public LineargaugePointersBase getPointer(Double id) {
         if (isChain) {
             js.append(";");
@@ -238,6 +329,10 @@ public class ChartsLinearGauge extends SeparateChart {
     }
 
     private List<LineargaugePointersBase> setGetPointer1 = new ArrayList<>();
+
+    /**
+     * Returns pointer by id.
+     */
     public LineargaugePointersBase getPointer(String id1) {
         if (isChain) {
             js.append(";");
@@ -266,6 +361,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double index2;
     private List<LineargaugePointersBase> setGetPointerAt = new ArrayList<>();
+
+    /**
+     * Returns pointer by index.
+     */
     public LineargaugePointersBase getPointerAt(Double index2) {
         if (isChain) {
             js.append(";");
@@ -294,6 +393,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private String globalOffset;
     private Double globalOffset1;
+
+    /**
+     * Setter for the global offset of a linear gauge.
+     */
     public void setGlobalOffset(String globalOffset) {
         if (isChain) {
             js.append(";");
@@ -307,6 +410,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the global offset of a linear gauge.
+     */
     public void setGlobalOffset(Double globalOffset1) {
         if (isChain) {
             js.append(";");
@@ -323,6 +430,9 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for the gauge hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -332,6 +442,10 @@ public class ChartsLinearGauge extends SeparateChart {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
+
+    /**
+     * Setter for the gauge hatch fill palette settings.
+     */
     public void setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (isChain) {
             js.append(";");
@@ -345,6 +459,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the gauge hatch fill palette settings.
+     */
     public void setHatchFillPalette(String hatchFillPalette1) {
         if (isChain) {
             js.append(";");
@@ -358,20 +476,26 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the gauge hatch fill palette settings.
+     */
     public void setHatchFillPalette(HatchFills hatchFillPalette2) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".hatchFillPalette(%s);", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
-        }
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
     }
 
     private Boolean isVertical;
+
+    /**
+     * Setter for the vertical layout.
+     */
     public void setIsVertical(Boolean isVertical) {
         if (isChain) {
             js.append(";");
@@ -387,6 +511,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Layout layout;
     private String layout1;
+
+    /**
+     * Setter for the gauge layout.
+     */
     public void setLayout(Layout layout) {
         if (isChain) {
             js.append(";");
@@ -400,6 +528,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the gauge layout.
+     */
     public void setLayout(String layout1) {
         if (isChain) {
             js.append(";");
@@ -415,6 +547,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double dataIndex1;
     private List<Led> setLed = new ArrayList<>();
+
+    /**
+     * Adds Led pointer.
+     */
     public Led led(Double dataIndex1) {
         if (isChain) {
             js.append(";");
@@ -443,6 +579,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double dataIndex2;
     private List<LineargaugePointersMarker> setMarker = new ArrayList<>();
+
+    /**
+     * Adds Marker pointer.
+     */
     public LineargaugePointersMarker marker(Double dataIndex2) {
         if (isChain) {
             js.append(";");
@@ -472,6 +612,9 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for the gauge markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -482,19 +625,25 @@ public class ChartsLinearGauge extends SeparateChart {
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
+
+    /**
+     * Setter for the gauge markers palette settings.
+     */
     public void setMarkerPalette(Markers markerPalette) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".markerPalette(%s);", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
+        js.append(markerPalette.generateJs());
+        js.append(jsBase);
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
-            js.setLength(0);
-        }
+        js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
     }
 
+
+    /**
+     * Setter for the gauge markers palette settings.
+     */
     public void setMarkerPalette(String markerPalette1) {
         if (isChain) {
             js.append(";");
@@ -508,6 +657,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the gauge markers palette settings.
+     */
     public void setMarkerPalette(MarkerType[] markerPalette2) {
         if (isChain) {
             js.append(";");
@@ -521,6 +674,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the gauge markers palette settings.
+     */
     public void setMarkerPalette(String[] markerPalette3) {
         if (isChain) {
             js.append(";");
@@ -537,6 +694,9 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the gauge palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -547,32 +707,40 @@ public class ChartsLinearGauge extends SeparateChart {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
+
+    /**
+     * Setter for the gauge palette.
+     */
     public void setPalette(RangeColors palette) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", ((palette != null) ? palette.generateJs() : "null")));
+        js.append(palette.generateJs());
+        js.append(jsBase);
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
-        }
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
     }
 
+
+    /**
+     * Setter for the gauge palette.
+     */
     public void setPalette(DistinctColors palette1) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", ((palette1 != null) ? palette1.generateJs() : "null")));
+        js.append(palette1.generateJs());
+        js.append(jsBase);
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
-        }
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
     }
 
+
+    /**
+     * Setter for the gauge palette.
+     */
     public void setPalette(String palette2) {
         if (isChain) {
             js.append(";");
@@ -586,6 +754,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the gauge palette.
+     */
     public void setPalette(String[] palette3) {
         if (isChain) {
             js.append(";");
@@ -601,6 +773,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double dataIndex3;
     private List<PointersRangeBar> setRangeBar = new ArrayList<>();
+
+    /**
+     * Adds Range bar pointer.
+     */
     public PointersRangeBar rangeBar(Double dataIndex3) {
         if (isChain) {
             js.append(";");
@@ -629,6 +805,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double id2;
     private String id3;
+
+    /**
+     * Removes pointer by id.
+     */
     public void removePointer(Double id2) {
         if (isChain) {
             js.append(";");
@@ -642,6 +822,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Removes pointer by id.
+     */
     public void removePointer(String id3) {
         if (isChain) {
             js.append(";");
@@ -656,6 +840,10 @@ public class ChartsLinearGauge extends SeparateChart {
     }
 
     private Double index3;
+
+    /**
+     * Removes pointer by index.
+     */
     public void removePointerAt(Double index3) {
         if (isChain) {
             js.append(";");
@@ -672,6 +860,9 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private ScalesBase getScale;
 
+    /**
+     * Getter for the gauge scale.
+     */
     public ScalesBase getScale() {
         if (getScale == null)
             getScale = new ScalesBase(jsBase + ".scale()");
@@ -682,6 +873,10 @@ public class ChartsLinearGauge extends SeparateChart {
     private String scale1;
     private ScalesBase scale2;
     private String scale3;
+
+    /**
+     * Setter for the gauge scale.
+     */
     public void setScale(ScaleTypes scale) {
         if (isChain) {
             js.append(";");
@@ -695,6 +890,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the gauge scale.
+     */
     public void setScale(String scale1) {
         if (isChain) {
             js.append(";");
@@ -708,22 +907,27 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the gauge scale.
+     */
     public void setScale(ScalesBase scale2) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scale(%s);", ((scale2 != null) ? scale2.generateJs() : "null")));
+        js.append(scale2.generateJs());
+        js.append(jsBase);
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
-            js.setLength(0);
-        }
+        js.append(String.format(Locale.US, ".scale(%s);",  ((scale2 != null) ? scale2.getJsBase() : "null")));
     }
 
 
     private ScaleBar getScaleBar;
 
+    /**
+     * Getter for the scale bar.
+     */
     public ScaleBar getScaleBar() {
         if (getScaleBar == null)
             getScaleBar = new ScaleBar(jsBase + ".scaleBar()");
@@ -733,6 +937,9 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private List<ScaleBar> getScaleBar1 = new ArrayList<>();
 
+    /**
+     * Getter for the scale bar.
+     */
     public ScaleBar getScaleBar(Double index4) {
         ScaleBar item = new ScaleBar(jsBase + ".scaleBar("+ index4+")");
         getScaleBar1.add(item);
@@ -740,6 +947,10 @@ public class ChartsLinearGauge extends SeparateChart {
     }
     private String scaleBar;
     private Boolean scaleBar1;
+
+    /**
+     * Setter for the scale bar.
+     */
     public void setScaleBar(String scaleBar) {
         if (isChain) {
             js.append(";");
@@ -753,6 +964,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the scale bar.
+     */
     public void setScaleBar(Boolean scaleBar1) {
         if (isChain) {
             js.append(";");
@@ -769,6 +984,10 @@ public class ChartsLinearGauge extends SeparateChart {
     private Double index5;
     private String scaleBar2;
     private Boolean scaleBar3;
+
+    /**
+     * Setter for the scale bar by index.
+     */
     public void setScaleBar(String scaleBar2, Double index5) {
         if (isChain) {
             js.append(";");
@@ -782,6 +1001,10 @@ public class ChartsLinearGauge extends SeparateChart {
         }
     }
 
+
+    /**
+     * Setter for the scale bar by index.
+     */
     public void setScaleBar(Boolean scaleBar3, Double index5) {
         if (isChain) {
             js.append(";");
@@ -797,6 +1020,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double dataIndex4;
     private List<Tank> setTank = new ArrayList<>();
+
+    /**
+     * Adds Tank pointer.
+     */
     public Tank tank(Double dataIndex4) {
         if (isChain) {
             js.append(";");
@@ -825,6 +1052,10 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double dataIndex5;
     private List<Thermometer> setThermometer = new ArrayList<>();
+
+    /**
+     * Adds Thermometer pointer.
+     */
     public Thermometer thermometer(Double dataIndex5) {
         if (isChain) {
             js.append(";");

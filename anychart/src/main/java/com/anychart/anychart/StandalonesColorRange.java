@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesColorRange extends UiColorRange {
 
     public StandalonesColorRange() {
-
+        js.setLength(0);
+        js.append("var standalonesColorRange").append(++variableIndex).append(" = anychart.standalones.colorRange();");
+        jsBase = "standalonesColorRange" + variableIndex;
     }
 
     protected StandalonesColorRange(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class StandalonesColorRange extends UiColorRange {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Element getContainer;
 
+    /**
+     * Getter for the color range container.
+     */
     public Element getContainer() {
         if (getContainer == null)
             getContainer = new Element(jsBase + ".container()");
@@ -37,6 +50,9 @@ public class StandalonesColorRange extends UiColorRange {
     private String container;
     private Element container1;
 
+    /**
+     * Setter for the color range container.
+     */
     public StandalonesColorRange setContainer(String container) {
         if (jsBase == null) {
             this.container = null;
@@ -51,7 +67,6 @@ public class StandalonesColorRange extends UiColorRange {
             }
 
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
                 js.setLength(0);
@@ -61,6 +76,9 @@ public class StandalonesColorRange extends UiColorRange {
     }
 
 
+    /**
+     * Setter for the color range container.
+     */
     public StandalonesColorRange setContainer(Element container1) {
         if (jsBase == null) {
             this.container = null;
@@ -69,15 +87,16 @@ public class StandalonesColorRange extends UiColorRange {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -86,6 +105,9 @@ public class StandalonesColorRange extends UiColorRange {
 
     private TablePadding getPadding;
 
+    /**
+     * Getter for padding settings object.
+     */
     public TablePadding getPadding() {
         if (getPadding == null)
             getPadding = new TablePadding(jsBase + ".padding()");
@@ -97,6 +119,9 @@ public class StandalonesColorRange extends UiColorRange {
     private String[] padding1;
     private String padding2;
 
+    /**
+     * Setter for paddings in pixels using a single value.<br/>
+     */
     public StandalonesColorRange setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
@@ -112,7 +137,6 @@ public class StandalonesColorRange extends UiColorRange {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -122,6 +146,9 @@ public class StandalonesColorRange extends UiColorRange {
     }
 
 
+    /**
+     * Setter for paddings in pixels using a single value.<br/>
+     */
     public StandalonesColorRange setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
@@ -137,7 +164,6 @@ public class StandalonesColorRange extends UiColorRange {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -147,6 +173,9 @@ public class StandalonesColorRange extends UiColorRange {
     }
 
 
+    /**
+     * Setter for paddings in pixels using a single value.<br/>
+     */
     public StandalonesColorRange setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
@@ -162,7 +191,6 @@ public class StandalonesColorRange extends UiColorRange {
             }
 
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -180,6 +208,9 @@ public class StandalonesColorRange extends UiColorRange {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for current cell paddings in pixels using several numbers.
+     */
     public StandalonesColorRange setPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -233,7 +264,6 @@ public class StandalonesColorRange extends UiColorRange {
             }
 
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -243,6 +273,9 @@ public class StandalonesColorRange extends UiColorRange {
     }
 
 
+    /**
+     * Setter for current cell paddings in pixels using several numbers.
+     */
     public StandalonesColorRange setPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -296,7 +329,6 @@ public class StandalonesColorRange extends UiColorRange {
             }
 
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -307,6 +339,10 @@ public class StandalonesColorRange extends UiColorRange {
 
     private AnychartMathRect getParentBounds;
 
+    /**
+     * Getter for bounds.
+As a getter falls back to stage bounds.
+     */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
             getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
@@ -317,6 +353,9 @@ public class StandalonesColorRange extends UiColorRange {
     private AnychartMathRect parentBounds;
     private String parentBounds1;
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesColorRange setParentBounds(AnychartMathRect parentBounds) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -325,15 +364,16 @@ public class StandalonesColorRange extends UiColorRange {
             this.parentBounds = parentBounds;
         } else {
             this.parentBounds = parentBounds;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(parentBounds.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".parentBounds(%s);",  ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -341,6 +381,9 @@ public class StandalonesColorRange extends UiColorRange {
     }
 
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesColorRange setParentBounds(String parentBounds1) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -355,7 +398,6 @@ public class StandalonesColorRange extends UiColorRange {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
@@ -369,6 +411,9 @@ public class StandalonesColorRange extends UiColorRange {
     private Double width;
     private Double height;
 
+    /**
+     * Setter for bounds using several value.
+     */
     public StandalonesColorRange setParentBounds(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
@@ -386,7 +431,6 @@ public class StandalonesColorRange extends UiColorRange {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
@@ -395,33 +439,9 @@ public class StandalonesColorRange extends UiColorRange {
         return this;
     }
 
-
-//
-//    private String generateJSElement getContainer() {
-//        if (Element getContainer != null) {
-//            return Element getContainer.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTablePadding getPadding() {
-//        if (TablePadding getPadding != null) {
-//            return TablePadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAnychartMathRect getParentBounds() {
-//        if (AnychartMathRect getParentBounds != null) {
-//            return AnychartMathRect getParentBounds.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
-            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -429,7 +449,6 @@ public class StandalonesColorRange extends UiColorRange {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -437,7 +456,6 @@ public class StandalonesColorRange extends UiColorRange {
     private String generateJSgetParentBounds() {
         if (getParentBounds != null) {
             return getParentBounds.generateJs();
-            //return String.format(Locale.US, "getParentBounds: %s,", ((getParentBounds != null) ? getParentBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -462,50 +480,6 @@ public class StandalonesColorRange extends UiColorRange {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScontainer());
-////        
-//            js.append(generateJScontainer1());
-////        
-//            js.append(generateJSpadding());
-////        
-//            js.append(generateJSpadding1());
-////        
-//            js.append(generateJSpadding2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSparentBounds());
-////        
-//            js.append(generateJSparentBounds1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSheight());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Gradient palette.
+ */
 public class RangeColors extends CoreBase {
 
     public RangeColors() {
-
+        js.setLength(0);
+        js.append("var rangeColors").append(++variableIndex).append(" = anychart.palettes.rangeColors();");
+        jsBase = "rangeColors" + variableIndex;
     }
 
     protected RangeColors(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,17 @@ public class RangeColors extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double count;
 
+    /**
+     * Setter for color palette's colors counts.<br/>
+<b>Note:</b> Defines how many steps we need in gradient.
+     */
     public RangeColors setCount(Double count) {
         if (jsBase == null) {
             this.count = count;
@@ -38,7 +52,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".count(%f)", count));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
                 js.setLength(0);
@@ -50,6 +63,9 @@ public class RangeColors extends CoreBase {
     private Double index;
     private SolidFill color;
 
+    /**
+     * Setter for color palette colors from list by index.
+     */
     public RangeColors setItemAt(Double index, SolidFill color) {
         if (jsBase == null) {
             this.index = index;
@@ -63,7 +79,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, ((color != null) ? color.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index, ((color != null) ? color.generateJs() : "null")));
                 js.setLength(0);
@@ -82,6 +97,9 @@ public class RangeColors extends CoreBase {
     private SolidFill var_args;
     private String var_args1;
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(SolidFill[] items, SolidFill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -106,7 +124,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -116,6 +133,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(SolidFill[] items, String var_args1) {
         if (jsBase == null) {
             this.items = null;
@@ -140,7 +160,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), wrapQuotes(var_args1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), wrapQuotes(var_args1)));
                 js.setLength(0);
@@ -150,6 +169,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(LinearGradientFill items1, SolidFill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -174,7 +196,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", ((items1 != null) ? items1.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items1 != null) ? items1.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -184,6 +205,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(LinearGradientFill items1, String var_args1) {
         if (jsBase == null) {
             this.items = null;
@@ -208,7 +232,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", ((items1 != null) ? items1.generateJs() : "null"), wrapQuotes(var_args1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items1 != null) ? items1.generateJs() : "null"), wrapQuotes(var_args1)));
                 js.setLength(0);
@@ -218,6 +241,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(RadialGradientFill items2, SolidFill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -242,7 +268,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", ((items2 != null) ? items2.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items2 != null) ? items2.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -252,6 +277,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(RadialGradientFill items2, String var_args1) {
         if (jsBase == null) {
             this.items = null;
@@ -276,7 +304,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", ((items2 != null) ? items2.generateJs() : "null"), wrapQuotes(var_args1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items2 != null) ? items2.generateJs() : "null"), wrapQuotes(var_args1)));
                 js.setLength(0);
@@ -286,6 +313,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(GradientKey[] items3, SolidFill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -310,7 +340,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -320,6 +349,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(GradientKey[] items3, String var_args1) {
         if (jsBase == null) {
             this.items = null;
@@ -344,7 +376,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), wrapQuotes(var_args1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items3), wrapQuotes(var_args1)));
                 js.setLength(0);
@@ -354,6 +385,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(String[] items4, SolidFill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -378,7 +412,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items4), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items4), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -388,6 +421,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(String[] items4, String var_args1) {
         if (jsBase == null) {
             this.items = null;
@@ -412,7 +448,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items4), wrapQuotes(var_args1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items4), wrapQuotes(var_args1)));
                 js.setLength(0);
@@ -422,6 +457,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(SolidFill items5, SolidFill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -446,7 +484,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", ((items5 != null) ? items5.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items5 != null) ? items5.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -456,6 +493,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(SolidFill items5, String var_args1) {
         if (jsBase == null) {
             this.items = null;
@@ -480,7 +520,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", ((items5 != null) ? items5.generateJs() : "null"), wrapQuotes(var_args1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items5 != null) ? items5.generateJs() : "null"), wrapQuotes(var_args1)));
                 js.setLength(0);
@@ -490,6 +529,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(String items6, SolidFill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -514,7 +556,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items6), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items6), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -524,6 +565,9 @@ public class RangeColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public RangeColors setItems(String items6, String var_args1) {
         if (jsBase == null) {
             this.items = null;
@@ -548,7 +592,6 @@ public class RangeColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items6), wrapQuotes(var_args1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items6), wrapQuotes(var_args1)));
                 js.setLength(0);
@@ -557,8 +600,6 @@ public class RangeColors extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -576,36 +617,6 @@ public class RangeColors extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScount());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSitems());
-////        
-//            js.append(generateJSitems1());
-////        
-//            js.append(generateJSitems2());
-////        
-//            js.append(generateJSitems3());
-////        
-//            js.append(generateJSitems4());
-////        
-//            js.append(generateJSitems5());
-////        
-//            js.append(generateJSitems6());
-////        
-//            js.append(generateJSvar_args());
-////        
-//            js.append(generateJSvar_args1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

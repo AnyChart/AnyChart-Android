@@ -6,13 +6,35 @@ import java.util.List;
 import java.util.ArrayList;
 
 // chart class
+/**
+ * Pyramid chart class.<br/>
+<b>Note:</b> Use {@link anychart#pyramid} method to get an instance of this class:
+ */
 public class Pyramid extends SeparateChart {
 
     protected Pyramid(String name) {
         super(name);
 
+        js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
+    }
+
+    public Pyramid setData(SingleValueDataSet data) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            js.append(data.generateJs());
+
+            js.append("]);");
+        }
+
+        return this;
     }
 
     public Pyramid setData(List<DataEntry> data) {
@@ -35,10 +57,34 @@ public class Pyramid extends SeparateChart {
         return this;
     }
 
+    public Pyramid setData(List<DataEntry> data, TreeFillingMethod mode) {
+        if (!data.isEmpty()) {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(jsBase).append(".data([");
+
+            for (DataEntry dataEntry : data) {
+                js.append(dataEntry.generateJs()).append(",");
+            }
+            js.setLength(js.length() - 1);
+
+            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
+        }
+
+        return this;
+    }
+
     
     private String baseWidth;
     private Double baseWidth1;
     private List<Pyramid> setBaseWidth = new ArrayList<>();
+
+    /**
+     * Setter for the base width.
+     */
     public Pyramid setBaseWidth(String baseWidth) {
         if (!isChain) {
             js.append(jsBase);
@@ -64,6 +110,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setBaseWidth1 = new ArrayList<>();
+
+    /**
+     * Setter for the base width.
+     */
     public Pyramid setBaseWidth(Double baseWidth1) {
         if (!isChain) {
             js.append(jsBase);
@@ -91,6 +141,10 @@ public class Pyramid extends SeparateChart {
     private Double connectorLength;
     private String connectorLength1;
     private List<Pyramid> setConnectorLength = new ArrayList<>();
+
+    /**
+     * Setter for the outside labels connector length.
+     */
     public Pyramid setConnectorLength(Double connectorLength) {
         if (!isChain) {
             js.append(jsBase);
@@ -116,6 +170,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setConnectorLength1 = new ArrayList<>();
+
+    /**
+     * Setter for the outside labels connector length.
+     */
     public Pyramid setConnectorLength(String connectorLength1) {
         if (!isChain) {
             js.append(jsBase);
@@ -148,6 +206,11 @@ public class Pyramid extends SeparateChart {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
     private List<Pyramid> setConnectorStroke = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connectors stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Pyramid setConnectorStroke(Stroke connectorStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -173,6 +236,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setConnectorStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connectors stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Pyramid setConnectorStroke(ColoredFill connectorStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -198,6 +266,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setConnectorStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for outside labels connectors stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Pyramid setConnectorStroke(String connectorStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
@@ -225,6 +298,9 @@ public class Pyramid extends SeparateChart {
 
     private View getData;
 
+    /**
+     * Getter for the chart data.
+     */
     public View getData() {
         if (getData == null)
             getData = new View(jsBase + ".data()");
@@ -232,6 +308,10 @@ public class Pyramid extends SeparateChart {
         return getData;
     }
     private List<Pyramid> setData = new ArrayList<>();
+
+    /**
+     * Setter for the chart data.
+     */
     public Pyramid data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
@@ -264,6 +344,11 @@ public class Pyramid extends SeparateChart {
 
     private Fill fill;
     private List<Pyramid> setFill = new ArrayList<>();
+
+    /**
+     * Setter for the pyramid fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pyramid setFill(Fill fill) {
         if (!isChain) {
             js.append(jsBase);
@@ -292,6 +377,10 @@ public class Pyramid extends SeparateChart {
     private String color;
     private Double opacity;
     private List<Pyramid> setFill1 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.
+     */
     public Pyramid fill(String color, Double opacity) {
         if (!isChain) {
             js.append(jsBase);
@@ -324,6 +413,11 @@ public class Pyramid extends SeparateChart {
     private String mode2;
     private Double opacity1;
     private List<Pyramid> setFill2 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pyramid fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -349,6 +443,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setFill3 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pyramid fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -374,6 +473,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setFill4 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pyramid fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -399,6 +503,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setFill5 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pyramid fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -424,6 +533,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setFill6 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pyramid fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -449,6 +563,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setFill7 = new ArrayList<>();
+
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pyramid fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (!isChain) {
             js.append(jsBase);
@@ -482,6 +601,11 @@ public class Pyramid extends SeparateChart {
     private Double fx;
     private Double fy;
     private List<Pyramid> setFill8 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pyramid fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -507,6 +631,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setFill9 = new ArrayList<>();
+
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public Pyramid fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (!isChain) {
             js.append(jsBase);
@@ -535,6 +664,9 @@ public class Pyramid extends SeparateChart {
 
     private PatternFill getHatchFill;
 
+    /**
+     * Getter for the hatch fill settings.
+     */
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
             getHatchFill = new PatternFill(jsBase + ".hatchFill()");
@@ -550,6 +682,11 @@ public class Pyramid extends SeparateChart {
     private Double thickness1;
     private Double size;
     private List<Pyramid> setHatchFill = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Pyramid setHatchFill(PatternFill patternFillOrType, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -575,6 +712,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setHatchFill1 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Pyramid setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -600,6 +742,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setHatchFill2 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Pyramid setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -625,6 +772,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setHatchFill3 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Pyramid setHatchFill(String patternFillOrType3, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -650,6 +802,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setHatchFill4 = new ArrayList<>();
+
+    /**
+     * Setter for the hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
     public Pyramid setHatchFill(Boolean patternFillOrType4, String color1, Double thickness1, Double size) {
         if (!isChain) {
             js.append(jsBase);
@@ -677,6 +834,9 @@ public class Pyramid extends SeparateChart {
 
     private HatchFills getHatchFillPalette;
 
+    /**
+     * Getter for hatch fill palette settings.
+     */
     public HatchFills getHatchFillPalette() {
         if (getHatchFillPalette == null)
             getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
@@ -687,6 +847,10 @@ public class Pyramid extends SeparateChart {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
     private List<Pyramid> setHatchFillPalette = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public Pyramid setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (!isChain) {
             js.append(jsBase);
@@ -712,6 +876,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setHatchFillPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for hatch fill palette settings.
+     */
     public Pyramid setHatchFillPalette(String hatchFillPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -737,17 +905,19 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setHatchFillPalette2 = new ArrayList<>();
-    public Pyramid setHatchFillPalette(HatchFills hatchFillPalette2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for hatch fill palette settings.
+     */
+    public Pyramid setHatchFillPalette(HatchFills hatchFillPalette2) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(hatchFillPalette2.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetHatchFillPalette2() {
@@ -763,6 +933,10 @@ public class Pyramid extends SeparateChart {
 
     private Double index;
     private List<Pyramid> setHover = new ArrayList<>();
+
+    /**
+     * Setter for the hover state on a element or all elements.
+     */
     public Pyramid setHover(Double index) {
         if (!isChain) {
             js.append(jsBase);
@@ -790,6 +964,9 @@ public class Pyramid extends SeparateChart {
 
     private StateSettings getHovered;
 
+    /**
+     * Getter for hovered state settings.
+     */
     public StateSettings getHovered() {
         if (getHovered == null)
             getHovered = new StateSettings(jsBase + ".hovered()");
@@ -798,6 +975,10 @@ public class Pyramid extends SeparateChart {
     }
     private String hovered;
     private List<Pyramid> setHovered = new ArrayList<>();
+
+    /**
+     * Setter for hovered state settings.
+     */
     public Pyramid setHovered(String hovered) {
         if (!isChain) {
             js.append(jsBase);
@@ -825,6 +1006,9 @@ public class Pyramid extends SeparateChart {
 
     private UiLabelsFactory getLabels;
 
+    /**
+     * Getter for the pyramid labels.
+     */
     public UiLabelsFactory getLabels() {
         if (getLabels == null)
             getLabels = new UiLabelsFactory(jsBase + ".labels()");
@@ -834,6 +1018,10 @@ public class Pyramid extends SeparateChart {
     private String labels;
     private Boolean labels1;
     private List<Pyramid> setLabels = new ArrayList<>();
+
+    /**
+     * Setter for the pyramid labels.
+     */
     public Pyramid setLabels(String labels) {
         if (!isChain) {
             js.append(jsBase);
@@ -859,6 +1047,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setLabels1 = new ArrayList<>();
+
+    /**
+     * Setter for the pyramid labels.
+     */
     public Pyramid setLabels(Boolean labels1) {
         if (!isChain) {
             js.append(jsBase);
@@ -886,6 +1078,9 @@ public class Pyramid extends SeparateChart {
 
     private Markers getMarkerPalette;
 
+    /**
+     * Getter for the chart markers palette settings.
+     */
     public Markers getMarkerPalette() {
         if (getMarkerPalette == null)
             getMarkerPalette = new Markers(jsBase + ".markerPalette()");
@@ -897,17 +1092,19 @@ public class Pyramid extends SeparateChart {
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
     private List<Pyramid> setMarkerPalette = new ArrayList<>();
-    public Pyramid setMarkerPalette(Markers markerPalette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the chart markers palette settings.
+     */
+    public Pyramid setMarkerPalette(Markers markerPalette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(markerPalette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetMarkerPalette() {
@@ -922,6 +1119,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setMarkerPalette1 = new ArrayList<>();
+
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public Pyramid setMarkerPalette(String markerPalette1) {
         if (!isChain) {
             js.append(jsBase);
@@ -947,6 +1148,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setMarkerPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public Pyramid setMarkerPalette(MarkerType[] markerPalette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -972,6 +1177,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setMarkerPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the chart markers palette settings.
+     */
     public Pyramid setMarkerPalette(String[] markerPalette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -999,6 +1208,9 @@ public class Pyramid extends SeparateChart {
 
     private UiMarkersFactory getMarkers;
 
+    /**
+     * Getter for data markers.
+     */
     public UiMarkersFactory getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersFactory(jsBase + ".markers()");
@@ -1009,6 +1221,10 @@ public class Pyramid extends SeparateChart {
     private Boolean markers1;
     private String markers2;
     private List<Pyramid> setMarkers = new ArrayList<>();
+
+    /**
+     * Setter for data markers.
+     */
     public Pyramid setMarkers(String markers) {
         if (!isChain) {
             js.append(jsBase);
@@ -1034,6 +1250,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setMarkers1 = new ArrayList<>();
+
+    /**
+     * Setter for data markers.
+     */
     public Pyramid setMarkers(Boolean markers1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1061,6 +1281,9 @@ public class Pyramid extends SeparateChart {
 
     private StateSettings getNormal;
 
+    /**
+     * Getter for normal state settings.
+     */
     public StateSettings getNormal() {
         if (getNormal == null)
             getNormal = new StateSettings(jsBase + ".normal()");
@@ -1069,6 +1292,10 @@ public class Pyramid extends SeparateChart {
     }
     private String normal;
     private List<Pyramid> setNormal = new ArrayList<>();
+
+    /**
+     * Setter for normal state settings.
+     */
     public Pyramid setNormal(String normal) {
         if (!isChain) {
             js.append(jsBase);
@@ -1097,6 +1324,10 @@ public class Pyramid extends SeparateChart {
     private String overlapMode1;
     private Boolean overlapMode2;
     private List<Pyramid> setOverlapMode = new ArrayList<>();
+
+    /**
+     * Setter for overlap mode for labels.
+     */
     public Pyramid setOverlapMode(LabelsOverlapMode overlapMode) {
         if (!isChain) {
             js.append(jsBase);
@@ -1122,6 +1353,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setOverlapMode1 = new ArrayList<>();
+
+    /**
+     * Setter for overlap mode for labels.
+     */
     public Pyramid setOverlapMode(String overlapMode1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1147,6 +1382,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setOverlapMode2 = new ArrayList<>();
+
+    /**
+     * Setter for overlap mode for labels.
+     */
     public Pyramid setOverlapMode(Boolean overlapMode2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1174,6 +1413,9 @@ public class Pyramid extends SeparateChart {
 
     private RangeColors getPalette;
 
+    /**
+     * Getter for the pyramid palette.
+     */
     public RangeColors getPalette() {
         if (getPalette == null)
             getPalette = new RangeColors(jsBase + ".palette()");
@@ -1185,17 +1427,20 @@ public class Pyramid extends SeparateChart {
     private String palette2;
     private String[] palette3;
     private List<Pyramid> setPalette = new ArrayList<>();
-    public Pyramid setPalette(RangeColors palette) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the pyramid palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public Pyramid setPalette(RangeColors palette) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette() {
@@ -1210,17 +1455,20 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setPalette1 = new ArrayList<>();
-    public Pyramid setPalette(DistinctColors palette1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.generateJs() : "null")));
-            js.setLength(0);
+    /**
+     * Setter for the pyramid palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
+    public Pyramid setPalette(DistinctColors palette1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
+        js.append(palette1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
     private String generateJSsetPalette1() {
@@ -1235,6 +1483,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setPalette2 = new ArrayList<>();
+
+    /**
+     * Setter for the pyramid palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public Pyramid setPalette(String palette2) {
         if (!isChain) {
             js.append(jsBase);
@@ -1260,6 +1513,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setPalette3 = new ArrayList<>();
+
+    /**
+     * Setter for the pyramid palette.<br/>
+<b>Note</b>: You can use predefined palettes from {@link anychart.palettes}.
+     */
     public Pyramid setPalette(String[] palette3) {
         if (!isChain) {
             js.append(jsBase);
@@ -1287,6 +1545,10 @@ public class Pyramid extends SeparateChart {
     private String pointsPadding;
     private Double pointsPadding1;
     private List<Pyramid> setPointsPadding = new ArrayList<>();
+
+    /**
+     * Setter for the padding between points.
+     */
     public Pyramid setPointsPadding(String pointsPadding) {
         if (!isChain) {
             js.append(jsBase);
@@ -1312,6 +1574,10 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setPointsPadding1 = new ArrayList<>();
+
+    /**
+     * Setter for the padding between points.
+     */
     public Pyramid setPointsPadding(Double pointsPadding1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1338,6 +1604,10 @@ public class Pyramid extends SeparateChart {
 
     private Boolean reversed;
     private List<Pyramid> setReversed = new ArrayList<>();
+
+    /**
+     * Setter for the reversing of the pyramid.
+     */
     public Pyramid setReversed(Boolean reversed) {
         if (!isChain) {
             js.append(jsBase);
@@ -1364,6 +1634,11 @@ public class Pyramid extends SeparateChart {
 
     private Double index1;
     private List<Pyramid> setSelect = new ArrayList<>();
+
+    /**
+     * Selects points by index.
+<b>Note:</b> Works only after {@link anychart.charts.Pyramid#draw} is called.
+     */
     public Pyramid select(Double index1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1390,6 +1665,11 @@ public class Pyramid extends SeparateChart {
 
     private Double[] indexes;
     private List<Pyramid> setSelect1 = new ArrayList<>();
+
+    /**
+     * Selects points by indexes.
+<b>Note:</b> Works only after {@link anychart.charts.Pyramid#draw} is called.
+     */
     public Pyramid select(Double[] indexes) {
         if (!isChain) {
             js.append(jsBase);
@@ -1417,6 +1697,9 @@ public class Pyramid extends SeparateChart {
 
     private StateSettings getSelected;
 
+    /**
+     * Getter for selected state settings.
+     */
     public StateSettings getSelected() {
         if (getSelected == null)
             getSelected = new StateSettings(jsBase + ".selected()");
@@ -1425,6 +1708,10 @@ public class Pyramid extends SeparateChart {
     }
     private String selected;
     private List<Pyramid> setSelected = new ArrayList<>();
+
+    /**
+     * Setter for selected state settings.
+     */
     public Pyramid setSelected(String selected) {
         if (!isChain) {
             js.append(jsBase);
@@ -1451,6 +1738,11 @@ public class Pyramid extends SeparateChart {
 
     private Stroke stroke;
     private List<Pyramid> setStroke = new ArrayList<>();
+
+    /**
+     * Setter for the pyramid stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Pyramid setStroke(Stroke stroke) {
         if (!isChain) {
             js.append(jsBase);
@@ -1483,6 +1775,11 @@ public class Pyramid extends SeparateChart {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
     private List<Pyramid> setStroke1 = new ArrayList<>();
+
+    /**
+     * Setter for the pyramid stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Pyramid setStroke(Stroke color2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1508,6 +1805,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setStroke2 = new ArrayList<>();
+
+    /**
+     * Setter for the pyramid stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Pyramid setStroke(ColoredFill color3, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
@@ -1533,6 +1835,11 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setStroke3 = new ArrayList<>();
+
+    /**
+     * Setter for the pyramid stroke.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Pyramid setStroke(String color4, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);

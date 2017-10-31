@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Series-based chart point.
+ */
 public class MapPoint extends Point {
 
     public MapPoint() {
-
+        js.setLength(0);
+        js.append("var mapPoint").append(++variableIndex).append(" = anychart.core.mapPoint();");
+        jsBase = "mapPoint" + variableIndex;
     }
 
     protected MapPoint(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class MapPoint extends Point {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class MapPoint extends Point {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Quarter settings representation class.<br/>
+{docs:Basic_Charts/Quadrant_Chart#quarters}Learn more about the quarters.{docs}
+ */
 public class Quarter extends UiBackground {
 
     public Quarter() {
-
+        js.setLength(0);
+        js.append("var quarter").append(++variableIndex).append(" = anychart.core.utils.quarter();");
+        jsBase = "quarter" + variableIndex;
     }
 
     protected Quarter(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,16 @@ public class Quarter extends UiBackground {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private List<UiLabel> getLabel = new ArrayList<>();
 
+    /**
+     * Getter for quarter label.
+     */
     public UiLabel getLabel(String index) {
         UiLabel item = new UiLabel(jsBase + ".label(" + wrapQuotes(index) + ")");
         getLabel.add(item);
@@ -35,6 +49,9 @@ public class Quarter extends UiBackground {
 
     private List<UiLabel> getLabel1 = new ArrayList<>();
 
+    /**
+     * Getter for quarter label.
+     */
     public UiLabel getLabel(Double index) {
         UiLabel item = new UiLabel(jsBase + ".label(" + index + ")");
         getLabel1.add(item);
@@ -45,6 +62,9 @@ public class Quarter extends UiBackground {
     private String label1;
     private String label2;
 
+    /**
+     * Setter for quarter label.
+     */
     public Chart setLabel(Boolean label) {
         if (jsBase == null) {
             this.label = null;
@@ -60,7 +80,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".label(%b);", label));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%b)", label));
                 js.setLength(0);
@@ -70,6 +89,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for quarter label.
+     */
     public Chart setLabel(String label1) {
         if (jsBase == null) {
             this.label = null;
@@ -85,7 +107,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".label(%s);", wrapQuotes(label1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s)", wrapQuotes(label1)));
                 js.setLength(0);
@@ -100,6 +121,9 @@ public class Quarter extends UiBackground {
     private String label4;
     private String label5;
 
+    /**
+     * Setter for quarter label.
+     */
     public Chart setLabel(String index, Boolean label3) {
         if (jsBase == null) {
             this.index = null;
@@ -123,7 +147,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".label(%s, %b);", wrapQuotes(index), label3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %b)", wrapQuotes(index), label3));
                 js.setLength(0);
@@ -133,6 +156,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for quarter label.
+     */
     public Chart setLabel(String index, String label4) {
         if (jsBase == null) {
             this.index = null;
@@ -156,7 +182,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(label4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %s)", wrapQuotes(index), wrapQuotes(label4)));
                 js.setLength(0);
@@ -166,6 +191,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for quarter label.
+     */
     public Chart setLabel(Double index1, Boolean label3) {
         if (jsBase == null) {
             this.index = null;
@@ -189,7 +217,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".label(%f, %b);", index1, label3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %b)", index1, label3));
                 js.setLength(0);
@@ -199,6 +226,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for quarter label.
+     */
     public Chart setLabel(Double index1, String label4) {
         if (jsBase == null) {
             this.index = null;
@@ -222,7 +252,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".label(%f, %s);", index1, wrapQuotes(label4)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %s)", index1, wrapQuotes(label4)));
                 js.setLength(0);
@@ -233,6 +262,10 @@ public class Quarter extends UiBackground {
 
     private Margin getMargin;
 
+    /**
+     * Getter for the quarter margin.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+     */
     public Margin getMargin() {
         if (getMargin == null)
             getMargin = new Margin(jsBase + ".margin()");
@@ -244,6 +277,9 @@ public class Quarter extends UiBackground {
     private String[] margin1;
     private String margin2;
 
+    /**
+     * Setter for the quarter margin in pixels using a single complex object.
+     */
     public Quarter setMargin(Double[] margin) {
         if (jsBase == null) {
             this.margin = null;
@@ -259,7 +295,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
                 js.setLength(0);
@@ -269,6 +304,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for the quarter margin in pixels using a single complex object.
+     */
     public Quarter setMargin(String[] margin1) {
         if (jsBase == null) {
             this.margin = null;
@@ -284,7 +322,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
@@ -294,6 +331,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for the quarter margin in pixels using a single complex object.
+     */
     public Quarter setMargin(String margin2) {
         if (jsBase == null) {
             this.margin = null;
@@ -309,7 +349,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
                 js.setLength(0);
@@ -327,6 +366,9 @@ public class Quarter extends UiBackground {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for the quarter margin in pixels using several simple values.
+     */
     public Quarter setMargin(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -380,7 +422,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -390,6 +431,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for the quarter margin in pixels using several simple values.
+     */
     public Quarter setMargin(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -443,7 +487,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -454,6 +497,10 @@ public class Quarter extends UiBackground {
 
     private UtilsPadding getPadding;
 
+    /**
+     * Getter for the quarter padding.<br/>
+<img src='/si/special-hotfixes-typescript/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+     */
     public UtilsPadding getPadding() {
         if (getPadding == null)
             getPadding = new UtilsPadding(jsBase + ".padding()");
@@ -465,6 +512,9 @@ public class Quarter extends UiBackground {
     private String[] padding1;
     private String padding2;
 
+    /**
+     * Setter for the quarter paddings in pixels using a single value.
+     */
     public Chart setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
@@ -480,7 +530,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -490,6 +539,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for the quarter paddings in pixels using a single value.
+     */
     public Chart setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
@@ -505,7 +557,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -515,6 +566,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for the quarter paddings in pixels using a single value.
+     */
     public Chart setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
@@ -530,7 +584,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -548,6 +601,9 @@ public class Quarter extends UiBackground {
     private String value14;
     private Double value15;
 
+    /**
+     * Setter for the quarter paddings in pixels using several numbers.
+     */
     public Chart setPadding(String value8, String value10, String value12, String value14) {
         if (jsBase == null) {
             this.value = null;
@@ -633,7 +689,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
@@ -643,6 +698,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for the quarter paddings in pixels using several numbers.
+     */
     public Chart setPadding(Double value9, Double value11, Double value13, Double value15) {
         if (jsBase == null) {
             this.value = null;
@@ -728,7 +786,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value9, value11, value13, value15));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
                 js.setLength(0);
@@ -739,6 +796,9 @@ public class Quarter extends UiBackground {
 
     private UiTitle getTitle;
 
+    /**
+     * Getter for the title.
+     */
     public UiTitle getTitle() {
         if (getTitle == null)
             getTitle = new UiTitle(jsBase + ".title()");
@@ -750,6 +810,9 @@ public class Quarter extends UiBackground {
     private String title1;
     private String title2;
 
+    /**
+     * Setter for the title.
+     */
     public Quarter setTitle(Boolean title) {
         if (jsBase == null) {
             this.title = null;
@@ -765,7 +828,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, ".title(%b)", title));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
@@ -775,6 +837,9 @@ public class Quarter extends UiBackground {
     }
 
 
+    /**
+     * Setter for the title.
+     */
     public Quarter setTitle(String title1) {
         if (jsBase == null) {
             this.title = null;
@@ -790,7 +855,6 @@ public class Quarter extends UiBackground {
             }
 
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
@@ -799,43 +863,6 @@ public class Quarter extends UiBackground {
         return this;
     }
 
-
-//
-//    private String generateJSUiLabel getLabel() {
-//        if (UiLabel getLabel != null) {
-//            return UiLabel getLabel.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiLabel getLabel1() {
-//        if (UiLabel getLabel1 != null) {
-//            return UiLabel getLabel1.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSMargin getMargin() {
-//        if (Margin getMargin != null) {
-//            return Margin getMargin.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUtilsPadding getPadding() {
-//        if (UtilsPadding getPadding != null) {
-//            return UtilsPadding getPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSUiTitle getTitle() {
-//        if (UiTitle getTitle != null) {
-//            return UiTitle getTitle.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetLabel() {
         if (!getLabel.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -863,7 +890,6 @@ public class Quarter extends UiBackground {
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
-            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -871,7 +897,6 @@ public class Quarter extends UiBackground {
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
-            //return String.format(Locale.US, "getPadding: %s,", ((getPadding != null) ? getPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -879,7 +904,6 @@ public class Quarter extends UiBackground {
     private String generateJSgetTitle() {
         if (getTitle != null) {
             return getTitle.generateJs();
-            //return String.format(Locale.US, "getTitle: %s,", ((getTitle != null) ? getTitle.generateJs() : "null"));
         }
         return "";
     }
@@ -906,78 +930,6 @@ public class Quarter extends UiBackground {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSlabel());
-////        
-//            js.append(generateJSlabel1());
-////        
-//            js.append(generateJSlabel2());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSlabel3());
-////        
-//            js.append(generateJSlabel4());
-////        
-//            js.append(generateJSlabel5());
-////        
-//            js.append(generateJSmargin());
-////        
-//            js.append(generateJSmargin1());
-////        
-//            js.append(generateJSmargin2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSpadding());
-////        
-//            js.append(generateJSpadding1());
-////        
-//            js.append(generateJSpadding2());
-////        
-//            js.append(generateJSvalue8());
-////        
-//            js.append(generateJSvalue9());
-////        
-//            js.append(generateJSvalue10());
-////        
-//            js.append(generateJSvalue11());
-////        
-//            js.append(generateJSvalue12());
-////        
-//            js.append(generateJSvalue13());
-////        
-//            js.append(generateJSvalue14());
-////        
-//            js.append(generateJSvalue15());
-////        
-//            js.append(generateJStitle());
-////        
-//            js.append(generateJStitle1());
-////        
-//            js.append(generateJStitle2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Thermometer pointer class.
+ */
 public class Thermometer extends LineargaugePointersBase {
 
     public Thermometer() {
-
+        js.setLength(0);
+        js.append("var thermometer").append(++variableIndex).append(" = anychart.core.linearGauge.pointers.thermometer();");
+        jsBase = "thermometer" + variableIndex;
     }
 
     protected Thermometer(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class Thermometer extends LineargaugePointersBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String bulbPadding;
     private Double bulbPadding1;
 
+    /**
+     * Setter for the bulb padding.
+     */
     public Thermometer setBulbPadding(String bulbPadding) {
         if (jsBase == null) {
             this.bulbPadding = null;
@@ -42,7 +55,6 @@ public class Thermometer extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".bulbPadding(%s)", wrapQuotes(bulbPadding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bulbPadding(%s)", wrapQuotes(bulbPadding)));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class Thermometer extends LineargaugePointersBase {
     }
 
 
+    /**
+     * Setter for the bulb padding.
+     */
     public Thermometer setBulbPadding(Double bulbPadding1) {
         if (jsBase == null) {
             this.bulbPadding = null;
@@ -66,7 +81,6 @@ public class Thermometer extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".bulbPadding(%f)", bulbPadding1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bulbPadding(%f)", bulbPadding1));
                 js.setLength(0);
@@ -77,6 +91,9 @@ public class Thermometer extends LineargaugePointersBase {
 
     private String bulbRadius;
 
+    /**
+     * Setter for the bulb radius.
+     */
     public Thermometer setBulbRadius(String bulbRadius) {
         if (jsBase == null) {
             this.bulbRadius = bulbRadius;
@@ -88,7 +105,6 @@ public class Thermometer extends LineargaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".bulbRadius(%s)", wrapQuotes(bulbRadius)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bulbRadius(%s)", wrapQuotes(bulbRadius)));
                 js.setLength(0);
@@ -97,8 +113,6 @@ public class Thermometer extends LineargaugePointersBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -116,18 +130,6 @@ public class Thermometer extends LineargaugePointersBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbulbPadding());
-////        
-//            js.append(generateJSbulbPadding1());
-////        
-//            js.append(generateJSbulbRadius());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

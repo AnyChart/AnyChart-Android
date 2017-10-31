@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class UnmanagedLayer extends Element {
 
     public UnmanagedLayer() {
-
+        js.setLength(0);
+        js.append("var unmanagedLayer").append(++variableIndex).append(" = anychart.graphics.vector.unmanagedLayer();");
+        jsBase = "unmanagedLayer" + variableIndex;
     }
 
     protected UnmanagedLayer(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class UnmanagedLayer extends Element {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Element getContent;
 
+    /**
+     * Getter for the inner content.
+     */
     public Element getContent() {
         if (getContent == null)
             getContent = new Element(jsBase + ".content()");
@@ -37,6 +50,9 @@ public class UnmanagedLayer extends Element {
     private String content;
     private Element content1;
 
+    /**
+     * Setter for the inner content.
+     */
     public UnmanagedLayer setContent(String content) {
         if (jsBase == null) {
             this.content = null;
@@ -51,7 +67,6 @@ public class UnmanagedLayer extends Element {
             }
 
             js.append(String.format(Locale.US, ".content(%s)", wrapQuotes(content)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".content(%s)", wrapQuotes(content)));
                 js.setLength(0);
@@ -61,6 +76,9 @@ public class UnmanagedLayer extends Element {
     }
 
 
+    /**
+     * Setter for the inner content.
+     */
     public UnmanagedLayer setContent(Element content1) {
         if (jsBase == null) {
             this.content = null;
@@ -69,34 +87,25 @@ public class UnmanagedLayer extends Element {
             this.content1 = content1;
         } else {
             this.content1 = content1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(content1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".content(%s)", ((content1 != null) ? content1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".content(%s);",  ((content1 != null) ? content1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".content(%s)", ((content1 != null) ? content1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".content(%s)", ((content1 != null) ? content1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-
-//
-//    private String generateJSElement getContent() {
-//        if (Element getContent != null) {
-//            return Element getContent.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetContent() {
         if (getContent != null) {
             return getContent.generateJs();
-            //return String.format(Locale.US, "getContent: %s,", ((getContent != null) ? getContent.generateJs() : "null"));
         }
         return "";
     }
@@ -119,16 +128,6 @@ public class UnmanagedLayer extends Element {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScontent());
-////        
-//            js.append(generateJScontent1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

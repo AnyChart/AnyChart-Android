@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Quarter settings class.
+ */
 public class QuarterSettings extends CoreBase {
 
     public QuarterSettings() {
-
+        js.setLength(0);
+        js.append("var quarterSettings").append(++variableIndex).append(" = anychart.core.utils.quarterSettings();");
+        jsBase = "quarterSettings" + variableIndex;
     }
 
     protected QuarterSettings(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class QuarterSettings extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Quarter getLeftBottom;
 
+    /**
+     * Getter for left-bottom quarter.
+     */
     public Quarter getLeftBottom() {
         if (getLeftBottom == null)
             getLeftBottom = new Quarter(jsBase + ".leftBottom()");
@@ -36,6 +49,9 @@ public class QuarterSettings extends CoreBase {
 
     private String leftBottom;
 
+    /**
+     * Setter for left-bottom quarter.
+     */
     public QuarterSettings setLeftBottom(String leftBottom) {
         if (jsBase == null) {
             this.leftBottom = leftBottom;
@@ -47,7 +63,6 @@ public class QuarterSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".leftBottom(%s)", wrapQuotes(leftBottom)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".leftBottom(%s)", wrapQuotes(leftBottom)));
                 js.setLength(0);
@@ -58,6 +73,9 @@ public class QuarterSettings extends CoreBase {
 
     private Quarter getLeftTop;
 
+    /**
+     * Getter for left-top quarter.
+     */
     public Quarter getLeftTop() {
         if (getLeftTop == null)
             getLeftTop = new Quarter(jsBase + ".leftTop()");
@@ -67,6 +85,9 @@ public class QuarterSettings extends CoreBase {
 
     private String leftTop;
 
+    /**
+     * Setter for left-top quarter.
+     */
     public QuarterSettings setLeftTop(String leftTop) {
         if (jsBase == null) {
             this.leftTop = leftTop;
@@ -78,7 +99,6 @@ public class QuarterSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".leftTop(%s)", wrapQuotes(leftTop)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".leftTop(%s)", wrapQuotes(leftTop)));
                 js.setLength(0);
@@ -89,6 +109,9 @@ public class QuarterSettings extends CoreBase {
 
     private Quarter getRightBottom;
 
+    /**
+     * Getter for right-bottom quarter.
+     */
     public Quarter getRightBottom() {
         if (getRightBottom == null)
             getRightBottom = new Quarter(jsBase + ".rightBottom()");
@@ -98,6 +121,9 @@ public class QuarterSettings extends CoreBase {
 
     private String rightBottom;
 
+    /**
+     * Setter for right-bottom quarter.
+     */
     public QuarterSettings setRightBottom(String rightBottom) {
         if (jsBase == null) {
             this.rightBottom = rightBottom;
@@ -109,7 +135,6 @@ public class QuarterSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".rightBottom(%s)", wrapQuotes(rightBottom)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rightBottom(%s)", wrapQuotes(rightBottom)));
                 js.setLength(0);
@@ -120,6 +145,9 @@ public class QuarterSettings extends CoreBase {
 
     private Quarter getRightTop;
 
+    /**
+     * Getter for right-top quarter.
+     */
     public Quarter getRightTop() {
         if (getRightTop == null)
             getRightTop = new Quarter(jsBase + ".rightTop()");
@@ -129,6 +157,9 @@ public class QuarterSettings extends CoreBase {
 
     private String rightTop;
 
+    /**
+     * Setter for right-top quarter.
+     */
     public QuarterSettings setRightTop(String rightTop) {
         if (jsBase == null) {
             this.rightTop = rightTop;
@@ -140,7 +171,6 @@ public class QuarterSettings extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".rightTop(%s)", wrapQuotes(rightTop)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rightTop(%s)", wrapQuotes(rightTop)));
                 js.setLength(0);
@@ -149,40 +179,9 @@ public class QuarterSettings extends CoreBase {
         return this;
     }
 
-
-//
-//    private String generateJSQuarter getLeftBottom() {
-//        if (Quarter getLeftBottom != null) {
-//            return Quarter getLeftBottom.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSQuarter getLeftTop() {
-//        if (Quarter getLeftTop != null) {
-//            return Quarter getLeftTop.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSQuarter getRightBottom() {
-//        if (Quarter getRightBottom != null) {
-//            return Quarter getRightBottom.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSQuarter getRightTop() {
-//        if (Quarter getRightTop != null) {
-//            return Quarter getRightTop.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetLeftBottom() {
         if (getLeftBottom != null) {
             return getLeftBottom.generateJs();
-            //return String.format(Locale.US, "getLeftBottom: %s,", ((getLeftBottom != null) ? getLeftBottom.generateJs() : "null"));
         }
         return "";
     }
@@ -190,7 +189,6 @@ public class QuarterSettings extends CoreBase {
     private String generateJSgetLeftTop() {
         if (getLeftTop != null) {
             return getLeftTop.generateJs();
-            //return String.format(Locale.US, "getLeftTop: %s,", ((getLeftTop != null) ? getLeftTop.generateJs() : "null"));
         }
         return "";
     }
@@ -198,7 +196,6 @@ public class QuarterSettings extends CoreBase {
     private String generateJSgetRightBottom() {
         if (getRightBottom != null) {
             return getRightBottom.generateJs();
-            //return String.format(Locale.US, "getRightBottom: %s,", ((getRightBottom != null) ? getRightBottom.generateJs() : "null"));
         }
         return "";
     }
@@ -206,7 +203,6 @@ public class QuarterSettings extends CoreBase {
     private String generateJSgetRightTop() {
         if (getRightTop != null) {
             return getRightTop.generateJs();
-            //return String.format(Locale.US, "getRightTop: %s,", ((getRightTop != null) ? getRightTop.generateJs() : "null"));
         }
         return "";
     }
@@ -232,20 +228,6 @@ public class QuarterSettings extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSleftBottom());
-////        
-//            js.append(generateJSleftTop());
-////        
-//            js.append(generateJSrightBottom());
-////        
-//            js.append(generateJSrightTop());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

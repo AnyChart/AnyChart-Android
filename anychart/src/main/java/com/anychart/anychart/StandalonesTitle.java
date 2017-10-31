@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesTitle extends UiTitle {
 
     public StandalonesTitle() {
-
+        js.setLength(0);
+        js.append("var standalonesTitle").append(++variableIndex).append(" = anychart.standalones.title();");
+        jsBase = "standalonesTitle" + variableIndex;
     }
 
     protected StandalonesTitle(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class StandalonesTitle extends UiTitle {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Element getContainer;
 
+    /**
+     * Getter for the title current container.
+     */
     public Element getContainer() {
         if (getContainer == null)
             getContainer = new Element(jsBase + ".container()");
@@ -37,6 +50,9 @@ public class StandalonesTitle extends UiTitle {
     private String container;
     private Element container1;
 
+    /**
+     * Setter for the title container.
+     */
     public StandalonesTitle setContainer(String container) {
         if (jsBase == null) {
             this.container = null;
@@ -51,7 +67,6 @@ public class StandalonesTitle extends UiTitle {
             }
 
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
                 js.setLength(0);
@@ -61,6 +76,9 @@ public class StandalonesTitle extends UiTitle {
     }
 
 
+    /**
+     * Setter for the title container.
+     */
     public StandalonesTitle setContainer(Element container1) {
         if (jsBase == null) {
             this.container = null;
@@ -69,15 +87,16 @@ public class StandalonesTitle extends UiTitle {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -86,6 +105,9 @@ public class StandalonesTitle extends UiTitle {
 
     private AnychartMathRect getParentBounds;
 
+    /**
+     * Getter for bounds. As a getter falls back to stage bounds.
+     */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
             getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
@@ -96,6 +118,9 @@ public class StandalonesTitle extends UiTitle {
     private AnychartMathRect parentBounds;
     private String parentBounds1;
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesTitle setParentBounds(AnychartMathRect parentBounds) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -104,15 +129,16 @@ public class StandalonesTitle extends UiTitle {
             this.parentBounds = parentBounds;
         } else {
             this.parentBounds = parentBounds;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(parentBounds.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".parentBounds(%s);",  ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -120,6 +146,9 @@ public class StandalonesTitle extends UiTitle {
     }
 
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesTitle setParentBounds(String parentBounds1) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -134,7 +163,6 @@ public class StandalonesTitle extends UiTitle {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
@@ -148,6 +176,9 @@ public class StandalonesTitle extends UiTitle {
     private Double width;
     private Double height;
 
+    /**
+     * Setter for bounds using several value.
+     */
     public StandalonesTitle setParentBounds(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
@@ -165,7 +196,6 @@ public class StandalonesTitle extends UiTitle {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
@@ -174,26 +204,9 @@ public class StandalonesTitle extends UiTitle {
         return this;
     }
 
-
-//
-//    private String generateJSElement getContainer() {
-//        if (Element getContainer != null) {
-//            return Element getContainer.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAnychartMathRect getParentBounds() {
-//        if (AnychartMathRect getParentBounds != null) {
-//            return AnychartMathRect getParentBounds.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
-            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -201,7 +214,6 @@ public class StandalonesTitle extends UiTitle {
     private String generateJSgetParentBounds() {
         if (getParentBounds != null) {
             return getParentBounds.generateJs();
-            //return String.format(Locale.US, "getParentBounds: %s,", ((getParentBounds != null) ? getParentBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -225,28 +237,6 @@ public class StandalonesTitle extends UiTitle {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScontainer());
-////        
-//            js.append(generateJScontainer1());
-////        
-//            js.append(generateJSparentBounds());
-////        
-//            js.append(generateJSparentBounds1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSheight());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

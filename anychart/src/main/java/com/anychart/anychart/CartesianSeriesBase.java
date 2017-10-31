@@ -8,13 +8,25 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base class for all cartesian series.<br/>
+Base class defines common methods, such as those for:
+<ul>
+  <li>Binding series to a scale: <i>xScale, yScale</i></li>
+  <li>Base color settings: <i>color</i></li>
+</ul>
+You can also obtain <i>getIterator, getResetIterator</i> iterators here.
+ */
 public class CartesianSeriesBase extends AnychartSeriesBase {
 
     public CartesianSeriesBase() {
-
+        js.setLength(0);
+        js.append("var cartesianSeriesBase").append(++variableIndex).append(" = anychart.core.cartesian.series.base();");
+        jsBase = "cartesianSeriesBase" + variableIndex;
     }
 
     protected CartesianSeriesBase(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +36,16 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private AnychartMathRect getClip;
 
+    /**
+     * Getter for series clip settings.
+     */
     public AnychartMathRect getClip() {
         if (getClip == null)
             getClip = new AnychartMathRect(jsBase + ".clip()");
@@ -37,6 +56,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private Boolean clip;
     private AnychartMathRect clip1;
 
+    /**
+     * Setter for series clip settings.
+     */
     public CartesianSeriesBase setClip(Boolean clip) {
         if (jsBase == null) {
             this.clip = null;
@@ -51,7 +73,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".clip(%b)", clip));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".clip(%b)", clip));
                 js.setLength(0);
@@ -61,6 +82,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for series clip settings.
+     */
     public CartesianSeriesBase setClip(AnychartMathRect clip1) {
         if (jsBase == null) {
             this.clip = null;
@@ -69,15 +93,16 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             this.clip1 = clip1;
         } else {
             this.clip1 = clip1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(clip1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".clip(%s)", ((clip1 != null) ? clip1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".clip(%s);",  ((clip1 != null) ? clip1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", ((clip1 != null) ? clip1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", ((clip1 != null) ? clip1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -86,6 +111,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private Error getError;
 
+    /**
+     * Getter for the series error.
+     */
     public Error getError() {
         if (getError == null)
             getError = new Error(jsBase + ".error()");
@@ -98,6 +126,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private String error2;
     private Double error3;
 
+    /**
+     * Setter for the series error.
+     */
     public CartesianSeriesBase setError(String error) {
         if (jsBase == null) {
             this.error = null;
@@ -114,7 +145,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".error(%s)", wrapQuotes(error)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".error(%s)", wrapQuotes(error)));
                 js.setLength(0);
@@ -124,6 +154,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series error.
+     */
     public CartesianSeriesBase setError(Boolean error1) {
         if (jsBase == null) {
             this.error = null;
@@ -140,7 +173,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".error(%b)", error1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".error(%b)", error1));
                 js.setLength(0);
@@ -150,6 +182,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series error.
+     */
     public CartesianSeriesBase setError(Double error3) {
         if (jsBase == null) {
             this.error = null;
@@ -166,7 +201,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".error(%f)", error3));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".error(%f)", error3));
                 js.setLength(0);
@@ -178,6 +212,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private Double indexes;
     private Double[] indexes1;
 
+    /**
+     * Excludes points at the specified index.
+     */
     public void excludePoint(Double indexes) {
         if (jsBase == null) {
             this.indexes = null;
@@ -192,7 +229,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".excludePoint(%f);", indexes));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f)", indexes));
                 js.setLength(0);
@@ -201,6 +237,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Excludes points at the specified index.
+     */
     public void excludePoint(Double[] indexes1) {
         if (jsBase == null) {
             this.indexes = null;
@@ -215,7 +254,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".excludePoint(%s);", Arrays.toString(indexes1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s)", Arrays.toString(indexes1)));
                 js.setLength(0);
@@ -226,6 +264,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private Double indexes2;
     private Double[] indexes3;
 
+    /**
+     * Includes excluded points with the specified indexes.
+     */
     public void includePoint(Double indexes2) {
         if (jsBase == null) {
             this.indexes = null;
@@ -242,7 +283,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".includePoint(%f);", indexes2));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f)", indexes2));
                 js.setLength(0);
@@ -251,6 +291,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Includes excluded points with the specified indexes.
+     */
     public void includePoint(Double[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
@@ -267,7 +310,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".includePoint(%s);", Arrays.toString(indexes3)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s)", Arrays.toString(indexes3)));
                 js.setLength(0);
@@ -277,6 +319,10 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private Boolean isVertical;
 
+    /**
+     * Setter for the series layout direction.
+Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Learn more about Vertical chart.{docs}
+     */
     public CartesianSeriesBase setIsVertical(Boolean isVertical) {
         if (jsBase == null) {
             this.isVertical = isVertical;
@@ -288,7 +334,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".isVertical(%b)", isVertical));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".isVertical(%b)", isVertical));
                 js.setLength(0);
@@ -300,6 +345,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private Double indexes4;
     private Double[] indexes5;
 
+    /**
+     * Keep only the specified points.
+     */
     public void keepOnlyPoints(Double indexes4) {
         if (jsBase == null) {
             this.indexes = null;
@@ -318,7 +366,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f);", indexes4));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f)", indexes4));
                 js.setLength(0);
@@ -327,6 +374,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Keep only the specified points.
+     */
     public void keepOnlyPoints(Double[] indexes5) {
         if (jsBase == null) {
             this.indexes = null;
@@ -345,7 +395,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", Arrays.toString(indexes5)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s)", Arrays.toString(indexes5)));
                 js.setLength(0);
@@ -355,6 +404,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private RenderingSettings getRendering;
 
+    /**
+     * Getter for the series rendering.
+     */
     public RenderingSettings getRendering() {
         if (getRendering == null)
             getRendering = new RenderingSettings(jsBase + ".rendering()");
@@ -364,6 +416,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private String rendering;
 
+    /**
+     * Setter for the series rendering settings.
+     */
     public CartesianSeriesBase setRendering(String rendering) {
         if (jsBase == null) {
             this.rendering = rendering;
@@ -375,7 +430,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".rendering(%s)", wrapQuotes(rendering)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rendering(%s)", wrapQuotes(rendering)));
                 js.setLength(0);
@@ -386,6 +440,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private String seriesType;
 
+    /**
+     * Setter for switching of the series type.
+     */
     public CartesianSeriesBase setSeriesType(String seriesType) {
         if (jsBase == null) {
             this.seriesType = seriesType;
@@ -397,7 +454,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".seriesType(%s)", wrapQuotes(seriesType)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", wrapQuotes(seriesType)));
                 js.setLength(0);
@@ -408,6 +464,10 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private Double subRangeRatio;
 
+    /**
+     * Transforms X value to pixel coordinates.
+<b>Note:</b> Works only after {@link anychart.charts.Cartesian#draw} is called.
+     */
     public void transformX(Double subRangeRatio) {
         if (jsBase == null) {
             this.subRangeRatio = subRangeRatio;
@@ -419,7 +479,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".transformX(%f);", subRangeRatio));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transformX(%f)", subRangeRatio));
                 js.setLength(0);
@@ -429,6 +488,10 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private Double subRangeRatio1;
 
+    /**
+     * Transforms Y value to pixel coordinates.
+<b>Note:</b> Works only after {@link anychart.charts.Cartesian#draw} is called.
+     */
     public void transformY(Double subRangeRatio1) {
         if (jsBase == null) {
             this.subRangeRatio = null;
@@ -443,7 +506,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".transformY(%f);", subRangeRatio1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transformY(%f)", subRangeRatio1));
                 js.setLength(0);
@@ -453,6 +515,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private Double position;
 
+    /**
+     * Setter for the position of the point on an ordinal scale.
+     */
     public CartesianSeriesBase setXPointPosition(Double position) {
         if (jsBase == null) {
             this.position = position;
@@ -464,7 +529,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".xPointPosition(%f)", position));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xPointPosition(%f)", position));
                 js.setLength(0);
@@ -475,6 +539,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private Ordinal getXScale;
 
+    /**
+     * Getter for the series X scale.
+     */
     public Ordinal getXScale() {
         if (getXScale == null)
             getXScale = new Ordinal(jsBase + ".xScale()");
@@ -487,6 +554,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private ScaleTypes xScale2;
     private String xScale3;
 
+    /**
+     * Setter for the series X scale.
+     */
     public CartesianSeriesBase setXScale(ScalesBase xScale) {
         if (jsBase == null) {
             this.xScale = null;
@@ -497,15 +567,16 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             this.xScale = xScale;
         } else {
             this.xScale = xScale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(xScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale != null) ? xScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -513,6 +584,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series X scale.
+     */
     public CartesianSeriesBase setXScale(String xScale1) {
         if (jsBase == null) {
             this.xScale = null;
@@ -529,7 +603,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", wrapQuotes(xScale1)));
                 js.setLength(0);
@@ -539,6 +612,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series X scale.
+     */
     public CartesianSeriesBase setXScale(ScaleTypes xScale2) {
         if (jsBase == null) {
             this.xScale = null;
@@ -555,7 +631,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.generateJs() : "null")));
                 js.setLength(0);
@@ -566,6 +641,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private ScalesBase getYScale;
 
+    /**
+     * Getter for the series Y scale.
+     */
     public ScalesBase getYScale() {
         if (getYScale == null)
             getYScale = new ScalesBase(jsBase + ".yScale()");
@@ -578,6 +656,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private ScaleTypes yScale2;
     private String yScale3;
 
+    /**
+     * Setter for the series Y scale.
+     */
     public CartesianSeriesBase setYScale(ScalesBase yScale) {
         if (jsBase == null) {
             this.yScale = null;
@@ -588,15 +669,16 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             this.yScale = yScale;
         } else {
             this.yScale = yScale;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(yScale.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale != null) ? yScale.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -604,6 +686,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series Y scale.
+     */
     public CartesianSeriesBase setYScale(String yScale1) {
         if (jsBase == null) {
             this.yScale = null;
@@ -620,7 +705,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
@@ -630,6 +714,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
 
+    /**
+     * Setter for the series Y scale.
+     */
     public CartesianSeriesBase setYScale(ScaleTypes yScale2) {
         if (jsBase == null) {
             this.yScale = null;
@@ -646,7 +733,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
@@ -655,47 +741,9 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
         return this;
     }
 
-
-//
-//    private String generateJSAnychartMathRect getClip() {
-//        if (AnychartMathRect getClip != null) {
-//            return AnychartMathRect getClip.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSError getError() {
-//        if (Error getError != null) {
-//            return Error getError.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSRenderingSettings getRendering() {
-//        if (RenderingSettings getRendering != null) {
-//            return RenderingSettings getRendering.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSOrdinal getXScale() {
-//        if (Ordinal getXScale != null) {
-//            return Ordinal getXScale.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSScalesBase getYScale() {
-//        if (ScalesBase getYScale != null) {
-//            return ScalesBase getYScale.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetClip() {
         if (getClip != null) {
             return getClip.generateJs();
-            //return String.format(Locale.US, "getClip: %s,", ((getClip != null) ? getClip.generateJs() : "null"));
         }
         return "";
     }
@@ -703,7 +751,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private String generateJSgetError() {
         if (getError != null) {
             return getError.generateJs();
-            //return String.format(Locale.US, "getError: %s,", ((getError != null) ? getError.generateJs() : "null"));
         }
         return "";
     }
@@ -711,7 +758,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private String generateJSgetRendering() {
         if (getRendering != null) {
             return getRendering.generateJs();
-            //return String.format(Locale.US, "getRendering: %s,", ((getRendering != null) ? getRendering.generateJs() : "null"));
         }
         return "";
     }
@@ -719,7 +765,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private String generateJSgetXScale() {
         if (getXScale != null) {
             return getXScale.generateJs();
-            //return String.format(Locale.US, "getXScale: %s,", ((getXScale != null) ? getXScale.generateJs() : "null"));
         }
         return "";
     }
@@ -727,7 +772,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
-            //return String.format(Locale.US, "getYScale: %s,", ((getYScale != null) ? getYScale.generateJs() : "null"));
         }
         return "";
     }
@@ -754,64 +798,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSclip());
-////        
-//            js.append(generateJSclip1());
-////        
-//            js.append(generateJSerror());
-////        
-//            js.append(generateJSerror1());
-////        
-//            js.append(generateJSerror2());
-////        
-//            js.append(generateJSerror3());
-////        
-//            js.append(generateJSindexes());
-////        
-//            js.append(generateJSindexes1());
-////        
-//            js.append(generateJSindexes2());
-////        
-//            js.append(generateJSindexes3());
-////        
-//            js.append(generateJSisVertical());
-////        
-//            js.append(generateJSindexes4());
-////        
-//            js.append(generateJSindexes5());
-////        
-//            js.append(generateJSrendering());
-////        
-//            js.append(generateJSseriesType());
-////        
-//            js.append(generateJSsubRangeRatio());
-////        
-//            js.append(generateJSsubRangeRatio1());
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSxScale());
-////        
-//            js.append(generateJSxScale1());
-////        
-//            js.append(generateJSxScale2());
-////        
-//            js.append(generateJSxScale3());
-////        
-//            js.append(generateJSyScale());
-////        
-//            js.append(generateJSyScale1());
-////        
-//            js.append(generateJSyScale2());
-////        
-//            js.append(generateJSyScale3());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Color palette class.
+ */
 public class DistinctColors extends CoreBase {
 
     public DistinctColors() {
-
+        js.setLength(0);
+        js.append("var distinctColors").append(++variableIndex).append(" = anychart.palettes.distinctColors();");
+        jsBase = "distinctColors" + variableIndex;
     }
 
     protected DistinctColors(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class DistinctColors extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double index;
     private Fill color;
 
+    /**
+     * Setter for color palette colors from list by index.
+     */
     public DistinctColors setItemAt(Double index, Fill color) {
         if (jsBase == null) {
             this.index = index;
@@ -41,7 +54,6 @@ public class DistinctColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, ((color != null) ? color.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index, ((color != null) ? color.generateJs() : "null")));
                 js.setLength(0);
@@ -54,6 +66,9 @@ public class DistinctColors extends CoreBase {
     private Fill items1;
     private Fill var_args;
 
+    /**
+     * Setter for color palette colors list.
+     */
     public DistinctColors setItems(Fill[] items, Fill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -70,7 +85,6 @@ public class DistinctColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -80,6 +94,9 @@ public class DistinctColors extends CoreBase {
     }
 
 
+    /**
+     * Setter for color palette colors list.
+     */
     public DistinctColors setItems(Fill items1, Fill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -96,7 +113,6 @@ public class DistinctColors extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", ((items1 != null) ? items1.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", ((items1 != null) ? items1.generateJs() : "null"), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -105,8 +121,6 @@ public class DistinctColors extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -124,22 +138,6 @@ public class DistinctColors extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSitems());
-////        
-//            js.append(generateJSitems1());
-////        
-//            js.append(generateJSvar_args());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

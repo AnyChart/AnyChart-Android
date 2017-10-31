@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Bollinger Bands %B (BBands %B) indicator class.
+ */
 public class BBandsB extends JsObject {
 
     public BBandsB() {
-
+        js.setLength(0);
+        js.append("var bBandsB").append(++variableIndex).append(" = anychart.core.stock.indicators.bBandsB();");
+        jsBase = "bBandsB" + variableIndex;
     }
 
     protected BBandsB(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class BBandsB extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double deviation;
 
+    /**
+     * Setter for the deviation.
+     */
     public BBandsB setDeviation(Double deviation) {
         if (jsBase == null) {
             this.deviation = deviation;
@@ -38,7 +51,6 @@ public class BBandsB extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".deviation(%f)", deviation));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".deviation(%f)", deviation));
                 js.setLength(0);
@@ -49,6 +61,9 @@ public class BBandsB extends JsObject {
 
     private List<BBandsB> getPeriod = new ArrayList<>();
 
+    /**
+     * Getter and setter for the period.
+     */
     public BBandsB getPeriod(Double period) {
         BBandsB item = new BBandsB(jsBase + ".period(" + period + ")");
         getPeriod.add(item);
@@ -57,6 +72,9 @@ public class BBandsB extends JsObject {
 
     private StockSeriesBase getSeries;
 
+    /**
+     * Getter for the indicator series.
+     */
     public StockSeriesBase getSeries() {
         if (getSeries == null)
             getSeries = new StockSeriesBase(jsBase + ".series()");
@@ -67,6 +85,9 @@ public class BBandsB extends JsObject {
     private StockSeriesType type;
     private String type1;
 
+    /**
+     * Setter for the indicator series.
+     */
     public BBandsB setSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
@@ -81,7 +102,6 @@ public class BBandsB extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -91,6 +111,9 @@ public class BBandsB extends JsObject {
     }
 
 
+    /**
+     * Setter for the indicator series.
+     */
     public BBandsB setSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -105,7 +128,6 @@ public class BBandsB extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -114,22 +136,6 @@ public class BBandsB extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSBBandsB getPeriod() {
-//        if (BBandsB getPeriod != null) {
-//            return BBandsB getPeriod.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSStockSeriesBase getSeries() {
-//        if (StockSeriesBase getSeries != null) {
-//            return StockSeriesBase getSeries.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetPeriod() {
         if (!getPeriod.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -145,7 +151,6 @@ public class BBandsB extends JsObject {
     private String generateJSgetSeries() {
         if (getSeries != null) {
             return getSeries.generateJs();
-            //return String.format(Locale.US, "getSeries: %s,", ((getSeries != null) ? getSeries.generateJs() : "null"));
         }
         return "";
     }
@@ -169,18 +174,6 @@ public class BBandsB extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSdeviation());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Base class for all charts, contains the margins, the background and the title.
+ */
 public class ChartWithCredits extends Chart {
 
     public ChartWithCredits() {
-
+        js.setLength(0);
+        js.append("var chartWithCredits").append(++variableIndex).append(" = anychart.core.chartWithCredits();");
+        jsBase = "chartWithCredits" + variableIndex;
     }
 
     protected ChartWithCredits(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class ChartWithCredits extends Chart {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private ChartCredits getCredits;
 
+    /**
+     * Getter for the current credits.
+     */
     public ChartCredits getCredits() {
         if (getCredits == null)
             getCredits = new ChartCredits(jsBase + ".credits()");
@@ -37,6 +50,10 @@ public class ChartWithCredits extends Chart {
     private String credits;
     private Boolean credits1;
 
+    /**
+     * Setter for the chart credits.
+{docs:Quick_Start/Credits}Learn more about credits settings.{docs}
+     */
     public Chart setCredits(String credits) {
         if (jsBase == null) {
             this.credits = null;
@@ -51,7 +68,6 @@ public class ChartWithCredits extends Chart {
             }
 
             js.append(String.format(Locale.US, jsBase + ".credits(%s);", wrapQuotes(credits)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%s)", wrapQuotes(credits)));
                 js.setLength(0);
@@ -61,6 +77,10 @@ public class ChartWithCredits extends Chart {
     }
 
 
+    /**
+     * Setter for the chart credits.
+{docs:Quick_Start/Credits}Learn more about credits settings.{docs}
+     */
     public Chart setCredits(Boolean credits1) {
         if (jsBase == null) {
             this.credits = null;
@@ -75,7 +95,6 @@ public class ChartWithCredits extends Chart {
             }
 
             js.append(String.format(Locale.US, jsBase + ".credits(%b);", credits1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%b)", credits1));
                 js.setLength(0);
@@ -84,19 +103,9 @@ public class ChartWithCredits extends Chart {
         return new Chart(jsBase);
     }
 
-
-//
-//    private String generateJSChartCredits getCredits() {
-//        if (ChartCredits getCredits != null) {
-//            return ChartCredits getCredits.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetCredits() {
         if (getCredits != null) {
             return getCredits.generateJs();
-            //return String.format(Locale.US, "getCredits: %s,", ((getCredits != null) ? getCredits.generateJs() : "null"));
         }
         return "";
     }
@@ -119,16 +128,6 @@ public class ChartWithCredits extends Chart {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScredits());
-////        
-//            js.append(generateJScredits1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

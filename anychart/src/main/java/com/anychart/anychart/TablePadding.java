@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Padding settings proxy. Doesn't store anything - just passes settings to and from the parent object.
+ */
 public class TablePadding extends JsObject {
 
     public TablePadding() {
-
+        js.setLength(0);
+        js.append("var tablePadding").append(++variableIndex).append(" = anychart.core.ui.table.padding();");
+        jsBase = "tablePadding" + variableIndex;
     }
 
     protected TablePadding(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class TablePadding extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double bottom;
     private String bottom1;
 
+    /**
+     * Setter for bottom padding.
+     */
     public TablePadding setBottom(Double bottom) {
         if (jsBase == null) {
             this.bottom = null;
@@ -42,7 +55,6 @@ public class TablePadding extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".bottom(%f)", bottom));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%f)", bottom));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class TablePadding extends JsObject {
     }
 
 
+    /**
+     * Setter for bottom padding.
+     */
     public TablePadding setBottom(String bottom1) {
         if (jsBase == null) {
             this.bottom = null;
@@ -66,7 +81,6 @@ public class TablePadding extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
                 js.setLength(0);
@@ -78,6 +92,9 @@ public class TablePadding extends JsObject {
     private Double left;
     private String left1;
 
+    /**
+     * Setter for left padding.
+     */
     public TablePadding setLeft(Double left) {
         if (jsBase == null) {
             this.left = null;
@@ -92,7 +109,6 @@ public class TablePadding extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".left(%f)", left));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%f)", left));
                 js.setLength(0);
@@ -102,6 +118,9 @@ public class TablePadding extends JsObject {
     }
 
 
+    /**
+     * Setter for left padding.
+     */
     public TablePadding setLeft(String left1) {
         if (jsBase == null) {
             this.left = null;
@@ -116,7 +135,6 @@ public class TablePadding extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
                 js.setLength(0);
@@ -128,6 +146,9 @@ public class TablePadding extends JsObject {
     private Double right;
     private String right1;
 
+    /**
+     * Setter for right padding.
+     */
     public TablePadding setRight(Double right) {
         if (jsBase == null) {
             this.right = null;
@@ -142,7 +163,6 @@ public class TablePadding extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".right(%f)", right));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%f)", right));
                 js.setLength(0);
@@ -152,6 +172,9 @@ public class TablePadding extends JsObject {
     }
 
 
+    /**
+     * Setter for right padding.
+     */
     public TablePadding setRight(String right1) {
         if (jsBase == null) {
             this.right = null;
@@ -166,7 +189,6 @@ public class TablePadding extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
                 js.setLength(0);
@@ -178,6 +200,9 @@ public class TablePadding extends JsObject {
     private Double top;
     private String top1;
 
+    /**
+     * Setter for top padding.
+     */
     public TablePadding setTop(Double top) {
         if (jsBase == null) {
             this.top = null;
@@ -192,7 +217,6 @@ public class TablePadding extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".top(%f)", top));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%f)", top));
                 js.setLength(0);
@@ -202,6 +226,9 @@ public class TablePadding extends JsObject {
     }
 
 
+    /**
+     * Setter for top padding.
+     */
     public TablePadding setTop(String top1) {
         if (jsBase == null) {
             this.top = null;
@@ -216,7 +243,6 @@ public class TablePadding extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
                 js.setLength(0);
@@ -225,8 +251,6 @@ public class TablePadding extends JsObject {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -244,28 +268,6 @@ public class TablePadding extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSbottom());
-////        
-//            js.append(generateJSbottom1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJSleft1());
-////        
-//            js.append(generateJSright());
-////        
-//            js.append(generateJSright1());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJStop1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

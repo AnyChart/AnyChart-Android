@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * 
+ */
 public class StandalonesAxismarkersText extends CoreAxismarkersText {
 
     public StandalonesAxismarkersText() {
-
+        js.setLength(0);
+        js.append("var standalonesAxismarkersText").append(++variableIndex).append(" = anychart.standalones.axisMarkers.text();");
+        jsBase = "standalonesAxismarkersText" + variableIndex;
     }
 
     protected StandalonesAxismarkersText(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Layer getContainer;
 
+    /**
+     * Getter for the text marker current container.
+     */
     public Layer getContainer() {
         if (getContainer == null)
             getContainer = new Layer(jsBase + ".container()");
@@ -39,6 +52,9 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
     private String container2;
     private Element container3;
 
+    /**
+     * Setter for the text marker current container.
+     */
     public StandalonesAxismarkersText setContainer(Layer container) {
         if (jsBase == null) {
             this.container = null;
@@ -49,15 +65,16 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
             this.container = container;
         } else {
             this.container = container;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container != null) ? container.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -65,6 +82,9 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
     }
 
 
+    /**
+     * Setter for the text marker current container.
+     */
     public StandalonesAxismarkersText setContainer(Stage container1) {
         if (jsBase == null) {
             this.container = null;
@@ -75,15 +95,16 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container1.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -91,6 +112,9 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
     }
 
 
+    /**
+     * Setter for the text marker current container.
+     */
     public StandalonesAxismarkersText setContainer(String container2) {
         if (jsBase == null) {
             this.container = null;
@@ -107,7 +131,6 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
             }
 
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
                 js.setLength(0);
@@ -117,6 +140,9 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
     }
 
 
+    /**
+     * Setter for the text marker current container.
+     */
     public StandalonesAxismarkersText setContainer(Element container3) {
         if (jsBase == null) {
             this.container = null;
@@ -127,15 +153,16 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
             this.container3 = container3;
         } else {
             this.container3 = container3;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(container3.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".container(%s);",  ((container3 != null) ? container3.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -144,6 +171,9 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
 
     private AnychartMathRect getParentBounds;
 
+    /**
+     * Getter for bounds.
+     */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
             getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
@@ -154,6 +184,9 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
     private AnychartMathRect parentBounds;
     private String parentBounds1;
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesAxismarkersText setParentBounds(AnychartMathRect parentBounds) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -162,15 +195,16 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
             this.parentBounds = parentBounds;
         } else {
             this.parentBounds = parentBounds;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
+            js.append(parentBounds.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".parentBounds(%s);",  ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -178,6 +212,9 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
     }
 
 
+    /**
+     * Setter for bounds using single value.
+     */
     public StandalonesAxismarkersText setParentBounds(String parentBounds1) {
         if (jsBase == null) {
             this.parentBounds = null;
@@ -192,7 +229,6 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
@@ -206,6 +242,9 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
     private Double width;
     private Double height;
 
+    /**
+     * Setter for bounds using several values.
+     */
     public StandalonesAxismarkersText setParentBounds(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
@@ -223,7 +262,6 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
             }
 
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
@@ -232,26 +270,9 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
         return this;
     }
 
-
-//
-//    private String generateJSLayer getContainer() {
-//        if (Layer getContainer != null) {
-//            return Layer getContainer.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSAnychartMathRect getParentBounds() {
-//        if (AnychartMathRect getParentBounds != null) {
-//            return AnychartMathRect getParentBounds.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
-            //return String.format(Locale.US, "getContainer: %s,", ((getContainer != null) ? getContainer.generateJs() : "null"));
         }
         return "";
     }
@@ -259,7 +280,6 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
     private String generateJSgetParentBounds() {
         if (getParentBounds != null) {
             return getParentBounds.generateJs();
-            //return String.format(Locale.US, "getParentBounds: %s,", ((getParentBounds != null) ? getParentBounds.generateJs() : "null"));
         }
         return "";
     }
@@ -283,32 +303,6 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScontainer());
-////        
-//            js.append(generateJScontainer1());
-////        
-//            js.append(generateJScontainer2());
-////        
-//            js.append(generateJScontainer3());
-////        
-//            js.append(generateJSparentBounds());
-////        
-//            js.append(generateJSparentBounds1());
-////        
-//            js.append(generateJSleft());
-////        
-//            js.append(generateJStop());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSheight());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Settings with margin.
+ */
 public class SettingsWithMargin extends JsObject {
 
     public SettingsWithMargin() {
-
+        js.setLength(0);
+        js.append("var settingsWithMargin").append(++variableIndex).append(" = anychart.core.resource.resourceList.settingsWithMargin();");
+        jsBase = "settingsWithMargin" + variableIndex;
     }
 
     protected SettingsWithMargin(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class SettingsWithMargin extends JsObject {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Margin getMargin;
 
+    /**
+     * Getter for the margin.
+     */
     public Margin getMargin() {
         if (getMargin == null)
             getMargin = new Margin(jsBase + ".margin()");
@@ -38,6 +51,9 @@ public class SettingsWithMargin extends JsObject {
     private String[] margin1;
     private String margin2;
 
+    /**
+     * Setter for the margin using a single value.
+     */
     public SettingsWithMargin setMargin(Double[] margin) {
         if (jsBase == null) {
             this.margin = null;
@@ -53,7 +69,6 @@ public class SettingsWithMargin extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
                 js.setLength(0);
@@ -63,6 +78,9 @@ public class SettingsWithMargin extends JsObject {
     }
 
 
+    /**
+     * Setter for the margin using a single value.
+     */
     public SettingsWithMargin setMargin(String[] margin1) {
         if (jsBase == null) {
             this.margin = null;
@@ -78,7 +96,6 @@ public class SettingsWithMargin extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
@@ -88,6 +105,9 @@ public class SettingsWithMargin extends JsObject {
     }
 
 
+    /**
+     * Setter for the margin using a single value.
+     */
     public SettingsWithMargin setMargin(String margin2) {
         if (jsBase == null) {
             this.margin = null;
@@ -103,7 +123,6 @@ public class SettingsWithMargin extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
                 js.setLength(0);
@@ -121,6 +140,9 @@ public class SettingsWithMargin extends JsObject {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for the callout margin using several values.
+     */
     public SettingsWithMargin setMargin(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -174,7 +196,6 @@ public class SettingsWithMargin extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -184,6 +205,9 @@ public class SettingsWithMargin extends JsObject {
     }
 
 
+    /**
+     * Setter for the callout margin using several values.
+     */
     public SettingsWithMargin setMargin(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -237,7 +261,6 @@ public class SettingsWithMargin extends JsObject {
             }
 
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -246,19 +269,9 @@ public class SettingsWithMargin extends JsObject {
         return this;
     }
 
-
-//
-//    private String generateJSMargin getMargin() {
-//        if (Margin getMargin != null) {
-//            return Margin getMargin.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
-            //return String.format(Locale.US, "getMargin: %s,", ((getMargin != null) ? getMargin.generateJs() : "null"));
         }
         return "";
     }
@@ -281,34 +294,6 @@ public class SettingsWithMargin extends JsObject {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSmargin());
-////        
-//            js.append(generateJSmargin1());
-////        
-//            js.append(generateJSmargin2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

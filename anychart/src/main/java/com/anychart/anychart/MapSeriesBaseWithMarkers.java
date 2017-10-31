@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * A base for all series except marker series.
+ */
 public class MapSeriesBaseWithMarkers extends MapSeriesBase {
 
     public MapSeriesBaseWithMarkers() {
-
+        js.setLength(0);
+        js.append("var mapSeriesBaseWithMarkers").append(++variableIndex).append(" = anychart.core.map.series.baseWithMarkers();");
+        jsBase = "mapSeriesBaseWithMarkers" + variableIndex;
     }
 
     protected MapSeriesBaseWithMarkers(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class MapSeriesBaseWithMarkers extends MapSeriesBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private UiMarkersFactory getMarkers;
 
+    /**
+     * Getter for data markers.
+     */
     public UiMarkersFactory getMarkers() {
         if (getMarkers == null)
             getMarkers = new UiMarkersFactory(jsBase + ".markers()");
@@ -38,6 +51,9 @@ public class MapSeriesBaseWithMarkers extends MapSeriesBase {
     private Boolean markers1;
     private String markers2;
 
+    /**
+     * Setter for data markers.
+     */
     public MapSeriesBaseWithMarkers setMarkers(String markers) {
         if (jsBase == null) {
             this.markers = null;
@@ -53,7 +69,6 @@ public class MapSeriesBaseWithMarkers extends MapSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
@@ -63,6 +78,9 @@ public class MapSeriesBaseWithMarkers extends MapSeriesBase {
     }
 
 
+    /**
+     * Setter for data markers.
+     */
     public MapSeriesBaseWithMarkers setMarkers(Boolean markers1) {
         if (jsBase == null) {
             this.markers = null;
@@ -78,7 +96,6 @@ public class MapSeriesBaseWithMarkers extends MapSeriesBase {
             }
 
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
                 js.setLength(0);
@@ -87,19 +104,9 @@ public class MapSeriesBaseWithMarkers extends MapSeriesBase {
         return this;
     }
 
-
-//
-//    private String generateJSUiMarkersFactory getMarkers() {
-//        if (UiMarkersFactory getMarkers != null) {
-//            return UiMarkersFactory getMarkers.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
-            //return String.format(Locale.US, "getMarkers: %s,", ((getMarkers != null) ? getMarkers.generateJs() : "null"));
         }
         return "";
     }
@@ -122,18 +129,6 @@ public class MapSeriesBaseWithMarkers extends MapSeriesBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSmarkers());
-////        
-//            js.append(generateJSmarkers1());
-////        
-//            js.append(generateJSmarkers2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

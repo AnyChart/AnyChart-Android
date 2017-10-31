@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Class that wraps point of series or chart.
+ */
 public class TreeMapPoint extends Point {
 
     public TreeMapPoint() {
-
+        js.setLength(0);
+        js.append("var treeMapPoint").append(++variableIndex).append(" = anychart.core.treeMapPoint();");
+        jsBase = "treeMapPoint" + variableIndex;
     }
 
     protected TreeMapPoint(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class TreeMapPoint extends Point {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class TreeMapPoint extends Point {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

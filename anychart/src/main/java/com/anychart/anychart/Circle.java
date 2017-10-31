@@ -8,13 +8,26 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Circle Class. Inherited from Ellipse.<br>
+<b>Do not invoke constructor directly.</b> Use {@link anychart.graphics.vector.Stage#circle} or
+{@link anychart.graphics.vector.Layer#circle} methods, if you want to create an instance of primitive bound to a stage or a layer.
+<br/> In case you need an unbound primitive – use {@link anychart.graphics#circle}.<br/>
+See also:<br/>
+{@link anychart.graphics.vector.Stage#circle},<br/>
+{@link anychart.graphics.vector.Layer#circle},<br/>
+{@link anychart.graphics#circle}
+ */
 public class Circle extends VectorEllipse {
 
     public Circle() {
-
+        js.setLength(0);
+        js.append("var circle").append(++variableIndex).append(" = anychart.graphics.vector.circle();");
+        jsBase = "circle" + variableIndex;
     }
 
     protected Circle(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +37,16 @@ public class Circle extends VectorEllipse {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Double radius;
 
+    /**
+     * Setter for the circle radius.
+     */
     public Circle setRadius(Double radius) {
         if (jsBase == null) {
             this.radius = radius;
@@ -38,7 +58,6 @@ public class Circle extends VectorEllipse {
             }
 
             js.append(String.format(Locale.US, ".radius(%f)", radius));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
                 js.setLength(0);
@@ -47,8 +66,6 @@ public class Circle extends VectorEllipse {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -66,14 +83,6 @@ public class Circle extends VectorEllipse {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSradius());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Tree data model.
+ */
 public class Tree extends CoreBase {
 
     public Tree() {
-
+        js.setLength(0);
+        js.append("var tree").append(++variableIndex).append(" = anychart.data.tree();");
+        jsBase = "tree" + variableIndex;
     }
 
     protected Tree(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class Tree extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private String child;
 
+    /**
+     * Adds a new root element and return it.
+     */
     public TreeDataItem addChild(String child) {
         if (jsBase == null) {
             this.child = child;
@@ -38,7 +51,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addChild(%s);", wrapQuotes(child)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", wrapQuotes(child)));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class Tree extends CoreBase {
     private TreeviewDataItem child3;
     private Double index;
 
+    /**
+     * Inserts a new root element into a specified position by index and return it.
+     */
     public TreeDataItem addChildAt(String child1, Double index) {
         if (jsBase == null) {
             this.child = null;
@@ -70,7 +85,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", wrapQuotes(child1), index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", wrapQuotes(child1), index));
                 js.setLength(0);
@@ -80,6 +94,9 @@ public class Tree extends CoreBase {
     }
 
 
+    /**
+     * Inserts a new root element into a specified position by index and return it.
+     */
     public TreeDataItem addChildAt(TreeDataItem child2, Double index) {
         if (jsBase == null) {
             this.child = null;
@@ -98,7 +115,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child2 != null) ? child2.generateJs() : "null"), index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child2 != null) ? child2.generateJs() : "null"), index));
                 js.setLength(0);
@@ -108,6 +124,9 @@ public class Tree extends CoreBase {
     }
 
 
+    /**
+     * Inserts a new root element into a specified position by index and return it.
+     */
     public TreeDataItem addChildAt(TreeviewDataItem child3, Double index) {
         if (jsBase == null) {
             this.child = null;
@@ -126,7 +145,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child3 != null) ? child3.generateJs() : "null"), index));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child3 != null) ? child3.generateJs() : "null"), index));
                 js.setLength(0);
@@ -142,6 +160,9 @@ public class Tree extends CoreBase {
     private String csvSettingsOrDeps;
     private Dependency[] csvSettingsOrDeps1;
 
+    /**
+     * Adds a data.
+     */
     public Tree addData(String data, TreeFillingMethod fillingMethod, String csvSettingsOrDeps) {
         if (jsBase == null) {
             this.data = null;
@@ -166,7 +187,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillingMethod != null) ? fillingMethod.generateJs() : "null"), wrapQuotes(csvSettingsOrDeps)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillingMethod != null) ? fillingMethod.generateJs() : "null"), wrapQuotes(csvSettingsOrDeps)));
                 js.setLength(0);
@@ -176,6 +196,9 @@ public class Tree extends CoreBase {
     }
 
 
+    /**
+     * Adds a data.
+     */
     public Tree addData(String data, TreeFillingMethod fillingMethod, Dependency[] csvSettingsOrDeps1) {
         if (jsBase == null) {
             this.data = null;
@@ -200,7 +223,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillingMethod != null) ? fillingMethod.generateJs() : "null"), arrayToString(csvSettingsOrDeps1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillingMethod != null) ? fillingMethod.generateJs() : "null"), arrayToString(csvSettingsOrDeps1)));
                 js.setLength(0);
@@ -210,6 +232,9 @@ public class Tree extends CoreBase {
     }
 
 
+    /**
+     * Adds a data.
+     */
     public Tree addData(String data, String fillingMethod1, String csvSettingsOrDeps) {
         if (jsBase == null) {
             this.data = null;
@@ -234,7 +259,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillingMethod1), wrapQuotes(csvSettingsOrDeps)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillingMethod1), wrapQuotes(csvSettingsOrDeps)));
                 js.setLength(0);
@@ -244,6 +268,9 @@ public class Tree extends CoreBase {
     }
 
 
+    /**
+     * Adds a data.
+     */
     public Tree addData(String data, String fillingMethod1, Dependency[] csvSettingsOrDeps1) {
         if (jsBase == null) {
             this.data = null;
@@ -268,7 +295,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillingMethod1), arrayToString(csvSettingsOrDeps1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillingMethod1), arrayToString(csvSettingsOrDeps1)));
                 js.setLength(0);
@@ -280,6 +306,10 @@ public class Tree extends CoreBase {
     private String field;
     private Boolean asString;
 
+    /**
+     * Creates an index on a specified field.</br>
+It can't be indexed by 'parent' or 'children' fields because these fields are not available by treeItem.get(field);.
+     */
     public Tree createIndexOn(String field, Boolean asString) {
         if (jsBase == null) {
             this.field = field;
@@ -293,7 +323,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".createIndexOn(%s, %b)", wrapQuotes(field), asString));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".createIndexOn(%s, %b)", wrapQuotes(field), asString));
                 js.setLength(0);
@@ -304,6 +333,9 @@ public class Tree extends CoreBase {
 
     private Boolean dispatchEvents;
 
+    /**
+     * Starts or stops tree CRUD events dispatching.
+     */
     public Tree dispatchEvents(Boolean dispatchEvents) {
         if (jsBase == null) {
             this.dispatchEvents = dispatchEvents;
@@ -315,7 +347,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".dispatchEvents(%b)", dispatchEvents));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dispatchEvents(%b)", dispatchEvents));
                 js.setLength(0);
@@ -326,6 +357,9 @@ public class Tree extends CoreBase {
 
     private List<TreeDataItem> getGetChildAt = new ArrayList<>();
 
+    /**
+     * Gets the child by index.
+     */
     public TreeDataItem getGetChildAt(Double index) {
         TreeDataItem item = new TreeDataItem(jsBase + ".getChildAt(" + index + ")");
         getGetChildAt.add(item);
@@ -334,6 +368,9 @@ public class Tree extends CoreBase {
 
     private String mapping;
 
+    /**
+     * Returns a new mapping for the tree.
+     */
     public TreeView mapAs(String mapping) {
         if (jsBase == null) {
             this.mapping = mapping;
@@ -345,7 +382,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", wrapQuotes(mapping)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(mapping)));
                 js.setLength(0);
@@ -356,6 +392,9 @@ public class Tree extends CoreBase {
 
     private TreeDataItem child4;
 
+    /**
+     * Removes tree's root data item.
+     */
     public TreeDataItem removeChild(TreeDataItem child4) {
         if (jsBase == null) {
             this.child = null;
@@ -371,11 +410,12 @@ public class Tree extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(child4.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".removeChild(%s);", ((child4 != null) ? child4.generateJs() : "null")));
-
+            js.append(String.format(Locale.US, ".removeChild(%s);",  ((child4 != null) ? child4.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((child4 != null) ? child4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((child4 != null) ? child4.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -384,6 +424,9 @@ public class Tree extends CoreBase {
 
     private Double index1;
 
+    /**
+     * Removes child at specified position.
+     */
     public TreeDataItem removeChildAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
@@ -398,7 +441,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index1));
                 js.setLength(0);
@@ -409,6 +451,9 @@ public class Tree extends CoreBase {
 
     private String field1;
 
+    /**
+     * Removes index on a specified field.
+     */
     public Tree removeIndexOn(String field1) {
         if (jsBase == null) {
             this.field = null;
@@ -423,7 +468,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".removeIndexOn(%s)", wrapQuotes(field1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeIndexOn(%s)", wrapQuotes(field1)));
                 js.setLength(0);
@@ -437,6 +481,9 @@ public class Tree extends CoreBase {
     private Double search1;
     private Boolean search2;
 
+    /**
+     * Performs a data search.
+     */
     public TreeDataItem search(String search, String soughtField) {
         if (jsBase == null) {
             this.search = null;
@@ -454,7 +501,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".search(%s, %s);", wrapQuotes(search), wrapQuotes(soughtField)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s)", wrapQuotes(search), wrapQuotes(soughtField)));
                 js.setLength(0);
@@ -464,6 +510,9 @@ public class Tree extends CoreBase {
     }
 
 
+    /**
+     * Performs a data search.
+     */
     public TreeDataItem search(Double search1, String soughtField) {
         if (jsBase == null) {
             this.search = null;
@@ -481,7 +530,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".search(%f, %s);", search1, wrapQuotes(soughtField)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s)", search1, wrapQuotes(soughtField)));
                 js.setLength(0);
@@ -491,6 +539,9 @@ public class Tree extends CoreBase {
     }
 
 
+    /**
+     * Performs a data search.
+     */
     public TreeDataItem search(Boolean search2, String soughtField) {
         if (jsBase == null) {
             this.search = null;
@@ -508,7 +559,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".search(%b, %s);", search2, wrapQuotes(soughtField)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%b, %s)", search2, wrapQuotes(soughtField)));
                 js.setLength(0);
@@ -522,6 +572,9 @@ public class Tree extends CoreBase {
     private Double searchItems1;
     private Boolean searchItems2;
 
+    /**
+     * Performs a data search. Actually does the same as ({@link anychart.data.Tree#search}) but result is always an array.
+     */
     public void searchItems(String searchItems, String soughtField1) {
         if (jsBase == null) {
             this.searchItems = null;
@@ -542,7 +595,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".searchItems(%s, %s);", wrapQuotes(searchItems), wrapQuotes(soughtField1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s)", wrapQuotes(searchItems), wrapQuotes(soughtField1)));
                 js.setLength(0);
@@ -551,6 +603,9 @@ public class Tree extends CoreBase {
     }
 
 
+    /**
+     * Performs a data search. Actually does the same as ({@link anychart.data.Tree#search}) but result is always an array.
+     */
     public void searchItems(Double searchItems1, String soughtField1) {
         if (jsBase == null) {
             this.searchItems = null;
@@ -571,7 +626,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".searchItems(%f, %s);", searchItems1, wrapQuotes(soughtField1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%f, %s)", searchItems1, wrapQuotes(soughtField1)));
                 js.setLength(0);
@@ -580,6 +634,9 @@ public class Tree extends CoreBase {
     }
 
 
+    /**
+     * Performs a data search. Actually does the same as ({@link anychart.data.Tree#search}) but result is always an array.
+     */
     public void searchItems(Boolean searchItems2, String soughtField1) {
         if (jsBase == null) {
             this.searchItems = null;
@@ -600,7 +657,6 @@ public class Tree extends CoreBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".searchItems(%b, %s);", searchItems2, wrapQuotes(soughtField1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%b, %s)", searchItems2, wrapQuotes(soughtField1)));
                 js.setLength(0);
@@ -608,15 +664,6 @@ public class Tree extends CoreBase {
         }
     }
 
-
-//
-//    private String generateJSTreeDataItem getGetChildAt() {
-//        if (TreeDataItem getGetChildAt != null) {
-//            return TreeDataItem getGetChildAt.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetGetChildAt() {
         if (!getGetChildAt.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -647,64 +694,6 @@ public class Tree extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSchild());
-////        
-//            js.append(generateJSchild1());
-////        
-//            js.append(generateJSchild2());
-////        
-//            js.append(generateJSchild3());
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJSdata());
-////        
-//            js.append(generateJSdata1());
-////        
-//            js.append(generateJSfillingMethod());
-////        
-//            js.append(generateJSfillingMethod1());
-////        
-//            js.append(generateJScsvSettingsOrDeps());
-////        
-//            js.append(generateJScsvSettingsOrDeps1());
-////        
-//            js.append(generateJSfield());
-////        
-//            js.append(generateJSasString());
-////        
-//            js.append(generateJSdispatchEvents());
-////        
-//            js.append(generateJSmapping());
-////        
-//            js.append(generateJSchild4());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSfield1());
-////        
-//            js.append(generateJSsoughtField());
-////        
-//            js.append(generateJSsearch());
-////        
-//            js.append(generateJSsearch1());
-////        
-//            js.append(generateJSsearch2());
-////        
-//            js.append(generateJSsoughtField1());
-////        
-//            js.append(generateJSsearchItems());
-////        
-//            js.append(generateJSsearchItems1());
-////        
-//            js.append(generateJSsearchItems2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

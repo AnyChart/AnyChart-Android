@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Pattern fill class.<br/>
+<b>Do not invoke constructor directly.</b> Use {@link anychart.graphics#patternFill}.
+ */
 public class PatternFill extends Layer {
 
     public PatternFill() {
-
+        js.setLength(0);
+        js.append("var patternFill").append(++variableIndex).append(" = anychart.graphics.vector.patternFill();");
+        jsBase = "patternFill" + variableIndex;
     }
 
     protected PatternFill(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +31,11 @@ public class PatternFill extends Layer {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +53,6 @@ public class PatternFill extends Layer {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

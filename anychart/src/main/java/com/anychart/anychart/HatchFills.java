@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * HatchFills palette class.
+ */
 public class HatchFills extends CoreBase {
 
     public HatchFills() {
-
+        js.setLength(0);
+        js.append("var hatchFills").append(++variableIndex).append(" = anychart.palettes.hatchFills();");
+        jsBase = "hatchFills" + variableIndex;
     }
 
     protected HatchFills(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class HatchFills extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private List<HatchFill> getItemAt = new ArrayList<>();
 
+    /**
+     * Getter for type palette HatchFills from list by index.
+     */
     public HatchFill getItemAt(Double index) {
         HatchFill item = new HatchFill(jsBase + ".itemAt(" + index + ")");
         getItemAt.add(item);
@@ -40,6 +53,9 @@ public class HatchFills extends CoreBase {
     private Double thickness;
     private Double size;
 
+    /**
+     * Setter for type palette HatchFills from list by index.
+     */
     public HatchFills setItemAt(HatchFillType type, Double index, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.type = null;
@@ -62,7 +78,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), index, wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), index, wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -72,6 +87,9 @@ public class HatchFills extends CoreBase {
     }
 
 
+    /**
+     * Setter for type palette HatchFills from list by index.
+     */
     public HatchFills setItemAt(String type1, Double index, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.type = null;
@@ -94,7 +112,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", wrapQuotes(type1), index, wrapQuotes(color), thickness, size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", wrapQuotes(type1), index, wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -106,6 +123,9 @@ public class HatchFills extends CoreBase {
     private Double index1;
     private PatternFill patternFill;
 
+    /**
+     * Setter for type palette HatchFills from list by index using patternFill.
+     */
     public HatchFills setItemAt(Double index1, PatternFill patternFill) {
         if (jsBase == null) {
             this.index = null;
@@ -122,7 +142,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".itemAt(%f, %s)", index1, ((patternFill != null) ? patternFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index1, ((patternFill != null) ? patternFill.generateJs() : "null")));
                 js.setLength(0);
@@ -134,6 +153,9 @@ public class HatchFills extends CoreBase {
     private Double index2;
     private HatchFill instance;
 
+    /**
+     * Setter for type palette HatchFills from list by index using instance.
+     */
     public HatchFills setItemAt(Double index2, HatchFill instance) {
         if (jsBase == null) {
             this.index = null;
@@ -151,7 +173,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".itemAt(%f, %s)", index2, ((instance != null) ? instance.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index2, ((instance != null) ? instance.generateJs() : "null")));
                 js.setLength(0);
@@ -163,6 +184,9 @@ public class HatchFills extends CoreBase {
     private Double index3;
     private Boolean state;
 
+    /**
+     * Enables/disables type palette HatchFills from list by index.
+     */
     public HatchFills itemAt(Double index3, Boolean state) {
         if (jsBase == null) {
             this.index = null;
@@ -181,7 +205,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".itemAt(%f, %b)", index3, state));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %b)", index3, state));
                 js.setLength(0);
@@ -197,6 +220,9 @@ public class HatchFills extends CoreBase {
     private HatchFillType var_args1;
     private PatternFill var_args2;
 
+    /**
+     * Setter for HatchFills list of palette.
+     */
     public HatchFills setItems(HatchFill[] items, HatchFill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -218,7 +244,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -228,6 +253,9 @@ public class HatchFills extends CoreBase {
     }
 
 
+    /**
+     * Setter for HatchFills list of palette.
+     */
     public HatchFills setItems(HatchFill[] items, HatchFillType var_args1) {
         if (jsBase == null) {
             this.items = null;
@@ -249,7 +277,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args1 != null) ? var_args1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args1 != null) ? var_args1.generateJs() : "null")));
                 js.setLength(0);
@@ -259,6 +286,9 @@ public class HatchFills extends CoreBase {
     }
 
 
+    /**
+     * Setter for HatchFills list of palette.
+     */
     public HatchFills setItems(HatchFill[] items, PatternFill var_args2) {
         if (jsBase == null) {
             this.items = null;
@@ -280,7 +310,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args2 != null) ? var_args2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args2 != null) ? var_args2.generateJs() : "null")));
                 js.setLength(0);
@@ -290,6 +319,9 @@ public class HatchFills extends CoreBase {
     }
 
 
+    /**
+     * Setter for HatchFills list of palette.
+     */
     public HatchFills setItems(HatchFillType[] items1, HatchFill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -311,7 +343,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -321,6 +352,9 @@ public class HatchFills extends CoreBase {
     }
 
 
+    /**
+     * Setter for HatchFills list of palette.
+     */
     public HatchFills setItems(HatchFillType[] items1, HatchFillType var_args1) {
         if (jsBase == null) {
             this.items = null;
@@ -342,7 +376,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args1 != null) ? var_args1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args1 != null) ? var_args1.generateJs() : "null")));
                 js.setLength(0);
@@ -352,6 +385,9 @@ public class HatchFills extends CoreBase {
     }
 
 
+    /**
+     * Setter for HatchFills list of palette.
+     */
     public HatchFills setItems(HatchFillType[] items1, PatternFill var_args2) {
         if (jsBase == null) {
             this.items = null;
@@ -373,7 +409,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args2 != null) ? var_args2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args2 != null) ? var_args2.generateJs() : "null")));
                 js.setLength(0);
@@ -383,6 +418,9 @@ public class HatchFills extends CoreBase {
     }
 
 
+    /**
+     * Setter for HatchFills list of palette.
+     */
     public HatchFills setItems(PatternFill[] items2, HatchFill var_args) {
         if (jsBase == null) {
             this.items = null;
@@ -404,7 +442,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args != null) ? var_args.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -414,6 +451,9 @@ public class HatchFills extends CoreBase {
     }
 
 
+    /**
+     * Setter for HatchFills list of palette.
+     */
     public HatchFills setItems(PatternFill[] items2, HatchFillType var_args1) {
         if (jsBase == null) {
             this.items = null;
@@ -435,7 +475,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args1 != null) ? var_args1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args1 != null) ? var_args1.generateJs() : "null")));
                 js.setLength(0);
@@ -445,6 +484,9 @@ public class HatchFills extends CoreBase {
     }
 
 
+    /**
+     * Setter for HatchFills list of palette.
+     */
     public HatchFills setItems(PatternFill[] items2, PatternFill var_args2) {
         if (jsBase == null) {
             this.items = null;
@@ -466,7 +508,6 @@ public class HatchFills extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args2 != null) ? var_args2.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args2 != null) ? var_args2.generateJs() : "null")));
                 js.setLength(0);
@@ -475,15 +516,6 @@ public class HatchFills extends CoreBase {
         return this;
     }
 
-
-//
-//    private String generateJSHatchFill getItemAt() {
-//        if (HatchFill getItemAt != null) {
-//            return HatchFill getItemAt.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetItemAt() {
         if (!getItemAt.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -514,48 +546,6 @@ public class HatchFills extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSindex());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSindex1());
-////        
-//            js.append(generateJSpatternFill());
-////        
-//            js.append(generateJSindex2());
-////        
-//            js.append(generateJSinstance());
-////        
-//            js.append(generateJSindex3());
-////        
-//            js.append(generateJSstate());
-////        
-//            js.append(generateJSitems());
-////        
-//            js.append(generateJSitems1());
-////        
-//            js.append(generateJSitems2());
-////        
-//            js.append(generateJSvar_args());
-////        
-//            js.append(generateJSvar_args1());
-////        
-//            js.append(generateJSvar_args2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

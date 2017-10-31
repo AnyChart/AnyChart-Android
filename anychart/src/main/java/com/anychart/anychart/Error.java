@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Class representing series error.<br/>
+{docs:Basic_Charts/Error_Chart/Overview}Learn more about error chart.{docs}
+ */
 public class Error extends CoreBase {
 
     public Error() {
-
+        js.setLength(0);
+        js.append("var error").append(++variableIndex).append(" = anychart.core.utils.error();");
+        jsBase = "error" + variableIndex;
     }
 
     protected Error(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +31,18 @@ public class Error extends CoreBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private ErrorMode mode;
     private String mode1;
 
+    /**
+     * Setter for error mode.<br/>
+Error mode defines the rule to parse values for series with error.
+     */
     public Error setMode(ErrorMode mode) {
         if (jsBase == null) {
             this.mode = null;
@@ -42,7 +57,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +66,10 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for error mode.<br/>
+Error mode defines the rule to parse values for series with error.
+     */
     public Error setMode(String mode1) {
         if (jsBase == null) {
             this.mode = null;
@@ -66,7 +84,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
                 js.setLength(0);
@@ -78,6 +95,9 @@ public class Error extends CoreBase {
     private String valueError;
     private Double valueError1;
 
+    /**
+     * Setter for value error.
+     */
     public Error setValueError(String valueError) {
         if (jsBase == null) {
             this.valueError = null;
@@ -92,7 +112,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".valueError(%s)", wrapQuotes(valueError)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueError(%s)", wrapQuotes(valueError)));
                 js.setLength(0);
@@ -102,6 +121,9 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for value error.
+     */
     public Error setValueError(Double valueError1) {
         if (jsBase == null) {
             this.valueError = null;
@@ -116,7 +138,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".valueError(%f)", valueError1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueError(%f)", valueError1));
                 js.setLength(0);
@@ -133,6 +154,9 @@ public class Error extends CoreBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for value error stroke settings.
+     */
     public Error setValueErrorStroke(Stroke strokeOrFill, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
@@ -156,7 +180,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -166,6 +189,9 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for value error stroke settings.
+     */
     public Error setValueErrorStroke(ColoredFill strokeOrFill1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
@@ -189,7 +215,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -199,6 +224,9 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for value error stroke settings.
+     */
     public Error setValueErrorStroke(String strokeOrFill2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
@@ -222,7 +250,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -233,6 +260,9 @@ public class Error extends CoreBase {
 
     private Double valueErrorWidth;
 
+    /**
+     * Setter for value error width settings. Length pins for value axis in pixels.
+     */
     public Error setValueErrorWidth(Double valueErrorWidth) {
         if (jsBase == null) {
             this.valueErrorWidth = valueErrorWidth;
@@ -244,7 +274,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".valueErrorWidth(%f)", valueErrorWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueErrorWidth(%f)", valueErrorWidth));
                 js.setLength(0);
@@ -256,6 +285,9 @@ public class Error extends CoreBase {
     private String valueLowerError;
     private Double valueLowerError1;
 
+    /**
+     * Setter for value lower error.
+     */
     public Error setValueLowerError(String valueLowerError) {
         if (jsBase == null) {
             this.valueLowerError = null;
@@ -270,7 +302,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".valueLowerError(%s)", wrapQuotes(valueLowerError)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueLowerError(%s)", wrapQuotes(valueLowerError)));
                 js.setLength(0);
@@ -280,6 +311,9 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for value lower error.
+     */
     public Error setValueLowerError(Double valueLowerError1) {
         if (jsBase == null) {
             this.valueLowerError = null;
@@ -294,7 +328,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".valueLowerError(%f)", valueLowerError1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueLowerError(%f)", valueLowerError1));
                 js.setLength(0);
@@ -306,6 +339,9 @@ public class Error extends CoreBase {
     private String valueUpperError;
     private Double valueUpperError1;
 
+    /**
+     * Setter for value upper error.
+     */
     public Error setValueUpperError(String valueUpperError) {
         if (jsBase == null) {
             this.valueUpperError = null;
@@ -320,7 +356,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".valueUpperError(%s)", wrapQuotes(valueUpperError)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueUpperError(%s)", wrapQuotes(valueUpperError)));
                 js.setLength(0);
@@ -330,6 +365,9 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for value upper error.
+     */
     public Error setValueUpperError(Double valueUpperError1) {
         if (jsBase == null) {
             this.valueUpperError = null;
@@ -344,7 +382,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".valueUpperError(%f)", valueUpperError1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueUpperError(%f)", valueUpperError1));
                 js.setLength(0);
@@ -356,6 +393,9 @@ public class Error extends CoreBase {
     private String xError;
     private Double xError1;
 
+    /**
+     * Setter for X error.
+     */
     public Error setXError(String xError) {
         if (jsBase == null) {
             this.xError = null;
@@ -370,7 +410,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xError(%s)", wrapQuotes(xError)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xError(%s)", wrapQuotes(xError)));
                 js.setLength(0);
@@ -380,6 +419,9 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for X error.
+     */
     public Error setXError(Double xError1) {
         if (jsBase == null) {
             this.xError = null;
@@ -394,7 +436,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xError(%f)", xError1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xError(%f)", xError1));
                 js.setLength(0);
@@ -411,6 +452,10 @@ public class Error extends CoreBase {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
+    /**
+     * Setter for X error stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Error setXErrorStroke(Stroke strokeOrFill3, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
@@ -449,7 +494,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill3 != null) ? strokeOrFill3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill3 != null) ? strokeOrFill3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -459,6 +503,10 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for X error stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Error setXErrorStroke(ColoredFill strokeOrFill4, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
@@ -497,7 +545,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill4 != null) ? strokeOrFill4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill4 != null) ? strokeOrFill4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -507,6 +554,10 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for X error stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public Error setXErrorStroke(String strokeOrFill5, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
@@ -545,7 +596,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -556,6 +606,9 @@ public class Error extends CoreBase {
 
     private Double xErrorWidth;
 
+    /**
+     * Setter for X error width settings. Length pins for X axis in pixels.
+     */
     public Error setXErrorWidth(Double xErrorWidth) {
         if (jsBase == null) {
             this.xErrorWidth = xErrorWidth;
@@ -567,7 +620,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xErrorWidth(%f)", xErrorWidth));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xErrorWidth(%f)", xErrorWidth));
                 js.setLength(0);
@@ -579,6 +631,9 @@ public class Error extends CoreBase {
     private String xLowerError;
     private Double xLowerError1;
 
+    /**
+     * Setter for X lower error.
+     */
     public Error setXLowerError(String xLowerError) {
         if (jsBase == null) {
             this.xLowerError = null;
@@ -593,7 +648,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xLowerError(%s)", wrapQuotes(xLowerError)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xLowerError(%s)", wrapQuotes(xLowerError)));
                 js.setLength(0);
@@ -603,6 +657,9 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for X lower error.
+     */
     public Error setXLowerError(Double xLowerError1) {
         if (jsBase == null) {
             this.xLowerError = null;
@@ -617,7 +674,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xLowerError(%f)", xLowerError1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xLowerError(%f)", xLowerError1));
                 js.setLength(0);
@@ -629,6 +685,9 @@ public class Error extends CoreBase {
     private String xUpperError;
     private Double xUpperError1;
 
+    /**
+     * Setter for X upper error.
+     */
     public Error setXUpperError(String xUpperError) {
         if (jsBase == null) {
             this.xUpperError = null;
@@ -643,7 +702,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xUpperError(%s)", wrapQuotes(xUpperError)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xUpperError(%s)", wrapQuotes(xUpperError)));
                 js.setLength(0);
@@ -653,6 +711,9 @@ public class Error extends CoreBase {
     }
 
 
+    /**
+     * Setter for X upper error.
+     */
     public Error setXUpperError(Double xUpperError1) {
         if (jsBase == null) {
             this.xUpperError = null;
@@ -667,7 +728,6 @@ public class Error extends CoreBase {
             }
 
             js.append(String.format(Locale.US, ".xUpperError(%f)", xUpperError1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xUpperError(%f)", xUpperError1));
                 js.setLength(0);
@@ -676,8 +736,6 @@ public class Error extends CoreBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -695,72 +753,6 @@ public class Error extends CoreBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSvalueError());
-////        
-//            js.append(generateJSvalueError1());
-////        
-//            js.append(generateJSstrokeOrFill());
-////        
-//            js.append(generateJSstrokeOrFill1());
-////        
-//            js.append(generateJSstrokeOrFill2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJSvalueErrorWidth());
-////        
-//            js.append(generateJSvalueLowerError());
-////        
-//            js.append(generateJSvalueLowerError1());
-////        
-//            js.append(generateJSvalueUpperError());
-////        
-//            js.append(generateJSvalueUpperError1());
-////        
-//            js.append(generateJSxError());
-////        
-//            js.append(generateJSxError1());
-////        
-//            js.append(generateJSstrokeOrFill3());
-////        
-//            js.append(generateJSstrokeOrFill4());
-////        
-//            js.append(generateJSstrokeOrFill5());
-////        
-//            js.append(generateJSthickness1());
-////        
-//            js.append(generateJSdashpattern1());
-////        
-//            js.append(generateJSlineJoin1());
-////        
-//            js.append(generateJSlineCap1());
-////        
-//            js.append(generateJSxErrorWidth());
-////        
-//            js.append(generateJSxLowerError());
-////        
-//            js.append(generateJSxLowerError1());
-////        
-//            js.append(generateJSxUpperError());
-////        
-//            js.append(generateJSxUpperError1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

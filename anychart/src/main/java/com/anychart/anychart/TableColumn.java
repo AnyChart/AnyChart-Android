@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Table column settings container.
+ */
 public class TableColumn extends TableBase {
 
     public TableColumn() {
-
+        js.setLength(0);
+        js.append("var tableColumn").append(++variableIndex).append(" = anychart.core.ui.table.column();");
+        jsBase = "tableColumn" + variableIndex;
     }
 
     protected TableColumn(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,16 @@ public class TableColumn extends TableBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private Border getCellBorder;
 
+    /**
+     * Getter for border settings object.
+     */
     public Border getCellBorder() {
         if (getCellBorder == null)
             getCellBorder = new Border(jsBase + ".cellBorder()");
@@ -42,6 +55,10 @@ public class TableColumn extends TableBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
+    /**
+     * Setter for cell border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TableBase setCellBorder(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -65,7 +82,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -75,6 +91,10 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Setter for cell border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TableBase setCellBorder(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -98,7 +118,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -108,6 +127,10 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Setter for cell border settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
     public TableBase setCellBorder(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
@@ -131,7 +154,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -142,6 +164,10 @@ public class TableColumn extends TableBase {
 
     private Fill cellFill;
 
+    /**
+     * Sets fill settings using an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TableBase setCellFill(Fill cellFill) {
         if (jsBase == null) {
             this.cellFill = cellFill;
@@ -153,7 +179,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellFill(%s);", ((cellFill != null) ? cellFill.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s)", ((cellFill != null) ? cellFill.generateJs() : "null")));
                 js.setLength(0);
@@ -165,6 +190,9 @@ public class TableColumn extends TableBase {
     private String color3;
     private Double opacity;
 
+    /**
+     * Fill color with opacity. Fill as a string or an object.
+     */
     public TableBase cellFill(String color3, Double opacity) {
         if (jsBase == null) {
             this.color = null;
@@ -183,7 +211,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %f);", wrapQuotes(color3), opacity));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f)", wrapQuotes(color3), opacity));
                 js.setLength(0);
@@ -200,6 +227,10 @@ public class TableColumn extends TableBase {
     private String mode2;
     private Double opacity1;
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TableBase cellFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -227,7 +258,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -237,6 +267,10 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TableBase cellFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -264,7 +298,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -274,6 +307,10 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TableBase cellFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -301,7 +338,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -311,6 +347,10 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TableBase cellFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -338,7 +378,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f);", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -348,6 +387,10 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TableBase cellFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -375,7 +418,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -385,6 +427,10 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Linear gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TableBase cellFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
@@ -412,7 +458,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -430,6 +475,10 @@ public class TableColumn extends TableBase {
     private Double fx;
     private Double fy;
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TableBase cellFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -467,7 +516,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -477,6 +525,10 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Radial gradient fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
     public TableBase cellFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
@@ -514,7 +566,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -526,6 +577,9 @@ public class TableColumn extends TableBase {
     private Fill imageSettings;
     private TablePadding getCellPadding;
 
+    /**
+     * Getter for padding settings object.
+     */
     public TablePadding getCellPadding() {
         if (getCellPadding == null)
             getCellPadding = new TablePadding(jsBase + ".cellPadding()");
@@ -537,6 +591,9 @@ public class TableColumn extends TableBase {
     private String[] cellPadding1;
     private String cellPadding2;
 
+    /**
+     * Setter for current cell paddings in pixels using a single value.
+     */
     public TableBase setCellPadding(Double[] cellPadding) {
         if (jsBase == null) {
             this.cellPadding = null;
@@ -552,7 +609,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(cellPadding)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s)", Arrays.toString(cellPadding)));
                 js.setLength(0);
@@ -562,6 +618,9 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Setter for current cell paddings in pixels using a single value.
+     */
     public TableBase setCellPadding(String[] cellPadding1) {
         if (jsBase == null) {
             this.cellPadding = null;
@@ -577,7 +636,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellPadding(%s);", arrayToStringWrapQuotes(cellPadding1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s)", arrayToStringWrapQuotes(cellPadding1)));
                 js.setLength(0);
@@ -587,6 +645,9 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Setter for current cell paddings in pixels using a single value.
+     */
     public TableBase setCellPadding(String cellPadding2) {
         if (jsBase == null) {
             this.cellPadding = null;
@@ -602,7 +663,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellPadding(%s);", wrapQuotes(cellPadding2)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s)", wrapQuotes(cellPadding2)));
                 js.setLength(0);
@@ -620,6 +680,9 @@ public class TableColumn extends TableBase {
     private String value6;
     private Double value7;
 
+    /**
+     * Setter for current cell paddings in pixels using several numbers.
+     */
     public TableBase setCellPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
@@ -673,7 +736,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s);", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -683,6 +745,9 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Setter for current cell paddings in pixels using several numbers.
+     */
     public TableBase setCellPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
@@ -736,7 +801,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f);", value1, value3, value5, value7));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -747,6 +811,9 @@ public class TableColumn extends TableBase {
 
     private Double row;
 
+    /**
+     * Returns cell of current column by row index.
+     */
     public Cell getCell(Double row) {
         if (jsBase == null) {
             this.row = row;
@@ -758,7 +825,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, jsBase + ".getCell(%f);", row));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCell(%f)", row));
                 js.setLength(0);
@@ -769,6 +835,9 @@ public class TableColumn extends TableBase {
 
     private List<TableColumn> getMaxWidth = new ArrayList<>();
 
+    /**
+     * Getter and setter for column max width settings.
+     */
     public TableColumn getMaxWidth(String maxWidth) {
         TableColumn item = new TableColumn(jsBase + ".maxWidth(" + wrapQuotes(maxWidth) + ")");
         getMaxWidth.add(item);
@@ -777,6 +846,9 @@ public class TableColumn extends TableBase {
 
     private List<TableColumn> getMaxWidth1 = new ArrayList<>();
 
+    /**
+     * Getter and setter for column max width settings.
+     */
     public TableColumn getMaxWidth(Double maxWidth) {
         TableColumn item = new TableColumn(jsBase + ".maxWidth(" + maxWidth + ")");
         getMaxWidth1.add(item);
@@ -786,6 +858,9 @@ public class TableColumn extends TableBase {
     private String minWidth;
     private Double minWidth1;
 
+    /**
+     * Setter for column minimum width settings.
+     */
     public TableColumn setMinWidth(String minWidth) {
         if (jsBase == null) {
             this.minWidth = null;
@@ -800,7 +875,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, ".minWidth(%s)", wrapQuotes(minWidth)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minWidth(%s)", wrapQuotes(minWidth)));
                 js.setLength(0);
@@ -810,6 +884,9 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Setter for column minimum width settings.
+     */
     public TableColumn setMinWidth(Double minWidth1) {
         if (jsBase == null) {
             this.minWidth = null;
@@ -824,7 +901,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, ".minWidth(%f)", minWidth1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minWidth(%f)", minWidth1));
                 js.setLength(0);
@@ -836,6 +912,9 @@ public class TableColumn extends TableBase {
     private String width;
     private Double width1;
 
+    /**
+     * Setter for column width settings.
+     */
     public TableColumn setWidth(String width) {
         if (jsBase == null) {
             this.width = null;
@@ -850,7 +929,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
                 js.setLength(0);
@@ -860,6 +938,9 @@ public class TableColumn extends TableBase {
     }
 
 
+    /**
+     * Setter for column width settings.
+     */
     public TableColumn setWidth(Double width1) {
         if (jsBase == null) {
             this.width = null;
@@ -874,7 +955,6 @@ public class TableColumn extends TableBase {
             }
 
             js.append(String.format(Locale.US, ".width(%f)", width1));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width1));
                 js.setLength(0);
@@ -883,40 +963,9 @@ public class TableColumn extends TableBase {
         return this;
     }
 
-
-//
-//    private String generateJSBorder getCellBorder() {
-//        if (Border getCellBorder != null) {
-//            return Border getCellBorder.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTablePadding getCellPadding() {
-//        if (TablePadding getCellPadding != null) {
-//            return TablePadding getCellPadding.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTableColumn getMaxWidth() {
-//        if (TableColumn getMaxWidth != null) {
-//            return TableColumn getMaxWidth.generateJs();
-//        }
-//        return "";
-//    }
-//
-//    private String generateJSTableColumn getMaxWidth1() {
-//        if (TableColumn getMaxWidth1 != null) {
-//            return TableColumn getMaxWidth1.generateJs();
-//        }
-//        return "";
-//    }
-//
     private String generateJSgetCellBorder() {
         if (getCellBorder != null) {
             return getCellBorder.generateJs();
-            //return String.format(Locale.US, "getCellBorder: %s,", ((getCellBorder != null) ? getCellBorder.generateJs() : "null"));
         }
         return "";
     }
@@ -924,7 +973,6 @@ public class TableColumn extends TableBase {
     private String generateJSgetCellPadding() {
         if (getCellPadding != null) {
             return getCellPadding.generateJs();
-            //return String.format(Locale.US, "getCellPadding: %s,", ((getCellPadding != null) ? getCellPadding.generateJs() : "null"));
         }
         return "";
     }
@@ -974,96 +1022,6 @@ public class TableColumn extends TableBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJScolor());
-////        
-//            js.append(generateJScolor1());
-////        
-//            js.append(generateJScolor2());
-////        
-//            js.append(generateJSthickness());
-////        
-//            js.append(generateJSdashpattern());
-////        
-//            js.append(generateJSlineJoin());
-////        
-//            js.append(generateJSlineCap());
-////        
-//            js.append(generateJScellFill());
-////        
-//            js.append(generateJScolor3());
-////        
-//            js.append(generateJSopacity());
-////        
-//            js.append(generateJSkeys());
-////        
-//            js.append(generateJSkeys1());
-////        
-//            js.append(generateJSangle());
-////        
-//            js.append(generateJSmode());
-////        
-//            js.append(generateJSmode1());
-////        
-//            js.append(generateJSmode2());
-////        
-//            js.append(generateJSopacity1());
-////        
-//            js.append(generateJSkeys2());
-////        
-//            js.append(generateJSkeys3());
-////        
-//            js.append(generateJScx());
-////        
-//            js.append(generateJScy());
-////        
-//            js.append(generateJSmode3());
-////        
-//            js.append(generateJSopacity2());
-////        
-//            js.append(generateJSfx());
-////        
-//            js.append(generateJSfy());
-////        
-//            js.append(generateJSimageSettings());
-////        
-//            js.append(generateJScellPadding());
-////        
-//            js.append(generateJScellPadding1());
-////        
-//            js.append(generateJScellPadding2());
-////        
-//            js.append(generateJSvalue());
-////        
-//            js.append(generateJSvalue1());
-////        
-//            js.append(generateJSvalue2());
-////        
-//            js.append(generateJSvalue3());
-////        
-//            js.append(generateJSvalue4());
-////        
-//            js.append(generateJSvalue5());
-////        
-//            js.append(generateJSvalue6());
-////        
-//            js.append(generateJSvalue7());
-////        
-//            js.append(generateJSrow());
-////        
-//            js.append(generateJSminWidth());
-////        
-//            js.append(generateJSminWidth1());
-////        
-//            js.append(generateJSwidth());
-////        
-//            js.append(generateJSwidth1());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

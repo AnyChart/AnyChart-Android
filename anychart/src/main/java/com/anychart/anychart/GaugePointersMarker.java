@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Marker pointer class.
+ */
 public class GaugePointersMarker extends GaugePointersBase {
 
     public GaugePointersMarker() {
-
+        js.setLength(0);
+        js.append("var gaugePointersMarker").append(++variableIndex).append(" = anychart.core.gauge.pointers.marker();");
+        jsBase = "gaugePointersMarker" + variableIndex;
     }
 
     protected GaugePointersMarker(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,10 +30,17 @@ public class GaugePointersMarker extends GaugePointersBase {
         this.isChain = isChain;
     }
 
+    protected String getJsBase() {
+        return jsBase;
+    }
+
     
     private GaugeSidePosition position;
     private String position1;
 
+    /**
+     * Setter for the marker position.
+     */
     public GaugePointersMarker setPosition(GaugeSidePosition position) {
         if (jsBase == null) {
             this.position = null;
@@ -42,7 +55,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -52,6 +64,9 @@ public class GaugePointersMarker extends GaugePointersBase {
     }
 
 
+    /**
+     * Setter for the marker position.
+     */
     public GaugePointersMarker setPosition(String position1) {
         if (jsBase == null) {
             this.position = null;
@@ -66,7 +81,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -78,6 +92,9 @@ public class GaugePointersMarker extends GaugePointersBase {
     private Double radius;
     private String radius1;
 
+    /**
+     * Setter for the marker radius.
+     */
     public GaugePointersMarker setRadius(Double radius) {
         if (jsBase == null) {
             this.radius = null;
@@ -92,7 +109,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".radius(%f)", radius));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
                 js.setLength(0);
@@ -102,6 +118,9 @@ public class GaugePointersMarker extends GaugePointersBase {
     }
 
 
+    /**
+     * Setter for the marker radius.
+     */
     public GaugePointersMarker setRadius(String radius1) {
         if (jsBase == null) {
             this.radius = null;
@@ -116,7 +135,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
                 js.setLength(0);
@@ -128,6 +146,9 @@ public class GaugePointersMarker extends GaugePointersBase {
     private Double size;
     private String size1;
 
+    /**
+     * Setter for the marker size.
+     */
     public GaugePointersMarker setSize(Double size) {
         if (jsBase == null) {
             this.size = null;
@@ -142,7 +163,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".size(%f)", size));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size));
                 js.setLength(0);
@@ -152,6 +172,9 @@ public class GaugePointersMarker extends GaugePointersBase {
     }
 
 
+    /**
+     * Setter for the marker size.
+     */
     public GaugePointersMarker setSize(String size1) {
         if (jsBase == null) {
             this.size = null;
@@ -166,7 +189,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".size(%s)", wrapQuotes(size1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".size(%s)", wrapQuotes(size1)));
                 js.setLength(0);
@@ -179,6 +201,9 @@ public class GaugePointersMarker extends GaugePointersBase {
     private String type1;
     private String type2;
 
+    /**
+     * Setter for the marker type.
+     */
     public GaugePointersMarker setType(MarkerType type) {
         if (jsBase == null) {
             this.type = null;
@@ -194,7 +219,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -204,6 +228,9 @@ public class GaugePointersMarker extends GaugePointersBase {
     }
 
 
+    /**
+     * Setter for the marker type.
+     */
     public GaugePointersMarker setType(String type1) {
         if (jsBase == null) {
             this.type = null;
@@ -219,7 +246,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             }
 
             js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
-
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -228,8 +254,6 @@ public class GaugePointersMarker extends GaugePointersBase {
         return this;
     }
 
-
-//
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -247,30 +271,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-////        
-//            js.append(generateJSposition());
-////        
-//            js.append(generateJSposition1());
-////        
-//            js.append(generateJSradius());
-////        
-//            js.append(generateJSradius1());
-////        
-//            js.append(generateJSsize());
-////        
-//            js.append(generateJSsize1());
-////        
-//            js.append(generateJStype());
-////        
-//            js.append(generateJStype1());
-////        
-//            js.append(generateJStype2());
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 

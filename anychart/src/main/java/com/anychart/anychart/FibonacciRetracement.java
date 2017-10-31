@@ -8,13 +8,19 @@ import java.util.ArrayList;
 import android.text.TextUtils;
 
 // class
+/**
+ * Fibonacci Retracement annotation.
+ */
 public class FibonacciRetracement extends FibonacciBase {
 
     public FibonacciRetracement() {
-
+        js.setLength(0);
+        js.append("var fibonacciRetracement").append(++variableIndex).append(" = anychart.core.annotations.fibonacciRetracement();");
+        jsBase = "fibonacciRetracement" + variableIndex;
     }
 
     protected FibonacciRetracement(String jsBase) {
+        js.setLength(0);
         this.jsBase = jsBase;
     }
 
@@ -24,9 +30,11 @@ public class FibonacciRetracement extends FibonacciBase {
         this.isChain = isChain;
     }
 
-    
+    protected String getJsBase() {
+        return jsBase;
+    }
 
-//
+    
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -44,12 +52,6 @@ public class FibonacciRetracement extends FibonacciBase {
             js.append(";");
             isChain = false;
         }
-
-//        if (jsBase == null) {
-//            js.append("{");
-//
-//            js.append("}");
-//        }
 
         js.append(generateJsGetters());
 
