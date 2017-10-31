@@ -44,7 +44,6 @@ public class WaterfallChartActivity extends AppCompatActivity {
                 "    }");
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new ValueDataEntry("Start", 23000000));
         data.add(new ValueDataEntry("Jan", 2200000));
         data.add(new ValueDataEntry("Feb", -4600000));

@@ -37,7 +37,6 @@ public class Column3DChartActivity extends AppCompatActivity {
         column3d.getTitle().setPadding(0d, 0d, 15d, 0d);
 
         List<DataEntry> series1Data = new ArrayList<>();
-
         series1Data.add(new ValueDataEntry("Espresso", 1));
         series1Data.add(new ValueDataEntry("Doppio", 2));
         series1Data.add(new ValueDataEntry("Trippio", 3));
@@ -56,7 +55,6 @@ public class Column3DChartActivity extends AppCompatActivity {
         series1.getHovered().setStroke("#f7f3f3", 3d, null, null, null);
 
         List<DataEntry> series2Data = new ArrayList<>();
-
         series2Data.add(new ValueDataEntry("Espresso", (Integer) null));
         series2Data.add(new ValueDataEntry("Doppio", (Integer) null));
         series2Data.add(new ValueDataEntry("Trippio", (Integer) null));
@@ -75,7 +73,6 @@ public class Column3DChartActivity extends AppCompatActivity {
         series2.getHovered().setStroke("#f7f3f3", 3d, null, null, null);
 
         List<DataEntry> series3Data = new ArrayList<>();
-
         series3Data.add(new ValueDataEntry("Espresso", (Integer) null));
         series3Data.add(new ValueDataEntry("Doppio", (Integer) null));
         series3Data.add(new ValueDataEntry("Trippio", (Integer) null));
@@ -94,7 +91,6 @@ public class Column3DChartActivity extends AppCompatActivity {
         series3.getHovered().setStroke("#f7f3f3", 3d, null, null, null);
 
         List<DataEntry> series4Data = new ArrayList<>();
-
         series4Data.add(new ValueDataEntry("Espresso", (Integer) null));
         series4Data.add(new ValueDataEntry("Doppio", (Integer) null));
         series4Data.add(new ValueDataEntry("Trippio", (Integer) null));
@@ -113,7 +109,6 @@ public class Column3DChartActivity extends AppCompatActivity {
         series4.getHovered().setStroke("#f7f3f3", 3d, null, null, null);
 
         List<DataEntry> series5Data = new ArrayList<>();
-
         series5Data.add(new ValueDataEntry("Espresso", (Integer) null));
         series5Data.add(new ValueDataEntry("Doppio", (Integer) null));
         series5Data.add(new ValueDataEntry("Trippio", (Integer) null));
@@ -132,7 +127,6 @@ public class Column3DChartActivity extends AppCompatActivity {
         series5.getHovered().setStroke("#f7f3f3", 3d, null, null, null);
 
         List<DataEntry> series6Data = new ArrayList<>();
-
         series6Data.add(new ValueDataEntry("Espresso", (Integer) null));
         series6Data.add(new ValueDataEntry("Doppio", (Integer) null));
         series6Data.add(new ValueDataEntry("Trippio", (Integer) null));

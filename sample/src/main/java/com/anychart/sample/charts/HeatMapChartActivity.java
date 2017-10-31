@@ -54,20 +54,19 @@ public class HeatMapChartActivity extends AppCompatActivity {
         riskMap.getXAxis().setStroke((Stroke) null, null, null, null, null);
         riskMap.getXAxis().setTicks(false);
 
-//        riskMap.getTooltip().getTitle().setUseHtml(true);
-//        riskMap.getTooltip()
-//                .setUseHtml(true)
-//                .setTitleFormat("function() {\n" +
-//                        "      var namesList = [\"Low\", \"Medium\", \"High\", \"Extreme\"];\n" +
-//                        "      return '<b>' + namesList[this.heat] + '</b> Residual Risk';\n" +
-//                        "    }")
-//                .setFormat("function () {\n" +
-//                        "       return '<span style=\"color: #CECECE\">Likelihood: </span>' + this.x + '<br/>' +\n" +
-//                        "           '<span style=\"color: #CECECE\">Consequence: </span>' + this.y;\n" +
-//                        "   }");
+        riskMap.getTooltip().getTitle().setUseHtml(true);
+        riskMap.getTooltip()
+                .setUseHtml(true)
+                .setTitleFormat("function() {\n" +
+                        "      var namesList = [\"Low\", \"Medium\", \"High\", \"Extreme\"];\n" +
+                        "      return '<b>' + namesList[this.heat] + '</b> Residual Risk';\n" +
+                        "    }")
+                .setFormat("function () {\n" +
+                        "       return '<span style=\"color: #CECECE\">Likelihood: </span>' + this.x + '<br/>' +\n" +
+                        "           '<span style=\"color: #CECECE\">Consequence: </span>' + this.y;\n" +
+                        "   }");
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new CustomHeatDataEntry("Rare", "Insignificant", 0, "#90caf9"));
         data.add(new CustomHeatDataEntry("Rare", "Minor", 0, "#90caf9"));
         data.add(new CustomHeatDataEntry("Rare", "Moderate", 0, "#90caf9"));

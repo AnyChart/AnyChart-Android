@@ -30,7 +30,6 @@ public class BoxChartActivity extends AppCompatActivity {
         boxChart.getXAxis().setStaggerMode(true);
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new CustomBoxDataEntry("Registered Nurse", 20000, 26000, 27000, 32000, 38000, new Integer[]{50000, 52000}));
         data.add(new CustomBoxDataEntry("Dental Hygienist", 24000, 28000, 32000, 38000, 42000, new Integer[]{48000}));
         data.add(new CustomBoxDataEntry("Computer Systems Analyst", 40000, 49000, 62000, 73000, 88000, new Integer[]{32000, 29000, 106000}));

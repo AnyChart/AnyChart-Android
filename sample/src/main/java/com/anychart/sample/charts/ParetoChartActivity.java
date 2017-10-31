@@ -43,19 +43,6 @@ public class ParetoChartActivity extends AppCompatActivity {
 
         pareto.setData(data);
 
-//        pareto.setData(new String[] {
-//                "{ x: 'Food is tasteless', value: 65 }",
-//                "{ x: 'Wait time', value: 109 }",
-//                "{ x: 'Unfriendly staff', value: 12.5 }",
-//                "{ x: 'Not clean', value: 45 }",
-//                "{ x: 'Overpriced', value: 250 }",
-//                "{ x: 'To noisy', value: 27 }",
-//                "{ x: 'Food not fresh', value: 35 }",
-//                "{ x: 'Small portions', value: 170 }",
-//                "{ x: 'Not atmosphere', value: 35 }",
-//                "{ x: 'Food is to salty', value: 35 }"
-//        }, TextParsingMode.CSV);
-
         pareto.setTitle("Pareto Chart of Restaurant Complaints");
 
         pareto.getYAxis(0d).setTitle("Defect frequency");
@@ -66,8 +53,7 @@ public class ParetoChartActivity extends AppCompatActivity {
 
         pareto.getLineMarker()
                 .setValue(80d)
-                // TODO axis
-//                .setAxis(pareto.getXAxis(1d))
+                .setAxis(pareto.getXAxis(1d))
                 .setStroke("#A5B3B3", 1d, "5 2", StrokeLineJoin.ROUND, StrokeLineCap.ROUND);
 
         pareto.getGetSeries(0d).getTooltip().setFormat("Value: {%Value}");
@@ -75,8 +61,6 @@ public class ParetoChartActivity extends AppCompatActivity {
         CartesianSeriesBase line = pareto.getGetSeries(1d);
         line.setSeriesType("spline")
                 .setMarkers(true);
-        // TODO ticks
-//        line.getYScale().setTicks();
         line.getLabels().setEnabled(true);
         line.getLabels()
                 .setAnchor(EnumsAnchor.RIGHT_BOTTOM)

@@ -33,7 +33,6 @@ public class VerticalChartActivity extends AppCompatActivity {
                 .setTitle("Vertical Combination of Bar and Jump Line Chart");
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new ValueDataEntry("Jan", 11.5));
         data.add(new ValueDataEntry("Feb", 12));
         data.add(new ValueDataEntry("Mar", 11.7));
@@ -51,7 +50,6 @@ public class VerticalChartActivity extends AppCompatActivity {
         bar.getLabels().setFormat("${%Value} mln");
 
         List<DataEntry> jumpLineData = new ArrayList<>();
-
         jumpLineData.add(new ValueDataEntry("Jan", 9.3));
         jumpLineData.add(new ValueDataEntry("Feb", 10.5));
         jumpLineData.add(new ValueDataEntry("Mar", 11.2));

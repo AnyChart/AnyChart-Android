@@ -28,14 +28,7 @@ public class MosaicChartActivity extends AppCompatActivity {
 
         mosaic.setTitle("Skills and Self-ID Top Factors");
 
-//        mosaic.getGetSeriesAt(0d).setName("Business");
-//        mosaic.getGetSeriesAt(1d).setName("ML/Big Data");
-//        mosaic.getGetSeriesAt(2d).setName("Math/OR");
-//        mosaic.getGetSeriesAt(3d).setName("Programming");
-//        mosaic.getGetSeriesAt(4d).setName("Statistics");
-
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new ValueDataEntry("Data Businessperson", 50));
         data.add(new ValueDataEntry("Data Creative", 17));
         data.add(new ValueDataEntry("Data Developer", 17));
@@ -79,14 +72,6 @@ public class MosaicChartActivity extends AppCompatActivity {
 
         mosaic.mekko(data)
                 .setName("Statistics");
-
-//        mosaic.setData(data);
-//        mosaic.setData(new String[] {
-//                "['Data Businessperson', 50, 15, 10, 5, 25]",
-//                "['Data Creative', 17, 23, 10, 20, 30]",
-//                "['Data Developer', 17, 25, 16, 27, 15]",
-//                "['Data Researcher', 12, 15, 17, 5, 51]"
-//        });
 
         mosaic.getXAxis().setOrientation(Orientation.TOP);
         mosaic.getTooltip().setDisplayMode(TooltipDisplayMode.UNION);

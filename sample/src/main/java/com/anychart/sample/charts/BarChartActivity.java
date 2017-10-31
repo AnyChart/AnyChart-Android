@@ -72,7 +72,6 @@ public class BarChartActivity extends AppCompatActivity {
                         "    }");
 
         List<DataEntry> series1Data = new ArrayList<>();
-
         series1Data.add(new ValueDataEntry("Nail polish", 5376));
         series1Data.add(new ValueDataEntry("Eyebrow pencil", 10987));
         series1Data.add(new ValueDataEntry("Rouge", 7624));
@@ -103,7 +102,6 @@ public class BarChartActivity extends AppCompatActivity {
                 .setAnchor(EnumsAnchor.LEFT_CENTER);
 
         List<DataEntry> series2Data = new ArrayList<>();
-
         series2Data.add(new ValueDataEntry("Nail polish", -229));
         series2Data.add(new ValueDataEntry("Eyebrow pencil", -932));
         series2Data.add(new ValueDataEntry("Rouge", -5221));

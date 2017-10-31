@@ -55,7 +55,6 @@ public class BubbleChartActivity extends AppCompatActivity {
         bubble.getLabels().setPadding(0d, 0d, 10d, 0d);
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new CustomBubbleDataEntry(1, 184, 113, "10/13/2014", 120));
         data.add(new CustomBubbleDataEntry(1, 180, 94, "03/25/2015", 45));
         data.add(new CustomBubbleDataEntry(1, 145, 137, "11/23/2014", 123));

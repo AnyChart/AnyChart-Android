@@ -25,7 +25,6 @@ public class VennDiagramActivity extends AppCompatActivity {
         Venn venn = AnyChart.venn();
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new NameValueDataEntry("A", "Data Science", 100));
         data.add(new NameValueDataEntry("B", "Computer Science", 25));
         data.add(new NameValueDataEntry("C", "Math and Statistics", 25));

@@ -27,13 +27,6 @@ public class LineChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
-//        Set dataSet = new Set();
-//        dataSet.setData(getData(), TextParsingMode.CSV);
-//
-//        Mapping seriesData1 = dataSet.mapAs("{ 'x': 0, 'value': 1 }");
-//        Mapping seriesData2 = dataSet.mapAs("{ 'x': 0, 'value': 2 }");
-//        Mapping seriesData3 = dataSet.mapAs("{ 'x': 0, 'value': 3 }");
-
         Cartesian cartesian = AnyChart.line();
 
         cartesian.setAnimation(true);
@@ -53,7 +46,6 @@ public class LineChartActivity extends AppCompatActivity {
         cartesian.getXAxis().getLabels().setPadding(5d, 5d, 5d, 5d);
 
         List<DataEntry> series1Data = new ArrayList<>();
-
         series1Data.add(new ValueDataEntry("1986", 3.6));
         series1Data.add(new ValueDataEntry("1987", 7.1));
         series1Data.add(new ValueDataEntry("1988", 8.5));
@@ -92,7 +84,6 @@ public class LineChartActivity extends AppCompatActivity {
                 .setOffsetY(5d);
 
         List<DataEntry> series2Data = new ArrayList<>();
-
         series2Data.add(new ValueDataEntry("1986", 2.3));
         series2Data.add(new ValueDataEntry("1987", 4.0));
         series2Data.add(new ValueDataEntry("1988", 6.2));
@@ -131,7 +122,6 @@ public class LineChartActivity extends AppCompatActivity {
                 .setOffsetY(5d);
 
         List<DataEntry> series3Data = new ArrayList<>();
-
         series3Data.add(new ValueDataEntry("1986", 2.8));
         series3Data.add(new ValueDataEntry("1987", 4.1));
         series3Data.add(new ValueDataEntry("1988", 5.1));
@@ -176,32 +166,4 @@ public class LineChartActivity extends AppCompatActivity {
         anyChartView.setChart(cartesian);
     }
 
-//    public String[] getData() {
-//        return new String[] {
-//            "['1986', 3.6, 2.3, 2.8, 11.5]",
-//            "['1987', 7.1, 4.0, 4.1, 14.1]",
-//            "['1988', 8.5, 6.2, 5.1, 17.5]",
-//            "['1989', 9.2, 11.8, 6.5, 18.9]",
-//            "['1990', 10.1, 13.0, 12.5, 20.8]",
-//            "['1991', 11.6, 13.9, 18.0, 22.9]",
-//            "['1992', 16.4, 18.0, 21.0, 25.2]",
-//            "['1993', 18.0, 23.3, 20.3, 27.0]",
-//            "['1994', 13.2, 24.7, 19.2, 26.5]",
-//            "['1995', 12.0, 18.0, 14.4, 25.3]",
-//            "['1996', 3.2, 15.1, 9.2, 23.4]",
-//            "['1997', 4.1, 11.3, 5.9, 19.5]",
-//            "['1998', 6.3, 14.2, 5.2, 17.8]",
-//            "['1999', 9.4, 13.7, 4.7, 16.2]",
-//            "['2000', 11.5, 9.9, 4.2, 15.4]",
-//            "['2001', 13.5, 12.1, 1.2, 14.0]",
-//            "['2002', 14.8, 13.5, 5.4, 12.5]",
-//            "['2003', 16.6, 15.1, 6.3, 10.8]",
-//            "['2004', 18.1, 17.9, 8.9, 8.9]",
-//            "['2005', 17.0, 18.9, 10.1, 8.0]",
-//            "['2006', 16.6, 20.3, 11.5, 6.2]",
-//            "['2007', 14.1, 20.7, 12.2, 5.1]",
-//            "['2008', 15.7, 21.6, 10, 3.7]",
-//            "['2009', 12.0, 22.5, 8.9, 1.5]"
-//        };
-//    }
 }

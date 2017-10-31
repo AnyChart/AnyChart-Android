@@ -45,7 +45,6 @@ public class AreaChartActivity extends AppCompatActivity {
         areaChart.setTitle("Unaudited Apple Inc. Revenue by Operating Segments");
 
         List<DataEntry> series1Data = new ArrayList<>();
-
         series1Data.add(new ValueDataEntry("Q2 2014", 17.982));
         series1Data.add(new ValueDataEntry("Q3 2014", 17.574));
         series1Data.add(new ValueDataEntry("Q4 2014", 19.75));
@@ -58,9 +57,6 @@ public class AreaChartActivity extends AppCompatActivity {
         CartesianSeriesArea series1 = areaChart.area(series1Data);
         series1.setName("Americas");
         series1.setStroke("#fff", 3d, null, null, null);
-        // TODO function in Fill
-//        return this.sourceColor + ' 0.8'
-//        series1.setFill(new SolidFill())
         series1.getHovered().setStroke("#fff", 3d, null, null, null);
         series1.getHovered().getMarkers().setEnabled(true);
         series1.getHovered().getMarkers()
@@ -70,7 +66,6 @@ public class AreaChartActivity extends AppCompatActivity {
         series1.getMarkers().setZIndex(100d);
 
         List<DataEntry> series2Data = new ArrayList<>();
-
         series2Data.add(new ValueDataEntry("Q2 2014", 10.941));
         series2Data.add(new ValueDataEntry("Q3 2014", 8.659));
         series2Data.add(new ValueDataEntry("Q4 2014", 10.35));
@@ -92,7 +87,6 @@ public class AreaChartActivity extends AppCompatActivity {
         series2.getMarkers().setZIndex(100d);
 
         List<DataEntry> series3Data = new ArrayList<>();
-
         series3Data.add(new ValueDataEntry("Q2 2014", 9.835));
         series3Data.add(new ValueDataEntry("Q3 2014", 6.230));
         series3Data.add(new ValueDataEntry("Q4 2014", 6.292));
@@ -114,7 +108,6 @@ public class AreaChartActivity extends AppCompatActivity {
         series3.getMarkers().setZIndex(100d);
 
         List<DataEntry> series4Data = new ArrayList<>();
-
         series4Data.add(new ValueDataEntry("Q2 2014", 4.047));
         series4Data.add(new ValueDataEntry("Q3 2014", 2.627));
         series4Data.add(new ValueDataEntry("Q4 2014", 3.595));
@@ -136,7 +129,6 @@ public class AreaChartActivity extends AppCompatActivity {
         series4.getMarkers().setZIndex(100d);
 
         List<DataEntry> series5Data = new ArrayList<>();
-
         series5Data.add(new ValueDataEntry("Q2 2014", 2.841));
         series5Data.add(new ValueDataEntry("Q3 2014", 2.242));
         series5Data.add(new ValueDataEntry("Q4 2014", 2.136));

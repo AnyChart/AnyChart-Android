@@ -40,7 +40,6 @@ public class RadarChartActivity extends AppCompatActivity {
                 .setEnabled(true);
 
         List<DataEntry> shamanData = new ArrayList<>();
-
         shamanData.add(new ValueDataEntry("Strength", 136));
         shamanData.add(new ValueDataEntry("Agility", 79));
         shamanData.add(new ValueDataEntry("Stamina", 149));
@@ -55,7 +54,6 @@ public class RadarChartActivity extends AppCompatActivity {
                 .setSize(3d);
 
         List<DataEntry> warriorData = new ArrayList<>();
-
         warriorData.add(new ValueDataEntry("Strength", 199));
         warriorData.add(new ValueDataEntry("Agility", 125));
         warriorData.add(new ValueDataEntry("Stamina", 173));
@@ -70,7 +68,6 @@ public class RadarChartActivity extends AppCompatActivity {
                 .setSize(3d);
 
         List<DataEntry> priestData = new ArrayList<>();
-
         priestData.add(new ValueDataEntry("Strength", 43));
         priestData.add(new ValueDataEntry("Agility", 56));
         priestData.add(new ValueDataEntry("Stamina", 101));

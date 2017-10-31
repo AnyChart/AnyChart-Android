@@ -11,6 +11,7 @@ import com.anychart.sample.charts.BubbleChartActivity;
 import com.anychart.sample.charts.CircularGaugeActivity;
 import com.anychart.sample.charts.Column3DChartActivity;
 import com.anychart.sample.charts.ColumnChartActivity;
+import com.anychart.sample.charts.CombinedChartActivity;
 import com.anychart.sample.charts.FunnelChartActivity;
 import com.anychart.sample.charts.HeatMapChartActivity;
 import com.anychart.sample.charts.LineChartActivity;
@@ -33,16 +34,12 @@ import com.anychart.sample.charts.WaterfallChartActivity;
 
 import java.util.ArrayList;
 
-/**
- * Created by arseny on 9/12/17.
- */
-
 public class Chart {
 
     private String name;
     private Class activityClass;
 
-    public Chart(String name, Class activityClass) {
+    private Chart(String name, Class activityClass) {
         this.name = name;
         this.activityClass = activityClass;
     }
@@ -51,11 +48,11 @@ public class Chart {
         return name;
     }
 
-    public Class getActivityClass() {
+    Class getActivityClass() {
         return activityClass;
     }
 
-    public static ArrayList<Chart> createChartList(Resources resources) {
+    static ArrayList<Chart> createChartList(Resources resources) {
         ArrayList<Chart> chartList = new ArrayList<>();
 
         chartList.add(new Chart(resources.getString(R.string.pie_chart), PieChartActivity.class));
@@ -77,7 +74,7 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.vertical_chart), VerticalChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.funnel_chart), FunnelChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.pert_chart), PertChartActivity.class));
-//        chartList.add(new Chart(resources.getString(R.string.combined_chart), CombinedChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.combined_chart), CombinedChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.bubble_chart), BubbleChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.pareto_chart), ParetoChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.pyramid_chart), PyramidActivity.class));

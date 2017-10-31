@@ -25,7 +25,6 @@ public class FunnelChartActivity extends AppCompatActivity {
         Funnel funnel = AnyChart.funnel();
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new ValueDataEntry("Website Visits", 528756));
         data.add(new ValueDataEntry("Downloads", 164052));
         data.add(new ValueDataEntry("Valid Contacts", 112167));
@@ -33,14 +32,6 @@ public class FunnelChartActivity extends AppCompatActivity {
         data.add(new ValueDataEntry("Purchased", 79128));
 
         funnel.setData(data);
-
-//        funnel.setData(new String[] {
-//                "['Website Visits', 528756]",
-//                "['Downloads', 164052]",
-//                "['Valid Contacts', 112167]",
-//                "['Interested to Buy', 79128]",
-//                "['Purchased', 79128]"
-//        }, TextParsingMode.CSV);
 
         funnel.setMargin(new String[] { "10", "20%", "10", "20%" });
         funnel.setBaseWidth("70%")

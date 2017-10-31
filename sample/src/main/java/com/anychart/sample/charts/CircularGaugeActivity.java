@@ -27,8 +27,7 @@ public class CircularGaugeActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
         CircularGauge circularGauge = AnyChart.circular();
-        SingleValueDataSet singleValueDataSet = new SingleValueDataSet(new String[] { "23", "34", "67", "93", "56", "100"});
-        circularGauge.setData(singleValueDataSet);
+        circularGauge.setData(new SingleValueDataSet(new String[] { "23", "34", "67", "93", "56", "100"}));
         circularGauge.setFill("#fff")
                 .setStroke((Stroke) null, null, null, null, null)
                 .setPadding(0d, 0d, 0d, 0d)

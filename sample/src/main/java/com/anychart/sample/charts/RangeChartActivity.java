@@ -52,7 +52,6 @@ public class RangeChartActivity extends AppCompatActivity {
 
     private List<DataEntry> getEdinburghData() {
         List<DataEntry> edinburgData = new ArrayList<>();
-
         edinburgData.add(new HighLowDataEntry("Jan", 5.8, 7.9));
         edinburgData.add(new HighLowDataEntry("Feb", 4.6, 6.1));
         edinburgData.add(new HighLowDataEntry("Mar", 5.9, 8.1));
@@ -71,7 +70,6 @@ public class RangeChartActivity extends AppCompatActivity {
 
     private List<DataEntry> getLondonData() {
         List<DataEntry> londonData = new ArrayList<>();
-
         londonData.add(new HighLowDataEntry("Jan", 6.1, 8.9));
         londonData.add(new HighLowDataEntry("Feb", 5.5, 8.2));
         londonData.add(new HighLowDataEntry("Mar", 5.9, 8.1));

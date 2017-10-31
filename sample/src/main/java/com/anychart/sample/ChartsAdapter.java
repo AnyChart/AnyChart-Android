@@ -10,17 +10,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by arseny on 9/12/17.
- */
-
 public class ChartsAdapter extends RecyclerView.Adapter<ChartsAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView tvName;
+        TextView tvName;
         private Context context;
 
-        public ViewHolder(Context context, View itemView) {
+        ViewHolder(Context context, View itemView) {
             super(itemView);
 
             this.context = context;
@@ -44,7 +40,7 @@ public class ChartsAdapter extends RecyclerView.Adapter<ChartsAdapter.ViewHolder
     private List<Chart> chartList;
     private Context context;
 
-    public ChartsAdapter(Context context, List<Chart> chartList) {
+    ChartsAdapter(Context context, List<Chart> chartList) {
         this.chartList = chartList;
         this.context = context;
     }

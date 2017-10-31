@@ -26,7 +26,6 @@ public class MekkoChartActivity extends AppCompatActivity {
         ChartsMekko mekkoChart = AnyChart.mekko();
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new ValueDataEntry("Acer", 2254));
         data.add(new ValueDataEntry("Data Creative", 1010));
         data.add(new ValueDataEntry("Data Developer", 417));
@@ -61,19 +60,6 @@ public class MekkoChartActivity extends AppCompatActivity {
 
         mekkoChart.mekko(data)
                 .setName("Laptop");
-
-//        mekko.setData(data);
-//        mekko.setData(new String[] {
-//                "['Acer', 2254, 1274, 635, 253]",
-//                "['Dell', 1010, 950, 675, 250]",
-//                "['HP', 417, 631, 405, 251]",
-//                "['Lenovo', 210, 307, 450, 257]"
-//        });
-
-//        mekkoChart.getGetSeriesAt(0d).setName("Phone");
-//        mekkoChart.getGetSeriesAt(1d).setName("Tablet");
-//        mekkoChart.getGetSeriesAt(2d).setName("Desktop");
-//        mekkoChart.getGetSeriesAt(3d).setName("Laptop");
 
         mekkoChart.getXAxis().setOrientation(Orientation.TOP);
 

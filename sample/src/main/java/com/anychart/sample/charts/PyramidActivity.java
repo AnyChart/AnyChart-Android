@@ -28,20 +28,12 @@ public class PyramidActivity extends AppCompatActivity {
         Pyramid pyramid = AnyChart.pyramid();
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new ValueDataEntry("TV promotion", 6371664));
         data.add(new ValueDataEntry("Radio promotion", 7216301));
         data.add(new ValueDataEntry("Advertising leaflets", 1486621));
         data.add(new ValueDataEntry("Before advertising started", 1386622));
 
         pyramid.setData(data);
-
-//        pyramid.setData(new String[] {
-//                "{name: 'TV promotion', value: 6371664}",
-//                "{name: 'Radio promotion', value: 7216301}",
-//                "{name: 'Advertising leaflets', value: 1486621}",
-//                "{name: 'Before advertising started', value: 1386622}"
-//        }, TextParsingMode.CSV);
 
         UiLegend legend = pyramid.getLegend();
         legend.setEnabled(true);

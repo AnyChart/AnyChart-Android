@@ -9,8 +9,8 @@ import com.anychart.anychart.ChartsPolar;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.PolarSeriesType;
 import com.anychart.anychart.ScaleTypes;
-import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.TooltipDisplayMode;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -28,7 +28,6 @@ public class PolarChartActivity extends AppCompatActivity {
         ChartsPolar polar = AnyChart.polar();
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new ValueDataEntry("Nail polish", 12814));
         data.add(new ValueDataEntry("Eyebrow pencil", 13012));
         data.add(new ValueDataEntry("Rouge", 11624));
@@ -78,9 +77,6 @@ public class PolarChartActivity extends AppCompatActivity {
                 .setXScale(ScaleTypes.ORDINAL);
 
         polar.getTitle().getMargin().setBottom(20d);
-
-        // TODO stackMode
-//        polar.getYScale().setStackMode(ScaleStackMode.VALUE);
 
         polar.getTooltip()
                 .setValuePrefix("$")

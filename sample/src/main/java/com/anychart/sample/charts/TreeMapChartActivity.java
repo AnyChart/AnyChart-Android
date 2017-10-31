@@ -31,7 +31,6 @@ public class TreeMapChartActivity extends AppCompatActivity {
         TreeMap treeMap = AnyChart.treeMap();
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new CustomTreeDataEntry("Products by Revenue", null, "Products by Revenue"));
         data.add(new CustomTreeDataEntry("Fruits", "Products by Revenue", "Fruits", 692000));
         data.add(new CustomTreeDataEntry("Vegetables", "Products by Revenue", "Vegetables", 597000));
@@ -152,38 +151,4 @@ public class TreeMapChartActivity extends AppCompatActivity {
         }
     }
 
-//    private String getData() {
-//        return
-//                "[{id: 'Products by Revenue', product: 'Products by Revenue', parent: null}," +
-//                "{parent: 'Products by Revenue', id: 'Fruits', product: 'Fruits', value: 692000}," +
-//                "{parent: 'Products by Revenue', id: 'Vegetables', product: 'Vegetables', value: 597000}," +
-//                "{parent: 'Products by Revenue', id: 'Dairy', product: 'Dairy', value: 1359000}," +
-//                "{parent: 'Products by Revenue', id: 'Meat', product: 'Meat', value: 596000}," +
-//                "{parent: 'Fruits', id: 'Apples', product: 'Apples', value: 138000}," +
-//                "{parent: 'Fruits', id: 'Oranges', product: 'Oranges', value: 22000}," +
-//                "{parent: 'Fruits', id: 'Bananas', product: 'Bananas', value: 88000}," +
-//                "{parent: 'Fruits', id: 'Melons', product: 'Melons', value: 77000}," +
-//                "{parent: 'Fruits', id: 'Apricots', product: 'Apricots', value: 48000}," +
-//                "{parent: 'Fruits', id: 'Plums', product: 'Plums', value: 48000}," +
-//                "{parent: 'Fruits', id: 'Pineapples', product: 'Pineapples', value: 41000}," +
-//                "{parent: 'Fruits', id: 'Cherries', product: 'Cherries', value: 39000}," +
-//                "{parent: 'Fruits', id: 'Tangerines', product: 'Tangerines', value: 32000}," +
-//                "{parent: 'Vegetables', id: 'Potato', product: 'Potato', value: 189000}," +
-//                "{parent: 'Vegetables', id: 'Eggplants', product: 'Eggplants', value: 94000}," +
-//                "{parent: 'Vegetables', id: 'Tomatoes', product: 'Tomatoes', value: 63000}," +
-//                "{parent: 'Vegetables', id: 'Cucumbers', product: 'Cucumbers', value: 43000}," +
-//                "{parent: 'Vegetables', id: 'Cabbage', product: 'Cabbage', value: 30000}," +
-//                "{parent: 'Vegetables', id: 'Carrot', product: 'Carrot', value: 29000}," +
-//                "{parent: 'Vegetables', id: 'Squash', product: 'Squash', value: 26000}," +
-//                "{parent: 'Vegetables', id: 'Capsicums', product: 'Capsicums', value: 23000}," +
-//                "{parent: 'Dairy', id: 'Milk', product: 'Milk', value: 154000}," +
-//                "{parent: 'Dairy', id: 'Curd', product: 'Curd', value: 142000}," +
-//                "{parent: 'Dairy', id: 'Cheese', product: 'Cheese', value: 43000}," +
-//                "{parent: 'Dairy', id: 'Yogurt', product: 'Yogurt', value: 38000}," +
-//                "{parent: 'Dairy', id: 'Kefir', product: 'Kefir', value: 32000}," +
-//                "{parent: 'Meat', id: 'Mutton', product: 'Mutton', value: 154000}," +
-//                "{parent: 'Meat', id: 'Beef', product: 'Beef', value: 142000}," +
-//                "{parent: 'Meat', id: 'Pork', product: 'Pork', value: 43000}," +
-//                "{parent: 'Meat', id: 'Veal', product: 'Veal', value: 38000}]";
-//    }
 }

@@ -48,7 +48,6 @@ public class CombinedChartActivity extends AppCompatActivity {
                 .setFormat("{%Value}%");
 
         List<DataEntry> column1Data = new ArrayList<>();
-
         column1Data.add(new ValueDataEntry("P1", 2040));
         column1Data.add(new ValueDataEntry("P2", 1794));
         column1Data.add(new ValueDataEntry("P3", 2026));
@@ -66,7 +65,6 @@ public class CombinedChartActivity extends AppCompatActivity {
         cartesian.setCrosshair(true);
 
         List<DataEntry> lineData = new ArrayList<>();
-
         lineData.add(new ValueDataEntry("P1", 96.5));
         lineData.add(new ValueDataEntry("P2", 77.1));
         lineData.add(new ValueDataEntry("P3", 73.2));
@@ -84,7 +82,6 @@ public class CombinedChartActivity extends AppCompatActivity {
         line.setYScale(scalesLinear);
 
         List<DataEntry> column2Data = new ArrayList<>();
-
         column2Data.add(new ValueDataEntry("P1", 1200));
         column2Data.add(new ValueDataEntry("P2", 1124));
         column2Data.add(new ValueDataEntry("P3", 1006));
@@ -101,7 +98,6 @@ public class CombinedChartActivity extends AppCompatActivity {
         cartesian.column(column2Data);
 
         List<DataEntry> column3Data = new ArrayList<>();
-
         column3Data.add(new ValueDataEntry("P1", 1600));
         column3Data.add(new ValueDataEntry("P2", 1724));
         column3Data.add(new ValueDataEntry("P3", 1806));

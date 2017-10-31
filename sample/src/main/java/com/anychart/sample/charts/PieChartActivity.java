@@ -27,7 +27,6 @@ public class PieChartActivity extends AppCompatActivity {
         Pie pie = AnyChart.pie();
 
         List<DataEntry> data = new ArrayList<>();
-
         data.add(new ValueDataEntry("Apples", 6371664));
         data.add(new ValueDataEntry("Pears", 789622));
         data.add(new ValueDataEntry("Bananas", 7216301));

@@ -45,7 +45,6 @@ public class Area3DChartActivity extends AppCompatActivity {
         area3d.getTitle().setPadding(0d, 0d, 20d, 0d);
 
         List<DataEntry> series1Data = new ArrayList<>();
-
         series1Data.add(new ValueDataEntry("1986", 162));
         series1Data.add(new ValueDataEntry("1987", 134));
         series1Data.add(new ValueDataEntry("1988", 116));
@@ -73,7 +72,6 @@ public class Area3DChartActivity extends AppCompatActivity {
         series1.setHatchFill("diagonal", "#000", 0.6d, 10d);
 
         List<DataEntry> series2Data = new ArrayList<>();
-
         series2Data.add(new ValueDataEntry("1986", 42));
         series2Data.add(new ValueDataEntry("1987", 54));
         series2Data.add(new ValueDataEntry("1988", 26));
@@ -112,4 +110,5 @@ public class Area3DChartActivity extends AppCompatActivity {
 
         anyChartView.setChart(area3d);
     }
+
 }
