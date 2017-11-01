@@ -28,8 +28,6 @@ abstract class JsObject {
 
     protected static int variableIndex = 0;
 
-    protected boolean isCreated = false;
-
     protected String jsBase;
 
     protected boolean isChain = false;

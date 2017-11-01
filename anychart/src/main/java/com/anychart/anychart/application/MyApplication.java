@@ -4,11 +4,6 @@ import android.app.Application;
 
 import com.anychart.anychart.chart.common.JavaScriptInterface;
 
-
-/**
- * Created by arseny on 8/7/17.
- */
-
 public class MyApplication extends Application {
 
     private static JavaScriptInterface javaScriptInterface;

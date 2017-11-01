@@ -1,14 +1,9 @@
 package com.anychart.anychart.chart.common;
 
-import android.util.Log;
 import android.webkit.JavascriptInterface;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-/**
- * Created by arseny on 8/7/17.
- */
 
 public class JavaScriptInterface {
 

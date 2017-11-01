@@ -1,9 +1,5 @@
 package com.anychart.anychart.chart.common;
 
-/**
- * Created by arseny on 8/10/17.
- */
-
 public class Event {
 
     private String x;
