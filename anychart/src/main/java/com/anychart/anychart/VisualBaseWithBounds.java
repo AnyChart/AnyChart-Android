@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -121,12 +116,10 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
-            js.append(bounds.generateJs());
-            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".bounds(%s);",  ((bounds != null) ? bounds.getJsBase() : "null")));
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", ((bounds != null) ? bounds.generateJs() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds != null) ? bounds.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds != null) ? bounds.generateJs() : "null")));
                 js.setLength(0);
             }
         }

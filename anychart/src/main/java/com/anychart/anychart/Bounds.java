@@ -529,16 +529,14 @@ public class Bounds extends CoreBase {
             this.xOrRect3 = xOrRect3;
         } else {
             this.xOrRect3 = xOrRect3;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
             }
-            js.append(xOrRect3.generateJs());
-            js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".set(%s);",  ((xOrRect3 != null) ? xOrRect3.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".set(%s)", ((xOrRect3 != null) ? xOrRect3.generateJs() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect3 != null) ? xOrRect3.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect3 != null) ? xOrRect3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
