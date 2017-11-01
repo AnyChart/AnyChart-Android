@@ -499,7 +499,31 @@ AnyChart product family includes more than 60 different chart types and we're co
 </table>  
 
 ## Running Demos
-TODO!
+Clone or download the project.
+
+Open Android Studio and import the project.
+
+<table>
+    <tr>
+        <td>
+            <h3 align="center">Import Project</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_1.png" alt="Import project">
+        </td>
+    </tr>
+</table>
+
+Run the project.
+
+<table>
+    <tr>
+        <td>
+            <h3 align="center">Run Project</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_2.png" alt="Run project">
+        </td>
+    </tr>
+</table>
 
 
 ## Contacts
