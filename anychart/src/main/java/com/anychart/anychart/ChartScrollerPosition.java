@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * ChartScroller possible positions.
+ */
 public enum ChartScrollerPosition implements JsObject.JsObjectInterface {
     AFTER_AXES("after-axes"),
     BEFORE_AXES("before-axes");

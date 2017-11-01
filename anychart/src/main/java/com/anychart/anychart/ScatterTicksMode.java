@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Scatter ticks <a href="anychart.scales.ScatterTicks#mode">mode</a> enum.
+ */
 public enum ScatterTicksMode implements JsObject.JsObjectInterface {
     LINEAR("linear"),
     LOGARITHMIC("logarithmic");

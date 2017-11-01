@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * List of all scale types for scatter chart.
+ */
 public enum ScatterScaleTypes implements JsObject.JsObjectInterface {
     DATE_TIME("date-time"),
     LINEAR("linear"),

@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Polar series types.
+ */
 public enum PolarSeriesType implements JsObject.JsObjectInterface {
     AREA("area"),
     COLUMN("column"),

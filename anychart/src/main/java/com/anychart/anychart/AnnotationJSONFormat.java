@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Type definition for annotation JSON format.
+ */
 public class AnnotationJSONFormat extends JsObject  {
 
     

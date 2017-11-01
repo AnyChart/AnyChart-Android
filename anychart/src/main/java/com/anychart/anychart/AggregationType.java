@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Aggregation type for table columns.
+ */
 public enum AggregationType implements JsObject.JsObjectInterface {
     AVERAGE("average"),
     FIRST("first"),

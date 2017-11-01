@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Predefined bullet marker type.
+ */
 public enum BulletMarkerType implements JsObject.JsObjectInterface {
     BAR("bar"),
     ELLIPSE("ellipse"),

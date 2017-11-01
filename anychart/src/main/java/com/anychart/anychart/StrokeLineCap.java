@@ -2,6 +2,10 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Line caps.
+<a href='https://www.w3.org/TR/SVG/painting.html#StrokeLinecapProperty'>StrokeLinecapProperty</a>
+ */
 public enum StrokeLineCap implements JsObject.JsObjectInterface {
     BUTT("butt"),
     ROUND("round"),

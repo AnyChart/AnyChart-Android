@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Scatter series types.
+ */
 public enum ScatterSeriesType implements JsObject.JsObjectInterface {
     BUBBLE("bubble"),
     LINE("line"),

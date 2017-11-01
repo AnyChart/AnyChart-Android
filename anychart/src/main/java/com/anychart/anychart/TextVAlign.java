@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Text vertical align.
+ */
 public enum TextVAlign implements JsObject.JsObjectInterface {
     BOTTOM("bottom"),
     MIDDLE("middle"),

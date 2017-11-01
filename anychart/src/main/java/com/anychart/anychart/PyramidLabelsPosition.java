@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Labels position for the funnel chart and pyramid.
+ */
 public enum PyramidLabelsPosition implements JsObject.JsObjectInterface {
     INSIDE("inside"),
     OUTSIDE_LEFT("outside-left"),

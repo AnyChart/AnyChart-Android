@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Cartesian series types.
+ */
 public enum CartesianSeriesType implements JsObject.JsObjectInterface {
     AREA("area"),
     BAR("bar"),

@@ -3,6 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Type definition for date time localization.
+The default locale is EN-US (see AnyChart CDN: https://cdn.anychart.com/#locales)
+ */
 public class DateTimeLocale extends JsObject  {
 
     

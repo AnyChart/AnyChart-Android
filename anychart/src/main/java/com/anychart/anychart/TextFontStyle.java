@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Font style.
+ */
 public enum TextFontStyle implements JsObject.JsObjectInterface {
     ITALIC("italic"),
     NORMAL("normal"),

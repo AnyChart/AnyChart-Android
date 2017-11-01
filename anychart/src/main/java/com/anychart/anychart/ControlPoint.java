@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Control point type definition.
+ */
 public class ControlPoint extends JsObject  {
 
     

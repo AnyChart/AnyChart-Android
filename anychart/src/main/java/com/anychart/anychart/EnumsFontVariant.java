@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Font variant enumeration.
+ */
 public enum EnumsFontVariant implements JsObject.JsObjectInterface {
     NORMAL("normal"),
     SMALL_CAP("small-caps");

@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * List of all scale types.
+ */
 public enum GaugeScaleTypes implements JsObject.JsObjectInterface {
     LINEAR("linear"),
     LOG("log");

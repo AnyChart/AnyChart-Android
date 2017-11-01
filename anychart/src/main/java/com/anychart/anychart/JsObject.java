@@ -34,9 +34,9 @@ abstract class JsObject {
 
     protected boolean isChain = false;
 
-    OnChange onChangeListener;
+    protected OnChange onChangeListener;
 
-    boolean isRendered = false;
+    protected boolean isRendered = false;
 
     protected JsObject() {
 
@@ -50,7 +50,7 @@ abstract class JsObject {
         void onChange(String jsChange);
     }
 
-    void setOnChangeListener(OnChange listener) {
+    protected void setOnChangeListener(OnChange listener) {
         onChangeListener = listener;
 
         isRendered = true;
@@ -105,7 +105,7 @@ abstract class JsObject {
         return Arrays.toString(array);
     }
 
-    public static String arrayToString(JsObject[] jsObjects) {
+    protected static String arrayToString(JsObject[] jsObjects) {
         if (jsObjects == null) {
             return "";
         }
@@ -126,7 +126,7 @@ abstract class JsObject {
         return result.toString();
     }
 
-    public static String arrayToString(JsObjectInterface[] jsObjects) {
+    protected static String arrayToString(JsObjectInterface[] jsObjects) {
         if (jsObjects == null) {
             return "";
         }
@@ -147,7 +147,7 @@ abstract class JsObject {
         return result.toString();
     }
 
-    public static String arrayToString(Object[] jsObjects) {
+    protected static String arrayToString(Object[] jsObjects) {
         if (jsObjects == null) {
             return "";
         }

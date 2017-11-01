@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Mekko series types.
+ */
 public enum MekkoSeriesType implements JsObject.JsObjectInterface {
     MEKKO("mekko");
 

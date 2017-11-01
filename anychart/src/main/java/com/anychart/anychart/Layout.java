@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Layout enumeration.
+ */
 public enum Layout implements JsObject.JsObjectInterface {
     HORIZONTAL("horizontal"),
     VERTICAL("vertical");

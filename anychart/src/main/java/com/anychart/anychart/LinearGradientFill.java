@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Linear gradient.
+ */
 public class LinearGradientFill extends JsObject implements ColoredFill, Fill {
 
     

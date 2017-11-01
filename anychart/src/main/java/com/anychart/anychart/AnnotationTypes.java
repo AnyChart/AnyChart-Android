@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Annotations type.
+ */
 public enum AnnotationTypes implements JsObject.JsObjectInterface {
     ANDREWS_PITCHFORK("andrews-pitchfork"),
     ELLIPSE("ellipse"),

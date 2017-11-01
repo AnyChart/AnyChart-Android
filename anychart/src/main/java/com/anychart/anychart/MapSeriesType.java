@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Map series types.
+ */
 public enum MapSeriesType implements JsObject.JsObjectInterface {
     BUBBLE("bubble"),
     CHOROPLETH("choropleth"),

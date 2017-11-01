@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Orientation enumeration.
+ */
 public enum Orientation implements JsObject.JsObjectInterface {
     BOTTOM("bottom"),
     LEFT("left"),

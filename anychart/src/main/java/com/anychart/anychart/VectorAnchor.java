@@ -2,6 +2,10 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * The list of positions for an anchor. <br/>
+<img src='/si/special-hotfixes-typescript/anychart.enums.Anchor|string.png' width='327' height='179'/>
+ */
 public enum VectorAnchor implements JsObject.JsObjectInterface {
     AUTO("auto"),
     CENTER("center"),

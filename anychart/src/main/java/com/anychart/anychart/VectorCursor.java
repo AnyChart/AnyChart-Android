@@ -2,6 +2,10 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Defines the type of the cursor.<br/>
+To view the example, point the cursor at the description of the type.
+ */
 public enum VectorCursor implements JsObject.JsObjectInterface {
     CROSSHAIR("crosshair"),
     DEFAULT("default"),

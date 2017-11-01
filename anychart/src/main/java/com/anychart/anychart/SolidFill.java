@@ -1,8 +1,10 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
 
+/**
+ * Fill.
+ */
 public class SolidFill extends JsObject implements ColoredFill, Fill {
 
     

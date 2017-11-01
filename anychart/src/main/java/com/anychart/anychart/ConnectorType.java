@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Connection types.
+ */
 public enum ConnectorType implements JsObject.JsObjectInterface {
     FINISH_FINISH("finish-finish"),
     FINISH_START("finish-start"),

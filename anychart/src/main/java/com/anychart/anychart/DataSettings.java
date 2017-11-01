@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Type definition for table data.
+ */
 public class DataSettings extends JsObject  {
 
     

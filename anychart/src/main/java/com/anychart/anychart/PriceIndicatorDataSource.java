@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * List of data source for a price indicator value.
+ */
 public enum PriceIndicatorDataSource implements JsObject.JsObjectInterface {
     FIRST_VISIBLE("first-visible"),
     LAST_VISIBLE("last-visible"),

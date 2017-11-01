@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Enum for scale comparison mode.
+ */
 public enum ScaleComparisonMode implements JsObject.JsObjectInterface {
     NONE("none"),
     PERCENT("percent"),

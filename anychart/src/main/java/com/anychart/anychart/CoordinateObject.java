@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Type definition for coordinate.
+ */
 public class CoordinateObject extends JsObject  {
 
     

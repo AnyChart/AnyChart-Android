@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Text horizontal align.
+ */
 public enum TextHAlign implements JsObject.JsObjectInterface {
     CENTER("center"),
     END("end"),

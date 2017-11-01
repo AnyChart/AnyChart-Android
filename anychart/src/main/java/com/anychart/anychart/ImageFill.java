@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Image fill.
+ */
 public class ImageFill extends JsObject implements Fill {
 
     

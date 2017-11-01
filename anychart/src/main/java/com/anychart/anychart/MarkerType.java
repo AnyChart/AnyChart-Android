@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Markers type.
+ */
 public enum MarkerType implements JsObject.JsObjectInterface {
     ARROWHEAD("arrowhead"),
     ARROW_DOWN("arrow-down"),

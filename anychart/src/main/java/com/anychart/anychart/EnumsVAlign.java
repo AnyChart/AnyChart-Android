@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Vertical align enum.
+ */
 public enum EnumsVAlign implements JsObject.JsObjectInterface {
     BOTTOM("bottom"),
     MIDDLE("middle"),

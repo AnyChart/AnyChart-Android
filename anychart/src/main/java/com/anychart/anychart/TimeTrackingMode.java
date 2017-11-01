@@ -2,6 +2,10 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Time tracking mode.
+Row height depends on resource chart time.
+ */
 public enum TimeTrackingMode implements JsObject.JsObjectInterface {
     ACTIVITY_PER_CHART("activity-per-chart"),
     ACTIVITY_PER_RESOURCE("activity-per-resource"),

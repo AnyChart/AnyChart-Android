@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Legend layout enumeration.
+ */
 public enum LegendLayout implements JsObject.JsObjectInterface {
     HORIZONTAL("horizontal"),
     HORIZONTAL_EXPANDABLE("horizontal-expandable"),

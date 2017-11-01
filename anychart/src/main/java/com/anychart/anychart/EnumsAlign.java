@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Align enumeration.
+ */
 public enum EnumsAlign implements JsObject.JsObjectInterface {
     BOTTOM("bottom"),
     CENTER("center"),

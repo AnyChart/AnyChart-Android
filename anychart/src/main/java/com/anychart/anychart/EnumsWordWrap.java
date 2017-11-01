@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Text word-wrap mode.
+ */
 public enum EnumsWordWrap implements JsObject.JsObjectInterface {
     BREAK_WORD("break-word"),
     NORMAL("normal");

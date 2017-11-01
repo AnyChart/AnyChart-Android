@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Data export mode enum.
+ */
 public enum ChartDataExportMode implements JsObject.JsObjectInterface {
     DEFAULT("default"),
     GROUPED("grouped"),

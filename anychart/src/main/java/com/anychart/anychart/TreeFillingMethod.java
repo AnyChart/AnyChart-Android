@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Data fill method.
+ */
 public enum TreeFillingMethod implements JsObject.JsObjectInterface {
     AS_TABLE("as-table"),
     AS_TREE("as-tree");

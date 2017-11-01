@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Supported projections enum.
+ */
 public enum MapProjections implements JsObject.JsObjectInterface {
     AITOFF("aitoff"),
     AUGUST("august"),

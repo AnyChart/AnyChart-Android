@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Stock period range type.
+ */
 public enum StockRangeType implements JsObject.JsObjectInterface {
     MAX("max"),
     MTD("mtd"),

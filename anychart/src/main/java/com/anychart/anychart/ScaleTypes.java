@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * List of all scale types.
+ */
 public enum ScaleTypes implements JsObject.JsObjectInterface {
     DATE_TIME("date-time"),
     DATE_TIME_WITH_CALENDAR("date-time-with-calendar"),

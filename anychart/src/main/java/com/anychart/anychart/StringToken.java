@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * String token enumeration.
+ */
 public enum StringToken implements JsObject.JsObjectInterface {
     ACTIVITY_INDEX("%activityIndex"),
     AVERAGE("%Average"),

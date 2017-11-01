@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Statistics enumeration.
+ */
 public enum Statistics implements JsObject.JsObjectInterface {
     AVERAGE("average"),
     BUBBLE_SIZE("bubbleSize"),

@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Modes enum for <a href="anychart.data#mapAsTable">mapAsTable</a> function.
+ */
 public enum MapAsTableMode implements JsObject.JsObjectInterface {
     OHLC("ohlc"),
     RANGE("range"),

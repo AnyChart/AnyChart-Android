@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Display mode for labels.
+ */
 public enum LabelsDisplayMode implements JsObject.JsObjectInterface {
     ALWAYS_SHOW("always-show"),
     CLIP("clip"),

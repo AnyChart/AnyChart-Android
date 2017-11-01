@@ -121,10 +121,12 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(bounds.generateJs());
+            js.append(jsBase);
 
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", ((bounds != null) ? bounds.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".bounds(%s);",  ((bounds != null) ? bounds.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds != null) ? bounds.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds != null) ? bounds.getJsBase() : "null")));
                 js.setLength(0);
             }
         }

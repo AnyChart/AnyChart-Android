@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Direct stacking direction for the stacked scale mode.
+ */
 public enum ScaleStackDirection implements JsObject.JsObjectInterface {
     DIRECT("direct"),
     REVERSE("reverse");

@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Gauges elements <a href="anychart.core.axisMarkers.CircularRange#position">position</a> relative axis.
+ */
 public enum GaugeSidePosition implements JsObject.JsObjectInterface {
     CENTER("center"),
     INSIDE("inside"),

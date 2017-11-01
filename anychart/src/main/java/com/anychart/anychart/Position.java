@@ -2,6 +2,10 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Position enum. Defines 9 items. Similar to Anchor. Distinct by meaning.<br/>
+<img src="/si/special-hotfixes-typescript/anychart.enums.Anchor.png" width="327" height="179"/>
+ */
 public enum Position implements JsObject.JsObjectInterface {
     AUTO("auto"),
     CENTER("center"),

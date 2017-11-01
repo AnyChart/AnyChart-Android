@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Settings for parsing text.
+ */
 public class TextParsingSettings extends JsObject  {
 
     

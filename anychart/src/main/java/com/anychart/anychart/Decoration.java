@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Text decoration.
+ */
 public enum Decoration implements JsObject.JsObjectInterface {
     BLINK("blink"),
     LINE_THROUGH("line-through"),

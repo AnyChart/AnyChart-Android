@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Overlap modes.
+ */
 public enum LabelsOverlapMode implements JsObject.JsObjectInterface {
     ALLOW_OVERLAP("allow-overlap"),
     NO_OVERLAP("no-overlap");

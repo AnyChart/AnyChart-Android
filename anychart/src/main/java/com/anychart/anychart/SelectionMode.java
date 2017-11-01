@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * <a href="anychart.core.SeriesBase#selectionMode">Selection mode</a> enumeration.
+ */
 public enum SelectionMode implements JsObject.JsObjectInterface {
     DRILL_DOWN("drill-down"),
     MULTI_SELECT("multi-select"),

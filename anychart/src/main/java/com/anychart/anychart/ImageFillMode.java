@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Image fill modes.
+ */
 public enum ImageFillMode implements JsObject.JsObjectInterface {
     FIT("fit"),
     FIT_MAX("fit-max"),

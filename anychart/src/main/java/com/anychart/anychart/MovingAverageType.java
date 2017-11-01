@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Smoothing Types Enum.
+ */
 public enum MovingAverageType implements JsObject.JsObjectInterface {
     EMA("ema"),
     SMA("sma");

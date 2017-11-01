@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Pert reserved names of field in data.
+ */
 public enum DataField implements JsObject.JsObjectInterface {
     DEPENDS_ON("dependsOn"),
     DURATION("duration"),

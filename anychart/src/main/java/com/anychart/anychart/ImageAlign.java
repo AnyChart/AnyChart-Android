@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Align enumeration.
+ */
 public enum ImageAlign implements JsObject.JsObjectInterface {
     NONE("none"),
     X_MAX_Y_MAX("x-max-y-max"),

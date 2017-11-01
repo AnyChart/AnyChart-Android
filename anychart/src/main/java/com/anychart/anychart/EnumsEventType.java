@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Event types enumeration.
+ */
 public enum EnumsEventType implements JsObject.JsObjectInterface {
     ANIMATION_END("animationEnd"),
     ANIMATION_START("animationStart"),

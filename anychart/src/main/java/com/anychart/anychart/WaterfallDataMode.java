@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * List of waterfall chart data modes.
+ */
 public enum WaterfallDataMode implements JsObject.JsObjectInterface {
     ABSOLUTE("absolute"),
     DIFF("diff");

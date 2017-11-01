@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Radial gradient fill.
+ */
 public class RadialGradientFill extends JsObject implements ColoredFill, Fill {
 
     

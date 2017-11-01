@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Gantt Date Time scale markers.
+ */
 public enum GanttDateTimeMarkers implements JsObject.JsObjectInterface {
     CURRENT("current"),
     END("end"),

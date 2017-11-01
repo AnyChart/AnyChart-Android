@@ -2,6 +2,10 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Hatch Fill types.
+<b>Note!</b> VML does not support hatch due to performance issues.
+ */
 public enum HatchFillType implements JsObject.JsObjectInterface {
     BACKWARD_DIAGONAL("backward-diagonal"),
     CHECKER_BOARD("checker-board"),

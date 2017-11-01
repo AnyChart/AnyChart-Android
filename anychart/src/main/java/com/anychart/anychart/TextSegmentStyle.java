@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Text segment.
+ */
 public class TextSegmentStyle extends JsObject  {
 
     

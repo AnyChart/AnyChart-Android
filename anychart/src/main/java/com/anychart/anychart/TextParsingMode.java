@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Text parsing mode.
+ */
 public enum TextParsingMode implements JsObject.JsObjectInterface {
     BY_CHAR("by-char"),
     BY_WORD("by-word"),

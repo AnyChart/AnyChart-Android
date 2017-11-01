@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Fitting mode.
+ */
 public enum Fitting implements JsObject.JsObjectInterface {
     MEET("meet"),
     SLICE("slice");

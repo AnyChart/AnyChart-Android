@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Shape config.
+ */
 public class ShapeConfig extends JsObject  {
 
     

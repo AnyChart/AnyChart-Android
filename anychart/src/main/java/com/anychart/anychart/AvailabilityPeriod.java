@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Availability period for calendar.
+ */
 public enum AvailabilityPeriod implements JsObject.JsObjectInterface {
     DAY("day"),
     NONE("none"),

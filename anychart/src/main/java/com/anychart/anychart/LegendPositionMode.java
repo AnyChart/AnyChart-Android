@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Legend position mode enumeration.
+ */
 public enum LegendPositionMode implements JsObject.JsObjectInterface {
     INSIDE("inside"),
     OUTSIDE("outside");

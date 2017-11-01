@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Types of the <a href="anychart.core.ui.Background#cornerType">corner</a>.
+ */
 public enum BackgroundCornersType implements JsObject.JsObjectInterface {
     CUT("cut"),
     NONE("none"),

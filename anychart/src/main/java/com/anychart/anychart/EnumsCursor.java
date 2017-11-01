@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Cursor enum. Defines 19 items.
+ */
 public enum EnumsCursor implements JsObject.JsObjectInterface {
     CROSSHAIR("crosshair"),
     DEFAULT("default"),

@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * List of all series types. See method at: {@link anychart.charts.Sparkline#type}
+ */
 public enum SparklineSeriesType implements JsObject.JsObjectInterface {
     AREA("area"),
     COLUMN("column"),

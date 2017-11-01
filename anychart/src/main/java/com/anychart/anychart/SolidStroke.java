@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Solid color line.
+ */
 public class SolidStroke extends JsObject implements Stroke {
 
     

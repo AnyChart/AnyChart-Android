@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Stage events.
+ */
 public enum StageEventType implements JsObject.JsObjectInterface {
     RENDER_FINISH("renderfinish"),
     RENDER_START("renderstart"),

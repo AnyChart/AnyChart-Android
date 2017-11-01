@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Step direction.
+ */
 public enum StepDirection implements JsObject.JsObjectInterface {
     BACKWARD("backward"),
     CENTER("center"),

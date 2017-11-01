@@ -4,11 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.ConsoleMessage;
-import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -17,12 +14,7 @@ import android.widget.FrameLayout;
 
 import com.anychart.anychart.application.MyApplication;
 
-
-/**
- * Created by NeverKnowsBest on 08/04/2017.
- */
-
-public class AnyChartView extends FrameLayout {
+public final class AnyChartView extends FrameLayout {
 
     private WebView webView;
     private Chart chart;
@@ -56,16 +48,6 @@ public class AnyChartView extends FrameLayout {
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setLoadWithOverviewMode(true);
-//        webSettings.setUseWideViewPort(true);
-
-        webView.setWebChromeClient(new WebChromeClient() {
-            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                Log.wtf("AnyChart", consoleMessage.message() + " -- From line "
-                        + consoleMessage.lineNumber());
-
-                return true;
-            }
-        });
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -76,7 +58,6 @@ public class AnyChartView extends FrameLayout {
             public void onPageFinished(WebView view, String url) {
                 if (chart != null) {
                     js.append(chart.generateJs());
-                    System.out.println(js.toString());
                 } else {
                     throw new NullPointerException();
                 }

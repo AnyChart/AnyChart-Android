@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Enum for data table search modes.
+ */
 public enum TableSearchMode implements JsObject.JsObjectInterface {
     EXACT("exact"),
     EXACT_OR_NEXT("exact-or-next"),

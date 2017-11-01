@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Type definition for the preparing of the context menu items.
+ */
 public class PrepareItemsContext extends JsObject  {
 
     

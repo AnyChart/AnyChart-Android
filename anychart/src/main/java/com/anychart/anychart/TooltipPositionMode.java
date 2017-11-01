@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Tooltip <a href="anychart.core.ui.Tooltip#positionMode">position mode</a>.
+ */
 public enum TooltipPositionMode implements JsObject.JsObjectInterface {
     CHART("chart"),
     FLOAT("float"),

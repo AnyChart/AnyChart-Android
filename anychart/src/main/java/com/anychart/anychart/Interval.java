@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Interval enumeration.
+ */
 public enum Interval implements JsObject.JsObjectInterface {
     DAY("day"),
     HOUR("hour"),

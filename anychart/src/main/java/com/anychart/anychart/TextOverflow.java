@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Defines visibility in block, of text can't be shown in the area.
+ */
 public enum TextOverflow implements JsObject.JsObjectInterface {
     CLIP(""),
     ELLIPSIS("...");

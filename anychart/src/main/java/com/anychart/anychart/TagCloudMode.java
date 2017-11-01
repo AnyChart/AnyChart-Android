@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Tag cloud mode.
+ */
 public enum TagCloudMode implements JsObject.JsObjectInterface {
     RECT("rect"),
     SPIRAL("spiral");

@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Column formatting presets.
+ */
 public enum ColumnFormats implements JsObject.JsObjectInterface {
     DATE_COMMON_LOG("date-common-log"),
     DATE_DMY_DOTS("date-dmy-dots"),

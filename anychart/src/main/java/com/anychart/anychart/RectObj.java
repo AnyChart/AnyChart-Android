@@ -3,6 +3,9 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+/**
+ * Type definition for the rectangle.
+ */
 public class RectObj extends JsObject  {
 
     

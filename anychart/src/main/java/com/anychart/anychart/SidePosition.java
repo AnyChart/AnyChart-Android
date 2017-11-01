@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Ticks <a href="anychart.core.axes.Ticks#position">position</a> (inside ot outside).
+ */
 public enum SidePosition implements JsObject.JsObjectInterface {
     CENTER("center"),
     INSIDE("inside"),

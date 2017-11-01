@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Locale date time interval format names.
+ */
 public enum LocaleDateTimeFormat implements JsObject.JsObjectInterface {
     DAY("day"),
     DAY_HOUR("day-hour"),

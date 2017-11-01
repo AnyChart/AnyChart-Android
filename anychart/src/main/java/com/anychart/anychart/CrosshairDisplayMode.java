@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 
+/**
+ * Display mode for <a href="anychart.core.ui.Crosshair">crosshair</a>.
+ */
 public enum CrosshairDisplayMode implements JsObject.JsObjectInterface {
     FLOAT("float"),
     STICKY("sticky");
