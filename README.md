@@ -544,6 +544,16 @@ Run the project.
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_2.png" alt="Run project">
         </td>
+        <td>
+            <h3 align="center">Run Project</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_3.png" alt="Run project">
+        </td>
+        <td>
+            <h3 align="center">Run Project</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_4.png" alt="Run project">
+        </td>
     </tr>
 </table>
 
