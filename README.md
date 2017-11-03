@@ -195,7 +195,7 @@ Build and run your app.
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_10.png" alt="Build and run">
         </td>
         <td>
-            <h3 align="center">Running app</h3>
+            <h3 align="center">Running App</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_5.png" alt="Running app">
         </td>
@@ -545,14 +545,14 @@ Run the project.
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_2.png" alt="Run project">
         </td>
         <td>
-            <h3 align="center">Run Project</h3>
+            <h3 align="center">Select Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_3.png" alt="Run project">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_3.png" alt="Select Chart">
         </td>
         <td>
-            <h3 align="center">Run Project</h3>
+            <h3 align="center">Running App</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_4.png" alt="Run project">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_4.png" alt="Running App">
         </td>
     </tr>
 </table>
