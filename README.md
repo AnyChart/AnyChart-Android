@@ -189,7 +189,7 @@ Make sure you have these package imports at the top of your Activity file.
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Pie;
-import com.anychart.anychart.TextParsingMode;
+import com.anychart.anychart.DataEntry;
 ```
 
 Build and run your app.
