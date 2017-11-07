@@ -1,8 +1,8 @@
-[![](https://jitpack.io/v/AnyChart/AnyChart-Android.svg)](https://jitpack.io/#AnyChart/AnyChart-Android) [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)
-
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](https://www.anychart.com)
 
 # AnyChart for Android
+[![](https://jitpack.io/v/AnyChart/AnyChart-Android.svg)](https://jitpack.io/#AnyChart/AnyChart-Android) [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)
+
 AnyChart Android Charts is an amazing data visualization library for easily creating interactive charts in Android apps. It runs on API 14+ (Android 4.0) and features dozens of built-in chart types.
 
 ## Installation
