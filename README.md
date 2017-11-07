@@ -166,11 +166,9 @@ Add Java code to the Activity. For example, if you want to create pie chart:
 Pie pie = AnyChart.pie();
 
 List<DataEntry> data = new ArrayList<>();
-data.add(new ValueDataEntry("Apples", 6371664));
-data.add(new ValueDataEntry("Pears", 789622));
-data.add(new ValueDataEntry("Bananas", 7216301));
-data.add(new ValueDataEntry("Grapes", 1486621));
-data.add(new ValueDataEntry("Oranges", 1200000));
+data.add(new ValueDataEntry("John", 10000));
+data.add(new ValueDataEntry("Jake", 12000));
+data.add(new ValueDataEntry("Peter", 18000));
 
 AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 anyChartView.setChart(pie);
