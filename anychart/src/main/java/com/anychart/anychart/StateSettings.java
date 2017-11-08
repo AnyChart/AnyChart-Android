@@ -52,8 +52,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyFill(%s)", ((dummyFill != null) ? dummyFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s)", ((dummyFill != null) ? dummyFill.generateJs() : "null")));
                 js.setLength(0);
@@ -79,8 +79,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyFill(%s, %f)", wrapQuotes(color), opacity));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -126,8 +126,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -166,8 +166,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -206,8 +206,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -246,8 +246,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -286,8 +286,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -326,8 +326,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -384,8 +384,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -434,8 +434,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -479,8 +479,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -516,8 +516,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -553,8 +553,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -582,8 +582,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".emptyFill(%s)", ((emptyFill != null) ? emptyFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s)", ((emptyFill != null) ? emptyFill.generateJs() : "null")));
                 js.setLength(0);
@@ -609,8 +609,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".emptyFill(%s)", wrapQuotes(emptyFill1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s)", wrapQuotes(emptyFill1)));
                 js.setLength(0);
@@ -647,8 +647,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".emptyFill(%s, %f)", wrapQuotes(color4), opacity3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyFill(%s, %f)", wrapQuotes(color4), opacity3));
                 js.setLength(0);
@@ -713,8 +713,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
@@ -759,8 +759,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
@@ -805,8 +805,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
@@ -851,8 +851,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color5), thickness1, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
@@ -897,8 +897,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color5), thickness1, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
@@ -923,7 +923,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s);", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
                 js.setLength(0);
@@ -964,7 +963,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %f);", wrapQuotes(color6), opacity4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f)", wrapQuotes(color6), opacity4));
                 js.setLength(0);
@@ -1026,7 +1024,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity5));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity5));
                 js.setLength(0);
@@ -1081,7 +1078,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f);", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity5));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity5));
                 js.setLength(0);
@@ -1136,7 +1132,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f);", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity5));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity5));
                 js.setLength(0);
@@ -1191,7 +1186,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f);", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity5));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity5));
                 js.setLength(0);
@@ -1246,7 +1240,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity5));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity5));
                 js.setLength(0);
@@ -1301,7 +1294,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity5));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity5));
                 js.setLength(0);
@@ -1383,7 +1375,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity6, fx1, fy1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity6, fx1, fy1));
                 js.setLength(0);
@@ -1457,7 +1448,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity6, fx1, fy1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity6, fx1, fy1));
                 js.setLength(0);
@@ -1525,8 +1515,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1574,8 +1564,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1623,8 +1613,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1648,8 +1638,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -1693,8 +1683,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color7), opacity7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color7), opacity7));
                 js.setLength(0);
@@ -1767,8 +1757,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity8));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity8));
                 js.setLength(0);
@@ -1834,8 +1824,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
                 js.setLength(0);
@@ -1901,8 +1891,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity8));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity8));
                 js.setLength(0);
@@ -1968,8 +1958,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity8));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity8));
                 js.setLength(0);
@@ -2035,8 +2025,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
                 js.setLength(0);
@@ -2102,8 +2092,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity8));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity8));
                 js.setLength(0);
@@ -2199,8 +2189,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
                 js.setLength(0);
@@ -2288,8 +2278,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
                 js.setLength(0);
@@ -2313,8 +2303,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
                 js.setLength(0);
@@ -2341,8 +2331,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize));
                 js.setLength(0);
@@ -2367,8 +2357,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
                 js.setLength(0);
@@ -2395,8 +2385,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
                 js.setLength(0);
@@ -2421,8 +2411,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
                 js.setLength(0);
@@ -2449,8 +2439,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
                 js.setLength(0);
@@ -2475,8 +2465,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
                 js.setLength(0);
@@ -2503,8 +2493,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
                 js.setLength(0);
@@ -2529,8 +2519,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
@@ -2589,8 +2579,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid != null) ? grid.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid != null) ? grid.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2642,8 +2632,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid1 != null) ? grid1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid1 != null) ? grid1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2695,8 +2685,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", wrapQuotes(grid2), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", wrapQuotes(grid2), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2773,8 +2763,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
                 js.setLength(0);
@@ -2832,8 +2822,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
                 js.setLength(0);
@@ -2891,8 +2881,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
                 js.setLength(0);
@@ -2950,8 +2940,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType8), wrapQuotes(color8), thickness4, size1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType8), wrapQuotes(color8), thickness4, size1));
                 js.setLength(0);
@@ -2990,8 +2980,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".headers(%s)", wrapQuotes(headers)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".headers(%s)", wrapQuotes(headers)));
                 js.setLength(0);
@@ -3016,8 +3006,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".headers(%b)", headers1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".headers(%b)", headers1));
                 js.setLength(0);
@@ -3090,8 +3080,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color9 != null) ? color9.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color9 != null) ? color9.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -3157,8 +3147,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -3224,8 +3214,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", wrapQuotes(color11), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", wrapQuotes(color11), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -3261,7 +3251,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(hovered)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hovered(%s)", wrapQuotes(hovered)));
                 js.setLength(0);
@@ -3299,8 +3288,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -3325,8 +3314,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -3406,8 +3395,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3480,8 +3469,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3554,8 +3543,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", wrapQuotes(color14), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", wrapQuotes(color14), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3594,8 +3583,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lowerLabels(%s)", wrapQuotes(lowerLabels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowerLabels(%s)", wrapQuotes(lowerLabels)));
                 js.setLength(0);
@@ -3620,8 +3609,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lowerLabels(%b)", lowerLabels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lowerLabels(%b)", lowerLabels1));
                 js.setLength(0);
@@ -3662,8 +3651,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
@@ -3689,8 +3678,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
                 js.setLength(0);
@@ -3777,8 +3766,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color15 != null) ? color15.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color15 != null) ? color15.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -3858,8 +3847,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color16 != null) ? color16.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color16 != null) ? color16.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -3939,8 +3928,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", wrapQuotes(color17), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", wrapQuotes(color17), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -3964,8 +3953,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeFill(%s)", ((negativeFill != null) ? negativeFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s)", ((negativeFill != null) ? negativeFill.generateJs() : "null")));
                 js.setLength(0);
@@ -4023,8 +4012,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color18), opacity10));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color18), opacity10));
                 js.setLength(0);
@@ -4109,8 +4098,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
                 js.setLength(0);
@@ -4188,8 +4177,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
                 js.setLength(0);
@@ -4267,8 +4256,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
                 js.setLength(0);
@@ -4346,8 +4335,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
                 js.setLength(0);
@@ -4425,8 +4414,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
                 js.setLength(0);
@@ -4504,8 +4493,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
                 js.setLength(0);
@@ -4616,8 +4605,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
                 js.setLength(0);
@@ -4720,8 +4709,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
                 js.setLength(0);
@@ -4819,8 +4808,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
                 js.setLength(0);
@@ -4898,8 +4887,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
                 js.setLength(0);
@@ -4977,8 +4966,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType11 != null) ? patternFillOrType11.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType11 != null) ? patternFillOrType11.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
                 js.setLength(0);
@@ -5056,8 +5045,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType12), wrapQuotes(color19), thickness8, size2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType12), wrapQuotes(color19), thickness8, size2));
                 js.setLength(0);
@@ -5154,8 +5143,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color20 != null) ? color20.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color20 != null) ? color20.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -5245,8 +5234,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color21 != null) ? color21.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color21 != null) ? color21.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -5336,8 +5325,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color22), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color22), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -5373,7 +5362,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(normal)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".normal(%s)", wrapQuotes(normal)));
                 js.setLength(0);
@@ -5413,8 +5401,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".outlierMarkers(%s)", wrapQuotes(outlierMarkers)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".outlierMarkers(%s)", wrapQuotes(outlierMarkers)));
                 js.setLength(0);
@@ -5440,8 +5428,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".outlierMarkers(%b)", outlierMarkers1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".outlierMarkers(%b)", outlierMarkers1));
                 js.setLength(0);
@@ -5466,7 +5454,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s);", ((risingFill != null) ? risingFill.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
                 js.setLength(0);
@@ -5533,7 +5520,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %f);", wrapQuotes(color23), opacity13));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f)", wrapQuotes(color23), opacity13));
                 js.setLength(0);
@@ -5631,7 +5617,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f);", arrayToString(keys16), mode16, angle4, opacity14));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity14));
                 js.setLength(0);
@@ -5722,7 +5707,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
                 js.setLength(0);
@@ -5813,7 +5797,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
                 js.setLength(0);
@@ -5904,7 +5887,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f);", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
                 js.setLength(0);
@@ -5995,7 +5977,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
                 js.setLength(0);
@@ -6086,7 +6067,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
                 js.setLength(0);
@@ -6212,8 +6192,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
                 js.setLength(0);
@@ -6331,8 +6311,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
                 js.setLength(0);
@@ -6432,7 +6412,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
                 js.setLength(0);
@@ -6511,7 +6490,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
                 js.setLength(0);
@@ -6590,7 +6568,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
                 js.setLength(0);
@@ -6669,7 +6646,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color24), thickness10, size3));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color24), thickness10, size3));
                 js.setLength(0);
@@ -6748,7 +6724,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, wrapQuotes(color24), thickness10, size3));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color24), thickness10, size3));
                 js.setLength(0);
@@ -6855,8 +6830,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color25 != null) ? color25.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color25 != null) ? color25.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -6956,8 +6931,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color26 != null) ? color26.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color26 != null) ? color26.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -7057,8 +7032,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color27), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color27), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -7157,7 +7132,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
                 js.setLength(0);
@@ -7248,7 +7222,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
                 js.setLength(0);
@@ -7339,7 +7312,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
                 js.setLength(0);
@@ -7430,7 +7402,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color28), thickness12, size4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color28), thickness12, size4));
                 js.setLength(0);
@@ -7521,7 +7492,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState9, wrapQuotes(color28), thickness12, size4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, wrapQuotes(color28), thickness12, size4));
                 js.setLength(0);
@@ -7557,7 +7527,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(selected)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selected(%s)", wrapQuotes(selected)));
                 js.setLength(0);
@@ -7587,7 +7556,6 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".size(%f);", size5));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%f)", size5));
                 js.setLength(0);
@@ -7703,8 +7671,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", ((color29 != null) ? color29.generateJs() : "null"), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", ((color29 != null) ? color29.generateJs() : "null"), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7813,8 +7781,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", ((color30 != null) ? color30.generateJs() : "null"), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", ((color30 != null) ? color30.generateJs() : "null"), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7923,8 +7891,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", wrapQuotes(color31), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", wrapQuotes(color31), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -8047,8 +8015,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color32 != null) ? color32.generateJs() : "null"), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color32 != null) ? color32.generateJs() : "null"), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -8164,8 +8132,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color33 != null) ? color33.generateJs() : "null"), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color33 != null) ? color33.generateJs() : "null"), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -8281,8 +8249,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color34), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color34), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -8377,8 +8345,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend != null) ? trend.generateJs() : "null"), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend != null) ? trend.generateJs() : "null"), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -8466,8 +8434,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend1 != null) ? trend1.generateJs() : "null"), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend1 != null) ? trend1.generateJs() : "null"), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -8555,8 +8523,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", wrapQuotes(trend2), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", wrapQuotes(trend2), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -8583,8 +8551,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -8609,8 +8577,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -8649,8 +8617,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".upperLabels(%s)", wrapQuotes(upperLabels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upperLabels(%s)", wrapQuotes(upperLabels)));
                 js.setLength(0);
@@ -8675,8 +8643,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".upperLabels(%b)", upperLabels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upperLabels(%b)", upperLabels1));
                 js.setLength(0);
@@ -8810,8 +8778,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", ((color35 != null) ? color35.generateJs() : "null"), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", ((color35 != null) ? color35.generateJs() : "null"), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -8938,8 +8906,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", ((color36 != null) ? color36.generateJs() : "null"), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", ((color36 != null) ? color36.generateJs() : "null"), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -9066,8 +9034,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", wrapQuotes(color37), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", wrapQuotes(color37), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -9094,8 +9062,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".whiskerWidth(%f)", whiskerWidth));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".whiskerWidth(%f)", whiskerWidth));
                 js.setLength(0);
@@ -9120,8 +9088,8 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".whiskerWidth(%s)", wrapQuotes(whiskerWidth1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".whiskerWidth(%s)", wrapQuotes(whiskerWidth1)));
                 js.setLength(0);

@@ -51,8 +51,8 @@ public class MapInteractivity extends Interactivity {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".drag(%b)", drag));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drag(%b)", drag));
                 js.setLength(0);
@@ -76,7 +76,6 @@ public class MapInteractivity extends Interactivity {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".keyboardZoomAndMove(%b);", keyboardZoomAndMove));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keyboardZoomAndMove(%b)", keyboardZoomAndMove));
                 js.setLength(0);
@@ -100,7 +99,6 @@ public class MapInteractivity extends Interactivity {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".zoomOnDoubleClick(%b);", zoomOnDoubleClick));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnDoubleClick(%b)", zoomOnDoubleClick));
                 js.setLength(0);
@@ -124,7 +122,6 @@ public class MapInteractivity extends Interactivity {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%b);", zoomOnMouseWheel));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%b)", zoomOnMouseWheel));
                 js.setLength(0);

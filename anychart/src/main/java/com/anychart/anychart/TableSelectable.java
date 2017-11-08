@@ -57,7 +57,6 @@ public class TableSelectable extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".search(%s, %f);", ((mode != null) ? mode.generateJs() : "null"), key));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", ((mode != null) ? mode.generateJs() : "null"), key));
                 js.setLength(0);
@@ -85,7 +84,6 @@ public class TableSelectable extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".search(%s, %f);", wrapQuotes(mode1), key));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", wrapQuotes(mode1), key));
                 js.setLength(0);
@@ -129,8 +127,8 @@ public class TableSelectable extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
                 js.setLength(0);
@@ -167,8 +165,8 @@ public class TableSelectable extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, wrapQuotes(intervalUnit1), intervalCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, wrapQuotes(intervalUnit1), intervalCount));
                 js.setLength(0);
@@ -205,8 +203,8 @@ public class TableSelectable extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, wrapQuotes(endDate1), ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, wrapQuotes(endDate1), ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
                 js.setLength(0);
@@ -243,8 +241,8 @@ public class TableSelectable extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, wrapQuotes(endDate1), wrapQuotes(intervalUnit1), intervalCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, wrapQuotes(endDate1), wrapQuotes(intervalUnit1), intervalCount));
                 js.setLength(0);
@@ -281,8 +279,8 @@ public class TableSelectable extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".select(%s, %f, %s, %f)", wrapQuotes(startDate1), endDate, ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%s, %f, %s, %f)", wrapQuotes(startDate1), endDate, ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
                 js.setLength(0);
@@ -319,8 +317,8 @@ public class TableSelectable extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".select(%s, %f, %s, %f)", wrapQuotes(startDate1), endDate, wrapQuotes(intervalUnit1), intervalCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%s, %f, %s, %f)", wrapQuotes(startDate1), endDate, wrapQuotes(intervalUnit1), intervalCount));
                 js.setLength(0);
@@ -357,8 +355,8 @@ public class TableSelectable extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".select(%s, %s, %s, %f)", wrapQuotes(startDate1), wrapQuotes(endDate1), ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%s, %s, %s, %f)", wrapQuotes(startDate1), wrapQuotes(endDate1), ((intervalUnit != null) ? intervalUnit.generateJs() : "null"), intervalCount));
                 js.setLength(0);
@@ -395,8 +393,8 @@ public class TableSelectable extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".select(%s, %s, %s, %f)", wrapQuotes(startDate1), wrapQuotes(endDate1), wrapQuotes(intervalUnit1), intervalCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%s, %s, %s, %f)", wrapQuotes(startDate1), wrapQuotes(endDate1), wrapQuotes(intervalUnit1), intervalCount));
                 js.setLength(0);
@@ -431,8 +429,8 @@ public class TableSelectable extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectAll(%s, %f)", ((intervalUnit2 != null) ? intervalUnit2.generateJs() : "null"), intervalCount1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectAll(%s, %f)", ((intervalUnit2 != null) ? intervalUnit2.generateJs() : "null"), intervalCount1));
                 js.setLength(0);
@@ -464,8 +462,8 @@ public class TableSelectable extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectAll(%s, %f)", wrapQuotes(intervalUnit3), intervalCount1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectAll(%s, %f)", wrapQuotes(intervalUnit3), intervalCount1));
                 js.setLength(0);

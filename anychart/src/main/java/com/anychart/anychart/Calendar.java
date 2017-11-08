@@ -50,8 +50,8 @@ public class Calendar extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".availabilities(%s)", arrayToString(availabilities)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".availabilities(%s)", arrayToString(availabilities)));
                 js.setLength(0);
@@ -74,8 +74,8 @@ public class Calendar extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".timezoneOffset(%f)", var_value));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".timezoneOffset(%f)", var_value));
                 js.setLength(0);
@@ -101,8 +101,8 @@ public class Calendar extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".weekendRange(%s)", Arrays.toString(var_value1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".weekendRange(%s)", Arrays.toString(var_value1)));
                 js.setLength(0);

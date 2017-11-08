@@ -109,8 +109,8 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
                 js.setLength(0);
@@ -133,8 +133,8 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".attr(%s)", wrapQuotes(key)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".attr(%s)", wrapQuotes(key)));
                 js.setLength(0);
@@ -177,10 +177,6 @@ public class Element extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".clip(%s);",  ((clip != null) ? clip.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", ((clip != null) ? clip.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -201,8 +197,8 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".clip(%s)", wrapQuotes(clip1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", wrapQuotes(clip1)));
                 js.setLength(0);
@@ -225,8 +221,8 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".cursor(%s)", ((cursor != null) ? cursor.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cursor(%s)", ((cursor != null) ? cursor.generateJs() : "null")));
                 js.setLength(0);
@@ -249,8 +245,8 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".desc(%s)", wrapQuotes(desc)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".desc(%s)", wrapQuotes(desc)));
                 js.setLength(0);
@@ -273,8 +269,8 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
@@ -298,8 +294,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".disableStrokeScaling(%b)", disableStrokeScaling));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".disableStrokeScaling(%b)", disableStrokeScaling));
                 js.setLength(0);
@@ -326,8 +322,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".drag(%b)", drag));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drag(%b)", drag));
                 js.setLength(0);
@@ -356,10 +352,6 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".drag(%s);",  ((drag1 != null) ? drag1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drag(%s)", ((drag1 != null) ? drag1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -390,8 +382,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
                 js.setLength(0);
@@ -421,7 +413,6 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
                 js.setLength(0);
@@ -459,7 +450,6 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
                 js.setLength(0);
@@ -489,10 +479,6 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".parent(%s);",  ((parent != null) ? parent.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parent(%s)", ((parent != null) ? parent.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -517,10 +503,6 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".parent(%s);",  ((parent1 != null) ? parent1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parent(%s)", ((parent1 != null) ? parent1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -544,7 +526,6 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", wrapQuotes(type2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s)", wrapQuotes(type2)));
                 js.setLength(0);
@@ -572,8 +553,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx, cy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx, cy));
                 js.setLength(0);
@@ -606,8 +587,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rotateByAnchor(%s, %f)", ((anchor != null) ? anchor.generateJs() : "null"), degrees1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%s, %f)", ((anchor != null) ? anchor.generateJs() : "null"), degrees1));
                 js.setLength(0);
@@ -637,8 +618,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rotateByAnchor(%s, %f)", wrapQuotes(anchor1), degrees1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%s, %f)", wrapQuotes(anchor1), degrees1));
                 js.setLength(0);
@@ -676,8 +657,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx1, cy1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx1, cy1));
                 js.setLength(0);
@@ -718,8 +699,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", ((anchor2 != null) ? anchor2.generateJs() : "null"), sx1, sy1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", ((anchor2 != null) ? anchor2.generateJs() : "null"), sx1, sy1));
                 js.setLength(0);
@@ -756,8 +737,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", wrapQuotes(anchor3), sx1, sy1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", wrapQuotes(anchor3), sx1, sy1));
                 js.setLength(0);
@@ -783,8 +764,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setPosition(%f, %f)", x, y));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setPosition(%f, %f)", x, y));
                 js.setLength(0);
@@ -825,8 +806,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx2, cy2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx2, cy2));
                 js.setLength(0);
@@ -865,8 +846,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", ((anchor4 != null) ? anchor4.generateJs() : "null"), degrees3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", ((anchor4 != null) ? anchor4.generateJs() : "null"), degrees3));
                 js.setLength(0);
@@ -902,8 +883,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", wrapQuotes(anchor5), degrees3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", wrapQuotes(anchor5), degrees3));
                 js.setLength(0);
@@ -1019,8 +1000,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
                 js.setLength(0);
@@ -1043,8 +1024,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title)));
                 js.setLength(0);
@@ -1070,8 +1051,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
                 js.setLength(0);
@@ -1114,7 +1095,6 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", wrapQuotes(type3), useCapture2, wrapQuotes(listenerScope2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", wrapQuotes(type3), useCapture2, wrapQuotes(listenerScope2)));
                 js.setLength(0);
@@ -1140,7 +1120,6 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", wrapQuotes(key1)));
                 js.setLength(0);
@@ -1162,8 +1141,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".visible(%b)", isVisible));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".visible(%b)", isVisible));
                 js.setLength(0);
@@ -1186,8 +1165,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".zIndex(%f)", zIndex));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".zIndex(%f)", zIndex));
                 js.setLength(0);

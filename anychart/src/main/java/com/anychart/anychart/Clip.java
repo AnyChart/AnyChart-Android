@@ -70,8 +70,8 @@ public class Clip extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".shape(%s)", Arrays.toString(shape)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", Arrays.toString(shape)));
                 js.setLength(0);
@@ -102,10 +102,6 @@ public class Clip extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".shape(%s);",  ((shape1 != null) ? shape1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", ((shape1 != null) ? shape1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -132,10 +128,6 @@ public class Clip extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".shape(%s);",  ((shape2 != null) ? shape2.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", ((shape2 != null) ? shape2.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -158,8 +150,8 @@ public class Clip extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape3)));
                 js.setLength(0);
@@ -191,8 +183,8 @@ public class Clip extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".shape(%f, %f, %f, %f)", left, top, width, height));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".shape(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);

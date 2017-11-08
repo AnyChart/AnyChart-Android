@@ -51,7 +51,6 @@ public class LinearColor extends ScatterBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".colorToValue(%s);", wrapQuotes(colorToValue)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorToValue(%s)", wrapQuotes(colorToValue)));
                 js.setLength(0);
@@ -89,8 +88,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".colors(%s)", wrapQuotes(var_args)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", wrapQuotes(var_args)));
                 js.setLength(0);
@@ -121,8 +120,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".colors(%s)", ((var_args1 != null) ? var_args1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", ((var_args1 != null) ? var_args1.generateJs() : "null")));
                 js.setLength(0);
@@ -153,8 +152,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".colors(%s)", ((var_args2 != null) ? var_args2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", ((var_args2 != null) ? var_args2.generateJs() : "null")));
                 js.setLength(0);
@@ -185,8 +184,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".colors(%s)", ((var_args3 != null) ? var_args3.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", ((var_args3 != null) ? var_args3.generateJs() : "null")));
                 js.setLength(0);
@@ -217,8 +216,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".colors(%s)", arrayToStringWrapQuotes(var_args4)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", arrayToStringWrapQuotes(var_args4)));
                 js.setLength(0);
@@ -249,8 +248,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".colors(%s)", arrayToString(var_args5)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", arrayToString(var_args5)));
                 js.setLength(0);
@@ -281,8 +280,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".colors(%s)", arrayToString(var_args6)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", arrayToString(var_args6)));
                 js.setLength(0);
@@ -313,8 +312,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".colors(%s)", arrayToString(var_args7)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", arrayToString(var_args7)));
                 js.setLength(0);
@@ -353,8 +352,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
@@ -379,8 +378,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
                 js.setLength(0);
@@ -419,8 +418,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
@@ -445,8 +444,8 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
@@ -470,7 +469,6 @@ public class LinearColor extends ScatterBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".valueToColor(%f);", valueToColor));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueToColor(%f)", valueToColor));
                 js.setLength(0);

@@ -65,10 +65,6 @@ public class CoreAxismarkersRange extends VisualBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".axis(%s);",  ((axis != null) ? axis.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s)", ((axis != null) ? axis.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return new CoreAxismarkersLine(jsBase);
     }
@@ -88,8 +84,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -115,8 +111,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -162,8 +158,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -202,8 +198,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -242,8 +238,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -282,8 +278,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -322,8 +318,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -362,8 +358,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -420,8 +416,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -470,8 +466,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -495,8 +491,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".from(%f)", from));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".from(%f)", from));
                 js.setLength(0);
@@ -523,8 +519,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
@@ -549,8 +545,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);
@@ -597,10 +593,6 @@ public class CoreAxismarkersRange extends VisualBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -623,8 +615,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
@@ -651,8 +643,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
                 js.setLength(0);
@@ -675,8 +667,8 @@ public class CoreAxismarkersRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".to(%f)", to));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".to(%f)", to));
                 js.setLength(0);

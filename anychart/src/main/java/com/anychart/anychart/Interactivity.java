@@ -54,8 +54,8 @@ public class Interactivity extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hoverMode(%s)", ((hoverMode != null) ? hoverMode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hoverMode(%s)", ((hoverMode != null) ? hoverMode.generateJs() : "null")));
                 js.setLength(0);
@@ -80,8 +80,8 @@ public class Interactivity extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hoverMode(%s)", wrapQuotes(hoverMode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hoverMode(%s)", wrapQuotes(hoverMode1)));
                 js.setLength(0);
@@ -108,8 +108,8 @@ public class Interactivity extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
                 js.setLength(0);
@@ -134,8 +134,8 @@ public class Interactivity extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
                 js.setLength(0);
@@ -159,8 +159,8 @@ Size of the area under cursor in pixels for radius hovering.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".spotRadius(%f)", spotRadius));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".spotRadius(%f)", spotRadius));
                 js.setLength(0);

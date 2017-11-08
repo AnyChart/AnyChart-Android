@@ -858,21 +858,21 @@ Set the transitions to drill down.
         return "";
     }
 
-    private String data;
-    private String data1;
+    private String data12;
+    private String data13;
 
     /**
      * Setter for the geo data.
      */
-    public void setGeoData(String data, String data1) {
+    public void setGeoData(String data12, String data13) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".geoData(%s, %s);", wrapQuotes(data), wrapQuotes(data1)));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".geoData(%s, %s);", wrapQuotes(data12), wrapQuotes(data13)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".geoData(%s, %s)", wrapQuotes(data), wrapQuotes(data1)));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".geoData(%s, %s)", wrapQuotes(data12), wrapQuotes(data13)));
             js.setLength(0);
         }
     }

@@ -60,10 +60,6 @@ public class StockScroller extends UiScroller {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".addSeries(%s);",  ((var_args != null) ? var_args.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", ((var_args != null) ? var_args.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
     }
 
@@ -89,10 +85,6 @@ public class StockScroller extends UiScroller {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".addSeries(%s);",  ((var_args1 != null) ? var_args1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", ((var_args1 != null) ? var_args1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
     }
 
@@ -115,7 +107,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", arrayToStringWrapQuotes(var_args2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", arrayToStringWrapQuotes(var_args2)));
                 js.setLength(0);
@@ -145,7 +136,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
@@ -173,7 +163,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
@@ -218,7 +207,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
@@ -257,7 +245,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
@@ -295,7 +282,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -327,7 +313,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -359,7 +344,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
@@ -407,7 +391,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -449,7 +432,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -491,7 +473,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -533,7 +514,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -580,7 +560,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
@@ -623,7 +602,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
@@ -685,7 +663,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -738,7 +715,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -791,7 +767,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -844,7 +819,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -897,7 +871,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -950,7 +923,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -1003,7 +975,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -1056,7 +1027,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -1115,7 +1085,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
@@ -1169,7 +1138,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
@@ -1233,7 +1201,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
@@ -1292,7 +1259,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
@@ -1340,7 +1306,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -1382,7 +1347,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -1424,7 +1388,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -1485,7 +1448,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
@@ -1542,7 +1504,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
@@ -1610,7 +1571,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s);", ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
                 js.setLength(0);
@@ -1672,7 +1632,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s);", wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
                 js.setLength(0);
@@ -1740,7 +1699,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
@@ -1804,7 +1762,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
@@ -1858,7 +1815,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
@@ -1906,7 +1862,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
@@ -1954,7 +1909,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
@@ -1982,8 +1936,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
                 js.setLength(0);
@@ -2009,8 +1963,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
                 js.setLength(0);
@@ -2086,7 +2040,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2152,7 +2105,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2218,7 +2170,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2284,7 +2235,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2350,7 +2300,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2416,7 +2365,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2482,7 +2430,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2548,7 +2495,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2622,7 +2568,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
@@ -2692,7 +2637,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
@@ -2766,8 +2710,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
                 js.setLength(0);
@@ -2793,8 +2737,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
                 js.setLength(0);
@@ -2824,10 +2768,6 @@ public class StockScroller extends UiScroller {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -2883,7 +2823,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
@@ -2937,7 +2876,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
@@ -2991,7 +2929,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
@@ -3057,7 +2994,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
@@ -3117,7 +3053,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
@@ -3177,7 +3112,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
@@ -3265,7 +3199,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3337,7 +3270,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3409,7 +3341,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3481,7 +3412,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3553,7 +3483,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3625,7 +3554,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3697,7 +3625,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3769,7 +3696,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3841,7 +3767,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3913,7 +3838,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3985,7 +3909,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4057,7 +3980,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4129,7 +4051,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4201,7 +4122,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4273,7 +4193,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4345,7 +4264,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4417,7 +4335,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4489,7 +4406,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4561,7 +4477,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4633,7 +4548,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4705,7 +4619,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4777,7 +4690,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4849,7 +4761,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4921,7 +4832,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4993,7 +4903,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5065,7 +4974,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5137,7 +5045,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5209,7 +5116,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5281,7 +5187,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5353,7 +5258,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5425,7 +5329,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5497,7 +5400,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5569,7 +5471,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
@@ -5635,7 +5536,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
@@ -5701,7 +5601,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
@@ -5778,7 +5677,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5845,7 +5743,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5912,7 +5809,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -5979,7 +5875,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6046,7 +5941,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6113,7 +6007,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6180,7 +6073,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6247,7 +6139,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6325,7 +6216,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
@@ -6397,7 +6287,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
@@ -6469,7 +6358,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
@@ -6549,7 +6437,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
@@ -6625,7 +6512,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
@@ -6709,7 +6595,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
@@ -6787,7 +6672,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
@@ -6865,7 +6749,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
@@ -6912,10 +6795,6 @@ public class StockScroller extends UiScroller {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -6942,10 +6821,6 @@ public class StockScroller extends UiScroller {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -6968,8 +6843,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
                 js.setLength(0);
@@ -6996,8 +6871,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
                 js.setLength(0);
@@ -7087,7 +6962,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
@@ -7171,7 +7045,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
@@ -7255,7 +7128,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
@@ -7351,7 +7223,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
@@ -7441,7 +7312,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
@@ -7531,7 +7401,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
@@ -7633,7 +7502,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
@@ -7729,7 +7597,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
@@ -7825,7 +7692,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
@@ -7933,7 +7799,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
@@ -8035,7 +7900,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
@@ -8137,7 +8001,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
@@ -8164,8 +8027,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".removeSeries(%f)", id));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id));
                 js.setLength(0);
@@ -8190,8 +8053,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
                 js.setLength(0);
@@ -8214,8 +8077,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index));
                 js.setLength(0);
@@ -8299,7 +8162,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
@@ -8379,7 +8241,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
@@ -8467,7 +8328,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
@@ -8551,7 +8411,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
@@ -8643,7 +8502,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
@@ -8731,7 +8589,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
@@ -8845,7 +8702,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
@@ -8953,7 +8809,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
@@ -9061,7 +8916,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
@@ -9181,7 +9035,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
@@ -9295,7 +9148,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
@@ -9409,7 +9261,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
@@ -9535,7 +9386,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
@@ -9655,7 +9505,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
@@ -9775,7 +9624,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
@@ -9907,7 +9755,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
@@ -10033,7 +9880,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
@@ -10159,7 +10005,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
@@ -10297,7 +10142,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
@@ -10429,7 +10273,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
@@ -10561,7 +10404,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
@@ -10659,7 +10501,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10745,7 +10586,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10831,7 +10671,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -10917,7 +10756,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11003,7 +10841,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11089,7 +10926,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11175,7 +11011,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11261,7 +11096,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11347,7 +11181,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11433,7 +11266,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11519,7 +11351,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11605,7 +11436,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11691,7 +11521,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11777,7 +11606,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11863,7 +11691,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11949,7 +11776,6 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11988,8 +11814,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
                 js.setLength(0);
@@ -12014,8 +11840,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
                 js.setLength(0);
@@ -12058,8 +11884,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
@@ -12086,8 +11912,8 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
@@ -12118,10 +11944,6 @@ public class StockScroller extends UiScroller {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }

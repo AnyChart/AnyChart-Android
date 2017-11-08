@@ -50,8 +50,8 @@ Allows use mouse wheel for scrolling. Press "ctrl" or "shift" and scroll mouse w
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scrollOnMouseWheel(%b)", scrollOnMouseWheel));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scrollOnMouseWheel(%b)", scrollOnMouseWheel));
                 js.setLength(0);
@@ -75,8 +75,8 @@ Allows use mouse wheel for zooming. Press "ctrl" or "shift" and zoom mouse wheel
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".zoomOnMouseWheel(%b)", zoomOnMouseWheel));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".zoomOnMouseWheel(%b)", zoomOnMouseWheel));
                 js.setLength(0);

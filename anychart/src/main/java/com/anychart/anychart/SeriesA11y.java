@@ -49,8 +49,8 @@ public class SeriesA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -74,8 +74,8 @@ public class SeriesA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);

@@ -50,8 +50,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
                 js.setLength(0);
@@ -77,8 +77,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -124,8 +124,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -164,8 +164,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -204,8 +204,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -244,8 +244,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -284,8 +284,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -324,8 +324,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -382,8 +382,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -432,8 +432,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -461,8 +461,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".levelsSeparationStroke(%s)", ((levelsSeparationStroke != null) ? levelsSeparationStroke.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".levelsSeparationStroke(%s)", ((levelsSeparationStroke != null) ? levelsSeparationStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -487,8 +487,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".levelsSeparationStroke(%s)", wrapQuotes(levelsSeparationStroke1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".levelsSeparationStroke(%s)", wrapQuotes(levelsSeparationStroke1)));
                 js.setLength(0);
@@ -537,8 +537,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".midLevel(%s)", wrapQuotes(midLevel)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".midLevel(%s)", wrapQuotes(midLevel)));
                 js.setLength(0);
@@ -563,8 +563,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".midLevel(%b)", midLevel1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".midLevel(%b)", midLevel1));
                 js.setLength(0);
@@ -591,8 +591,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".topLevel(%s)", wrapQuotes(topLevel)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".topLevel(%s)", wrapQuotes(topLevel)));
                 js.setLength(0);
@@ -617,8 +617,8 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".topLevel(%b)", topLevel1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".topLevel(%b)", topLevel1));
                 js.setLength(0);

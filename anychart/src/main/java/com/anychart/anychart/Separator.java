@@ -50,8 +50,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -77,8 +77,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -124,8 +124,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -164,8 +164,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -204,8 +204,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -244,8 +244,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -284,8 +284,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -324,8 +324,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -382,8 +382,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -432,8 +432,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -461,8 +461,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%f)", height));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -487,8 +487,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
@@ -539,8 +539,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom2)));
                 js.setLength(0);
@@ -568,8 +568,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
                 js.setLength(0);
@@ -612,8 +612,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
                 js.setLength(0);
@@ -676,8 +676,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -711,8 +711,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -746,8 +746,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -774,8 +774,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%f)", width));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -800,8 +800,8 @@ public class Separator extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);

@@ -49,8 +49,8 @@ public class ChartA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -77,8 +77,8 @@ public class ChartA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
                 js.setLength(0);
@@ -103,8 +103,8 @@ public class ChartA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
                 js.setLength(0);
@@ -128,8 +128,8 @@ public class ChartA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);

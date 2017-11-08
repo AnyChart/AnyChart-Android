@@ -56,7 +56,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".add(%s);", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
                 js.setLength(0);
@@ -83,7 +82,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".add(%s);", wrapQuotes(annotationTypeOrConfig1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", wrapQuotes(annotationTypeOrConfig1)));
                 js.setLength(0);
@@ -110,7 +108,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".add(%s);", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
                 js.setLength(0);
@@ -134,7 +131,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".andrewsPitchfork(%s);", wrapQuotes(config)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".andrewsPitchfork(%s)", wrapQuotes(config)));
                 js.setLength(0);
@@ -161,7 +157,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ellipse(%s);", wrapQuotes(config1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%s)", wrapQuotes(config1)));
                 js.setLength(0);
@@ -189,7 +184,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fibonacciArc(%s);", wrapQuotes(config2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciArc(%s)", wrapQuotes(config2)));
                 js.setLength(0);
@@ -218,7 +212,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fibonacciFan(%s);", wrapQuotes(config3)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciFan(%s)", wrapQuotes(config3)));
                 js.setLength(0);
@@ -248,7 +241,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fibonacciRetracement(%s);", wrapQuotes(config4)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciRetracement(%s)", wrapQuotes(config4)));
                 js.setLength(0);
@@ -279,7 +271,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fibonacciTimezones(%s);", wrapQuotes(config5)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciTimezones(%s)", wrapQuotes(config5)));
                 js.setLength(0);
@@ -312,8 +303,8 @@ public class PlotController extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fromJson(%s)", wrapQuotes(config6)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fromJson(%s)", wrapQuotes(config6)));
                 js.setLength(0);
@@ -346,8 +337,8 @@ public class PlotController extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fromXml(%s)", wrapQuotes(config8)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fromXml(%s)", wrapQuotes(config8)));
                 js.setLength(0);
@@ -371,7 +362,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getAnnotationAt(%f);", index));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getAnnotationAt(%f)", index));
                 js.setLength(0);
@@ -406,7 +396,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".horizontalLine(%s);", wrapQuotes(config9)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalLine(%s)", wrapQuotes(config9)));
                 js.setLength(0);
@@ -442,7 +431,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".infiniteLine(%s);", wrapQuotes(config10)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".infiniteLine(%s)", wrapQuotes(config10)));
                 js.setLength(0);
@@ -479,7 +467,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".line(%s);", wrapQuotes(config11)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s)", wrapQuotes(config11)));
                 js.setLength(0);
@@ -517,7 +504,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".marker(%s);", wrapQuotes(config12)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s)", wrapQuotes(config12)));
                 js.setLength(0);
@@ -556,7 +542,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ray(%s);", wrapQuotes(config13)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ray(%s)", wrapQuotes(config13)));
                 js.setLength(0);
@@ -596,7 +581,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rectangle(%s);", wrapQuotes(config14)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rectangle(%s)", wrapQuotes(config14)));
                 js.setLength(0);
@@ -623,10 +607,6 @@ public class PlotController extends VisualBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".removeAnnotation(%s);",  ((annotation != null) ? annotation.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeAnnotation(%s)", ((annotation != null) ? annotation.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -648,8 +628,8 @@ public class PlotController extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".removeAnnotationAt(%f)", index1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeAnnotationAt(%f)", index1));
                 js.setLength(0);
@@ -679,10 +659,6 @@ public class PlotController extends VisualBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".select(%s);",  ((annotation1 != null) ? annotation1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%s)", ((annotation1 != null) ? annotation1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -712,7 +688,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null")));
                 js.setLength(0);
@@ -743,7 +718,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", wrapQuotes(annotationTypeOrConfig4)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", wrapQuotes(annotationTypeOrConfig4)));
                 js.setLength(0);
@@ -774,7 +748,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null")));
                 js.setLength(0);
@@ -798,7 +771,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toJson(%b);", stringify));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toJson(%b)", stringify));
                 js.setLength(0);
@@ -821,7 +793,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toXml(%b);", asXmlNode));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toXml(%b)", asXmlNode));
                 js.setLength(0);
@@ -861,7 +832,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".trendChannel(%s);", wrapQuotes(config15)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".trendChannel(%s)", wrapQuotes(config15)));
                 js.setLength(0);
@@ -903,7 +873,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".triangle(%s);", wrapQuotes(config16)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".triangle(%s)", wrapQuotes(config16)));
                 js.setLength(0);
@@ -946,7 +915,6 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".verticalLine(%s);", wrapQuotes(config17)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalLine(%s)", wrapQuotes(config17)));
                 js.setLength(0);

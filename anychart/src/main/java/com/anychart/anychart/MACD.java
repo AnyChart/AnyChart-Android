@@ -50,8 +50,8 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
                 js.setLength(0);
@@ -90,8 +90,8 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".histogramSeries(%s)", ((type != null) ? type.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".histogramSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -116,8 +116,8 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".histogramSeries(%s)", wrapQuotes(type1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".histogramSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -158,8 +158,8 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".macdSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".macdSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
@@ -186,8 +186,8 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".macdSeries(%s)", wrapQuotes(type3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".macdSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);
@@ -210,8 +210,8 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".signalPeriod(%f)", signalPeriod));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".signalPeriod(%f)", signalPeriod));
                 js.setLength(0);
@@ -254,8 +254,8 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".signalSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".signalSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
                 js.setLength(0);
@@ -284,8 +284,8 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".signalSeries(%s)", wrapQuotes(type5)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".signalSeries(%s)", wrapQuotes(type5)));
                 js.setLength(0);

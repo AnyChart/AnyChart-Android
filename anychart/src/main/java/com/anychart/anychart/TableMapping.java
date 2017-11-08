@@ -62,8 +62,8 @@ public class TableMapping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(name), column, weightsColumn));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(name), column, weightsColumn));
                 js.setLength(0);
@@ -94,8 +94,8 @@ public class TableMapping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", wrapQuotes(type1), wrapQuotes(name), column, weightsColumn));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", wrapQuotes(type1), wrapQuotes(name), column, weightsColumn));
                 js.setLength(0);

@@ -49,8 +49,8 @@ public class CHO extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
                 js.setLength(0);
@@ -77,8 +77,8 @@ public class CHO extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maType(%s)", ((maType != null) ? maType.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maType(%s)", ((maType != null) ? maType.generateJs() : "null")));
                 js.setLength(0);
@@ -103,8 +103,8 @@ public class CHO extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maType(%s)", wrapQuotes(maType1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maType(%s)", wrapQuotes(maType1)));
                 js.setLength(0);
@@ -143,8 +143,8 @@ public class CHO extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -169,8 +169,8 @@ public class CHO extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -193,8 +193,8 @@ public class CHO extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".slowPeriod(%f)", slowPeriod));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".slowPeriod(%f)", slowPeriod));
                 js.setLength(0);

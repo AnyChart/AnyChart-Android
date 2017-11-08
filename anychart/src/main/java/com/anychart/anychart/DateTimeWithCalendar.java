@@ -61,8 +61,8 @@ public class DateTimeWithCalendar extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".count(%f)", count));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
                 js.setLength(0);
@@ -86,7 +86,6 @@ public class DateTimeWithCalendar extends ScatterBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dateToPix(%f);", date));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateToPix(%f)", date));
                 js.setLength(0);
@@ -126,7 +125,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", ((unit != null) ? unit.generateJs() : "null"), fromPix, toPix, count1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", ((unit != null) ? unit.generateJs() : "null"), fromPix, toPix, count1));
                 js.setLength(0);
@@ -161,7 +159,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", wrapQuotes(unit1), fromPix, toPix, count1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", wrapQuotes(unit1), fromPix, toPix, count1));
                 js.setLength(0);
@@ -184,7 +181,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".maximumGap(%f);", maximumGap));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f)", maximumGap));
                 js.setLength(0);
@@ -208,7 +204,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".minimumGap(%f);", minimumGap));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f)", minimumGap));
                 js.setLength(0);
@@ -232,7 +227,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".pixToDate(%f);", pix));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".pixToDate(%f)", pix));
                 js.setLength(0);
@@ -254,8 +248,8 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".skipHolidays(%b)", skipHolidays));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".skipHolidays(%b)", skipHolidays));
                 js.setLength(0);
@@ -279,7 +273,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".softMaximum(%f);", softMaximum));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f)", softMaximum));
                 js.setLength(0);
@@ -303,7 +296,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".softMinimum(%f);", softMinimum));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f)", softMinimum));
                 js.setLength(0);
@@ -332,8 +324,8 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".unit(%s)", ((unit2 != null) ? unit2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", ((unit2 != null) ? unit2.generateJs() : "null")));
                 js.setLength(0);
@@ -360,8 +352,8 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".unit(%s)", wrapQuotes(unit3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", wrapQuotes(unit3)));
                 js.setLength(0);
@@ -388,8 +380,8 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".unitPixSize(%f)", unitPixSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unitPixSize(%f)", unitPixSize));
                 js.setLength(0);
@@ -414,8 +406,8 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".unitPixSize(%s)", wrapQuotes(unitPixSize1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unitPixSize(%s)", wrapQuotes(unitPixSize1)));
                 js.setLength(0);

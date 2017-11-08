@@ -50,7 +50,6 @@ public class TableselectableRowProxy extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".get(%s);", wrapQuotes(field)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
                 js.setLength(0);
@@ -73,7 +72,6 @@ public class TableselectableRowProxy extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getColumn(%f);", column));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getColumn(%f)", column));
                 js.setLength(0);

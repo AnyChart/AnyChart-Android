@@ -53,8 +53,8 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
@@ -79,8 +79,8 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
                 js.setLength(0);

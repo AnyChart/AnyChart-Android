@@ -53,10 +53,6 @@ public class ChartController extends CoreBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".removeAnnotation(%s);",  ((annotation != null) ? annotation.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeAnnotation(%s)", ((annotation != null) ? annotation.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -82,10 +78,6 @@ public class ChartController extends CoreBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".select(%s);",  ((annotation1 != null) ? annotation1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".select(%s)", ((annotation1 != null) ? annotation1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -112,7 +104,6 @@ public class ChartController extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
                 js.setLength(0);
@@ -140,7 +131,6 @@ public class ChartController extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", wrapQuotes(annotationTypeOrConfig1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", wrapQuotes(annotationTypeOrConfig1)));
                 js.setLength(0);
@@ -168,7 +158,6 @@ public class ChartController extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
                 js.setLength(0);

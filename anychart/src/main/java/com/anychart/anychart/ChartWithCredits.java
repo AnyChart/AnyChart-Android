@@ -67,7 +67,6 @@ public class ChartWithCredits extends Chart {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".credits(%s);", wrapQuotes(credits)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%s)", wrapQuotes(credits)));
                 js.setLength(0);
@@ -94,7 +93,6 @@ public class ChartWithCredits extends Chart {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".credits(%b);", credits1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%b)", credits1));
                 js.setLength(0);

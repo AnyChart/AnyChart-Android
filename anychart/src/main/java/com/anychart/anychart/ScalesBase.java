@@ -50,7 +50,6 @@ public class ScalesBase extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".finishAutoCalc(%b);", silently));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".finishAutoCalc(%b)", silently));
                 js.setLength(0);
@@ -73,8 +72,8 @@ instead of bottom-to-top and left-to-right.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".inverted(%b)", inverted));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".inverted(%b)", inverted));
                 js.setLength(0);

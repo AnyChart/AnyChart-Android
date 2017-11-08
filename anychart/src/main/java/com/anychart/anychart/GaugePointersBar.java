@@ -53,8 +53,8 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -79,8 +79,8 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -107,8 +107,8 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".radius(%f)", radius));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
                 js.setLength(0);
@@ -133,8 +133,8 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
                 js.setLength(0);
@@ -161,8 +161,8 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%f)", width));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -187,8 +187,8 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);

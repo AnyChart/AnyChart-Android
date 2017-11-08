@@ -49,8 +49,8 @@ public class RadarSeriesContinuousBase extends RadarSeriesBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
                 js.setLength(0);
@@ -91,8 +91,8 @@ public class RadarSeriesContinuousBase extends RadarSeriesBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
@@ -118,8 +118,8 @@ public class RadarSeriesContinuousBase extends RadarSeriesBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
                 js.setLength(0);

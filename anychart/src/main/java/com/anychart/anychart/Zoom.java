@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -53,10 +48,6 @@ public class Zoom extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".decorate(%s);",  ((decorate != null) ? decorate.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", ((decorate != null) ? decorate.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
     }
 
@@ -82,10 +73,6 @@ public class Zoom extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".render(%s);",  ((parentElement != null) ? parentElement.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement != null) ? parentElement.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
     }
 
@@ -109,10 +96,6 @@ public class Zoom extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".render(%s);",  ((parentElement1 != null) ? parentElement1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", ((parentElement1 != null) ? parentElement1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
     }
 
@@ -134,10 +117,6 @@ public class Zoom extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".target(%s);",  ((chart != null) ? chart.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", ((chart != null) ? chart.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
     }
 

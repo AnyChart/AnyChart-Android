@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -50,7 +45,6 @@ public class Point extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".get(%s);", wrapQuotes(field)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
                 js.setLength(0);
@@ -84,8 +78,8 @@ public class Point extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hovered(%b)", hovered));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hovered(%b)", hovered));
                 js.setLength(0);
@@ -108,8 +102,8 @@ public class Point extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selected(%b)", selected));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selected(%b)", selected));
                 js.setLength(0);
@@ -135,8 +129,8 @@ public class Point extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".set(%s)", wrapQuotes(field1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", wrapQuotes(field1)));
                 js.setLength(0);

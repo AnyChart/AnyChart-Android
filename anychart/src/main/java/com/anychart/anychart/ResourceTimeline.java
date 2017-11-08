@@ -49,8 +49,8 @@ public class ResourceTimeline extends Timeline {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
                 js.setLength(0);

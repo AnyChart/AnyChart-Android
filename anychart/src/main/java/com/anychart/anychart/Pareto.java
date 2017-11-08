@@ -178,7 +178,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
 
     /**
      * Setter for space between bars on the ordinal scale by ratio of bars width.</br>
-<img src='/si/special-hotfixes-typescript/anychart.charts.Pareto.barsPadding.png' width='396' height='294'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.charts.Pareto.barsPadding.png' width='396' height='294'/>
      */
     public Pareto setBarsPadding(Double barsPadding) {
         if (!isChain) {

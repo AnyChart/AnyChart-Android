@@ -50,8 +50,8 @@ See sample at {@link anychart.core.Chart#animation}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".duration(%f)", duration));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".duration(%f)", duration));
                 js.setLength(0);
@@ -75,8 +75,8 @@ See sample at {@link anychart.core.Chart#animation}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);

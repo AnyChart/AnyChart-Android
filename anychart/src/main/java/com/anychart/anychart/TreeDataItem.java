@@ -53,8 +53,8 @@ public class TreeDataItem extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
                 js.setLength(0);
@@ -83,10 +83,6 @@ public class TreeDataItem extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".addChild(%s);",  ((child1 != null) ? child1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", ((child1 != null) ? child1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -117,8 +113,8 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child2), index));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child2), index));
                 js.setLength(0);
@@ -149,8 +145,8 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.generateJs() : "null"), index));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.generateJs() : "null"), index));
                 js.setLength(0);
@@ -181,8 +177,8 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
                 js.setLength(0);
@@ -229,7 +225,6 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".meta(%s);", wrapQuotes(key)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
                 js.setLength(0);
@@ -262,10 +257,6 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".removeChild(%s);",  ((child5 != null) ? child5.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeChild(%s)", ((child5 != null) ? child5.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -287,8 +278,8 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".removeChildAt(%f)", index1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeChildAt(%f)", index1));
                 js.setLength(0);

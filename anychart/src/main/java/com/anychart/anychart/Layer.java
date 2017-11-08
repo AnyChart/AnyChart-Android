@@ -20,7 +20,7 @@ See also:<br/>
 {@link anychart.graphics#layer}<br/>
 Elements indices (and layers indices within a stage) set Z-order.<br/>
 The "higher" an element is, the greater its index.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.graphics.vector.Layer.png' width='229' height='138'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.graphics.vector.Layer.png' width='229' height='138'/>
  */
 public class Layer extends Element {
 
@@ -66,10 +66,6 @@ All DOM changes will happen instantly, except {@link anychart.graphics.vector.St
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".addChild(%s);",  ((element != null) ? element.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", ((element != null) ? element.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -84,7 +80,7 @@ All DOM changes will happen instantly, except {@link anychart.graphics.vector.St
 Left image shows sequential calls of {@link anychart.graphics.vector.Layer#addChild}<br/>
 Right image does the same, but star is added to 0 index.<br/>
 <code>.addChildAt(star5, 0);</code> (see code of this image in samples).<br/>
-<img src='/si/special-hotfixes-typescript/anychart.graphics.vector.Layer.addChildAt.png' width='276' height='130'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.graphics.vector.Layer.addChildAt.png' width='276' height='130'/>
      */
     public Layer addChildAt(Element element1, Double index) {
         if (jsBase == null) {
@@ -100,8 +96,8 @@ Right image does the same, but star is added to 0 index.<br/>
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.generateJs() : "null"), index));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.generateJs() : "null"), index));
                 js.setLength(0);
@@ -134,7 +130,6 @@ Read more at {@link anychart.graphics.vector.Circle}
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".circle(%f, %f, %f);", cx, cy, radius));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".circle(%f, %f, %f)", cx, cy, radius));
                 js.setLength(0);
@@ -176,7 +171,6 @@ Read more at {@link anychart.graphics.vector.Ellipse}
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ellipse(%f, %f, %f, %f);", cx1, cy1, rx, ry));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%f, %f, %f, %f)", cx1, cy1, rx, ry));
                 js.setLength(0);
@@ -203,7 +197,6 @@ Read more at {@link anychart.graphics.vector.Ellipse}
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getChildAt(%f);", index1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getChildAt(%f)", index1));
                 js.setLength(0);
@@ -234,10 +227,6 @@ Read more at {@link anychart.graphics.vector.Ellipse}
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".hasChild(%s);",  ((element2 != null) ? element2.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hasChild(%s)", ((element2 != null) ? element2.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
     }
 
@@ -265,7 +254,6 @@ You have to take care of used objects yourself.
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".html(%f, %f, %s);", x, y, wrapQuotes(text)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".html(%f, %f, %s)", x, y, wrapQuotes(text)));
                 js.setLength(0);
@@ -309,7 +297,6 @@ You need to take care of used objects yourself.
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f);", wrapQuotes(src), x1, y1, width, height));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f)", wrapQuotes(src), x1, y1, width, height));
                 js.setLength(0);
@@ -341,10 +328,6 @@ You need to take care of used objects yourself.
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".indexOfChild(%s);",  ((element3 != null) ? element3.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", ((element3 != null) ? element3.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
     }
 
@@ -388,7 +371,6 @@ You have to take care of used objects yourself.
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rect(%f, %f, %f, %f);", x2, y2, width1, height1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rect(%f, %f, %f, %f)", x2, y2, width1, height1));
                 js.setLength(0);
@@ -424,10 +406,6 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".removeChild(%s);",  ((element4 != null) ? element4.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", ((element4 != null) ? element4.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return new Element(jsBase);
     }
@@ -453,7 +431,6 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index2));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index2));
                 js.setLength(0);
@@ -499,10 +476,6 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".swapChildren(%s, %s);",  ((element5 != null) ? element5.getJsBase() : "null"), ((element6 != null) ? element6.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".swapChildren(%s, %s)", ((element5 != null) ? element5.getJsBase() : "null"), ((element6 != null) ? element6.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -536,8 +509,8 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".swapChildrenAt(%f, %f)", index3, index4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".swapChildrenAt(%f, %f)", index3, index4));
                 js.setLength(0);
@@ -582,7 +555,6 @@ You have to take care of used objects yourself.
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".text(%f, %f, %s);", x3, y3, wrapQuotes(text1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%f, %f, %s)", x3, y3, wrapQuotes(text1)));
                 js.setLength(0);

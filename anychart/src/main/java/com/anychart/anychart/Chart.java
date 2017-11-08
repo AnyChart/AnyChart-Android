@@ -65,8 +65,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".a11y(%b)", ay));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".a11y(%b)", ay));
                 js.setLength(0);
@@ -91,8 +91,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".a11y(%s)", wrapQuotes(ay1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".a11y(%s)", wrapQuotes(ay1)));
                 js.setLength(0);
@@ -131,8 +131,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".animation(%b)", animation));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".animation(%b)", animation));
                 js.setLength(0);
@@ -157,8 +157,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".animation(%s)", wrapQuotes(animation1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".animation(%s)", wrapQuotes(animation1)));
                 js.setLength(0);
@@ -184,8 +184,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".animation(%b, %f)", enabled, duration));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".animation(%b, %f)", enabled, duration));
                 js.setLength(0);
@@ -220,8 +220,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -268,10 +268,6 @@ public class Chart extends VisualBaseWithBounds {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container != null) ? container.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -298,10 +294,6 @@ public class Chart extends VisualBaseWithBounds {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -324,8 +316,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
                 js.setLength(0);
@@ -356,10 +348,6 @@ public class Chart extends VisualBaseWithBounds {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container3 != null) ? container3.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -394,8 +382,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".contextMenu(%s)", wrapQuotes(contextMenu)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".contextMenu(%s)", wrapQuotes(contextMenu)));
                 js.setLength(0);
@@ -420,8 +408,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".contextMenu(%b)", contextMenu1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".contextMenu(%b)", contextMenu1));
                 js.setLength(0);
@@ -444,8 +432,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".draw(%b)", async));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".draw(%b)", async));
                 js.setLength(0);
@@ -480,8 +468,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".exports(%s)", wrapQuotes(exports)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".exports(%s)", wrapQuotes(exports)));
                 js.setLength(0);
@@ -517,7 +505,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b);", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b)", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
                 js.setLength(0);
@@ -563,7 +550,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %s, %f, %f);", paperSizeOrWidth, landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %s, %f, %f)", paperSizeOrWidth, landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
                 js.setLength(0);
@@ -602,7 +588,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %s, %f, %f);", paperSizeOrWidth, landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %s, %f, %f)", paperSizeOrWidth, landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
                 js.setLength(0);
@@ -641,7 +626,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %s, %f, %f);", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %s, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
                 js.setLength(0);
@@ -680,7 +664,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %s, %f, %f);", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %s, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
                 js.setLength(0);
@@ -725,7 +708,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %f, %f, %f);", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %f, %f, %f)", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
                 js.setLength(0);
@@ -769,7 +751,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b, %s);", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b, %s)", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
                 js.setLength(0);
@@ -808,7 +789,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s);", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s)", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
                 js.setLength(0);
@@ -847,7 +827,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b, %s);", paperSizeOrWidth3, landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b, %s)", paperSizeOrWidth3, landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
                 js.setLength(0);
@@ -886,7 +865,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s, %s);", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s, %s)", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
                 js.setLength(0);
@@ -913,7 +891,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".globalToLocal(%f, %f);", xCoord, yCoord));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".globalToLocal(%f, %f)", xCoord, yCoord));
                 js.setLength(0);
@@ -963,8 +940,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".label(%b)", label));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%b)", label));
                 js.setLength(0);
@@ -990,8 +967,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".label(%s)", wrapQuotes(label1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%s)", wrapQuotes(label1)));
                 js.setLength(0);
@@ -1030,8 +1007,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".label(%s, %b)", wrapQuotes(index), label3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%s, %b)", wrapQuotes(index), label3));
                 js.setLength(0);
@@ -1065,8 +1042,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".label(%s, %s)", wrapQuotes(index), wrapQuotes(label4)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%s, %s)", wrapQuotes(index), wrapQuotes(label4)));
                 js.setLength(0);
@@ -1100,8 +1077,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".label(%f, %b)", index1, label3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%f, %b)", index1, label3));
                 js.setLength(0);
@@ -1135,8 +1112,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".label(%f, %s)", index1, wrapQuotes(label4)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".label(%f, %s)", index1, wrapQuotes(label4)));
                 js.setLength(0);
@@ -1170,7 +1147,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".localToGlobal(%f, %f);", xCoord1, yCoord1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".localToGlobal(%f, %f)", xCoord1, yCoord1));
                 js.setLength(0);
@@ -1182,7 +1158,7 @@ public class Chart extends VisualBaseWithBounds {
 
     /**
      * Getter for current chart margin.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public Margin getMargin() {
         if (getMargin == null)
@@ -1211,8 +1187,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
                 js.setLength(0);
@@ -1238,8 +1214,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
@@ -1265,8 +1241,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
                 js.setLength(0);
@@ -1338,8 +1314,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -1403,8 +1379,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -1440,8 +1416,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
                 js.setLength(0);
@@ -1454,7 +1430,7 @@ public class Chart extends VisualBaseWithBounds {
 
     /**
      * Getter for the chart padding.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public UtilsPadding getPadding() {
         if (getPadding == null)
@@ -1483,8 +1459,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -1510,8 +1486,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -1537,8 +1513,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -1642,8 +1618,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
@@ -1739,8 +1715,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
                 js.setLength(0);
@@ -1774,7 +1750,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s);", ((chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null"), wrapQuotes(csvSettings), wrapQuotes(filename)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", ((chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null"), wrapQuotes(csvSettings), wrapQuotes(filename)));
                 js.setLength(0);
@@ -1803,7 +1778,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s);", wrapQuotes(chartDataExportMode1), wrapQuotes(csvSettings), wrapQuotes(filename)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", wrapQuotes(chartDataExportMode1), wrapQuotes(csvSettings), wrapQuotes(filename)));
                 js.setLength(0);
@@ -1858,7 +1832,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s);", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s)", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
                 js.setLength(0);
@@ -1907,7 +1880,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %f, %f, %b, %s);", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %f, %f, %b, %s)", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
                 js.setLength(0);
@@ -1934,7 +1906,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsJson(%s);", wrapQuotes(filename2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJson(%s)", wrapQuotes(filename2)));
                 js.setLength(0);
@@ -1986,7 +1957,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsPdf(%f, %b, %f, %f, %s);", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%f, %b, %f, %f, %s)", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
                 js.setLength(0);
@@ -2031,7 +2001,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidthOrOptions1), landscape, x1, y1, wrapQuotes(filename3)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidthOrOptions1), landscape, x1, y1, wrapQuotes(filename3)));
                 js.setLength(0);
@@ -2087,7 +2056,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s);", width4, height3, quality3, wrapQuotes(filename4)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s)", width4, height3, quality3, wrapQuotes(filename4)));
                 js.setLength(0);
@@ -2138,7 +2106,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsPng(%s, %f, %f, %s);", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%s, %f, %f, %s)", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
                 js.setLength(0);
@@ -2181,7 +2148,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s);", wrapQuotes(paperSize), landscape1, wrapQuotes(filename5)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s)", wrapQuotes(paperSize), landscape1, wrapQuotes(filename5)));
                 js.setLength(0);
@@ -2221,7 +2187,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f);", width6, height4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f)", width6, height4));
                 js.setLength(0);
@@ -2261,7 +2226,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s);", ((chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null"), wrapQuotes(filename6)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", ((chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null"), wrapQuotes(filename6)));
                 js.setLength(0);
@@ -2298,7 +2262,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s);", wrapQuotes(chartDataExportMode3), wrapQuotes(filename6)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", wrapQuotes(chartDataExportMode3), wrapQuotes(filename6)));
                 js.setLength(0);
@@ -2330,7 +2293,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsXml(%s);", wrapQuotes(filename7)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXml(%s)", wrapQuotes(filename7)));
                 js.setLength(0);
@@ -2353,8 +2315,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s)", ((selectMarqueeFill != null) ? selectMarqueeFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s)", ((selectMarqueeFill != null) ? selectMarqueeFill.generateJs() : "null")));
                 js.setLength(0);
@@ -2380,8 +2342,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f)", wrapQuotes(color), opacity));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -2427,8 +2389,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -2467,8 +2429,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -2507,8 +2469,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -2547,8 +2509,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -2587,8 +2549,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -2627,8 +2589,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -2685,8 +2647,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -2735,8 +2697,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -2780,8 +2742,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -2817,8 +2779,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -2854,8 +2816,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -2939,7 +2901,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s);", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s)", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
                 js.setLength(0);
@@ -3023,7 +2984,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %s, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %s, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
@@ -3098,7 +3058,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %s, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %s, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
@@ -3173,7 +3132,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %s, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
@@ -3248,7 +3206,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
@@ -3335,7 +3292,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s)", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
                 js.setLength(0);
@@ -3413,7 +3369,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %b, %s);", wrapQuotes(paperSizeOrWidth6), landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %b, %s)", wrapQuotes(paperSizeOrWidth6), landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
                 js.setLength(0);
@@ -3484,7 +3439,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %b, %s);", wrapQuotes(paperSizeOrWidth6), wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %b, %s)", wrapQuotes(paperSizeOrWidth6), wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
                 js.setLength(0);
@@ -3555,7 +3509,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %s, %b, %s);", paperSizeOrWidth7, landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %s, %b, %s)", paperSizeOrWidth7, landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
                 js.setLength(0);
@@ -3626,7 +3579,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %s, %b, %s);", paperSizeOrWidth7, wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %s, %b, %s)", paperSizeOrWidth7, wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
                 js.setLength(0);
@@ -3662,7 +3614,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s)", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
                 js.setLength(0);
@@ -3697,7 +3648,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions2), wrapQuotes(description1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s)", wrapQuotes(captionOrOptions2), wrapQuotes(description1)));
                 js.setLength(0);
@@ -3731,7 +3681,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s)", wrapQuotes(linkOrOptions), wrapQuotes(description2)));
                 js.setLength(0);
@@ -3754,8 +3703,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".startSelectMarquee(%b)", repeat));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startSelectMarquee(%b)", repeat));
                 js.setLength(0);
@@ -3796,8 +3745,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%b)", title));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
@@ -3823,8 +3772,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
@@ -3856,7 +3805,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toA11yTable(%s, %b);", wrapQuotes(title3), asString));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toA11yTable(%s, %b)", wrapQuotes(title3), asString));
                 js.setLength(0);
@@ -3894,7 +3842,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toCsv(%s, %s);", ((chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null"), wrapQuotes(csvSettings1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", ((chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null"), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -3928,7 +3875,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toCsv(%s, %s);", wrapQuotes(chartDataExportMode5), wrapQuotes(csvSettings1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", wrapQuotes(chartDataExportMode5), wrapQuotes(csvSettings1)));
                 js.setLength(0);
@@ -3963,7 +3909,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %b);", wrapQuotes(title4), asString1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %b)", wrapQuotes(title4), asString1));
                 js.setLength(0);
@@ -3987,7 +3932,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toJson(%b);", stringify));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toJson(%b)", stringify));
                 js.setLength(0);
@@ -4023,7 +3967,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toSvg(%s, %b);", wrapQuotes(paperSize2), landscape2));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b)", wrapQuotes(paperSize2), landscape2));
                 js.setLength(0);
@@ -4069,7 +4012,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toSvg(%f, %f);", width9, height7));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f)", width9, height7));
                 js.setLength(0);
@@ -4092,7 +4034,6 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toXml(%b);", asXmlNode));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toXml(%b)", asXmlNode));
                 js.setLength(0);
@@ -4130,8 +4071,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
@@ -4156,8 +4097,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%b)", tooltip1));
                 js.setLength(0);

@@ -132,27 +132,27 @@ public class Pert extends SeparateChart {
 
         return getData;
     }
-    private Tree data;
-    private TreeView data1;
-    private String data2;
-    private TreeFillingMethod fillMethod;
-    private String fillMethod1;
-    private Dependency[] deps;
     private List<Pert> setData = new ArrayList<>();
 
     /**
      * Setter for the chart data.
      */
-    public Pert setData(Tree data, TreeFillingMethod fillMethod, Dependency[] deps) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
+    public Pert data(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
-            js.setLength(0);
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
         }
         return this;
     }
@@ -160,151 +160,6 @@ public class Pert extends SeparateChart {
         if (!setData.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Pert item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pert> setData1 = new ArrayList<>();
-
-    /**
-     * Setter for the chart data.
-     */
-    public Pert setData(Tree data, String fillMethod1, Dependency[] deps) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(fillMethod1), arrayToString(deps)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(fillMethod1), arrayToString(deps)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pert> setData2 = new ArrayList<>();
-
-    /**
-     * Setter for the chart data.
-     */
-    public Pert setData(TreeView data1, TreeFillingMethod fillMethod, Dependency[] deps) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pert> setData3 = new ArrayList<>();
-
-    /**
-     * Setter for the chart data.
-     */
-    public Pert setData(TreeView data1, String fillMethod1, Dependency[] deps) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(fillMethod1), arrayToString(deps)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(fillMethod1), arrayToString(deps)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData3() {
-        if (!setData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pert> setData4 = new ArrayList<>();
-
-    /**
-     * Setter for the chart data.
-     */
-    public Pert setData(String data2, TreeFillingMethod fillMethod, Dependency[] deps) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), ((fillMethod != null) ? fillMethod.generateJs() : "null"), arrayToString(deps)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setData4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pert> setData5 = new ArrayList<>();
-
-    /**
-     * Setter for the chart data.
-     */
-    public Pert setData(String data2, String fillMethod1, Dependency[] deps) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(fillMethod1), arrayToString(deps)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(fillMethod1), arrayToString(deps)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setData5) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -557,11 +412,6 @@ public class Pert extends SeparateChart {
         js.append(generateJSgetTasks());
         js.append(generateJSsetCriticalPath());
         js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetData2());
-        js.append(generateJSsetData3());
-        js.append(generateJSsetData4());
-        js.append(generateJSsetData5());
         js.append(generateJSsetHorizontalSpacing());
         js.append(generateJSsetHorizontalSpacing1());
         js.append(generateJSsetMilestones());

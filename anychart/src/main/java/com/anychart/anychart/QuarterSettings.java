@@ -61,8 +61,8 @@ public class QuarterSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".leftBottom(%s)", wrapQuotes(leftBottom)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".leftBottom(%s)", wrapQuotes(leftBottom)));
                 js.setLength(0);
@@ -97,8 +97,8 @@ public class QuarterSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".leftTop(%s)", wrapQuotes(leftTop)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".leftTop(%s)", wrapQuotes(leftTop)));
                 js.setLength(0);
@@ -133,8 +133,8 @@ public class QuarterSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rightBottom(%s)", wrapQuotes(rightBottom)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rightBottom(%s)", wrapQuotes(rightBottom)));
                 js.setLength(0);
@@ -169,8 +169,8 @@ public class QuarterSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rightTop(%s)", wrapQuotes(rightTop)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rightTop(%s)", wrapQuotes(rightTop)));
                 js.setLength(0);

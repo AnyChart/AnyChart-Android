@@ -65,8 +65,8 @@ public class UnmanagedLayer extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".content(%s)", wrapQuotes(content)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".content(%s)", wrapQuotes(content)));
                 js.setLength(0);
@@ -95,10 +95,6 @@ public class UnmanagedLayer extends Element {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".content(%s);",  ((content1 != null) ? content1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".content(%s)", ((content1 != null) ? content1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }

@@ -48,8 +48,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".bottom(%f)", bottom));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%f)", bottom));
                 js.setLength(0);
@@ -74,8 +74,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
                 js.setLength(0);
@@ -117,7 +117,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", ((bounds != null) ? bounds.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds != null) ? bounds.generateJs() : "null")));
                 js.setLength(0);
@@ -147,10 +146,6 @@ public class VisualBaseWithBounds extends VisualBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".bounds(%s);",  ((bounds1 != null) ? bounds1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds1 != null) ? bounds1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return new VisualBase(jsBase);
     }
@@ -176,10 +171,6 @@ public class VisualBaseWithBounds extends VisualBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".bounds(%s);",  ((bounds2 != null) ? bounds2.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds2 != null) ? bounds2.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return new VisualBase(jsBase);
     }
@@ -224,7 +215,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", wrapQuotes(x1), wrapQuotes(y1), wrapQuotes(width1), wrapQuotes(height1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s)", wrapQuotes(x1), wrapQuotes(y1), wrapQuotes(width1), wrapQuotes(height1)));
                 js.setLength(0);
@@ -265,7 +255,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f)", x, y, width, height));
                 js.setLength(0);
@@ -294,8 +283,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%f)", height2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height2));
                 js.setLength(0);
@@ -322,8 +311,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height3)));
                 js.setLength(0);
@@ -350,8 +339,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".left(%f)", left));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%f)", left));
                 js.setLength(0);
@@ -376,8 +365,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
                 js.setLength(0);
@@ -405,7 +394,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f)", maxHeight));
                 js.setLength(0);
@@ -431,7 +419,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(maxHeight1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s)", wrapQuotes(maxHeight1)));
                 js.setLength(0);
@@ -459,7 +446,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f)", maxWidth));
                 js.setLength(0);
@@ -485,7 +471,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(maxWidth1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s)", wrapQuotes(maxWidth1)));
                 js.setLength(0);
@@ -513,7 +498,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f)", minHeight));
                 js.setLength(0);
@@ -539,7 +523,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(minHeight1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s)", wrapQuotes(minHeight1)));
                 js.setLength(0);
@@ -567,7 +550,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f)", minWidth));
                 js.setLength(0);
@@ -593,7 +575,6 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(minWidth1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s)", wrapQuotes(minWidth1)));
                 js.setLength(0);
@@ -620,8 +601,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".right(%f)", right));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%f)", right));
                 js.setLength(0);
@@ -646,8 +627,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
                 js.setLength(0);
@@ -674,8 +655,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".top(%f)", top));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%f)", top));
                 js.setLength(0);
@@ -700,8 +681,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
                 js.setLength(0);
@@ -730,8 +711,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%f)", width2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width2));
                 js.setLength(0);
@@ -758,8 +739,8 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width3)));
                 js.setLength(0);

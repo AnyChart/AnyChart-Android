@@ -53,7 +53,6 @@ public class TableComputer extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".addOutputField(%s, %s);", wrapQuotes(name), wrapQuotes(uid)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addOutputField(%s, %s)", wrapQuotes(name), wrapQuotes(uid)));
                 js.setLength(0);
@@ -79,7 +78,6 @@ public class TableComputer extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getFieldIndex(%s);", wrapQuotes(name1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getFieldIndex(%s)", wrapQuotes(name1)));
                 js.setLength(0);
@@ -102,7 +100,6 @@ public class TableComputer extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".setContext(%s);", wrapQuotes(setContext)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".setContext(%s)", wrapQuotes(setContext)));
                 js.setLength(0);

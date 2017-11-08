@@ -53,8 +53,8 @@ public class Connector extends MapSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".curvature(%f)", curvature));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".curvature(%f)", curvature));
                 js.setLength(0);
@@ -79,8 +79,8 @@ public class Connector extends MapSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".curvature(%s)", wrapQuotes(curvature1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".curvature(%s)", wrapQuotes(curvature1)));
                 js.setLength(0);
@@ -129,8 +129,8 @@ public class Connector extends MapSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".startSize(%f)", startSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startSize(%f)", startSize));
                 js.setLength(0);
@@ -155,8 +155,8 @@ public class Connector extends MapSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
                 js.setLength(0);

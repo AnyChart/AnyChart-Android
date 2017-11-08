@@ -51,8 +51,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".disabled(%b)", disabled));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".disabled(%b)", disabled));
                 js.setLength(0);
@@ -76,8 +76,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".format(%s)", wrapQuotes(format)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".format(%s)", wrapQuotes(format)));
                 js.setLength(0);
@@ -100,8 +100,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconEnabled(%b)", iconEnabled));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconEnabled(%b)", iconEnabled));
                 js.setLength(0);
@@ -125,8 +125,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconFill(%s)", ((iconFill != null) ? iconFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s)", ((iconFill != null) ? iconFill.generateJs() : "null")));
                 js.setLength(0);
@@ -152,8 +152,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconFill(%s, %f)", wrapQuotes(color), opacity));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -199,8 +199,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -239,8 +239,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -279,8 +279,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -319,8 +319,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -359,8 +359,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -399,8 +399,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -457,8 +457,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -507,8 +507,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -563,8 +563,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -600,8 +600,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -637,8 +637,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -674,8 +674,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -699,8 +699,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerFill(%s)", ((iconMarkerFill != null) ? iconMarkerFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s)", ((iconMarkerFill != null) ? iconMarkerFill.generateJs() : "null")));
                 js.setLength(0);
@@ -735,8 +735,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %f)", wrapQuotes(color2), opacity3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %f)", wrapQuotes(color2), opacity3));
                 js.setLength(0);
@@ -796,8 +796,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -850,8 +850,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -904,8 +904,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -958,8 +958,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -1012,8 +1012,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -1066,8 +1066,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -1147,8 +1147,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1220,8 +1220,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1269,8 +1269,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1310,8 +1310,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1351,8 +1351,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerStroke(%s, %f, %s, %s, %s)", wrapQuotes(color5), thickness1, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1379,8 +1379,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerType(%s)", ((iconMarkerType != null) ? iconMarkerType.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerType(%s)", ((iconMarkerType != null) ? iconMarkerType.generateJs() : "null")));
                 js.setLength(0);
@@ -1405,8 +1405,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconMarkerType(%s)", wrapQuotes(iconMarkerType1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconMarkerType(%s)", wrapQuotes(iconMarkerType1)));
                 js.setLength(0);
@@ -1433,8 +1433,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconSize(%f)", iconSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconSize(%f)", iconSize));
                 js.setLength(0);
@@ -1459,8 +1459,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconSize(%s)", wrapQuotes(iconSize1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconSize(%s)", wrapQuotes(iconSize1)));
                 js.setLength(0);
@@ -1515,8 +1515,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", ((iconStroke != null) ? iconStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", ((iconStroke != null) ? iconStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1564,8 +1564,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", ((iconStroke1 != null) ? iconStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", ((iconStroke1 != null) ? iconStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1613,8 +1613,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", wrapQuotes(iconStroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconStroke(%s, %f, %s, %s, %s)", wrapQuotes(iconStroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -1637,8 +1637,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconTextSpacing(%f)", iconTextSpacing));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconTextSpacing(%f)", iconTextSpacing));
                 js.setLength(0);
@@ -1665,8 +1665,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconType(%s)", ((iconType != null) ? iconType.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconType(%s)", ((iconType != null) ? iconType.generateJs() : "null")));
                 js.setLength(0);
@@ -1691,8 +1691,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconType(%s)", wrapQuotes(iconType1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconType(%s)", wrapQuotes(iconType1)));
                 js.setLength(0);
@@ -1715,8 +1715,8 @@ public class LegendItemSettings extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
                 js.setLength(0);

@@ -180,26 +180,27 @@ The collapseTask() method should be used after drawing a chart.
 
         return getData;
     }
-    private Tree data;
-    private TreeView data1;
-    private String data2;
-    private TreeFillingMethod fillMethod;
-    private String fillMethod1;
     private List<Gantt> setData = new ArrayList<>();
 
     /**
      * Setter for the chart data.
      */
-    public Gantt setData(Tree data, TreeFillingMethod fillMethod) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
+    public Gantt data(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
-            js.setLength(0);
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
         }
         return this;
     }
@@ -207,151 +208,6 @@ The collapseTask() method should be used after drawing a chart.
         if (!setData.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Gantt item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Gantt> setData1 = new ArrayList<>();
-
-    /**
-     * Setter for the chart data.
-     */
-    public Gantt setData(Tree data, String fillMethod1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(fillMethod1)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(fillMethod1)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Gantt> setData2 = new ArrayList<>();
-
-    /**
-     * Setter for the chart data.
-     */
-    public Gantt setData(TreeView data1, TreeFillingMethod fillMethod) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Gantt> setData3 = new ArrayList<>();
-
-    /**
-     * Setter for the chart data.
-     */
-    public Gantt setData(TreeView data1, String fillMethod1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(fillMethod1)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(fillMethod1)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData3() {
-        if (!setData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Gantt> setData4 = new ArrayList<>();
-
-    /**
-     * Setter for the chart data.
-     */
-    public Gantt setData(String data2, TreeFillingMethod fillMethod) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setData4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Gantt> setData5 = new ArrayList<>();
-
-    /**
-     * Setter for the chart data.
-     */
-    public Gantt setData(String data2, String fillMethod1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), wrapQuotes(fillMethod1)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), wrapQuotes(fillMethod1)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setData5) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1739,11 +1595,6 @@ The scrollToEnd() method should be used after drawing a chart.
         js.append(generateJSsetColumnStroke());
         js.append(generateJSsetColumnStroke1());
         js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetData2());
-        js.append(generateJSsetData3());
-        js.append(generateJSsetData4());
-        js.append(generateJSsetData5());
         js.append(generateJSsetDataGrid());
         js.append(generateJSsetDefaultRowHeight());
         js.append(generateJSsetEditing());

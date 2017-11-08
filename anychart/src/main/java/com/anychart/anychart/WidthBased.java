@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -53,8 +48,8 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
                 js.setLength(0);
@@ -79,8 +74,8 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
@@ -107,8 +102,8 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
                 js.setLength(0);
@@ -133,8 +128,8 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
                 js.setLength(0);
@@ -161,8 +156,8 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
                 js.setLength(0);
@@ -187,8 +182,8 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
                 js.setLength(0);

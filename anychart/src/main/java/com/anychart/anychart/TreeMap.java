@@ -268,26 +268,27 @@ public class TreeMap extends SeparateChart {
 
         return getData;
     }
-    private Tree data;
-    private TreeView data1;
-    private String data2;
-    private TreeFillingMethod fillMethod;
-    private String fillMethod1;
     private List<TreeMap> setData = new ArrayList<>();
 
     /**
      * Setter for the data.
      */
-    public TreeMap setData(Tree data, TreeFillingMethod fillMethod) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
+    public TreeMap data(List<DataEntry> data) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
 
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
-            js.setLength(0);
+        if (!data.isEmpty()) {
+            StringBuilder resultData = new StringBuilder();
+            resultData.append("[");
+            for (DataEntry dataEntry : data) {
+                resultData.append(dataEntry.generateJs()).append(",");
+            }
+            resultData.setLength(resultData.length() - 1);
+            resultData.append("]");
+
+            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
         }
         return this;
     }
@@ -295,151 +296,6 @@ public class TreeMap extends SeparateChart {
         if (!setData.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (TreeMap item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<TreeMap> setData1 = new ArrayList<>();
-
-    /**
-     * Setter for the data.
-     */
-    public TreeMap setData(Tree data, String fillMethod1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(fillMethod1)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(fillMethod1)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<TreeMap> setData2 = new ArrayList<>();
-
-    /**
-     * Setter for the data.
-     */
-    public TreeMap setData(TreeView data1, TreeFillingMethod fillMethod) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<TreeMap> setData3 = new ArrayList<>();
-
-    /**
-     * Setter for the data.
-     */
-    public TreeMap setData(TreeView data1, String fillMethod1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(fillMethod1)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(fillMethod1)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData3() {
-        if (!setData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<TreeMap> setData4 = new ArrayList<>();
-
-    /**
-     * Setter for the data.
-     */
-    public TreeMap setData(String data2, TreeFillingMethod fillMethod) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), ((fillMethod != null) ? fillMethod.generateJs() : "null")));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setData4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<TreeMap> setData5 = new ArrayList<>();
-
-    /**
-     * Setter for the data.
-     */
-    public TreeMap setData(String data2, String fillMethod1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), wrapQuotes(fillMethod1)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data2), wrapQuotes(fillMethod1)));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setData5) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1847,11 +1703,6 @@ Ascending, Descending and No sorting is supported.
         js.append(generateJSsetColorScale2());
         js.append(generateJSsetColorScale3());
         js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetData2());
-        js.append(generateJSsetData3());
-        js.append(generateJSsetData4());
-        js.append(generateJSsetData5());
         js.append(generateJSsetFill());
         js.append(generateJSsetFill1());
         js.append(generateJSsetFill2());

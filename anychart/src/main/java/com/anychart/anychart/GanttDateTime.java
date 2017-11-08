@@ -49,8 +49,8 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maximum(%f)", maximum));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximum(%f)", maximum));
                 js.setLength(0);
@@ -73,8 +73,8 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
                 js.setLength(0);
@@ -97,8 +97,8 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minimum(%f)", minimum));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimum(%f)", minimum));
                 js.setLength(0);
@@ -121,8 +121,8 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
                 js.setLength(0);
@@ -145,8 +145,8 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
                 js.setLength(0);
@@ -169,8 +169,8 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
                 js.setLength(0);

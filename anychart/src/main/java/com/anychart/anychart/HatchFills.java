@@ -76,8 +76,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), index, wrapQuotes(color), thickness, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), index, wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -110,8 +110,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", wrapQuotes(type1), index, wrapQuotes(color), thickness, size));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", wrapQuotes(type1), index, wrapQuotes(color), thickness, size));
                 js.setLength(0);
@@ -140,8 +140,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemAt(%f, %s)", index1, ((patternFill != null) ? patternFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index1, ((patternFill != null) ? patternFill.generateJs() : "null")));
                 js.setLength(0);
@@ -171,8 +171,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemAt(%f, %s)", index2, ((instance != null) ? instance.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index2, ((instance != null) ? instance.generateJs() : "null")));
                 js.setLength(0);
@@ -203,8 +203,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemAt(%f, %b)", index3, state));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %b)", index3, state));
                 js.setLength(0);
@@ -242,8 +242,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args != null) ? var_args.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -275,8 +275,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args1 != null) ? var_args1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args1 != null) ? var_args1.generateJs() : "null")));
                 js.setLength(0);
@@ -308,8 +308,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args2 != null) ? var_args2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), ((var_args2 != null) ? var_args2.generateJs() : "null")));
                 js.setLength(0);
@@ -341,8 +341,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args != null) ? var_args.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -374,8 +374,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args1 != null) ? var_args1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args1 != null) ? var_args1.generateJs() : "null")));
                 js.setLength(0);
@@ -407,8 +407,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args2 != null) ? var_args2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), ((var_args2 != null) ? var_args2.generateJs() : "null")));
                 js.setLength(0);
@@ -440,8 +440,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args != null) ? var_args.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args != null) ? var_args.generateJs() : "null")));
                 js.setLength(0);
@@ -473,8 +473,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args1 != null) ? var_args1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args1 != null) ? var_args1.generateJs() : "null")));
                 js.setLength(0);
@@ -506,8 +506,8 @@ public class HatchFills extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args2 != null) ? var_args2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), ((var_args2 != null) ? var_args2.generateJs() : "null")));
                 js.setLength(0);

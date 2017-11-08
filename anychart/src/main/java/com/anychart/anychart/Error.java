@@ -55,8 +55,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
                 js.setLength(0);
@@ -82,8 +82,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
                 js.setLength(0);
@@ -110,8 +110,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valueError(%s)", wrapQuotes(valueError)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueError(%s)", wrapQuotes(valueError)));
                 js.setLength(0);
@@ -136,8 +136,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valueError(%f)", valueError1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueError(%f)", valueError1));
                 js.setLength(0);
@@ -178,8 +178,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -213,8 +213,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -248,8 +248,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -272,8 +272,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valueErrorWidth(%f)", valueErrorWidth));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueErrorWidth(%f)", valueErrorWidth));
                 js.setLength(0);
@@ -300,8 +300,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valueLowerError(%s)", wrapQuotes(valueLowerError)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueLowerError(%s)", wrapQuotes(valueLowerError)));
                 js.setLength(0);
@@ -326,8 +326,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valueLowerError(%f)", valueLowerError1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueLowerError(%f)", valueLowerError1));
                 js.setLength(0);
@@ -354,8 +354,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valueUpperError(%s)", wrapQuotes(valueUpperError)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueUpperError(%s)", wrapQuotes(valueUpperError)));
                 js.setLength(0);
@@ -380,8 +380,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valueUpperError(%f)", valueUpperError1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valueUpperError(%f)", valueUpperError1));
                 js.setLength(0);
@@ -408,8 +408,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xError(%s)", wrapQuotes(xError)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xError(%s)", wrapQuotes(xError)));
                 js.setLength(0);
@@ -434,8 +434,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xError(%f)", xError1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xError(%f)", xError1));
                 js.setLength(0);
@@ -492,8 +492,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill3 != null) ? strokeOrFill3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill3 != null) ? strokeOrFill3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -543,8 +543,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill4 != null) ? strokeOrFill4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill4 != null) ? strokeOrFill4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -594,8 +594,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -618,8 +618,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xErrorWidth(%f)", xErrorWidth));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xErrorWidth(%f)", xErrorWidth));
                 js.setLength(0);
@@ -646,8 +646,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xLowerError(%s)", wrapQuotes(xLowerError)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xLowerError(%s)", wrapQuotes(xLowerError)));
                 js.setLength(0);
@@ -672,8 +672,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xLowerError(%f)", xLowerError1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xLowerError(%f)", xLowerError1));
                 js.setLength(0);
@@ -700,8 +700,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xUpperError(%s)", wrapQuotes(xUpperError)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xUpperError(%s)", wrapQuotes(xUpperError)));
                 js.setLength(0);
@@ -726,8 +726,8 @@ Error mode defines the rule to parse values for series with error.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xUpperError(%f)", xUpperError1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xUpperError(%f)", xUpperError1));
                 js.setLength(0);

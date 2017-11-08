@@ -54,8 +54,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dMAType(%s)", ((dMAType != null) ? dMAType.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", ((dMAType != null) ? dMAType.generateJs() : "null")));
                 js.setLength(0);
@@ -80,8 +80,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dMAType(%s)", wrapQuotes(dMAType1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", wrapQuotes(dMAType1)));
                 js.setLength(0);
@@ -104,8 +104,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dPeriod(%f)", dPeriod));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dPeriod(%f)", dPeriod));
                 js.setLength(0);
@@ -144,8 +144,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dSeries(%s)", ((type != null) ? type.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -170,8 +170,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".dSeries(%s)", wrapQuotes(type1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -194,8 +194,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
                 js.setLength(0);
@@ -222,8 +222,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".kMAType(%s)", ((kMAType != null) ? kMAType.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", ((kMAType != null) ? kMAType.generateJs() : "null")));
                 js.setLength(0);
@@ -248,8 +248,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".kMAType(%s)", wrapQuotes(kMAType1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", wrapQuotes(kMAType1)));
                 js.setLength(0);
@@ -272,8 +272,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".kPeriod(%f)", kPeriod));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kPeriod(%f)", kPeriod));
                 js.setLength(0);
@@ -314,8 +314,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".kSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
@@ -342,8 +342,8 @@ public class Stochastic extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".kSeries(%s)", wrapQuotes(type3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);

@@ -55,8 +55,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
                 js.setLength(0);
@@ -82,8 +82,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
                 js.setLength(0);
@@ -106,8 +106,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
                 js.setLength(0);
@@ -130,8 +130,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
                 js.setLength(0);
@@ -159,8 +159,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
@@ -186,8 +186,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
                 js.setLength(0);
@@ -213,8 +213,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -260,8 +260,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -300,8 +300,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -340,8 +340,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -380,8 +380,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -420,8 +420,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -460,8 +460,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -518,8 +518,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -568,8 +568,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -609,8 +609,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -635,8 +635,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -675,8 +675,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
                 js.setLength(0);
@@ -701,8 +701,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
                 js.setLength(0);
@@ -741,8 +741,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
@@ -767,8 +767,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
                 js.setLength(0);
@@ -797,8 +797,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
@@ -824,8 +824,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
                 js.setLength(0);
@@ -851,8 +851,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
                 js.setLength(0);
@@ -879,8 +879,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".radius(%f)", radius));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
                 js.setLength(0);
@@ -905,8 +905,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
                 js.setLength(0);
@@ -949,8 +949,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
                 js.setLength(0);
@@ -977,8 +977,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
@@ -1009,10 +1009,6 @@ Round off the ends of axes to the specified radius.
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".scale(%s);",  ((scale2 != null) ? scale2.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -1035,8 +1031,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
                 js.setLength(0);
@@ -1061,8 +1057,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startAngle(%f)", startAngle1));
                 js.setLength(0);
@@ -1089,8 +1085,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".sweepAngle(%s)", wrapQuotes(sweepAngle)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%s)", wrapQuotes(sweepAngle)));
                 js.setLength(0);
@@ -1115,8 +1111,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
                 js.setLength(0);
@@ -1155,8 +1151,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
@@ -1181,8 +1177,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%b)", ticks1));
                 js.setLength(0);
@@ -1209,8 +1205,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%f)", width));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -1235,8 +1231,8 @@ Round off the ends of axes to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);

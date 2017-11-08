@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -53,10 +50,6 @@ public class Plot extends VisualBaseWithBounds {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".addSeries(%s);",  ((var_args != null) ? var_args.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", ((var_args != null) ? var_args.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
     }
 
@@ -82,7 +75,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
@@ -110,7 +102,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
@@ -155,7 +146,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
@@ -194,7 +184,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
@@ -229,8 +218,8 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
                 js.setLength(0);
@@ -239,103 +228,28 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private TableMapping data;
-    private DataTable data1;
-    private String data2;
-    private String data3;
-    private String mappingSettings;
-    private String csvSettings;
 
     /**
      * Creates and returns a new Area series.
      */
-    public StockSeriesArea area(TableMapping data, String mappingSettings, String csvSettings) {
+    public StockSeriesArea area(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            
-            this.data = data;
-            this.mappingSettings = mappingSettings;
-            this.csvSettings = csvSettings;
         } else {
-            this.data = data;
-            this.mappingSettings = mappingSettings;
-            this.csvSettings = csvSettings;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesArea(jsBase);
-    }
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
 
-
-    /**
-     * Creates and returns a new Area series.
-     */
-    public StockSeriesArea area(DataTable data1, String mappingSettings, String csvSettings) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            
-            this.data1 = data1;
-            this.mappingSettings = mappingSettings;
-            this.csvSettings = csvSettings;
-        } else {
-            this.data1 = data1;
-            this.mappingSettings = mappingSettings;
-            this.csvSettings = csvSettings;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesArea(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Area series.
-     */
-    public StockSeriesArea area(String data2, String mappingSettings, String csvSettings) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            
-            this.data2 = data2;
-            this.mappingSettings = mappingSettings;
-            this.csvSettings = csvSettings;
-        } else {
-            this.data2 = data2;
-            this.mappingSettings = mappingSettings;
-            this.csvSettings = csvSettings;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
-                js.setLength(0);
+                js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s);", resultData.toString()));
             }
         }
         return new StockSeriesArea(jsBase);
@@ -380,7 +294,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -422,7 +335,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -464,7 +376,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -506,7 +417,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
@@ -553,7 +463,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
@@ -596,7 +505,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
@@ -637,8 +545,8 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -664,8 +572,8 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%b)", background2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -727,7 +635,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -780,7 +687,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -833,7 +739,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -886,7 +791,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -939,7 +843,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -992,7 +895,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -1045,7 +947,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -1098,7 +999,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
@@ -1157,7 +1057,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
@@ -1211,7 +1110,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
@@ -1275,7 +1173,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
@@ -1334,7 +1231,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
@@ -1343,133 +1239,28 @@ public class Plot extends VisualBaseWithBounds {
         return new BBandsWidth(jsBase);
     }
 
-    private TableMapping data4;
-    private DataTable data5;
-    private String data6;
-    private String data7;
-    private String mappingSettings1;
-    private String csvSettings1;
 
     /**
      * Creates and returns a new Candlestick series.
      */
-    public StockSeriesCandlestick candlestick(TableMapping data4, String mappingSettings1, String csvSettings1) {
+    public StockSeriesCandlestick candlestick(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            
-            this.data4 = data4;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            
-            this.mappingSettings1 = mappingSettings1;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            
-            this.csvSettings1 = csvSettings1;
         } else {
-            this.data4 = data4;
-            this.mappingSettings1 = mappingSettings1;
-            this.csvSettings1 = csvSettings1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesCandlestick(jsBase);
-    }
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
 
-
-    /**
-     * Creates and returns a new Candlestick series.
-     */
-    public StockSeriesCandlestick candlestick(DataTable data5, String mappingSettings1, String csvSettings1) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            
-            this.data5 = data5;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            
-            this.mappingSettings1 = mappingSettings1;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            
-            this.csvSettings1 = csvSettings1;
-        } else {
-            this.data5 = data5;
-            this.mappingSettings1 = mappingSettings1;
-            this.csvSettings1 = csvSettings1;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesCandlestick(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Candlestick series.
-     */
-    public StockSeriesCandlestick candlestick(String data6, String mappingSettings1, String csvSettings1) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            
-            this.data6 = data6;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            
-            this.mappingSettings1 = mappingSettings1;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            
-            this.csvSettings1 = csvSettings1;
-        } else {
-            this.data6 = data6;
-            this.mappingSettings1 = mappingSettings1;
-            this.csvSettings1 = csvSettings1;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
-                js.setLength(0);
+                js.append(String.format(Locale.US, "var setCandlestick" + ++variableIndex + " = " + jsBase + ".candlestick(%s);", resultData.toString()));
             }
         }
         return new StockSeriesCandlestick(jsBase);
@@ -1527,7 +1318,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
@@ -1584,7 +1374,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
@@ -1656,7 +1445,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
@@ -1721,7 +1509,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
@@ -1786,7 +1573,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
@@ -1851,7 +1637,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", wrapQuotes(maType1), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", wrapQuotes(maType1), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
@@ -1919,7 +1704,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
@@ -1983,7 +1767,6 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
@@ -1992,151 +1775,28 @@ public class Plot extends VisualBaseWithBounds {
         return new CMF(jsBase);
     }
 
-    private TableMapping data8;
-    private DataTable data9;
-    private String data10;
-    private String data11;
-    private String mappingSettings2;
-    private String csvSettings2;
 
     /**
      * Creates and returns a new Column series.
      */
-    public StockSeriesColumn column(TableMapping data8, String mappingSettings2, String csvSettings2) {
+    public StockSeriesColumn column(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            
-            this.data8 = data8;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            
-            this.mappingSettings2 = mappingSettings2;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            
-            this.csvSettings2 = csvSettings2;
         } else {
-            this.data8 = data8;
-            this.mappingSettings2 = mappingSettings2;
-            this.csvSettings2 = csvSettings2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesColumn(jsBase);
-    }
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
 
-
-    /**
-     * Creates and returns a new Column series.
-     */
-    public StockSeriesColumn column(DataTable data9, String mappingSettings2, String csvSettings2) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            
-            this.data9 = data9;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            
-            this.mappingSettings2 = mappingSettings2;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            
-            this.csvSettings2 = csvSettings2;
-        } else {
-            this.data9 = data9;
-            this.mappingSettings2 = mappingSettings2;
-            this.csvSettings2 = csvSettings2;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesColumn(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Column series.
-     */
-    public StockSeriesColumn column(String data10, String mappingSettings2, String csvSettings2) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            
-            this.data10 = data10;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            
-            this.mappingSettings2 = mappingSettings2;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            
-            this.csvSettings2 = csvSettings2;
-        } else {
-            this.data10 = data10;
-            this.mappingSettings2 = mappingSettings2;
-            this.csvSettings2 = csvSettings2;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
-                js.setLength(0);
+                js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s);", resultData.toString()));
             }
         }
         return new StockSeriesColumn(jsBase);
@@ -2173,8 +1833,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
                 js.setLength(0);
@@ -2200,8 +1860,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
                 js.setLength(0);
@@ -2228,8 +1888,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
                 js.setLength(0);
@@ -2254,8 +1914,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
                 js.setLength(0);
@@ -2331,7 +1991,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2397,7 +2056,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2463,7 +2121,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2529,7 +2186,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2595,7 +2251,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2661,7 +2316,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2727,7 +2381,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2793,7 +2446,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
@@ -2867,7 +2519,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
@@ -2937,7 +2588,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
@@ -3012,7 +2662,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", arrayToString(hatchFillPalette)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
                 js.setLength(0);
@@ -3039,7 +2688,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", wrapQuotes(hatchFillPalette1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
                 js.setLength(0);
@@ -3069,69 +2717,32 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return new HatchFills(jsBase);
     }
 
-    private TableMapping data12;
-    private DataTable data13;
-    private String data14;
-    private String data15;
-    private String mappingSettings3;
-    private String csvSettings3;
 
     /**
      * Creates and returns a new HiLo series.
      */
-    public StockSeriesHilo hilo(TableMapping data12, String mappingSettings3, String csvSettings3) {
+    public StockSeriesHilo hilo(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            
-            this.data12 = data12;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            
-            this.mappingSettings3 = mappingSettings3;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            
-            this.csvSettings3 = csvSettings3;
         } else {
-            this.data12 = data12;
-            this.mappingSettings3 = mappingSettings3;
-            this.csvSettings3 = csvSettings3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-                js.setLength(0);
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
+
+                js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", resultData.toString()));
             }
         }
         return new StockSeriesHilo(jsBase);
@@ -3139,293 +2750,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Creates and returns a new HiLo series.
-     */
-    public StockSeriesHilo hilo(DataTable data13, String mappingSettings3, String csvSettings3) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            
-            this.data13 = data13;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            
-            this.mappingSettings3 = mappingSettings3;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            
-            this.csvSettings3 = csvSettings3;
-        } else {
-            this.data13 = data13;
-            this.mappingSettings3 = mappingSettings3;
-            this.csvSettings3 = csvSettings3;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesHilo(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new HiLo series.
-     */
-    public StockSeriesHilo hilo(String data14, String mappingSettings3, String csvSettings3) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            
-            this.data14 = data14;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            
-            this.mappingSettings3 = mappingSettings3;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            
-            this.csvSettings3 = csvSettings3;
-        } else {
-            this.data14 = data14;
-            this.mappingSettings3 = mappingSettings3;
-            this.csvSettings3 = csvSettings3;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesHilo(jsBase);
-    }
-
-    private TableMapping data16;
-    private DataTable data17;
-    private String data18;
-    private String data19;
-    private String mappingSettings4;
-    private String csvSettings4;
-
-    /**
      * Creates and returns a new Jump Line series.
      */
-    public StockSeriesJumpLine jumpLine(TableMapping data16, String mappingSettings4, String csvSettings4) {
+    public StockSeriesJumpLine jumpLine(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            
-            this.data16 = data16;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            
-            this.mappingSettings4 = mappingSettings4;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            
-            this.csvSettings4 = csvSettings4;
         } else {
-            this.data16 = data16;
-            this.mappingSettings4 = mappingSettings4;
-            this.csvSettings4 = csvSettings4;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesJumpLine(jsBase);
-    }
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
 
-
-    /**
-     * Creates and returns a new Jump Line series.
-     */
-    public StockSeriesJumpLine jumpLine(DataTable data17, String mappingSettings4, String csvSettings4) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            
-            this.data17 = data17;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            
-            this.mappingSettings4 = mappingSettings4;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            
-            this.csvSettings4 = csvSettings4;
-        } else {
-            this.data17 = data17;
-            this.mappingSettings4 = mappingSettings4;
-            this.csvSettings4 = csvSettings4;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesJumpLine(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Jump Line series.
-     */
-    public StockSeriesJumpLine jumpLine(String data18, String mappingSettings4, String csvSettings4) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            
-            this.data18 = data18;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            
-            this.mappingSettings4 = mappingSettings4;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            
-            this.csvSettings4 = csvSettings4;
-        } else {
-            this.data18 = data18;
-            this.mappingSettings4 = mappingSettings4;
-            this.csvSettings4 = csvSettings4;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
-                js.setLength(0);
+                js.append(String.format(Locale.US, "var setJumpLine" + ++variableIndex + " = " + jsBase + ".jumpLine(%s);", resultData.toString()));
             }
         }
         return new StockSeriesJumpLine(jsBase);
@@ -3510,7 +2854,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3582,7 +2925,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3654,7 +2996,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3726,7 +3067,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3798,7 +3138,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3870,7 +3209,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -3942,7 +3280,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4014,7 +3351,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4086,7 +3422,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4158,7 +3493,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4230,7 +3564,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4302,7 +3635,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4374,7 +3706,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4446,7 +3777,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4518,7 +3848,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4590,7 +3919,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4662,7 +3990,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4734,7 +4061,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4806,7 +4132,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4878,7 +4203,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -4950,7 +4274,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5022,7 +4345,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5094,7 +4416,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5166,7 +4487,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5238,7 +4558,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5310,7 +4629,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5382,7 +4700,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5454,7 +4771,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5526,7 +4842,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5598,7 +4913,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5670,7 +4984,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5742,7 +5055,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
@@ -5781,8 +5093,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".legend(%s)", wrapQuotes(legend)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".legend(%s)", wrapQuotes(legend)));
                 js.setLength(0);
@@ -5807,8 +5119,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".legend(%b)", legend1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".legend(%b)", legend1));
                 js.setLength(0);
@@ -5817,205 +5129,28 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return this;
     }
 
-    private TableMapping data20;
-    private DataTable data21;
-    private String data22;
-    private String data23;
-    private String mappingSettings5;
-    private String csvSettings5;
 
     /**
      * Creates and returns a new Line series.
      */
-    public StockSeriesLine line(TableMapping data20, String mappingSettings5, String csvSettings5) {
+    public StockSeriesLine line(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            
-            this.data20 = data20;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            
-            this.mappingSettings5 = mappingSettings5;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            
-            this.csvSettings5 = csvSettings5;
         } else {
-            this.data20 = data20;
-            this.mappingSettings5 = mappingSettings5;
-            this.csvSettings5 = csvSettings5;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesLine(jsBase);
-    }
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
 
-
-    /**
-     * Creates and returns a new Line series.
-     */
-    public StockSeriesLine line(DataTable data21, String mappingSettings5, String csvSettings5) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            
-            this.data21 = data21;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            
-            this.mappingSettings5 = mappingSettings5;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            
-            this.csvSettings5 = csvSettings5;
-        } else {
-            this.data21 = data21;
-            this.mappingSettings5 = mappingSettings5;
-            this.csvSettings5 = csvSettings5;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesLine(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Line series.
-     */
-    public StockSeriesLine line(String data22, String mappingSettings5, String csvSettings5) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            
-            this.data22 = data22;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            
-            this.mappingSettings5 = mappingSettings5;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            
-            this.csvSettings5 = csvSettings5;
-        } else {
-            this.data22 = data22;
-            this.mappingSettings5 = mappingSettings5;
-            this.csvSettings5 = csvSettings5;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
-                js.setLength(0);
+                js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
             }
         }
         return new StockSeriesLine(jsBase);
@@ -6089,7 +5224,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6156,7 +5290,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6223,7 +5356,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6290,7 +5422,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6357,7 +5488,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6424,7 +5554,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6491,7 +5620,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6558,7 +5686,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
@@ -6567,223 +5694,28 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return new MACD(jsBase);
     }
 
-    private TableMapping data24;
-    private DataTable data25;
-    private String data26;
-    private String data27;
-    private String mappingSettings6;
-    private String csvSettings6;
 
     /**
      * Creates and returns a new Marker series.
      */
-    public StockSeriesMarker marker(TableMapping data24, String mappingSettings6, String csvSettings6) {
+    public StockSeriesMarker marker(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            
-            this.data24 = data24;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            
-            this.mappingSettings6 = mappingSettings6;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            
-            this.csvSettings6 = csvSettings6;
         } else {
-            this.data24 = data24;
-            this.mappingSettings6 = mappingSettings6;
-            this.csvSettings6 = csvSettings6;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesMarker(jsBase);
-    }
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
 
-
-    /**
-     * Creates and returns a new Marker series.
-     */
-    public StockSeriesMarker marker(DataTable data25, String mappingSettings6, String csvSettings6) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            
-            this.data25 = data25;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            
-            this.mappingSettings6 = mappingSettings6;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            
-            this.csvSettings6 = csvSettings6;
-        } else {
-            this.data25 = data25;
-            this.mappingSettings6 = mappingSettings6;
-            this.csvSettings6 = csvSettings6;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesMarker(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Marker series.
-     */
-    public StockSeriesMarker marker(String data26, String mappingSettings6, String csvSettings6) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            
-            this.data26 = data26;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            
-            this.mappingSettings6 = mappingSettings6;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            
-            this.csvSettings6 = csvSettings6;
-        } else {
-            this.data26 = data26;
-            this.mappingSettings6 = mappingSettings6;
-            this.csvSettings6 = csvSettings6;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
-                js.setLength(0);
+                js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
             }
         }
         return new StockSeriesMarker(jsBase);
@@ -6827,10 +5759,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -6853,8 +5781,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
                 js.setLength(0);
@@ -6881,8 +5809,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
                 js.setLength(0);
@@ -6909,8 +5837,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
                 js.setLength(0);
@@ -6937,8 +5865,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
                 js.setLength(0);
@@ -6963,8 +5891,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
@@ -6991,8 +5919,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
                 js.setLength(0);
@@ -7017,8 +5945,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
                 js.setLength(0);
@@ -7098,7 +6026,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
@@ -7174,7 +6101,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
@@ -7210,8 +6136,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
                 js.setLength(0);
@@ -7220,241 +6146,28 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return this;
     }
 
-    private TableMapping data28;
-    private DataTable data29;
-    private String data30;
-    private String data31;
-    private String mappingSettings7;
-    private String csvSettings7;
 
     /**
      * Creates and returns a new OHLC series.
      */
-    public StockSeriesOHLC ohlc(TableMapping data28, String mappingSettings7, String csvSettings7) {
+    public StockSeriesOHLC ohlc(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            
-            this.data28 = data28;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            
-            this.mappingSettings7 = mappingSettings7;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            
-            this.csvSettings7 = csvSettings7;
         } else {
-            this.data28 = data28;
-            this.mappingSettings7 = mappingSettings7;
-            this.csvSettings7 = csvSettings7;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesOHLC(jsBase);
-    }
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
 
-
-    /**
-     * Creates and returns a new OHLC series.
-     */
-    public StockSeriesOHLC ohlc(DataTable data29, String mappingSettings7, String csvSettings7) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            
-            this.data29 = data29;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            
-            this.mappingSettings7 = mappingSettings7;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            
-            this.csvSettings7 = csvSettings7;
-        } else {
-            this.data29 = data29;
-            this.mappingSettings7 = mappingSettings7;
-            this.csvSettings7 = csvSettings7;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesOHLC(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new OHLC series.
-     */
-    public StockSeriesOHLC ohlc(String data30, String mappingSettings7, String csvSettings7) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            
-            this.data30 = data30;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            
-            this.mappingSettings7 = mappingSettings7;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            
-            this.csvSettings7 = csvSettings7;
-        } else {
-            this.data30 = data30;
-            this.mappingSettings7 = mappingSettings7;
-            this.csvSettings7 = csvSettings7;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
-                js.setLength(0);
+                js.append(String.format(Locale.US, "var setOhlc" + ++variableIndex + " = " + jsBase + ".ohlc(%s);", resultData.toString()));
             }
         }
         return new StockSeriesOHLC(jsBase);
@@ -7498,10 +6211,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -7528,10 +6237,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -7554,8 +6259,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
                 js.setLength(0);
@@ -7582,8 +6287,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
                 js.setLength(0);
@@ -7610,8 +6315,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
                 js.setLength(0);
@@ -7636,8 +6341,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
                 js.setLength(0);
@@ -7675,8 +6380,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".priceIndicator(%s)", wrapQuotes(priceIndicator)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s)", wrapQuotes(priceIndicator)));
                 js.setLength(0);
@@ -7701,8 +6406,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".priceIndicator(%b)", priceIndicator1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%b)", priceIndicator1));
                 js.setLength(0);
@@ -7734,8 +6439,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".priceIndicator(%s, %f)", wrapQuotes(priceIndicator2), index));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s, %f)", wrapQuotes(priceIndicator2), index));
                 js.setLength(0);
@@ -7764,8 +6469,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index));
                 js.setLength(0);
@@ -7774,91 +6479,28 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return this;
     }
 
-    private TableMapping data32;
-    private DataTable data33;
-    private String data34;
-    private String data35;
-    private String mappingSettings8;
-    private String csvSettings8;
 
     /**
      * Creates and returns a new Range Area series.
      */
-    public StockSeriesRangeArea rangeArea(TableMapping data32, String mappingSettings8, String csvSettings8) {
+    public StockSeriesRangeArea rangeArea(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            
-            this.data32 = data32;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            
-            this.mappingSettings8 = mappingSettings8;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            
-            this.csvSettings8 = csvSettings8;
         } else {
-            this.data32 = data32;
-            this.mappingSettings8 = mappingSettings8;
-            this.csvSettings8 = csvSettings8;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-                js.setLength(0);
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
+
+                js.append(String.format(Locale.US, "var setRangeArea" + ++variableIndex + " = " + jsBase + ".rangeArea(%s);", resultData.toString()));
             }
         }
         return new StockSeriesRangeArea(jsBase);
@@ -7866,263 +6508,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Creates and returns a new Range Area series.
-     */
-    public StockSeriesRangeArea rangeArea(DataTable data33, String mappingSettings8, String csvSettings8) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            
-            this.data33 = data33;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            
-            this.mappingSettings8 = mappingSettings8;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            
-            this.csvSettings8 = csvSettings8;
-        } else {
-            this.data33 = data33;
-            this.mappingSettings8 = mappingSettings8;
-            this.csvSettings8 = csvSettings8;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesRangeArea(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Range Area series.
-     */
-    public StockSeriesRangeArea rangeArea(String data34, String mappingSettings8, String csvSettings8) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            
-            this.data34 = data34;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            
-            this.mappingSettings8 = mappingSettings8;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            
-            this.csvSettings8 = csvSettings8;
-        } else {
-            this.data34 = data34;
-            this.mappingSettings8 = mappingSettings8;
-            this.csvSettings8 = csvSettings8;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesRangeArea(jsBase);
-    }
-
-    private TableMapping data36;
-    private DataTable data37;
-    private String data38;
-    private String data39;
-    private String mappingSettings9;
-    private String csvSettings9;
-
-    /**
      * Creates and returns a new Range Column series.
      */
-    public StockSeriesRangeColumn rangeColumn(TableMapping data36, String mappingSettings9, String csvSettings9) {
+    public StockSeriesRangeColumn rangeColumn(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            
-            this.data36 = data36;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            
-            this.mappingSettings9 = mappingSettings9;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            
-            this.csvSettings9 = csvSettings9;
         } else {
-            this.data36 = data36;
-            this.mappingSettings9 = mappingSettings9;
-            this.csvSettings9 = csvSettings9;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-                js.setLength(0);
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
+
+                js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);", resultData.toString()));
             }
         }
         return new StockSeriesRangeColumn(jsBase);
@@ -8130,281 +6535,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Creates and returns a new Range Column series.
-     */
-    public StockSeriesRangeColumn rangeColumn(DataTable data37, String mappingSettings9, String csvSettings9) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            
-            this.data37 = data37;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            
-            this.mappingSettings9 = mappingSettings9;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            
-            this.csvSettings9 = csvSettings9;
-        } else {
-            this.data37 = data37;
-            this.mappingSettings9 = mappingSettings9;
-            this.csvSettings9 = csvSettings9;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesRangeColumn(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Range Column series.
-     */
-    public StockSeriesRangeColumn rangeColumn(String data38, String mappingSettings9, String csvSettings9) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            
-            this.data38 = data38;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            
-            this.mappingSettings9 = mappingSettings9;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            
-            this.csvSettings9 = csvSettings9;
-        } else {
-            this.data38 = data38;
-            this.mappingSettings9 = mappingSettings9;
-            this.csvSettings9 = csvSettings9;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesRangeColumn(jsBase);
-    }
-
-    private TableMapping data40;
-    private DataTable data41;
-    private String data42;
-    private String data43;
-    private String mappingSettings10;
-    private String csvSettings10;
-
-    /**
      * Creates and returns a new Range Spline Area series.
      */
-    public StockSeriesRangeSplineArea rangeSplineArea(TableMapping data40, String mappingSettings10, String csvSettings10) {
+    public StockSeriesRangeSplineArea rangeSplineArea(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            
-            this.data40 = data40;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            
-            this.mappingSettings10 = mappingSettings10;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            
-            this.csvSettings10 = csvSettings10;
         } else {
-            this.data40 = data40;
-            this.mappingSettings10 = mappingSettings10;
-            this.csvSettings10 = csvSettings10;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-                js.setLength(0);
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
+
+                js.append(String.format(Locale.US, "var setRangeSplineArea" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s);", resultData.toString()));
             }
         }
         return new StockSeriesRangeSplineArea(jsBase);
@@ -8412,503 +6562,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Creates and returns a new Range Spline Area series.
-     */
-    public StockSeriesRangeSplineArea rangeSplineArea(DataTable data41, String mappingSettings10, String csvSettings10) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            
-            this.data41 = data41;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            
-            this.mappingSettings10 = mappingSettings10;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            
-            this.csvSettings10 = csvSettings10;
-        } else {
-            this.data41 = data41;
-            this.mappingSettings10 = mappingSettings10;
-            this.csvSettings10 = csvSettings10;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesRangeSplineArea(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Range Spline Area series.
-     */
-    public StockSeriesRangeSplineArea rangeSplineArea(String data42, String mappingSettings10, String csvSettings10) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            
-            this.data42 = data42;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            
-            this.mappingSettings10 = mappingSettings10;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            
-            this.csvSettings10 = csvSettings10;
-        } else {
-            this.data42 = data42;
-            this.mappingSettings10 = mappingSettings10;
-            this.csvSettings10 = csvSettings10;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesRangeSplineArea(jsBase);
-    }
-
-    private TableMapping data44;
-    private DataTable data45;
-    private String data46;
-    private String data47;
-    private String mappingSettings11;
-    private String csvSettings11;
-
-    /**
      * Creates and returns a new Range Step Area series.
      */
-    public StockSeriesRangeStepArea rangeStepArea(TableMapping data44, String mappingSettings11, String csvSettings11) {
+    public StockSeriesRangeStepArea rangeStepArea(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            
-            this.data44 = data44;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            
-            this.mappingSettings11 = mappingSettings11;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            
-            this.csvSettings11 = csvSettings11;
         } else {
-            this.data44 = data44;
-            this.mappingSettings11 = mappingSettings11;
-            this.csvSettings11 = csvSettings11;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesRangeStepArea(jsBase);
-    }
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
 
-
-    /**
-     * Creates and returns a new Range Step Area series.
-     */
-    public StockSeriesRangeStepArea rangeStepArea(DataTable data45, String mappingSettings11, String csvSettings11) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            
-            this.data45 = data45;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            
-            this.mappingSettings11 = mappingSettings11;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            
-            this.csvSettings11 = csvSettings11;
-        } else {
-            this.data45 = data45;
-            this.mappingSettings11 = mappingSettings11;
-            this.csvSettings11 = csvSettings11;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesRangeStepArea(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Range Step Area series.
-     */
-    public StockSeriesRangeStepArea rangeStepArea(String data46, String mappingSettings11, String csvSettings11) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            
-            this.data46 = data46;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            
-            this.mappingSettings11 = mappingSettings11;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            
-            this.csvSettings11 = csvSettings11;
-        } else {
-            this.data46 = data46;
-            this.mappingSettings11 = mappingSettings11;
-            this.csvSettings11 = csvSettings11;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
-                js.setLength(0);
+                js.append(String.format(Locale.US, "var setRangeStepArea" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s);", resultData.toString()));
             }
         }
         return new StockSeriesRangeStepArea(jsBase);
@@ -8932,8 +6605,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".removeSeries(%f)", id));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id));
                 js.setLength(0);
@@ -8958,8 +6631,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
                 js.setLength(0);
@@ -8985,8 +6658,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
                 js.setLength(0);
@@ -9070,7 +6743,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
@@ -9150,7 +6822,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
@@ -9238,7 +6909,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
@@ -9322,7 +6992,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
@@ -9414,7 +7083,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
@@ -9502,7 +7170,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
@@ -9511,115 +7178,28 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return new SMA(jsBase);
     }
 
-    private TableMapping data48;
-    private DataTable data49;
-    private String data50;
-    private String data51;
-    private String mappingSettings12;
-    private String csvSettings12;
 
     /**
      * Creates and returns a new Spline series.
      */
-    public StockSeriesSpline spline(TableMapping data48, String mappingSettings12, String csvSettings12) {
+    public StockSeriesSpline spline(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            
-            this.data48 = data48;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            
-            this.mappingSettings12 = mappingSettings12;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            
-            this.csvSettings12 = csvSettings12;
         } else {
-            this.data48 = data48;
-            this.mappingSettings12 = mappingSettings12;
-            this.csvSettings12 = csvSettings12;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-                js.setLength(0);
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
+
+                js.append(String.format(Locale.US, "var setSpline" + ++variableIndex + " = " + jsBase + ".spline(%s);", resultData.toString()));
             }
         }
         return new StockSeriesSpline(jsBase);
@@ -9627,335 +7207,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Creates and returns a new Spline series.
-     */
-    public StockSeriesSpline spline(DataTable data49, String mappingSettings12, String csvSettings12) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            
-            this.data49 = data49;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            
-            this.mappingSettings12 = mappingSettings12;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            
-            this.csvSettings12 = csvSettings12;
-        } else {
-            this.data49 = data49;
-            this.mappingSettings12 = mappingSettings12;
-            this.csvSettings12 = csvSettings12;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesSpline(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Spline series.
-     */
-    public StockSeriesSpline spline(String data50, String mappingSettings12, String csvSettings12) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            
-            this.data50 = data50;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            
-            this.mappingSettings12 = mappingSettings12;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            
-            this.csvSettings12 = csvSettings12;
-        } else {
-            this.data50 = data50;
-            this.mappingSettings12 = mappingSettings12;
-            this.csvSettings12 = csvSettings12;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesSpline(jsBase);
-    }
-
-    private TableMapping data52;
-    private DataTable data53;
-    private String data54;
-    private String data55;
-    private String mappingSettings13;
-    private String csvSettings13;
-
-    /**
      * Creates and returns a new Spline Area series.
      */
-    public StockSeriesSplineArea splineArea(TableMapping data52, String mappingSettings13, String csvSettings13) {
+    public StockSeriesSplineArea splineArea(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            
-            this.data52 = data52;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            
-            this.mappingSettings13 = mappingSettings13;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            
-            this.csvSettings13 = csvSettings13;
         } else {
-            this.data52 = data52;
-            this.mappingSettings13 = mappingSettings13;
-            this.csvSettings13 = csvSettings13;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-                js.setLength(0);
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
+
+                js.append(String.format(Locale.US, "var setSplineArea" + ++variableIndex + " = " + jsBase + ".splineArea(%s);", resultData.toString()));
             }
         }
         return new StockSeriesSplineArea(jsBase);
@@ -9963,353 +7234,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Creates and returns a new Spline Area series.
-     */
-    public StockSeriesSplineArea splineArea(DataTable data53, String mappingSettings13, String csvSettings13) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            
-            this.data53 = data53;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            
-            this.mappingSettings13 = mappingSettings13;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            
-            this.csvSettings13 = csvSettings13;
-        } else {
-            this.data53 = data53;
-            this.mappingSettings13 = mappingSettings13;
-            this.csvSettings13 = csvSettings13;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesSplineArea(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Spline Area series.
-     */
-    public StockSeriesSplineArea splineArea(String data54, String mappingSettings13, String csvSettings13) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            
-            this.data54 = data54;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            
-            this.mappingSettings13 = mappingSettings13;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            
-            this.csvSettings13 = csvSettings13;
-        } else {
-            this.data54 = data54;
-            this.mappingSettings13 = mappingSettings13;
-            this.csvSettings13 = csvSettings13;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesSplineArea(jsBase);
-    }
-
-    private TableMapping data56;
-    private DataTable data57;
-    private String data58;
-    private String data59;
-    private String mappingSettings14;
-    private String csvSettings14;
-
-    /**
      * Creates and returns a new Step Area series.
      */
-    public StockSeriesStepArea stepArea(TableMapping data56, String mappingSettings14, String csvSettings14) {
+    public StockSeriesStepArea stepArea(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            this.data56 = null;
-            this.data57 = null;
-            this.data58 = null;
-            this.data59 = null;
-            
-            this.data56 = data56;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            this.mappingSettings14 = null;
-            
-            this.mappingSettings14 = mappingSettings14;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            this.csvSettings14 = null;
-            
-            this.csvSettings14 = csvSettings14;
         } else {
-            this.data56 = data56;
-            this.mappingSettings14 = mappingSettings14;
-            this.csvSettings14 = csvSettings14;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-                js.setLength(0);
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
+
+                js.append(String.format(Locale.US, "var setStepArea" + ++variableIndex + " = " + jsBase + ".stepArea(%s);", resultData.toString()));
             }
         }
         return new StockSeriesStepArea(jsBase);
@@ -10317,371 +7261,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Creates and returns a new Step Area series.
-     */
-    public StockSeriesStepArea stepArea(DataTable data57, String mappingSettings14, String csvSettings14) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            this.data56 = null;
-            this.data57 = null;
-            this.data58 = null;
-            this.data59 = null;
-            
-            this.data57 = data57;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            this.mappingSettings14 = null;
-            
-            this.mappingSettings14 = mappingSettings14;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            this.csvSettings14 = null;
-            
-            this.csvSettings14 = csvSettings14;
-        } else {
-            this.data57 = data57;
-            this.mappingSettings14 = mappingSettings14;
-            this.csvSettings14 = csvSettings14;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesStepArea(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Step Area series.
-     */
-    public StockSeriesStepArea stepArea(String data58, String mappingSettings14, String csvSettings14) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            this.data56 = null;
-            this.data57 = null;
-            this.data58 = null;
-            this.data59 = null;
-            
-            this.data58 = data58;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            this.mappingSettings14 = null;
-            
-            this.mappingSettings14 = mappingSettings14;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            this.csvSettings14 = null;
-            
-            this.csvSettings14 = csvSettings14;
-        } else {
-            this.data58 = data58;
-            this.mappingSettings14 = mappingSettings14;
-            this.csvSettings14 = csvSettings14;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesStepArea(jsBase);
-    }
-
-    private TableMapping data60;
-    private DataTable data61;
-    private String data62;
-    private String data63;
-    private String mappingSettings15;
-    private String csvSettings15;
-
-    /**
      * Creates and returns a new Step Line series.
      */
-    public StockSeriesStepLine stepLine(TableMapping data60, String mappingSettings15, String csvSettings15) {
+    public StockSeriesStepLine stepLine(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            this.data56 = null;
-            this.data57 = null;
-            this.data58 = null;
-            this.data59 = null;
-            this.data60 = null;
-            this.data61 = null;
-            this.data62 = null;
-            this.data63 = null;
-            
-            this.data60 = data60;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            this.mappingSettings14 = null;
-            this.mappingSettings15 = null;
-            
-            this.mappingSettings15 = mappingSettings15;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            this.csvSettings14 = null;
-            this.csvSettings15 = null;
-            
-            this.csvSettings15 = csvSettings15;
         } else {
-            this.data60 = data60;
-            this.mappingSettings15 = mappingSettings15;
-            this.csvSettings15 = csvSettings15;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-                js.setLength(0);
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
+
+                js.append(String.format(Locale.US, "var setStepLine" + ++variableIndex + " = " + jsBase + ".stepLine(%s);", resultData.toString()));
             }
         }
         return new StockSeriesStepLine(jsBase);
@@ -10689,653 +7288,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Creates and returns a new Step Line series.
-     */
-    public StockSeriesStepLine stepLine(DataTable data61, String mappingSettings15, String csvSettings15) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            this.data56 = null;
-            this.data57 = null;
-            this.data58 = null;
-            this.data59 = null;
-            this.data60 = null;
-            this.data61 = null;
-            this.data62 = null;
-            this.data63 = null;
-            
-            this.data61 = data61;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            this.mappingSettings14 = null;
-            this.mappingSettings15 = null;
-            
-            this.mappingSettings15 = mappingSettings15;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            this.csvSettings14 = null;
-            this.csvSettings15 = null;
-            
-            this.csvSettings15 = csvSettings15;
-        } else {
-            this.data61 = data61;
-            this.mappingSettings15 = mappingSettings15;
-            this.csvSettings15 = csvSettings15;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesStepLine(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Step Line series.
-     */
-    public StockSeriesStepLine stepLine(String data62, String mappingSettings15, String csvSettings15) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            this.data56 = null;
-            this.data57 = null;
-            this.data58 = null;
-            this.data59 = null;
-            this.data60 = null;
-            this.data61 = null;
-            this.data62 = null;
-            this.data63 = null;
-            
-            this.data62 = data62;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            this.mappingSettings14 = null;
-            this.mappingSettings15 = null;
-            
-            this.mappingSettings15 = mappingSettings15;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            this.csvSettings14 = null;
-            this.csvSettings15 = null;
-            
-            this.csvSettings15 = csvSettings15;
-        } else {
-            this.data62 = data62;
-            this.mappingSettings15 = mappingSettings15;
-            this.csvSettings15 = csvSettings15;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesStepLine(jsBase);
-    }
-
-    private TableMapping data64;
-    private DataTable data65;
-    private String data66;
-    private String data67;
-    private String mappingSettings16;
-    private String csvSettings16;
-
-    /**
      * Creates and returns a new Stick series.
      */
-    public StockSeriesStick stick(TableMapping data64, String mappingSettings16, String csvSettings16) {
+    public StockSeriesStick stick(List<DataEntry> data) {
         if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            this.data56 = null;
-            this.data57 = null;
-            this.data58 = null;
-            this.data59 = null;
-            this.data60 = null;
-            this.data61 = null;
-            this.data62 = null;
-            this.data63 = null;
-            this.data64 = null;
-            this.data65 = null;
-            this.data66 = null;
-            this.data67 = null;
-            
-            this.data64 = data64;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            this.mappingSettings14 = null;
-            this.mappingSettings15 = null;
-            this.mappingSettings16 = null;
-            
-            this.mappingSettings16 = mappingSettings16;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            this.csvSettings14 = null;
-            this.csvSettings15 = null;
-            this.csvSettings16 = null;
-            
-            this.csvSettings16 = csvSettings16;
         } else {
-            this.data64 = data64;
-            this.mappingSettings16 = mappingSettings16;
-            this.csvSettings16 = csvSettings16;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesStick(jsBase);
-    }
+            if (!data.isEmpty()) {
+                StringBuilder resultData = new StringBuilder();
+                resultData.append("[");
+                for (DataEntry dataEntry : data) {
+                    resultData.append(dataEntry.generateJs()).append(",");
+                }
+                resultData.setLength(resultData.length() - 1);
+                resultData.append("]");
 
-
-    /**
-     * Creates and returns a new Stick series.
-     */
-    public StockSeriesStick stick(DataTable data65, String mappingSettings16, String csvSettings16) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            this.data56 = null;
-            this.data57 = null;
-            this.data58 = null;
-            this.data59 = null;
-            this.data60 = null;
-            this.data61 = null;
-            this.data62 = null;
-            this.data63 = null;
-            this.data64 = null;
-            this.data65 = null;
-            this.data66 = null;
-            this.data67 = null;
-            
-            this.data65 = data65;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            this.mappingSettings14 = null;
-            this.mappingSettings15 = null;
-            this.mappingSettings16 = null;
-            
-            this.mappingSettings16 = mappingSettings16;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            this.csvSettings14 = null;
-            this.csvSettings15 = null;
-            this.csvSettings16 = null;
-            
-            this.csvSettings16 = csvSettings16;
-        } else {
-            this.data65 = data65;
-            this.mappingSettings16 = mappingSettings16;
-            this.csvSettings16 = csvSettings16;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesStick(jsBase);
-    }
-
-
-    /**
-     * Creates and returns a new Stick series.
-     */
-    public StockSeriesStick stick(String data66, String mappingSettings16, String csvSettings16) {
-        if (jsBase == null) {
-            this.data = null;
-            this.data1 = null;
-            this.data2 = null;
-            this.data3 = null;
-            this.data4 = null;
-            this.data5 = null;
-            this.data6 = null;
-            this.data7 = null;
-            this.data8 = null;
-            this.data9 = null;
-            this.data10 = null;
-            this.data11 = null;
-            this.data12 = null;
-            this.data13 = null;
-            this.data14 = null;
-            this.data15 = null;
-            this.data16 = null;
-            this.data17 = null;
-            this.data18 = null;
-            this.data19 = null;
-            this.data20 = null;
-            this.data21 = null;
-            this.data22 = null;
-            this.data23 = null;
-            this.data24 = null;
-            this.data25 = null;
-            this.data26 = null;
-            this.data27 = null;
-            this.data28 = null;
-            this.data29 = null;
-            this.data30 = null;
-            this.data31 = null;
-            this.data32 = null;
-            this.data33 = null;
-            this.data34 = null;
-            this.data35 = null;
-            this.data36 = null;
-            this.data37 = null;
-            this.data38 = null;
-            this.data39 = null;
-            this.data40 = null;
-            this.data41 = null;
-            this.data42 = null;
-            this.data43 = null;
-            this.data44 = null;
-            this.data45 = null;
-            this.data46 = null;
-            this.data47 = null;
-            this.data48 = null;
-            this.data49 = null;
-            this.data50 = null;
-            this.data51 = null;
-            this.data52 = null;
-            this.data53 = null;
-            this.data54 = null;
-            this.data55 = null;
-            this.data56 = null;
-            this.data57 = null;
-            this.data58 = null;
-            this.data59 = null;
-            this.data60 = null;
-            this.data61 = null;
-            this.data62 = null;
-            this.data63 = null;
-            this.data64 = null;
-            this.data65 = null;
-            this.data66 = null;
-            this.data67 = null;
-            
-            this.data66 = data66;
-            this.mappingSettings = null;
-            this.mappingSettings1 = null;
-            this.mappingSettings2 = null;
-            this.mappingSettings3 = null;
-            this.mappingSettings4 = null;
-            this.mappingSettings5 = null;
-            this.mappingSettings6 = null;
-            this.mappingSettings7 = null;
-            this.mappingSettings8 = null;
-            this.mappingSettings9 = null;
-            this.mappingSettings10 = null;
-            this.mappingSettings11 = null;
-            this.mappingSettings12 = null;
-            this.mappingSettings13 = null;
-            this.mappingSettings14 = null;
-            this.mappingSettings15 = null;
-            this.mappingSettings16 = null;
-            
-            this.mappingSettings16 = mappingSettings16;
-            this.csvSettings = null;
-            this.csvSettings1 = null;
-            this.csvSettings2 = null;
-            this.csvSettings3 = null;
-            this.csvSettings4 = null;
-            this.csvSettings5 = null;
-            this.csvSettings6 = null;
-            this.csvSettings7 = null;
-            this.csvSettings8 = null;
-            this.csvSettings9 = null;
-            this.csvSettings10 = null;
-            this.csvSettings11 = null;
-            this.csvSettings12 = null;
-            this.csvSettings13 = null;
-            this.csvSettings14 = null;
-            this.csvSettings15 = null;
-            this.csvSettings16 = null;
-            
-            this.csvSettings16 = csvSettings16;
-        } else {
-            this.data66 = data66;
-            this.mappingSettings16 = mappingSettings16;
-            this.csvSettings16 = csvSettings16;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
-                js.setLength(0);
+                js.append(String.format(Locale.US, "var setStick" + ++variableIndex + " = " + jsBase + ".stick(%s);", resultData.toString()));
             }
         }
         return new StockSeriesStick(jsBase);
@@ -11430,7 +7402,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11516,7 +7487,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11602,7 +7572,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11688,7 +7657,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11774,7 +7742,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11860,7 +7827,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -11946,7 +7912,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12032,7 +7997,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12118,7 +8082,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12204,7 +8167,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12290,7 +8252,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12376,7 +8337,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12462,7 +8422,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12548,7 +8507,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12634,7 +8592,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12720,7 +8677,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
@@ -12759,8 +8715,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
                 js.setLength(0);
@@ -12785,8 +8741,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
                 js.setLength(0);
@@ -12824,8 +8780,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
                 js.setLength(0);
@@ -12850,8 +8806,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b)", xGrid1));
                 js.setLength(0);
@@ -12887,8 +8843,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index2));
                 js.setLength(0);
@@ -12921,8 +8877,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index2));
                 js.setLength(0);
@@ -12960,8 +8916,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
                 js.setLength(0);
@@ -12986,8 +8942,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
                 js.setLength(0);
@@ -13019,8 +8975,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), indexOrValue));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), indexOrValue));
                 js.setLength(0);
@@ -13049,8 +9005,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, indexOrValue));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, indexOrValue));
                 js.setLength(0);
@@ -13088,8 +9044,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
                 js.setLength(0);
@@ -13114,8 +9070,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b)", yAxis1));
                 js.setLength(0);
@@ -13152,8 +9108,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index3));
                 js.setLength(0);
@@ -13187,8 +9143,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index3));
                 js.setLength(0);
@@ -13226,8 +9182,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
                 js.setLength(0);
@@ -13252,8 +9208,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b)", yGrid1));
                 js.setLength(0);
@@ -13291,8 +9247,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index4));
                 js.setLength(0);
@@ -13327,8 +9283,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index4));
                 js.setLength(0);
@@ -13366,8 +9322,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
                 js.setLength(0);
@@ -13392,8 +9348,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
                 js.setLength(0);
@@ -13428,8 +9384,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), indexOrValue1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), indexOrValue1));
                 js.setLength(0);
@@ -13461,8 +9417,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, indexOrValue1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, indexOrValue1));
                 js.setLength(0);
@@ -13505,8 +9461,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
@@ -13533,8 +9489,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
                 js.setLength(0);
@@ -13565,10 +9521,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }

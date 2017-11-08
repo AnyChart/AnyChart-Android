@@ -53,8 +53,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
@@ -79,8 +79,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
                 js.setLength(0);
@@ -121,8 +121,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -148,8 +148,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%b)", background2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -172,8 +172,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".drag(%b)", drag));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drag(%b)", drag));
                 js.setLength(0);
@@ -212,8 +212,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%f)", height));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -238,8 +238,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
@@ -266,8 +266,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hoverCursor(%s)", ((hoverCursor != null) ? hoverCursor.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hoverCursor(%s)", ((hoverCursor != null) ? hoverCursor.generateJs() : "null")));
                 js.setLength(0);
@@ -292,8 +292,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hoverCursor(%s)", wrapQuotes(hoverCursor1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hoverCursor(%s)", wrapQuotes(hoverCursor1)));
                 js.setLength(0);
@@ -320,8 +320,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconSize(%f)", iconSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconSize(%f)", iconSize));
                 js.setLength(0);
@@ -346,8 +346,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconSize(%s)", wrapQuotes(iconSize1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconSize(%s)", wrapQuotes(iconSize1)));
                 js.setLength(0);
@@ -374,8 +374,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconTextSpacing(%s)", wrapQuotes(iconTextSpacing)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconTextSpacing(%s)", wrapQuotes(iconTextSpacing)));
                 js.setLength(0);
@@ -400,8 +400,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".iconTextSpacing(%f)", iconTextSpacing1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".iconTextSpacing(%f)", iconTextSpacing1));
                 js.setLength(0);
@@ -424,8 +424,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".inverted(%b)", inverted));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".inverted(%b)", inverted));
                 js.setLength(0);
@@ -448,8 +448,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s)", arrayToString(items)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s)", arrayToString(items)));
                 js.setLength(0);
@@ -476,8 +476,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemsLayout(%s)", ((itemsLayout != null) ? itemsLayout.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", ((itemsLayout != null) ? itemsLayout.generateJs() : "null")));
                 js.setLength(0);
@@ -502,8 +502,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemsLayout(%s)", wrapQuotes(itemsLayout1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", wrapQuotes(itemsLayout1)));
                 js.setLength(0);
@@ -530,8 +530,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemsSourceMode(%s)", ((itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", ((itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null")));
                 js.setLength(0);
@@ -556,8 +556,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemsSourceMode(%s)", wrapQuotes(itemsSourceMode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", wrapQuotes(itemsSourceMode1)));
                 js.setLength(0);
@@ -584,8 +584,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemsSpacing(%s)", wrapQuotes(itemsSpacing)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsSpacing(%s)", wrapQuotes(itemsSpacing)));
                 js.setLength(0);
@@ -610,8 +610,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemsSpacing(%f)", itemsSpacing1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemsSpacing(%f)", itemsSpacing1));
                 js.setLength(0);
@@ -656,8 +656,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
                 js.setLength(0);
@@ -685,8 +685,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
@@ -758,8 +758,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -823,8 +823,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -851,8 +851,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
                 js.setLength(0);
@@ -877,8 +877,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
                 js.setLength(0);
@@ -905,8 +905,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
                 js.setLength(0);
@@ -931,8 +931,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
                 js.setLength(0);
@@ -977,8 +977,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -1006,8 +1006,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -1111,8 +1111,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
@@ -1208,8 +1208,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
                 js.setLength(0);
@@ -1248,8 +1248,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".paginator(%s)", wrapQuotes(paginator)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".paginator(%s)", wrapQuotes(paginator)));
                 js.setLength(0);
@@ -1274,8 +1274,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".paginator(%b)", paginator1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".paginator(%b)", paginator1));
                 js.setLength(0);
@@ -1302,8 +1302,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -1328,8 +1328,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -1356,8 +1356,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".positionMode(%s)", ((positionMode != null) ? positionMode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", ((positionMode != null) ? positionMode.generateJs() : "null")));
                 js.setLength(0);
@@ -1382,8 +1382,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".positionMode(%s)", wrapQuotes(positionMode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", wrapQuotes(positionMode1)));
                 js.setLength(0);
@@ -1424,8 +1424,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%b)", title));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
@@ -1451,8 +1451,8 @@ public class UiLegend extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
@@ -1477,8 +1477,8 @@ If set, formats title. Currently supported in Stock only.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);
@@ -1517,8 +1517,8 @@ If set, formats title. Currently supported in Stock only.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".titleSeparator(%s)", wrapQuotes(titleSeparator)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleSeparator(%s)", wrapQuotes(titleSeparator)));
                 js.setLength(0);
@@ -1543,8 +1543,8 @@ If set, formats title. Currently supported in Stock only.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".titleSeparator(%b)", titleSeparator1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleSeparator(%b)", titleSeparator1));
                 js.setLength(0);
@@ -1583,8 +1583,8 @@ If set, formats title. Currently supported in Stock only.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
@@ -1609,8 +1609,8 @@ If set, formats title. Currently supported in Stock only.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%b)", tooltip1));
                 js.setLength(0);
@@ -1637,8 +1637,8 @@ If set, formats title. Currently supported in Stock only.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%f)", width));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -1663,8 +1663,8 @@ If set, formats title. Currently supported in Stock only.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);

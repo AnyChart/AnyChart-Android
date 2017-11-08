@@ -66,8 +66,8 @@ public class Aroon extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".downSeries(%s)", ((type != null) ? type.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".downSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -92,8 +92,8 @@ public class Aroon extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".downSeries(%s)", wrapQuotes(type1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".downSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -116,8 +116,8 @@ public class Aroon extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".period(%f)", period));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
                 js.setLength(0);
@@ -158,8 +158,8 @@ public class Aroon extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".upSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
@@ -186,8 +186,8 @@ public class Aroon extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".upSeries(%s)", wrapQuotes(type3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".upSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);

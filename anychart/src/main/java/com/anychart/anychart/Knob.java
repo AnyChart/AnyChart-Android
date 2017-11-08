@@ -53,8 +53,8 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".bottomRadius(%f)", bottomRadius));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottomRadius(%f)", bottomRadius));
                 js.setLength(0);
@@ -79,8 +79,8 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".bottomRadius(%s)", wrapQuotes(bottomRadius1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottomRadius(%s)", wrapQuotes(bottomRadius1)));
                 js.setLength(0);
@@ -103,8 +103,8 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".bottomRatio(%f)", bottomRatio));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".bottomRatio(%f)", bottomRatio));
                 js.setLength(0);
@@ -131,8 +131,8 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".topRadius(%f)", topRadius));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".topRadius(%f)", topRadius));
                 js.setLength(0);
@@ -157,8 +157,8 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".topRadius(%s)", wrapQuotes(topRadius1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".topRadius(%s)", wrapQuotes(topRadius1)));
                 js.setLength(0);
@@ -181,8 +181,8 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".topRatio(%f)", topRatio));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".topRatio(%f)", topRatio));
                 js.setLength(0);
@@ -205,8 +205,8 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".verticesCount(%f)", verticesCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".verticesCount(%f)", verticesCount));
                 js.setLength(0);
@@ -229,8 +229,8 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".verticesCurvature(%f)", verticesCurvature));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".verticesCurvature(%f)", verticesCurvature));
                 js.setLength(0);

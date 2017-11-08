@@ -69,10 +69,6 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", ((colorScale != null) ? colorScale.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return new MapSeriesBase(jsBase);
     }
@@ -97,10 +93,6 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return new MapSeriesBase(jsBase);
     }

@@ -79,7 +79,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".label(%b);", label));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%b)", label));
                 js.setLength(0);
@@ -106,7 +105,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".label(%s);", wrapQuotes(label1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s)", wrapQuotes(label1)));
                 js.setLength(0);
@@ -146,7 +144,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".label(%s, %b);", wrapQuotes(index), label3));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %b)", wrapQuotes(index), label3));
                 js.setLength(0);
@@ -181,7 +178,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(label4)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %s)", wrapQuotes(index), wrapQuotes(label4)));
                 js.setLength(0);
@@ -216,7 +212,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".label(%f, %b);", index1, label3));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %b)", index1, label3));
                 js.setLength(0);
@@ -251,7 +246,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".label(%f, %s);", index1, wrapQuotes(label4)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %s)", index1, wrapQuotes(label4)));
                 js.setLength(0);
@@ -264,7 +258,7 @@ public class Quarter extends UiBackground {
 
     /**
      * Getter for the quarter margin.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public Margin getMargin() {
         if (getMargin == null)
@@ -293,8 +287,8 @@ public class Quarter extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
                 js.setLength(0);
@@ -320,8 +314,8 @@ public class Quarter extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
@@ -347,8 +341,8 @@ public class Quarter extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
                 js.setLength(0);
@@ -420,8 +414,8 @@ public class Quarter extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -485,8 +479,8 @@ public class Quarter extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -499,7 +493,7 @@ public class Quarter extends UiBackground {
 
     /**
      * Getter for the quarter padding.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public UtilsPadding getPadding() {
         if (getPadding == null)
@@ -529,7 +523,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -556,7 +549,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -583,7 +575,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -688,7 +679,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
@@ -785,7 +775,6 @@ public class Quarter extends UiBackground {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value9, value11, value13, value15));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
                 js.setLength(0);
@@ -826,8 +815,8 @@ public class Quarter extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%b)", title));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
@@ -853,8 +842,8 @@ public class Quarter extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);

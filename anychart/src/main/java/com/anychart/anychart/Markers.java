@@ -52,8 +52,8 @@ public class Markers extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, wrapQuotes(type)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index, wrapQuotes(type)));
                 js.setLength(0);
@@ -83,8 +83,8 @@ public class Markers extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items), wrapQuotes(var_args)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items), wrapQuotes(var_args)));
                 js.setLength(0);
@@ -111,8 +111,8 @@ public class Markers extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items1), wrapQuotes(var_args)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items1), wrapQuotes(var_args)));
                 js.setLength(0);

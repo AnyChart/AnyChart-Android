@@ -263,7 +263,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
 
     /**
      * Setter for the space between bars on the ordinal scale by ratio of bars width.</br>
-<img src='/si/special-hotfixes-typescript/anychart.charts.Cartesian.barsPadding.png' width='396' height='294'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.charts.Cartesian.barsPadding.png' width='396' height='294'/>
      */
     public Cartesian setBarsPadding(Double barsPadding) {
         if (!isChain) {

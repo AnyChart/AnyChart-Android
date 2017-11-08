@@ -81,7 +81,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -117,7 +116,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -153,7 +151,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -178,7 +175,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s);", ((cellFill != null) ? cellFill.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s)", ((cellFill != null) ? cellFill.generateJs() : "null")));
                 js.setLength(0);
@@ -210,7 +206,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %f);", wrapQuotes(color3), opacity));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f)", wrapQuotes(color3), opacity));
                 js.setLength(0);
@@ -257,7 +252,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -297,7 +291,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -337,7 +330,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -377,7 +369,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f);", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -417,7 +408,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -457,7 +447,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -515,7 +504,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -565,7 +553,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -608,7 +595,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(cellPadding)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s)", Arrays.toString(cellPadding)));
                 js.setLength(0);
@@ -635,7 +621,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s);", arrayToStringWrapQuotes(cellPadding1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s)", arrayToStringWrapQuotes(cellPadding1)));
                 js.setLength(0);
@@ -662,7 +647,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s);", wrapQuotes(cellPadding2)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s)", wrapQuotes(cellPadding2)));
                 js.setLength(0);
@@ -735,7 +719,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s);", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -800,7 +783,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f);", value1, value3, value5, value7));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -824,7 +806,6 @@ public class TableColumn extends TableBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".getCell(%f);", row));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCell(%f)", row));
                 js.setLength(0);
@@ -873,8 +854,8 @@ public class TableColumn extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minWidth(%s)", wrapQuotes(minWidth)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minWidth(%s)", wrapQuotes(minWidth)));
                 js.setLength(0);
@@ -899,8 +880,8 @@ public class TableColumn extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minWidth(%f)", minWidth1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minWidth(%f)", minWidth1));
                 js.setLength(0);
@@ -927,8 +908,8 @@ public class TableColumn extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
                 js.setLength(0);
@@ -953,8 +934,8 @@ public class TableColumn extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%f)", width1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width1));
                 js.setLength(0);

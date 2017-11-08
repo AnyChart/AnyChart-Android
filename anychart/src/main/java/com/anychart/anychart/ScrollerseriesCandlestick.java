@@ -51,8 +51,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
                 js.setLength(0);
@@ -78,8 +78,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingFill(%s, %f)", wrapQuotes(color), opacity));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -125,8 +125,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -165,8 +165,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -205,8 +205,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -245,8 +245,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -285,8 +285,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -325,8 +325,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -383,8 +383,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -433,8 +433,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -494,7 +494,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -533,7 +532,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -572,7 +570,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -611,7 +608,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -650,7 +646,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
                 js.setLength(0);
@@ -675,7 +670,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s);", ((risingFill != null) ? risingFill.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
                 js.setLength(0);
@@ -711,7 +705,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %f);", wrapQuotes(color2), opacity3));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f)", wrapQuotes(color2), opacity3));
                 js.setLength(0);
@@ -772,7 +765,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -826,7 +818,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -880,7 +871,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -934,7 +924,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f);", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -988,7 +977,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -1042,7 +1030,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f);", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -1122,8 +1109,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1195,8 +1182,8 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1269,7 +1256,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1321,7 +1307,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1373,7 +1358,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1425,7 +1409,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color3), thickness1, size1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
@@ -1477,7 +1460,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState9, wrapQuotes(color3), thickness1, size1));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);

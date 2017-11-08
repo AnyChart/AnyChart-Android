@@ -51,8 +51,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
                 js.setLength(0);
@@ -75,8 +75,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
                 js.setLength(0);
@@ -115,8 +115,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -141,8 +141,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -181,8 +181,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
                 js.setLength(0);
@@ -207,8 +207,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
                 js.setLength(0);
@@ -247,8 +247,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
@@ -273,8 +273,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
                 js.setLength(0);
@@ -301,8 +301,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
@@ -327,8 +327,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
                 js.setLength(0);
@@ -375,10 +375,6 @@ public class CoreAxesRadial extends VisualBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -401,8 +397,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
                 js.setLength(0);
@@ -429,8 +425,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
                 js.setLength(0);
@@ -472,8 +468,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -508,8 +504,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -544,8 +540,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -584,8 +580,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
                 js.setLength(0);
@@ -610,8 +606,8 @@ public class CoreAxesRadial extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ticks(%b)", ticks1));
                 js.setLength(0);

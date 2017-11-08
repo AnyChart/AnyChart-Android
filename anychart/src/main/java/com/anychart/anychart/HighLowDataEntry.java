@@ -26,4 +26,28 @@ public class HighLowDataEntry extends DataEntry {
         setValue("low", low);
     }
 
+    public HighLowDataEntry(Long x, Integer high, Integer low) {
+        setValue("x", x);
+        setValue("high", high);
+        setValue("low", low);
+    }
+
+    public HighLowDataEntry(Long x, Double high, Integer low) {
+        setValue("x", x);
+        setValue("high", high);
+        setValue("low", low);
+    }
+
+    public HighLowDataEntry(Long x, Integer high, Double low) {
+        setValue("x", x);
+        setValue("high", high);
+        setValue("low", low);
+    }
+
+    public HighLowDataEntry(Long x, Double high, Double low) {
+        setValue("x", x);
+        setValue("high", high);
+        setValue("low", low);
+    }
+
 }

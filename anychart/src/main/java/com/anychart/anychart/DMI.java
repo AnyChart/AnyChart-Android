@@ -49,8 +49,8 @@ public class DMI extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".adxPeriod(%f)", adxPeriod));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adxPeriod(%f)", adxPeriod));
                 js.setLength(0);
@@ -89,8 +89,8 @@ public class DMI extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".adxSeries(%s)", ((type != null) ? type.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adxSeries(%s)", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
@@ -115,8 +115,8 @@ public class DMI extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".adxSeries(%s)", wrapQuotes(type1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adxSeries(%s)", wrapQuotes(type1)));
                 js.setLength(0);
@@ -157,8 +157,8 @@ public class DMI extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".ndiSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ndiSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
@@ -185,8 +185,8 @@ public class DMI extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".ndiSeries(%s)", wrapQuotes(type3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".ndiSeries(%s)", wrapQuotes(type3)));
                 js.setLength(0);
@@ -229,8 +229,8 @@ public class DMI extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".pdiSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pdiSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
                 js.setLength(0);
@@ -259,8 +259,8 @@ public class DMI extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".pdiSeries(%s)", wrapQuotes(type5)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".pdiSeries(%s)", wrapQuotes(type5)));
                 js.setLength(0);
@@ -283,8 +283,8 @@ public class DMI extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".period(%f)", period));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
                 js.setLength(0);

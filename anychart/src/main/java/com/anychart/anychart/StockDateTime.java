@@ -67,8 +67,8 @@ public class StockDateTime extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -94,8 +94,8 @@ public class StockDateTime extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%b)", background1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background1));
                 js.setLength(0);
@@ -118,8 +118,8 @@ public class StockDateTime extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%f)", height));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -158,8 +158,8 @@ public class StockDateTime extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -184,8 +184,8 @@ public class StockDateTime extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
@@ -224,8 +224,8 @@ public class StockDateTime extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
                 js.setLength(0);
@@ -250,8 +250,8 @@ public class StockDateTime extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
                 js.setLength(0);
@@ -290,8 +290,8 @@ public class StockDateTime extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
                 js.setLength(0);
@@ -316,8 +316,8 @@ public class StockDateTime extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
                 js.setLength(0);
@@ -345,8 +345,8 @@ Whether to allow labels to overlap.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
@@ -372,8 +372,8 @@ Whether to allow labels to overlap.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
                 js.setLength(0);
@@ -397,8 +397,8 @@ Whether to draw helper label (leftmost hanging label).
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".showHelperLabel(%b)", showHelperLabel));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".showHelperLabel(%b)", showHelperLabel));
                 js.setLength(0);

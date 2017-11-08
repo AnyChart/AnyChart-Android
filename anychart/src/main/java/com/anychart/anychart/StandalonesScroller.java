@@ -65,8 +65,8 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
                 js.setLength(0);
@@ -95,10 +95,6 @@ public class StandalonesScroller extends UiScroller {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -118,8 +114,8 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".endRatio(%f)", endRatio));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".endRatio(%f)", endRatio));
                 js.setLength(0);
@@ -162,10 +158,6 @@ public class StandalonesScroller extends UiScroller {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".parentBounds(%s);",  ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -186,8 +178,8 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
@@ -219,8 +211,8 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
@@ -249,8 +241,8 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setRange(%f, %f)", startRatio, endRatio1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setRange(%f, %f)", startRatio, endRatio1));
                 js.setLength(0);
@@ -277,8 +269,8 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".startRatio(%f)", startRatio1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".startRatio(%f)", startRatio1));
                 js.setLength(0);

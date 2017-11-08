@@ -49,8 +49,8 @@ public class OrdinalZoom extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".continuous(%b)", continuous));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".continuous(%b)", continuous));
                 js.setLength(0);
@@ -76,8 +76,8 @@ public class OrdinalZoom extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setTo(%f, %f)", startRatio, endRatio));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setTo(%f, %f)", startRatio, endRatio));
                 js.setLength(0);
@@ -106,8 +106,8 @@ public class OrdinalZoom extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setToPointsCount(%f, %b, %s)", pointsCount, fromEnd, ((scale != null) ? scale.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setToPointsCount(%f, %b, %s)", pointsCount, fromEnd, ((scale != null) ? scale.generateJs() : "null")));
                 js.setLength(0);
@@ -137,10 +137,6 @@ public class OrdinalZoom extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".setToValues(%s);",  ((scale1 != null) ? scale1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setToValues(%s)", ((scale1 != null) ? scale1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }

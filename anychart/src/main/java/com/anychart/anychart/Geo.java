@@ -52,8 +52,8 @@ public class Geo extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".extendDataRange(%f, %f)", x, y));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".extendDataRange(%f, %f)", x, y));
                 js.setLength(0);
@@ -76,8 +76,8 @@ public class Geo extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".gap(%f)", gap));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".gap(%f)", gap));
                 js.setLength(0);
@@ -102,8 +102,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
                 js.setLength(0);
@@ -126,8 +126,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maximumX(%f)", maximumX));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximumX(%f)", maximumX));
                 js.setLength(0);
@@ -150,8 +150,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maximumY(%f)", maximumY));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maximumY(%f)", maximumY));
                 js.setLength(0);
@@ -174,8 +174,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minimumX(%f)", minimumX));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimumX(%f)", minimumX));
                 js.setLength(0);
@@ -198,8 +198,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minimumY(%f)", minimumY));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minimumY(%f)", minimumY));
                 js.setLength(0);
@@ -222,8 +222,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".precision(%s)", Arrays.toString(precision)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".precision(%s)", Arrays.toString(precision)));
                 js.setLength(0);
@@ -249,8 +249,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".precision(%f, %f)", xPrecision, yPrecision));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".precision(%f, %f)", xPrecision, yPrecision));
                 js.setLength(0);
@@ -289,8 +289,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xMinorTicks(%s)", wrapQuotes(xMinorTicks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorTicks(%s)", wrapQuotes(xMinorTicks)));
                 js.setLength(0);
@@ -315,8 +315,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xMinorTicks(%s)", arrayToStringWrapQuotes(xMinorTicks1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xMinorTicks(%s)", arrayToStringWrapQuotes(xMinorTicks1)));
                 js.setLength(0);
@@ -355,8 +355,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xTicks(%s)", wrapQuotes(xTicks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xTicks(%s)", wrapQuotes(xTicks)));
                 js.setLength(0);
@@ -381,8 +381,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".xTicks(%s)", arrayToStringWrapQuotes(xTicks1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".xTicks(%s)", arrayToStringWrapQuotes(xTicks1)));
                 js.setLength(0);
@@ -421,8 +421,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yMinorTicks(%s)", wrapQuotes(yMinorTicks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorTicks(%s)", wrapQuotes(yMinorTicks)));
                 js.setLength(0);
@@ -447,8 +447,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yMinorTicks(%s)", arrayToStringWrapQuotes(yMinorTicks1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yMinorTicks(%s)", arrayToStringWrapQuotes(yMinorTicks1)));
                 js.setLength(0);
@@ -487,8 +487,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yTicks(%s)", wrapQuotes(yTicks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yTicks(%s)", wrapQuotes(yTicks)));
                 js.setLength(0);
@@ -513,8 +513,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".yTicks(%s)", arrayToStringWrapQuotes(yTicks1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".yTicks(%s)", arrayToStringWrapQuotes(yTicks1)));
                 js.setLength(0);

@@ -58,10 +58,6 @@ public class View extends CoreBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".concat(%s);",  ((otherView != null) ? otherView.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", ((otherView != null) ? otherView.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -82,8 +78,8 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".concat(%s)", arrayToStringWrapQuotes(otherView1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", arrayToStringWrapQuotes(otherView1)));
                 js.setLength(0);
@@ -106,8 +102,8 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".filter(%s)", wrapQuotes(fieldName)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".filter(%s)", wrapQuotes(fieldName)));
                 js.setLength(0);
@@ -134,7 +130,6 @@ public class View extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".find(%s);", wrapQuotes(fieldName1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".find(%s)", wrapQuotes(fieldName1)));
                 js.setLength(0);
@@ -159,8 +154,8 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".meta(%f, %s)", index, wrapQuotes(name)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".meta(%f, %s)", index, wrapQuotes(name)));
                 js.setLength(0);
@@ -184,7 +179,6 @@ public class View extends CoreBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".row(%f);", rowIndex));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f)", rowIndex));
                 js.setLength(0);
@@ -216,8 +210,8 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".set(%f, %s)", rowIndex1, wrapQuotes(fieldName2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%f, %s)", rowIndex1, wrapQuotes(fieldName2)));
                 js.setLength(0);
@@ -245,8 +239,8 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".sort(%s)", wrapQuotes(fieldName3)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", wrapQuotes(fieldName3)));
                 js.setLength(0);
@@ -282,8 +276,8 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".sort(%s, %s)", ((order != null) ? order.generateJs() : "null"), wrapQuotes(fieldName4)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", ((order != null) ? order.generateJs() : "null"), wrapQuotes(fieldName4)));
                 js.setLength(0);
@@ -316,8 +310,8 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(order1), wrapQuotes(fieldName4)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(order1), wrapQuotes(fieldName4)));
                 js.setLength(0);

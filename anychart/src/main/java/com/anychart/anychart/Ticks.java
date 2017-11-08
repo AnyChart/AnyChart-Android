@@ -40,7 +40,7 @@ public class Ticks extends VisualBase {
 
     /**
      * Setter for ticks length.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.axes.Ticks.length.png' height='77' width='412'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.Ticks.length.png' height='77' width='412'/>
      */
     public Ticks setLength(Double length) {
         if (jsBase == null) {
@@ -51,8 +51,8 @@ public class Ticks extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".length(%f)", length));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%f)", length));
                 js.setLength(0);
@@ -67,7 +67,7 @@ public class Ticks extends VisualBase {
     /**
      * Setter for ticks position.<br/>
 You can set ticks inside of a chart area or outside its position.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
      */
     public Ticks setPosition(SidePosition position) {
         if (jsBase == null) {
@@ -81,8 +81,8 @@ You can set ticks inside of a chart area or outside its position.<br/>
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -95,7 +95,7 @@ You can set ticks inside of a chart area or outside its position.<br/>
     /**
      * Setter for ticks position.<br/>
 You can set ticks inside of a chart area or outside its position.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
      */
     public Ticks setPosition(String position1) {
         if (jsBase == null) {
@@ -109,8 +109,8 @@ You can set ticks inside of a chart area or outside its position.<br/>
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -123,7 +123,7 @@ You can set ticks inside of a chart area or outside its position.<br/>
 
     /**
      * Setter for stroke settings via single parameter.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
      */
     public Ticks setStroke(Stroke stroke) {
         if (jsBase == null) {
@@ -134,8 +134,8 @@ You can set ticks inside of a chart area or outside its position.<br/>
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
@@ -185,8 +185,8 @@ The following options are acceptable:
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);

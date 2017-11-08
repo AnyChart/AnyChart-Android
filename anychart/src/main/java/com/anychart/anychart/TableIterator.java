@@ -50,7 +50,6 @@ public class TableIterator extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".get(%s);", wrapQuotes(field)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
                 js.setLength(0);

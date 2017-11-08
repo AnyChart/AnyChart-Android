@@ -53,8 +53,8 @@ public class UiColorRange extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
@@ -79,8 +79,8 @@ public class UiColorRange extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
                 js.setLength(0);
@@ -103,8 +103,8 @@ public class UiColorRange extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".colorLineSize(%f)", colorLineSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".colorLineSize(%f)", colorLineSize));
                 js.setLength(0);
@@ -131,8 +131,8 @@ public class UiColorRange extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".length(%s)", wrapQuotes(length)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%s)", wrapQuotes(length)));
                 js.setLength(0);
@@ -157,8 +157,8 @@ public class UiColorRange extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".length(%f)", length1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%f)", length1));
                 js.setLength(0);

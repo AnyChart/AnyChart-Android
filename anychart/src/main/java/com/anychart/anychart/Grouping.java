@@ -49,8 +49,8 @@ public class Grouping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
@@ -73,8 +73,8 @@ public class Grouping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".forced(%b)", forced));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".forced(%b)", forced));
                 js.setLength(0);
@@ -97,8 +97,8 @@ public class Grouping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".levels(%s)", arrayToStringWrapQuotes(levels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".levels(%s)", arrayToStringWrapQuotes(levels)));
                 js.setLength(0);
@@ -121,8 +121,8 @@ public class Grouping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxVisiblePoints(%f)", maxVisiblePoints));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxVisiblePoints(%f)", maxVisiblePoints));
                 js.setLength(0);
@@ -145,8 +145,8 @@ public class Grouping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minPixPerPoint(%f)", minPixPerPoint));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minPixPerPoint(%f)", minPixPerPoint));
                 js.setLength(0);

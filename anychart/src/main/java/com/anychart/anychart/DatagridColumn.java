@@ -53,8 +53,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".buttonCursor(%s)", ((valueCursor != null) ? valueCursor.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".buttonCursor(%s)", ((valueCursor != null) ? valueCursor.generateJs() : "null")));
                 js.setLength(0);
@@ -79,8 +79,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".buttonCursor(%s)", wrapQuotes(valueCursor1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".buttonCursor(%s)", wrapQuotes(valueCursor1)));
                 js.setLength(0);
@@ -115,8 +115,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".cellTextSettings(%s)", wrapQuotes(cellTextSettings)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cellTextSettings(%s)", wrapQuotes(cellTextSettings)));
                 js.setLength(0);
@@ -139,8 +139,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".collapseExpandButtons(%b)", collapseExpandButtons));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".collapseExpandButtons(%b)", collapseExpandButtons));
                 js.setLength(0);
@@ -163,8 +163,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".defaultWidth(%f)", defaultWidth));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".defaultWidth(%f)", defaultWidth));
                 js.setLength(0);
@@ -187,8 +187,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".depthPaddingMultiplier(%f)", depthPaddingMultiplier));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".depthPaddingMultiplier(%f)", depthPaddingMultiplier));
                 js.setLength(0);
@@ -218,8 +218,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", ((presetValue != null) ? presetValue.generateJs() : "null"), wrapQuotes(fieldName)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", ((presetValue != null) ? presetValue.generateJs() : "null"), wrapQuotes(fieldName)));
                 js.setLength(0);
@@ -246,8 +246,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(presetValue1), wrapQuotes(fieldName)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(presetValue1), wrapQuotes(fieldName)));
                 js.setLength(0);
@@ -290,8 +290,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%b)", title));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
@@ -317,8 +317,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
@@ -345,8 +345,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%f)", width));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -371,8 +371,8 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);

@@ -58,8 +58,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
                 js.setLength(0);
@@ -87,8 +87,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
                 js.setLength(0);
@@ -116,8 +116,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(adjustOrAdjustByWidth2), adjustByHeight));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(adjustOrAdjustByWidth2), adjustByHeight));
                 js.setLength(0);
@@ -140,8 +140,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".allowLeaveChart(%b)", allowLeaveChart));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".allowLeaveChart(%b)", allowLeaveChart));
                 js.setLength(0);
@@ -164,8 +164,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".allowLeaveScreen(%b)", allowLeaveScreen));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".allowLeaveScreen(%b)", allowLeaveScreen));
                 js.setLength(0);
@@ -188,8 +188,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".allowLeaveStage(%b)", allowLeaveStage));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".allowLeaveStage(%b)", allowLeaveStage));
                 js.setLength(0);
@@ -216,8 +216,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
@@ -242,8 +242,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
                 js.setLength(0);
@@ -284,8 +284,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%b)", background));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background));
                 js.setLength(0);
@@ -311,8 +311,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background1)));
                 js.setLength(0);
@@ -335,8 +335,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
@@ -364,8 +364,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".displayMode(%s)", ((displayMode != null) ? displayMode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", ((displayMode != null) ? displayMode.generateJs() : "null")));
                 js.setLength(0);
@@ -391,8 +391,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".displayMode(%s)", wrapQuotes(displayMode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", wrapQuotes(displayMode1)));
                 js.setLength(0);
@@ -415,8 +415,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
                 js.setLength(0);
@@ -443,8 +443,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
                 js.setLength(0);
@@ -469,8 +469,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
                 js.setLength(0);
@@ -493,8 +493,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
                 js.setLength(0);
@@ -517,8 +517,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
                 js.setLength(0);
@@ -545,8 +545,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize));
                 js.setLength(0);
@@ -571,8 +571,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
                 js.setLength(0);
@@ -599,8 +599,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle)));
                 js.setLength(0);
@@ -625,8 +625,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle1 != null) ? fontStyle1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle1 != null) ? fontStyle1.generateJs() : "null")));
                 js.setLength(0);
@@ -653,8 +653,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant)));
                 js.setLength(0);
@@ -679,8 +679,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant1 != null) ? fontVariant1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant1 != null) ? fontVariant1.generateJs() : "null")));
                 js.setLength(0);
@@ -707,8 +707,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
                 js.setLength(0);
@@ -733,8 +733,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
@@ -758,8 +758,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".format(%s)", wrapQuotes(format)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".format(%s)", wrapQuotes(format)));
                 js.setLength(0);
@@ -786,8 +786,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign)));
                 js.setLength(0);
@@ -812,8 +812,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign1 != null) ? hAlign1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", ((hAlign1 != null) ? hAlign1.generateJs() : "null")));
                 js.setLength(0);
@@ -840,8 +840,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height)));
                 js.setLength(0);
@@ -866,8 +866,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%f)", height1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height1));
                 js.setLength(0);
@@ -891,7 +891,6 @@ public class Tooltip extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".hide(%b);", force));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hide(%b)", force));
                 js.setLength(0);
@@ -913,8 +912,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".hideDelay(%f)", hideDelay));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".hideDelay(%f)", hideDelay));
                 js.setLength(0);
@@ -937,8 +936,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
                 js.setLength(0);
@@ -965,8 +964,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
                 js.setLength(0);
@@ -991,8 +990,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight1)));
                 js.setLength(0);
@@ -1019,8 +1018,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
                 js.setLength(0);
@@ -1045,8 +1044,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
                 js.setLength(0);
@@ -1073,8 +1072,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
                 js.setLength(0);
@@ -1099,8 +1098,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
                 js.setLength(0);
@@ -1123,8 +1122,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetX(%f)", offsetX));
                 js.setLength(0);
@@ -1147,8 +1146,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetY(%f)", offsetY));
                 js.setLength(0);
@@ -1189,8 +1188,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -1216,8 +1215,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -1243,8 +1242,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -1316,8 +1315,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -1381,8 +1380,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -1410,8 +1409,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
@@ -1437,8 +1436,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
                 js.setLength(0);
@@ -1465,8 +1464,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".positionMode(%s)", ((positionMode != null) ? positionMode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", ((positionMode != null) ? positionMode.generateJs() : "null")));
                 js.setLength(0);
@@ -1491,8 +1490,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".positionMode(%s)", wrapQuotes(positionMode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", wrapQuotes(positionMode1)));
                 js.setLength(0);
@@ -1515,8 +1514,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
@@ -1555,8 +1554,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".separator(%b)", separator));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".separator(%b)", separator));
                 js.setLength(0);
@@ -1581,8 +1580,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".separator(%s)", wrapQuotes(separator1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".separator(%s)", wrapQuotes(separator1)));
                 js.setLength(0);
@@ -1609,8 +1608,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection)));
                 js.setLength(0);
@@ -1635,8 +1634,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection1 != null) ? textDirection1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", ((textDirection1 != null) ? textDirection1.generateJs() : "null")));
                 js.setLength(0);
@@ -1659,8 +1658,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
@@ -1687,8 +1686,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
                 js.setLength(0);
@@ -1713,8 +1712,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
                 js.setLength(0);
@@ -1737,8 +1736,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textSettings(%s)", wrapQuotes(textSettings)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s)", wrapQuotes(textSettings)));
                 js.setLength(0);
@@ -1771,8 +1770,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textSettings(%s, %s)", wrapQuotes(textSettings1), wrapQuotes(name)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %s)", wrapQuotes(textSettings1), wrapQuotes(name)));
                 js.setLength(0);
@@ -1801,8 +1800,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textSettings(%f, %s)", textSettings2, wrapQuotes(name)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%f, %s)", textSettings2, wrapQuotes(name)));
                 js.setLength(0);
@@ -1831,8 +1830,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textSettings(%b, %s)", textSettings3, wrapQuotes(name)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textSettings(%b, %s)", textSettings3, wrapQuotes(name)));
                 js.setLength(0);
@@ -1871,8 +1870,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%b)", title));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
@@ -1897,8 +1896,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
                 js.setLength(0);
@@ -1922,8 +1921,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
                 js.setLength(0);
@@ -1947,8 +1946,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".unionFormat(%s)", wrapQuotes(unionFormat)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".unionFormat(%s)", wrapQuotes(unionFormat)));
                 js.setLength(0);
@@ -1971,8 +1970,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
                 js.setLength(0);
@@ -1999,8 +1998,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign)));
                 js.setLength(0);
@@ -2025,8 +2024,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign1 != null) ? vAlign1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", ((vAlign1 != null) ? vAlign1.generateJs() : "null")));
                 js.setLength(0);
@@ -2049,8 +2048,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valuePostfix(%s)", wrapQuotes(valuePostfix)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valuePostfix(%s)", wrapQuotes(valuePostfix)));
                 js.setLength(0);
@@ -2073,8 +2072,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".valuePrefix(%s)", wrapQuotes(valuePrefix)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".valuePrefix(%s)", wrapQuotes(valuePrefix)));
                 js.setLength(0);
@@ -2101,8 +2100,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
                 js.setLength(0);
@@ -2127,8 +2126,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%f)", width1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width1));
                 js.setLength(0);
@@ -2155,8 +2154,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
                 js.setLength(0);
@@ -2181,8 +2180,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
                 js.setLength(0);
@@ -2209,8 +2208,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
                 js.setLength(0);
@@ -2235,8 +2234,8 @@ public class Tooltip extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
                 js.setLength(0);

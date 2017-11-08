@@ -54,8 +54,8 @@ public class Image extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
@@ -82,8 +82,8 @@ public class Image extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode != null) ? fittingMode.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode != null) ? fittingMode.generateJs() : "null")));
                 js.setLength(0);
@@ -108,8 +108,8 @@ public class Image extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode1)));
                 js.setLength(0);
@@ -132,8 +132,8 @@ public class Image extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%f)", height));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -157,8 +157,8 @@ Set null value for non-display image.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".src(%s)", wrapQuotes(src)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".src(%s)", wrapQuotes(src)));
                 js.setLength(0);
@@ -181,8 +181,8 @@ Set null value for non-display image.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%f)", width));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -205,8 +205,8 @@ Set null value for non-display image.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".x(%f)", x));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".x(%f)", x));
                 js.setLength(0);
@@ -229,8 +229,8 @@ Set null value for non-display image.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".y(%f)", y));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".y(%f)", y));
                 js.setLength(0);

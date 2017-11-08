@@ -52,8 +52,8 @@ public class Iterator extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".meta(%s)", wrapQuotes(name)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".meta(%s)", wrapQuotes(name)));
                 js.setLength(0);
@@ -77,7 +77,6 @@ public class Iterator extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".select(%f);", index));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f)", index));
                 js.setLength(0);

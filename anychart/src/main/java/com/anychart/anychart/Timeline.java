@@ -50,8 +50,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
                 js.setLength(0);
@@ -77,8 +77,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
@@ -124,8 +124,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
@@ -164,8 +164,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -204,8 +204,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -244,8 +244,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
@@ -284,8 +284,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
@@ -324,8 +324,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
@@ -382,8 +382,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -432,8 +432,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
@@ -458,8 +458,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseFill(%s)", ((baseFill != null) ? baseFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s)", ((baseFill != null) ? baseFill.generateJs() : "null")));
                 js.setLength(0);
@@ -493,8 +493,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseFill(%s, %f)", wrapQuotes(color1), opacity3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f)", wrapQuotes(color1), opacity3));
                 js.setLength(0);
@@ -554,8 +554,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -608,8 +608,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -662,8 +662,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -716,8 +716,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
@@ -770,8 +770,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
@@ -824,8 +824,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
@@ -905,8 +905,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -978,8 +978,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
@@ -1019,8 +1019,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseLabels(%s)", wrapQuotes(baseLabels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseLabels(%s)", wrapQuotes(baseLabels)));
                 js.setLength(0);
@@ -1045,8 +1045,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseLabels(%b)", baseLabels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseLabels(%b)", baseLabels1));
                 js.setLength(0);
@@ -1088,8 +1088,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1124,8 +1124,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1160,8 +1160,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
@@ -1184,8 +1184,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineAbove(%b)", baselineAbove));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineAbove(%b)", baselineAbove));
                 js.setLength(0);
@@ -1209,8 +1209,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineFill(%s)", ((baselineFill != null) ? baselineFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s)", ((baselineFill != null) ? baselineFill.generateJs() : "null")));
                 js.setLength(0);
@@ -1248,8 +1248,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineFill(%s, %f)", wrapQuotes(color2), opacity6));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f)", wrapQuotes(color2), opacity6));
                 js.setLength(0);
@@ -1321,8 +1321,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
                 js.setLength(0);
@@ -1387,8 +1387,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
@@ -1453,8 +1453,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
@@ -1519,8 +1519,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
                 js.setLength(0);
@@ -1585,8 +1585,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
                 js.setLength(0);
@@ -1651,8 +1651,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
                 js.setLength(0);
@@ -1747,8 +1747,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
@@ -1835,8 +1835,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
@@ -1876,8 +1876,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineLabels(%s)", wrapQuotes(baselineLabels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineLabels(%s)", wrapQuotes(baselineLabels)));
                 js.setLength(0);
@@ -1902,8 +1902,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineLabels(%b)", baselineLabels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineLabels(%b)", baselineLabels1));
                 js.setLength(0);
@@ -1957,8 +1957,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -2005,8 +2005,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -2053,8 +2053,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
@@ -2081,8 +2081,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
                 js.setLength(0);
@@ -2107,8 +2107,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
                 js.setLength(0);
@@ -2187,8 +2187,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
@@ -2258,8 +2258,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
@@ -2329,8 +2329,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
@@ -2388,8 +2388,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2440,8 +2440,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2492,8 +2492,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
@@ -2555,8 +2555,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -2611,8 +2611,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -2667,8 +2667,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
@@ -2692,8 +2692,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s)", ((editConnectorThumbFill != null) ? editConnectorThumbFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s)", ((editConnectorThumbFill != null) ? editConnectorThumbFill.generateJs() : "null")));
                 js.setLength(0);
@@ -2736,8 +2736,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f)", wrapQuotes(color3), opacity10));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f)", wrapQuotes(color3), opacity10));
                 js.setLength(0);
@@ -2822,8 +2822,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
                 js.setLength(0);
@@ -2901,8 +2901,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
                 js.setLength(0);
@@ -2980,8 +2980,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
                 js.setLength(0);
@@ -3059,8 +3059,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
                 js.setLength(0);
@@ -3138,8 +3138,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
                 js.setLength(0);
@@ -3217,8 +3217,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
                 js.setLength(0);
@@ -3333,8 +3333,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
                 js.setLength(0);
@@ -3441,8 +3441,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
                 js.setLength(0);
@@ -3509,8 +3509,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3569,8 +3569,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3629,8 +3629,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
@@ -3653,8 +3653,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editFinishConnectorMarkerHorizontalOffset(%f)", editFinishConnectorMarkerHorizontalOffset));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editFinishConnectorMarkerHorizontalOffset(%f)", editFinishConnectorMarkerHorizontalOffset));
                 js.setLength(0);
@@ -3677,8 +3677,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editFinishConnectorMarkerSize(%f)", editFinishConnectorMarkerSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editFinishConnectorMarkerSize(%f)", editFinishConnectorMarkerSize));
                 js.setLength(0);
@@ -3706,7 +3706,6 @@ public class Timeline extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", ((editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", ((editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null")));
                 js.setLength(0);
@@ -3731,7 +3730,6 @@ public class Timeline extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", wrapQuotes(editFinishConnectorMarkerType1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", wrapQuotes(editFinishConnectorMarkerType1)));
                 js.setLength(0);
@@ -3753,8 +3751,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editFinishConnectorMarkerVerticalOffset(%f)", editFinishConnectorMarkerVerticalOffset));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editFinishConnectorMarkerVerticalOffset(%f)", editFinishConnectorMarkerVerticalOffset));
                 js.setLength(0);
@@ -3778,8 +3776,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s)", ((editIntervalThumbFill != null) ? editIntervalThumbFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s)", ((editIntervalThumbFill != null) ? editIntervalThumbFill.generateJs() : "null")));
                 js.setLength(0);
@@ -3826,8 +3824,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f)", wrapQuotes(color4), opacity13));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f)", wrapQuotes(color4), opacity13));
                 js.setLength(0);
@@ -3924,8 +3922,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity14));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity14));
                 js.setLength(0);
@@ -4015,8 +4013,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
                 js.setLength(0);
@@ -4106,8 +4104,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
                 js.setLength(0);
@@ -4197,8 +4195,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
                 js.setLength(0);
@@ -4288,8 +4286,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
                 js.setLength(0);
@@ -4379,8 +4377,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
                 js.setLength(0);
@@ -4510,8 +4508,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
                 js.setLength(0);
@@ -4633,8 +4631,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
                 js.setLength(0);
@@ -4705,8 +4703,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -4769,8 +4767,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -4833,8 +4831,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
@@ -4857,8 +4855,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editIntervalWidth(%f)", editIntervalWidth));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editIntervalWidth(%f)", editIntervalWidth));
                 js.setLength(0);
@@ -4882,8 +4880,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewFill(%s)", ((editPreviewFill != null) ? editPreviewFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s)", ((editPreviewFill != null) ? editPreviewFill.generateJs() : "null")));
                 js.setLength(0);
@@ -4934,8 +4932,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %f)", wrapQuotes(color5), opacity16));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f)", wrapQuotes(color5), opacity16));
                 js.setLength(0);
@@ -5044,8 +5042,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity17));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity17));
                 js.setLength(0);
@@ -5147,8 +5145,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
                 js.setLength(0);
@@ -5250,8 +5248,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity17));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity17));
                 js.setLength(0);
@@ -5353,8 +5351,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity17));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity17));
                 js.setLength(0);
@@ -5456,8 +5454,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
                 js.setLength(0);
@@ -5559,8 +5557,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity17));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity17));
                 js.setLength(0);
@@ -5705,8 +5703,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
                 js.setLength(0);
@@ -5843,8 +5841,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
                 js.setLength(0);
@@ -5919,8 +5917,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -5987,8 +5985,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -6055,8 +6053,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
@@ -6080,8 +6078,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressFill(%s)", ((editProgressFill != null) ? editProgressFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s)", ((editProgressFill != null) ? editProgressFill.generateJs() : "null")));
                 js.setLength(0);
@@ -6136,8 +6134,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressFill(%s, %f)", wrapQuotes(color6), opacity19));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f)", wrapQuotes(color6), opacity19));
                 js.setLength(0);
@@ -6258,8 +6256,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToString(keys24), mode24, angle6, opacity20));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToString(keys24), mode24, angle6, opacity20));
                 js.setLength(0);
@@ -6373,8 +6371,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
                 js.setLength(0);
@@ -6488,8 +6486,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6, opacity20));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6, opacity20));
                 js.setLength(0);
@@ -6603,8 +6601,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6, opacity20));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6, opacity20));
                 js.setLength(0);
@@ -6718,8 +6716,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
                 js.setLength(0);
@@ -6833,8 +6831,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6, opacity20));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6, opacity20));
                 js.setLength(0);
@@ -6994,8 +6992,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
                 js.setLength(0);
@@ -7147,8 +7145,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
                 js.setLength(0);
@@ -7227,8 +7225,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -7299,8 +7297,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -7371,8 +7369,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
@@ -7395,8 +7393,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStartConnectorMarkerHorizontalOffset(%f)", editStartConnectorMarkerHorizontalOffset));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStartConnectorMarkerHorizontalOffset(%f)", editStartConnectorMarkerHorizontalOffset));
                 js.setLength(0);
@@ -7419,8 +7417,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStartConnectorMarkerSize(%f)", editStartConnectorMarkerSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStartConnectorMarkerSize(%f)", editStartConnectorMarkerSize));
                 js.setLength(0);
@@ -7448,7 +7446,6 @@ public class Timeline extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", ((editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", ((editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null")));
                 js.setLength(0);
@@ -7473,7 +7470,6 @@ public class Timeline extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", wrapQuotes(editStartConnectorMarkerType1)));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", wrapQuotes(editStartConnectorMarkerType1)));
                 js.setLength(0);
@@ -7495,8 +7491,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStartConnectorMarkerVerticalOffset(%f)", editStartConnectorMarkerVerticalOffset));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStartConnectorMarkerVerticalOffset(%f)", editStartConnectorMarkerVerticalOffset));
                 js.setLength(0);
@@ -7578,8 +7574,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7654,8 +7650,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7730,8 +7726,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
@@ -7755,8 +7751,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s)", ((editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s)", ((editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null")));
                 js.setLength(0);
@@ -7815,8 +7811,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color7), opacity22));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color7), opacity22));
                 js.setLength(0);
@@ -7949,8 +7945,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToString(keys28), mode28, angle7, opacity23));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToString(keys28), mode28, angle7, opacity23));
                 js.setLength(0);
@@ -8076,8 +8072,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
                 js.setLength(0);
@@ -8203,8 +8199,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), wrapQuotes(mode30), angle7, opacity23));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), wrapQuotes(mode30), angle7, opacity23));
                 js.setLength(0);
@@ -8330,8 +8326,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys29), mode28, angle7, opacity23));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys29), mode28, angle7, opacity23));
                 js.setLength(0);
@@ -8457,8 +8453,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
                 js.setLength(0);
@@ -8584,8 +8580,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), wrapQuotes(mode30), angle7, opacity23));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), wrapQuotes(mode30), angle7, opacity23));
                 js.setLength(0);
@@ -8760,8 +8756,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
                 js.setLength(0);
@@ -8928,8 +8924,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
                 js.setLength(0);
@@ -9016,8 +9012,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -9096,8 +9092,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -9176,8 +9172,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
@@ -9200,8 +9196,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".editing(%b)", editing));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".editing(%b)", editing));
                 js.setLength(0);
@@ -9236,8 +9232,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".header(%s)", wrapQuotes(header)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".header(%s)", wrapQuotes(header)));
                 js.setLength(0);
@@ -9272,8 +9268,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
                 js.setLength(0);
@@ -9308,8 +9304,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
                 js.setLength(0);
@@ -9347,8 +9343,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
                 js.setLength(0);
@@ -9373,8 +9369,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
                 js.setLength(0);
@@ -9410,8 +9406,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index));
                 js.setLength(0);
@@ -9442,8 +9438,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index));
                 js.setLength(0);
@@ -9474,8 +9470,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".lineMarker(%s, %f)", ((lineMarker4 != null) ? lineMarker4.generateJs() : "null"), index));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", ((lineMarker4 != null) ? lineMarker4.generateJs() : "null"), index));
                 js.setLength(0);
@@ -9510,8 +9506,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
                 js.setLength(0);
@@ -9535,8 +9531,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneFill(%s)", ((milestoneFill != null) ? milestoneFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s)", ((milestoneFill != null) ? milestoneFill.generateJs() : "null")));
                 js.setLength(0);
@@ -9599,8 +9595,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneFill(%s, %f)", wrapQuotes(color8), opacity25));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f)", wrapQuotes(color8), opacity25));
                 js.setLength(0);
@@ -9745,8 +9741,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToString(keys32), mode32, angle8, opacity26));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToString(keys32), mode32, angle8, opacity26));
                 js.setLength(0);
@@ -9884,8 +9880,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
                 js.setLength(0);
@@ -10023,8 +10019,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), wrapQuotes(mode34), angle8, opacity26));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), wrapQuotes(mode34), angle8, opacity26));
                 js.setLength(0);
@@ -10162,8 +10158,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys33), mode32, angle8, opacity26));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys33), mode32, angle8, opacity26));
                 js.setLength(0);
@@ -10301,8 +10297,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
                 js.setLength(0);
@@ -10440,8 +10436,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), wrapQuotes(mode34), angle8, opacity26));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), wrapQuotes(mode34), angle8, opacity26));
                 js.setLength(0);
@@ -10631,8 +10627,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
                 js.setLength(0);
@@ -10814,8 +10810,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
                 js.setLength(0);
@@ -10855,8 +10851,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneLabels(%s)", wrapQuotes(milestoneLabels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneLabels(%s)", wrapQuotes(milestoneLabels)));
                 js.setLength(0);
@@ -10881,8 +10877,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneLabels(%b)", milestoneLabels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneLabels(%b)", milestoneLabels1));
                 js.setLength(0);
@@ -10971,8 +10967,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -11054,8 +11050,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -11137,8 +11133,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
@@ -11162,8 +11158,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentFill(%s)", ((parentFill != null) ? parentFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s)", ((parentFill != null) ? parentFill.generateJs() : "null")));
                 js.setLength(0);
@@ -11230,8 +11226,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentFill(%s, %f)", wrapQuotes(color9), opacity28));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f)", wrapQuotes(color9), opacity28));
                 js.setLength(0);
@@ -11388,8 +11384,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToString(keys36), mode36, angle9, opacity29));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToString(keys36), mode36, angle9, opacity29));
                 js.setLength(0);
@@ -11539,8 +11535,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
                 js.setLength(0);
@@ -11690,8 +11686,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), wrapQuotes(mode38), angle9, opacity29));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), wrapQuotes(mode38), angle9, opacity29));
                 js.setLength(0);
@@ -11841,8 +11837,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys37), mode36, angle9, opacity29));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys37), mode36, angle9, opacity29));
                 js.setLength(0);
@@ -11992,8 +11988,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
                 js.setLength(0);
@@ -12143,8 +12139,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), wrapQuotes(mode38), angle9, opacity29));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), wrapQuotes(mode38), angle9, opacity29));
                 js.setLength(0);
@@ -12349,8 +12345,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
                 js.setLength(0);
@@ -12547,8 +12543,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
                 js.setLength(0);
@@ -12588,8 +12584,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentLabels(%s)", wrapQuotes(parentLabels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentLabels(%s)", wrapQuotes(parentLabels)));
                 js.setLength(0);
@@ -12614,8 +12610,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentLabels(%b)", parentLabels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentLabels(%b)", parentLabels1));
                 js.setLength(0);
@@ -12709,8 +12705,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -12797,8 +12793,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -12885,8 +12881,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
@@ -12910,8 +12906,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressFill(%s)", ((progressFill != null) ? progressFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s)", ((progressFill != null) ? progressFill.generateJs() : "null")));
                 js.setLength(0);
@@ -12982,8 +12978,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressFill(%s, %f)", wrapQuotes(color10), opacity31));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f)", wrapQuotes(color10), opacity31));
                 js.setLength(0);
@@ -13152,8 +13148,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToString(keys40), mode40, angle10, opacity32));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToString(keys40), mode40, angle10, opacity32));
                 js.setLength(0);
@@ -13315,8 +13311,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
                 js.setLength(0);
@@ -13478,8 +13474,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), wrapQuotes(mode42), angle10, opacity32));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), wrapQuotes(mode42), angle10, opacity32));
                 js.setLength(0);
@@ -13641,8 +13637,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys41), mode40, angle10, opacity32));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys41), mode40, angle10, opacity32));
                 js.setLength(0);
@@ -13804,8 +13800,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
                 js.setLength(0);
@@ -13967,8 +13963,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), wrapQuotes(mode42), angle10, opacity32));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), wrapQuotes(mode42), angle10, opacity32));
                 js.setLength(0);
@@ -14188,8 +14184,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
                 js.setLength(0);
@@ -14401,8 +14397,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
                 js.setLength(0);
@@ -14442,8 +14438,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressLabels(%s)", wrapQuotes(progressLabels)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressLabels(%s)", wrapQuotes(progressLabels)));
                 js.setLength(0);
@@ -14468,8 +14464,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressLabels(%b)", progressLabels1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressLabels(%b)", progressLabels1));
                 js.setLength(0);
@@ -14567,8 +14563,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
@@ -14659,8 +14655,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
@@ -14751,8 +14747,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
@@ -14790,8 +14786,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
                 js.setLength(0);
@@ -14816,8 +14812,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
                 js.setLength(0);
@@ -14856,8 +14852,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index1));
                 js.setLength(0);
@@ -14891,8 +14887,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index1));
                 js.setLength(0);
@@ -14926,8 +14922,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null"), index1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null"), index1));
                 js.setLength(0);
@@ -14951,8 +14947,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
                 js.setLength(0);
@@ -15027,8 +15023,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color11), opacity34));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color11), opacity34));
                 js.setLength(0);
@@ -15209,8 +15205,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys44), mode44, angle11, opacity35));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys44), mode44, angle11, opacity35));
                 js.setLength(0);
@@ -15384,8 +15380,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
                 js.setLength(0);
@@ -15559,8 +15555,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), wrapQuotes(mode46), angle11, opacity35));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), wrapQuotes(mode46), angle11, opacity35));
                 js.setLength(0);
@@ -15734,8 +15730,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys45), mode44, angle11, opacity35));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys45), mode44, angle11, opacity35));
                 js.setLength(0);
@@ -15909,8 +15905,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
                 js.setLength(0);
@@ -16084,8 +16080,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), wrapQuotes(mode46), angle11, opacity35));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), wrapQuotes(mode46), angle11, opacity35));
                 js.setLength(0);
@@ -16320,8 +16316,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
                 js.setLength(0);
@@ -16548,8 +16544,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
                 js.setLength(0);
@@ -16574,8 +16570,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowFill(%s)", ((rowFill != null) ? rowFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s)", ((rowFill != null) ? rowFill.generateJs() : "null")));
                 js.setLength(0);
@@ -16654,8 +16650,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color12), opacity37));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color12), opacity37));
                 js.setLength(0);
@@ -16848,8 +16844,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToString(keys48), mode48, angle12, opacity38));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToString(keys48), mode48, angle12, opacity38));
                 js.setLength(0);
@@ -17035,8 +17031,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
                 js.setLength(0);
@@ -17222,8 +17218,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), wrapQuotes(mode50), angle12, opacity38));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), wrapQuotes(mode50), angle12, opacity38));
                 js.setLength(0);
@@ -17409,8 +17405,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys49), mode48, angle12, opacity38));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys49), mode48, angle12, opacity38));
                 js.setLength(0);
@@ -17596,8 +17592,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
                 js.setLength(0);
@@ -17783,8 +17779,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), wrapQuotes(mode50), angle12, opacity38));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), wrapQuotes(mode50), angle12, opacity38));
                 js.setLength(0);
@@ -18034,8 +18030,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
                 js.setLength(0);
@@ -18277,8 +18273,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
                 js.setLength(0);
@@ -18303,8 +18299,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
                 js.setLength(0);
@@ -18387,8 +18383,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color13), opacity40));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color13), opacity40));
                 js.setLength(0);
@@ -18593,8 +18589,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys52), mode52, angle13, opacity41));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys52), mode52, angle13, opacity41));
                 js.setLength(0);
@@ -18792,8 +18788,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
                 js.setLength(0);
@@ -18991,8 +18987,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), wrapQuotes(mode54), angle13, opacity41));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), wrapQuotes(mode54), angle13, opacity41));
                 js.setLength(0);
@@ -19190,8 +19186,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys53), mode52, angle13, opacity41));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys53), mode52, angle13, opacity41));
                 js.setLength(0);
@@ -19389,8 +19385,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
                 js.setLength(0);
@@ -19588,8 +19584,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), wrapQuotes(mode54), angle13, opacity41));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), wrapQuotes(mode54), angle13, opacity41));
                 js.setLength(0);
@@ -19854,8 +19850,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
                 js.setLength(0);
@@ -20112,8 +20108,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
                 js.setLength(0);
@@ -20137,8 +20133,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
                 js.setLength(0);
@@ -20225,8 +20221,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color14), opacity43));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color14), opacity43));
                 js.setLength(0);
@@ -20443,8 +20439,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys56), mode56, angle14, opacity44));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys56), mode56, angle14, opacity44));
                 js.setLength(0);
@@ -20654,8 +20650,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
                 js.setLength(0);
@@ -20865,8 +20861,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), wrapQuotes(mode58), angle14, opacity44));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), wrapQuotes(mode58), angle14, opacity44));
                 js.setLength(0);
@@ -21076,8 +21072,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys57), mode56, angle14, opacity44));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys57), mode56, angle14, opacity44));
                 js.setLength(0);
@@ -21287,8 +21283,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
                 js.setLength(0);
@@ -21498,8 +21494,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), wrapQuotes(mode58), angle14, opacity44));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), wrapQuotes(mode58), angle14, opacity44));
                 js.setLength(0);
@@ -21779,8 +21775,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
                 js.setLength(0);
@@ -22052,8 +22048,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
                 js.setLength(0);
@@ -22078,8 +22074,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
                 js.setLength(0);
@@ -22170,8 +22166,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color15), opacity46));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color15), opacity46));
                 js.setLength(0);
@@ -22348,8 +22344,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToString(keys60), mode60, angle15));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToString(keys60), mode60, angle15));
                 js.setLength(0);
@@ -22520,8 +22516,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
                 js.setLength(0);
@@ -22692,8 +22688,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), wrapQuotes(mode62), angle15));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), wrapQuotes(mode62), angle15));
                 js.setLength(0);
@@ -22864,8 +22860,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys61), mode60, angle15));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys61), mode60, angle15));
                 js.setLength(0);
@@ -23036,8 +23032,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
                 js.setLength(0);
@@ -23208,8 +23204,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), wrapQuotes(mode62), angle15));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), wrapQuotes(mode62), angle15));
                 js.setLength(0);
@@ -23503,8 +23499,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
                 js.setLength(0);
@@ -23790,8 +23786,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
                 js.setLength(0);
@@ -23827,8 +23823,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale)));
                 js.setLength(0);
@@ -23852,8 +23848,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementFill(%s)", ((selectedElementFill != null) ? selectedElementFill.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s)", ((selectedElementFill != null) ? selectedElementFill.generateJs() : "null")));
                 js.setLength(0);
@@ -23947,8 +23943,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %f)", wrapQuotes(color16), opacity48));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f)", wrapQuotes(color16), opacity48));
                 js.setLength(0);
@@ -24188,8 +24184,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToString(keys64), mode64, angle16, opacity49));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToString(keys64), mode64, angle16, opacity49));
                 js.setLength(0);
@@ -24422,8 +24418,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
                 js.setLength(0);
@@ -24656,8 +24652,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), wrapQuotes(mode66), angle16, opacity49));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), wrapQuotes(mode66), angle16, opacity49));
                 js.setLength(0);
@@ -24890,8 +24886,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys65), mode64, angle16, opacity49));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys65), mode64, angle16, opacity49));
                 js.setLength(0);
@@ -25124,8 +25120,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
                 js.setLength(0);
@@ -25358,8 +25354,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), wrapQuotes(mode66), angle16, opacity49));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), wrapQuotes(mode66), angle16, opacity49));
                 js.setLength(0);
@@ -25668,8 +25664,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
                 js.setLength(0);
@@ -25970,8 +25966,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
                 js.setLength(0);
@@ -26074,8 +26070,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
@@ -26170,8 +26166,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
@@ -26266,8 +26262,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
@@ -26305,8 +26301,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
                 js.setLength(0);
@@ -26331,8 +26327,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b)", textMarker1));
                 js.setLength(0);
@@ -26372,8 +26368,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index2));
                 js.setLength(0);
@@ -26408,8 +26404,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index2));
                 js.setLength(0);
@@ -26444,8 +26440,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".textMarker(%s, %f)", ((textMarker4 != null) ? textMarker4.generateJs() : "null"), index2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", ((textMarker4 != null) ? textMarker4.generateJs() : "null"), index2));
                 js.setLength(0);
@@ -26484,8 +26480,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
                 js.setLength(0);
@@ -26510,8 +26506,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".tooltip(%b)", tooltip1));
                 js.setLength(0);
@@ -26546,8 +26542,8 @@ public class Timeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
                 js.setLength(0);

@@ -121,75 +121,123 @@ public class ChartsLinearGauge extends SeparateChart {
     }
     private String axis;
     private Boolean axis1;
+    private List<ChartsLinearGauge> setAxis = new ArrayList<>();
 
     /**
      * Setter for the gauge axis.
      */
-    public void setAxis(String axis) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setAxis(String axis) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".axis(%s);", wrapQuotes(axis)));
+        js.append(String.format(Locale.US, ".axis(%s)", wrapQuotes(axis)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s)", wrapQuotes(axis)));
+            onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", wrapQuotes(axis)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetAxis() {
+        if (!setAxis.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setAxis) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setAxis1 = new ArrayList<>();
 
     /**
      * Setter for the gauge axis.
      */
-    public void setAxis(Boolean axis1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setAxis(Boolean axis1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".axis(%b);", axis1));
+        js.append(String.format(Locale.US, ".axis(%b)", axis1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%b)", axis1));
+            onChangeListener.onChange(String.format(Locale.US, ".axis(%b)", axis1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetAxis1() {
+        if (!setAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double index1;
     private String axis2;
     private Boolean axis3;
+    private List<ChartsLinearGauge> setAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart axis by index.
      */
-    public void setAxis(String axis2, Double index1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setAxis(String axis2, Double index1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".axis(%s, %f);", wrapQuotes(axis2), index1));
+        js.append(String.format(Locale.US, ".axis(%s, %f)", wrapQuotes(axis2), index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s, %f)", wrapQuotes(axis2), index1));
+            onChangeListener.onChange(String.format(Locale.US, ".axis(%s, %f)", wrapQuotes(axis2), index1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetAxis2() {
+        if (!setAxis2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setAxis2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart axis by index.
      */
-    public void setAxis(Boolean axis3, Double index1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setAxis(Boolean axis3, Double index1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".axis(%b, %f);", axis3, index1));
+        js.append(String.format(Locale.US, ".axis(%b, %f)", axis3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%b, %f)", axis3, index1));
+            onChangeListener.onChange(String.format(Locale.US, ".axis(%b, %f)", axis3, index1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetAxis3() {
+        if (!setAxis3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setAxis3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double dataIndex;
@@ -236,11 +284,12 @@ public class ChartsLinearGauge extends SeparateChart {
 
         return getData;
     }
+    private List<ChartsLinearGauge> setData = new ArrayList<>();
 
     /**
      * Setter for the pointers mapping.
      */
-    public void data(List<DataEntry> data) {
+    public ChartsLinearGauge data(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -255,44 +304,79 @@ public class ChartsLinearGauge extends SeparateChart {
             resultData.setLength(resultData.length() - 1);
             resultData.append("]");
 
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
+            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
         }
+        return this;
+    }
+    private String generateJSsetData() {
+        if (!setData.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private LinearGaugePointerType defaultPointerType;
     private String defaultPointerType1;
+    private List<ChartsLinearGauge> setDefaultPointerType = new ArrayList<>();
 
     /**
      * Setter for the linear gauge pointer type by default.
      */
-    public void setDefaultPointerType(LinearGaugePointerType defaultPointerType) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setDefaultPointerType(LinearGaugePointerType defaultPointerType) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".defaultPointerType(%s);", ((defaultPointerType != null) ? defaultPointerType.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".defaultPointerType(%s)", ((defaultPointerType != null) ? defaultPointerType.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultPointerType(%s)", ((defaultPointerType != null) ? defaultPointerType.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultPointerType(%s)", ((defaultPointerType != null) ? defaultPointerType.generateJs() : "null")));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetDefaultPointerType() {
+        if (!setDefaultPointerType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setDefaultPointerType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setDefaultPointerType1 = new ArrayList<>();
 
     /**
      * Setter for the linear gauge pointer type by default.
      */
-    public void setDefaultPointerType(String defaultPointerType1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setDefaultPointerType(String defaultPointerType1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".defaultPointerType(%s);", wrapQuotes(defaultPointerType1)));
+        js.append(String.format(Locale.US, ".defaultPointerType(%s)", wrapQuotes(defaultPointerType1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultPointerType(%s)", wrapQuotes(defaultPointerType1)));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultPointerType(%s)", wrapQuotes(defaultPointerType1)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetDefaultPointerType1() {
+        if (!setDefaultPointerType1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setDefaultPointerType1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double id;
@@ -393,38 +477,62 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private String globalOffset;
     private Double globalOffset1;
+    private List<ChartsLinearGauge> setGlobalOffset = new ArrayList<>();
 
     /**
      * Setter for the global offset of a linear gauge.
      */
-    public void setGlobalOffset(String globalOffset) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setGlobalOffset(String globalOffset) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".globalOffset(%s);", wrapQuotes(globalOffset)));
+        js.append(String.format(Locale.US, ".globalOffset(%s)", wrapQuotes(globalOffset)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".globalOffset(%s)", wrapQuotes(globalOffset)));
+            onChangeListener.onChange(String.format(Locale.US, ".globalOffset(%s)", wrapQuotes(globalOffset)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetGlobalOffset() {
+        if (!setGlobalOffset.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setGlobalOffset) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setGlobalOffset1 = new ArrayList<>();
 
     /**
      * Setter for the global offset of a linear gauge.
      */
-    public void setGlobalOffset(Double globalOffset1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setGlobalOffset(Double globalOffset1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".globalOffset(%f);", globalOffset1));
+        js.append(String.format(Locale.US, ".globalOffset(%f)", globalOffset1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".globalOffset(%f)", globalOffset1));
+            onChangeListener.onChange(String.format(Locale.US, ".globalOffset(%f)", globalOffset1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetGlobalOffset1() {
+        if (!setGlobalOffset1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setGlobalOffset1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
 
@@ -442,45 +550,70 @@ public class ChartsLinearGauge extends SeparateChart {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
+    private List<ChartsLinearGauge> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for the gauge hatch fill palette settings.
      */
-    public void setHatchFillPalette(HatchFillType[] hatchFillPalette) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setHatchFillPalette(HatchFillType[] hatchFillPalette) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".hatchFillPalette(%s);", arrayToString(hatchFillPalette)));
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetHatchFillPalette() {
+        if (!setHatchFillPalette.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setHatchFillPalette) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for the gauge hatch fill palette settings.
      */
-    public void setHatchFillPalette(String hatchFillPalette1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setHatchFillPalette(String hatchFillPalette1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".hatchFillPalette(%s);", wrapQuotes(hatchFillPalette1)));
+        js.append(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetHatchFillPalette1() {
+        if (!setHatchFillPalette1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setHatchFillPalette1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for the gauge hatch fill palette settings.
      */
-    public void setHatchFillPalette(HatchFills hatchFillPalette2) {
+    public ChartsLinearGauge setHatchFillPalette(HatchFills hatchFillPalette2) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -489,60 +622,107 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetHatchFillPalette2() {
+        if (!setHatchFillPalette2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setHatchFillPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Boolean isVertical;
+    private List<ChartsLinearGauge> setIsVertical = new ArrayList<>();
 
     /**
      * Setter for the vertical layout.
      */
-    public void setIsVertical(Boolean isVertical) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setIsVertical(Boolean isVertical) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".isVertical(%b);", isVertical));
+        js.append(String.format(Locale.US, ".isVertical(%b)", isVertical));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".isVertical(%b)", isVertical));
+            onChangeListener.onChange(String.format(Locale.US, ".isVertical(%b)", isVertical));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetIsVertical() {
+        if (!setIsVertical.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setIsVertical) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Layout layout;
     private String layout1;
+    private List<ChartsLinearGauge> setLayout = new ArrayList<>();
 
     /**
      * Setter for the gauge layout.
      */
-    public void setLayout(Layout layout) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setLayout(Layout layout) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".layout(%s);", ((layout != null) ? layout.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLayout() {
+        if (!setLayout.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setLayout) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for the gauge layout.
      */
-    public void setLayout(String layout1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setLayout(String layout1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".layout(%s);", wrapQuotes(layout1)));
+        js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s)", wrapQuotes(layout1)));
+            onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLayout1() {
+        if (!setLayout1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setLayout1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double dataIndex1;
@@ -625,11 +805,12 @@ public class ChartsLinearGauge extends SeparateChart {
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
+    private List<ChartsLinearGauge> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for the gauge markers palette settings.
      */
-    public void setMarkerPalette(Markers markerPalette) {
+    public ChartsLinearGauge setMarkerPalette(Markers markerPalette) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -638,57 +819,104 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetMarkerPalette() {
+        if (!setMarkerPalette.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setMarkerPalette) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for the gauge markers palette settings.
      */
-    public void setMarkerPalette(String markerPalette1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setMarkerPalette(String markerPalette1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".markerPalette(%s);", wrapQuotes(markerPalette1)));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s)", wrapQuotes(markerPalette1)));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMarkerPalette1() {
+        if (!setMarkerPalette1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setMarkerPalette1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for the gauge markers palette settings.
      */
-    public void setMarkerPalette(MarkerType[] markerPalette2) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setMarkerPalette(MarkerType[] markerPalette2) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".markerPalette(%s);", arrayToString(markerPalette2)));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s)", arrayToString(markerPalette2)));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMarkerPalette2() {
+        if (!setMarkerPalette2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setMarkerPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for the gauge markers palette settings.
      */
-    public void setMarkerPalette(String[] markerPalette3) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setMarkerPalette(String[] markerPalette3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".markerPalette(%s);", arrayToStringWrapQuotes(markerPalette3)));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setMarkerPalette3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
 
@@ -707,11 +935,12 @@ public class ChartsLinearGauge extends SeparateChart {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
+    private List<ChartsLinearGauge> setPalette = new ArrayList<>();
 
     /**
      * Setter for the gauge palette.
      */
-    public void setPalette(RangeColors palette) {
+    public ChartsLinearGauge setPalette(RangeColors palette) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -720,13 +949,25 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetPalette() {
+        if (!setPalette.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setPalette) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the gauge palette.
      */
-    public void setPalette(DistinctColors palette1) {
+    public ChartsLinearGauge setPalette(DistinctColors palette1) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -735,40 +976,75 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetPalette1() {
+        if (!setPalette1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setPalette1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the gauge palette.
      */
-    public void setPalette(String palette2) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setPalette(String palette2) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", wrapQuotes(palette2)));
+        js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", wrapQuotes(palette2)));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetPalette2() {
+        if (!setPalette2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the gauge palette.
      */
-    public void setPalette(String[] palette3) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setPalette(String[] palette3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".palette(%s);", arrayToStringWrapQuotes(palette3)));
+        js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", arrayToStringWrapQuotes(palette3)));
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetPalette3() {
+        if (!setPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setPalette3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double dataIndex3;
@@ -805,56 +1081,92 @@ public class ChartsLinearGauge extends SeparateChart {
 
     private Double id2;
     private String id3;
+    private List<ChartsLinearGauge> setRemovePointer = new ArrayList<>();
 
     /**
      * Removes pointer by id.
      */
-    public void removePointer(Double id2) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge removePointer(Double id2) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".removePointer(%f);", id2));
+        js.append(String.format(Locale.US, ".removePointer(%f)", id2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".removePointer(%f)", id2));
+            onChangeListener.onChange(String.format(Locale.US, ".removePointer(%f)", id2));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetRemovePointer() {
+        if (!setRemovePointer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setRemovePointer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setRemovePointer1 = new ArrayList<>();
 
     /**
      * Removes pointer by id.
      */
-    public void removePointer(String id3) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge removePointer(String id3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".removePointer(%s);", wrapQuotes(id3)));
+        js.append(String.format(Locale.US, ".removePointer(%s)", wrapQuotes(id3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".removePointer(%s)", wrapQuotes(id3)));
+            onChangeListener.onChange(String.format(Locale.US, ".removePointer(%s)", wrapQuotes(id3)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetRemovePointer1() {
+        if (!setRemovePointer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setRemovePointer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double index3;
+    private List<ChartsLinearGauge> setRemovePointerAt = new ArrayList<>();
 
     /**
      * Removes pointer by index.
      */
-    public void removePointerAt(Double index3) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge removePointerAt(Double index3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".removePointerAt(%f);", index3));
+        js.append(String.format(Locale.US, ".removePointerAt(%f)", index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".removePointerAt(%f)", index3));
+            onChangeListener.onChange(String.format(Locale.US, ".removePointerAt(%f)", index3));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetRemovePointerAt() {
+        if (!setRemovePointerAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setRemovePointerAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
 
@@ -873,45 +1185,70 @@ public class ChartsLinearGauge extends SeparateChart {
     private String scale1;
     private ScalesBase scale2;
     private String scale3;
+    private List<ChartsLinearGauge> setScale = new ArrayList<>();
 
     /**
      * Setter for the gauge scale.
      */
-    public void setScale(ScaleTypes scale) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setScale(ScaleTypes scale) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scale(%s);", ((scale != null) ? scale.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetScale() {
+        if (!setScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the gauge scale.
      */
-    public void setScale(String scale1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setScale(String scale1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scale(%s);", wrapQuotes(scale1)));
+        js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", wrapQuotes(scale1)));
+            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetScale1() {
+        if (!setScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the gauge scale.
      */
-    public void setScale(ScalesBase scale2) {
+    public ChartsLinearGauge setScale(ScalesBase scale2) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -920,6 +1257,17 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".scale(%s);",  ((scale2 != null) ? scale2.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetScale2() {
+        if (!setScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
 
@@ -947,75 +1295,123 @@ public class ChartsLinearGauge extends SeparateChart {
     }
     private String scaleBar;
     private Boolean scaleBar1;
+    private List<ChartsLinearGauge> setScaleBar = new ArrayList<>();
 
     /**
      * Setter for the scale bar.
      */
-    public void setScaleBar(String scaleBar) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setScaleBar(String scaleBar) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scaleBar(%s);", wrapQuotes(scaleBar)));
+        js.append(String.format(Locale.US, ".scaleBar(%s)", wrapQuotes(scaleBar)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleBar(%s)", wrapQuotes(scaleBar)));
+            onChangeListener.onChange(String.format(Locale.US, ".scaleBar(%s)", wrapQuotes(scaleBar)));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetScaleBar() {
+        if (!setScaleBar.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setScaleBar) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setScaleBar1 = new ArrayList<>();
 
     /**
      * Setter for the scale bar.
      */
-    public void setScaleBar(Boolean scaleBar1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setScaleBar(Boolean scaleBar1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scaleBar(%b);", scaleBar1));
+        js.append(String.format(Locale.US, ".scaleBar(%b)", scaleBar1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleBar(%b)", scaleBar1));
+            onChangeListener.onChange(String.format(Locale.US, ".scaleBar(%b)", scaleBar1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetScaleBar1() {
+        if (!setScaleBar1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setScaleBar1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double index5;
     private String scaleBar2;
     private Boolean scaleBar3;
+    private List<ChartsLinearGauge> setScaleBar2 = new ArrayList<>();
 
     /**
      * Setter for the scale bar by index.
      */
-    public void setScaleBar(String scaleBar2, Double index5) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setScaleBar(String scaleBar2, Double index5) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scaleBar(%s, %f);", wrapQuotes(scaleBar2), index5));
+        js.append(String.format(Locale.US, ".scaleBar(%s, %f)", wrapQuotes(scaleBar2), index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleBar(%s, %f)", wrapQuotes(scaleBar2), index5));
+            onChangeListener.onChange(String.format(Locale.US, ".scaleBar(%s, %f)", wrapQuotes(scaleBar2), index5));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetScaleBar2() {
+        if (!setScaleBar2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setScaleBar2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ChartsLinearGauge> setScaleBar3 = new ArrayList<>();
 
     /**
      * Setter for the scale bar by index.
      */
-    public void setScaleBar(Boolean scaleBar3, Double index5) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsLinearGauge setScaleBar(Boolean scaleBar3, Double index5) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".scaleBar(%b, %f);", scaleBar3, index5));
+        js.append(String.format(Locale.US, ".scaleBar(%b, %f)", scaleBar3, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleBar(%b, %f)", scaleBar3, index5));
+            onChangeListener.onChange(String.format(Locale.US, ".scaleBar(%b, %f)", scaleBar3, index5));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetScaleBar3() {
+        if (!setScaleBar3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setScaleBar3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double dataIndex4;
@@ -1171,13 +1567,46 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(generateJSgetScale());
         js.append(generateJSgetScaleBar());
         js.append(generateJSgetScaleBar1());
+        js.append(generateJSsetAxis());
+        js.append(generateJSsetAxis1());
+        js.append(generateJSsetAxis2());
+        js.append(generateJSsetAxis3());
         js.append(generateJSsetBar());
+        js.append(generateJSsetData());
+        js.append(generateJSsetDefaultPointerType());
+        js.append(generateJSsetDefaultPointerType1());
         js.append(generateJSsetGetPointer());
         js.append(generateJSsetGetPointer1());
         js.append(generateJSsetGetPointerAt());
+        js.append(generateJSsetGlobalOffset());
+        js.append(generateJSsetGlobalOffset1());
+        js.append(generateJSsetHatchFillPalette());
+        js.append(generateJSsetHatchFillPalette1());
+        js.append(generateJSsetHatchFillPalette2());
+        js.append(generateJSsetIsVertical());
+        js.append(generateJSsetLayout());
+        js.append(generateJSsetLayout1());
         js.append(generateJSsetLed());
         js.append(generateJSsetMarker());
+        js.append(generateJSsetMarkerPalette());
+        js.append(generateJSsetMarkerPalette1());
+        js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
+        js.append(generateJSsetPalette());
+        js.append(generateJSsetPalette1());
+        js.append(generateJSsetPalette2());
+        js.append(generateJSsetPalette3());
         js.append(generateJSsetRangeBar());
+        js.append(generateJSsetRemovePointer());
+        js.append(generateJSsetRemovePointer1());
+        js.append(generateJSsetRemovePointerAt());
+        js.append(generateJSsetScale());
+        js.append(generateJSsetScale1());
+        js.append(generateJSsetScale2());
+        js.append(generateJSsetScaleBar());
+        js.append(generateJSsetScaleBar1());
+        js.append(generateJSsetScaleBar2());
+        js.append(generateJSsetScaleBar3());
         js.append(generateJSsetTank());
         js.append(generateJSsetThermometer());
 

@@ -56,8 +56,8 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".center(%s)", ((center != null) ? center.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".center(%s)", ((center != null) ? center.generateJs() : "null")));
                 js.setLength(0);
@@ -80,8 +80,8 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".centerX(%f)", centerX));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".centerX(%f)", centerX));
                 js.setLength(0);
@@ -104,8 +104,8 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".centerY(%f)", centerY));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".centerY(%f)", centerY));
                 js.setLength(0);
@@ -128,8 +128,8 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".radiusX(%f)", radiusX));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radiusX(%f)", radiusX));
                 js.setLength(0);
@@ -152,8 +152,8 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".radiusY(%f)", radiusY));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".radiusY(%f)", radiusY));
                 js.setLength(0);
@@ -179,8 +179,8 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".setRadius(%f, %f)", rx, ry));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".setRadius(%f, %f)", rx, ry));
                 js.setLength(0);

@@ -73,10 +73,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container != null) ? container.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container != null) ? container.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -103,10 +99,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container1 != null) ? container1.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -129,8 +121,8 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
                 js.setLength(0);
@@ -161,10 +153,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container3 != null) ? container3.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", ((container3 != null) ? container3.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -201,8 +189,8 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -228,8 +216,8 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -255,8 +243,8 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -328,8 +316,8 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -393,8 +381,8 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -437,10 +425,6 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".parentBounds(%s);",  ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
-                js.setLength(0);
-            }
         }
         return this;
     }
@@ -461,8 +445,8 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
                 js.setLength(0);
@@ -494,8 +478,8 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);

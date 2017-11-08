@@ -43,7 +43,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for adjust font settings.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
      */
     public CrosshairLabel setAdjustFontSize(String bothOrByWidth, Boolean byHeight) {
         if (jsBase == null) {
@@ -60,8 +60,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(bothOrByWidth), byHeight));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(bothOrByWidth), byHeight));
                 js.setLength(0);
@@ -73,7 +73,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for adjust font settings.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
      */
     public CrosshairLabel setAdjustFontSize(Boolean[] bothOrByWidth1, Boolean byHeight) {
         if (jsBase == null) {
@@ -90,8 +90,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(bothOrByWidth1), byHeight));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(bothOrByWidth1), byHeight));
                 js.setLength(0);
@@ -103,7 +103,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for adjust font settings.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
      */
     public CrosshairLabel setAdjustFontSize(Boolean bothOrByWidth2, Boolean byHeight) {
         if (jsBase == null) {
@@ -120,8 +120,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", bothOrByWidth2, byHeight));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%b, %b)", bothOrByWidth2, byHeight));
                 js.setLength(0);
@@ -148,8 +148,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
@@ -174,8 +174,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
                 js.setLength(0);
@@ -198,8 +198,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".axisIndex(%f)", axisIndex));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".axisIndex(%f)", axisIndex));
                 js.setLength(0);
@@ -240,8 +240,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
                 js.setLength(0);
@@ -267,8 +267,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".background(%b)", background2));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
@@ -295,8 +295,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%f)", height));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
@@ -321,8 +321,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
                 js.setLength(0);
@@ -349,8 +349,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
                 js.setLength(0);
@@ -375,8 +375,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
                 js.setLength(0);
@@ -403,8 +403,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
                 js.setLength(0);
@@ -429,8 +429,8 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
                 js.setLength(0);
@@ -444,7 +444,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for crosshair label offsetX settings.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public CrosshairLabel setOffsetX(Double offsetX) {
@@ -459,8 +459,8 @@ Arrows show offsets layout.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetX(%f)", offsetX));
                 js.setLength(0);
@@ -472,7 +472,7 @@ Arrows show offsets layout.
 
     /**
      * Setter for crosshair label offsetX settings.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public CrosshairLabel setOffsetX(String offsetX1) {
@@ -487,8 +487,8 @@ Arrows show offsets layout.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
                 js.setLength(0);
@@ -516,8 +516,8 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetY(%f)", offsetY));
                 js.setLength(0);
@@ -543,8 +543,8 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
                 js.setLength(0);
@@ -585,8 +585,8 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
@@ -612,8 +612,8 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
@@ -639,8 +639,8 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
@@ -712,8 +712,8 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
@@ -777,8 +777,8 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
@@ -805,8 +805,8 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%f)", width));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
@@ -831,8 +831,8 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
                 js.setLength(0);

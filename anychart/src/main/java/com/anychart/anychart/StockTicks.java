@@ -39,7 +39,7 @@ public class StockTicks extends VisualBase {
 
     /**
      * Setter for stroke settings via single parameter.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
      */
     public Ticks setStroke(Stroke stroke) {
         if (jsBase == null) {
@@ -51,7 +51,6 @@ public class StockTicks extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s);", ((stroke != null) ? stroke.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
@@ -68,7 +67,7 @@ public class StockTicks extends VisualBase {
 
     /**
      * Setter for stroke settings via several parameter.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
      */
     public StockTicks setStroke(String color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
@@ -87,8 +86,8 @@ public class StockTicks extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);

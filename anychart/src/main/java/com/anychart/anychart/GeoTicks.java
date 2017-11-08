@@ -50,8 +50,8 @@ public class GeoTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".count(%f)", count));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
                 js.setLength(0);
@@ -78,8 +78,8 @@ public class GeoTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
                 js.setLength(0);
@@ -102,8 +102,8 @@ public class GeoTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".interval(%f)", interval));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".interval(%f)", interval));
                 js.setLength(0);
@@ -126,8 +126,8 @@ public class GeoTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
                 js.setLength(0);

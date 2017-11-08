@@ -40,7 +40,7 @@ public class RadialTicks extends VisualBase {
 
     /**
      * Setter for ticks length.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.axes.RadialTicks.length.png' height='77' width='412'/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.RadialTicks.length.png' height='77' width='412'/>
      */
     public RadialTicks setLength(Double length) {
         if (jsBase == null) {
@@ -51,8 +51,8 @@ public class RadialTicks extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".length(%f)", length));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".length(%f)", length));
                 js.setLength(0);
@@ -65,7 +65,7 @@ public class RadialTicks extends VisualBase {
 
     /**
      * Setter for stroke settings via single parameter.<br/>
-<img src='/si/special-hotfixes-typescript/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
+<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
      */
     public Ticks setStroke(Stroke stroke) {
         if (jsBase == null) {
@@ -77,7 +77,6 @@ public class RadialTicks extends VisualBase {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s);", ((stroke != null) ? stroke.generateJs() : "null")));
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
@@ -127,8 +126,8 @@ The following options are acceptable:
                 js.append(jsBase);
                 isChain = true;
             }
-
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
