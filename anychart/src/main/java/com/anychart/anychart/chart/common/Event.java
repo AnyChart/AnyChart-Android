@@ -1,23 +1,17 @@
 package com.anychart.anychart.chart.common;
 
+import java.util.Map;
+
 public class Event {
 
-    private String x;
-    private String value;
+    private Map<String, String> data;
 
-    public String getX() {
-        return x;
+    Event(Map<String, String> data) {
+        this.data = data;
     }
 
-    public String getValue() {
-        return value;
+    public Map<String, String> getData() {
+        return data;
     }
 
-    void setX(String x) {
-        this.x = x;
-    }
-
-    void setValue(String value) {
-        this.value = value;
-    }
 }

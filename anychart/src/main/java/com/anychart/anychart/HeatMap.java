@@ -1,5 +1,8 @@
 package com.anychart.anychart;
 
+import com.anychart.anychart.application.MyApplication;
+import com.anychart.anychart.chart.common.ListenersInterface;
+
 import java.util.Locale;
 import java.util.Arrays;
 import java.util.List;
@@ -75,6 +78,29 @@ public class HeatMap extends SeparateChart {
         }
 
         return this;
+    }
+
+    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append("chart.listen('pointClick', function(e) {");
+        if (listener.getFields() != null) {
+            js.append("var result = ");
+            for (String field : listener.getFields()) {
+                js.append(String.format(Locale.US, "'%1$s' + ':' + e.point.get('%1$s') + ',' +", field));
+            }
+            js.setLength(js.length() - 8);
+            js.append(";");
+
+            js.append("android.onClick(result);");
+        } else {
+            js.append("android.onClick(null);");
+        }
+        js.append("});");
+
+        MyApplication.getInstance().getJavaScriptInterface().setOnClickListener(listener);
     }
 
     

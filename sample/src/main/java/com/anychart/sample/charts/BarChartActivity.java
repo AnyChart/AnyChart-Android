@@ -14,9 +14,9 @@ import com.anychart.anychart.LabelsOverlapMode;
 import com.anychart.anychart.Orientation;
 import com.anychart.anychart.ScaleStackMode;
 import com.anychart.anychart.SeriesBar;
-import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.anychart.TooltipPositionMode;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;

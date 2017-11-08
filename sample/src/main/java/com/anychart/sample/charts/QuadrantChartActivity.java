@@ -93,7 +93,7 @@ public class QuadrantChartActivity extends AppCompatActivity {
         label.setUseHtml(true);
         label.setPosition(Position.LEFT_BOTTOM);
         label.setAnchor(EnumsAnchor.LEFT_CENTER);
-        
+
         label.setOffsetX(-20d);
         label.setText("Power to Perform &#8594;");
 

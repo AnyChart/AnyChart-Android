@@ -2,11 +2,11 @@ package com.anychart.anychart.application;
 
 import android.app.Application;
 
-import com.anychart.anychart.chart.common.JavaScriptInterface;
+import com.anychart.anychart.chart.common.ListenersInterface;
 
 public class MyApplication extends Application {
 
-    private static JavaScriptInterface javaScriptInterface;
+    private static ListenersInterface listenersInterface;
     private static MyApplication application;
 
     @Override
@@ -14,14 +14,14 @@ public class MyApplication extends Application {
         super.onCreate();
 
         application = this;
-        javaScriptInterface = new JavaScriptInterface();
+        listenersInterface = new ListenersInterface();
     }
 
     public static MyApplication getInstance() {
         return application;
     }
 
-    public JavaScriptInterface getJavaScriptInterface() {
-        return javaScriptInterface;
+    public ListenersInterface getJavaScriptInterface() {
+        return listenersInterface;
     }
 }
