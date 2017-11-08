@@ -78,6 +78,10 @@
         </activity>
         <activity android:name=".charts.Area3DChartActivity">
         </activity>
+        <activity android:name=".charts.HiloChartActivity">
+        </activity>
+        <activity android:name=".charts.QuadrantChartActivity">
+        </activity>
     </application>
 
 </manifest>

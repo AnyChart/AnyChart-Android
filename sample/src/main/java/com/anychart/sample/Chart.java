@@ -22,6 +22,7 @@ import com.anychart.sample.charts.PertChartActivity;
 import com.anychart.sample.charts.PieChartActivity;
 import com.anychart.sample.charts.PolarChartActivity;
 import com.anychart.sample.charts.PyramidActivity;
+import com.anychart.sample.charts.QuadrantChartActivity;
 import com.anychart.sample.charts.RadarChartActivity;
 import com.anychart.sample.charts.RangeChartActivity;
 import com.anychart.sample.charts.ResourceChartActivity;
@@ -84,6 +85,8 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.bar3d_chart), Bar3DChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.column3d_chart), Column3DChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.area3d_chart), Area3DChartActivity.class));
+//        chartList.add(new Chart(resources.getString(R.string.hilo_chart), HiloChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.quadrant_chart), QuadrantChartActivity.class));
 //        chartList.add(new Chart(resources.getString(R.string.gantt_chart), GanttChartActivity.class));
 
         return chartList;
