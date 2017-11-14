@@ -1,17 +1,12 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
  * 
  */
-public class ProjectTimeline extends Timeline {
+public class ProjectTimeline extends UiTimeline {
 
     public ProjectTimeline() {
         js.setLength(0);

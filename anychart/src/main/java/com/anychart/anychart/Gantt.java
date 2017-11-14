@@ -3,10 +3,9 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 // chart class
 /**
@@ -75,6 +74,18 @@ public class Gantt extends SeparateChart {
 
             js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
         }
+
+        return this;
+    }
+
+    public Gantt setData(Mapping mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(mapping.generateJs());
+
+        js.append(jsBase).append(".data(").append(mapping.getJsBase()).append(");");
 
         return this;
     }
@@ -405,14 +416,14 @@ The expandTask() method should be used after drawing a chart.
     }
 
 
-    private Timeline getGetTimeline;
+    private UiTimeline getGetTimeline;
 
     /**
      * Getter for the timeline.
      */
-    public Timeline getGetTimeline() {
+    public UiTimeline getGetTimeline() {
         if (getGetTimeline == null)
-            getGetTimeline = new Timeline(jsBase + ".getTimeline()");
+            getGetTimeline = new UiTimeline(jsBase + ".getTimeline()");
 
         return getGetTimeline;
     }

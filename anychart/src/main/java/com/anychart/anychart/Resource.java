@@ -79,6 +79,18 @@ public class Resource extends Chart {
         return this;
     }
 
+    public Resource setData(Mapping mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(mapping.generateJs());
+
+        js.append(jsBase).append(".data(").append(mapping.getJsBase()).append(");");
+
+        return this;
+    }
+
     public void setOnClickListener(ListenersInterface.OnClickListener listener) {
         if (isChain) {
             js.append(";");
@@ -1133,14 +1145,14 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     }
 
 
-    private TimeLine getTimeLine;
+    private CoreResourceTimeline getTimeLine;
 
     /**
      * Getter for the time line.
      */
-    public TimeLine getTimeLine() {
+    public CoreResourceTimeline getTimeLine() {
         if (getTimeLine == null)
-            getTimeLine = new TimeLine(jsBase + ".timeLine()");
+            getTimeLine = new CoreResourceTimeline(jsBase + ".timeLine()");
 
         return getTimeLine;
     }
