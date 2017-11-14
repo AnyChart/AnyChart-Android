@@ -149,6 +149,7 @@ public class Interactivity extends CoreBase {
     /**
      * Setter for the spot radius.
 Size of the area under cursor in pixels for radius hovering.
+<b>Note:</b> Works only with "by-spot" value in the {@link anychart.core.utils.Interactivity#hoverMode} method.
      */
     public Interactivity setSpotRadius(Double spotRadius) {
         if (jsBase == null) {

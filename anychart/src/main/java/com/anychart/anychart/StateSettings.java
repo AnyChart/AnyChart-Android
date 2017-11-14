@@ -1469,10 +1469,273 @@ public class StateSettings extends CoreBase {
         return getFallingHatchFill;
     }
 
+    private PatternFill patternFillOrTypeOrState;
+    private HatchFill patternFillOrTypeOrState1;
+    private HatchFillType patternFillOrTypeOrState2;
+    private String patternFillOrTypeOrState3;
+    private Boolean patternFillOrTypeOrState4;
+    private String color7;
+    private Double thickness2;
+    private Double size1;
+
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public CartesianSeriesBase setFallingHatchFill(PatternFill patternFillOrTypeOrState, String color7, Double thickness2, Double size1) {
+        if (jsBase == null) {
+            this.patternFillOrTypeOrState = null;
+            this.patternFillOrTypeOrState1 = null;
+            this.patternFillOrTypeOrState2 = null;
+            this.patternFillOrTypeOrState3 = null;
+            this.patternFillOrTypeOrState4 = null;
+            
+            this.patternFillOrTypeOrState = patternFillOrTypeOrState;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            
+            this.color7 = color7;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.size = null;
+            this.size1 = null;
+            
+            this.size1 = size1;
+        } else {
+            this.patternFillOrTypeOrState = patternFillOrTypeOrState;
+            this.color7 = color7;
+            this.thickness2 = thickness2;
+            this.size1 = size1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color7), thickness2, size1));
+                js.setLength(0);
+            }
+        }
+        return new CartesianSeriesBase(jsBase);
+    }
+
+
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public CartesianSeriesBase setFallingHatchFill(HatchFill patternFillOrTypeOrState1, String color7, Double thickness2, Double size1) {
+        if (jsBase == null) {
+            this.patternFillOrTypeOrState = null;
+            this.patternFillOrTypeOrState1 = null;
+            this.patternFillOrTypeOrState2 = null;
+            this.patternFillOrTypeOrState3 = null;
+            this.patternFillOrTypeOrState4 = null;
+            
+            this.patternFillOrTypeOrState1 = patternFillOrTypeOrState1;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            
+            this.color7 = color7;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.size = null;
+            this.size1 = null;
+            
+            this.size1 = size1;
+        } else {
+            this.patternFillOrTypeOrState1 = patternFillOrTypeOrState1;
+            this.color7 = color7;
+            this.thickness2 = thickness2;
+            this.size1 = size1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color7), thickness2, size1));
+                js.setLength(0);
+            }
+        }
+        return new CartesianSeriesBase(jsBase);
+    }
+
+
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public CartesianSeriesBase setFallingHatchFill(HatchFillType patternFillOrTypeOrState2, String color7, Double thickness2, Double size1) {
+        if (jsBase == null) {
+            this.patternFillOrTypeOrState = null;
+            this.patternFillOrTypeOrState1 = null;
+            this.patternFillOrTypeOrState2 = null;
+            this.patternFillOrTypeOrState3 = null;
+            this.patternFillOrTypeOrState4 = null;
+            
+            this.patternFillOrTypeOrState2 = patternFillOrTypeOrState2;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            
+            this.color7 = color7;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.size = null;
+            this.size1 = null;
+            
+            this.size1 = size1;
+        } else {
+            this.patternFillOrTypeOrState2 = patternFillOrTypeOrState2;
+            this.color7 = color7;
+            this.thickness2 = thickness2;
+            this.size1 = size1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color7), thickness2, size1));
+                js.setLength(0);
+            }
+        }
+        return new CartesianSeriesBase(jsBase);
+    }
+
+
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public CartesianSeriesBase setFallingHatchFill(String patternFillOrTypeOrState3, String color7, Double thickness2, Double size1) {
+        if (jsBase == null) {
+            this.patternFillOrTypeOrState = null;
+            this.patternFillOrTypeOrState1 = null;
+            this.patternFillOrTypeOrState2 = null;
+            this.patternFillOrTypeOrState3 = null;
+            this.patternFillOrTypeOrState4 = null;
+            
+            this.patternFillOrTypeOrState3 = patternFillOrTypeOrState3;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            
+            this.color7 = color7;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.size = null;
+            this.size1 = null;
+            
+            this.size1 = size1;
+        } else {
+            this.patternFillOrTypeOrState3 = patternFillOrTypeOrState3;
+            this.color7 = color7;
+            this.thickness2 = thickness2;
+            this.size1 = size1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color7), thickness2, size1));
+                js.setLength(0);
+            }
+        }
+        return new CartesianSeriesBase(jsBase);
+    }
+
+
+    /**
+     * Setter for falling hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public CartesianSeriesBase setFallingHatchFill(Boolean patternFillOrTypeOrState4, String color7, Double thickness2, Double size1) {
+        if (jsBase == null) {
+            this.patternFillOrTypeOrState = null;
+            this.patternFillOrTypeOrState1 = null;
+            this.patternFillOrTypeOrState2 = null;
+            this.patternFillOrTypeOrState3 = null;
+            this.patternFillOrTypeOrState4 = null;
+            
+            this.patternFillOrTypeOrState4 = patternFillOrTypeOrState4;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            
+            this.color7 = color7;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.size = null;
+            this.size1 = null;
+            
+            this.size1 = size1;
+        } else {
+            this.patternFillOrTypeOrState4 = patternFillOrTypeOrState4;
+            this.color7 = color7;
+            this.thickness2 = thickness2;
+            this.size1 = size1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color7), thickness2, size1));
+                js.setLength(0);
+            }
+        }
+        return new CartesianSeriesBase(jsBase);
+    }
+
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness2;
+    private Double thickness3;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -1481,7 +1744,7 @@ public class StateSettings extends CoreBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setFallingStroke(Stroke stroke, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public StateSettings setFallingStroke(Stroke stroke, Double thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -1491,8 +1754,9 @@ public class StateSettings extends CoreBase {
             this.thickness = null;
             this.thickness1 = null;
             this.thickness2 = null;
+            this.thickness3 = null;
             
-            this.thickness2 = thickness2;
+            this.thickness3 = thickness3;
             this.dashpattern = null;
             this.dashpattern1 = null;
             
@@ -1507,7 +1771,7 @@ public class StateSettings extends CoreBase {
             this.lineCap1 = lineCap1;
         } else {
             this.stroke = stroke;
-            this.thickness2 = thickness2;
+            this.thickness3 = thickness3;
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
@@ -1515,10 +1779,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1530,7 +1794,7 @@ public class StateSettings extends CoreBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setFallingStroke(ColoredFill stroke1, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public StateSettings setFallingStroke(ColoredFill stroke1, Double thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -1540,8 +1804,9 @@ public class StateSettings extends CoreBase {
             this.thickness = null;
             this.thickness1 = null;
             this.thickness2 = null;
+            this.thickness3 = null;
             
-            this.thickness2 = thickness2;
+            this.thickness3 = thickness3;
             this.dashpattern = null;
             this.dashpattern1 = null;
             
@@ -1556,7 +1821,7 @@ public class StateSettings extends CoreBase {
             this.lineCap1 = lineCap1;
         } else {
             this.stroke1 = stroke1;
-            this.thickness2 = thickness2;
+            this.thickness3 = thickness3;
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
@@ -1564,10 +1829,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1579,7 +1844,7 @@ public class StateSettings extends CoreBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setFallingStroke(String stroke2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public StateSettings setFallingStroke(String stroke2, Double thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -1589,8 +1854,9 @@ public class StateSettings extends CoreBase {
             this.thickness = null;
             this.thickness1 = null;
             this.thickness2 = null;
+            this.thickness3 = null;
             
-            this.thickness2 = thickness2;
+            this.thickness3 = thickness3;
             this.dashpattern = null;
             this.dashpattern1 = null;
             
@@ -1605,7 +1871,7 @@ public class StateSettings extends CoreBase {
             this.lineCap1 = lineCap1;
         } else {
             this.stroke2 = stroke2;
-            this.thickness2 = thickness2;
+            this.thickness3 = thickness3;
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
@@ -1613,10 +1879,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1648,13 +1914,13 @@ public class StateSettings extends CoreBase {
         return this;
     }
 
-    private String color7;
+    private String color8;
     private Double opacity7;
 
     /**
      * Setter for the fill color with opacity.
      */
-    public StateSettings setFill(String color7, Double opacity7) {
+    public StateSettings setFill(String color8, Double opacity7) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1664,8 +1930,9 @@ public class StateSettings extends CoreBase {
             this.color5 = null;
             this.color6 = null;
             this.color7 = null;
+            this.color8 = null;
             
-            this.color7 = color7;
+            this.color8 = color8;
             this.opacity = null;
             this.opacity1 = null;
             this.opacity2 = null;
@@ -1677,16 +1944,16 @@ public class StateSettings extends CoreBase {
             
             this.opacity7 = opacity7;
         } else {
-            this.color7 = color7;
+            this.color8 = color8;
             this.opacity7 = opacity7;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color7), opacity7));
+            js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color8), opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color7), opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color8), opacity7));
                 js.setLength(0);
             }
         }
@@ -2532,7 +2799,7 @@ public class StateSettings extends CoreBase {
     private Stroke grid;
     private ColoredFill grid1;
     private String grid2;
-    private Double thickness3;
+    private Double thickness4;
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
@@ -2541,7 +2808,7 @@ public class StateSettings extends CoreBase {
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setGrid(Stroke grid, Double thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public StateSettings setGrid(Stroke grid, Double thickness4, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.grid = null;
             this.grid1 = null;
@@ -2552,8 +2819,9 @@ public class StateSettings extends CoreBase {
             this.thickness1 = null;
             this.thickness2 = null;
             this.thickness3 = null;
+            this.thickness4 = null;
             
-            this.thickness3 = thickness3;
+            this.thickness4 = thickness4;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -2571,7 +2839,7 @@ public class StateSettings extends CoreBase {
             this.lineCap2 = lineCap2;
         } else {
             this.grid = grid;
-            this.thickness3 = thickness3;
+            this.thickness4 = thickness4;
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
@@ -2579,10 +2847,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid != null) ? grid.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid != null) ? grid.generateJs() : "null"), thickness4, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid != null) ? grid.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid != null) ? grid.generateJs() : "null"), thickness4, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2594,7 +2862,7 @@ public class StateSettings extends CoreBase {
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setGrid(ColoredFill grid1, Double thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public StateSettings setGrid(ColoredFill grid1, Double thickness4, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.grid = null;
             this.grid1 = null;
@@ -2605,8 +2873,9 @@ public class StateSettings extends CoreBase {
             this.thickness1 = null;
             this.thickness2 = null;
             this.thickness3 = null;
+            this.thickness4 = null;
             
-            this.thickness3 = thickness3;
+            this.thickness4 = thickness4;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -2624,7 +2893,7 @@ public class StateSettings extends CoreBase {
             this.lineCap2 = lineCap2;
         } else {
             this.grid1 = grid1;
-            this.thickness3 = thickness3;
+            this.thickness4 = thickness4;
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
@@ -2632,10 +2901,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid1 != null) ? grid1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid1 != null) ? grid1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid1 != null) ? grid1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid1 != null) ? grid1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2647,7 +2916,7 @@ public class StateSettings extends CoreBase {
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setGrid(String grid2, Double thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public StateSettings setGrid(String grid2, Double thickness4, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.grid = null;
             this.grid1 = null;
@@ -2658,8 +2927,9 @@ public class StateSettings extends CoreBase {
             this.thickness1 = null;
             this.thickness2 = null;
             this.thickness3 = null;
+            this.thickness4 = null;
             
-            this.thickness3 = thickness3;
+            this.thickness4 = thickness4;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -2677,7 +2947,7 @@ public class StateSettings extends CoreBase {
             this.lineCap2 = lineCap2;
         } else {
             this.grid2 = grid2;
-            this.thickness3 = thickness3;
+            this.thickness4 = thickness4;
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
@@ -2685,10 +2955,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", wrapQuotes(grid2), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", wrapQuotes(grid2), thickness4, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", wrapQuotes(grid2), thickness3, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", wrapQuotes(grid2), thickness4, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2711,15 +2981,15 @@ public class StateSettings extends CoreBase {
     private HatchFill patternFillOrType6;
     private HatchFillType patternFillOrType7;
     private String patternFillOrType8;
-    private String color8;
-    private Double thickness4;
-    private Double size1;
+    private String color9;
+    private Double thickness5;
+    private Double size2;
 
     /**
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setHatchFill(PatternFill patternFillOrType5, String color8, Double thickness4, Double size1) {
+    public StateSettings setHatchFill(PatternFill patternFillOrType5, String color9, Double thickness5, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -2741,32 +3011,35 @@ public class StateSettings extends CoreBase {
             this.color6 = null;
             this.color7 = null;
             this.color8 = null;
+            this.color9 = null;
             
-            this.color8 = color8;
+            this.color9 = color9;
             this.thickness = null;
             this.thickness1 = null;
             this.thickness2 = null;
             this.thickness3 = null;
             this.thickness4 = null;
+            this.thickness5 = null;
             
-            this.thickness4 = thickness4;
+            this.thickness5 = thickness5;
             this.size = null;
             this.size1 = null;
+            this.size2 = null;
             
-            this.size1 = size1;
+            this.size2 = size2;
         } else {
             this.patternFillOrType5 = patternFillOrType5;
-            this.color8 = color8;
-            this.thickness4 = thickness4;
-            this.size1 = size1;
+            this.color9 = color9;
+            this.thickness5 = thickness5;
+            this.size2 = size2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
                 js.setLength(0);
             }
         }
@@ -2778,7 +3051,7 @@ public class StateSettings extends CoreBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setHatchFill(HatchFill patternFillOrType6, String color8, Double thickness4, Double size1) {
+    public StateSettings setHatchFill(HatchFill patternFillOrType6, String color9, Double thickness5, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -2800,32 +3073,35 @@ public class StateSettings extends CoreBase {
             this.color6 = null;
             this.color7 = null;
             this.color8 = null;
+            this.color9 = null;
             
-            this.color8 = color8;
+            this.color9 = color9;
             this.thickness = null;
             this.thickness1 = null;
             this.thickness2 = null;
             this.thickness3 = null;
             this.thickness4 = null;
+            this.thickness5 = null;
             
-            this.thickness4 = thickness4;
+            this.thickness5 = thickness5;
             this.size = null;
             this.size1 = null;
+            this.size2 = null;
             
-            this.size1 = size1;
+            this.size2 = size2;
         } else {
             this.patternFillOrType6 = patternFillOrType6;
-            this.color8 = color8;
-            this.thickness4 = thickness4;
-            this.size1 = size1;
+            this.color9 = color9;
+            this.thickness5 = thickness5;
+            this.size2 = size2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
                 js.setLength(0);
             }
         }
@@ -2837,7 +3113,7 @@ public class StateSettings extends CoreBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setHatchFill(HatchFillType patternFillOrType7, String color8, Double thickness4, Double size1) {
+    public StateSettings setHatchFill(HatchFillType patternFillOrType7, String color9, Double thickness5, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -2859,32 +3135,35 @@ public class StateSettings extends CoreBase {
             this.color6 = null;
             this.color7 = null;
             this.color8 = null;
+            this.color9 = null;
             
-            this.color8 = color8;
+            this.color9 = color9;
             this.thickness = null;
             this.thickness1 = null;
             this.thickness2 = null;
             this.thickness3 = null;
             this.thickness4 = null;
+            this.thickness5 = null;
             
-            this.thickness4 = thickness4;
+            this.thickness5 = thickness5;
             this.size = null;
             this.size1 = null;
+            this.size2 = null;
             
-            this.size1 = size1;
+            this.size2 = size2;
         } else {
             this.patternFillOrType7 = patternFillOrType7;
-            this.color8 = color8;
-            this.thickness4 = thickness4;
-            this.size1 = size1;
+            this.color9 = color9;
+            this.thickness5 = thickness5;
+            this.size2 = size2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null"), wrapQuotes(color8), thickness4, size1));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
                 js.setLength(0);
             }
         }
@@ -2896,7 +3175,7 @@ public class StateSettings extends CoreBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setHatchFill(String patternFillOrType8, String color8, Double thickness4, Double size1) {
+    public StateSettings setHatchFill(String patternFillOrType8, String color9, Double thickness5, Double size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -2918,32 +3197,35 @@ public class StateSettings extends CoreBase {
             this.color6 = null;
             this.color7 = null;
             this.color8 = null;
+            this.color9 = null;
             
-            this.color8 = color8;
+            this.color9 = color9;
             this.thickness = null;
             this.thickness1 = null;
             this.thickness2 = null;
             this.thickness3 = null;
             this.thickness4 = null;
+            this.thickness5 = null;
             
-            this.thickness4 = thickness4;
+            this.thickness5 = thickness5;
             this.size = null;
             this.size1 = null;
+            this.size2 = null;
             
-            this.size1 = size1;
+            this.size2 = size2;
         } else {
             this.patternFillOrType8 = patternFillOrType8;
-            this.color8 = color8;
-            this.thickness4 = thickness4;
-            this.size1 = size1;
+            this.color9 = color9;
+            this.thickness5 = thickness5;
+            this.size2 = size2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType8), wrapQuotes(color8), thickness4, size1));
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType8), wrapQuotes(color9), thickness5, size2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType8), wrapQuotes(color8), thickness4, size1));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType8), wrapQuotes(color9), thickness5, size2));
                 js.setLength(0);
             }
         }
@@ -3016,10 +3298,10 @@ public class StateSettings extends CoreBase {
         return this;
     }
 
-    private Stroke color9;
-    private ColoredFill color10;
-    private String color11;
-    private Double thickness5;
+    private Stroke color10;
+    private ColoredFill color11;
+    private String color12;
+    private Double thickness6;
     private String dashpattern3;
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
@@ -3028,7 +3310,7 @@ public class StateSettings extends CoreBase {
      * Setter for high stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setHighStroke(Stroke color9, Double thickness5, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public StateSettings setHighStroke(Stroke color10, Double thickness6, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3042,73 +3324,7 @@ public class StateSettings extends CoreBase {
             this.color9 = null;
             this.color10 = null;
             this.color11 = null;
-            
-            this.color9 = color9;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            
-            this.thickness5 = thickness5;
-            this.dashpattern = null;
-            this.dashpattern1 = null;
-            this.dashpattern2 = null;
-            this.dashpattern3 = null;
-            
-            this.dashpattern3 = dashpattern3;
-            this.lineJoin = null;
-            this.lineJoin1 = null;
-            this.lineJoin2 = null;
-            this.lineJoin3 = null;
-            
-            this.lineJoin3 = lineJoin3;
-            this.lineCap = null;
-            this.lineCap1 = null;
-            this.lineCap2 = null;
-            this.lineCap3 = null;
-            
-            this.lineCap3 = lineCap3;
-        } else {
-            this.color9 = color9;
-            this.thickness5 = thickness5;
-            this.dashpattern3 = dashpattern3;
-            this.lineJoin3 = lineJoin3;
-            this.lineCap3 = lineCap3;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color9 != null) ? color9.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color9 != null) ? color9.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for high stroke settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public StateSettings setHighStroke(ColoredFill color10, Double thickness5, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
-        if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
+            this.color12 = null;
             
             this.color10 = color10;
             this.thickness = null;
@@ -3117,8 +3333,9 @@ public class StateSettings extends CoreBase {
             this.thickness3 = null;
             this.thickness4 = null;
             this.thickness5 = null;
+            this.thickness6 = null;
             
-            this.thickness5 = thickness5;
+            this.thickness6 = thickness6;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -3139,7 +3356,7 @@ public class StateSettings extends CoreBase {
             this.lineCap3 = lineCap3;
         } else {
             this.color10 = color10;
-            this.thickness5 = thickness5;
+            this.thickness6 = thickness6;
             this.dashpattern3 = dashpattern3;
             this.lineJoin3 = lineJoin3;
             this.lineCap3 = lineCap3;
@@ -3147,10 +3364,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness6, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness6, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3162,7 +3379,7 @@ public class StateSettings extends CoreBase {
      * Setter for high stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setHighStroke(String color11, Double thickness5, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public StateSettings setHighStroke(ColoredFill color11, Double thickness6, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3176,6 +3393,7 @@ public class StateSettings extends CoreBase {
             this.color9 = null;
             this.color10 = null;
             this.color11 = null;
+            this.color12 = null;
             
             this.color11 = color11;
             this.thickness = null;
@@ -3184,8 +3402,9 @@ public class StateSettings extends CoreBase {
             this.thickness3 = null;
             this.thickness4 = null;
             this.thickness5 = null;
+            this.thickness6 = null;
             
-            this.thickness5 = thickness5;
+            this.thickness6 = thickness6;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -3206,7 +3425,7 @@ public class StateSettings extends CoreBase {
             this.lineCap3 = lineCap3;
         } else {
             this.color11 = color11;
-            this.thickness5 = thickness5;
+            this.thickness6 = thickness6;
             this.dashpattern3 = dashpattern3;
             this.lineJoin3 = lineJoin3;
             this.lineCap3 = lineCap3;
@@ -3214,10 +3433,79 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", wrapQuotes(color11), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color11 != null) ? color11.generateJs() : "null"), thickness6, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", wrapQuotes(color11), thickness5, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color11 != null) ? color11.generateJs() : "null"), thickness6, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for high stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
+    public StateSettings setHighStroke(String color12, Double thickness6, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            
+            this.color12 = color12;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            
+            this.thickness6 = thickness6;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            
+            this.lineJoin3 = lineJoin3;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            
+            this.lineCap3 = lineCap3;
+        } else {
+            this.color12 = color12;
+            this.thickness6 = thickness6;
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin3 = lineJoin3;
+            this.lineCap3 = lineCap3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", wrapQuotes(color12), thickness6, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", wrapQuotes(color12), thickness6, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3324,10 +3612,10 @@ public class StateSettings extends CoreBase {
         return this;
     }
 
-    private Stroke color12;
-    private ColoredFill color13;
-    private String color14;
-    private Double thickness6;
+    private Stroke color13;
+    private ColoredFill color14;
+    private String color15;
+    private Double thickness7;
     private String dashpattern4;
     private StrokeLineJoin lineJoin4;
     private StrokeLineCap lineCap4;
@@ -3336,7 +3624,7 @@ public class StateSettings extends CoreBase {
      * Setter for low stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setLowStroke(Stroke color12, Double thickness6, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+    public StateSettings setLowStroke(Stroke color13, Double thickness7, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3353,80 +3641,7 @@ public class StateSettings extends CoreBase {
             this.color12 = null;
             this.color13 = null;
             this.color14 = null;
-            
-            this.color12 = color12;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            
-            this.thickness6 = thickness6;
-            this.dashpattern = null;
-            this.dashpattern1 = null;
-            this.dashpattern2 = null;
-            this.dashpattern3 = null;
-            this.dashpattern4 = null;
-            
-            this.dashpattern4 = dashpattern4;
-            this.lineJoin = null;
-            this.lineJoin1 = null;
-            this.lineJoin2 = null;
-            this.lineJoin3 = null;
-            this.lineJoin4 = null;
-            
-            this.lineJoin4 = lineJoin4;
-            this.lineCap = null;
-            this.lineCap1 = null;
-            this.lineCap2 = null;
-            this.lineCap3 = null;
-            this.lineCap4 = null;
-            
-            this.lineCap4 = lineCap4;
-        } else {
-            this.color12 = color12;
-            this.thickness6 = thickness6;
-            this.dashpattern4 = dashpattern4;
-            this.lineJoin4 = lineJoin4;
-            this.lineCap4 = lineCap4;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for low stroke settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public StateSettings setLowStroke(ColoredFill color13, Double thickness6, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
-        if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
+            this.color15 = null;
             
             this.color13 = color13;
             this.thickness = null;
@@ -3436,8 +3651,9 @@ public class StateSettings extends CoreBase {
             this.thickness4 = null;
             this.thickness5 = null;
             this.thickness6 = null;
+            this.thickness7 = null;
             
-            this.thickness6 = thickness6;
+            this.thickness7 = thickness7;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -3461,7 +3677,7 @@ public class StateSettings extends CoreBase {
             this.lineCap4 = lineCap4;
         } else {
             this.color13 = color13;
-            this.thickness6 = thickness6;
+            this.thickness7 = thickness7;
             this.dashpattern4 = dashpattern4;
             this.lineJoin4 = lineJoin4;
             this.lineCap4 = lineCap4;
@@ -3469,10 +3685,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness7, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness7, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3484,7 +3700,7 @@ public class StateSettings extends CoreBase {
      * Setter for low stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setLowStroke(String color14, Double thickness6, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+    public StateSettings setLowStroke(ColoredFill color14, Double thickness7, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3501,6 +3717,7 @@ public class StateSettings extends CoreBase {
             this.color12 = null;
             this.color13 = null;
             this.color14 = null;
+            this.color15 = null;
             
             this.color14 = color14;
             this.thickness = null;
@@ -3510,8 +3727,9 @@ public class StateSettings extends CoreBase {
             this.thickness4 = null;
             this.thickness5 = null;
             this.thickness6 = null;
+            this.thickness7 = null;
             
-            this.thickness6 = thickness6;
+            this.thickness7 = thickness7;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -3535,7 +3753,7 @@ public class StateSettings extends CoreBase {
             this.lineCap4 = lineCap4;
         } else {
             this.color14 = color14;
-            this.thickness6 = thickness6;
+            this.thickness7 = thickness7;
             this.dashpattern4 = dashpattern4;
             this.lineJoin4 = lineJoin4;
             this.lineCap4 = lineCap4;
@@ -3543,10 +3761,86 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", wrapQuotes(color14), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color14 != null) ? color14.generateJs() : "null"), thickness7, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", wrapQuotes(color14), thickness6, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color14 != null) ? color14.generateJs() : "null"), thickness7, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for low stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
+    public StateSettings setLowStroke(String color15, Double thickness7, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            
+            this.color15 = color15;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            
+            this.thickness7 = thickness7;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            
+            this.lineJoin4 = lineJoin4;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            
+            this.lineCap4 = lineCap4;
+        } else {
+            this.color15 = color15;
+            this.thickness7 = thickness7;
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin4 = lineJoin4;
+            this.lineCap4 = lineCap4;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", wrapQuotes(color15), thickness7, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", wrapQuotes(color15), thickness7, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3688,10 +3982,10 @@ public class StateSettings extends CoreBase {
         return this;
     }
 
-    private Stroke color15;
-    private ColoredFill color16;
-    private String color17;
-    private Double thickness7;
+    private Stroke color16;
+    private ColoredFill color17;
+    private String color18;
+    private Double thickness8;
     private String dashpattern5;
     private StrokeLineJoin lineJoin5;
     private StrokeLineCap lineCap5;
@@ -3700,7 +3994,7 @@ public class StateSettings extends CoreBase {
      * Setter for median stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setMedianStroke(Stroke color15, Double thickness7, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
+    public StateSettings setMedianStroke(Stroke color16, Double thickness8, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3720,87 +4014,7 @@ public class StateSettings extends CoreBase {
             this.color15 = null;
             this.color16 = null;
             this.color17 = null;
-            
-            this.color15 = color15;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            
-            this.thickness7 = thickness7;
-            this.dashpattern = null;
-            this.dashpattern1 = null;
-            this.dashpattern2 = null;
-            this.dashpattern3 = null;
-            this.dashpattern4 = null;
-            this.dashpattern5 = null;
-            
-            this.dashpattern5 = dashpattern5;
-            this.lineJoin = null;
-            this.lineJoin1 = null;
-            this.lineJoin2 = null;
-            this.lineJoin3 = null;
-            this.lineJoin4 = null;
-            this.lineJoin5 = null;
-            
-            this.lineJoin5 = lineJoin5;
-            this.lineCap = null;
-            this.lineCap1 = null;
-            this.lineCap2 = null;
-            this.lineCap3 = null;
-            this.lineCap4 = null;
-            this.lineCap5 = null;
-            
-            this.lineCap5 = lineCap5;
-        } else {
-            this.color15 = color15;
-            this.thickness7 = thickness7;
-            this.dashpattern5 = dashpattern5;
-            this.lineJoin5 = lineJoin5;
-            this.lineCap5 = lineCap5;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color15 != null) ? color15.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color15 != null) ? color15.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for median stroke settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public StateSettings setMedianStroke(ColoredFill color16, Double thickness7, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
-        if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
+            this.color18 = null;
             
             this.color16 = color16;
             this.thickness = null;
@@ -3811,8 +4025,9 @@ public class StateSettings extends CoreBase {
             this.thickness5 = null;
             this.thickness6 = null;
             this.thickness7 = null;
+            this.thickness8 = null;
             
-            this.thickness7 = thickness7;
+            this.thickness8 = thickness8;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -3839,7 +4054,7 @@ public class StateSettings extends CoreBase {
             this.lineCap5 = lineCap5;
         } else {
             this.color16 = color16;
-            this.thickness7 = thickness7;
+            this.thickness8 = thickness8;
             this.dashpattern5 = dashpattern5;
             this.lineJoin5 = lineJoin5;
             this.lineCap5 = lineCap5;
@@ -3847,10 +4062,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color16 != null) ? color16.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color16 != null) ? color16.generateJs() : "null"), thickness8, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color16 != null) ? color16.generateJs() : "null"), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color16 != null) ? color16.generateJs() : "null"), thickness8, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3862,7 +4077,7 @@ public class StateSettings extends CoreBase {
      * Setter for median stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setMedianStroke(String color17, Double thickness7, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
+    public StateSettings setMedianStroke(ColoredFill color17, Double thickness8, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3882,6 +4097,7 @@ public class StateSettings extends CoreBase {
             this.color15 = null;
             this.color16 = null;
             this.color17 = null;
+            this.color18 = null;
             
             this.color17 = color17;
             this.thickness = null;
@@ -3892,8 +4108,9 @@ public class StateSettings extends CoreBase {
             this.thickness5 = null;
             this.thickness6 = null;
             this.thickness7 = null;
+            this.thickness8 = null;
             
-            this.thickness7 = thickness7;
+            this.thickness8 = thickness8;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -3920,7 +4137,7 @@ public class StateSettings extends CoreBase {
             this.lineCap5 = lineCap5;
         } else {
             this.color17 = color17;
-            this.thickness7 = thickness7;
+            this.thickness8 = thickness8;
             this.dashpattern5 = dashpattern5;
             this.lineJoin5 = lineJoin5;
             this.lineCap5 = lineCap5;
@@ -3928,10 +4145,93 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", wrapQuotes(color17), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color17 != null) ? color17.generateJs() : "null"), thickness8, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", wrapQuotes(color17), thickness7, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color17 != null) ? color17.generateJs() : "null"), thickness8, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for median stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
+    public StateSettings setMedianStroke(String color18, Double thickness8, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            
+            this.color18 = color18;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            
+            this.thickness8 = thickness8;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            this.dashpattern5 = null;
+            
+            this.dashpattern5 = dashpattern5;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            this.lineJoin5 = null;
+            
+            this.lineJoin5 = lineJoin5;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            this.lineCap5 = null;
+            
+            this.lineCap5 = lineCap5;
+        } else {
+            this.color18 = color18;
+            this.thickness8 = thickness8;
+            this.dashpattern5 = dashpattern5;
+            this.lineJoin5 = lineJoin5;
+            this.lineCap5 = lineCap5;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", wrapQuotes(color18), thickness8, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", wrapQuotes(color18), thickness8, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3963,13 +4263,13 @@ public class StateSettings extends CoreBase {
         return this;
     }
 
-    private String color18;
+    private String color19;
     private Double opacity10;
 
     /**
      * Negative fill color with opacity.
      */
-    public StateSettings negativeFill(String color18, Double opacity10) {
+    public StateSettings negativeFill(String color19, Double opacity10) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3990,8 +4290,9 @@ public class StateSettings extends CoreBase {
             this.color16 = null;
             this.color17 = null;
             this.color18 = null;
+            this.color19 = null;
             
-            this.color18 = color18;
+            this.color19 = color19;
             this.opacity = null;
             this.opacity1 = null;
             this.opacity2 = null;
@@ -4006,16 +4307,16 @@ public class StateSettings extends CoreBase {
             
             this.opacity10 = opacity10;
         } else {
-            this.color18 = color18;
+            this.color19 = color19;
             this.opacity10 = opacity10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color18), opacity10));
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color19), opacity10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color18), opacity10));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color19), opacity10));
                 js.setLength(0);
             }
         }
@@ -4736,329 +5037,341 @@ public class StateSettings extends CoreBase {
     private HatchFill patternFillOrType10;
     private HatchFillType patternFillOrType11;
     private String patternFillOrType12;
-    private String color19;
-    private Double thickness8;
-    private Double size2;
-
-    /**
-     * Setter for negative hatch fill settings.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
-     */
-    public StateSettings setNegativeHatchFill(PatternFill patternFillOrType9, String color19, Double thickness8, Double size2) {
-        if (jsBase == null) {
-            this.patternFillOrType = null;
-            this.patternFillOrType1 = null;
-            this.patternFillOrType2 = null;
-            this.patternFillOrType3 = null;
-            this.patternFillOrType4 = null;
-            this.patternFillOrType5 = null;
-            this.patternFillOrType6 = null;
-            this.patternFillOrType7 = null;
-            this.patternFillOrType8 = null;
-            this.patternFillOrType9 = null;
-            this.patternFillOrType10 = null;
-            this.patternFillOrType11 = null;
-            this.patternFillOrType12 = null;
-            
-            this.patternFillOrType9 = patternFillOrType9;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            
-            this.color19 = color19;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            
-            this.thickness8 = thickness8;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            
-            this.size2 = size2;
-        } else {
-            this.patternFillOrType9 = patternFillOrType9;
-            this.color19 = color19;
-            this.thickness8 = thickness8;
-            this.size2 = size2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for negative hatch fill settings.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
-     */
-    public StateSettings setNegativeHatchFill(HatchFill patternFillOrType10, String color19, Double thickness8, Double size2) {
-        if (jsBase == null) {
-            this.patternFillOrType = null;
-            this.patternFillOrType1 = null;
-            this.patternFillOrType2 = null;
-            this.patternFillOrType3 = null;
-            this.patternFillOrType4 = null;
-            this.patternFillOrType5 = null;
-            this.patternFillOrType6 = null;
-            this.patternFillOrType7 = null;
-            this.patternFillOrType8 = null;
-            this.patternFillOrType9 = null;
-            this.patternFillOrType10 = null;
-            this.patternFillOrType11 = null;
-            this.patternFillOrType12 = null;
-            
-            this.patternFillOrType10 = patternFillOrType10;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            
-            this.color19 = color19;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            
-            this.thickness8 = thickness8;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            
-            this.size2 = size2;
-        } else {
-            this.patternFillOrType10 = patternFillOrType10;
-            this.color19 = color19;
-            this.thickness8 = thickness8;
-            this.size2 = size2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for negative hatch fill settings.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
-     */
-    public StateSettings setNegativeHatchFill(HatchFillType patternFillOrType11, String color19, Double thickness8, Double size2) {
-        if (jsBase == null) {
-            this.patternFillOrType = null;
-            this.patternFillOrType1 = null;
-            this.patternFillOrType2 = null;
-            this.patternFillOrType3 = null;
-            this.patternFillOrType4 = null;
-            this.patternFillOrType5 = null;
-            this.patternFillOrType6 = null;
-            this.patternFillOrType7 = null;
-            this.patternFillOrType8 = null;
-            this.patternFillOrType9 = null;
-            this.patternFillOrType10 = null;
-            this.patternFillOrType11 = null;
-            this.patternFillOrType12 = null;
-            
-            this.patternFillOrType11 = patternFillOrType11;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            
-            this.color19 = color19;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            
-            this.thickness8 = thickness8;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            
-            this.size2 = size2;
-        } else {
-            this.patternFillOrType11 = patternFillOrType11;
-            this.color19 = color19;
-            this.thickness8 = thickness8;
-            this.size2 = size2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType11 != null) ? patternFillOrType11.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType11 != null) ? patternFillOrType11.generateJs() : "null"), wrapQuotes(color19), thickness8, size2));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for negative hatch fill settings.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
-     */
-    public StateSettings setNegativeHatchFill(String patternFillOrType12, String color19, Double thickness8, Double size2) {
-        if (jsBase == null) {
-            this.patternFillOrType = null;
-            this.patternFillOrType1 = null;
-            this.patternFillOrType2 = null;
-            this.patternFillOrType3 = null;
-            this.patternFillOrType4 = null;
-            this.patternFillOrType5 = null;
-            this.patternFillOrType6 = null;
-            this.patternFillOrType7 = null;
-            this.patternFillOrType8 = null;
-            this.patternFillOrType9 = null;
-            this.patternFillOrType10 = null;
-            this.patternFillOrType11 = null;
-            this.patternFillOrType12 = null;
-            
-            this.patternFillOrType12 = patternFillOrType12;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            
-            this.color19 = color19;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            
-            this.thickness8 = thickness8;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            
-            this.size2 = size2;
-        } else {
-            this.patternFillOrType12 = patternFillOrType12;
-            this.color19 = color19;
-            this.thickness8 = thickness8;
-            this.size2 = size2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType12), wrapQuotes(color19), thickness8, size2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType12), wrapQuotes(color19), thickness8, size2));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private Stroke color20;
-    private ColoredFill color21;
-    private String color22;
+    private String color20;
     private Double thickness9;
+    private Double size3;
+
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public StateSettings setNegativeHatchFill(PatternFill patternFillOrType9, String color20, Double thickness9, Double size3) {
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            
+            this.patternFillOrType9 = patternFillOrType9;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            
+            this.color20 = color20;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            
+            this.thickness9 = thickness9;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            
+            this.size3 = size3;
+        } else {
+            this.patternFillOrType9 = patternFillOrType9;
+            this.color20 = color20;
+            this.thickness9 = thickness9;
+            this.size3 = size3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public StateSettings setNegativeHatchFill(HatchFill patternFillOrType10, String color20, Double thickness9, Double size3) {
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            
+            this.patternFillOrType10 = patternFillOrType10;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            
+            this.color20 = color20;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            
+            this.thickness9 = thickness9;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            
+            this.size3 = size3;
+        } else {
+            this.patternFillOrType10 = patternFillOrType10;
+            this.color20 = color20;
+            this.thickness9 = thickness9;
+            this.size3 = size3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public StateSettings setNegativeHatchFill(HatchFillType patternFillOrType11, String color20, Double thickness9, Double size3) {
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            
+            this.patternFillOrType11 = patternFillOrType11;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            
+            this.color20 = color20;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            
+            this.thickness9 = thickness9;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            
+            this.size3 = size3;
+        } else {
+            this.patternFillOrType11 = patternFillOrType11;
+            this.color20 = color20;
+            this.thickness9 = thickness9;
+            this.size3 = size3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType11 != null) ? patternFillOrType11.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType11 != null) ? patternFillOrType11.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for negative hatch fill settings.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public StateSettings setNegativeHatchFill(String patternFillOrType12, String color20, Double thickness9, Double size3) {
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            
+            this.patternFillOrType12 = patternFillOrType12;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            
+            this.color20 = color20;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            
+            this.thickness9 = thickness9;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            
+            this.size3 = size3;
+        } else {
+            this.patternFillOrType12 = patternFillOrType12;
+            this.color20 = color20;
+            this.thickness9 = thickness9;
+            this.size3 = size3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType12), wrapQuotes(color20), thickness9, size3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType12), wrapQuotes(color20), thickness9, size3));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Stroke color21;
+    private ColoredFill color22;
+    private String color23;
+    private Double thickness10;
     private String dashpattern6;
     private StrokeLineJoin lineJoin6;
     private StrokeLineCap lineCap6;
@@ -5067,7 +5380,7 @@ public class StateSettings extends CoreBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setNegativeStroke(Stroke color20, Double thickness9, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
+    public StateSettings setNegativeStroke(Stroke color21, Double thickness10, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -5092,97 +5405,7 @@ public class StateSettings extends CoreBase {
             this.color20 = null;
             this.color21 = null;
             this.color22 = null;
-            
-            this.color20 = color20;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            
-            this.thickness9 = thickness9;
-            this.dashpattern = null;
-            this.dashpattern1 = null;
-            this.dashpattern2 = null;
-            this.dashpattern3 = null;
-            this.dashpattern4 = null;
-            this.dashpattern5 = null;
-            this.dashpattern6 = null;
-            
-            this.dashpattern6 = dashpattern6;
-            this.lineJoin = null;
-            this.lineJoin1 = null;
-            this.lineJoin2 = null;
-            this.lineJoin3 = null;
-            this.lineJoin4 = null;
-            this.lineJoin5 = null;
-            this.lineJoin6 = null;
-            
-            this.lineJoin6 = lineJoin6;
-            this.lineCap = null;
-            this.lineCap1 = null;
-            this.lineCap2 = null;
-            this.lineCap3 = null;
-            this.lineCap4 = null;
-            this.lineCap5 = null;
-            this.lineCap6 = null;
-            
-            this.lineCap6 = lineCap6;
-        } else {
-            this.color20 = color20;
-            this.thickness9 = thickness9;
-            this.dashpattern6 = dashpattern6;
-            this.lineJoin6 = lineJoin6;
-            this.lineCap6 = lineCap6;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color20 != null) ? color20.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color20 != null) ? color20.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for stroke settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public StateSettings setNegativeStroke(ColoredFill color21, Double thickness9, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
-        if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
+            this.color23 = null;
             
             this.color21 = color21;
             this.thickness = null;
@@ -5195,8 +5418,9 @@ public class StateSettings extends CoreBase {
             this.thickness7 = null;
             this.thickness8 = null;
             this.thickness9 = null;
+            this.thickness10 = null;
             
-            this.thickness9 = thickness9;
+            this.thickness10 = thickness10;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -5226,7 +5450,7 @@ public class StateSettings extends CoreBase {
             this.lineCap6 = lineCap6;
         } else {
             this.color21 = color21;
-            this.thickness9 = thickness9;
+            this.thickness10 = thickness10;
             this.dashpattern6 = dashpattern6;
             this.lineJoin6 = lineJoin6;
             this.lineCap6 = lineCap6;
@@ -5234,10 +5458,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color21 != null) ? color21.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color21 != null) ? color21.generateJs() : "null"), thickness10, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color21 != null) ? color21.generateJs() : "null"), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color21 != null) ? color21.generateJs() : "null"), thickness10, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5249,7 +5473,7 @@ public class StateSettings extends CoreBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setNegativeStroke(String color22, Double thickness9, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
+    public StateSettings setNegativeStroke(ColoredFill color22, Double thickness10, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -5274,6 +5498,7 @@ public class StateSettings extends CoreBase {
             this.color20 = null;
             this.color21 = null;
             this.color22 = null;
+            this.color23 = null;
             
             this.color22 = color22;
             this.thickness = null;
@@ -5286,8 +5511,9 @@ public class StateSettings extends CoreBase {
             this.thickness7 = null;
             this.thickness8 = null;
             this.thickness9 = null;
+            this.thickness10 = null;
             
-            this.thickness9 = thickness9;
+            this.thickness10 = thickness10;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -5317,7 +5543,7 @@ public class StateSettings extends CoreBase {
             this.lineCap6 = lineCap6;
         } else {
             this.color22 = color22;
-            this.thickness9 = thickness9;
+            this.thickness10 = thickness10;
             this.dashpattern6 = dashpattern6;
             this.lineJoin6 = lineJoin6;
             this.lineCap6 = lineCap6;
@@ -5325,10 +5551,103 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color22), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color22 != null) ? color22.generateJs() : "null"), thickness10, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color22), thickness9, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color22 != null) ? color22.generateJs() : "null"), thickness10, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
+    public StateSettings setNegativeStroke(String color23, Double thickness10, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            
+            this.color23 = color23;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            
+            this.thickness10 = thickness10;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            this.dashpattern5 = null;
+            this.dashpattern6 = null;
+            
+            this.dashpattern6 = dashpattern6;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            this.lineJoin5 = null;
+            this.lineJoin6 = null;
+            
+            this.lineJoin6 = lineJoin6;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            this.lineCap5 = null;
+            this.lineCap6 = null;
+            
+            this.lineCap6 = lineCap6;
+        } else {
+            this.color23 = color23;
+            this.thickness10 = thickness10;
+            this.dashpattern6 = dashpattern6;
+            this.lineJoin6 = lineJoin6;
+            this.lineCap6 = lineCap6;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color23), thickness10, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color23), thickness10, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5462,13 +5781,13 @@ public class StateSettings extends CoreBase {
         return new ScrollerseriesBase(jsBase);
     }
 
-    private String color23;
+    private String color24;
     private Double opacity13;
 
     /**
      * Rising fill color with opacity.
      */
-    public ScrollerseriesBase risingFill(String color23, Double opacity13) {
+    public ScrollerseriesBase risingFill(String color24, Double opacity13) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -5494,8 +5813,9 @@ public class StateSettings extends CoreBase {
             this.color21 = null;
             this.color22 = null;
             this.color23 = null;
+            this.color24 = null;
             
-            this.color23 = color23;
+            this.color24 = color24;
             this.opacity = null;
             this.opacity1 = null;
             this.opacity2 = null;
@@ -5513,7 +5833,7 @@ public class StateSettings extends CoreBase {
             
             this.opacity13 = opacity13;
         } else {
-            this.color23 = color23;
+            this.color24 = color24;
             this.opacity13 = opacity13;
             if (isChain) {
                 js.append(";");
@@ -5521,7 +5841,7 @@ public class StateSettings extends CoreBase {
             }
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f)", wrapQuotes(color23), opacity13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f)", wrapQuotes(color24), opacity13));
                 js.setLength(0);
             }
         }
@@ -6334,408 +6654,448 @@ public class StateSettings extends CoreBase {
         return getRisingHatchFill;
     }
 
-    private PatternFill patternFillOrTypeOrState;
-    private HatchFill patternFillOrTypeOrState1;
-    private HatchFillType patternFillOrTypeOrState2;
-    private String patternFillOrTypeOrState3;
-    private Boolean patternFillOrTypeOrState4;
-    private String color24;
-    private Double thickness10;
-    private Double size3;
-
-    /**
-     * Setter for rising hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public ScrollerseriesBase setRisingHatchFill(PatternFill patternFillOrTypeOrState, String color24, Double thickness10, Double size3) {
-        if (jsBase == null) {
-            this.patternFillOrTypeOrState = null;
-            this.patternFillOrTypeOrState1 = null;
-            this.patternFillOrTypeOrState2 = null;
-            this.patternFillOrTypeOrState3 = null;
-            this.patternFillOrTypeOrState4 = null;
-            
-            this.patternFillOrTypeOrState = patternFillOrTypeOrState;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
-            this.color23 = null;
-            this.color24 = null;
-            
-            this.color24 = color24;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            this.thickness10 = null;
-            
-            this.thickness10 = thickness10;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            this.size3 = null;
-            
-            this.size3 = size3;
-        } else {
-            this.patternFillOrTypeOrState = patternFillOrTypeOrState;
-            this.color24 = color24;
-            this.thickness10 = thickness10;
-            this.size3 = size3;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
-                js.setLength(0);
-            }
-        }
-        return new ScrollerseriesBase(jsBase);
-    }
-
-
-    /**
-     * Setter for rising hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public ScrollerseriesBase setRisingHatchFill(HatchFill patternFillOrTypeOrState1, String color24, Double thickness10, Double size3) {
-        if (jsBase == null) {
-            this.patternFillOrTypeOrState = null;
-            this.patternFillOrTypeOrState1 = null;
-            this.patternFillOrTypeOrState2 = null;
-            this.patternFillOrTypeOrState3 = null;
-            this.patternFillOrTypeOrState4 = null;
-            
-            this.patternFillOrTypeOrState1 = patternFillOrTypeOrState1;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
-            this.color23 = null;
-            this.color24 = null;
-            
-            this.color24 = color24;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            this.thickness10 = null;
-            
-            this.thickness10 = thickness10;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            this.size3 = null;
-            
-            this.size3 = size3;
-        } else {
-            this.patternFillOrTypeOrState1 = patternFillOrTypeOrState1;
-            this.color24 = color24;
-            this.thickness10 = thickness10;
-            this.size3 = size3;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
-                js.setLength(0);
-            }
-        }
-        return new ScrollerseriesBase(jsBase);
-    }
-
-
-    /**
-     * Setter for rising hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public ScrollerseriesBase setRisingHatchFill(HatchFillType patternFillOrTypeOrState2, String color24, Double thickness10, Double size3) {
-        if (jsBase == null) {
-            this.patternFillOrTypeOrState = null;
-            this.patternFillOrTypeOrState1 = null;
-            this.patternFillOrTypeOrState2 = null;
-            this.patternFillOrTypeOrState3 = null;
-            this.patternFillOrTypeOrState4 = null;
-            
-            this.patternFillOrTypeOrState2 = patternFillOrTypeOrState2;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
-            this.color23 = null;
-            this.color24 = null;
-            
-            this.color24 = color24;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            this.thickness10 = null;
-            
-            this.thickness10 = thickness10;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            this.size3 = null;
-            
-            this.size3 = size3;
-        } else {
-            this.patternFillOrTypeOrState2 = patternFillOrTypeOrState2;
-            this.color24 = color24;
-            this.thickness10 = thickness10;
-            this.size3 = size3;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color24), thickness10, size3));
-                js.setLength(0);
-            }
-        }
-        return new ScrollerseriesBase(jsBase);
-    }
-
-
-    /**
-     * Setter for rising hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public ScrollerseriesBase setRisingHatchFill(String patternFillOrTypeOrState3, String color24, Double thickness10, Double size3) {
-        if (jsBase == null) {
-            this.patternFillOrTypeOrState = null;
-            this.patternFillOrTypeOrState1 = null;
-            this.patternFillOrTypeOrState2 = null;
-            this.patternFillOrTypeOrState3 = null;
-            this.patternFillOrTypeOrState4 = null;
-            
-            this.patternFillOrTypeOrState3 = patternFillOrTypeOrState3;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
-            this.color23 = null;
-            this.color24 = null;
-            
-            this.color24 = color24;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            this.thickness10 = null;
-            
-            this.thickness10 = thickness10;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            this.size3 = null;
-            
-            this.size3 = size3;
-        } else {
-            this.patternFillOrTypeOrState3 = patternFillOrTypeOrState3;
-            this.color24 = color24;
-            this.thickness10 = thickness10;
-            this.size3 = size3;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color24), thickness10, size3));
-                js.setLength(0);
-            }
-        }
-        return new ScrollerseriesBase(jsBase);
-    }
-
-
-    /**
-     * Setter for rising hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public ScrollerseriesBase setRisingHatchFill(Boolean patternFillOrTypeOrState4, String color24, Double thickness10, Double size3) {
-        if (jsBase == null) {
-            this.patternFillOrTypeOrState = null;
-            this.patternFillOrTypeOrState1 = null;
-            this.patternFillOrTypeOrState2 = null;
-            this.patternFillOrTypeOrState3 = null;
-            this.patternFillOrTypeOrState4 = null;
-            
-            this.patternFillOrTypeOrState4 = patternFillOrTypeOrState4;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
-            this.color23 = null;
-            this.color24 = null;
-            
-            this.color24 = color24;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            this.thickness10 = null;
-            
-            this.thickness10 = thickness10;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            this.size3 = null;
-            
-            this.size3 = size3;
-        } else {
-            this.patternFillOrTypeOrState4 = patternFillOrTypeOrState4;
-            this.color24 = color24;
-            this.thickness10 = thickness10;
-            this.size3 = size3;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color24), thickness10, size3));
-                js.setLength(0);
-            }
-        }
-        return new ScrollerseriesBase(jsBase);
-    }
-
-    private Stroke color25;
-    private ColoredFill color26;
-    private String color27;
+    private PatternFill patternFillOrTypeOrState5;
+    private HatchFill patternFillOrTypeOrState6;
+    private HatchFillType patternFillOrTypeOrState7;
+    private String patternFillOrTypeOrState8;
+    private Boolean patternFillOrTypeOrState9;
+    private String color25;
     private Double thickness11;
+    private Double size4;
+
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public ScrollerseriesBase setRisingHatchFill(PatternFill patternFillOrTypeOrState5, String color25, Double thickness11, Double size4) {
+        if (jsBase == null) {
+            this.patternFillOrTypeOrState = null;
+            this.patternFillOrTypeOrState1 = null;
+            this.patternFillOrTypeOrState2 = null;
+            this.patternFillOrTypeOrState3 = null;
+            this.patternFillOrTypeOrState4 = null;
+            this.patternFillOrTypeOrState5 = null;
+            this.patternFillOrTypeOrState6 = null;
+            this.patternFillOrTypeOrState7 = null;
+            this.patternFillOrTypeOrState8 = null;
+            this.patternFillOrTypeOrState9 = null;
+            
+            this.patternFillOrTypeOrState5 = patternFillOrTypeOrState5;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            
+            this.color25 = color25;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            
+            this.thickness11 = thickness11;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            
+            this.size4 = size4;
+        } else {
+            this.patternFillOrTypeOrState5 = patternFillOrTypeOrState5;
+            this.color25 = color25;
+            this.thickness11 = thickness11;
+            this.size4 = size4;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color25), thickness11, size4));
+                js.setLength(0);
+            }
+        }
+        return new ScrollerseriesBase(jsBase);
+    }
+
+
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public ScrollerseriesBase setRisingHatchFill(HatchFill patternFillOrTypeOrState6, String color25, Double thickness11, Double size4) {
+        if (jsBase == null) {
+            this.patternFillOrTypeOrState = null;
+            this.patternFillOrTypeOrState1 = null;
+            this.patternFillOrTypeOrState2 = null;
+            this.patternFillOrTypeOrState3 = null;
+            this.patternFillOrTypeOrState4 = null;
+            this.patternFillOrTypeOrState5 = null;
+            this.patternFillOrTypeOrState6 = null;
+            this.patternFillOrTypeOrState7 = null;
+            this.patternFillOrTypeOrState8 = null;
+            this.patternFillOrTypeOrState9 = null;
+            
+            this.patternFillOrTypeOrState6 = patternFillOrTypeOrState6;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            
+            this.color25 = color25;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            
+            this.thickness11 = thickness11;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            
+            this.size4 = size4;
+        } else {
+            this.patternFillOrTypeOrState6 = patternFillOrTypeOrState6;
+            this.color25 = color25;
+            this.thickness11 = thickness11;
+            this.size4 = size4;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color25), thickness11, size4));
+                js.setLength(0);
+            }
+        }
+        return new ScrollerseriesBase(jsBase);
+    }
+
+
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public ScrollerseriesBase setRisingHatchFill(HatchFillType patternFillOrTypeOrState7, String color25, Double thickness11, Double size4) {
+        if (jsBase == null) {
+            this.patternFillOrTypeOrState = null;
+            this.patternFillOrTypeOrState1 = null;
+            this.patternFillOrTypeOrState2 = null;
+            this.patternFillOrTypeOrState3 = null;
+            this.patternFillOrTypeOrState4 = null;
+            this.patternFillOrTypeOrState5 = null;
+            this.patternFillOrTypeOrState6 = null;
+            this.patternFillOrTypeOrState7 = null;
+            this.patternFillOrTypeOrState8 = null;
+            this.patternFillOrTypeOrState9 = null;
+            
+            this.patternFillOrTypeOrState7 = patternFillOrTypeOrState7;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            
+            this.color25 = color25;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            
+            this.thickness11 = thickness11;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            
+            this.size4 = size4;
+        } else {
+            this.patternFillOrTypeOrState7 = patternFillOrTypeOrState7;
+            this.color25 = color25;
+            this.thickness11 = thickness11;
+            this.size4 = size4;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color25), thickness11, size4));
+                js.setLength(0);
+            }
+        }
+        return new ScrollerseriesBase(jsBase);
+    }
+
+
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public ScrollerseriesBase setRisingHatchFill(String patternFillOrTypeOrState8, String color25, Double thickness11, Double size4) {
+        if (jsBase == null) {
+            this.patternFillOrTypeOrState = null;
+            this.patternFillOrTypeOrState1 = null;
+            this.patternFillOrTypeOrState2 = null;
+            this.patternFillOrTypeOrState3 = null;
+            this.patternFillOrTypeOrState4 = null;
+            this.patternFillOrTypeOrState5 = null;
+            this.patternFillOrTypeOrState6 = null;
+            this.patternFillOrTypeOrState7 = null;
+            this.patternFillOrTypeOrState8 = null;
+            this.patternFillOrTypeOrState9 = null;
+            
+            this.patternFillOrTypeOrState8 = patternFillOrTypeOrState8;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            
+            this.color25 = color25;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            
+            this.thickness11 = thickness11;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            
+            this.size4 = size4;
+        } else {
+            this.patternFillOrTypeOrState8 = patternFillOrTypeOrState8;
+            this.color25 = color25;
+            this.thickness11 = thickness11;
+            this.size4 = size4;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color25), thickness11, size4));
+                js.setLength(0);
+            }
+        }
+        return new ScrollerseriesBase(jsBase);
+    }
+
+
+    /**
+     * Setter for rising hatch fill settings.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public ScrollerseriesBase setRisingHatchFill(Boolean patternFillOrTypeOrState9, String color25, Double thickness11, Double size4) {
+        if (jsBase == null) {
+            this.patternFillOrTypeOrState = null;
+            this.patternFillOrTypeOrState1 = null;
+            this.patternFillOrTypeOrState2 = null;
+            this.patternFillOrTypeOrState3 = null;
+            this.patternFillOrTypeOrState4 = null;
+            this.patternFillOrTypeOrState5 = null;
+            this.patternFillOrTypeOrState6 = null;
+            this.patternFillOrTypeOrState7 = null;
+            this.patternFillOrTypeOrState8 = null;
+            this.patternFillOrTypeOrState9 = null;
+            
+            this.patternFillOrTypeOrState9 = patternFillOrTypeOrState9;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            
+            this.color25 = color25;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            
+            this.thickness11 = thickness11;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            
+            this.size4 = size4;
+        } else {
+            this.patternFillOrTypeOrState9 = patternFillOrTypeOrState9;
+            this.color25 = color25;
+            this.thickness11 = thickness11;
+            this.size4 = size4;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, wrapQuotes(color25), thickness11, size4));
+                js.setLength(0);
+            }
+        }
+        return new ScrollerseriesBase(jsBase);
+    }
+
+    private Stroke color26;
+    private ColoredFill color27;
+    private String color28;
+    private Double thickness12;
     private String dashpattern7;
     private StrokeLineJoin lineJoin7;
     private StrokeLineCap lineCap7;
@@ -6744,7 +7104,7 @@ public class StateSettings extends CoreBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setRisingStroke(Stroke color25, Double thickness11, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
+    public StateSettings setRisingStroke(Stroke color26, Double thickness12, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -6774,107 +7134,7 @@ public class StateSettings extends CoreBase {
             this.color25 = null;
             this.color26 = null;
             this.color27 = null;
-            
-            this.color25 = color25;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            this.thickness10 = null;
-            this.thickness11 = null;
-            
-            this.thickness11 = thickness11;
-            this.dashpattern = null;
-            this.dashpattern1 = null;
-            this.dashpattern2 = null;
-            this.dashpattern3 = null;
-            this.dashpattern4 = null;
-            this.dashpattern5 = null;
-            this.dashpattern6 = null;
-            this.dashpattern7 = null;
-            
-            this.dashpattern7 = dashpattern7;
-            this.lineJoin = null;
-            this.lineJoin1 = null;
-            this.lineJoin2 = null;
-            this.lineJoin3 = null;
-            this.lineJoin4 = null;
-            this.lineJoin5 = null;
-            this.lineJoin6 = null;
-            this.lineJoin7 = null;
-            
-            this.lineJoin7 = lineJoin7;
-            this.lineCap = null;
-            this.lineCap1 = null;
-            this.lineCap2 = null;
-            this.lineCap3 = null;
-            this.lineCap4 = null;
-            this.lineCap5 = null;
-            this.lineCap6 = null;
-            this.lineCap7 = null;
-            
-            this.lineCap7 = lineCap7;
-        } else {
-            this.color25 = color25;
-            this.thickness11 = thickness11;
-            this.dashpattern7 = dashpattern7;
-            this.lineJoin7 = lineJoin7;
-            this.lineCap7 = lineCap7;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color25 != null) ? color25.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color25 != null) ? color25.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for rising stroke settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public StateSettings setRisingStroke(ColoredFill color26, Double thickness11, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
-        if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
-            this.color23 = null;
-            this.color24 = null;
-            this.color25 = null;
-            this.color26 = null;
-            this.color27 = null;
+            this.color28 = null;
             
             this.color26 = color26;
             this.thickness = null;
@@ -6889,8 +7149,9 @@ public class StateSettings extends CoreBase {
             this.thickness9 = null;
             this.thickness10 = null;
             this.thickness11 = null;
+            this.thickness12 = null;
             
-            this.thickness11 = thickness11;
+            this.thickness12 = thickness12;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -6923,7 +7184,7 @@ public class StateSettings extends CoreBase {
             this.lineCap7 = lineCap7;
         } else {
             this.color26 = color26;
-            this.thickness11 = thickness11;
+            this.thickness12 = thickness12;
             this.dashpattern7 = dashpattern7;
             this.lineJoin7 = lineJoin7;
             this.lineCap7 = lineCap7;
@@ -6931,10 +7192,10 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color26 != null) ? color26.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color26 != null) ? color26.generateJs() : "null"), thickness12, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color26 != null) ? color26.generateJs() : "null"), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color26 != null) ? color26.generateJs() : "null"), thickness12, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6946,7 +7207,7 @@ public class StateSettings extends CoreBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setRisingStroke(String color27, Double thickness11, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
+    public StateSettings setRisingStroke(ColoredFill color27, Double thickness12, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -6976,6 +7237,7 @@ public class StateSettings extends CoreBase {
             this.color25 = null;
             this.color26 = null;
             this.color27 = null;
+            this.color28 = null;
             
             this.color27 = color27;
             this.thickness = null;
@@ -6990,8 +7252,9 @@ public class StateSettings extends CoreBase {
             this.thickness9 = null;
             this.thickness10 = null;
             this.thickness11 = null;
+            this.thickness12 = null;
             
-            this.thickness11 = thickness11;
+            this.thickness12 = thickness12;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -7024,7 +7287,7 @@ public class StateSettings extends CoreBase {
             this.lineCap7 = lineCap7;
         } else {
             this.color27 = color27;
-            this.thickness11 = thickness11;
+            this.thickness12 = thickness12;
             this.dashpattern7 = dashpattern7;
             this.lineJoin7 = lineJoin7;
             this.lineCap7 = lineCap7;
@@ -7032,43 +7295,23 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color27), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color27 != null) ? color27.generateJs() : "null"), thickness12, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color27), thickness11, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color27 != null) ? color27.generateJs() : "null"), thickness12, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private PatternFill patternFillOrTypeOrState5;
-    private HatchFill patternFillOrTypeOrState6;
-    private HatchFillType patternFillOrTypeOrState7;
-    private String patternFillOrTypeOrState8;
-    private Boolean patternFillOrTypeOrState9;
-    private String color28;
-    private Double thickness12;
-    private Double size4;
 
     /**
-     * Setter for falling hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for rising stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesBase setSelectFallingHatchFill(PatternFill patternFillOrTypeOrState5, String color28, Double thickness12, Double size4) {
+    public StateSettings setRisingStroke(String color28, Double thickness12, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
-            this.patternFillOrTypeOrState = null;
-            this.patternFillOrTypeOrState1 = null;
-            this.patternFillOrTypeOrState2 = null;
-            this.patternFillOrTypeOrState3 = null;
-            this.patternFillOrTypeOrState4 = null;
-            this.patternFillOrTypeOrState5 = null;
-            this.patternFillOrTypeOrState6 = null;
-            this.patternFillOrTypeOrState7 = null;
-            this.patternFillOrTypeOrState8 = null;
-            this.patternFillOrTypeOrState9 = null;
-            
-            this.patternFillOrTypeOrState5 = patternFillOrTypeOrState5;
             this.color = null;
             this.color1 = null;
             this.color2 = null;
@@ -7115,389 +7358,54 @@ public class StateSettings extends CoreBase {
             this.thickness12 = null;
             
             this.thickness12 = thickness12;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            this.size3 = null;
-            this.size4 = null;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            this.dashpattern5 = null;
+            this.dashpattern6 = null;
+            this.dashpattern7 = null;
             
-            this.size4 = size4;
+            this.dashpattern7 = dashpattern7;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            this.lineJoin5 = null;
+            this.lineJoin6 = null;
+            this.lineJoin7 = null;
+            
+            this.lineJoin7 = lineJoin7;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            this.lineCap5 = null;
+            this.lineCap6 = null;
+            this.lineCap7 = null;
+            
+            this.lineCap7 = lineCap7;
         } else {
-            this.patternFillOrTypeOrState5 = patternFillOrTypeOrState5;
             this.color28 = color28;
             this.thickness12 = thickness12;
-            this.size4 = size4;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
+            this.dashpattern7 = dashpattern7;
+            this.lineJoin7 = lineJoin7;
+            this.lineCap7 = lineCap7;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
             }
+            js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color28), thickness12, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
+                onChangeListener.onChange(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color28), thickness12, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
-    }
-
-
-    /**
-     * Setter for falling hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public CartesianSeriesBase setSelectFallingHatchFill(HatchFill patternFillOrTypeOrState6, String color28, Double thickness12, Double size4) {
-        if (jsBase == null) {
-            this.patternFillOrTypeOrState = null;
-            this.patternFillOrTypeOrState1 = null;
-            this.patternFillOrTypeOrState2 = null;
-            this.patternFillOrTypeOrState3 = null;
-            this.patternFillOrTypeOrState4 = null;
-            this.patternFillOrTypeOrState5 = null;
-            this.patternFillOrTypeOrState6 = null;
-            this.patternFillOrTypeOrState7 = null;
-            this.patternFillOrTypeOrState8 = null;
-            this.patternFillOrTypeOrState9 = null;
-            
-            this.patternFillOrTypeOrState6 = patternFillOrTypeOrState6;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
-            this.color23 = null;
-            this.color24 = null;
-            this.color25 = null;
-            this.color26 = null;
-            this.color27 = null;
-            this.color28 = null;
-            
-            this.color28 = color28;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            this.thickness10 = null;
-            this.thickness11 = null;
-            this.thickness12 = null;
-            
-            this.thickness12 = thickness12;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            this.size3 = null;
-            this.size4 = null;
-            
-            this.size4 = size4;
-        } else {
-            this.patternFillOrTypeOrState6 = patternFillOrTypeOrState6;
-            this.color28 = color28;
-            this.thickness12 = thickness12;
-            this.size4 = size4;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
-                js.setLength(0);
-            }
-        }
-        return new CartesianSeriesBase(jsBase);
-    }
-
-
-    /**
-     * Setter for falling hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public CartesianSeriesBase setSelectFallingHatchFill(HatchFillType patternFillOrTypeOrState7, String color28, Double thickness12, Double size4) {
-        if (jsBase == null) {
-            this.patternFillOrTypeOrState = null;
-            this.patternFillOrTypeOrState1 = null;
-            this.patternFillOrTypeOrState2 = null;
-            this.patternFillOrTypeOrState3 = null;
-            this.patternFillOrTypeOrState4 = null;
-            this.patternFillOrTypeOrState5 = null;
-            this.patternFillOrTypeOrState6 = null;
-            this.patternFillOrTypeOrState7 = null;
-            this.patternFillOrTypeOrState8 = null;
-            this.patternFillOrTypeOrState9 = null;
-            
-            this.patternFillOrTypeOrState7 = patternFillOrTypeOrState7;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
-            this.color23 = null;
-            this.color24 = null;
-            this.color25 = null;
-            this.color26 = null;
-            this.color27 = null;
-            this.color28 = null;
-            
-            this.color28 = color28;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            this.thickness10 = null;
-            this.thickness11 = null;
-            this.thickness12 = null;
-            
-            this.thickness12 = thickness12;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            this.size3 = null;
-            this.size4 = null;
-            
-            this.size4 = size4;
-        } else {
-            this.patternFillOrTypeOrState7 = patternFillOrTypeOrState7;
-            this.color28 = color28;
-            this.thickness12 = thickness12;
-            this.size4 = size4;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color28), thickness12, size4));
-                js.setLength(0);
-            }
-        }
-        return new CartesianSeriesBase(jsBase);
-    }
-
-
-    /**
-     * Setter for falling hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public CartesianSeriesBase setSelectFallingHatchFill(String patternFillOrTypeOrState8, String color28, Double thickness12, Double size4) {
-        if (jsBase == null) {
-            this.patternFillOrTypeOrState = null;
-            this.patternFillOrTypeOrState1 = null;
-            this.patternFillOrTypeOrState2 = null;
-            this.patternFillOrTypeOrState3 = null;
-            this.patternFillOrTypeOrState4 = null;
-            this.patternFillOrTypeOrState5 = null;
-            this.patternFillOrTypeOrState6 = null;
-            this.patternFillOrTypeOrState7 = null;
-            this.patternFillOrTypeOrState8 = null;
-            this.patternFillOrTypeOrState9 = null;
-            
-            this.patternFillOrTypeOrState8 = patternFillOrTypeOrState8;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
-            this.color23 = null;
-            this.color24 = null;
-            this.color25 = null;
-            this.color26 = null;
-            this.color27 = null;
-            this.color28 = null;
-            
-            this.color28 = color28;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            this.thickness10 = null;
-            this.thickness11 = null;
-            this.thickness12 = null;
-            
-            this.thickness12 = thickness12;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            this.size3 = null;
-            this.size4 = null;
-            
-            this.size4 = size4;
-        } else {
-            this.patternFillOrTypeOrState8 = patternFillOrTypeOrState8;
-            this.color28 = color28;
-            this.thickness12 = thickness12;
-            this.size4 = size4;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color28), thickness12, size4));
-                js.setLength(0);
-            }
-        }
-        return new CartesianSeriesBase(jsBase);
-    }
-
-
-    /**
-     * Setter for falling hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public CartesianSeriesBase setSelectFallingHatchFill(Boolean patternFillOrTypeOrState9, String color28, Double thickness12, Double size4) {
-        if (jsBase == null) {
-            this.patternFillOrTypeOrState = null;
-            this.patternFillOrTypeOrState1 = null;
-            this.patternFillOrTypeOrState2 = null;
-            this.patternFillOrTypeOrState3 = null;
-            this.patternFillOrTypeOrState4 = null;
-            this.patternFillOrTypeOrState5 = null;
-            this.patternFillOrTypeOrState6 = null;
-            this.patternFillOrTypeOrState7 = null;
-            this.patternFillOrTypeOrState8 = null;
-            this.patternFillOrTypeOrState9 = null;
-            
-            this.patternFillOrTypeOrState9 = patternFillOrTypeOrState9;
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            this.color8 = null;
-            this.color9 = null;
-            this.color10 = null;
-            this.color11 = null;
-            this.color12 = null;
-            this.color13 = null;
-            this.color14 = null;
-            this.color15 = null;
-            this.color16 = null;
-            this.color17 = null;
-            this.color18 = null;
-            this.color19 = null;
-            this.color20 = null;
-            this.color21 = null;
-            this.color22 = null;
-            this.color23 = null;
-            this.color24 = null;
-            this.color25 = null;
-            this.color26 = null;
-            this.color27 = null;
-            this.color28 = null;
-            
-            this.color28 = color28;
-            this.thickness = null;
-            this.thickness1 = null;
-            this.thickness2 = null;
-            this.thickness3 = null;
-            this.thickness4 = null;
-            this.thickness5 = null;
-            this.thickness6 = null;
-            this.thickness7 = null;
-            this.thickness8 = null;
-            this.thickness9 = null;
-            this.thickness10 = null;
-            this.thickness11 = null;
-            this.thickness12 = null;
-            
-            this.thickness12 = thickness12;
-            this.size = null;
-            this.size1 = null;
-            this.size2 = null;
-            this.size3 = null;
-            this.size4 = null;
-            
-            this.size4 = size4;
-        } else {
-            this.patternFillOrTypeOrState9 = patternFillOrTypeOrState9;
-            this.color28 = color28;
-            this.thickness12 = thickness12;
-            this.size4 = size4;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, wrapQuotes(color28), thickness12, size4));
-                js.setLength(0);
-            }
-        }
-        return new CartesianSeriesBase(jsBase);
+        return this;
     }
 
     private StateSettings getSelected;
@@ -7539,7 +7447,7 @@ public class StateSettings extends CoreBase {
     /**
      * Setter for the marker size.
      */
-    public PolarSeriesMarker setSize(Double size5) {
+    public StateSettings setSize(Double size5) {
         if (jsBase == null) {
             this.size = null;
             this.size1 = null;
@@ -7551,17 +7459,18 @@ public class StateSettings extends CoreBase {
             this.size5 = size5;
         } else {
             this.size5 = size5;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
             }
+            js.append(String.format(Locale.US, ".size(%f)", size5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%f)", size5));
+                onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size5));
                 js.setLength(0);
             }
         }
-        return new PolarSeriesMarker(jsBase);
+        return this;
     }
 
     private Stroke color29;

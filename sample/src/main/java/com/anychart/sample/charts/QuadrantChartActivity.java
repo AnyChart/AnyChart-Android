@@ -96,13 +96,14 @@ public class QuadrantChartActivity extends AppCompatActivity {
 
         label.setOffsetX(-20d);
         label.setText("Power to Perform &#8594;");
+        label.setRotation(-90d);
 
         label = quadrant.getQuarters().getLeftBottom().getLabel(1d);
         label.setEnabled(true);
         label.setUseHtml(true);
         label.setPosition(Position.LEFT_BOTTOM);
         label.setAnchor(EnumsAnchor.LEFT_CENTER);
-        label.setOffsetX(20d);
+        label.setOffsetY(20d);
         label.setText("Entirety of Representation &#8594;");
 
         anyChartView.setChart(quadrant);

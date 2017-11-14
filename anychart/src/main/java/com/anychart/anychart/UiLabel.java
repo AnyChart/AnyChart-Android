@@ -824,6 +824,30 @@ Arrows show offsets layout.
         return this;
     }
 
+    private Double rotation;
+
+    /**
+     * Setter for the label rotation.
+     */
+    public UiLabel setRotation(Double rotation) {
+        if (jsBase == null) {
+            this.rotation = rotation;
+        } else {
+            this.rotation = rotation;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            js.append(String.format(Locale.US, ".rotation(%f)", rotation));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".rotation(%f)", rotation));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private String text;
 
     /**
