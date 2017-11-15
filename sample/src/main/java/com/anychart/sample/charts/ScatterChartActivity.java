@@ -13,10 +13,10 @@ import com.anychart.anychart.MarkerType;
 import com.anychart.anychart.Scatter;
 import com.anychart.anychart.ScatterSeriesLine;
 import com.anychart.anychart.ScatterSeriesMarker;
-import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.SolidFill;
 import com.anychart.anychart.TextHAlign;
 import com.anychart.anychart.TooltipDisplayMode;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class ScatterChartActivity extends AppCompatActivity {
         marker.getHovered()
                 .setSize(7d)
                 .setFill(new SolidFill("gold", 1d))
-                .setStroke("anychart.color.darken('gold')", null, null, null, null);
+                .setStroke("anychart.color.darken(gold)", null, null, null, null);
         marker.getTooltip()
                 .setHAlign(TextHAlign.START)
                 .setFormat("function() {\n" +
