@@ -14,6 +14,7 @@ import com.anychart.sample.charts.ColumnChartActivity;
 import com.anychart.sample.charts.CombinedChartActivity;
 import com.anychart.sample.charts.FunnelChartActivity;
 import com.anychart.sample.charts.HeatMapChartActivity;
+import com.anychart.sample.charts.HiloChartActivity;
 import com.anychart.sample.charts.LineChartActivity;
 import com.anychart.sample.charts.MekkoChartActivity;
 import com.anychart.sample.charts.MosaicChartActivity;
@@ -85,7 +86,8 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.bar3d_chart), Bar3DChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.column3d_chart), Column3DChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.area3d_chart), Area3DChartActivity.class));
-//        chartList.add(new Chart(resources.getString(R.string.hilo_chart), HiloChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.hilo_chart), HiloChartActivity.class));
+//        chartList.add(new Chart(resources.getString(R.string.ohlc_chart), OHLCChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.quadrant_chart), QuadrantChartActivity.class));
 //        chartList.add(new Chart(resources.getString(R.string.gantt_chart), GanttChartActivity.class));
 

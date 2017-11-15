@@ -82,6 +82,8 @@
         </activity>
         <activity android:name=".charts.QuadrantChartActivity">
         </activity>
+        <activity android:name=".charts.OHLCChartActivity">
+        </activity>
     </application>
 
 </manifest>
