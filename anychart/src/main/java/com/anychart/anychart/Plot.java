@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -235,7 +232,7 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates and returns a new Area series.
      */
-    public StockSeriesArea area(List<DataEntry> data) {
+    public StockSeriesArea area(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -243,17 +240,8 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesArea(jsBase);
     }
@@ -1246,7 +1234,7 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates and returns a new Candlestick series.
      */
-    public StockSeriesCandlestick candlestick(List<DataEntry> data) {
+    public StockSeriesCandlestick candlestick(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -1254,17 +1242,8 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setCandlestick" + ++variableIndex + " = " + jsBase + ".candlestick(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesCandlestick(jsBase);
     }
@@ -1782,7 +1761,7 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates and returns a new Column series.
      */
-    public StockSeriesColumn column(List<DataEntry> data) {
+    public StockSeriesColumn column(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -1790,17 +1769,8 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesColumn(jsBase);
     }
@@ -2728,7 +2698,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new HiLo series.
      */
-    public StockSeriesHilo hilo(List<DataEntry> data) {
+    public StockSeriesHilo hilo(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -2736,17 +2706,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesHilo(jsBase);
     }
@@ -2755,7 +2716,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Jump Line series.
      */
-    public StockSeriesJumpLine jumpLine(List<DataEntry> data) {
+    public StockSeriesJumpLine jumpLine(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -2763,17 +2724,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setJumpLine" + ++variableIndex + " = " + jsBase + ".jumpLine(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesJumpLine(jsBase);
     }
@@ -5136,7 +5088,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Line series.
      */
-    public StockSeriesLine line(List<DataEntry> data) {
+    public StockSeriesLine line(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -5144,17 +5096,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesLine(jsBase);
     }
@@ -5701,7 +5644,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Marker series.
      */
-    public StockSeriesMarker marker(List<DataEntry> data) {
+    public StockSeriesMarker marker(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -5709,17 +5652,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesMarker(jsBase);
     }
@@ -6153,7 +6087,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new OHLC series.
      */
-    public StockSeriesOHLC ohlc(List<DataEntry> data) {
+    public StockSeriesOHLC ohlc(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -6161,17 +6095,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setOhlc" + ++variableIndex + " = " + jsBase + ".ohlc(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesOHLC(jsBase);
     }
@@ -6486,7 +6411,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Range Area series.
      */
-    public StockSeriesRangeArea rangeArea(List<DataEntry> data) {
+    public StockSeriesRangeArea rangeArea(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -6494,17 +6419,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setRangeArea" + ++variableIndex + " = " + jsBase + ".rangeArea(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesRangeArea(jsBase);
     }
@@ -6513,7 +6429,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Range Column series.
      */
-    public StockSeriesRangeColumn rangeColumn(List<DataEntry> data) {
+    public StockSeriesRangeColumn rangeColumn(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -6521,17 +6437,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesRangeColumn(jsBase);
     }
@@ -6540,7 +6447,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Range Spline Area series.
      */
-    public StockSeriesRangeSplineArea rangeSplineArea(List<DataEntry> data) {
+    public StockSeriesRangeSplineArea rangeSplineArea(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -6548,17 +6455,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setRangeSplineArea" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesRangeSplineArea(jsBase);
     }
@@ -6567,7 +6465,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Range Step Area series.
      */
-    public StockSeriesRangeStepArea rangeStepArea(List<DataEntry> data) {
+    public StockSeriesRangeStepArea rangeStepArea(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -6575,17 +6473,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setRangeStepArea" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesRangeStepArea(jsBase);
     }
@@ -7185,7 +7074,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Spline series.
      */
-    public StockSeriesSpline spline(List<DataEntry> data) {
+    public StockSeriesSpline spline(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -7193,17 +7082,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setSpline" + ++variableIndex + " = " + jsBase + ".spline(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesSpline(jsBase);
     }
@@ -7212,7 +7092,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Spline Area series.
      */
-    public StockSeriesSplineArea splineArea(List<DataEntry> data) {
+    public StockSeriesSplineArea splineArea(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -7220,17 +7100,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setSplineArea" + ++variableIndex + " = " + jsBase + ".splineArea(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesSplineArea(jsBase);
     }
@@ -7239,7 +7110,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Step Area series.
      */
-    public StockSeriesStepArea stepArea(List<DataEntry> data) {
+    public StockSeriesStepArea stepArea(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -7247,17 +7118,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setStepArea" + ++variableIndex + " = " + jsBase + ".stepArea(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesStepArea(jsBase);
     }
@@ -7266,7 +7128,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Step Line series.
      */
-    public StockSeriesStepLine stepLine(List<DataEntry> data) {
+    public StockSeriesStepLine stepLine(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -7274,17 +7136,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setStepLine" + ++variableIndex + " = " + jsBase + ".stepLine(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesStepLine(jsBase);
     }
@@ -7293,7 +7146,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates and returns a new Stick series.
      */
-    public StockSeriesStick stick(List<DataEntry> data) {
+    public StockSeriesStick stick(TableMapping mapping) {
         if (jsBase == null) {
         } else {
             if (isChain) {
@@ -7301,17 +7154,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
 
-            if (!data.isEmpty()) {
-                StringBuilder resultData = new StringBuilder();
-                resultData.append("[");
-                for (DataEntry dataEntry : data) {
-                    resultData.append(dataEntry.generateJs()).append(",");
-                }
-                resultData.setLength(resultData.length() - 1);
-                resultData.append("]");
-
-                js.append(String.format(Locale.US, "var setStick" + ++variableIndex + " = " + jsBase + ".stick(%s);", resultData.toString()));
-            }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
         return new StockSeriesStick(jsBase);
     }

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -19,7 +16,6 @@ public class UiTimeline extends JsObject {
         jsBase = "uiTimeline" + variableIndex;
     }
 
-    
     protected UiTimeline(String jsBase) {
         js.setLength(0);
         this.jsBase = jsBase;

@@ -1,11 +1,7 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -19,15 +15,29 @@ public class DataTable extends CoreBase {
         jsBase = "dataTable" + variableIndex;
     }
 
-    protected DataTable(String jsBase) {
+    public DataTable(String x) {
         js.setLength(0);
-        this.jsBase = jsBase;
+        js.append("var dataTable").append(++variableIndex).append(" = anychart.data.table('").append(x).append("');");
+        jsBase = "dataTable" + variableIndex;
     }
 
     protected DataTable(StringBuilder js, String jsBase, boolean isChain) {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
+    }public DataTable addData(List<DataEntry> data) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(".addData([");
+        for (DataEntry dataEntry : data) {
+            js.append(dataEntry.generateJs()).append(",");
+        }
+        js.setLength(js.length() - 1);
+        js.append("]);");
+
+        return this;
     }
 
     protected String getJsBase() {
@@ -238,13 +248,15 @@ You can add fields to table mappings after the mapping is created using it's add
                 js.append(";");
                 isChain = false;
             }
+            js.append(String.format(Locale.US, "var mapping = " + jsBase + ".mapAs(%s);", wrapQuotes(fields)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(fields)));
                 js.setLength(0);
             }
         }
-        return new TableMapping(jsBase);
+        return new TableMapping(js, "mapping", false);
     }
 
     private Double startKey;

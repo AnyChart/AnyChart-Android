@@ -3,10 +3,9 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 // chart class
 /**
@@ -75,6 +74,18 @@ public class TreeMap extends SeparateChart {
 
             js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
         }
+
+        return this;
+    }
+
+    public TreeMap setData(Mapping mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(mapping.generateJs());
+
+        js.append(jsBase).append(".data(").append(mapping.getJsBase()).append(");");
 
         return this;
     }

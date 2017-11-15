@@ -1,11 +1,7 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -35,6 +31,15 @@ public class Set extends CoreBase {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
+    }public Set(List<DataEntry> data) {
+        js.setLength(0);
+        js.append("var set").append(++variableIndex).append(" = anychart.data.set([");
+        for (DataEntry dataEntry : data) {
+            js.append(dataEntry.generateJs()).append(",");
+        }
+        js.setLength(js.length() - 1);
+        js.append("]);");
+        jsBase = "set" + variableIndex;
     }
 
     protected String getJsBase() {
@@ -279,13 +284,15 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
                 js.append(";");
                 isChain = false;
             }
+            js.append(String.format(Locale.US, "var mapping = " + jsBase + ".mapAs(%s);", wrapQuotes(mapping)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(mapping)));
                 js.setLength(0);
             }
         }
-        return new Mapping(jsBase);
+        return new Mapping(js, "mapping", false);
     }
 
     private Double index1;

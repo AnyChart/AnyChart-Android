@@ -1,11 +1,7 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
 import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -19,7 +15,6 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         jsBase = "coreResourceTimeline" + variableIndex;
     }
 
-    
     protected CoreResourceTimeline(String jsBase) {
         js.setLength(0);
         this.jsBase = jsBase;
